@@ -33,9 +33,9 @@ export const Navigation = ({ currentLanguage, onLanguageChange, translations }: 
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">BC</span>
+              <span className="text-primary-foreground font-bold text-xl">CB</span>
             </div>
-            <span className="text-2xl font-bold text-foreground hidden sm:inline">BrasilConsul</span>
+            <span className="text-2xl font-bold text-foreground hidden sm:inline">Consul Brasil</span>
           </a>
 
           {/* Desktop Navigation */}

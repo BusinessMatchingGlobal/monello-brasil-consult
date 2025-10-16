@@ -11,7 +11,7 @@ export const translations = {
     },
     hero: {
       title: "Transforming Business Strategy",
-      subtitle: "Partner with BrasilConsul to unlock sustainable growth and operational excellence in the global market",
+      subtitle: "Partner with Consul Brasil to unlock sustainable growth and operational excellence in the global market",
       cta: "Explore Our Solutions",
       learn: "Learn More",
     },
@@ -53,7 +53,7 @@ export const translations = {
       readMore: "Read Article",
     },
     about: {
-      title: "About BrasilConsul",
+      title: "About Consul Brasil",
       description: "We are a leading consulting firm specializing in strategic transformation across Latin American and global markets. With deep industry expertise and a proven track record, we help organizations achieve sustainable growth and operational excellence.",
       stats: {
         clients: "Global Clients",
@@ -68,7 +68,7 @@ export const translations = {
       cta: "Get in Touch",
     },
     footer: {
-      copyright: "© 2025 BrasilConsul. All rights reserved.",
+      copyright: "© 2025 Consul Brasil. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
     },
@@ -83,7 +83,7 @@ export const translations = {
     },
     hero: {
       title: "Trasformare la Strategia Aziendale",
-      subtitle: "Partner con BrasilConsul per sbloccare crescita sostenibile ed eccellenza operativa nel mercato globale",
+      subtitle: "Partner con Consul Brasil per sbloccare crescita sostenibile ed eccellenza operativa nel mercato globale",
       cta: "Esplora le Nostre Soluzioni",
       learn: "Scopri di Più",
     },
@@ -125,7 +125,7 @@ export const translations = {
       readMore: "Leggi l'Articolo",
     },
     about: {
-      title: "Chi è BrasilConsul",
+      title: "Chi è Consul Brasil",
       description: "Siamo una società di consulenza leader specializzata nella trasformazione strategica nei mercati latinoamericani e globali. Con profonda expertise industriale e un track record comprovato, aiutiamo le organizzazioni a raggiungere crescita sostenibile ed eccellenza operativa.",
       stats: {
         clients: "Clienti Globali",
@@ -140,7 +140,7 @@ export const translations = {
       cta: "Contattaci",
     },
     footer: {
-      copyright: "© 2025 BrasilConsul. Tutti i diritti riservati.",
+      copyright: "© 2025 Consul Brasil. Tutti i diritti riservati.",
       privacy: "Informativa sulla Privacy",
       terms: "Termini di Servizio",
     },
@@ -155,7 +155,7 @@ export const translations = {
     },
     hero: {
       title: "Transformando Estratégia de Negócios",
-      subtitle: "Seja parceiro da BrasilConsul para desbloquear crescimento sustentável e excelência operacional no mercado global",
+      subtitle: "Seja parceiro da Consul Brasil para desbloquear crescimento sustentável e excelência operacional no mercado global",
       cta: "Explore Nossas Soluções",
       learn: "Saiba Mais",
     },
@@ -197,7 +197,7 @@ export const translations = {
       readMore: "Ler Artigo",
     },
     about: {
-      title: "Sobre a BrasilConsul",
+      title: "Sobre a Consul Brasil",
       description: "Somos uma empresa de consultoria líder especializada em transformação estratégica nos mercados latino-americanos e globais. Com profunda expertise no setor e um histórico comprovado, ajudamos organizações a alcançar crescimento sustentável e excelência operacional.",
       stats: {
         clients: "Clientes Globais",
@@ -212,7 +212,7 @@ export const translations = {
       cta: "Entre em Contato",
     },
     footer: {
-      copyright: "© 2025 BrasilConsul. Todos os direitos reservados.",
+      copyright: "© 2025 Consul Brasil. Todos os direitos reservados.",
       privacy: "Política de Privacidade",
       terms: "Termos de Serviço",
     },
