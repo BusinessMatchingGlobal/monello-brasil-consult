@@ -41,14 +41,17 @@ export const translations = {
       article1: {
         title: "The Future of Business in Latin America",
         description: "How companies can navigate emerging market dynamics and regulatory changes",
+        url: "https://www.linkedin.com/pulse/future-business-latin-america",
       },
       article2: {
         title: "Digital Innovation Strategies",
         description: "Leveraging AI and automation for competitive advantage",
+        url: "https://www.linkedin.com/pulse/digital-innovation-strategies",
       },
       article3: {
         title: "Sustainable Growth Frameworks",
         description: "Building resilient business models for long-term success",
+        url: "https://www.linkedin.com/pulse/sustainable-growth-frameworks",
       },
       readMore: "Read Article",
     },
@@ -113,14 +116,17 @@ export const translations = {
       article1: {
         title: "Il Futuro del Business in America Latina",
         description: "Come le aziende possono navigare le dinamiche emergenti del mercato e i cambiamenti normativi",
+        url: "https://www.linkedin.com/pulse/future-business-latin-america",
       },
       article2: {
         title: "Strategie di Innovazione Digitale",
         description: "Sfruttare AI e automazione per il vantaggio competitivo",
+        url: "https://www.linkedin.com/pulse/digital-innovation-strategies",
       },
       article3: {
         title: "Framework di Crescita Sostenibile",
         description: "Costruire modelli di business resilienti per il successo a lungo termine",
+        url: "https://www.linkedin.com/pulse/sustainable-growth-frameworks",
       },
       readMore: "Leggi l'Articolo",
     },
@@ -185,14 +191,17 @@ export const translations = {
       article1: {
         title: "O Futuro dos Negócios na América Latina",
         description: "Como as empresas podem navegar dinâmicas emergentes de mercado e mudanças regulatórias",
+        url: "https://www.linkedin.com/pulse/future-business-latin-america",
       },
       article2: {
         title: "Estratégias de Inovação Digital",
         description: "Aproveitando IA e automação para vantagem competitiva",
+        url: "https://www.linkedin.com/pulse/digital-innovation-strategies",
       },
       article3: {
         title: "Frameworks de Crescimento Sustentável",
         description: "Construindo modelos de negócio resilientes para sucesso de longo prazo",
+        url: "https://www.linkedin.com/pulse/sustainable-growth-frameworks",
       },
       readMore: "Ler Artigo",
     },

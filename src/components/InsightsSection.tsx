@@ -9,9 +9,9 @@ interface InsightsSectionProps {
   subtitle: string;
   readMore: string;
   articles: {
-    article1: { title: string; description: string };
-    article2: { title: string; description: string };
-    article3: { title: string; description: string };
+    article1: { title: string; description: string; url: string };
+    article2: { title: string; description: string; url: string };
+    article3: { title: string; description: string; url: string };
   };
 }
 
@@ -20,18 +20,21 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
     {
       title: articles.article1.title,
       description: articles.article1.description,
+      url: articles.article1.url,
       image: strategyImage,
       category: "Strategy",
     },
     {
       title: articles.article2.title,
       description: articles.article2.description,
+      url: articles.article2.url,
       image: innovationImage,
       category: "Innovation",
     },
     {
       title: articles.article3.title,
       description: articles.article3.description,
+      url: articles.article3.url,
       image: strategyImage,
       category: "Growth",
     },
@@ -72,9 +75,15 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
                 <CardDescription className="text-base leading-relaxed mb-4">
                   {insight.description}
                 </CardDescription>
-                <Button variant="ghost" className="group/btn p-0 h-auto text-primary hover:text-primary/80">
-                  {readMore}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                <Button 
+                  variant="ghost" 
+                  className="group/btn p-0 h-auto text-primary hover:text-primary/80"
+                  asChild
+                >
+                  <a href={insight.url} target="_blank" rel="noopener noreferrer">
+                    {readMore}
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
