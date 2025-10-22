@@ -10,8 +10,8 @@ export const translations = {
       contact: "Contact",
     },
     hero: {
-      title: "Transforming Business Strategy",
-      subtitle: "Partner with Consul Brasil to unlock sustainable growth and operational excellence in the global market",
+      title: "We help you understand Brazil.",
+      subtitle: "We transform the complexities of this market into real opportunities.",
       cta: "Explore Our Solutions",
       learn: "Learn More",
     },
@@ -85,8 +85,8 @@ export const translations = {
       contact: "Contatti",
     },
     hero: {
-      title: "Trasformare la Strategia Aziendale",
-      subtitle: "Partner con Consul Brasil per sbloccare crescita sostenibile ed eccellenza operativa nel mercato globale",
+      title: "Ti aiutiamo a capire il Brasile.",
+      subtitle: "Traduciamo la complessità di questo mercato in opportunità reali.",
       cta: "Esplora le Nostre Soluzioni",
       learn: "Scopri di Più",
     },
@@ -160,8 +160,8 @@ export const translations = {
       contact: "Contato",
     },
     hero: {
-      title: "Transformando Estratégia de Negócios",
-      subtitle: "Seja parceiro da Consul Brasil para desbloquear crescimento sustentável e excelência operacional no mercado global",
+      title: "Ajudamos você a entender o Brasil.",
+      subtitle: "Transformamos a complexidade desse mercado em oportunidades reais.",
       cta: "Explore Nossas Soluções",
       learn: "Saiba Mais",
     },
