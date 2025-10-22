@@ -17,22 +17,22 @@ export const translations = {
     },
     services: {
       title: "Our Expertise",
-      subtitle: "Comprehensive consulting services tailored to your business needs",
+      subtitle: "We do more than consult. We translate contexts, cultures, and markets to turn every decision into real value.",
       strategy: {
-        title: "Strategic Consulting",
-        description: "Navigate complex business challenges with data-driven insights and innovative solutions",
+        title: "Strategy with Vision",
+        description: "We transform complex challenges into sustainable growth paths by bridging global vision with local execution.",
       },
       operations: {
-        title: "Operations Excellence",
-        description: "Optimize processes and maximize efficiency across your organization",
+        title: "Intelligent Operational Excellence",
+        description: "We redesign processes and organizational cultures to generate efficiency, autonomy, and measurable impact.",
       },
       digital: {
-        title: "Digital Transformation",
-        description: "Embrace technology to drive innovation and competitive advantage",
+        title: "Human-Centered Digital Transformation",
+        description: "We combine technology and strategic sensitivity to build a competitive advantage with a clear purpose.",
       },
       growth: {
-        title: "Growth Strategy",
-        description: "Identify and capture new market opportunities for sustainable expansion",
+        title: "Sustainable and Scalable Growth",
+        description: "We identify expansion opportunities that strengthen both business and territory for sustainable and scalable growth.",
       },
     },
     insights: {
@@ -91,23 +91,23 @@ export const translations = {
       learn: "Scopri di Più",
     },
     services: {
-      title: "La Nostra Expertise",
-      subtitle: "Servizi di consulenza completi su misura per le vostre esigenze aziendali",
+      title: "La nostra expertise",
+      subtitle: "Più che una semplice consulenza, traduciamo contesti, culture e mercati per trasformare ogni decisione in valore reale.",
       strategy: {
-        title: "Consulenza Strategica",
-        description: "Affrontare sfide aziendali complesse con insights basati sui dati e soluzioni innovative",
+        title: "Strategia con visione",
+        description: "Trasformiamo le sfide complesse in percorsi di crescita sostenibile, unendo una visione globale all'esecuzione locale.",
       },
       operations: {
-        title: "Eccellenza Operativa",
-        description: "Ottimizzare i processi e massimizzare l'efficienza in tutta l'organizzazione",
+        title: "Eccellenza operativa intelligente",
+        description: "Riprogettiamo processi e culture per generare efficienza, autonomia e impatto misurabile.",
       },
       digital: {
-        title: "Trasformazione Digitale",
-        description: "Abbracciare la tecnologia per guidare innovazione e vantaggio competitivo",
+        title: "Trasformazione digitale umana",
+        description: "Coniughiamo tecnologia e sensibilità strategica per creare un vantaggio competitivo con uno scopo ben preciso.",
       },
       growth: {
-        title: "Strategia di Crescita",
-        description: "Identificare e cogliere nuove opportunità di mercato per un'espansione sostenibile",
+        title: "Crescita sostenibile e scalabile",
+        description: "Individuiamo opportunità di espansione che rafforzano il business e il territorio.",
       },
     },
     insights: {
@@ -166,23 +166,23 @@ export const translations = {
       learn: "Saiba Mais",
     },
     services: {
-      title: "Nossa Expertise",
-      subtitle: "Serviços de consultoria abrangentes adaptados às suas necessidades de negócio",
+      title: "Nossa expertise",
+      subtitle: "Mais do que consultoria, traduzimos contextos, culturas e mercados para que cada decisão gere valor real.",
       strategy: {
-        title: "Consultoria Estratégica",
-        description: "Navegue desafios empresariais complexos com insights baseados em dados e soluções inovadoras",
+        title: "Estratégia com propósito",
+        description: "Transformamos desafios complexos em rotas de crescimento sustentável, combinando visão global e execução local.",
       },
       operations: {
-        title: "Excelência Operacional",
-        description: "Otimize processos e maximize a eficiência em toda a sua organização",
+        title: "Excelência operacional inteligente",
+        description: "Reestruturamos processos e culturas para gerar eficiência, autonomia e impacto mensurável.",
       },
       digital: {
-        title: "Transformação Digital",
-        description: "Adote tecnologia para impulsionar inovação e vantagem competitiva",
+        title: "Transformação digital humana",
+        description: "Unimos tecnologia e sensibilidade estratégica para criar uma vantagem competitiva com propósito.",
       },
       growth: {
-        title: "Estratégia de Crescimento",
-        description: "Identifique e capture novas oportunidades de mercado para expansão sustentável",
+        title: "Crescimento sustentável e escalável",
+        description: "Identificamos oportunidades de expansão que fortalecem o negócio e o território onde ele atua.",
       },
     },
     insights: {
