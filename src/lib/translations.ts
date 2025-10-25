@@ -28,7 +28,7 @@ export const translations = {
       },
       digital: {
         title: "Human-Centered Digital Transformation",
-        description: "We combine technology and strategic sensitivity to build a competitive advantage with a clear purpose.",
+        description: "We provide complete, tailor-made services — from start-ups to large corporates. We take care of all the burdens of your presence in Brazil, leaving you only the rewards of success.",
       },
       growth: {
         title: "Sustainable and Scalable Growth",
@@ -103,7 +103,7 @@ export const translations = {
       },
       digital: {
         title: "Trasformazione digitale umana",
-        description: "Coniughiamo tecnologia e sensibilità strategica per creare un vantaggio competitivo con uno scopo ben preciso.",
+        description: "Coniughiamo tecnologia e sensibilità strategica per creare un vantaggio competitivo con uno scopo ben preciso. Offre servizi completi e su misura — dalla start-up alla grande corporate. Gestiamo noi tutti gli oneri della vostra presenza in Brasile, lasciando a voi solo gli onori del successo.",
       },
       growth: {
         title: "Crescita sostenibile e scalabile",
@@ -178,7 +178,7 @@ export const translations = {
       },
       digital: {
         title: "Transformação digital humana",
-        description: "Unimos tecnologia e sensibilidade estratégica para criar uma vantagem competitiva com propósito.",
+        description: "Oferecemos serviços completos e sob medida — da startup à grande corporação. Cuidamos de todos os encargos da sua presença no Brasil, deixando para você apenas as conquistas do sucesso.",
       },
       growth: {
         title: "Crescimento sustentável e escalável",
