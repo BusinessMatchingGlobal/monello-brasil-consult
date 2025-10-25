@@ -44,9 +44,9 @@ export const translations = {
         url: "https://www.linkedin.com/pulse/brasile-sfruttare-larbitraggio-fiscale-e-finanziario-ad-tvuif/?trackingId=3f2QJi77Sv6DH%2F92WSxTQA%3D%3D",
       },
       article2: {
-        title: "Digital Innovation Strategies",
-        description: "Leveraging AI and automation for competitive advantage",
-        url: "https://www.linkedin.com/pulse/digital-innovation-strategies",
+        title: "Brazil: Investment Opportunities for Italian Companies",
+        description: "Complete guide on CPF, RDE-IED and tax strategies for successful investment in Brazil – from manufacturing to agribusiness",
+        url: "https://www.linkedin.com/pulse/brasile-opportunit%C3%A0-di-investimento-per-limpresa-italiana-qs7tf/",
       },
       article3: {
         title: "Sustainable Growth Frameworks",
@@ -120,9 +120,9 @@ export const translations = {
         url: "https://www.linkedin.com/pulse/brasile-sfruttare-larbitraggio-fiscale-e-finanziario-ad-tvuif/?trackingId=3f2QJi77Sv6DH%2F92WSxTQA%3D%3D",
       },
       article2: {
-        title: "Strategie di Innovazione Digitale",
-        description: "Sfruttare AI e automazione per il vantaggio competitivo",
-        url: "https://www.linkedin.com/pulse/digital-innovation-strategies",
+        title: "Brasile: Opportunità di Investimento per l'Impresa Italiana",
+        description: "Guida completa su CPF, RDE-IED e strategie fiscali per investire con successo in Brasile – dal settore manifatturiero all'agribusiness",
+        url: "https://www.linkedin.com/pulse/brasile-opportunit%C3%A0-di-investimento-per-limpresa-italiana-qs7tf/",
       },
       article3: {
         title: "Framework di Crescita Sostenibile",
@@ -196,9 +196,9 @@ export const translations = {
         url: "https://www.linkedin.com/pulse/brasile-sfruttare-larbitraggio-fiscale-e-finanziario-ad-tvuif/?trackingId=3f2QJi77Sv6DH%2F92WSxTQA%3D%3D",
       },
       article2: {
-        title: "Estratégias de Inovação Digital",
-        description: "Aproveitando IA e automação para vantagem competitiva",
-        url: "https://www.linkedin.com/pulse/digital-innovation-strategies",
+        title: "Brasil: Oportunidades de Investimento para Empresas Italianas",
+        description: "Guia completo sobre CPF, RDE-IED e estratégias fiscais para investir com sucesso no Brasil – da manufatura ao agronegócio",
+        url: "https://www.linkedin.com/pulse/brasile-opportunit%C3%A0-di-investimento-per-limpresa-italiana-qs7tf/",
       },
       article3: {
         title: "Frameworks de Crescimento Sustentável",
