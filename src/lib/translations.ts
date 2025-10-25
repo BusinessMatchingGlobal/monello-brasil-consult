@@ -69,6 +69,7 @@ export const translations = {
       title: "Start Your Transformation",
       subtitle: "Connect with our team to discuss how we can help your organization thrive",
       cta: "Get in Touch",
+      emailSubject: "Let's Transform Your Business in Brazil",
     },
     footer: {
       copyright: "© 2025 Consul Brasil. All rights reserved.",
@@ -144,6 +145,7 @@ export const translations = {
       title: "Inizia la Tua Trasformazione",
       subtitle: "Connettiti con il nostro team per discutere come possiamo aiutare la tua organizzazione a prosperare",
       cta: "Contattaci",
+      emailSubject: "Trasformiamo il Tuo Business in Brasile",
     },
     footer: {
       copyright: "© 2025 Consul Brasil. Tutti i diritti riservati.",
@@ -219,6 +221,7 @@ export const translations = {
       title: "Inicie Sua Transformação",
       subtitle: "Conecte-se com nossa equipe para discutir como podemos ajudar sua organização a prosperar",
       cta: "Entre em Contato",
+      emailSubject: "Vamos Transformar Seu Negócio no Brasil",
     },
     footer: {
       copyright: "© 2025 Consul Brasil. Todos os direitos reservados.",

@@ -5,9 +5,11 @@ interface ContactSectionProps {
   title: string;
   subtitle: string;
   cta: string;
+  emailSubject: string;
 }
 
-export const ContactSection = ({ title, subtitle, cta }: ContactSectionProps) => {
+export const ContactSection = ({ title, subtitle, cta, emailSubject }: ContactSectionProps) => {
+  const mailtoLink = `mailto:info@consulbrasil.com?subject=${encodeURIComponent(emailSubject)}`;
   return (
     <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -23,10 +25,13 @@ export const ContactSection = ({ title, subtitle, cta }: ContactSectionProps) =>
             <Button 
               size="lg" 
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-6 text-lg shadow-xl"
+              asChild
             >
-              <Mail className="mr-2 h-5 w-5" />
-              {cta}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <a href={mailtoLink}>
+                <Mail className="mr-2 h-5 w-5" />
+                {cta}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </Button>
           </div>
           

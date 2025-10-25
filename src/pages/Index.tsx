@@ -52,6 +52,7 @@ const Index = () => {
           title={t.contact.title}
           subtitle={t.contact.subtitle}
           cta={t.contact.cta}
+          emailSubject={t.contact.emailSubject}
         />
       </main>
       
