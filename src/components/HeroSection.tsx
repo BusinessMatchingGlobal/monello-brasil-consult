@@ -31,25 +31,9 @@ export const HeroSection = ({ title, subtitle, ctaPrimary, ctaSecondary }: HeroS
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-1000">
             {title}
           </h1>
-          <p className="text-xl md:text-2xl text-primary-foreground/90 mb-10 leading-relaxed max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-150">
+          <p className="text-xl md:text-2xl text-primary-foreground/90 leading-relaxed max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-150">
             {subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-            <Button 
-              size="lg" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all"
-            >
-              {ctaPrimary}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 backdrop-blur-sm px-8 py-6 text-lg"
-            >
-              {ctaSecondary}
-            </Button>
-          </div>
         </div>
       </div>
       
