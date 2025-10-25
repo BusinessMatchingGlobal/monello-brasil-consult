@@ -19,8 +19,8 @@ export const translations = {
       title: "Our Expertise",
       subtitle: "We do more than consult. We translate contexts, cultures, and markets to turn every decision into real value.",
       strategy: {
-        title: "Strategy with Vision",
-        description: "We transform complex challenges into sustainable growth paths by bridging global vision with local execution.",
+        title: "Helping you invest in the future",
+        description: "Enabling access to a rapidly expanding continental market, poised to drive tomorrow's global growth.",
       },
       operations: {
         title: "Intelligent Operational Excellence",
@@ -94,8 +94,8 @@ export const translations = {
       title: "La nostra expertise",
       subtitle: "Più che una semplice consulenza, traduciamo contesti, culture e mercati per trasformare ogni decisione in valore reale.",
       strategy: {
-        title: "Strategia con visione",
-        description: "Trasformiamo le sfide complesse in percorsi di crescita sostenibile, unendo una visione globale all'esecuzione locale.",
+        title: "Ti aiuta a investire nel futuro",
+        description: "Ti permette di entrare in un mercato continentale in espansione, destinato a guidare la crescita globale di domani.",
       },
       operations: {
         title: "Eccellenza operativa intelligente",
@@ -169,8 +169,8 @@ export const translations = {
       title: "Nossa expertise",
       subtitle: "Mais do que consultoria, traduzimos contextos, culturas e mercados para que cada decisão gere valor real.",
       strategy: {
-        title: "Estratégia com propósito",
-        description: "Transformamos desafios complexos em rotas de crescimento sustentável, combinando visão global e execução local.",
+        title: "Ajudando você a investir no futuro",
+        description: "Permite o acesso a um mercado continental em forte expansão, destinado a liderar o crescimento global de amanhã.",
       },
       operations: {
         title: "Excelência operacional inteligente",
