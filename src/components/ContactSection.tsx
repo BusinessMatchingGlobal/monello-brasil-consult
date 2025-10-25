@@ -33,6 +33,11 @@ export const ContactSection = ({ title, subtitle, cta, emailSubject }: ContactSe
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
+            
+            <p className="mt-6 text-primary-foreground/80 text-sm">
+              <Mail className="inline-block mr-2 h-4 w-4" />
+              info@consulbrasil.com
+            </p>
           </div>
           
           {/* Decorative gradient overlay */}
