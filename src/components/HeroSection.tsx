@@ -20,7 +20,7 @@ export const HeroSection = ({ title, subtitle, ctaPrimary, ctaSecondary }: HeroS
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
         <img 
           src={heroImage} 
-          alt="Consulting team collaboration"
+          alt="Brazil business consulting - Expert team helping foreign companies invest in Brazilian market"
           className="w-full h-full object-cover mix-blend-overlay opacity-20"
         />
       </div>
