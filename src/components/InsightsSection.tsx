@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import almenaraImage from "@/assets/almenara-panorama.jpg";
 import strategyImage from "@/assets/strategy-abstract.jpg";
 import innovationImage from "@/assets/innovation-bg.jpg";
 
@@ -21,7 +22,7 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
       title: articles.article1.title,
       description: articles.article1.description,
       url: articles.article1.url,
-      image: strategyImage,
+      image: almenaraImage,
       category: "Strategy",
     },
     {

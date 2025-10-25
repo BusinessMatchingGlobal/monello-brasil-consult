@@ -41,7 +41,7 @@ export const translations = {
       article1: {
         title: "Brazil: Leveraging Tax and Financial Arbitrage in Almenara",
         description: "Strategic opportunities for agribusiness and renewables through SUDENE incentives, FNE financing, and infrastructure investments in Minas Gerais",
-        url: "https://www.linkedin.com/posts/consul-brasil_consulbrasil-investimentibrasile-sudene-activity-7387896520576057344-7QSk",
+        url: "https://www.linkedin.com/pulse/brasile-sfruttare-larbitraggio-fiscale-e-finanziario-ad-tvuif/?trackingId=3f2QJi77Sv6DH%2F92WSxTQA%3D%3D",
       },
       article2: {
         title: "Digital Innovation Strategies",
@@ -117,7 +117,7 @@ export const translations = {
       article1: {
         title: "Brasile: Sfruttare l'Arbitraggio Fiscale e Finanziario ad Almenara",
         description: "Opportunità strategiche per l'agroindustria e le rinnovabili attraverso gli incentivi SUDENE, il finanziamento FNE e gli investimenti infrastrutturali nel Minas Gerais",
-        url: "https://www.linkedin.com/posts/consul-brasil_consulbrasil-investimentibrasile-sudene-activity-7387896520576057344-7QSk",
+        url: "https://www.linkedin.com/pulse/brasile-sfruttare-larbitraggio-fiscale-e-finanziario-ad-tvuif/?trackingId=3f2QJi77Sv6DH%2F92WSxTQA%3D%3D",
       },
       article2: {
         title: "Strategie di Innovazione Digitale",
@@ -193,7 +193,7 @@ export const translations = {
       article1: {
         title: "Brasil: Aproveitando a Arbitragem Fiscal e Financeira em Almenara",
         description: "Oportunidades estratégicas para agroindústria e renováveis através de incentivos SUDENE, financiamento FNE e investimentos em infraestrutura em Minas Gerais",
-        url: "https://www.linkedin.com/posts/consul-brasil_consulbrasil-investimentibrasile-sudene-activity-7387896520576057344-7QSk",
+        url: "https://www.linkedin.com/pulse/brasile-sfruttare-larbitraggio-fiscale-e-finanziario-ad-tvuif/?trackingId=3f2QJi77Sv6DH%2F92WSxTQA%3D%3D",
       },
       article2: {
         title: "Estratégias de Inovação Digital",
