@@ -31,8 +31,8 @@ export const translations = {
         description: "We provide complete, tailor-made services — from start-ups to large corporates. We take care of all the burdens of your presence in Brazil, leaving you only the rewards of success.",
       },
       growth: {
-        title: "Sustainable and Scalable Growth",
-        description: "We identify expansion opportunities that strengthen both business and territory for sustainable and scalable growth.",
+        title: "Not just soft-landing and compliance.",
+        description: "We bring ESG and emerging technologies to the center of your strategy. We turn others' limitations into your opportunities.",
       },
     },
     insights: {
@@ -106,8 +106,8 @@ export const translations = {
         description: "Offre servizi completi e su misura — dalla start-up alla grande corporate. Gestiamo noi tutti gli oneri della vostra presenza in Brasile, lasciando a voi solo gli onori del successo.",
       },
       growth: {
-        title: "Crescita sostenibile e scalabile",
-        description: "Individuiamo opportunità di espansione che rafforzano il business e il territorio.",
+        title: "Non solo soft-landing e compliance.",
+        description: "Ma anche ESG e tecnologie emergenti. Trasformiamo le limitazioni degli altri in opportunità per voi.",
       },
     },
     insights: {
@@ -181,8 +181,8 @@ export const translations = {
         description: "Oferecemos serviços completos e sob medida — da startup à grande corporação. Cuidamos de todos os encargos da sua presença no Brasil, deixando para você apenas as conquistas do sucesso.",
       },
       growth: {
-        title: "Crescimento sustentável e escalável",
-        description: "Identificamos oportunidades de expansão que fortalecem o negócio e o território onde ele atua.",
+        title: "Não só soft-landing e compliance.",
+        description: "Também ESG e tecnologias emergentes no centro da sua estratégia. Transformamos as limitações dos outros em oportunidades para você.",
       },
     },
     insights: {
