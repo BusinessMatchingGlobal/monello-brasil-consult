@@ -3,8 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import almenaraImage from "@/assets/almenara-panorama.jpg";
 import brazilInvestmentImage from "@/assets/brazil-investment.jpg";
-import strategyImage from "@/assets/strategy-abstract.jpg";
-import innovationImage from "@/assets/innovation-bg.jpg";
+import custoBrasilImage from "@/assets/custo-brasil.jpg";
 
 interface InsightsSectionProps {
   title: string;
@@ -37,8 +36,8 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
       title: articles.article3.title,
       description: articles.article3.description,
       url: articles.article3.url,
-      image: strategyImage,
-      category: "Growth",
+      image: custoBrasilImage,
+      category: "Strategy",
     },
   ];
 
