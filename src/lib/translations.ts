@@ -39,9 +39,9 @@ export const translations = {
       title: "Latest Insights",
       subtitle: "Thought leadership and market intelligence",
       article1: {
-        title: "The Future of Business in Latin America",
-        description: "How companies can navigate emerging market dynamics and regulatory changes",
-        url: "https://www.linkedin.com/pulse/future-business-latin-america",
+        title: "Brazil: Leveraging Tax and Financial Arbitrage in Almenara",
+        description: "Strategic opportunities for agribusiness and renewables through SUDENE incentives, FNE financing, and infrastructure investments in Minas Gerais",
+        url: "https://www.linkedin.com/posts/consul-brasil_consulbrasil-investimentibrasile-sudene-activity-7387896520576057344-7QSk",
       },
       article2: {
         title: "Digital Innovation Strategies",
@@ -115,9 +115,9 @@ export const translations = {
       title: "Ultimi Insights",
       subtitle: "Leadership di pensiero e intelligence di mercato",
       article1: {
-        title: "Il Futuro del Business in America Latina",
-        description: "Come le aziende possono navigare le dinamiche emergenti del mercato e i cambiamenti normativi",
-        url: "https://www.linkedin.com/pulse/future-business-latin-america",
+        title: "Brasile: Sfruttare l'Arbitraggio Fiscale e Finanziario ad Almenara",
+        description: "Opportunità strategiche per l'agroindustria e le rinnovabili attraverso gli incentivi SUDENE, il finanziamento FNE e gli investimenti infrastrutturali nel Minas Gerais",
+        url: "https://www.linkedin.com/posts/consul-brasil_consulbrasil-investimentibrasile-sudene-activity-7387896520576057344-7QSk",
       },
       article2: {
         title: "Strategie di Innovazione Digitale",
@@ -191,9 +191,9 @@ export const translations = {
       title: "Últimos Insights",
       subtitle: "Liderança de pensamento e inteligência de mercado",
       article1: {
-        title: "O Futuro dos Negócios na América Latina",
-        description: "Como as empresas podem navegar dinâmicas emergentes de mercado e mudanças regulatórias",
-        url: "https://www.linkedin.com/pulse/future-business-latin-america",
+        title: "Brasil: Aproveitando a Arbitragem Fiscal e Financeira em Almenara",
+        description: "Oportunidades estratégicas para agroindústria e renováveis através de incentivos SUDENE, financiamento FNE e investimentos em infraestrutura em Minas Gerais",
+        url: "https://www.linkedin.com/posts/consul-brasil_consulbrasil-investimentibrasile-sudene-activity-7387896520576057344-7QSk",
       },
       article2: {
         title: "Estratégias de Inovação Digital",
