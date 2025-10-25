@@ -23,8 +23,8 @@ export const translations = {
         description: "Enabling access to a rapidly expanding continental market, poised to drive tomorrow's global growth.",
       },
       operations: {
-        title: "Intelligent Operational Excellence",
-        description: "We redesign processes and organizational cultures to generate efficiency, autonomy, and measurable impact.",
+        title: "minimizes the Brazil Cost",
+        description: "We help you control the extra costs of doing business in the country — bureaucracy, tax complexity, logistical inefficiencies, high capital costs and legal risk — turning structural frictions into competitive advantage.",
       },
       digital: {
         title: "Human-Centered Digital Transformation",
@@ -98,8 +98,8 @@ export const translations = {
         description: "Ti permette di entrare in un mercato continentale in espansione, destinato a guidare la crescita globale di domani.",
       },
       operations: {
-        title: "Eccellenza operativa intelligente",
-        description: "Riprogettiamo processi e culture per generare efficienza, autonomia e impatto misurabile.",
+        title: "ti aiuta a ridurre al minimo il custo brasil",
+        description: "ti aiutiamo a minimizzare quanto dovrai pagare in termini di costi aggiuntivi per operare nel Paese: burocrazia, complessità fiscale, logistica inefficiente, alto costo del capitale, rischio giuridico ecc.",
       },
       digital: {
         title: "Trasformazione digitale umana",
@@ -173,8 +173,8 @@ export const translations = {
         description: "Permite o acesso a um mercado continental em forte expansão, destinado a liderar o crescimento global de amanhã.",
       },
       operations: {
-        title: "Excelência operacional inteligente",
-        description: "Reestruturamos processos e culturas para gerar eficiência, autonomia e impacto mensurável.",
+        title: "reduz ao mínimo o Custo Brasil",
+        description: "Ajudamos você a controlar os custos adicionais para operar no país — burocracia, complexidade tributária, ineficiências logísticas, alto custo do capital e risco jurídico — transformando fricções estruturais em vantagem competitiva.",
       },
       digital: {
         title: "Transformação digital humana",
