@@ -23,7 +23,7 @@ export const translations = {
         description: "Enabling access to a rapidly expanding continental market, poised to drive tomorrow's global growth.",
       },
       operations: {
-        title: "minimizes the Brazil Cost",
+        title: "Minimizes the Brazil Cost",
         description: "We help you control the extra costs of doing business in the country — bureaucracy, tax complexity, logistical inefficiencies, high capital costs and legal risk — turning structural frictions into competitive advantage.",
       },
       digital: {
@@ -98,8 +98,8 @@ export const translations = {
         description: "Ti permette di entrare in un mercato continentale in espansione, destinato a guidare la crescita globale di domani.",
       },
       operations: {
-        title: "ti aiuta a ridurre al minimo il custo brasil",
-        description: "ti aiutiamo a minimizzare quanto dovrai pagare in termini di costi aggiuntivi per operare nel Paese: burocrazia, complessità fiscale, logistica inefficiente, alto costo del capitale, rischio giuridico ecc.",
+        title: "Ti aiuta a minimizzare il Custo Brasil",
+        description: "Ti aiutiamo a minimizzare quanto dovrai pagare in termini di costi aggiuntivi per operare nel Paese: burocrazia, complessità fiscale, logistica inefficiente, alto costo del capitale, rischio giuridico ecc.",
       },
       digital: {
         title: "Trasformazione digitale umana",
@@ -173,7 +173,7 @@ export const translations = {
         description: "Permite o acesso a um mercado continental em forte expansão, destinado a liderar o crescimento global de amanhã.",
       },
       operations: {
-        title: "reduz ao mínimo o Custo Brasil",
+        title: "Reduz ao mínimo o Custo Brasil",
         description: "Ajudamos você a controlar os custos adicionais para operar no país — burocracia, complexidade tributária, ineficiências logísticas, alto custo do capital e risco jurídico — transformando fricções estruturais em vantagem competitiva.",
       },
       digital: {
