@@ -56,13 +56,13 @@ export const translations = {
       readMore: "Read Article",
     },
     about: {
-      title: "About Consul Brasil",
-      description: "We are a leading consulting firm specializing in strategic transformation across Latin American and global markets. With deep industry expertise and a proven track record, we help organizations achieve sustainable growth and operational excellence.",
+      title: "Why Invest in Brazil",
+      description: "Brazil is the 9th largest economy in the world with 215+ million consumers. A rapidly expanding digital market, world-leading agribusiness sector, and strategic position as Latin America's innovation hub make it an unmissable opportunity for global investors.",
       stats: {
-        clients: "Global Clients",
-        years: "Years Experience",
-        projects: "Successful Projects",
-        team: "Expert Consultants",
+        clients: "Million Population",
+        years: "Largest Economy",
+        projects: "GDP Growth Rate",
+        team: "Digital Users",
       },
     },
     contact: {
@@ -131,13 +131,13 @@ export const translations = {
       readMore: "Leggi l'Articolo",
     },
     about: {
-      title: "Chi è Consul Brasil",
-      description: "Siamo una società di consulenza leader specializzata nella trasformazione strategica nei mercati latinoamericani e globali. Con profonda expertise industriale e un track record comprovato, aiutiamo le organizzazioni a raggiungere crescita sostenibile ed eccellenza operativa.",
+      title: "Perché investire in Brasile",
+      description: "Il Brasile è la 9ª economia mondiale con oltre 215 milioni di consumatori. Un mercato digitale in rapida espansione, un settore agribusiness leader a livello globale e una posizione strategica come hub dell'innovazione in America Latina lo rendono un'opportunità imperdibile per gli investitori internazionali.",
       stats: {
-        clients: "Clienti Globali",
-        years: "Anni di Esperienza",
-        projects: "Progetti di Successo",
-        team: "Consulenti Esperti",
+        clients: "Milioni di Abitanti",
+        years: "Economia Mondiale",
+        projects: "Crescita PIL",
+        team: "Utenti Digitali",
       },
     },
     contact: {
@@ -206,13 +206,13 @@ export const translations = {
       readMore: "Ler Artigo",
     },
     about: {
-      title: "Sobre a Consul Brasil",
-      description: "Somos uma empresa de consultoria líder especializada em transformação estratégica nos mercados latino-americanos e globais. Com profunda expertise no setor e um histórico comprovado, ajudamos organizações a alcançar crescimento sustentável e excelência operacional.",
+      title: "Por que investir no Brasil",
+      description: "O Brasil é a 9ª maior economia do mundo com mais de 215 milhões de consumidores. Um mercado digital em rápida expansão, setor de agronegócio líder mundial e posição estratégica como hub de inovação da América Latina tornam o país uma oportunidade imperdível para investidores globais.",
       stats: {
-        clients: "Clientes Globais",
-        years: "Anos de Experiência",
-        projects: "Projetos Bem-Sucedidos",
-        team: "Consultores Especialistas",
+        clients: "Milhões de Habitantes",
+        years: "Maior Economia",
+        projects: "Crescimento PIB",
+        team: "Usuários Digitais",
       },
     },
     contact: {

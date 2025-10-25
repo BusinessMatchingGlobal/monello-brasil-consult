@@ -11,10 +11,10 @@ interface AboutSectionProps {
 
 export const AboutSection = ({ title, description, stats }: AboutSectionProps) => {
   const statsList = [
-    { value: "200+", label: stats.clients },
-    { value: "15+", label: stats.years },
-    { value: "500+", label: stats.projects },
-    { value: "50+", label: stats.team },
+    { value: "215M+", label: stats.clients },
+    { value: "9th", label: stats.years },
+    { value: "2.9%", label: stats.projects },
+    { value: "160M+", label: stats.team },
   ];
 
   return (
