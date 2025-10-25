@@ -27,7 +27,7 @@ export const translations = {
         description: "We help you control the extra costs of doing business in the country — bureaucracy, tax complexity, logistical inefficiencies, high capital costs and legal risk — turning structural frictions into competitive advantage.",
       },
       digital: {
-        title: "Human-Centered Digital Transformation",
+        title: "Complete, Tailor-Made Services",
         description: "We provide complete, tailor-made services — from start-ups to large corporates. We take care of all the burdens of your presence in Brazil, leaving you only the rewards of success.",
       },
       growth: {
@@ -102,8 +102,8 @@ export const translations = {
         description: "Ti aiutiamo a minimizzare quanto dovrai pagare in termini di costi aggiuntivi per operare nel Paese: burocrazia, complessità fiscale, logistica inefficiente, alto costo del capitale, rischio giuridico ecc.",
       },
       digital: {
-        title: "Trasformazione digitale umana",
-        description: "Coniughiamo tecnologia e sensibilità strategica per creare un vantaggio competitivo con uno scopo ben preciso. Offre servizi completi e su misura — dalla start-up alla grande corporate. Gestiamo noi tutti gli oneri della vostra presenza in Brasile, lasciando a voi solo gli onori del successo.",
+        title: "Servizi completi e su misura",
+        description: "Offre servizi completi e su misura — dalla start-up alla grande corporate. Gestiamo noi tutti gli oneri della vostra presenza in Brasile, lasciando a voi solo gli onori del successo.",
       },
       growth: {
         title: "Crescita sostenibile e scalabile",
@@ -177,7 +177,7 @@ export const translations = {
         description: "Ajudamos você a controlar os custos adicionais para operar no país — burocracia, complexidade tributária, ineficiências logísticas, alto custo do capital e risco jurídico — transformando fricções estruturais em vantagem competitiva.",
       },
       digital: {
-        title: "Transformação digital humana",
+        title: "Serviços completos e sob medida",
         description: "Oferecemos serviços completos e sob medida — da startup à grande corporação. Cuidamos de todos os encargos da sua presença no Brasil, deixando para você apenas as conquistas do sucesso.",
       },
       growth: {
