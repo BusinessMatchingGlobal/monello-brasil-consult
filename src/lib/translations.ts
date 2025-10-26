@@ -53,6 +53,11 @@ export const translations = {
         description: "How well-capitalized investors can turn Brazil's structural complexity into competitive advantage and premium returns",
         url: "https://www.linkedin.com/pulse/il-brasile-%C3%A8-unopportunit%C3%A0-strategica-superare-custo-brasil-05ntf/",
       },
+      article4: {
+        title: "Exporting Industrial Machinery to Brazil: From Obstacle to Opportunity",
+        description: "Strategic guide on Ex-Tarifário, BNDES-FINAME financing, and market access for industrial equipment exporters",
+        url: "https://www.linkedin.com/pulse/esportare-macchinari-industriali-brasile-dallostacolo-allopportunit%C3%A0-gpi6f/",
+      },
       readMore: "Read Article",
     },
     about: {
@@ -129,6 +134,11 @@ export const translations = {
         description: "Come gli investitori ben capitalizzati possono trasformare la complessità strutturale del Brasile in vantaggio competitivo e rendimenti superiori",
         url: "https://www.linkedin.com/pulse/il-brasile-%C3%A8-unopportunit%C3%A0-strategica-superare-custo-brasil-05ntf/",
       },
+      article4: {
+        title: "Esportare Macchinari Industriali in Brasile: dall'ostacolo all'opportunità",
+        description: "Guida strategica su Ex-Tarifário, finanziamento BNDES-FINAME e accesso al mercato per esportatori di macchinari industriali",
+        url: "https://www.linkedin.com/pulse/esportare-macchinari-industriali-brasile-dallostacolo-allopportunit%C3%A0-gpi6f/",
+      },
       readMore: "Leggi l'Articolo",
     },
     about: {
@@ -204,6 +214,11 @@ export const translations = {
         title: "O Brasil é uma Oportunidade Estratégica: Superar o 'Custo Brasil' para Retornos Superiores",
         description: "Como investidores bem capitalizados podem transformar a complexidade estrutural do Brasil em vantagem competitiva e retornos premium",
         url: "https://www.linkedin.com/pulse/il-brasile-%C3%A8-unopportunit%C3%A0-strategica-superare-custo-brasil-05ntf/",
+      },
+      article4: {
+        title: "Exportar Máquinas Industriais para o Brasil: Do Obstáculo à Oportunidade",
+        description: "Guia estratégico sobre Ex-Tarifário, financiamento BNDES-FINAME e acesso ao mercado para exportadores de equipamentos industriais",
+        url: "https://www.linkedin.com/pulse/esportare-macchinari-industriali-brasile-dallostacolo-allopportunit%C3%A0-gpi6f/",
       },
       readMore: "Ler Artigo",
     },

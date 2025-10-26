@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import almenaraImage from "@/assets/almenara-panorama.jpg";
 import brazilInvestmentImage from "@/assets/brazil-investment.jpg";
 import custoBrasilImage from "@/assets/custo-brasil.jpg";
+import industrialMachineryImage from "@/assets/industrial-machinery.jpg";
 
 interface InsightsSectionProps {
   title: string;
@@ -13,6 +14,7 @@ interface InsightsSectionProps {
     article1: { title: string; description: string; url: string };
     article2: { title: string; description: string; url: string };
     article3: { title: string; description: string; url: string };
+    article4: { title: string; description: string; url: string };
   };
 }
 
@@ -39,6 +41,13 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
       image: custoBrasilImage,
       category: "Strategy",
     },
+    {
+      title: articles.article4.title,
+      description: articles.article4.description,
+      url: articles.article4.url,
+      image: industrialMachineryImage,
+      category: "Export",
+    },
   ];
 
   return (
@@ -49,7 +58,7 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {insights.map((insight, index) => (
             <Card
               key={index}
