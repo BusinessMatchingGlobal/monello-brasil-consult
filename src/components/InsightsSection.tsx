@@ -5,6 +5,7 @@ import almenaraImage from "@/assets/almenara-panorama.jpg";
 import brazilInvestmentImage from "@/assets/brazil-investment.jpg";
 import custoBrasilImage from "@/assets/custo-brasil.jpg";
 import industrialMachineryImage from "@/assets/industrial-machinery.jpg";
+import cosmeticsBrazilImage from "@/assets/cosmetics-brazil.jpg";
 
 interface InsightsSectionProps {
   title: string;
@@ -15,6 +16,7 @@ interface InsightsSectionProps {
     article2: { title: string; description: string; url: string };
     article3: { title: string; description: string; url: string };
     article4: { title: string; description: string; url: string };
+    article5: { title: string; description: string; url: string };
   };
 }
 
@@ -48,6 +50,13 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
       image: industrialMachineryImage,
       category: "Export",
     },
+    {
+      title: articles.article5.title,
+      description: articles.article5.description,
+      url: articles.article5.url,
+      image: cosmeticsBrazilImage,
+      category: "Beauty",
+    },
   ];
 
   return (
@@ -58,11 +67,11 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-5 lg:overflow-visible">
           {insights.map((insight, index) => (
             <Card
               key={index}
-              className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50"
+              className="group flex-shrink-0 w-[300px] lg:w-auto overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50 snap-start"
             >
               <div className="relative h-48 overflow-hidden">
                 <img

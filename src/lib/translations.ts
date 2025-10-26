@@ -58,6 +58,11 @@ export const translations = {
         description: "Strategic guide on Ex-Tarifário, BNDES-FINAME financing, and market access for industrial equipment exporters",
         url: "https://www.linkedin.com/pulse/esportare-macchinari-industriali-brasile-dallostacolo-allopportunit%C3%A0-gpi6f/",
       },
+      article5: {
+        title: "Why Italian Cosmetics Contract Manufacturing Must Look to Brazil, Now",
+        description: "Strategic partnership model for Italian contract manufacturers to access Brazil's premium beauty market through local production",
+        url: "https://www.linkedin.com/pulse/perch%C3%A9-il-conto-terzi-cosmetico-italiano-deve-guardare-al-ktalf/",
+      },
       readMore: "Read Article",
     },
     about: {
@@ -139,6 +144,11 @@ export const translations = {
         description: "Guida strategica su Ex-Tarifário, finanziamento BNDES-FINAME e accesso al mercato per esportatori di macchinari industriali",
         url: "https://www.linkedin.com/pulse/esportare-macchinari-industriali-brasile-dallostacolo-allopportunit%C3%A0-gpi6f/",
       },
+      article5: {
+        title: "Perché il Conto Terzi cosmetico italiano deve guardare al Brasile, adesso",
+        description: "Modello di partnership strategica per i contoterzisti italiani per accedere al mercato beauty premium brasiliano attraverso la produzione locale",
+        url: "https://www.linkedin.com/pulse/perch%C3%A9-il-conto-terzi-cosmetico-italiano-deve-guardare-al-ktalf/",
+      },
       readMore: "Leggi l'Articolo",
     },
     about: {
@@ -219,6 +229,11 @@ export const translations = {
         title: "Exportar Máquinas Industriais para o Brasil: Do Obstáculo à Oportunidade",
         description: "Guia estratégico sobre Ex-Tarifário, financiamento BNDES-FINAME e acesso ao mercado para exportadores de equipamentos industriais",
         url: "https://www.linkedin.com/pulse/esportare-macchinari-industriali-brasile-dallostacolo-allopportunit%C3%A0-gpi6f/",
+      },
+      article5: {
+        title: "Por que a Fabricação de Cosméticos Italiana Deve Olhar para o Brasil, Agora",
+        description: "Modelo de parceria estratégica para fabricantes italianos acessarem o mercado de beleza premium brasileiro através da produção local",
+        url: "https://www.linkedin.com/pulse/perch%C3%A9-il-conto-terzi-cosmetico-italiano-deve-guardare-al-ktalf/",
       },
       readMore: "Ler Artigo",
     },
