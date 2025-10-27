@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import diVincenzoImage from "@/assets/di-vincenzo-cheese.jpg";
 import almenaraImage from "@/assets/almenara-panorama.jpg";
 import brazilInvestmentImage from "@/assets/brazil-investment.jpg";
 import custoBrasilImage from "@/assets/custo-brasil.jpg";
@@ -17,6 +18,7 @@ interface InsightsSectionProps {
     article3: { title: string; description: string; url: string };
     article4: { title: string; description: string; url: string };
     article5: { title: string; description: string; url: string };
+    article6: { title: string; description: string; url: string };
   };
 }
 
@@ -26,34 +28,41 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
       title: articles.article1.title,
       description: articles.article1.description,
       url: articles.article1.url,
-      image: almenaraImage,
-      category: "Strategy",
+      image: diVincenzoImage,
+      category: "Food",
     },
     {
       title: articles.article2.title,
       description: articles.article2.description,
       url: articles.article2.url,
-      image: brazilInvestmentImage,
-      category: "Investment",
+      image: almenaraImage,
+      category: "Strategy",
     },
     {
       title: articles.article3.title,
       description: articles.article3.description,
       url: articles.article3.url,
-      image: custoBrasilImage,
-      category: "Strategy",
+      image: brazilInvestmentImage,
+      category: "Investment",
     },
     {
       title: articles.article4.title,
       description: articles.article4.description,
       url: articles.article4.url,
-      image: industrialMachineryImage,
-      category: "Export",
+      image: custoBrasilImage,
+      category: "Strategy",
     },
     {
       title: articles.article5.title,
       description: articles.article5.description,
       url: articles.article5.url,
+      image: industrialMachineryImage,
+      category: "Export",
+    },
+    {
+      title: articles.article6.title,
+      description: articles.article6.description,
+      url: articles.article6.url,
       image: cosmeticsBrazilImage,
       category: "Beauty",
     },
@@ -67,7 +76,7 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-5 lg:overflow-visible">
+        <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-6 lg:overflow-visible">
           {insights.map((insight, index) => (
             <Card
               key={index}

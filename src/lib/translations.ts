@@ -39,26 +39,31 @@ export const translations = {
       title: "Latest Insights",
       subtitle: "Thought leadership and market intelligence",
       article1: {
+        title: "When Italy Stops Pretending and Starts Doing: The Di Vincenzo Story in Minas Gerais",
+        description: "How authentic Italian craftsmanship in artisan cheesemaking thrives in Brazil by adapting tradition to local excellence, not imitating it",
+        url: "https://www.linkedin.com/pulse/quando-litalia-smette-di-sembrare-e-inizia-fare-la-storia-ryuuf/?trackingId=%2F2qfFJ5wytnAYM3KBxlzHg%3D%3D",
+      },
+      article2: {
         title: "Brazil: Leveraging Tax and Financial Arbitrage in Almenara",
         description: "Strategic opportunities for agribusiness and renewables through SUDENE incentives, FNE financing, and infrastructure investments in Minas Gerais",
         url: "https://www.linkedin.com/pulse/brasile-sfruttare-larbitraggio-fiscale-e-finanziario-ad-tvuif/?trackingId=3f2QJi77Sv6DH%2F92WSxTQA%3D%3D",
       },
-      article2: {
+      article3: {
         title: "Brazil: Investment Opportunities for Italian Companies",
         description: "Complete guide on CPF, RDE-IED and tax strategies for successful investment in Brazil – from manufacturing to agribusiness",
         url: "https://www.linkedin.com/pulse/brasile-opportunit%C3%A0-di-investimento-per-limpresa-italiana-qs7tf/",
       },
-      article3: {
+      article4: {
         title: "Brazil is a Strategic Opportunity: Overcoming the 'Custo Brasil' for Superior Returns",
         description: "How well-capitalized investors can turn Brazil's structural complexity into competitive advantage and premium returns",
         url: "https://www.linkedin.com/pulse/il-brasile-%C3%A8-unopportunit%C3%A0-strategica-superare-custo-brasil-05ntf/",
       },
-      article4: {
+      article5: {
         title: "Exporting Industrial Machinery to Brazil: From Obstacle to Opportunity",
         description: "Strategic guide on Ex-Tarifário, BNDES-FINAME financing, and market access for industrial equipment exporters",
         url: "https://www.linkedin.com/pulse/esportare-macchinari-industriali-brasile-dallostacolo-allopportunit%C3%A0-gpi6f/",
       },
-      article5: {
+      article6: {
         title: "Why Italian Cosmetics Contract Manufacturing Must Look to Brazil, Now",
         description: "Strategic partnership model for Italian contract manufacturers to access Brazil's premium beauty market through local production",
         url: "https://www.linkedin.com/pulse/perch%C3%A9-il-conto-terzi-cosmetico-italiano-deve-guardare-al-ktalf/",
@@ -125,26 +130,31 @@ export const translations = {
       title: "Ultimi Insights",
       subtitle: "Leadership di pensiero e intelligence di mercato",
       article1: {
+        title: "Quando l'Italia smette di sembrare e inizia a fare: la storia di Di Vincenzo in Minas Gerais",
+        description: "Come l'autentica maestria artigianale italiana nella produzione casearia prospera in Brasile adattando la tradizione all'eccellenza locale, senza imitarla",
+        url: "https://www.linkedin.com/pulse/quando-litalia-smette-di-sembrare-e-inizia-fare-la-storia-ryuuf/?trackingId=%2F2qfFJ5wytnAYM3KBxlzHg%3D%3D",
+      },
+      article2: {
         title: "Brasile: Sfruttare l'Arbitraggio Fiscale e Finanziario ad Almenara",
         description: "Opportunità strategiche per l'agroindustria e le rinnovabili attraverso gli incentivi SUDENE, il finanziamento FNE e gli investimenti infrastrutturali nel Minas Gerais",
         url: "https://www.linkedin.com/pulse/brasile-sfruttare-larbitraggio-fiscale-e-finanziario-ad-tvuif/?trackingId=3f2QJi77Sv6DH%2F92WSxTQA%3D%3D",
       },
-      article2: {
+      article3: {
         title: "Brasile: Opportunità di Investimento per l'Impresa Italiana",
         description: "Guida completa su CPF, RDE-IED e strategie fiscali per investire con successo in Brasile – dal settore manifatturiero all'agribusiness",
         url: "https://www.linkedin.com/pulse/brasile-opportunit%C3%A0-di-investimento-per-limpresa-italiana-qs7tf/",
       },
-      article3: {
+      article4: {
         title: "Il Brasile è un'opportunità strategica: superare il 'Custo Brasil' per un rendimento superiore",
         description: "Come gli investitori ben capitalizzati possono trasformare la complessità strutturale del Brasile in vantaggio competitivo e rendimenti superiori",
         url: "https://www.linkedin.com/pulse/il-brasile-%C3%A8-unopportunit%C3%A0-strategica-superare-custo-brasil-05ntf/",
       },
-      article4: {
+      article5: {
         title: "Esportare Macchinari Industriali in Brasile: dall'ostacolo all'opportunità",
         description: "Guida strategica su Ex-Tarifário, finanziamento BNDES-FINAME e accesso al mercato per esportatori di macchinari industriali",
         url: "https://www.linkedin.com/pulse/esportare-macchinari-industriali-brasile-dallostacolo-allopportunit%C3%A0-gpi6f/",
       },
-      article5: {
+      article6: {
         title: "Perché il Conto Terzi cosmetico italiano deve guardare al Brasile, adesso",
         description: "Modello di partnership strategica per i contoterzisti italiani per accedere al mercato beauty premium brasiliano attraverso la produzione locale",
         url: "https://www.linkedin.com/pulse/perch%C3%A9-il-conto-terzi-cosmetico-italiano-deve-guardare-al-ktalf/",
@@ -211,26 +221,31 @@ export const translations = {
       title: "Últimos Insights",
       subtitle: "Liderança de pensamento e inteligência de mercado",
       article1: {
+        title: "Quando a Itália Para de Fingir e Começa a Fazer: A História de Di Vincenzo em Minas Gerais",
+        description: "Como o autêntico artesanato italiano na produção de queijos prospera no Brasil adaptando a tradição à excelência local, sem imitá-la",
+        url: "https://www.linkedin.com/pulse/quando-litalia-smette-di-sembrare-e-inizia-fare-la-storia-ryuuf/?trackingId=%2F2qfFJ5wytnAYM3KBxlzHg%3D%3D",
+      },
+      article2: {
         title: "Brasil: Aproveitando a Arbitragem Fiscal e Financeira em Almenara",
         description: "Oportunidades estratégicas para agroindústria e renováveis através de incentivos SUDENE, financiamento FNE e investimentos em infraestrutura em Minas Gerais",
         url: "https://www.linkedin.com/pulse/brasile-sfruttare-larbitraggio-fiscale-e-finanziario-ad-tvuif/?trackingId=3f2QJi77Sv6DH%2F92WSxTQA%3D%3D",
       },
-      article2: {
+      article3: {
         title: "Brasil: Oportunidades de Investimento para Empresas Italianas",
         description: "Guia completo sobre CPF, RDE-IED e estratégias fiscais para investir com sucesso no Brasil – da manufatura ao agronegócio",
         url: "https://www.linkedin.com/pulse/brasile-opportunit%C3%A0-di-investimento-per-limpresa-italiana-qs7tf/",
       },
-      article3: {
+      article4: {
         title: "O Brasil é uma Oportunidade Estratégica: Superar o 'Custo Brasil' para Retornos Superiores",
         description: "Como investidores bem capitalizados podem transformar a complexidade estrutural do Brasil em vantagem competitiva e retornos premium",
         url: "https://www.linkedin.com/pulse/il-brasile-%C3%A8-unopportunit%C3%A0-strategica-superare-custo-brasil-05ntf/",
       },
-      article4: {
+      article5: {
         title: "Exportar Máquinas Industriais para o Brasil: Do Obstáculo à Oportunidade",
         description: "Guia estratégico sobre Ex-Tarifário, financiamento BNDES-FINAME e acesso ao mercado para exportadores de equipamentos industriais",
         url: "https://www.linkedin.com/pulse/esportare-macchinari-industriali-brasile-dallostacolo-allopportunit%C3%A0-gpi6f/",
       },
-      article5: {
+      article6: {
         title: "Por que a Fabricação de Cosméticos Italiana Deve Olhar para o Brasil, Agora",
         description: "Modelo de parceria estratégica para fabricantes italianos acessarem o mercado de beleza premium brasileiro através da produção local",
         url: "https://www.linkedin.com/pulse/perch%C3%A9-il-conto-terzi-cosmetico-italiano-deve-guardare-al-ktalf/",
