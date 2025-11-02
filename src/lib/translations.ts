@@ -68,6 +68,11 @@ export const translations = {
         description: "Strategic partnership model for Italian contract manufacturers to access Brazil's premium beauty market through local production",
         url: "https://www.linkedin.com/pulse/perch%C3%A9-il-conto-terzi-cosmetico-italiano-deve-guardare-al-ktalf/",
       },
+      article7: {
+        title: "The Brazilian Paradox: Why Legal Sustainability is Decided Before Entering the Market",
+        description: "How Brazil's Consumer Defense Code and rapid civil courts create unique compliance challenges requiring prevention-first strategies",
+        url: "https://www.linkedin.com/pulse/il-paradosso-brasiliano-perch%C3%A9-la-sostenibilit%C3%A0-legale-di-pktif/",
+      },
       readMore: "Read Article",
     },
     about: {
@@ -159,6 +164,11 @@ export const translations = {
         description: "Modello di partnership strategica per i contoterzisti italiani per accedere al mercato beauty premium brasiliano attraverso la produzione locale",
         url: "https://www.linkedin.com/pulse/perch%C3%A9-il-conto-terzi-cosmetico-italiano-deve-guardare-al-ktalf/",
       },
+      article7: {
+        title: "Il paradosso brasiliano: perché la sostenibilità legale di un'impresa si decide prima di entrare nel mercato",
+        description: "Come il Codice di Difesa del Consumatore e i tribunali civili rapidi creano sfide di compliance uniche che richiedono strategie preventive",
+        url: "https://www.linkedin.com/pulse/il-paradosso-brasiliano-perch%C3%A9-la-sostenibilit%C3%A0-legale-di-pktif/",
+      },
       readMore: "Leggi l'Articolo",
     },
     about: {
@@ -249,6 +259,11 @@ export const translations = {
         title: "Por que a Fabricação de Cosméticos Italiana Deve Olhar para o Brasil, Agora",
         description: "Modelo de parceria estratégica para fabricantes italianos acessarem o mercado de beleza premium brasileiro através da produção local",
         url: "https://www.linkedin.com/pulse/perch%C3%A9-il-conto-terzi-cosmetico-italiano-deve-guardare-al-ktalf/",
+      },
+      article7: {
+        title: "O Paradoxo Brasileiro: Por que a Sustentabilidade Legal é Decidida Antes de Entrar no Mercado",
+        description: "Como o Código de Defesa do Consumidor e os tribunais civis rápidos criam desafios únicos de compliance exigindo estratégias preventivas",
+        url: "https://www.linkedin.com/pulse/il-paradosso-brasiliano-perch%C3%A9-la-sostenibilit%C3%A0-legale-di-pktif/",
       },
       readMore: "Ler Artigo",
     },

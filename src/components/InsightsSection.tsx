@@ -7,6 +7,7 @@ import brazilInvestmentImage from "@/assets/brazil-investment.jpg";
 import custoBrasilImage from "@/assets/custo-brasil.jpg";
 import industrialMachineryImage from "@/assets/industrial-machinery.jpg";
 import cosmeticsBrazilImage from "@/assets/cosmetics-brazil.jpg";
+import consumerDefenseImage from "@/assets/consumer-defense-code.jpg";
 
 interface InsightsSectionProps {
   title: string;
@@ -19,6 +20,7 @@ interface InsightsSectionProps {
     article4: { title: string; description: string; url: string };
     article5: { title: string; description: string; url: string };
     article6: { title: string; description: string; url: string };
+    article7: { title: string; description: string; url: string };
   };
 }
 
@@ -66,6 +68,13 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
       image: cosmeticsBrazilImage,
       category: "Beauty",
     },
+    {
+      title: articles.article7.title,
+      description: articles.article7.description,
+      url: articles.article7.url,
+      image: consumerDefenseImage,
+      category: "Legal",
+    },
   ];
 
   return (
@@ -76,7 +85,7 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-6 lg:overflow-visible">
+        <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-7 lg:overflow-visible">
           {insights.map((insight, index) => (
             <Card
               key={index}
