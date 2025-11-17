@@ -7,7 +7,6 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { InsightsSection } from "@/components/InsightsSection";
 import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
-import { TourismSection } from "@/components/TourismSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -48,16 +47,6 @@ const Index = () => {
           description={t.about.description}
           stats={t.about.stats}
         />
-        
-        {language === "it" && (t as any).tourism && (
-          <TourismSection
-            title={(t as any).tourism.title}
-            intro={(t as any).tourism.intro}
-            email={(t as any).tourism.email}
-            placesTitle={(t as any).tourism.placesTitle}
-            places={(t as any).tourism.places}
-          />
-        )}
         
         <ContactSection 
           title={t.contact.title}

@@ -194,7 +194,7 @@ export const translations = {
       terms: "Termini di Servizio",
     },
     tourism: {
-      title: "Turismo in Minas Gerais",
+      title: "Nostri Servizi Turistici",
       intro: `Alle agenzie di viaggio italiane desideriamo suggerire alcune idee concrete per rendere le loro proposte sul Brasile davvero uniche, adattandole ai diversi target di clientela.
 
 Il nostro invito è semplice: inserite il Minas Gerais — il cuore pulsante del Brasile — nelle vostre offerte.

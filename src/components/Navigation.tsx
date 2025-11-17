@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher, Language } from "@/components/LanguageSwitcher";
 
@@ -20,12 +21,12 @@ export const Navigation = ({ currentLanguage, onLanguageChange, translations }: 
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: translations.home, href: "#home" },
-    { label: translations.services, href: "#services" },
-    { label: translations.insights, href: "#insights" },
-    { label: translations.about, href: "#about" },
-    ...(translations.turismo ? [{ label: translations.turismo, href: "#turismo" }] : []),
-    { label: translations.contact, href: "#contact" },
+    { label: translations.home, href: "#home", isExternal: false },
+    { label: translations.services, href: "#services", isExternal: false },
+    { label: translations.insights, href: "#insights", isExternal: false },
+    { label: translations.about, href: "#about", isExternal: false },
+    ...(translations.turismo ? [{ label: translations.turismo, href: "/turismo", isExternal: true }] : []),
+    { label: translations.contact, href: "#contact", isExternal: false },
   ];
 
   return (
@@ -33,23 +34,33 @@ export const Navigation = ({ currentLanguage, onLanguageChange, translations }: 
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">CB</span>
             </div>
             <span className="text-2xl font-bold text-foreground hidden sm:inline">Consul Brasil</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary font-medium transition-colors"
-              >
-                {item.label}
-              </a>
+              item.isExternal ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="text-foreground/80 hover:text-primary font-medium transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-foreground/80 hover:text-primary font-medium transition-colors"
+                >
+                  {item.label}
+                </a>
+              )
             ))}
             <LanguageSwitcher currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} />
           </div>
@@ -72,14 +83,25 @@ export const Navigation = ({ currentLanguage, onLanguageChange, translations }: 
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="block py-3 text-foreground/80 hover:text-primary font-medium transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </a>
+              item.isExternal ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="block py-3 text-foreground/80 hover:text-primary font-medium transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="block py-3 text-foreground/80 hover:text-primary font-medium transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              )
             ))}
           </div>
         )}
