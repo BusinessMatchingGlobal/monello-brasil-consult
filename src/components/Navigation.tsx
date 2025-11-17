@@ -12,6 +12,7 @@ interface NavigationProps {
     insights: string;
     about: string;
     contact: string;
+    turismo?: string;
   };
 }
 
@@ -23,6 +24,7 @@ export const Navigation = ({ currentLanguage, onLanguageChange, translations }: 
     { label: translations.services, href: "#services" },
     { label: translations.insights, href: "#insights" },
     { label: translations.about, href: "#about" },
+    ...(translations.turismo ? [{ label: translations.turismo, href: "#turismo" }] : []),
     { label: translations.contact, href: "#contact" },
   ];
 
