@@ -33,12 +33,12 @@ export const TourismSection = ({ title, intro, email, placesTitle, places }: Tou
     <section id="turismo" className="py-24 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
             {title}
-          </h2>
-          <div className="prose prose-lg mx-auto text-foreground/90 text-left space-y-4">
+          </h1>
+          <div className="prose prose-lg mx-auto text-foreground/90 space-y-4">
             {intro.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="leading-relaxed">
+              <p key={index} className="leading-relaxed text-justify hyphens-auto" lang="it">
                 {paragraph}
               </p>
             ))}
@@ -71,7 +71,7 @@ export const TourismSection = ({ title, intro, email, placesTitle, places }: Tou
                   <CardTitle className="text-xl">{place.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
+                  <CardDescription className="text-base leading-relaxed text-justify hyphens-auto" lang="it">
                     {place.description}
                   </CardDescription>
                 </CardContent>
