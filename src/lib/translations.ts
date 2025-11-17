@@ -104,6 +104,7 @@ export const translations = {
       insights: "Insights",
       about: "Chi Siamo",
       contact: "Contatti",
+      turismo: "Turismo",
     },
     hero: {
       title: "Ti aiutiamo a capire il Brasile.",
@@ -191,6 +192,56 @@ export const translations = {
       copyright: "© 2025 Consul Brasil. Tutti i diritti riservati.",
       privacy: "Informativa sulla Privacy",
       terms: "Termini di Servizio",
+    },
+    tourism: {
+      title: "Turismo in Minas Gerais",
+      intro: `Alle agenzie di viaggio italiane desideriamo suggerire alcune idee concrete per rendere le loro proposte sul Brasile davvero uniche, adattandole ai diversi target di clientela.
+
+Il nostro invito è semplice: inserite il Minas Gerais — il cuore pulsante del Brasile — nelle vostre offerte.
+
+Far arrivare i vostri ospiti all'aeroporto di Confins (Belo Horizonte) via Lisbona significa farli atterrare in uno scalo meno caotico rispetto ad altri e, soprattutto, eletto miglior aeroporto del Brasile. Da qui potranno poi proseguire comodamente verso numerose destinazioni interne, grazie a un network aereo estremamente esteso.
+
+Ma suggerire almeno una notte a Belo Horizonte può trasformare un semplice transito in un'esperienza memorabile. BH è infatti una delle grandi città più vivibili del Paese, moderna, accogliente e culturalmente ricchissima.
+
+Da qui è possibile scoprire:
+
+Il più grande museo di arte moderna a cielo aperto del mondo, un luogo magico nato dal recupero intelligente di un'ex area mineraria.
+
+Le città storiche patrimonio dell'umanità lungo la famosa Estrada Real, tra cui spicca la splendida Ouro Preto, con le sue chiese barocche, l'architettura coloniale e un'atmosfera unica.
+
+Sorprese gastronomiche che superano le aspettative: non solo un caffè straordinario, ma anche formaggi pluripremiati a livello mondiale, oltre a un patrimonio culturale e naturale ancora poco conosciuto dal turismo di massa.
+
+Abbiamo maturato una grande esperienza nell'organizzazione di itinerari e conosciamo perfettamente ciò che può piacere — e ciò che non piace — al pubblico italiano. Conosciamo il Brasile in profondità, e questa combinazione rara vi permetterà di proporre, in vetrina o sui vostri social, idee originali capaci di attirare clienti che forse non avreste immaginato.
+
+Siamo a vostra completa disposizione per collaborazioni, informazioni e supporto nella creazione di proposte personalizzate.`,
+      email: "info@consulbrasil.com",
+      placesTitle: "Destinazioni Imperdibili del Minas Gerais",
+      places: [
+        {
+          name: "Ouro Preto",
+          description: "Patrimonio UNESCO, città coloniale barocca con architettura storica mozzafiato e chiese dorate del XVIII secolo.",
+        },
+        {
+          name: "Inhotim",
+          description: "Il più grande museo di arte contemporanea a cielo aperto del mondo, immerso in un giardino botanico straordinario.",
+        },
+        {
+          name: "Serra do Cipó",
+          description: "Paradiso naturale con cascate cristalline, canyon spettacolari e biodiversità unica nel cuore del cerrado mineiro.",
+        },
+        {
+          name: "Tiradentes",
+          description: "Borgo coloniale perfettamente conservato, con strade lastricate, gastronomia raffinata e la famosa ferrovia turistica Maria Fumaça.",
+        },
+        {
+          name: "Diamantina",
+          description: "Città storica patrimonio UNESCO, famosa per l'estrazione dei diamanti e la bellezza architettonica coloniale.",
+        },
+        {
+          name: "Cidades Históricas",
+          description: "Circuito dell'Estrada Real: Mariana, Congonhas, São João del Rei - testimonianze viventi del periodo dell'oro brasiliano.",
+        },
+      ],
     },
   },
   pt: {
