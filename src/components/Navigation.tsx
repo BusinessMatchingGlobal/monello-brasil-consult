@@ -26,6 +26,7 @@ export const Navigation = ({ currentLanguage, onLanguageChange, translations }: 
     { label: translations.insights, href: "#insights", isExternal: false },
     { label: translations.about, href: "#about", isExternal: false },
     ...(translations.turismo ? [{ label: translations.turismo, href: "/turismo", isExternal: true }] : []),
+    { label: "TCaaS", href: "/TCaaS", isExternal: true },
     { label: translations.contact, href: "#contact", isExternal: false },
   ];
 
