@@ -186,11 +186,22 @@ const TCaaS = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 We are building the blueprint for a system that aligns with IATA's retailing vision but adds the necessary human layer they often overlook.
               </p>
-              <div className="p-6 bg-primary/20 rounded-lg border border-primary/30">
+              <div className="p-6 bg-primary/20 rounded-lg border border-primary/30 mb-8">
                 <p className="text-xl font-semibold text-foreground">
                   If you believe the future of travel is not "Cheaper" but "Better," help us write the rules.
                 </p>
               </div>
+              
+              <a 
+                href="mailto:TCaaS@consulbrasil.com"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold text-lg rounded-lg hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                Contact Us: TCaaS@consulbrasil.com
+              </a>
             </div>
           </div>
         </section>
