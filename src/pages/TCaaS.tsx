@@ -13,14 +13,57 @@ const TCaaS = () => {
 
   const t = getTranslation(language);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "TCaaS Manifesto: Re-Humanizing Travel - Travel Concierge as a Service",
+    "description": "The TCaaS Manifesto proposes a new B2B travel ecosystem that combines AI automation with human expertise. Learn about Travel Concierge as a Service and how it bridges the gap between OTAs and traditional travel agencies.",
+    "author": {
+      "@type": "Organization",
+      "name": "Consul Brasil",
+      "url": "https://consulbrasil.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Consul Brasil",
+      "url": "https://consulbrasil.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://consulbrasil.com/TCaaS"
+    },
+    "keywords": "TCaaS, Travel Concierge as a Service, travel technology, OTA, travel agency, GDS, NDC, airline retailing, B2B travel, augmented intelligence, travel automation"
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>TCaaS - Travel Concierge as a Service | Consul Brasil</title>
+        <title>TCaaS Manifesto: Re-Humanizing Travel | Travel Concierge as a Service | Consul Brasil</title>
         <meta
           name="description"
-          content="The TCaaS Manifesto: Re-Humanizing Travel. An invitation to architect the missing link between OTAs and Agents."
+          content="The TCaaS Manifesto: Re-Humanizing Travel. Discover how Travel Concierge as a Service bridges OTAs and traditional agencies with AI-augmented human expertise. Join our Brain Trust of GDS, NDC, and travel technology visionaries."
         />
+        <meta name="keywords" content="TCaaS, Travel Concierge as a Service, travel technology, OTA alternative, travel agency innovation, GDS architecture, NDC protocols, airline retailing, B2B travel ecosystem, augmented intelligence travel" />
+        <meta name="author" content="Consul Brasil" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://consulbrasil.com/TCaaS" />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="TCaaS Manifesto: Re-Humanizing Travel | Travel Concierge as a Service" />
+        <meta property="og:description" content="Discover how Travel Concierge as a Service bridges OTAs and traditional agencies with AI-augmented human expertise. Join our Brain Trust." />
+        <meta property="og:url" content="https://consulbrasil.com/TCaaS" />
+        <meta property="og:site_name" content="Consul Brasil" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="TCaaS Manifesto: Re-Humanizing Travel" />
+        <meta name="twitter:description" content="The missing link between OTAs and Agents. AI automation meets human expertise in travel." />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
 
       <Navigation
