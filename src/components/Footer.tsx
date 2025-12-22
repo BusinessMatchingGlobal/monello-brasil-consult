@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface FooterProps {
   copyright: string;
   privacy: string;
@@ -19,12 +21,12 @@ export const Footer = ({ copyright, privacy, terms }: FooterProps) => {
           <div className="flex flex-col md:flex-row items-center gap-6 text-sm">
             <p className="text-primary-foreground/80">{copyright}</p>
             <div className="flex gap-6">
-              <a href="#privacy" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <Link to="/privacy" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 {privacy}
-              </a>
-              <a href="#terms" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              </Link>
+              <Link to="/terms" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 {terms}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
