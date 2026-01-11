@@ -49,13 +49,14 @@ const Index = () => {
           stats={t.about.stats}
         />
         
+        <NewsletterSection />
+        
         <ContactSection 
           title={t.contact.title}
           subtitle={t.contact.subtitle}
           cta={t.contact.cta}
           emailSubject={t.contact.emailSubject}
         />
-        <NewsletterSection />
       </main>
       
       <Footer 
