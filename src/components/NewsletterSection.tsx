@@ -13,12 +13,12 @@ export const NewsletterSection = ({ title }: NewsletterSectionProps) => {
           <div className="rounded-lg overflow-hidden">
             <iframe
               width="100%"
-              height="305"
+              height="350"
               src="https://8eaf03c4.sibforms.com/serve/MUIFAMTHRZyO0GqEO2m9Q4Y1LXu3kUQl7Tld0UIbSjOhb8Am2hD-wq9faUGkLHPDyk-QsHsISeriytm-8nTDYAntu_rqUAOpzilDz-Op1RmnLeaopGB1e3QOjhubwTcVGjNnro5Ucgvo5sx822VrFHnD74rJ31HC4Y44IhbuZVCNC5fkb0-vknV5hLcfRiCLS0yzWvDjnldnDcANyw=="
               frameBorder="0"
-              scrolling="auto"
+              scrolling="no"
               allowFullScreen
-              style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
+              style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%', border: 'none' }}
               title="Newsletter Signup Form"
             />
           </div>
