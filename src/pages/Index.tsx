@@ -7,6 +7,7 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { InsightsSection } from "@/components/InsightsSection";
 import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
+import { NewsletterSection } from "@/components/NewsletterSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -54,6 +55,7 @@ const Index = () => {
           cta={t.contact.cta}
           emailSubject={t.contact.emailSubject}
         />
+        <NewsletterSection />
       </main>
       
       <Footer 
