@@ -24,14 +24,14 @@ const Index = () => {
       />
       
       <main id="home" className="pt-20">
+        <MercosurBanner language={language} />
+        
         <HeroSection 
           title={t.hero.title}
           subtitle={t.hero.subtitle}
           ctaPrimary={t.hero.cta}
           ctaSecondary={t.hero.learn}
         />
-        
-        <MercosurBanner language={language} />
         
         <ServicesSection
           title={t.services.title}
