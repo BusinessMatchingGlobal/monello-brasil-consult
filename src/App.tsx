@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Tourism from "./pages/Tourism";
 import EuMercosur from "./pages/EuMercosur";
 import EuMercosurEn from "./pages/EuMercosurEn";
+import EuMercosurPt from "./pages/EuMercosurPt";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/eu-mercosur" element={<EuMercosur />} />
           <Route path="/eu-mercosur-en" element={<EuMercosurEn />} />
+          <Route path="/eu-mercosur-pt" element={<EuMercosurPt />} />
           <Route path="/turismo" element={<Tourism />} />
           
           <Route path="/privacy" element={<PrivacyPolicy />} />

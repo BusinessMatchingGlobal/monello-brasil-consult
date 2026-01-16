@@ -27,7 +27,7 @@ const translations = {
     title: "Acordo UE–Mercosul: uma mudança histórica",
     subtitle: "O que significa para as empresas europeias e brasileiras? Leia a análise completa.",
     cta: "Ler artigo",
-    link: "/eu-mercosur"
+    link: "/eu-mercosur-pt"
   }
 };
 
