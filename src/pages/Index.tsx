@@ -31,7 +31,7 @@ const Index = () => {
           ctaSecondary={t.hero.learn}
         />
         
-        <MercosurBanner />
+        <MercosurBanner language={language} />
         
         <ServicesSection
           title={t.services.title}
