@@ -35,25 +35,28 @@ export const MercosurBanner = ({ language }: MercosurBannerProps) => {
   const t = translations[language];
   
   return (
-    <section className="bg-gradient-to-r from-accent to-accent/80 py-6">
+    <section className="bg-gradient-to-r from-primary via-primary/90 to-primary/80 py-4 shadow-lg">
       <div className="container mx-auto px-6">
         <Link to={t.link} className="block group">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Globe className="h-6 w-6 text-primary" />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-center sm:text-left">
+            <div className="flex items-center gap-3">
+              <div className="bg-white/20 p-2.5 rounded-full animate-pulse">
+                <Globe className="h-5 w-5 text-white" />
               </div>
-              <div>
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider">{t.label}</span>
-                <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                <span className="text-xs font-bold text-white/90 uppercase tracking-wider bg-white/10 px-2 py-0.5 rounded">
+                  {t.label}
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-white/90 transition-colors">
                   {t.title}
                 </h3>
-                <p className="text-sm text-muted-foreground hidden md:block">
-                  {t.subtitle}
-                </p>
               </div>
             </div>
-            <Button variant="default" className="shrink-0 group-hover:bg-primary/90">
+            <Button 
+              variant="secondary" 
+              size="sm"
+              className="shrink-0 bg-white text-primary hover:bg-white/90 font-semibold shadow-md"
+            >
               {t.cta}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
