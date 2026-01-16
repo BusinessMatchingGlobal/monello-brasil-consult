@@ -3,6 +3,7 @@ import { Language } from "@/components/LanguageSwitcher";
 import { getTranslation } from "@/lib/translations";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
+import { MercosurBanner } from "@/components/MercosurBanner";
 import { ServicesSection } from "@/components/ServicesSection";
 import { InsightsSection } from "@/components/InsightsSection";
 import { AboutSection } from "@/components/AboutSection";
@@ -30,7 +31,9 @@ const Index = () => {
           ctaSecondary={t.hero.learn}
         />
         
-        <ServicesSection 
+        <MercosurBanner />
+        
+        <ServicesSection
           title={t.services.title}
           subtitle={t.services.subtitle}
           services={t.services}
