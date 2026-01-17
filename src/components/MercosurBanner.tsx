@@ -45,7 +45,7 @@ export const MercosurBanner = ({ language }: MercosurBannerProps) => {
           <div className="flex flex-col items-center text-center gap-6">
             {/* Quote - prominent */}
             <p className="text-xl sm:text-2xl md:text-3xl font-light italic text-white/95 max-w-2xl">
-              "{t.quote}"
+              {t.quote}
             </p>
             
             {/* Image below quote with caption */}
