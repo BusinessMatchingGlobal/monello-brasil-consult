@@ -36,24 +36,23 @@ export const MercosurBanner = ({ language }: MercosurBannerProps) => {
   const t = translations[language];
   
   return (
-    <section className="relative bg-gradient-to-r from-primary via-primary/95 to-primary/90 py-6 shadow-xl overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src={mercosurImage} 
-          alt="EU-Mercosur signing ceremony" 
-          className="w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/80" />
-      </div>
-      
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="bg-primary py-8 shadow-xl">
+      <div className="container mx-auto px-6">
         <Link to={t.link} className="block group">
-          <div className="flex flex-col items-center text-center gap-4">
+          <div className="flex flex-col items-center text-center gap-6">
             {/* Quote - prominent */}
             <p className="text-xl sm:text-2xl md:text-3xl font-light italic text-white/95 max-w-2xl">
               "{t.quote}"
             </p>
+            
+            {/* Image below quote */}
+            <div className="w-full max-w-3xl rounded-lg overflow-hidden shadow-2xl">
+              <img 
+                src={mercosurImage} 
+                alt="EU-Mercosur signing ceremony" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
             
             {/* Title and label */}
             <div className="flex flex-col items-center gap-2">
@@ -69,7 +68,7 @@ export const MercosurBanner = ({ language }: MercosurBannerProps) => {
             <Button 
               variant="secondary" 
               size="lg"
-              className="mt-2 bg-white text-primary hover:bg-white/90 font-bold shadow-lg px-8"
+              className="bg-white text-primary hover:bg-white/90 font-bold shadow-lg px-8"
             >
               {t.cta}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
