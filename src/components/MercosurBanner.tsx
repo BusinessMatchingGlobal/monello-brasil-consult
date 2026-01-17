@@ -12,7 +12,7 @@ const translations = {
   en: {
     label: "Featured Article",
     title: "EU–Mercosur Agreement: A historic shift",
-    quote: "Finally, a light in a dark time.",
+    quote: "A light in a dark time.",
     cta: "Read article",
     link: "/eu-mercosur-en"
   },
