@@ -43,6 +43,7 @@ const Index = () => {
           title={t.insights.title}
           subtitle={t.insights.subtitle}
           readMore={t.insights.readMore}
+          language={language}
           articles={t.insights}
         />
         

@@ -9,11 +9,13 @@ import industrialMachineryImage from "@/assets/industrial-machinery.jpg";
 import cosmeticsBrazilImage from "@/assets/cosmetics-brazil.jpg";
 import consumerDefenseImage from "@/assets/consumer-defense-code.jpg";
 import euMercosurSigningImage from "@/assets/eu-mercosur-signing.jpg";
+import { Language } from "@/components/LanguageSwitcher";
 
 interface InsightsSectionProps {
   title: string;
   subtitle: string;
   readMore: string;
+  language: Language;
   articles: {
     article1: { title: string; description: string; url: string };
     article2: { title: string; description: string; url: string };
@@ -25,10 +27,34 @@ interface InsightsSectionProps {
   };
 }
 
-export const InsightsSection = ({ title, subtitle, readMore, articles }: InsightsSectionProps) => {
-  const featuredArticle = {
+const featuredArticleTranslations = {
+  it: {
     title: "Finalmente una luce in un periodo buio.",
     description: "Dopo oltre 25 anni di negoziati, la firma dell'Accordo di Associazione UE–Mercosur segna una svolta strategica per il commercio internazionale e per il settore agroalimentare europeo. Abbiamo pubblicato un'analisi strategica e tecnica che va oltre la retorica, chiarendo cosa prevede realmente l'accordo: tutele per i settori sensibili, clausole di salvaguardia, reciprocità sugli standard e nuove opportunità per le filiere europee di qualità.",
+    cta: "👉 Leggi l'articolo completo su LinkedIn",
+    hashtags: ["#EUMercosur", "#Agroalimentare", "#TradePolicy", "#Europa", "#Mercosur", "#ConsulBrasil"],
+  },
+  en: {
+    title: "Finally, a light in a dark time.",
+    description: "After more than 25 years of negotiations, the signing of the EU–Mercosur Association Agreement marks a strategic turning point for international trade and for the European agri-food sector. We have published a strategic and technical analysis that goes beyond rhetoric, explaining what the agreement actually provides: protections for sensitive sectors, safeguard clauses, reciprocity on standards, and new opportunities for Europe's quality-driven value chains.",
+    cta: "👉 Read the full article on LinkedIn",
+    hashtags: ["#EUMercosur", "#AgriFood", "#TradePolicy", "#Europe", "#Mercosur", "#ConsulBrasil"],
+  },
+  pt: {
+    title: "Finalmente, uma luz em tempos sombrios.",
+    description: "Após mais de 25 anos de negociações, a assinatura do Acordo de Associação UE–Mercosul representa uma virada estratégica para o comércio internacional e para o setor agroalimentar europeu. Publicamos uma análise estratégica e técnica que vai além da retórica, explicando o que o acordo realmente prevê: proteção para setores sensíveis, cláusulas de salvaguarda, reciprocidade de padrões e novas oportunidades para as cadeias europeias de qualidade.",
+    cta: "👉 Leia o artigo completo no LinkedIn",
+    hashtags: ["#EUMercosur", "#Agroalimentar", "#TradePolicy", "#Europa", "#Mercosul", "#ConsulBrasil"],
+  },
+};
+
+export const InsightsSection = ({ title, subtitle, readMore, language, articles }: InsightsSectionProps) => {
+  const featuredContent = featuredArticleTranslations[language];
+  const featuredArticle = {
+    title: featuredContent.title,
+    description: featuredContent.description,
+    cta: featuredContent.cta,
+    hashtags: featuredContent.hashtags,
     url: "https://www.linkedin.com/pulse/strategic-analysis-impact-assessment-eumercosur-economic-j3rrf/",
     image: euMercosurSigningImage,
     category: "Trade Policy",
@@ -117,11 +143,9 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
                 {featuredArticle.description}
               </CardDescription>
               <div className="flex flex-wrap gap-2 mb-6 text-sm text-muted-foreground">
-                <span>#EUMercosur</span>
-                <span>#Agroalimentare</span>
-                <span>#TradePolicy</span>
-                <span>#Europa</span>
-                <span>#Mercosur</span>
+                {featuredArticle.hashtags.map((tag, index) => (
+                  <span key={index}>{tag}</span>
+                ))}
               </div>
               <Button 
                 variant="default" 
@@ -129,7 +153,7 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
                 asChild
               >
                 <a href={featuredArticle.url} target="_blank" rel="noopener noreferrer">
-                  👉 Leggi l'articolo completo su LinkedIn
+                  {featuredArticle.cta}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
