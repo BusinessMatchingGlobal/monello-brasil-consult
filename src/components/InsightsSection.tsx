@@ -8,6 +8,7 @@ import custoBrasilImage from "@/assets/custo-brasil.jpg";
 import industrialMachineryImage from "@/assets/industrial-machinery.jpg";
 import cosmeticsBrazilImage from "@/assets/cosmetics-brazil.jpg";
 import consumerDefenseImage from "@/assets/consumer-defense-code.jpg";
+import euMercosurSigningImage from "@/assets/eu-mercosur-signing.jpg";
 
 interface InsightsSectionProps {
   title: string;
@@ -25,6 +26,14 @@ interface InsightsSectionProps {
 }
 
 export const InsightsSection = ({ title, subtitle, readMore, articles }: InsightsSectionProps) => {
+  const featuredArticle = {
+    title: "Finalmente una luce in un periodo buio.",
+    description: "Dopo oltre 25 anni di negoziati, la firma dell'Accordo di Associazione UE–Mercosur segna una svolta strategica per il commercio internazionale e per il settore agroalimentare europeo. Abbiamo pubblicato un'analisi strategica e tecnica che va oltre la retorica, chiarendo cosa prevede realmente l'accordo: tutele per i settori sensibili, clausole di salvaguardia, reciprocità sugli standard e nuove opportunità per le filiere europee di qualità.",
+    url: "https://www.linkedin.com/pulse/strategic-analysis-impact-assessment-eumercosur-economic-j3rrf/",
+    image: euMercosurSigningImage,
+    category: "Trade Policy",
+  };
+
   const insights = [
     {
       title: articles.article1.title,
@@ -84,6 +93,49 @@ export const InsightsSection = ({ title, subtitle, readMore, articles }: Insight
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{title}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
         </div>
+
+        {/* Featured Article */}
+        <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
+          <div className="grid md:grid-cols-2 gap-0">
+            <div className="relative h-64 md:h-auto overflow-hidden">
+              <img
+                src={featuredArticle.image}
+                alt={featuredArticle.title}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1 bg-primary text-primary-foreground text-sm font-semibold rounded-full">
+                  {featuredArticle.category}
+                </span>
+              </div>
+            </div>
+            <div className="p-8 flex flex-col justify-center">
+              <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
+                {featuredArticle.title}
+              </CardTitle>
+              <CardDescription className="text-base leading-relaxed mb-6 text-muted-foreground">
+                {featuredArticle.description}
+              </CardDescription>
+              <div className="flex flex-wrap gap-2 mb-6 text-sm text-muted-foreground">
+                <span>#EUMercosur</span>
+                <span>#Agroalimentare</span>
+                <span>#TradePolicy</span>
+                <span>#Europa</span>
+                <span>#Mercosur</span>
+              </div>
+              <Button 
+                variant="default" 
+                className="w-fit"
+                asChild
+              >
+                <a href={featuredArticle.url} target="_blank" rel="noopener noreferrer">
+                  👉 Leggi l'articolo completo su LinkedIn
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </Card>
 
         <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-7 lg:overflow-visible">
           {insights.map((insight, index) => (
