@@ -13,6 +13,7 @@ const translations = {
     label: "Featured Article",
     title: "EU–Mercosur Agreement: A historic shift",
     quote: "A light in a dark time.",
+    caption: "Asunción, January 17, 2026 – Official signing of the EU–Mercosur Association Agreement.",
     cta: "Read article",
     link: "/eu-mercosur-en"
   },
@@ -20,6 +21,7 @@ const translations = {
     label: "Approfondimento",
     title: "Accordo UE–Mercosur: un cambio di fase storico",
     quote: "Finalmente una luce in un periodo buio.",
+    caption: "Asunción, 17 gennaio 2026 – Firma dell'Accordo di Associazione UE–Mercosur.",
     cta: "Leggi l'articolo",
     link: "/eu-mercosur"
   },
@@ -27,6 +29,7 @@ const translations = {
     label: "Artigo em Destaque",
     title: "Acordo UE–Mercosul: uma mudança histórica",
     quote: "Finalmente, uma luz em tempos sombrios.",
+    caption: "Assunção, 17 de janeiro de 2026 – Assinatura do Acordo de Associação UE–Mercosul.",
     cta: "Ler artigo",
     link: "/eu-mercosur-pt"
   }
@@ -45,14 +48,19 @@ export const MercosurBanner = ({ language }: MercosurBannerProps) => {
               "{t.quote}"
             </p>
             
-            {/* Image below quote */}
-            <div className="w-full max-w-3xl rounded-lg overflow-hidden shadow-2xl">
-              <img 
-                src={mercosurImage} 
-                alt="EU-Mercosur signing ceremony" 
-                className="w-full h-auto object-cover"
-              />
-            </div>
+            {/* Image below quote with caption */}
+            <figure className="w-full max-w-3xl">
+              <div className="rounded-lg overflow-hidden shadow-2xl">
+                <img 
+                  src={mercosurImage} 
+                  alt="EU-Mercosur signing ceremony" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <figcaption className="text-sm text-white/70 italic mt-3">
+                {t.caption}
+              </figcaption>
+            </figure>
             
             {/* Title and label */}
             <div className="flex flex-col items-center gap-2">
