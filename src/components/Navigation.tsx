@@ -34,11 +34,12 @@ export const Navigation = ({ currentLanguage, onLanguageChange, translations }: 
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">CB</span>
-            </div>
-            <span className="text-2xl font-bold text-foreground hidden sm:inline">Consul Brasil</span>
+          <Link to="/" className="flex items-center gap-3">
+            <img 
+              src="/images/logo-bmg.jpg" 
+              alt="Business Matching Global" 
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
