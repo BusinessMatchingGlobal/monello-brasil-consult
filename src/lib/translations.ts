@@ -214,7 +214,7 @@ Sorprese gastronomiche che superano le aspettative: non solo un caffè straordin
 Abbiamo maturato una grande esperienza nell'organizzazione di itinerari e conosciamo perfettamente ciò che può piacere — e ciò che non piace — al pubblico italiano. Conosciamo il Brasile in profondità, e questa combinazione rara vi permetterà di proporre, in vetrina o sui vostri social, idee originali capaci di attirare clienti che forse non avreste immaginato.
 
 Siamo a vostra completa disposizione per collaborazioni, informazioni e supporto nella creazione di proposte personalizzate.`,
-      email: "info@consulbrasil.com",
+      email: "enstobbi@enstobbi.it",
       placesTitle: "Destinazioni Imperdibili del Minas Gerais",
       places: [
         {

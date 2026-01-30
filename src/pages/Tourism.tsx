@@ -22,7 +22,7 @@ const Tourism = () => {
     "name": "Consul Brasil - Servizi Turistici Minas Gerais",
     "description": "Servizi turistici specializzati per il Minas Gerais, Brasile. Scopri Ouro Preto, Inhotim, Serra do Cipó e le città storiche dell'Estrada Real con guide esperte.",
     "url": "https://consulbrasil.com/turismo",
-    "email": "info@consulbrasil.com",
+    "email": "enstobbi@enstobbi.it",
     "areaServed": {
       "@type": "State",
       "name": "Minas Gerais",
