@@ -92,7 +92,7 @@ export const translations = {
       emailSubject: "Let's Transform Your Business in Brazil",
     },
     footer: {
-      copyright: "© 2025 Consul Brasil. All rights reserved.",
+      copyright: "© 2025 Business Matching Global. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
     },
@@ -189,7 +189,7 @@ export const translations = {
       emailSubject: "Trasformiamo il Tuo Business in Brasile",
     },
     footer: {
-      copyright: "© 2025 Consul Brasil. Tutti i diritti riservati.",
+      copyright: "© 2025 Business Matching Global. Tutti i diritti riservati.",
       privacy: "Informativa sulla Privacy",
       terms: "Termini di Servizio",
     },
@@ -335,7 +335,7 @@ Siamo a vostra completa disposizione per collaborazioni, informazioni e supporto
       emailSubject: "Vamos Transformar Seu Negócio no Brasil",
     },
     footer: {
-      copyright: "© 2025 Consul Brasil. Todos os direitos reservados.",
+      copyright: "© 2025 Business Matching Global. Todos os direitos reservados.",
       privacy: "Política de Privacidade",
       terms: "Termos de Serviço",
     },
