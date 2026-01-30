@@ -90,7 +90,7 @@ const Terms = () => {
               <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">9. Contact</h2>
               <p className="text-muted-foreground">
                 For questions about these Terms of Service, please contact us at:{" "}
-                <a href="mailto:info@consulbrasil.com" className="text-primary hover:underline">info@consulbrasil.com</a>
+                <a href="mailto:enstobbi@enstobbi.it" className="text-primary hover:underline">enstobbi@enstobbi.it</a>
               </p>
 
               <div className="mt-12 p-6 bg-primary/10 rounded-lg border-l-4 border-primary">

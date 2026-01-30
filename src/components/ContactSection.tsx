@@ -9,7 +9,7 @@ interface ContactSectionProps {
 }
 
 export const ContactSection = ({ title, subtitle, cta, emailSubject }: ContactSectionProps) => {
-  const mailtoLink = `mailto:info@consulbrasil.com?subject=${encodeURIComponent(emailSubject)}`;
+  const mailtoLink = `mailto:enstobbi@enstobbi.it?subject=${encodeURIComponent(emailSubject)}`;
   return (
     <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -36,7 +36,7 @@ export const ContactSection = ({ title, subtitle, cta, emailSubject }: ContactSe
             
             <p className="mt-6 text-primary-foreground/80 text-sm">
               <Mail className="inline-block mr-2 h-4 w-4" />
-              info@consulbrasil.com
+              enstobbi@enstobbi.it
             </p>
           </div>
           
