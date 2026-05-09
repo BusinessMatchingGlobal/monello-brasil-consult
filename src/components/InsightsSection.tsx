@@ -11,6 +11,7 @@ import consumerDefenseImage from "@/assets/consumer-defense-code.jpg";
 import euMercosurSigningImage from "@/assets/eu-mercosur-signing.jpg";
 import brazilianCoffeeEudrImage from "@/assets/brazilian-coffee-eudr.webp";
 import madeiraTropicalEudrImage from "@/assets/madeira-tropical-eudr.jpg";
+import ajvarCaviarVermelhoImage from "@/assets/ajvar-caviar-vermelho.jpg";
 import { Language } from "@/components/LanguageSwitcher";
 
 interface InsightsSectionProps {
@@ -202,6 +203,52 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
     category: "EUDR",
   } : null;
 
+  const ajvarTranslations: Record<string, { title: string; description: string; fullText: string[] } | null> = {
+    pt: {
+      title: "O caviar vermelho que ainda não chegou ao Brasil",
+      description: "Existe uma palavra turca, havyar, que viajou em duas direções na história. Para o oeste, deu origem ao caviar europeu — as ovas salgadas que conhecemos. Para os Bálcãs, deu origem ao ajvar: uma pasta espessa de pimentões vermelhos assados na lenha, espremidos lentamente até virarem creme. Mesma palavra, mesma ideia — concentrar até virar precioso —, dois produtos completamente diferentes.",
+      fullText: [
+        "O ajvar é o que sobra quando você submete três quilos de pimentão vermelho a fogo, lenha, paciência e sal. O resultado é uma pasta densa, defumada, levemente doce, que nos Bálcãs é parte da despensa nacional do mesmo modo que a goiabada é da brasileira: zimnica, conserva de inverno, ritual familiar de fim de verão. Quando os pimentões amadurecem em setembro, famílias inteiras se reúnem em torno de fogueiras nos quintais para queimar, descascar, moer e cozinhar — uma operação coletiva que termina em dúzias de potes selados para os meses frios.",
+        "A pergunta interessante não é \"o que é ajvar\". É: por que esse produto, que depende inteiramente de fogo, fumaça e pimentão vermelho, ainda não fez parte da cultura brasileira do churrasco?",
+        "A resposta provavelmente está no fato de que ninguém ainda contou essa história aqui. Porque o paladar brasileiro, contrariamente ao que se possa imaginar, já sabe exatamente como comer ajvar. Ele só não sabe o nome.",
+        "O vinagrete e seu primo defumado",
+        "Pense no vinagrete que acompanha o churrasco: tomate, cebola, pimentão, vinagre, azeite. É um molho fresco, ácido, com pedaços. Agora imagine uma versão dele que passou pelo carvão. Que perdeu a água, ganhou fumaça, virou pasta. Que troca a frescura pela profundidade, o crocante pelo cremoso. Esse é o ajvar — não como invasor estrangeiro do churrasco, mas como sua versão concentrada, seu vinagrete envelhecido no fogo. Os ingredientes-base são quase os mesmos. O que muda é o tempo e o método.",
+        "Essa proximidade não é detalhe. É o que torna o ajvar tão diferente, por exemplo, de um kimchi ou de um zaatar — produtos magníficos, mas culturalmente distantes do paladar médio brasileiro. O ajvar entra por uma porta que já está aberta.",
+        "Mas atenção: nem todo ajvar é ajvar",
+        "Aqui é necessário um aviso. O que circula na maior parte dos supermercados europeus sob o rótulo ajvar é, em geral, um produto industrial cuja relação com o original é a mesma que existe entre o queijo ralado em sachê e um Parmigiano Reggiano envelhecido. A palavra é a mesma. O produto, não.",
+        "A versão de massa nasce de outra lógica produtiva: pimentões genéricos em vez das variedades tradicionais (a Kurtovska Kapija, a Rog — pimentões alongados, carnudos, naturalmente doces, que dispensam adição de açúcar); aromatizante de fumaça em vez de fogo de lenha de verdade; cozimento curto em caldeiras industriais em vez das três a quatro horas de redução lenta; óleos vegetais refinados em vez de azeite; e, com frequência, polpa de tomate como diluente para cortar custos — algo que, na tradição balcânica, é considerado adulteração pura e simples.",
+        "O resultado é um produto razoável como molho industrial, mas que perde quase tudo o que justifica o nome: a defumação real, a textura aveludada da redução longa, a doçura natural do pimentão tostado, a complexidade que só vem de tempo e fogo direto. É o ajvar reduzido a uma silhueta de si mesmo — comestível, mas distante do original como um café solúvel está de um espresso bem extraído.",
+        "Para o consumidor brasileiro que vai descobrir o produto agora, essa distinção é decisiva. Ajvar industrial confirma o estereótipo: \"molho estrangeiro, nada de especial\". Ajvar artesanal — pimentão certo, fogo de lenha, redução lenta, azeite de verdade — é uma categoria à parte. A mesma palavra, dois produtos completamente diferentes. Vale a pena saber qual está no pote antes de formar opinião.",
+        "Queijo coalho, dadinho de tapioca: a química do encontro",
+        "O queijo coalho, espetado e grelhado, pede uma contrapartida ácida e salgada. Geralmente recebe melado, geleia de pimenta, mel — soluções doces. O ajvar oferece uma alternativa: salgada, defumada, cor intensa de pimentão maduro. Mesma função, registro diferente. Quem já comeu coalho com geleia de pimenta entende imediatamente o que ajvar faz no prato.",
+        "O dadinho de tapioca segue lógica parecida. A geleia de pimenta que o acompanha quase sempre cumpre o papel de contraste agridoce. O ajvar, menos doce e mais complexo, mantém o contraste sem cair na mesma nota açucarada — um upgrade sensorial dentro do mesmo gesto.",
+        "Da Canastra à panela: a versatilidade fora do churrasco",
+        "Reduzir o ajvar ao churrasco seria perdê-lo pela metade. Seu lugar mais cotidiano — e talvez o mais natural — é a despensa, o petisco e a cozinha de toda semana.",
+        "Com o queijo da Canastra. O encontro mais elegante que o ajvar pode ter no Brasil é provavelmente com um Canastra bem curado. O paralelo é o das tábuas italianas que combinam Parmigiano com mostarda di frutta ou geleia de figo: um queijo intenso, salgado, com cristais de envelhecimento, pede um contraponto doce-defumado que corte a salinidade sem competir. Geleias adoçam demais. Mel é redundante. O ajvar oferece exatamente o que falta — profundidade vegetal, fumaça, doçura discreta dos pimentões maduros. Para o queijo Minas meia-cura, mais delicado, vale uma colher menor, mas a mesma lógica. E para um pão de queijo recém-saído do forno, aberto e recheado com uma colherada de ajvar: um encontro mineiro-balcânico que parece feito para acontecer.",
+        "Na massa. Nos Bálcãs, o ajvar não é molho de massa — é conserva de inverno. Mas a química funciona muito bem nessa direção. Um rigatoni al ajvar, feito apenas com ajvar, um pouco da água de cozimento da massa, pimenta e queijo ralado para finalizar, é um prato de dez minutos com perfil de molho de quatro horas. A redução longa que o ajvar já passou fez todo o trabalho que normalmente um molho de tomate exige no fogão. Para uma versão mais rica, uma colher de creme de leite fresco, e o resultado se aproxima de uma vodka sauce sem o álcool e com fumaça no lugar.",
+        "Como base de petiscos. A consistência de pasta densa abre possibilidades que poucos condimentos têm: bruschetta sobre pão tostado com fio de azeite; misturado a cream cheese ou ricota fresca como dip para vegetais e biscoitos; substituto do molho de tomate em pizzas individuais — o resultado é mais escuro, mais concentrado, e pede mussarela de búfala em vez da convencional; recheio de sanduíche com vegetais grelhados e queijo branco; companhia de ovos mexidos na manhã seguinte; marinada para frango antes da grelha, com alho e azeite. Em todos esses contextos, o ajvar não disputa destaque — ele constrói camada de sabor por baixo, do mesmo jeito que um bom tomate seco italiano ou uma tapenade de azeitona faz na cozinha mediterrânea.",
+        "Antigo, mas alinhado com o presente",
+        "Há algo curioso no ajvar olhado com olhos contemporâneos. Foi inventado por camponesas balcânicas que não tinham geladeira, precisavam salvar a colheita do pimentão antes do inverno, e trabalhavam com o que tinham — fogo, óleo, sal. Sem qualquer intenção, criaram uma receita que atende a praticamente todas as exigências da alimentação moderna mais atenta.",
+        "A versão autêntica é vegetal por construção, não por adaptação: pimentão, berinjela, azeite e sal. Nenhum ingrediente animal, nenhum aditivo industrial — não porque alguém quis fazer uma versão \"vegana\", mas porque a tradição nunca incluiu nada disso. É naturalmente sem glúten, baixo em carboidratos, compatível com dieta cetogênica. Rico em vitamina C (mais do que a laranja), em betacaroteno e em licopeno — o pigmento vermelho que a ciência hoje associa a benefícios cardiovasculares.",
+        "A ironia interessante é que, num mercado em que produtos industriais se reformulam constantemente para parecerem \"limpos\" — clean label, plant-based, free-from —, o ajvar artesanal não precisa fingir nada. Ele já é tudo isso, há séculos, simplesmente porque foi feito assim desde sempre. É a forma mais antiga de \"comida do futuro\" que se possa imaginar.",
+        "Não é cozinha étnica. É um ingrediente esperando lugar.",
+        "A tentação fácil seria apresentar o ajvar como \"especialidade balcânica\", colocá-lo na prateleira dos produtos exóticos e esperar que curiosos o descubram. Seria um erro de leitura. O ajvar não é cozinha étnica no Brasil — é um ingrediente que faltava num sistema gastronômico que já tem todas as referências para entendê-lo. Pimentão, fogo, lenha, fumaça, espessura de pasta, função de acompanhar carne grelhada: nada disso é estrangeiro.",
+        "O que é estrangeiro é a palavra. E talvez o método de produção lento — três horas de fogo direto, cozimento prolongado, redução progressiva — que num mundo de molhos industriais virou raridade.",
+        "Os Bálcãs chamam o ajvar de \"caviar vermelho\" não por marketing, mas porque entendem que o que está em jogo é uma transformação preciosa: muito vegetal, muito tempo, muito fogo, para um pouco de creme final. É o tipo de produto que, quando bem feito, justifica sozinho um pedaço de pão.",
+        "A verdadeira pergunta, então, não é se o ajvar vai chegar ao Brasil. É quando, como, e por meio de quem.",
+      ],
+    },
+    en: null,
+    it: null,
+  };
+  const ajvarContent = ajvarTranslations[language];
+  const ajvarArticle = ajvarContent ? {
+    ...ajvarContent,
+    hashtags: ["#Ajvar", "#CaviarVermelho", "#FoodInnovation", "#FoodBusiness", "#Gastronomia", "#ChurrascoBrasileiro", "#ProdutosGourmet", "#CleanLabel", "#PlantBased", "#SlowFood", "#CulturaAlimentar", "#BrasilGourmet", "#MinasGerais", "#QueijoCanastra", "#Balcãs"],
+    image: ajvarCaviarVermelhoImage,
+    category: "Food Innovation",
+  } : null;
+
   const insights = [
     {
       title: articles.article1.title,
@@ -377,6 +424,47 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
                 <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
                   {madeiraEudrArticle.hashtags.map((tag, index) => (
+                    <span key={index}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Card>
+        )}
+
+        {/* Ajvar Featured Article — Portuguese only */}
+        {ajvarArticle && (
+          <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
+            <div className="grid md:grid-cols-2 gap-0">
+              <div className="relative h-64 md:h-auto overflow-hidden">
+                <img
+                  src={ajvarArticle.image}
+                  alt={ajvarArticle.title}
+                  loading="lazy"
+                  width={1280}
+                  height={800}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-primary text-primary-foreground text-sm font-semibold rounded-full">
+                    {ajvarArticle.category}
+                  </span>
+                </div>
+              </div>
+              <div className="p-8 flex flex-col justify-center">
+                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
+                  {ajvarArticle.title}
+                </CardTitle>
+                <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
+                  {ajvarArticle.description}
+                </CardDescription>
+                <div className="space-y-3 mb-6 text-sm leading-relaxed text-muted-foreground max-h-72 overflow-y-auto pr-2">
+                  {ajvarArticle.fullText.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
+                  {ajvarArticle.hashtags.map((tag, index) => (
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
