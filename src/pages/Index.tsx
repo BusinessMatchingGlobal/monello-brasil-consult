@@ -53,7 +53,7 @@ const Index = () => {
           stats={t.about.stats}
         />
         
-        <NewsletterSection />
+        <NewsletterSection language={language} />
         
         <ContactSection 
           title={t.contact.title}
