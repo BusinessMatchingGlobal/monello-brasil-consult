@@ -9,7 +9,7 @@ import industrialMachineryImage from "@/assets/industrial-machinery.jpg";
 import cosmeticsBrazilImage from "@/assets/cosmetics-brazil.jpg";
 import consumerDefenseImage from "@/assets/consumer-defense-code.jpg";
 import euMercosurSigningImage from "@/assets/eu-mercosur-signing.jpg";
-import brazilianCoffeeEudrImage from "@/assets/brazilian-coffee-eudr.jpg";
+import brazilianCoffeeEudrImage from "@/assets/brazilian-coffee-eudr.webp";
 import { Language } from "@/components/LanguageSwitcher";
 
 interface InsightsSectionProps {
