@@ -38,7 +38,7 @@ const copy = {
     error: "Qualcosa è andato storto. Riprova.",
   },
   pt: {
-    title: "Fique atualizado",
+    title: "Fique por dentro das novidades",
     subtitle: "Receba nossos últimos insights sobre Brasil, UE–Mercosul e Custo Brasil — diretamente no seu e-mail.",
     placeholder: "seu@email.com",
     cta: "Inscrever-se",
