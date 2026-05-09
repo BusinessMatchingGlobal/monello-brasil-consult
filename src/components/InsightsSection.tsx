@@ -10,6 +10,7 @@ import cosmeticsBrazilImage from "@/assets/cosmetics-brazil.jpg";
 import consumerDefenseImage from "@/assets/consumer-defense-code.jpg";
 import euMercosurSigningImage from "@/assets/eu-mercosur-signing.jpg";
 import brazilianCoffeeEudrImage from "@/assets/brazilian-coffee-eudr.webp";
+import madeiraTropicalEudrImage from "@/assets/madeira-tropical-eudr.jpg";
 import { Language } from "@/components/LanguageSwitcher";
 
 interface InsightsSectionProps {
@@ -126,6 +127,31 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
     ...coffeeContent,
     hashtags: ["#EUDR", "#BrazilianCoffee", "#CoffeeTraceability", "#DeforestationFree", "#DueDiligence", "#SupplyChainIntegrity", "#Agritech", "#ESG", "#EuropeanUnion", "#TRACES", "#GeospatialData", "#GNSS", "#Compliance", "#Exportacao", "#AgroBrasil"],
     image: brazilianCoffeeEudrImage,
+    category: "EUDR",
+  } : null;
+
+  const madeiraEudrArticle = language === "pt" ? {
+    title: "Madeira Tropical Brasileira e EUDR: o fim da era do \"DOF de gaveta\"",
+    description: "A União Europeia confirmou em dezembro de 2025 a nova arquitetura do EUDR: aplicação plena para grandes e médios operadores em 30 de dezembro de 2026. Para a madeira tropical brasileira — ipê, jatobá, cumaru, garapa, sucupira, angelim, massaranduba — isso significa duas coisas. Primeiro: o EUTR (Regulamento UE 995/2010) continua vigente para produtos colocados no mercado antes da entrada do EUDR até 31 de dezembro de 2027. Ou seja, a fiscalização não diminui — ela apenas migra de regime. Segundo: o Brasil foi classificado como risco \"standard\", o que significa due diligence completa para cada lote e controles alfandegários proporcionais ao risco.",
+    fullText: [
+      "O problema central da madeira brasileira na pauta europeia não é novo, mas agora ganhou peso jurídico inédito: a lavagem de madeira.",
+      "Os pontos cegos do sistema brasileiro de rastreabilidade florestal",
+      "1. DOF, SISFLORA e SINAFLOR — sistemas que dependem da declaração. O Documento de Origem Florestal e os sistemas estaduais (SISFLORA-PA, SISFLORA-MT) e federal (SINAFLOR) cobrem o trânsito legal da madeira no papel. Mas casos consolidados de fraude — créditos fictícios em Plano de Manejo Florestal Sustentável, volumes inflados em árvores que nunca existiram, \"esquentamento\" de toras vindas de áreas embargadas — mostraram que a integridade do dado depende da fiscalização local, e esta é estruturalmente subdimensionada frente à extensão da floresta amazônica.",
+      "2. A ruptura do elo físico-digital. Entre a tora derrubada na floresta e o contêiner no porto de Belém ou Paranaguá, a identidade física da madeira é atestada por plaquetas plásticas, tinta, RFID e códigos de barras — todos passíveis de cair, ser substituídos ou serem aplicados a uma tora diferente daquela registrada. O \"DNA\" da árvore desaparece no primeiro carregamento.",
+      "3. O comprador europeu não confia mais. Após casos como a Operação Arquimedes, a Operação Castanheira e a sequência de embargos a empresas brasileiras documentados pela DG ENV, importadores europeus de madeira tropical aplicam due diligence reforçada mesmo sobre fornecedores de longa data. O custo do compliance virou critério de seleção — e quem não automatiza, perde margem.",
+      "A nova fronteira: marcação física não-clonável, ligada à coordenada de origem",
+      "Existe hoje uma tecnologia que resolve o gap específico da madeira: o vácuo entre a árvore na floresta e o tronco no pátio. O conceito não é satelital nem documental — é físico:",
+      "Marca direta na face da tora, gerada por sinais GNSS no momento exato do corte. Em vez de plaquetas, RFID ou tinta, a tecnologia imprime um código único no anel da madeira, derivado em tempo real dos sinais das constelações Galileo, GPS, GLONASS e BeiDou — com precisão de 2 metros e timestamp de 1 segundo. O código nasce com a tora, na coordenada exata onde ela caiu. Não há banco de dados externo a ser hackeado: a identidade está literalmente gravada na madeira.",
+      "Resistência ao ambiente da cadeia florestal. A marcação foi projetada para sobreviver ao que destrói tudo o resto: abrasão durante o transporte, exposição a chuva e sol, manipulação em pátios de toras, corte em serraria. Onde plaquetas caem e RFIDs falham, a marca permanece.",
+      "Leitura por IA com detecção de adulteração. Aplicativos de campo decodificam o marker em segundos, mesmo em condições adversas, e identificam tentativas de clonagem ou adulteração. Cada leitura verifica autenticidade contra os dados de origem GNSS embutidos no próprio código.",
+      "Geração automatizada da DDS para o TRACES. O dado coletado na floresta alimenta diretamente o sistema oficial da União Europeia, gerando a Declaração de Devida Diligência sem intervenção manual entre o pátio e a alfândega.",
+      "Arquitetura descentralizada e auditável. Cada elo da cadeia (manejador, transportadora, serraria, exportador) mantém controle GDPR-compliant dos próprios dados, mas o trilho de auditoria é íntegro de ponta a ponta. O importador europeu vê exatamente o que precisa ver — nem mais, nem menos.",
+      "De vulnerabilidade reputacional a ativo de mercado",
+      "A madeira tropical brasileira tem hoje a oportunidade de inverter o sinal da sua marca no mercado europeu. Não com mais papelada, mas com prova física verificável de origem legal — algo que nenhum competidor asiático ou africano oferece com a mesma maturidade tecnológica.",
+      "Para operadores conectados a planos de manejo certificados (PMFS legal, FSC, PEFC, Cerflor), essa tecnologia transforma o ônus do compliance em prêmio de preço — porque o que o comprador europeu paga agora é a verificabilidade, não só a legalidade.",
+    ],
+    hashtags: ["#EUDR", "#MadeiraTropical", "#BrazilianTimber", "#Traceability", "#DueDiligence", "#DeforestationFree", "#LegalTimber", "#ForestCompliance", "#SupplyChainTransparency", "#TRACES", "#DDS", "#Amazonia", "#SustainableForestry", "#FSC", "#PEFC", "#Cerflor", "#ESG", "#RegTech", "#ForestTech", "#ComercioExterior"],
+    image: madeiraTropicalEudrImage,
     category: "EUDR",
   } : null;
 
