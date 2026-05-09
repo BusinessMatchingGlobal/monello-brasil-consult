@@ -14,7 +14,7 @@ interface NewsletterSectionProps {
 
 const copy = {
   en: {
-    title: "Stay in the loop",
+    title: "Stay up to date",
     subtitle: "Get our latest insights on Brazil, EU–Mercosur and the Custo Brasil — directly in your inbox.",
     placeholder: "your@email.com",
     cta: "Subscribe",
@@ -26,7 +26,7 @@ const copy = {
     error: "Something went wrong. Please try again.",
   },
   it: {
-    title: "Resta aggiornato",
+    title: "Rimani aggiornato",
     subtitle: "Ricevi i nostri ultimi insights su Brasile, UE–Mercosur e Custo Brasil — direttamente nella tua casella.",
     placeholder: "tua@email.com",
     cta: "Iscriviti",
@@ -38,7 +38,7 @@ const copy = {
     error: "Qualcosa è andato storto. Riprova.",
   },
   pt: {
-    title: "Fique por dentro",
+    title: "Fique atualizado",
     subtitle: "Receba nossos últimos insights sobre Brasil, UE–Mercosul e Custo Brasil — diretamente no seu e-mail.",
     placeholder: "seu@email.com",
     cta: "Inscrever-se",
