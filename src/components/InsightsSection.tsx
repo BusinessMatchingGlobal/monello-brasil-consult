@@ -130,10 +130,11 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
     category: "EUDR",
   } : null;
 
-  const madeiraEudrArticle = language === "pt" ? {
-    title: "Madeira Tropical Brasileira e EUDR: o fim da era do \"DOF de gaveta\"",
-    description: "A União Europeia confirmou em dezembro de 2025 a nova arquitetura do EUDR: aplicação plena para grandes e médios operadores em 30 de dezembro de 2026. Para a madeira tropical brasileira — ipê, jatobá, cumaru, garapa, sucupira, angelim, massaranduba — isso significa duas coisas. Primeiro: o EUTR (Regulamento UE 995/2010) continua vigente para produtos colocados no mercado antes da entrada do EUDR até 31 de dezembro de 2027. Ou seja, a fiscalização não diminui — ela apenas migra de regime. Segundo: o Brasil foi classificado como risco \"standard\", o que significa due diligence completa para cada lote e controles alfandegários proporcionais ao risco.",
-    fullText: [
+  const madeiraEudrTranslations: Record<string, { title: string; description: string; fullText: string[] } | null> = {
+    pt: {
+      title: "Madeira Tropical Brasileira e EUDR: o fim da era do \"DOF de gaveta\"",
+      description: "A União Europeia confirmou em dezembro de 2025 a nova arquitetura do EUDR: aplicação plena para grandes e médios operadores em 30 de dezembro de 2026. Para a madeira tropical brasileira — ipê, jatobá, cumaru, garapa, sucupira, angelim, massaranduba — isso significa duas coisas. Primeiro: o EUTR (Regulamento UE 995/2010) continua vigente para produtos colocados no mercado antes da entrada do EUDR até 31 de dezembro de 2027. Ou seja, a fiscalização não diminui — ela apenas migra de regime. Segundo: o Brasil foi classificado como risco \"standard\", o que significa due diligence completa para cada lote e controles alfandegários proporcionais ao risco.",
+      fullText: [
       "O problema central da madeira brasileira na pauta europeia não é novo, mas agora ganhou peso jurídico inédito: a lavagem de madeira.",
       "Os pontos cegos do sistema brasileiro de rastreabilidade florestal",
       "1. DOF, SISFLORA e SINAFLOR — sistemas que dependem da declaração. O Documento de Origem Florestal e os sistemas estaduais (SISFLORA-PA, SISFLORA-MT) e federal (SINAFLOR) cobrem o trânsito legal da madeira no papel. Mas casos consolidados de fraude — créditos fictícios em Plano de Manejo Florestal Sustentável, volumes inflados em árvores que nunca existiram, \"esquentamento\" de toras vindas de áreas embargadas — mostraram que a integridade do dado depende da fiscalização local, e esta é estruturalmente subdimensionada frente à extensão da floresta amazônica.",
@@ -149,7 +150,33 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
       "De vulnerabilidade reputacional a ativo de mercado",
       "A madeira tropical brasileira tem hoje a oportunidade de inverter o sinal da sua marca no mercado europeu. Não com mais papelada, mas com prova física verificável de origem legal — algo que nenhum competidor asiático ou africano oferece com a mesma maturidade tecnológica.",
       "Para operadores conectados a planos de manejo certificados (PMFS legal, FSC, PEFC, Cerflor), essa tecnologia transforma o ônus do compliance em prêmio de preço — porque o que o comprador europeu paga agora é a verificabilidade, não só a legalidade.",
-    ],
+      ],
+    },
+    en: {
+      title: "Brazilian Tropical Timber and the EUDR: The End of the 'Drawer DOF' Era",
+      description: "In December 2025, the European Union confirmed the new structure of the EUDR, with full implementation for large and medium-sized operators set to take place on 30 December 2026. For Brazilian tropical timbers such as ipê, jatobá, cumaru, garapa, sucupira, angelim and massaranduba, this means two things. First, the EUTR (EU Regulation 995/2010) will remain in effect for products placed on the market before the EUDR comes into force until 31 December 2027. In other words, enforcement does not decrease — it merely shifts to a different regime. Secondly, Brazil has been classified as 'standard' risk, meaning full due diligence is required for each shipment, with customs controls proportionate to the risk.",
+      fullText: [
+        "The central issue regarding Brazilian timber on the European agenda is not new, but it has now gained unprecedented legal weight in the form of timber laundering.",
+        "The blind spots of the Brazilian forest traceability system",
+        "1. DOF, SISFLORA and SINAFLOR — systems that rely on declarations. The Document of Forest Origin (DOF) and the state (SISFLORA-PA and SISFLORA-MT) and federal (SINAFLOR) systems are designed to ensure the legal transit of timber. However, well-documented cases of fraud, such as fictitious credits in Sustainable Forest Management Plans and inflated volumes of non-existent trees, have shown that data integrity depends on local enforcement. This is a challenge given the vastness of the Amazon rainforest and the structural under-staffing of local enforcement.",
+        "2. Breakdown of the physical-digital link. Between the log felled in the forest and the container at the ports of Belém or Paranaguá, the timber's physical identity is verified using plastic tags, ink, RFID and barcodes — all of which can fall off, be replaced or be applied to a different log to the one registered. The tree's 'DNA' disappears with the first shipment.",
+        "3. European buyers no longer trust. Following cases such as Operation Archimedes and Operation Castanheira, as well as the series of embargoes on Brazilian companies documented by DG ENV, European importers of tropical timber now apply enhanced due diligence, even to long-standing suppliers. The cost of compliance has become a selection criterion, and those who do not automate lose margin.",
+        "The new frontier is non-clonable physical marking linked to the origin coordinates.",
+        "There is now technology that bridges the gap in the timber supply chain between the tree in the forest and the log in the yard. The concept is neither satellite-based nor documentary — it is physical:",
+        "Direct marking on the face of the log, generated by GNSS signals at the exact moment of cutting. Rather than using tags, RFID or ink, this technology imprints a unique code on the wood's rings. This code is derived in real time from signals received from the Galileo, GPS, GLONASS and BeiDou constellations, with an accuracy of two metres and a one-second timestamp. The code is created when the log is felled, at its exact coordinates. There is no external database that can be hacked because the identity is literally engraved in the wood.",
+        "It is resistant to the forestry supply chain environment. The marking is designed to survive abrasion during transport, exposure to rain and sun, handling in log yards and cutting at the sawmill — things that destroy everything else. Where tags fall off and RFIDs fail, the mark remains.",
+        "AI-powered reading with tamper detection. Field apps can decode the marker in seconds, even under adverse conditions, and identify any cloning or tampering attempts. Each reading verifies the product's authenticity against the GNSS source data embedded in the code itself.",
+        "Automated DDS generation for TRACES. Data collected in the forest is fed directly into the European Union's official system, generating the Due Diligence Statement without the need for manual intervention between the yard and customs.",
+        "Decentralised and auditable architecture. Each link in the chain (manager, transporter, sawmill and exporter) maintains control of its own GDPR-compliant data, and the complete audit trail is accessible from end to end. European importers only see the information they need — no more, no less.",
+        "From Reputational Vulnerability to Market Asset",
+        "Brazilian tropical timber now has the opportunity to improve its brand image in the European market. This will not be achieved through more paperwork, but rather through verifiable physical proof of legal origin, which no Asian or African competitor can offer with the same technological maturity.",
+        "For operators linked to certified management plans (such as legal PMFS, FSC, PEFC and Cerflor), this technology can transform the burden of compliance into a price premium because European buyers are now paying for verifiability, not just legality.",
+      ],
+    },
+  };
+  const madeiraContent = madeiraEudrTranslations[language];
+  const madeiraEudrArticle = madeiraContent ? {
+    ...madeiraContent,
     hashtags: ["#EUDR", "#MadeiraTropical", "#BrazilianTimber", "#Traceability", "#DueDiligence", "#DeforestationFree", "#LegalTimber", "#ForestCompliance", "#SupplyChainTransparency", "#TRACES", "#DDS", "#Amazonia", "#SustainableForestry", "#FSC", "#PEFC", "#Cerflor", "#ESG", "#RegTech", "#ForestTech", "#ComercioExterior"],
     image: madeiraTropicalEudrImage,
     category: "EUDR",
