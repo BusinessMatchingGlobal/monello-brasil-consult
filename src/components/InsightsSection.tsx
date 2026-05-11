@@ -766,6 +766,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={coffeeEudrArticle.title} />
               </div>
             </div>
           </Card>
@@ -807,6 +808,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={madeiraEudrArticle.title} />
               </div>
             </div>
           </Card>
@@ -848,6 +850,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={ajvarArticle.title} />
               </div>
             </div>
           </Card>
@@ -889,6 +892,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={euMercosurPlaybookArticle.title} />
               </div>
             </div>
           </Card>
@@ -929,6 +933,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={perfumeryIPArticle.title} />
               </div>
             </div>
           </Card>
