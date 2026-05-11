@@ -587,6 +587,47 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
           </Card>
         )}
 
+        {/* EU–Mercosur Playbook Featured Article — English only */}
+        {euMercosurPlaybookArticle && (
+          <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
+            <div className="grid md:grid-cols-2 gap-0">
+              <div className="relative h-64 md:h-auto overflow-hidden">
+                <img
+                  src={euMercosurPlaybookArticle.image}
+                  alt={euMercosurPlaybookArticle.title}
+                  loading="lazy"
+                  width={1280}
+                  height={800}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-primary text-primary-foreground text-sm font-semibold rounded-full">
+                    {euMercosurPlaybookArticle.category}
+                  </span>
+                </div>
+              </div>
+              <div className="p-8 flex flex-col justify-center">
+                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
+                  {euMercosurPlaybookArticle.title}
+                </CardTitle>
+                <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
+                  {euMercosurPlaybookArticle.description}
+                </CardDescription>
+                <div className="space-y-3 mb-6 text-sm leading-relaxed text-muted-foreground max-h-72 overflow-y-auto pr-2">
+                  {euMercosurPlaybookArticle.fullText.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
+                  {euMercosurPlaybookArticle.hashtags.map((tag, index) => (
+                    <span key={index}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Card>
+        )}
+
         <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-7 lg:overflow-visible">
           {insights.map((insight, index) => (
             <Card
