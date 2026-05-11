@@ -762,9 +762,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {coffeeEudrArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(coffeeEudrArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {coffeeEudrArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {coffeeEudrArticle.description}
                 </CardDescription>
@@ -804,9 +810,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {madeiraEudrArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(madeiraEudrArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {madeiraEudrArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {madeiraEudrArticle.description}
                 </CardDescription>
@@ -846,9 +858,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {ajvarArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(ajvarArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {ajvarArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {ajvarArticle.description}
                 </CardDescription>
@@ -888,9 +906,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {euMercosurPlaybookArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(euMercosurPlaybookArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {euMercosurPlaybookArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {euMercosurPlaybookArticle.description}
                 </CardDescription>
@@ -929,9 +953,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {perfumeryIPArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(perfumeryIPArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {perfumeryIPArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {perfumeryIPArticle.description}
                 </CardDescription>
