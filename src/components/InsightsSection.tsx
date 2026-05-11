@@ -1,7 +1,8 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search, X } from "lucide-react";
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import diVincenzoImage from "@/assets/di-vincenzo-cheese.jpg";
 import almenaraImage from "@/assets/almenara-panorama.jpg";
 import brazilInvestmentImage from "@/assets/brazil-investment.jpg";
@@ -67,6 +68,18 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
     url?: string;
   };
   const [openArticle, setOpenArticle] = useState<OpenArticle | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const matches = (...parts: (string | string[] | undefined)[]) => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return true;
+    const terms = q.split(/\s+/).filter(Boolean);
+    const haystack = parts
+      .flatMap((p) => (Array.isArray(p) ? p : [p]))
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+    return terms.every((t) => haystack.includes(t));
+  };
   const featuredContent = featuredArticleTranslations[language];
   const featuredArticle = {
     title: featuredContent.title,
@@ -700,7 +713,38 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
+        {/* Keyword search */}
+        <div className="max-w-2xl mx-auto mb-12">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
+            <Input
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={
+                language === "it"
+                  ? "Cerca per parola chiave (es. EUDR, caffè, profumeria, Mercosur)..."
+                  : language === "pt"
+                  ? "Pesquisar por palavra-chave (ex.: EUDR, café, perfumaria, Mercosul)..."
+                  : "Search by keyword (e.g. EUDR, coffee, perfumery, Mercosur)..."
+              }
+              className="h-12 pl-12 pr-12 text-base"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full bg-muted hover:bg-muted/70 flex items-center justify-center"
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4 text-muted-foreground" />
+              </button>
+            )}
+          </div>
+        </div>
+
         {/* Featured Article */}
+        {matches(featuredArticle.title, featuredArticle.description, featuredArticle.category, featuredArticle.hashtags) && (
         <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
           <div className="grid md:grid-cols-2 gap-0">
             <div className="relative h-64 md:h-auto overflow-hidden">
@@ -741,9 +785,10 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
             </div>
           </div>
         </Card>
+        )}
 
         {/* Coffee EUDR Featured Article — Portuguese only */}
-        {coffeeEudrArticle && (
+        {coffeeEudrArticle && matches(coffeeEudrArticle.title, coffeeEudrArticle.description, coffeeEudrArticle.category, coffeeEudrArticle.hashtags, coffeeEudrArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
@@ -791,7 +836,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
         )}
 
         {/* Madeira Tropical EUDR Featured Article — Portuguese only */}
-        {madeiraEudrArticle && (
+        {madeiraEudrArticle && matches(madeiraEudrArticle.title, madeiraEudrArticle.description, madeiraEudrArticle.category, madeiraEudrArticle.hashtags, madeiraEudrArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
@@ -839,7 +884,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
         )}
 
         {/* Ajvar Featured Article — Portuguese only */}
-        {ajvarArticle && (
+        {ajvarArticle && matches(ajvarArticle.title, ajvarArticle.description, ajvarArticle.category, ajvarArticle.hashtags, ajvarArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
@@ -887,7 +932,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
         )}
 
         {/* EU–Mercosur Playbook Featured Article — English only */}
-        {euMercosurPlaybookArticle && (
+        {euMercosurPlaybookArticle && matches(euMercosurPlaybookArticle.title, euMercosurPlaybookArticle.description, euMercosurPlaybookArticle.category, euMercosurPlaybookArticle.hashtags, euMercosurPlaybookArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
@@ -934,7 +979,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
           </Card>
         )}
 
-        {perfumeryIPArticle && (
+        {perfumeryIPArticle && matches(perfumeryIPArticle.title, perfumeryIPArticle.description, perfumeryIPArticle.category, perfumeryIPArticle.hashtags, perfumeryIPArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
@@ -982,7 +1027,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
         )}
 
         <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-7 lg:overflow-visible">
-          {insights.map((insight, index) => (
+          {insights.filter((insight) => matches(insight.title, insight.description, insight.category)).map((insight, index) => (
             <Card
               key={index}
               className="group flex-shrink-0 w-[300px] lg:w-auto overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50 snap-start"
@@ -1023,6 +1068,23 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
             </Card>
           ))}
         </div>
+
+        {searchQuery.trim() &&
+          !matches(featuredArticle.title, featuredArticle.description, featuredArticle.category, featuredArticle.hashtags) &&
+          !(coffeeEudrArticle && matches(coffeeEudrArticle.title, coffeeEudrArticle.description, coffeeEudrArticle.category, coffeeEudrArticle.hashtags, coffeeEudrArticle.fullText)) &&
+          !(madeiraEudrArticle && matches(madeiraEudrArticle.title, madeiraEudrArticle.description, madeiraEudrArticle.category, madeiraEudrArticle.hashtags, madeiraEudrArticle.fullText)) &&
+          !(ajvarArticle && matches(ajvarArticle.title, ajvarArticle.description, ajvarArticle.category, ajvarArticle.hashtags, ajvarArticle.fullText)) &&
+          !(euMercosurPlaybookArticle && matches(euMercosurPlaybookArticle.title, euMercosurPlaybookArticle.description, euMercosurPlaybookArticle.category, euMercosurPlaybookArticle.hashtags, euMercosurPlaybookArticle.fullText)) &&
+          !(perfumeryIPArticle && matches(perfumeryIPArticle.title, perfumeryIPArticle.description, perfumeryIPArticle.category, perfumeryIPArticle.hashtags, perfumeryIPArticle.fullText)) &&
+          insights.filter((insight) => matches(insight.title, insight.description, insight.category)).length === 0 && (
+            <div className="text-center py-12 text-muted-foreground">
+              {language === "it"
+                ? `Nessun articolo trovato per "${searchQuery}".`
+                : language === "pt"
+                ? `Nenhum artigo encontrado para "${searchQuery}".`
+                : `No articles found for "${searchQuery}".`}
+            </div>
+          )}
       </div>
       {openArticle && (
         <ArticleFullView
