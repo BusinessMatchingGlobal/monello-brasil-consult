@@ -57,6 +57,16 @@ const featuredArticleTranslations = {
 };
 
 export const InsightsSection = ({ title, subtitle, readMore, language, articles }: InsightsSectionProps) => {
+  type OpenArticle = {
+    title: string;
+    description?: string;
+    image: string;
+    category?: string;
+    fullText: string[];
+    hashtags?: string[];
+    url?: string;
+  };
+  const [openArticle, setOpenArticle] = useState<OpenArticle | null>(null);
   const featuredContent = featuredArticleTranslations[language];
   const featuredArticle = {
     title: featuredContent.title,
