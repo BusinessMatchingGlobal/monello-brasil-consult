@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import diVincenzoImage from "@/assets/di-vincenzo-cheese.jpg";
@@ -16,6 +17,7 @@ import euMercosurPlaybookImage from "@/assets/eu-mercosur-playbook.jpg";
 import perfumeryIPImage from "@/assets/perfumery-ip.webp";
 import { Language } from "@/components/LanguageSwitcher";
 import { ShareButtons } from "@/components/ShareButtons";
+import { ArticleFullView } from "@/components/ArticleFullView";
 
 interface InsightsSectionProps {
   title: string;
