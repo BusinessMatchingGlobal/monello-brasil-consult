@@ -15,6 +15,7 @@ import ajvarCaviarVermelhoImage from "@/assets/ajvar-caviar-vermelho.jpg";
 import euMercosurPlaybookImage from "@/assets/eu-mercosur-playbook.jpg";
 import perfumeryIPImage from "@/assets/perfumery-ip.webp";
 import { Language } from "@/components/LanguageSwitcher";
+import { ShareButtons } from "@/components/ShareButtons";
 
 interface InsightsSectionProps {
   title: string;
@@ -714,6 +715,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                   <span key={index}>{tag}</span>
                 ))}
               </div>
+              <ShareButtons url={featuredArticle.url} title={featuredArticle.title} />
               <Button 
                 variant="default" 
                 className="w-fit"
@@ -764,6 +766,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={coffeeEudrArticle.title} />
               </div>
             </div>
           </Card>
@@ -805,6 +808,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={madeiraEudrArticle.title} />
               </div>
             </div>
           </Card>
@@ -846,6 +850,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={ajvarArticle.title} />
               </div>
             </div>
           </Card>
@@ -887,6 +892,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={euMercosurPlaybookArticle.title} />
               </div>
             </div>
           </Card>
@@ -927,6 +933,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <span key={index}>{tag}</span>
                   ))}
                 </div>
+                <ShareButtons title={perfumeryIPArticle.title} />
               </div>
             </div>
           </Card>
@@ -969,6 +976,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                   </a>
                 </Button>
+                <ShareButtons url={insight.url} title={insight.title} />
               </CardContent>
             </Card>
           ))}
