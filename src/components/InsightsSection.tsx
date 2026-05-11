@@ -836,7 +836,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
         )}
 
         {/* Madeira Tropical EUDR Featured Article — Portuguese only */}
-        {madeiraEudrArticle && (
+        {madeiraEudrArticle && matches(madeiraEudrArticle.title, madeiraEudrArticle.description, madeiraEudrArticle.category, madeiraEudrArticle.hashtags, madeiraEudrArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
@@ -884,7 +884,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
         )}
 
         {/* Ajvar Featured Article — Portuguese only */}
-        {ajvarArticle && (
+        {ajvarArticle && matches(ajvarArticle.title, ajvarArticle.description, ajvarArticle.category, ajvarArticle.hashtags, ajvarArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
@@ -932,7 +932,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
         )}
 
         {/* EU–Mercosur Playbook Featured Article — English only */}
-        {euMercosurPlaybookArticle && (
+        {euMercosurPlaybookArticle && matches(euMercosurPlaybookArticle.title, euMercosurPlaybookArticle.description, euMercosurPlaybookArticle.category, euMercosurPlaybookArticle.hashtags, euMercosurPlaybookArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
@@ -979,7 +979,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
           </Card>
         )}
 
-        {perfumeryIPArticle && (
+        {perfumeryIPArticle && matches(perfumeryIPArticle.title, perfumeryIPArticle.description, perfumeryIPArticle.category, perfumeryIPArticle.hashtags, perfumeryIPArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
