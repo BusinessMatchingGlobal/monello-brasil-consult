@@ -68,6 +68,18 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
     url?: string;
   };
   const [openArticle, setOpenArticle] = useState<OpenArticle | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const matches = (...parts: (string | string[] | undefined)[]) => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return true;
+    const terms = q.split(/\s+/).filter(Boolean);
+    const haystack = parts
+      .flatMap((p) => (Array.isArray(p) ? p : [p]))
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+    return terms.every((t) => haystack.includes(t));
+  };
   const featuredContent = featuredArticleTranslations[language];
   const featuredArticle = {
     title: featuredContent.title,
