@@ -1027,7 +1027,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
         )}
 
         <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-7 lg:overflow-visible">
-          {insights.map((insight, index) => (
+          {insights.filter((insight) => matches(insight.title, insight.description, insight.category)).map((insight, index) => (
             <Card
               key={index}
               className="group flex-shrink-0 w-[300px] lg:w-auto overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50 snap-start"
