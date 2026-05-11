@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import diVincenzoImage from "@/assets/di-vincenzo-cheese.jpg";
@@ -16,6 +17,7 @@ import euMercosurPlaybookImage from "@/assets/eu-mercosur-playbook.jpg";
 import perfumeryIPImage from "@/assets/perfumery-ip.webp";
 import { Language } from "@/components/LanguageSwitcher";
 import { ShareButtons } from "@/components/ShareButtons";
+import { ArticleFullView } from "@/components/ArticleFullView";
 
 interface InsightsSectionProps {
   title: string;
@@ -55,6 +57,16 @@ const featuredArticleTranslations = {
 };
 
 export const InsightsSection = ({ title, subtitle, readMore, language, articles }: InsightsSectionProps) => {
+  type OpenArticle = {
+    title: string;
+    description?: string;
+    image: string;
+    category?: string;
+    fullText: string[];
+    hashtags?: string[];
+    url?: string;
+  };
+  const [openArticle, setOpenArticle] = useState<OpenArticle | null>(null);
   const featuredContent = featuredArticleTranslations[language];
   const featuredArticle = {
     title: featuredContent.title,
@@ -750,9 +762,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {coffeeEudrArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(coffeeEudrArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {coffeeEudrArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {coffeeEudrArticle.description}
                 </CardDescription>
@@ -792,9 +810,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {madeiraEudrArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(madeiraEudrArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {madeiraEudrArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {madeiraEudrArticle.description}
                 </CardDescription>
@@ -834,9 +858,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {ajvarArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(ajvarArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {ajvarArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {ajvarArticle.description}
                 </CardDescription>
@@ -876,9 +906,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {euMercosurPlaybookArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(euMercosurPlaybookArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {euMercosurPlaybookArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {euMercosurPlaybookArticle.description}
                 </CardDescription>
@@ -917,9 +953,15 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <CardTitle className="text-2xl md:text-3xl mb-4 text-foreground">
-                  {perfumeryIPArticle.title}
-                </CardTitle>
+                <button
+                  type="button"
+                  onClick={() => setOpenArticle(perfumeryIPArticle as OpenArticle)}
+                  className="text-left mb-4"
+                >
+                  <CardTitle className="text-2xl md:text-3xl text-foreground hover:text-primary transition-colors cursor-pointer">
+                    {perfumeryIPArticle.title}
+                  </CardTitle>
+                </button>
                 <CardDescription className="text-base leading-relaxed mb-4 text-muted-foreground">
                   {perfumeryIPArticle.description}
                 </CardDescription>
@@ -982,6 +1024,19 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
           ))}
         </div>
       </div>
+      {openArticle && (
+        <ArticleFullView
+          open={!!openArticle}
+          onOpenChange={(o) => !o && setOpenArticle(null)}
+          title={openArticle.title}
+          description={openArticle.description}
+          image={openArticle.image}
+          category={openArticle.category}
+          fullText={openArticle.fullText}
+          hashtags={openArticle.hashtags}
+          url={openArticle.url}
+        />
+      )}
     </section>
   );
 };
