@@ -12,6 +12,7 @@ import euMercosurSigningImage from "@/assets/eu-mercosur-signing.jpg";
 import brazilianCoffeeEudrImage from "@/assets/brazilian-coffee-eudr.webp";
 import madeiraTropicalEudrImage from "@/assets/madeira-tropical-eudr.jpg";
 import ajvarCaviarVermelhoImage from "@/assets/ajvar-caviar-vermelho.jpg";
+import euMercosurPlaybookImage from "@/assets/eu-mercosur-playbook.jpg";
 import { Language } from "@/components/LanguageSwitcher";
 
 interface InsightsSectionProps {
