@@ -713,7 +713,38 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
+        {/* Keyword search */}
+        <div className="max-w-2xl mx-auto mb-12">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
+            <Input
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={
+                language === "it"
+                  ? "Cerca per parola chiave (es. EUDR, caffè, profumeria, Mercosur)..."
+                  : language === "pt"
+                  ? "Pesquisar por palavra-chave (ex.: EUDR, café, perfumaria, Mercosul)..."
+                  : "Search by keyword (e.g. EUDR, coffee, perfumery, Mercosur)..."
+              }
+              className="h-12 pl-12 pr-12 text-base"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full bg-muted hover:bg-muted/70 flex items-center justify-center"
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4 text-muted-foreground" />
+              </button>
+            )}
+          </div>
+        </div>
+
         {/* Featured Article */}
+        {matches(featuredArticle.title, featuredArticle.description, featuredArticle.category, featuredArticle.hashtags) && (
         <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
           <div className="grid md:grid-cols-2 gap-0">
             <div className="relative h-64 md:h-auto overflow-hidden">
@@ -754,9 +785,10 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
             </div>
           </div>
         </Card>
+        )}
 
         {/* Coffee EUDR Featured Article — Portuguese only */}
-        {coffeeEudrArticle && (
+        {coffeeEudrArticle && matches(coffeeEudrArticle.title, coffeeEudrArticle.description, coffeeEudrArticle.category, coffeeEudrArticle.hashtags, coffeeEudrArticle.fullText) && (
           <Card className="mb-12 overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-64 md:h-auto overflow-hidden">
