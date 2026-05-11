@@ -1068,6 +1068,23 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
             </Card>
           ))}
         </div>
+
+        {searchQuery.trim() &&
+          !matches(featuredArticle.title, featuredArticle.description, featuredArticle.category, featuredArticle.hashtags) &&
+          !(coffeeEudrArticle && matches(coffeeEudrArticle.title, coffeeEudrArticle.description, coffeeEudrArticle.category, coffeeEudrArticle.hashtags, coffeeEudrArticle.fullText)) &&
+          !(madeiraEudrArticle && matches(madeiraEudrArticle.title, madeiraEudrArticle.description, madeiraEudrArticle.category, madeiraEudrArticle.hashtags, madeiraEudrArticle.fullText)) &&
+          !(ajvarArticle && matches(ajvarArticle.title, ajvarArticle.description, ajvarArticle.category, ajvarArticle.hashtags, ajvarArticle.fullText)) &&
+          !(euMercosurPlaybookArticle && matches(euMercosurPlaybookArticle.title, euMercosurPlaybookArticle.description, euMercosurPlaybookArticle.category, euMercosurPlaybookArticle.hashtags, euMercosurPlaybookArticle.fullText)) &&
+          !(perfumeryIPArticle && matches(perfumeryIPArticle.title, perfumeryIPArticle.description, perfumeryIPArticle.category, perfumeryIPArticle.hashtags, perfumeryIPArticle.fullText)) &&
+          insights.filter((insight) => matches(insight.title, insight.description, insight.category)).length === 0 && (
+            <div className="text-center py-12 text-muted-foreground">
+              {language === "it"
+                ? `Nessun articolo trovato per "${searchQuery}".`
+                : language === "pt"
+                ? `Nenhum artigo encontrado para "${searchQuery}".`
+                : `No articles found for "${searchQuery}".`}
+            </div>
+          )}
       </div>
       {openArticle && (
         <ArticleFullView
