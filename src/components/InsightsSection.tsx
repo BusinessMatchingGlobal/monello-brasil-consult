@@ -1024,6 +1024,19 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
           ))}
         </div>
       </div>
+      {openArticle && (
+        <ArticleFullView
+          open={!!openArticle}
+          onOpenChange={(o) => !o && setOpenArticle(null)}
+          title={openArticle.title}
+          description={openArticle.description}
+          image={openArticle.image}
+          category={openArticle.category}
+          fullText={openArticle.fullText}
+          hashtags={openArticle.hashtags}
+          url={openArticle.url}
+        />
+      )}
     </section>
   );
 };
