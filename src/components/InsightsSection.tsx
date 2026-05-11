@@ -1,7 +1,8 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search, X } from "lucide-react";
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import diVincenzoImage from "@/assets/di-vincenzo-cheese.jpg";
 import almenaraImage from "@/assets/almenara-panorama.jpg";
 import brazilInvestmentImage from "@/assets/brazil-investment.jpg";
