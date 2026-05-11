@@ -976,6 +976,7 @@ export const InsightsSection = ({ title, subtitle, readMore, language, articles 
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                   </a>
                 </Button>
+                <ShareButtons url={insight.url} title={insight.title} />
               </CardContent>
             </Card>
           ))}
