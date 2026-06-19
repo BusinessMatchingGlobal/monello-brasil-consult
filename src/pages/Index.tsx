@@ -163,6 +163,15 @@ function Hero() {
             <a href="#services">{t.hero.cta2}</a>
           </Button>
         </div>
+        <div className="mt-6">
+          <a
+            href="/sample-report"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
+          >
+            {t.lang === "it" ? "Scarica un esempio di report (PDF)" : t.lang === "pt" ? "Baixe um exemplo de relatório (PDF)" : "Download a sample report (PDF)"}
+            <ArrowRight className="h-3.5 w-3.5" />
+          </a>
+        </div>
       </div>
     </section>
   );
