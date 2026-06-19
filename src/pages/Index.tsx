@@ -52,7 +52,7 @@ function LangSwitcher() {
 }
 
 function Nav() {
-  const { t } = useT();
+  const { t, lang } = useT();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -129,7 +129,7 @@ function Nav() {
 }
 
 function Hero() {
-  const { t } = useT();
+  const { t, lang } = useT();
   return (
     <section id="top" className="relative pt-32 md:pt-44 pb-20 md:pb-32 overflow-hidden">
       {/* faint world-map texture */}
@@ -162,6 +162,15 @@ function Hero() {
           <Button asChild size="lg" variant="ghost" className="rounded-full h-12 px-6">
             <a href="#services">{t.hero.cta2}</a>
           </Button>
+        </div>
+        <div className="mt-6">
+          <a
+            href="/sample-report"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
+          >
+            {lang === "it" ? "Scarica un esempio di report (PDF)" : lang === "pt" ? "Baixe um exemplo de relatório (PDF)" : "Download a sample report (PDF)"}
+            <ArrowRight className="h-3.5 w-3.5" />
+          </a>
         </div>
       </div>
     </section>
