@@ -101,6 +101,12 @@ export const translations = {
       book: "Book a 15-min call",
       or: "or email",
     },
+    consent: {
+      label: "I have read the",
+      link: "privacy notice",
+      suffix: "and I consent to the processing of my personal data to receive a reply.",
+      required: "You must accept the privacy notice to send your request.",
+    },
     footer: {
       tag: "Business intelligence & research on Brazil.",
       rights: "© 2026 Business Matching Global.",
@@ -108,6 +114,7 @@ export const translations = {
       address: "Address",
       cnae: "Main activity",
       capital: "Share capital",
+      privacy: "Privacy & Data Protection",
     },
   },
   it: {
@@ -206,6 +213,12 @@ export const translations = {
       book: "Prenota una call di 15 minuti",
       or: "oppure scrivi a",
     },
+    consent: {
+      label: "Ho letto l'",
+      link: "informativa privacy",
+      suffix: "e acconsento al trattamento dei miei dati personali per ricevere una risposta.",
+      required: "Devi accettare l'informativa privacy per inviare la richiesta.",
+    },
     footer: {
       tag: "Ricerca e business intelligence sul Brasile.",
       rights: "© 2026 Business Matching Global.",
@@ -213,6 +226,7 @@ export const translations = {
       address: "Sede legale",
       cnae: "CNAE principale",
       capital: "Capitale sociale",
+      privacy: "Privacy e Protezione Dati",
     },
   },
   pt: {
@@ -311,6 +325,12 @@ export const translations = {
       book: "Agende uma call de 15 min",
       or: "ou envie um e-mail para",
     },
+    consent: {
+      label: "Li o",
+      link: "aviso de privacidade",
+      suffix: "e concordo com o tratamento dos meus dados pessoais para receber uma resposta.",
+      required: "Você precisa aceitar o aviso de privacidade para enviar a solicitação.",
+    },
     footer: {
       tag: "Pesquisa e inteligência de negócios sobre o Brasil.",
       rights: "© 2026 Business Matching Global.",
@@ -318,6 +338,7 @@ export const translations = {
       address: "Endereço",
       cnae: "CNAE principal",
       capital: "Capital social",
+      privacy: "Privacidade e Proteção de Dados",
     },
   },
 } as const;
