@@ -52,7 +52,7 @@ function LangSwitcher() {
 }
 
 function Nav() {
-  const { t } = useT();
+  const { t, lang } = useT();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -168,7 +168,7 @@ function Hero() {
             href="/sample-report"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
           >
-            {t.lang === "it" ? "Scarica un esempio di report (PDF)" : t.lang === "pt" ? "Baixe um exemplo de relatório (PDF)" : "Download a sample report (PDF)"}
+            {lang === "it" ? "Scarica un esempio di report (PDF)" : lang === "pt" ? "Baixe um exemplo de relatório (PDF)" : "Download a sample report (PDF)"}
             <ArrowRight className="h-3.5 w-3.5" />
           </a>
         </div>
