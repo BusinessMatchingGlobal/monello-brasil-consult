@@ -470,7 +470,10 @@ function Footer() {
         </div>
       </div>
       <div className="container mt-8 pt-6 border-t border-border/40 text-xs text-muted-foreground">
-        {t.footer.rights}
+        <p>{t.footer.rights}</p>
+        <p className="mt-2 text-muted-foreground/70 leading-relaxed">
+          {t.footer.legalName}: ENZO ALDO STOBBIONE LTDA · {t.footer.address}: Avenida Getúlio Vargas, 671, Sala 500, Savassi, Belo Horizonte/MG · CNAE 6399-2/00 · {t.footer.capital}: R$ 1.000,00
+        </p>
       </div>
     </footer>
   );
