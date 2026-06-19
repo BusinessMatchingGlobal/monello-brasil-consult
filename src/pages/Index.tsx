@@ -1,75 +1,496 @@
-import { useState } from "react";
-import { Language } from "@/components/LanguageSwitcher";
-import { getTranslation } from "@/lib/translations";
-import { Navigation } from "@/components/Navigation";
-import { HeroSection } from "@/components/HeroSection";
-import { MercosurBanner } from "@/components/MercosurBanner";
-import { ServicesSection } from "@/components/ServicesSection";
-import { InsightsSection } from "@/components/InsightsSection";
-import { AboutSection } from "@/components/AboutSection";
-import { ContactSection } from "@/components/ContactSection";
-import { NewsletterSection } from "@/components/NewsletterSection";
-import { Footer } from "@/components/Footer";
+import { useState, useEffect, FormEvent } from "react";
+import { useT, Lang } from "@/lib/i18n";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  FileSearch,
+  Layers,
+  AlertTriangle,
+  Menu,
+  X,
+  Calendar,
+  Mail,
+  Linkedin,
+} from "lucide-react";
+import { toast } from "sonner";
 
-const Index = () => {
-  const [language, setLanguage] = useState<Language>("en");
-  const t = getTranslation(language);
+const EMAIL = "enstobbi@enstobbi.it";
+const CALENDAR_LINK = "#contact"; // replace with real Calendly link
 
+function LangSwitcher() {
+  const { lang, setLang } = useT();
+  const langs: Lang[] = ["en", "it", "pt"];
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation 
-        currentLanguage={language} 
-        onLanguageChange={setLanguage}
-        translations={t.nav}
-      />
-      
-      <main id="home" className="pt-20">
-        <MercosurBanner language={language} />
-        
-        <HeroSection 
-          title={t.hero.title}
-          subtitle={t.hero.subtitle}
-          ctaPrimary={t.hero.cta}
-          ctaSecondary={t.hero.learn}
-        />
-        
-        <ServicesSection
-          title={t.services.title}
-          subtitle={t.services.subtitle}
-          services={t.services}
-        />
-        
-        <InsightsSection 
-          title={t.insights.title}
-          subtitle={t.insights.subtitle}
-          readMore={t.insights.readMore}
-          language={language}
-          articles={t.insights}
-        />
-        
-        <AboutSection 
-          title={t.about.title}
-          description={t.about.description}
-          stats={t.about.stats}
-        />
-        
-        <NewsletterSection language={language} />
-        
-        <ContactSection 
-          title={t.contact.title}
-          subtitle={t.contact.subtitle}
-          cta={t.contact.cta}
-          emailSubject={t.contact.emailSubject}
-        />
-      </main>
-      
-      <Footer 
-        copyright={t.footer.copyright}
-        privacy={t.footer.privacy}
-        terms={t.footer.terms}
-      />
+    <div className="inline-flex items-center gap-1 text-xs font-medium tracking-wider uppercase">
+      {langs.map((l, i) => (
+        <div key={l} className="flex items-center">
+          <button
+            onClick={() => setLang(l)}
+            className={`px-1.5 py-1 transition-colors ${
+              lang === l ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {l === "pt" ? "PT-BR" : l.toUpperCase()}
+          </button>
+          {i < langs.length - 1 && <span className="text-border">/</span>}
+        </div>
+      ))}
     </div>
   );
-};
+}
 
-export default Index;
+function Nav() {
+  const { t } = useT();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const links = [
+    { href: "#services", label: t.nav.services },
+    { href: "#how", label: t.nav.how },
+    { href: "#about", label: t.nav.about },
+  ];
+
+  return (
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-background/85 backdrop-blur-md border-b border-border/60" : "bg-transparent"
+      }`}
+    >
+      <div className="container flex h-16 md:h-20 items-center justify-between">
+        <a href="#top" className="font-display text-lg md:text-xl font-medium tracking-tight">
+          Business Matching <span className="text-primary">Global</span>
+        </a>
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-sm text-foreground/75 hover:text-foreground transition-colors"
+            >
+              {l.label}
+            </a>
+          ))}
+          <LangSwitcher />
+          <Button asChild size="sm" className="rounded-full">
+            <a href="#contact">{t.nav.contact}</a>
+          </Button>
+        </nav>
+        <button
+          className="md:hidden p-2 -mr-2"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </div>
+      {open && (
+        <div className="md:hidden border-t border-border/60 bg-background">
+          <div className="container py-4 flex flex-col gap-4">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="text-base py-2"
+              >
+                {l.label}
+              </a>
+            ))}
+            <div className="flex items-center justify-between pt-2 border-t border-border/60">
+              <LangSwitcher />
+              <Button asChild size="sm" className="rounded-full" onClick={() => setOpen(false)}>
+                <a href="#contact">{t.nav.contact}</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+function Hero() {
+  const { t } = useT();
+  return (
+    <section id="top" className="relative pt-32 md:pt-44 pb-20 md:pb-32 overflow-hidden">
+      {/* faint world-map texture */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+      <div className="container relative max-w-5xl">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card/60 mb-8 text-xs tracking-wider uppercase text-muted-foreground">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          Italy <span className="text-border">·</span> Brazil
+        </div>
+        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight max-w-4xl">
+          {t.hero.title}
+        </h1>
+        <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+          {t.hero.sub}
+        </p>
+        <div className="mt-10 flex flex-wrap gap-4">
+          <Button asChild size="lg" className="rounded-full h-12 px-6">
+            <a href="#contact">
+              {t.hero.cta1} <ArrowRight className="ml-1 h-4 w-4" />
+            </a>
+          </Button>
+          <Button asChild size="lg" variant="ghost" className="rounded-full h-12 px-6">
+            <a href="#services">{t.hero.cta2}</a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Problem() {
+  const { t } = useT();
+  const icons = [Layers, FileSearch, AlertTriangle];
+  return (
+    <section className="py-20 md:py-28 border-t border-border/60">
+      <div className="container max-w-5xl">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16">
+          <div className="md:col-span-5">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight">{t.problem.title}</h2>
+          </div>
+          <div className="md:col-span-7">
+            <p className="text-lg text-muted-foreground leading-relaxed">{t.problem.body}</p>
+          </div>
+        </div>
+        <div className="mt-16 grid sm:grid-cols-3 gap-6">
+          {t.problem.items.map(([title, body], i) => {
+            const Icon = icons[i];
+            return (
+              <div key={title} className="p-6 rounded-2xl border border-border bg-card">
+                <Icon className="h-5 w-5 text-primary mb-4" />
+                <h3 className="font-display text-lg font-medium mb-2">{title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Services() {
+  const { t } = useT();
+  return (
+    <section id="services" className="py-20 md:py-28 bg-foreground text-background">
+      <div className="container max-w-6xl">
+        <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight max-w-2xl text-background">
+            {t.services.title}
+          </h2>
+          <span className="text-xs tracking-wider uppercase text-background/50">
+            01 — 03
+          </span>
+        </div>
+        <div className="grid md:grid-cols-3 gap-5">
+          {t.services.cards.map((card, i) => (
+            <div
+              key={card.name}
+              className="group p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:border-primary/60 transition-colors flex flex-col"
+            >
+              <span className="text-xs tracking-wider uppercase text-background/40 mb-6">
+                0{i + 1}
+              </span>
+              <h3 className="font-display text-2xl mb-3 text-background">{card.name}</h3>
+              <p className="text-background/70 mb-6 leading-relaxed">{card.promise}</p>
+              <ul className="space-y-2.5 mb-8 flex-1">
+                {card.items.map((item) => (
+                  <li key={item} className="flex gap-2.5 text-sm text-background/85">
+                    <Check className="h-4 w-4 mt-0.5 text-primary shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="pt-5 border-t border-background/10 flex items-center justify-between">
+                <span className="text-sm text-background/60">
+                  {t.services.from} <span className="text-background font-medium">[{card.price}]</span>
+                </span>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-1 text-sm text-primary hover:text-amber transition-colors"
+                >
+                  {t.services.request} <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="mt-10 text-center text-background/65 italic">{t.services.custom}</p>
+      </div>
+    </section>
+  );
+}
+
+function HowItWorks() {
+  const { t } = useT();
+  return (
+    <section id="how" className="py-20 md:py-28">
+      <div className="container max-w-6xl">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-14 max-w-2xl">{t.how.title}</h2>
+        <div className="grid md:grid-cols-4 gap-8 md:gap-6">
+          {t.how.steps.map(([title, body], i) => (
+            <div key={title} className="relative">
+              <div className="text-amber font-display text-5xl mb-4">
+                0{i + 1}
+              </div>
+              <h3 className="font-display text-xl mb-2">{title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
+              {i < t.how.steps.length - 1 && (
+                <div className="hidden md:block absolute top-7 right-0 w-8 h-px bg-border" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  const { t } = useT();
+  return (
+    <section id="about" className="py-20 md:py-28 border-t border-border/60">
+      <div className="container max-w-4xl text-center">
+        <span className="text-xs tracking-wider uppercase text-primary mb-6 inline-block">
+          {t.nav.about}
+        </span>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-8">{t.about.title}</h2>
+        <p className="text-lg text-muted-foreground leading-relaxed">{t.about.body}</p>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  const { t } = useT();
+  return (
+    <section className="py-20 md:py-28 bg-muted/50">
+      <div className="container max-w-6xl">
+        <h2 className="text-3xl md:text-4xl mb-12 text-center">{t.testimonials.title}</h2>
+        <div className="grid md:grid-cols-3 gap-5">
+          {[0, 1, 2].map((i) => (
+            <div
+              key={i}
+              className="p-8 rounded-2xl bg-background border border-border min-h-[200px] flex items-center justify-center"
+            >
+              <p className="text-muted-foreground italic text-center">{t.testimonials.placeholder}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQ() {
+  const { t } = useT();
+  return (
+    <section className="py-20 md:py-28">
+      <div className="container max-w-3xl">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-10 text-center">{t.faq.title}</h2>
+        <Accordion type="single" collapsible className="w-full">
+          {t.faq.items.map(([q, a], i) => (
+            <AccordionItem key={i} value={`item-${i}`} className="border-border">
+              <AccordionTrigger className="text-left text-base md:text-lg font-display font-medium hover:no-underline">
+                {q}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed">
+                {a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  const { t } = useT();
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = (data.get("name") as string) || "";
+    const email = (data.get("email") as string) || "";
+    const company = (data.get("company") as string) || "";
+    const message = (data.get("message") as string) || "";
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      toast.error("Please fill in name, email and message.");
+      return;
+    }
+    const subject = encodeURIComponent(`Request from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    toast.success("Opening your email client…");
+  };
+
+  return (
+    <section id="contact" className="py-20 md:py-32 bg-foreground text-background">
+      <div className="container max-w-5xl">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+          <div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 text-background">
+              {t.contact.title}
+            </h2>
+            <p className="text-background/70 text-lg leading-relaxed mb-10">{t.contact.sub}</p>
+            <div className="space-y-4 text-background/85">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="flex items-center gap-3 hover:text-primary transition-colors"
+              >
+                <Mail className="h-4 w-4" /> {EMAIL}
+              </a>
+              <a
+                href={CALENDAR_LINK}
+                className="inline-flex items-center gap-2 text-sm border border-background/20 rounded-full px-4 py-2 hover:border-primary hover:text-primary transition-colors"
+              >
+                <Calendar className="h-4 w-4" /> {t.contact.book}
+              </a>
+            </div>
+          </div>
+          <form onSubmit={onSubmit} className="space-y-5">
+            <div>
+              <Label htmlFor="name" className="text-background/70 text-xs tracking-wider uppercase">
+                {t.contact.name}
+              </Label>
+              <Input
+                id="name"
+                name="name"
+                required
+                maxLength={100}
+                className="mt-2 bg-background/[0.04] border-background/15 text-background placeholder:text-background/30 focus-visible:ring-primary"
+              />
+            </div>
+            <div>
+              <Label htmlFor="email" className="text-background/70 text-xs tracking-wider uppercase">
+                {t.contact.email}
+              </Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                required
+                maxLength={255}
+                className="mt-2 bg-background/[0.04] border-background/15 text-background placeholder:text-background/30 focus-visible:ring-primary"
+              />
+            </div>
+            <div>
+              <Label htmlFor="company" className="text-background/70 text-xs tracking-wider uppercase">
+                {t.contact.company}
+              </Label>
+              <Input
+                id="company"
+                name="company"
+                maxLength={150}
+                className="mt-2 bg-background/[0.04] border-background/15 text-background placeholder:text-background/30 focus-visible:ring-primary"
+              />
+            </div>
+            <div>
+              <Label
+                htmlFor="message"
+                className="text-background/70 text-xs tracking-wider uppercase"
+              >
+                {t.contact.message}
+              </Label>
+              <Textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                maxLength={2000}
+                className="mt-2 bg-background/[0.04] border-background/15 text-background placeholder:text-background/30 focus-visible:ring-primary resize-none"
+              />
+            </div>
+            <Button type="submit" size="lg" className="rounded-full w-full h-12">
+              {t.contact.send} <ArrowRight className="ml-1 h-4 w-4" />
+            </Button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  const { t } = useT();
+  return (
+    <footer className="py-12 border-t border-border/60">
+      <div className="container flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+        <div>
+          <div className="font-display text-base font-medium">
+            Business Matching <span className="text-primary">Global</span>
+          </div>
+          <p className="text-sm text-muted-foreground mt-1">{t.footer.tag}</p>
+        </div>
+        <div className="flex items-center gap-5 text-sm">
+          <a href={`mailto:${EMAIL}`} className="text-muted-foreground hover:text-foreground transition-colors">
+            {EMAIL}
+          </a>
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Linkedin className="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+      <div className="container mt-8 pt-6 border-t border-border/40 text-xs text-muted-foreground">
+        {t.footer.rights}
+      </div>
+    </footer>
+  );
+}
+
+export default function Index() {
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Nav />
+      <main>
+        <Hero />
+        <Problem />
+        <Services />
+        <HowItWorks />
+        <About />
+        <Testimonials />
+        <FAQ />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
