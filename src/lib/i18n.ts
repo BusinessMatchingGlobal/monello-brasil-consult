@@ -104,6 +104,10 @@ export const translations = {
     footer: {
       tag: "Business intelligence & research on Brazil.",
       rights: "© 2026 Business Matching Global.",
+      legalName: "Registered name",
+      address: "Address",
+      cnae: "Main activity",
+      capital: "Share capital",
     },
   },
   it: {
@@ -205,6 +209,10 @@ export const translations = {
     footer: {
       tag: "Ricerca e business intelligence sul Brasile.",
       rights: "© 2026 Business Matching Global.",
+      legalName: "Ragione sociale",
+      address: "Sede legale",
+      cnae: "CNAE principale",
+      capital: "Capitale sociale",
     },
   },
   pt: {
@@ -306,6 +314,10 @@ export const translations = {
     footer: {
       tag: "Pesquisa e inteligência de negócios sobre o Brasil.",
       rights: "© 2026 Business Matching Global.",
+      legalName: "Razão social",
+      address: "Endereço",
+      cnae: "CNAE principal",
+      capital: "Capital social",
     },
   },
 } as const;
