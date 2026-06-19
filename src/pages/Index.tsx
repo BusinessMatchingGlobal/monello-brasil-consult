@@ -1,4 +1,5 @@
 import { useState, useEffect, FormEvent } from "react";
+import { Link } from "react-router-dom";
 import { useT, Lang } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -344,13 +345,18 @@ function Contact() {
     const email = (data.get("email") as string) || "";
     const company = (data.get("company") as string) || "";
     const message = (data.get("message") as string) || "";
+    const consent = data.get("consent") === "on";
     if (!name.trim() || !email.trim() || !message.trim()) {
       toast.error("Please fill in name, email and message.");
       return;
     }
+    if (!consent) {
+      toast.error(t.consent.required);
+      return;
+    }
     const subject = encodeURIComponent(`Request from ${name}`);
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`
+      `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}\n\n---\nPrivacy consent: granted (${new Date().toISOString()})`
     );
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
     toast.success("Opening your email client…");
@@ -436,6 +442,21 @@ function Contact() {
             <Button type="submit" size="lg" className="rounded-full w-full h-12">
               {t.contact.send} <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
+            <label className="flex items-start gap-3 text-xs text-background/70 leading-relaxed cursor-pointer">
+              <input
+                type="checkbox"
+                name="consent"
+                required
+                className="mt-0.5 h-4 w-4 rounded border-background/30 bg-background/[0.04] accent-primary"
+              />
+              <span>
+                {t.consent.label}{" "}
+                <Link to="/privacy" className="underline hover:text-background">
+                  {t.consent.link}
+                </Link>{" "}
+                {t.consent.suffix}
+              </span>
+            </label>
           </form>
         </div>
       </div>
