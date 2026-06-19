@@ -129,7 +129,7 @@ function Nav() {
 }
 
 function Hero() {
-  const { t } = useT();
+  const { t, lang } = useT();
   return (
     <section id="top" className="relative pt-32 md:pt-44 pb-20 md:pb-32 overflow-hidden">
       {/* faint world-map texture */}
