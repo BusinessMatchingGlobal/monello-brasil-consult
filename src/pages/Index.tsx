@@ -476,6 +476,9 @@ function Footer() {
           <p className="text-sm text-muted-foreground mt-1">{t.footer.tag}</p>
         </div>
         <div className="flex items-center gap-5 text-sm">
+          <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.footer.privacy}
+          </Link>
           <a href={`mailto:${EMAIL}`} className="text-muted-foreground hover:text-foreground transition-colors">
             {EMAIL}
           </a>
