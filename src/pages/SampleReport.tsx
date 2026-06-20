@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import dossierAsset from "@/assets/sample-dossier.pdf.asset.json";
 
 const OWNER_EMAIL = "info@businessmatching.global";
@@ -170,7 +171,7 @@ export default function SampleReport() {
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!consent) {
       toast({ title: c.consentRequired, variant: "destructive" });
@@ -181,12 +182,25 @@ export default function SampleReport() {
       toast({ title: c.invalid, variant: "destructive" });
       return;
     }
-    const subject = encodeURIComponent(`[Sample Dossier] ${parsed.data.firstName} ${parsed.data.lastName}`);
-    const body = encodeURIComponent(
-      `Name: ${parsed.data.firstName} ${parsed.data.lastName}\nEmail: ${parsed.data.email}\nCompany: ${parsed.data.company ?? "-"}\nLanguage: ${lang}\nConsent: yes\n`
-    );
-    // Notify owner via mailto (opens user's mail client in background tab)
-    window.open(`mailto:${OWNER_EMAIL}?subject=${subject}&body=${body}`, "_blank", "noopener");
+    try {
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-notification",
+          idempotencyKey: `sample-${parsed.data.email}-${Date.now()}`,
+          templateData: {
+            name: `${parsed.data.firstName} ${parsed.data.lastName}`,
+            email: parsed.data.email,
+            company: parsed.data.company ?? "—",
+            message: "Requested the sample dossier download.",
+            source: "Sample dossier request",
+            language: lang,
+            submittedAt: new Date().toISOString(),
+          },
+        },
+      });
+    } catch (err) {
+      console.error("Sample dossier notification failed", err);
+    }
     triggerDownload();
     setSubmitted(true);
   }

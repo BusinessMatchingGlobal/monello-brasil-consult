@@ -25,6 +25,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL = "info@businessmatching.global";
 const CALENDAR_LINK = "#contact"; // replace with real Calendly link
@@ -346,10 +347,12 @@ function FAQ() {
 
 function Contact() {
   const { t } = useT();
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const name = (data.get("name") as string) || "";
     const email = (data.get("email") as string) || "";
     const company = (data.get("company") as string) || "";
@@ -363,12 +366,31 @@ function Contact() {
       toast.error(t.consent.required);
       return;
     }
-    const subject = encodeURIComponent(`Request from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}\n\n---\nPrivacy consent: granted (${new Date().toISOString()})`
-    );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    toast.success("Opening your email client…");
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-notification",
+          idempotencyKey: `contact-${email}-${Date.now()}`,
+          templateData: {
+            name,
+            email,
+            company: company || "—",
+            message,
+            source: "Contact form",
+            submittedAt: new Date().toISOString(),
+          },
+        },
+      });
+      if (error) throw error;
+      toast.success("Thanks — your message has been sent.");
+      form.reset();
+    } catch (err) {
+      console.error("Contact form send failed", err);
+      toast.error("Sending failed. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -448,8 +470,8 @@ function Contact() {
                 className="mt-2 bg-background/[0.04] border-background/15 text-background placeholder:text-background/30 focus-visible:ring-primary resize-none"
               />
             </div>
-            <Button type="submit" size="lg" className="rounded-full w-full h-12">
-              {t.contact.send} <ArrowRight className="ml-1 h-4 w-4" />
+            <Button type="submit" size="lg" disabled={submitting} className="rounded-full w-full h-12">
+              {submitting ? "…" : t.contact.send} <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
             <label className="flex items-start gap-3 text-xs text-background/70 leading-relaxed cursor-pointer">
               <input
