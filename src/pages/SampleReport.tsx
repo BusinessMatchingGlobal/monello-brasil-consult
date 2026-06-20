@@ -53,7 +53,7 @@ const copy: Record<Lang, Copy> = {
     back: "Torna alla home",
     eyebrow: "Esempio gratuito",
     title: "Dossier Brasile — Esempio gratuito",
-    sub: "Un estratto reale del tipo di report che consegno: panoramica di mercato, fornitori, requisiti di import e indicatori di rischio per un caso pratico (Ajvar in Brasile).",
+    sub: "Un estratto reale tratto da un dossier completo: esempio di panoramica di mercato, fornitori, requisiti di import e indicatori di rischio per un caso pratico (Ajvar in Brasile). Non è il dossier intero, ma un campione rappresentativo.",
     bullets: [
       "Panoramica del mercato brasiliano per il prodotto",
       "Profilo sintetico di potenziali fornitori e distributori",
@@ -86,7 +86,7 @@ const copy: Record<Lang, Copy> = {
     back: "Back to home",
     eyebrow: "Free sample",
     title: "Brazil Dossier — Free Sample",
-    sub: "A real excerpt of the kind of report I deliver: market overview, suppliers, import requirements and risk indicators for a practical case (Ajvar in Brazil).",
+    sub: "A real excerpt from a full dossier: a sample market overview, suppliers, import requirements and risk indicators for a practical case (Ajvar in Brazil). This is not the complete dossier — just a representative sample.",
     bullets: [
       "Brazilian market overview for the product",
       "Snapshot of potential suppliers and distributors",
@@ -119,7 +119,7 @@ const copy: Record<Lang, Copy> = {
     back: "Voltar para a home",
     eyebrow: "Amostra gratuita",
     title: "Dossiê Brasil — Amostra Gratuita",
-    sub: "Um trecho real do tipo de relatório que entrego: panorama de mercado, fornecedores, requisitos de importação e indicadores de risco para um caso prático (Ajvar no Brasil).",
+    sub: "Um trecho real de um dossiê completo: exemplo de panorama de mercado, fornecedores, requisitos de importação e indicadores de risco para um caso prático (Ajvar no Brasil). Não é o dossiê inteiro, apenas uma amostra representativa.",
     bullets: [
       "Panorama do mercado brasileiro para o produto",
       "Perfil resumido de potenciais fornecedores e distribuidores",
