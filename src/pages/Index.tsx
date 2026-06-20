@@ -20,7 +20,6 @@ import {
   AlertTriangle,
   Menu,
   X,
-  Calendar,
   Mail,
   Linkedin,
 } from "lucide-react";
@@ -28,7 +27,6 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL = "info@businessmatching.global";
-const CALENDAR_LINK = "#contact"; // replace with real Calendly link
 
 function LangSwitcher() {
   const { lang, setLang } = useT();
@@ -408,12 +406,6 @@ function Contact() {
                 className="flex items-center gap-3 hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" /> {EMAIL}
-              </a>
-              <a
-                href={CALENDAR_LINK}
-                className="inline-flex items-center gap-2 text-sm border border-background/20 rounded-full px-4 py-2 hover:border-primary hover:text-primary transition-colors"
-              >
-                <Calendar className="h-4 w-4" /> {t.contact.book}
               </a>
             </div>
           </div>
