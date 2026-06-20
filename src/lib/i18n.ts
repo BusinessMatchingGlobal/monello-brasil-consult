@@ -73,7 +73,7 @@ export const translations = {
       ],
     },
     about: {
-      title: "An Italy–Brazil bridge for reliable information.",
+      title: "An EU–Brazil bridge for reliable information.",
       body: "I work between Italy and Brazil, so I understand both the international client's needs and the realities of the Brazilian market. My work is independent, confidential and focused on one thing: giving you information you can actually decide on. No noise, no filler — just the answers you need, on time.",
     },
     testimonials: {
@@ -185,7 +185,7 @@ export const translations = {
       ],
     },
     about: {
-      title: "Un ponte Italia–Brasile per informazioni affidabili.",
+      title: "Un ponte UE–Brasile per informazioni affidabili.",
       body: "Lavoro tra l'Italia e il Brasile: capisco sia le esigenze del cliente internazionale sia la realtà del mercato brasiliano. Il mio lavoro è indipendente, riservato e con un solo obiettivo: darti informazioni su cui puoi davvero decidere. Niente rumore, niente riempitivi — solo le risposte che ti servono, nei tempi giusti.",
     },
     testimonials: {
@@ -297,7 +297,7 @@ export const translations = {
       ],
     },
     about: {
-      title: "Uma ponte Itália–Brasil para informações confiáveis.",
+      title: "Uma ponte UE–Brasil para informações confiáveis.",
       body: "Atuo entre a Itália e o Brasil, então entendo tanto as necessidades do cliente internacional quanto a realidade do mercado brasileiro. Meu trabalho é independente, sigiloso e focado em uma coisa: te dar informações sobre as quais você possa realmente decidir. Sem ruído, sem enrolação — só as respostas que você precisa, no prazo.",
     },
     testimonials: {
