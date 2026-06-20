@@ -243,7 +243,7 @@ function Services() {
               </ul>
               <div className="pt-5 border-t border-background/10 flex items-center justify-between">
                 <span className="text-sm text-background/60">
-                  {t.services.from} <span className="text-background font-medium">[{card.price}]</span>
+                  {t.services.from} <span className="text-background font-medium">{card.price}</span>
                 </span>
                 <a
                   href="#contact"
