@@ -9,7 +9,7 @@ export const translations = {
     nav: { services: "Services", how: "How it works", about: "About", contact: "Contact" },
     hero: {
       title: "Reliable business intelligence on Brazil — without the guesswork.",
-      sub: "I help international companies make confident decisions in and with Brazil. Market research, supplier verification and import/export information, delivered as clear, actionable reports.",
+      sub: "I help international companies make confident decisions in and with Brazil. Business intelligence, supplier verification and import/export information, delivered as clear, actionable reports.",
       cta1: "Request a report",
       cta2: "See services",
     },
