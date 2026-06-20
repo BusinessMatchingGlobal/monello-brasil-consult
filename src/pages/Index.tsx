@@ -27,7 +27,6 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL = "info@businessmatching.global";
-const CALENDAR_LINK = "#contact"; // replace with real Calendly link
 
 function LangSwitcher() {
   const { lang, setLang } = useT();
