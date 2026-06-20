@@ -408,12 +408,6 @@ function Contact() {
               >
                 <Mail className="h-4 w-4" /> {EMAIL}
               </a>
-              <a
-                href={CALENDAR_LINK}
-                className="inline-flex items-center gap-2 text-sm border border-background/20 rounded-full px-4 py-2 hover:border-primary hover:text-primary transition-colors"
-              >
-                <Calendar className="h-4 w-4" /> {t.contact.book}
-              </a>
             </div>
           </div>
           <form onSubmit={onSubmit} className="space-y-5">
