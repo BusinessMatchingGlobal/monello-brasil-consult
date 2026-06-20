@@ -522,7 +522,6 @@ export default function Index() {
         <Services />
         <HowItWorks />
         <About />
-        <Testimonials />
         <FAQ />
         <Contact />
       </main>
