@@ -145,7 +145,7 @@ function Hero() {
       <div className="container relative max-w-5xl">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card/60 mb-8 text-xs tracking-wider uppercase text-muted-foreground">
           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          Italy <span className="text-border">·</span> Brazil
+          EU <span className="text-border">·</span> Brazil
         </div>
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight max-w-4xl">
           {t.hero.title}
