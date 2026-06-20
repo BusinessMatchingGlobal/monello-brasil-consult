@@ -514,7 +514,7 @@ function Footer() {
             {EMAIL}
           </a>
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/company/109746306/admin/dashboard/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
