@@ -121,7 +121,7 @@ export const translations = {
     nav: { services: "Servizi", how: "Come funziona", about: "Chi sono", contact: "Contatti" },
     hero: {
       title: "Business intelligence affidabile sul Brasile — senza tirare a indovinare.",
-      sub: "Aiuto le aziende internazionali a prendere decisioni sicure in Brasile e con il Brasile. Ricerche di mercato, verifica di fornitori e informazioni su import/export, consegnate in report chiari e pronti all'uso.",
+      sub: "Aiuto le aziende internazionali a prendere decisioni sicure in Brasile e con il Brasile. Business intelligence, verifica di fornitori e informazioni su import/export, consegnate in report chiari e pronti all'uso.",
       cta1: "Richiedi un report",
       cta2: "Scopri i servizi",
     },
