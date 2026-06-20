@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
-const CONTROLLER_EMAIL = "enstobbi@enstobbi.it";
+const CONTROLLER_EMAIL = "info@businessmatching.global";
 const COMPANY = "ENZO ALDO STOBBIONE LTDA (Business Matching Global)";
 const ADDRESS = "Avenida Getúlio Vargas, 671, Sala 500, Savassi, Belo Horizonte/MG, Brasil";
+const CNPJ = "67.589.228/0001-30";
 
 type Section = { h: string; p: (string | JSX.Element)[] };
 type Content = { title: string; updated: string; intro: string; sections: Section[]; back: string };
@@ -20,7 +21,7 @@ const content: Record<"en" | "it" | "pt", Content> = {
       {
         h: "1. Titolare del trattamento",
         p: [
-          `${COMPANY}, con sede in ${ADDRESS}. Contatto per ogni questione relativa alla privacy: `,
+          `${COMPANY}, con sede in ${ADDRESS}, CNPJ ${CNPJ}. Contatto per ogni questione relativa alla privacy: `,
           <a key="e" href={`mailto:${CONTROLLER_EMAIL}`} className="text-primary underline">{CONTROLLER_EMAIL}</a>,
           ". Al momento non è stato nominato un Responsabile della Protezione dei Dati (DPO / Encarregado): le richieste vanno indirizzate direttamente al titolare.",
         ],
@@ -87,7 +88,7 @@ const content: Record<"en" | "it" | "pt", Content> = {
       {
         h: "1. Data controller",
         p: [
-          `${COMPANY}, registered at ${ADDRESS}. Contact for any privacy-related matter: `,
+          `${COMPANY}, registered at ${ADDRESS}, CNPJ ${CNPJ}. Contact for any privacy-related matter: `,
           <a key="e" href={`mailto:${CONTROLLER_EMAIL}`} className="text-primary underline">{CONTROLLER_EMAIL}</a>,
           ". No Data Protection Officer (DPO / Encarregado) has been appointed at this time — please contact the controller directly.",
         ],
@@ -154,7 +155,7 @@ const content: Record<"en" | "it" | "pt", Content> = {
       {
         h: "1. Controlador dos dados",
         p: [
-          `${COMPANY}, com sede em ${ADDRESS}. Contato para assuntos de privacidade: `,
+          `${COMPANY}, com sede em ${ADDRESS}, CNPJ ${CNPJ}. Contato para assuntos de privacidade: `,
           <a key="e" href={`mailto:${CONTROLLER_EMAIL}`} className="text-primary underline">{CONTROLLER_EMAIL}</a>,
           ". No momento não há Encarregado pelo Tratamento de Dados (DPO) nomeado — as solicitações devem ser enviadas diretamente ao controlador.",
         ],

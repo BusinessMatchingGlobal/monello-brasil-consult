@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-const EMAIL = "enstobbi@enstobbi.it";
+const EMAIL = "info@businessmatching.global";
 const CALENDAR_LINK = "#contact"; // replace with real Calendly link
 
 function LangSwitcher() {
@@ -505,7 +505,7 @@ function Footer() {
       <div className="container mt-8 pt-6 border-t border-border/40 text-xs text-muted-foreground">
         <p>{t.footer.rights}</p>
         <p className="mt-2 text-muted-foreground/70 leading-relaxed">
-          {t.footer.legalName}: ENZO ALDO STOBBIONE LTDA · {t.footer.address}: Avenida Getúlio Vargas, 671, Sala 500, Savassi, Belo Horizonte/MG · CNAE 6399-2/00 · {t.footer.capital}: R$ 1.000,00
+          {t.footer.legalName}: ENZO ALDO STOBBIONE LTDA · CNPJ: 67.589.228/0001-30 · {t.footer.address}: Avenida Getúlio Vargas, 671, Sala 500, Savassi, Belo Horizonte/MG · CNAE 6399-2/00 · {t.footer.capital}: R$ 1.000,00
         </p>
       </div>
     </footer>
