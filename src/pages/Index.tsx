@@ -20,7 +20,6 @@ import {
   AlertTriangle,
   Menu,
   X,
-  Calendar,
   Mail,
   Linkedin,
 } from "lucide-react";
