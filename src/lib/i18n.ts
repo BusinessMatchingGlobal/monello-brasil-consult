@@ -233,7 +233,7 @@ export const translations = {
     nav: { services: "Serviços", how: "Como funciona", about: "Sobre", contact: "Contato" },
     hero: {
       title: "Inteligência de negócios confiável sobre o Brasil — sem achismos.",
-      sub: "Ajudo empresas internacionais a tomar decisões seguras no Brasil e com o Brasil. Pesquisa de mercado, verificação de fornecedores e informações de importação/exportação, entregues em relatórios claros e prontos para usar.",
+      sub: "Ajudo empresas internacionais a tomar decisões seguras no Brasil e com o Brasil. Inteligência de negócios, verificação de fornecedores e informações de importação/exportação, entregues em relatórios claros e prontos para usar.",
       cta1: "Solicite um relatório",
       cta2: "Ver serviços",
     },
