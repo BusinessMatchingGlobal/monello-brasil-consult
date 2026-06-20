@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/components/ui/use-toast";
 import dossierAsset from "@/assets/sample-dossier.pdf.asset.json";
 
-const OWNER_EMAIL = "enstobbi@enstobbi.it";
+const OWNER_EMAIL = "info@businessmatching.global";
 const PDF_URL = dossierAsset.url;
 const PDF_FILENAME = "Ajvar_Brazil_Dossier_SAMPLE_BusinessMatchingGlobal.pdf";
 
