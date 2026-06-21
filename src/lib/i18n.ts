@@ -126,7 +126,7 @@ export const translations = {
       cta2: "Scopri i servizi",
     },
     problem: {
-      title: "Fare affari con il Brasile non dovrebbe essere un salto nel buio.",
+      title: "Fare affari in Brasile non dovrebbe essere un salto nel buio.",
       body: "La maggior parte delle aziende che si avvicina al mercato brasiliano incontra gli stessi ostacoli: informazioni sparse e difficili da verificare, lingua e burocrazia che creano punti ciechi, e una singola supposizione sbagliata che costa tempo e denaro. Io trasformo questa incertezza in informazioni chiare, su cui puoi davvero decidere.",
       items: [
         ["Informazioni sparse", "Fonti che si contraddicono e di cui è difficile fidarsi."],
