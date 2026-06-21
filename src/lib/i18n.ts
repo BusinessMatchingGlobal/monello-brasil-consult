@@ -71,7 +71,7 @@ export const translations = {
       title: "Simple, fast, clear.",
       steps: [
         ["Get in touch with us and tell us what you need and what your goals are.", "We will contact you to clarify any questions, better understand your needs, and optimize our work so we can help you get straight to the point: achieving your objective in the clearest, most efficient, and most focused way possible."],
-        ["I research it", "Using local knowledge and official Brazilian sources."],
+        ["Research and dossier preparation", "After understanding your objectives and needs, we begin the research and preparation of the dossier, selecting the information relevant to your case.\n\nEach piece of content is verified, organized and integrated with the necessary clarifications, with care, attention and maximum efficiency."],
         ["You get a clear report", "Written, structured, in English, ready to use."],
         ["We review it together", "An optional call to walk through the findings."],
       ],
@@ -187,7 +187,7 @@ export const translations = {
       title: "Semplice, veloce, chiaro.",
       steps: [
         ["Entra in contatto con noi e spiegaci di cosa hai bisogno e quali sono i tuoi obiettivi.", "Ti ricontatteremo per chiarire ogni eventuale dubbio, comprendere meglio le tue esigenze e ottimizzare il nostro lavoro, così da aiutarti ad andare direttamente al punto: raggiungere il tuo obiettivo nel modo più chiaro, efficiente e mirato possibile."],
-        ["Faccio la ricerca", "Con conoscenza locale e fonti ufficiali brasiliane."],
+        ["Ricerca e redazione del dossier", "Dopo aver compreso obiettivi ed esigenze, avviamo la ricerca e la redazione del dossier, selezionando le informazioni rilevanti per il tuo caso.\n\nOgni contenuto viene verificato, organizzato e integrato con i chiarimenti necessari, con cura, attenzione e massima efficienza."],
         ["Ricevi un report chiaro", "Scritto, strutturato, pronto all'uso."],
         ["Lo rivediamo insieme", "Una call facoltativa per analizzare i risultati."],
       ],
@@ -303,7 +303,7 @@ export const translations = {
       title: "Simples, rápido, claro.",
       steps: [
         ["Entre em contato conosco e explique o que você precisa e quais são os seus objetivos.", "Nós entraremos em contato para esclarecer eventuais dúvidas, entender melhor as suas necessidades e otimizar nosso trabalho, ajudando você a ir direto ao ponto: alcançar o seu objetivo da forma mais clara, eficiente e direcionada possível."],
-        ["Eu pesquiso", "Com conhecimento local e fontes oficiais brasileiras."],
+        ["Pesquisa e elaboração do dossiê", "Após compreender seus objetivos e necessidades, iniciamos a pesquisa e a elaboração do dossiê, selecionando as informações relevantes para o seu caso.\n\nCada conteúdo é verificado, organizado e integrado com os esclarecimentos necessários, com cuidado, atenção e máxima eficiência."],
         ["Você recebe um relatório claro", "Escrito, estruturado, pronto para usar."],
         ["Revisamos juntos", "Uma call opcional para analisar os resultados."],
       ],
