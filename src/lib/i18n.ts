@@ -70,7 +70,7 @@ export const translations = {
     how: {
       title: "Simple, fast, clear.",
       steps: [
-        ["Tell me what you need", "A short brief or a quick call."],
+        ["Get in touch with us and tell us what you need and what your goals are.", "We will contact you to clarify any questions, better understand your needs, and optimize our work so we can help you get straight to the point: achieving your objective in the clearest, most efficient, and most focused way possible."],
         ["I research it", "Using local knowledge and official Brazilian sources."],
         ["You get a clear report", "Written, structured, in English, ready to use."],
         ["We review it together", "An optional call to walk through the findings."],
@@ -186,7 +186,7 @@ export const translations = {
     how: {
       title: "Semplice, veloce, chiaro.",
       steps: [
-        ["Dimmi cosa ti serve", "Un breve briefing o una rapida call."],
+        ["Entra in contatto con noi e spiegaci di cosa hai bisogno e quali sono i tuoi obiettivi.", "Ti ricontatteremo per chiarire ogni eventuale dubbio, comprendere meglio le tue esigenze e ottimizzare il nostro lavoro, così da aiutarti ad andare direttamente al punto: raggiungere il tuo obiettivo nel modo più chiaro, efficiente e mirato possibile."],
         ["Faccio la ricerca", "Con conoscenza locale e fonti ufficiali brasiliane."],
         ["Ricevi un report chiaro", "Scritto, strutturato, pronto all'uso."],
         ["Lo rivediamo insieme", "Una call facoltativa per analizzare i risultati."],
@@ -302,7 +302,7 @@ export const translations = {
     how: {
       title: "Simples, rápido, claro.",
       steps: [
-        ["Diga o que você precisa", "Um briefing rápido ou uma call."],
+        ["Entre em contato conosco e explique o que você precisa e quais são os seus objetivos.", "Nós entraremos em contato para esclarecer eventuais dúvidas, entender melhor as suas necessidades e otimizar nosso trabalho, ajudando você a ir direto ao ponto: alcançar o seu objetivo da forma mais clara, eficiente e direcionada possível."],
         ["Eu pesquiso", "Com conhecimento local e fontes oficiais brasileiras."],
         ["Você recebe um relatório claro", "Escrito, estruturado, pronto para usar."],
         ["Revisamos juntos", "Uma call opcional para analisar os resultados."],
