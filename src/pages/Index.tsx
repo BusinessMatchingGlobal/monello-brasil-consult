@@ -187,7 +187,7 @@ function Problem() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight">{t.problem.title}</h2>
           </div>
           <div className="md:col-span-7">
-            <p className="text-lg text-muted-foreground leading-relaxed">{t.problem.body}</p>
+            <p className="text-lg text-muted-foreground leading-relaxed text-justify">{t.problem.body}</p>
           </div>
         </div>
         <div className="mt-16 grid sm:grid-cols-3 gap-6">
