@@ -169,13 +169,14 @@ export const translations = {
           price: "500 €",
         },
         {
-          name: "Briefing Import/Export",
-          promise: "Sai esattamente cosa richiede la tua operazione.",
+          name: "Briefing Import/Export Brasile",
+          promise: "Chiarisci requisiti, procedure e rischi prima di avviare l'operazione.",
           items: [
             "Procedure e documentazione necessaria",
             "Classificazione del prodotto e regole applicabili",
-            "Requisiti chiave ed errori tipici",
-            "Fonti e riferimenti",
+            "Requisiti doganali, fiscali e regolatori principali",
+            "Errori tipici e criticità da evitare",
+            "Fonti, riferimenti e indicazioni operative",
           ],
           price: "600 €",
         },
