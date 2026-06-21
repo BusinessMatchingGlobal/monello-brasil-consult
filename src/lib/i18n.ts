@@ -255,13 +255,14 @@ export const translations = {
       custom: "Precisa de algo diferente ou recorrente? Pesquisas sob medida e por contrato disponíveis — é só descrever o que você precisa.",
       cards: [
         {
-          name: "Verificação de Fornecedor (Brasil)",
-          promise: "Saiba com quem você está lidando antes de se comprometer.",
+          name: "Verificação de Contraparte no Brasil",
+          promise: "Saiba com quem você está negociando antes de assumir qualquer compromisso.",
           items: [
             "Existência e situação cadastral da empresa",
-            "Sócios e informações básicas",
-            "Reputação e sinais de alerta públicos",
-            "Resumo com uma indicação clara de risco",
+            "Quadro societário, administradores e informações básicas",
+            "Reputação e sinais públicos de risco",
+            "Verificação de clientes, fornecedores, parceiros, distribuidores ou agentes",
+            "Síntese final com indicação clara do nível de risco",
           ],
           price: "€150",
         },
