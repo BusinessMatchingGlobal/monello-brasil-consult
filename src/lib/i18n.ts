@@ -23,7 +23,7 @@ export const translations = {
       ],
     },
     services: {
-      title: "What I can find out for you",
+      title: "How can we support you?",
       from: "from",
       request: "Request this",
       custom: "Need something different or ongoing? Custom and retainer research available — just describe what you need.",
@@ -135,7 +135,7 @@ export const translations = {
       ],
     },
     services: {
-      title: "Cosa posso scoprire per te",
+      title: "Come possiamo aiutarti?",
       from: "a partire da",
       request: "Richiedi",
       custom: "Ti serve qualcosa di diverso o continuativo? Ricerche su misura e a contratto disponibili — descrivimi cosa ti serve.",
@@ -247,7 +247,7 @@ export const translations = {
       ],
     },
     services: {
-      title: "O que posso descobrir para você",
+      title: "Como podemos te ajudar?",
       from: "a partir de",
       request: "Solicitar",
       custom: "Precisa de algo diferente ou recorrente? Pesquisas sob medida e por contrato disponíveis — é só descrever o que você precisa.",
