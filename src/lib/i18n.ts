@@ -129,7 +129,7 @@ export const translations = {
       title: "Fare affari in Brasile non dovrebbe essere un salto nel buio.",
       body: "Chi si avvicina al mercato brasiliano si trova spesso ad affrontare gli stessi ostacoli: difficoltà di accesso a informazioni affidabili e aggiornate, dati frammentati, fonti difficili da verificare e norme non sempre semplici da interpretare.\n\nIl problema non è solo linguistico. Per operare in Brasile, infatti, non basta comprendere cosa prevedono le regole: è necessario anche capire come vengono applicate nella pratica, all’interno di un sistema amministrativo, fiscale e culturale diverso.\n\nQuesta complessità può creare punti ciechi e portare a supposizioni errate. Nel business, una singola valutazione sbagliata può costare tempo, denaro e opportunità.\n\nNoi trasformiamo questa incertezza in un quadro chiaro, verificabile e operativo, che consente di prendere decisioni con piena consapevolezza.",
       items: [
-        ["Informazioni sparse", "Fonti che si contraddicono e di cui è difficile fidarsi."],
+        ["Informazioni frammentate", "Difficili da reperire e spesso complesse da verificare, sia in termini di attendibilità sia di aggiornamento.\n\nFonti che talvolta si contraddicono tra loro, rendendo difficile capire quali dati siano realmente affidabili e su quali elementi sia possibile fondare una decisione."],
         ["Lingua e burocrazia", "Regole e documenti locali facili da fraintendere."],
         ["Errori costosi", "Decisioni prese su dati incompleti o superati."],
       ],
