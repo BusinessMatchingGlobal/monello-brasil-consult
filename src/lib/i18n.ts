@@ -19,7 +19,7 @@ export const translations = {
       items: [
         ["Unreliable Information", "Information is often fragmented, difficult to access and hard to verify, both in terms of reliability and timeliness.\n\nSources may contradict one another, making it difficult to determine which data can truly be trusted and used as a basis for informed decision-making."],
         ["Wrong Interpretations", "Reliable information is only the starting point. To make sound business decisions, companies must be able to interpret that information correctly, place it in context and understand how it is applied in practice.\n\nLanguage skills alone are not enough. What matters is understanding how local professionals, authorities and market operators read, interpret and apply that information in everyday administrative, tax and commercial contexts.\n\nThe challenge is often made harder by fragmented information, difficult access and sources that are not always easy to verify. Data may be incomplete, outdated or contradictory, making it difficult to determine what can genuinely be trusted as a basis for informed decision-making."],
-        ["Costly mistakes", "When decisions are based on inaccurate or misinterpreted data, businesses risk making poor strategic choices that can result in significant costs, wasted time and missed opportunities."],
+        ["Costly Mistakes", "When decisions are based on inaccurate or misinterpreted data, businesses risk making poor strategic choices that can result in significant costs, wasted time and missed opportunities."],
       ],
     },
     services: {
@@ -131,7 +131,7 @@ export const translations = {
       items: [
         ["Informazioni errate", "Il problema non riguarda soltanto la difficoltà di reperire informazioni, ma anche la complessità di verificarne l’attendibilità e il grado di aggiornamento.\n\nLe fonti disponibili possono essere frammentate, incomplete o persino contraddittorie, rendendo difficile stabilire quali dati siano realmente affidabili e su quali elementi sia possibile basare una decisione informata."],
         ["Interpretazioni errate", "Disporre di informazioni affidabili è solo il primo passo. Per prendere decisioni realmente consapevoli, è necessario saperle leggere, interpretare e contestualizzare correttamente.\n\nLa conoscenza della lingua, da sola, non è sufficiente. Occorre comprendere come quelle informazioni vengono interpretate dagli operatori locali e come trovano concreta applicazione nella pratica amministrativa, fiscale e commerciale."],
-        ["Errori costosi", "Quando le decisioni si basano su dati non corretti o interpretati in modo errato, il rischio è quello di compiere scelte strategiche sbagliate, con costi significativi in termini di tempo, denaro e opportunità perse."],
+        ["Errori Costosi", "Quando le decisioni si basano su dati non corretti o interpretati in modo errato, il rischio è quello di compiere scelte strategiche sbagliate, con costi significativi in termini di tempo, denaro e opportunità perse."],
       ],
     },
     services: {
@@ -243,7 +243,7 @@ export const translations = {
       items: [
         ["Informações não confiáveis", "O desafio muitas vezes está em lidar com informações fragmentadas, de difícil acesso e nem sempre fáceis de verificar, seja quanto à sua confiabilidade, seja quanto ao seu grado de atualização.\n\nAs fontes disponíveis podem ser incompletas, desatualizadas ou até contraditórias, tornando complexo entender quais dados podem de fato ser considerados confiáveis e utilizados como base para decisões bem fundamentadas."],
         ["Interpretações equivocadas", "Ter acesso a informações confiáveis é apenas o primeiro passo. Para tomar decisões verdadeiramente bem fundamentadas, é preciso saber interpretá-las, contextualizá-las e compreender como elas são aplicadas na prática.\n\nO domínio do idioma, isoladamente, não basta. É necessário entender como profissionais e operadores locais interpretam essas informações e de que forma elas se traduzem no dia a dia administrativo, tributário e comercial.\n\nEsse desafio se torna ainda maior quando as informações disponíveis são fragmentadas, difíceis de acessar e nem sempre fáceis de verificar. As fontes podem ser incompletas, desatualizadas ou contraditórias, tornando complexa a identificação de dados realmente confiáveis para embasar decisões informadas."],
-        ["Erros caros", "Quando as decisões são baseadas em dados imprecisos, incompletos ou mal interpretados, as empresas correm o risco de fazer escolhas estratégicas equivocadas, com custos significativos em termos de tempo, dinheiro e oportunidades perdidas."],
+        ["Erros custosos", "Quando as decisões são baseadas em dados imprecisos, incompletos ou mal interpretados, as empresas correm o risco de fazer escolhas estratégicas equivocadas, com custos significativos em termos de tempo, dinheiro e oportunidades perdidas."],
       ],
     },
     services: {
