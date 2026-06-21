@@ -238,7 +238,7 @@ export const translations = {
       cta2: "Ver serviços",
     },
     problem: {
-      title: "Fazer negócios com o Brasil não precisa ser um salto no escuro.",
+      title: "Fazer negócios no Brasil não precisa ser um salto no escuro.",
       body: "A maioria das empresas que se aproxima do mercado brasileiro enfrenta os mesmos obstáculos: informações dispersas e difíceis de verificar, idioma e burocracia que criam pontos cegos, e uma única suposição errada que custa tempo e dinheiro. Eu transformo essa incerteza em informações claras, sobre as quais você pode realmente decidir.",
       items: [
         ["Informações dispersas", "Fontes que se contradizem e nas quais é difícil confiar."],
