@@ -77,8 +77,8 @@ export const translations = {
       ],
     },
     about: {
-      title: "An EU–Brazil bridge for reliable information.",
-      body: "I work between Italy and Brazil, so I understand both the international client's needs and the realities of the Brazilian market. My work is independent, confidential and focused on one thing: giving you information you can actually decide on. No noise, no filler — just the answers you need, on time.",
+      title: "A bridge between the European Union and Brazil for reliable, clear and practical information.",
+      body: "We work between Europe and Brazil, and we understand both the needs of European and international companies, professionals and clients, and the complex regulatory, administrative, tax and cultural reality of the Brazilian market.\n\nOur expertise comes from an international background combining law, international trade, EU project management, entrepreneurship and practical knowledge of the European and Brazilian markets.\n\nOur goal is to help you better understand the context in which you want to operate, reducing the impact of the so-called Custo Brasil: bureaucracy, regulatory complexity, information asymmetries, interpretative difficulties and operational risks that may slow down or complicate decision-making.\n\nOur work is independent, confidential and focused on providing reliable, selected and truly useful information, so you can make informed decisions.\n\nNo noise, no fillers: only the answers you need, at the right time.",
     },
     testimonials: {
       title: "What clients say",
@@ -193,8 +193,8 @@ export const translations = {
       ],
     },
     about: {
-      title: "Un ponte UE–Brasile per informazioni affidabili.",
-      body: "Lavoro tra l'Italia e il Brasile: capisco sia le esigenze del cliente internazionale sia la realtà del mercato brasiliano. Il mio lavoro è indipendente, riservato e con un solo obiettivo: darti informazioni su cui puoi davvero decidere. Niente rumore, niente riempitivi — solo le risposte che ti servono, nei tempi giusti.",
+      title: "Un ponte tra Unione Europea e Brasile per informazioni affidabili, chiare e operative.",
+      body: "Lavoriamo tra l'Europa e il Brasile e comprendiamo sia le esigenze di imprese, professionisti e clienti europei e internazionali, sia la complessa realtà normativa, amministrativa, fiscale e culturale del mercato brasiliano.\n\nLa nostra competenza nasce da un percorso internazionale che unisce diritto, commercio internazionale, europrogettazione, attività imprenditoriale e conoscenza pratica dei mercati europei e brasiliani.\n\nIl nostro obiettivo è aiutarti a comprendere meglio il contesto in cui vuoi operare, riducendo l'impatto del cosiddetto Custo Brasil: burocrazia, complessità regolatoria, asimmetrie informative, difficoltà interpretative e rischi operativi che possono rallentare o complicare le decisioni.\n\nIl nostro lavoro è indipendente, riservato e orientato a fornirti informazioni affidabili, selezionate e realmente utili per decidere in modo informato.\n\nNiente rumore, niente riempitivi: solo le risposte che ti servono, nei tempi giusti.",
     },
     testimonials: {
       title: "Cosa dicono i clienti",
@@ -309,8 +309,8 @@ export const translations = {
       ],
     },
     about: {
-      title: "Uma ponte UE–Brasil para informações confiáveis.",
-      body: "Atuo entre a Itália e o Brasil, então entendo tanto as necessidades do cliente internacional quanto a realidade do mercado brasileiro. Meu trabalho é independente, sigiloso e focado em uma coisa: te dar informações sobre as quais você possa realmente decidir. Sem ruído, sem enrolação — só as respostas que você precisa, no prazo.",
+      title: "Uma ponte entre a União Europeia e o Brasil para informações confiáveis, claras e operacionais.",
+      body: "Atuamos entre a Europa e o Brasil e compreendemos tanto as necessidades de empresas, profissionais e clientes europeus e internacionais quanto a complexa realidade normativa, administrativa, fiscal e cultural do mercado brasileiro.\n\nNossa competência nasce de uma trajetória internacional que une direito, comércio internacional, projetos europeus, atividade empreendedora e conhecimento prático dos mercados europeu e brasileiro.\n\nNosso objetivo é ajudar você a compreender melhor o contexto em que deseja atuar, reduzindo o impacto do chamado Custo Brasil: burocracia, complexidade regulatória, assimetrias de informação, dificuldades de interpretação e riscos operacionais que podem atrasar ou complicar a tomada de decisões.\n\nNosso trabalho é independente, confidencial e orientado a fornecer informações confiáveis, selecionadas e realmente úteis para que você possa decidir de forma informada.\n\nSem ruído, sem conteúdo desnecessário: apenas as respostas de que você precisa, no momento certo.",
     },
     testimonials: {
       title: "O que dizem os clientes",

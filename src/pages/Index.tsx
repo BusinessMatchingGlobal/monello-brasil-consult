@@ -302,7 +302,11 @@ function About() {
           {t.nav.about}
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-8">{t.about.title}</h2>
-        <p className="text-lg text-muted-foreground leading-relaxed">{t.about.body}</p>
+        <div className="space-y-5 text-left md:text-center">
+          {t.about.body.split("\n\n").map((para, i) => (
+            <p key={i} className="text-lg text-muted-foreground leading-relaxed">{para}</p>
+          ))}
+        </div>
       </div>
     </section>
   );
