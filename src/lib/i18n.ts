@@ -187,7 +187,7 @@ export const translations = {
       title: "Semplice, veloce, chiaro.",
       steps: [
         ["Entra in contatto con noi e spiegaci di cosa hai bisogno e quali sono i tuoi obiettivi.", "Ti ricontatteremo per chiarire ogni eventuale dubbio, comprendere meglio le tue esigenze e ottimizzare il nostro lavoro, così da aiutarti ad andare direttamente al punto: raggiungere il tuo obiettivo nel modo più chiaro, efficiente e mirato possibile."],
-        ["Faccio la ricerca", "Con conoscenza locale e fonti ufficiali brasiliane."],
+        ["Ricerca e redazione del dossier", "Dopo aver compreso obiettivi ed esigenze, avviamo la ricerca e la redazione del dossier, selezionando le informazioni rilevanti per il tuo caso.\n\nOgni contenuto viene verificato, organizzato e integrato con i chiarimenti necessari, con cura, attenzione e massima efficienza."],
         ["Ricevi un report chiaro", "Scritto, strutturato, pronto all'uso."],
         ["Lo rivediamo insieme", "Una call facoltativa per analizzare i risultati."],
       ],
