@@ -9,7 +9,7 @@ export const translations = {
     nav: { services: "Services", how: "How it works", about: "About", contact: "Contact" },
     hero: {
       title: "Reliable business intelligence on Brazil — without the guesswork.",
-      sub: "I help international companies make confident decisions in and with Brazil. Business intelligence, supplier verification and import/export information, delivered as clear, actionable reports.",
+      sub: "We help companies and investors make sound and informed decisions when doing business in Brazil, including exporting, investing, and forming commercial partnerships.\n\nOur services include business intelligence, due diligence on potential suppliers and customers, and analysis of key regulatory, tax, and operational information, such as import/export and customs procedures, local requirements and permits, regional incentives, and market access conditions.\n\nThrough tailored services, we produce clear, practical, and ready-to-use reports designed to support commercial, strategic, and operational decisions.",
       cta1: "Request a report",
       cta2: "See services",
     },
