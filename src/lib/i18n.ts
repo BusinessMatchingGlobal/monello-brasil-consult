@@ -243,7 +243,7 @@ export const translations = {
       items: [
         ["Informações não confiáveis", "O desafio muitas vezes está em lidar com informações fragmentadas, de difícil acesso e nem sempre fáceis de verificar, seja quanto à sua confiabilidade, seja quanto ao seu grado de atualização.\n\nAs fontes disponíveis podem ser incompletas, desatualizadas ou até contraditórias, tornando complexo entender quais dados podem de fato ser considerados confiáveis e utilizados como base para decisões bem fundamentadas."],
         ["Interpretações equivocadas", "Ter acesso a informações confiáveis é apenas o primeiro passo. Para tomar decisões verdadeiramente bem fundamentadas, é preciso saber interpretá-las, contextualizá-las e compreender como elas são aplicadas na prática.\n\nO domínio do idioma, isoladamente, não basta. É necessário entender como profissionais e operadores locais interpretam essas informações e de que forma elas se traduzem no dia a dia administrativo, tributário e comercial.\n\nEsse desafio se torna ainda maior quando as informações disponíveis são fragmentadas, difíceis de acessar e nem sempre fáceis de verificar. As fontes podem ser incompletas, desatualizadas ou contraditórias, tornando complexa a identificação de dados realmente confiáveis para embasar decisões informadas."],
-        ["Erros caros", "Decisões tomadas com dados incompletos ou desatualizados."],
+        ["Erros caros", "Quando as decisões são baseadas em dados imprecisos, incompletos ou mal interpretados, as empresas correm o risco de fazer escolhas estratégicas equivocadas, com custos significativos em termos de tempo, dinheiro e oportunidades perdidas."],
       ],
     },
     services: {
