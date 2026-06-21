@@ -19,7 +19,7 @@ export const translations = {
       items: [
         ["Unreliable Information", "Information is often fragmented, difficult to access and hard to verify, both in terms of reliability and timeliness.\n\nSources may contradict one another, making it difficult to determine which data can truly be trusted and used as a basis for informed decision-making."],
         ["Wrong Interpretations", "Reliable information is only the starting point. To make sound business decisions, companies must be able to interpret that information correctly, place it in context and understand how it is applied in practice.\n\nLanguage skills alone are not enough. What matters is understanding how local professionals, authorities and market operators read, interpret and apply that information in everyday administrative, tax and commercial contexts.\n\nThe challenge is often made harder by fragmented information, difficult access and sources that are not always easy to verify. Data may be incomplete, outdated or contradictory, making it difficult to determine what can genuinely be trusted as a basis for informed decision-making."],
-        ["Costly mistakes", "Decisions made on incomplete or outdated data."],
+        ["Costly mistakes", "When decisions are based on inaccurate or misinterpreted data, businesses risk making poor strategic choices that can result in significant costs, wasted time and missed opportunities."],
       ],
     },
     services: {
