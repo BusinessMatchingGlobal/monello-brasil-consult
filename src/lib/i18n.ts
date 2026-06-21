@@ -304,7 +304,7 @@ export const translations = {
       steps: [
         ["Entre em contato conosco e explique o que você precisa e quais são os seus objetivos.", "Nós entraremos em contato para esclarecer eventuais dúvidas, entender melhor as suas necessidades e otimizar nosso trabalho, ajudando você a ir direto ao ponto: alcançar o seu objetivo da forma mais clara, eficiente e direcionada possível."],
         ["Pesquisa e elaboração do dossiê", "Após compreender seus objetivos e necessidades, iniciamos a pesquisa e a elaboração do dossiê, selecionando as informações relevantes para o seu caso.\n\nCada conteúdo é verificado, organizado e integrado com os esclarecimentos necessários, com cuidado, atenção e máxima eficiência."],
-        ["Você recebe um relatório claro", "Escrito, estruturado, pronto para usar."],
+        ["Entrega do relatório", "Você recebe um relatório claro, escrito e estruturado, pronto para uso.\n\nAs informações são organizadas de forma simples, ordenada e prática, ajudando você a compreender o cenário e tomar decisões conscientes e seguras."],
         ["Revisamos juntos", "Uma call opcional para analisar os resultados."],
       ],
     },
