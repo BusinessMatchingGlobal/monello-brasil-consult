@@ -190,16 +190,25 @@ function Problem() {
             <p className="text-lg text-muted-foreground leading-relaxed text-justify">{t.problem.body}</p>
           </div>
         </div>
-        <div className="mt-16 grid sm:grid-cols-3 gap-6">
-          {t.problem.items.map(([title, body], i) => {
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr_auto_1fr] gap-6 items-center">
+          {t.problem.items.flatMap(([title, body], i) => {
             const Icon = icons[i];
-            return (
+            const card = (
               <div key={title || i} className="p-6 rounded-2xl border border-border bg-card">
                 <Icon className="h-5 w-5 text-primary mb-4" />
                 {title && <h3 className="font-display text-lg font-medium mb-2">{title}</h3>}
                 <p className="text-sm text-muted-foreground leading-relaxed text-justify">{body}</p>
               </div>
             );
+            if (i < 2) {
+              return [
+                card,
+                <div key={`op-${i}`} className="hidden sm:flex items-center justify-center text-2xl font-medium text-muted-foreground px-2">
+                  {i === 0 ? "+" : "="}
+                </div>,
+              ];
+            }
+            return [card];
           })}
         </div>
       </div>
