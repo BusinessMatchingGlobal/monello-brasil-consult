@@ -131,7 +131,7 @@ export const translations = {
       items: [
         ["Informazioni errate", "Il problema non riguarda soltanto la difficoltà di reperire informazioni, ma anche la complessità di verificarne l’attendibilità e il grado di aggiornamento.\n\nLe fonti disponibili possono essere frammentate, incomplete o persino contraddittorie, rendendo difficile stabilire quali dati siano realmente affidabili e su quali elementi sia possibile basare una decisione informata."],
         ["Interpretazioni errate", "Disporre di informazioni affidabili è solo il primo passo. Per prendere decisioni realmente consapevoli, è necessario saperle leggere, interpretare e contestualizzare correttamente.\n\nLa conoscenza della lingua, da sola, non è sufficiente. Occorre comprendere come quelle informazioni vengono interpretate dagli operatori locali e come trovano concreta applicazione nella pratica amministrativa, fiscale e commerciale."],
-        ["Errori costosi", "Decisioni prese su dati incompleti o superati."],
+        ["Errori costosi", "Quando le decisioni si basano su dati non corretti o interpretati in modo errato, il rischio è quello di compiere scelte strategiche sbagliate, con costi significativi in termini di tempo, denaro e opportunità perse."],
       ],
     },
     services: {
