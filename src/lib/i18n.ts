@@ -142,7 +142,7 @@ export const translations = {
       title: "Come possiamo aiutarti?",
       from: "a partire da",
       request: "Richiedi",
-      custom: "Hai bisogno di un'analisi su misura?\nPossiamo realizzare ricerche personalizzate in base al tuo settore, prodotto o obiettivo. Raccontaci le tue esigenze e valuteremo insieme la soluzione più adatta.",
+      custom: "Dimmi cosa ti serve\nUn breve briefing o una rapida call. Il primo passo è semplice: contattaci e raccontaci di cosa hai bisogno.",
       cards: [
         {
           name: "Verifica Controparte Brasile",
