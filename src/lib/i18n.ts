@@ -26,7 +26,7 @@ export const translations = {
       title: "How can we support you?",
       from: "from",
       request: "Request this",
-      custom: "Need something different or ongoing? Custom and retainer research available — just describe what you need.",
+      custom: "Do you need a tailored analysis?\nWe can carry out customized research based on your sector, product or objective. Tell us about your needs and we will assess the most suitable solution together.",
       cards: [
         {
           name: "Brazil Counterparty Check",
