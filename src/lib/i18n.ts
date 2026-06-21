@@ -29,13 +29,14 @@ export const translations = {
       custom: "Need something different or ongoing? Custom and retainer research available — just describe what you need.",
       cards: [
         {
-          name: "Brazil Supplier Check",
-          promise: "Know who you're dealing with before you commit.",
+          name: "Brazil Counterparty Check",
+          promise: "Know who you are dealing with before making a commitment.",
           items: [
             "Company existence and registration status",
-            "Ownership and basic background",
-            "Reputation and public red flags",
-            "Summary with a clear risk indication",
+            "Ownership, directors and basic company information",
+            "Reputation and publicly available risk indicators",
+            "Checks on clients, suppliers, partners, distributors or agents",
+            "Final summary with a clear indication of the risk level",
           ],
           price: "€150",
         },
