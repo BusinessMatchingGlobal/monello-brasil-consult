@@ -303,7 +303,7 @@ export const translations = {
       title: "Simples, rápido, claro.",
       steps: [
         ["Entre em contato conosco e explique o que você precisa e quais são os seus objetivos.", "Nós entraremos em contato para esclarecer eventuais dúvidas, entender melhor as suas necessidades e otimizar nosso trabalho, ajudando você a ir direto ao ponto: alcançar o seu objetivo da forma mais clara, eficiente e direcionada possível."],
-        ["Eu pesquiso", "Com conhecimento local e fontes oficiais brasileiras."],
+        ["Pesquisa e elaboração do dossiê", "Após compreender seus objetivos e necessidades, iniciamos a pesquisa e a elaboração do dossiê, selecionando as informações relevantes para o seu caso.\n\nCada conteúdo é verificado, organizado e integrado com os esclarecimentos necessários, com cuidado, atenção e máxima eficiência."],
         ["Você recebe um relatório claro", "Escrito, estruturado, pronto para usar."],
         ["Revisamos juntos", "Uma call opcional para analisar os resultados."],
       ],
