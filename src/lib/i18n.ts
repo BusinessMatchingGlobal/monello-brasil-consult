@@ -15,7 +15,7 @@ export const translations = {
     },
     problem: {
       title: "Doing business with Brazil shouldn't be a leap in the dark.",
-      body: "Most companies approaching the Brazilian market face the same obstacles: information is scattered and hard to verify, language and bureaucracy create blind spots, and a single wrong assumption can cost real time and money. I turn that uncertainty into clear, decision-ready information you can act on.",
+      body: "Entering the Brazilian market often means dealing with a familiar set of challenges: unreliable or outdated information, fragmented data, sources that are difficult to verify, and regulations that can be complex to interpret.\n\nBut the issue is not simply a matter of language. To operate effectively in Brazil, companies need to understand not only what the rules state, but how they are actually applied in practice within a distinct administrative, tax and business culture.\n\nThis complexity can generate blind spots, encourage wrong assumptions and expose businesses to avoidable risks. In a competitive market, even one misjudgement can result in lost time, unnecessary costs and missed opportunities.\n\nWe help transform uncertainty into a clear, verifiable and actionable picture, supporting informed decisions based on context, evidence and practical insight.",
       items: [
         ["Scattered information", "Sources that contradict each other and are hard to trust."],
         ["Language & bureaucracy", "Local rules and documents that are easy to misread."],
