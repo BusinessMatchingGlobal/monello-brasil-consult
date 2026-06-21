@@ -141,13 +141,14 @@ export const translations = {
       custom: "Ti serve qualcosa di diverso o continuativo? Ricerche su misura e a contratto disponibili — descrivimi cosa ti serve.",
       cards: [
         {
-          name: "Verifica Fornitore Brasile",
-          promise: "Sai con chi tratti, prima di impegnarti.",
+          name: "Verifica Controparte Brasile",
+          promise: "Sai con chi stai trattando, prima di impegnarti.",
           items: [
             "Esistenza e stato di registrazione dell'azienda",
-            "Proprietà e informazioni di base",
+            "Proprietà, amministratori e informazioni di base",
             "Reputazione e segnali di rischio pubblici",
-            "Sintesi con un'indicazione chiara del rischio",
+            "Verifica di clienti, fornitori, partner, distributori o agenti",
+            "Sintesi finale con indicazione chiara del livello di rischio",
           ],
           price: "150 €",
         },
