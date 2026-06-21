@@ -149,7 +149,7 @@ function Hero() {
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight max-w-4xl">
           {t.hero.title}
         </h1>
-        <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+        <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-justify">
           {t.hero.sub}
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
