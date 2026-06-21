@@ -239,7 +239,7 @@ export const translations = {
     },
     problem: {
       title: "Fazer negócios no Brasil não precisa ser um salto no escuro.",
-      body: "A maioria das empresas que se aproxima do mercado brasileiro enfrenta os mesmos obstáculos: informações dispersas e difíceis de verificar, idioma e burocracia que criam pontos cegos, e uma única suposição errada que custa tempo e dinheiro. Eu transformo essa incerteza em informações claras, sobre as quais você pode realmente decidir.",
+      body: "Quem se aproxima do mercado brasileiro costuma encontrar obstáculos semelhantes: dificuldade de acesso a informações confiáveis e atualizadas, dados fragmentados, fontes difíceis de verificar e normas nem sempre simples de interpretar.\n\nO desafio, porém, não é apenas linguístico. Para atuar no Brasil, não basta compreender o que as regras dizem. É essencial entender como elas são aplicadas na prática, dentro de um sistema administrativo, tributário e cultural próprio, muitas vezes bastante diferente daquele de outros mercados.\n\nEssa complexidade pode gerar pontos cegos, levar a interpretações equivocadas e comprometer decisões estratégicas. No ambiente empresarial, uma única avaliação incorreta pode custar tempo, dinheiro e oportunidades.\n\nNós transformamos essa incerteza em um panorama claro, verificável e operacional, permitindo que empresas e profissionais tomem decisões com segurança, critério e plena consciência.",
       items: [
         ["Informações dispersas", "Fontes que se contradizem e nas quais é difícil confiar."],
         ["Idioma e burocracia", "Regras e documentos locais fáceis de interpretar errado."],
