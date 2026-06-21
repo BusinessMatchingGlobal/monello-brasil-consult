@@ -71,7 +71,7 @@ export const translations = {
       title: "Simple, fast, clear.",
       steps: [
         ["Get in touch with us and tell us what you need and what your goals are.", "We will contact you to clarify any questions, better understand your needs, and optimize our work so we can help you get straight to the point: achieving your objective in the clearest, most efficient, and most focused way possible."],
-        ["I research it", "Using local knowledge and official Brazilian sources."],
+        ["Research and dossier preparation", "After understanding your objectives and needs, we begin the research and preparation of the dossier, selecting the information relevant to your case.\n\nEach piece of content is verified, organized and integrated with the necessary clarifications, with care, attention and maximum efficiency."],
         ["You get a clear report", "Written, structured, in English, ready to use."],
         ["We review it together", "An optional call to walk through the findings."],
       ],
