@@ -121,7 +121,7 @@ export const translations = {
     nav: { services: "Servizi", how: "Come funziona", about: "Chi sono", contact: "Contatti" },
     hero: {
       title: "Business intelligence affidabile sul Brasile — senza tirare a indovinare.",
-      sub: "Aiuto le aziende internazionali a prendere decisioni sicure in Brasile e con il Brasile. Business intelligence, verifica di fornitori e informazioni su import/export, consegnate in report chiari e pronti all'uso.",
+      sub: "Aiutiamo le aziende e gli investitori a prendere decisioni sicure e informate per operare in Brasile, esportare, investire o creare partnership commerciali.\n\nOffriamo servizi di business intelligence, verifica dei potenziali fornitori e clienti e analisi delle principali informazioni normative, fiscali e operative, quali import/export, procedure doganali, requisiti locali, autorizzazioni, incentivi territoriali e condizioni di accesso al mercato.\n\nAttraverso servizi su misura, realizziamo report chiari, pratici e pronti all'uso, pensati per supportare decisioni commerciali, strategiche e operative.",
       cta1: "Richiedi un report",
       cta2: "Scopri i servizi",
     },
