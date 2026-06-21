@@ -26,7 +26,7 @@ export const translations = {
       title: "How can we support you?",
       from: "from",
       request: "Request this",
-      custom: "Do you need a tailored analysis?\nWe can carry out customized research based on your sector, product or objective. Tell us about your needs and we will assess the most suitable solution together.",
+      custom: "The first step is simple: contact us and tell us what you need.",
       cards: [
         {
           name: "Brazil Counterparty Check",
@@ -258,7 +258,7 @@ export const translations = {
       title: "Como podemos te ajudar?",
       from: "a partir de",
       request: "Solicitar",
-      custom: "Você precisa de uma análise sob medida?\nPodemos realizar pesquisas personalizadas com base no seu setor, produto ou objetivo. Conte-nos quais são as suas necessidades e avaliaremos juntos a solução mais adequada.",
+      custom: "O primeiro passo é simples: entre em contato conosco e conte o que você precisa.",
       cards: [
         {
           name: "Verificação de Contraparte no Brasil",
