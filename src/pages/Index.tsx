@@ -197,7 +197,7 @@ function Problem() {
               <div key={title} className="p-6 rounded-2xl border border-border bg-card">
                 <Icon className="h-5 w-5 text-primary mb-4" />
                 <h3 className="font-display text-lg font-medium mb-2">{title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed text-justify">{body}</p>
               </div>
             );
           })}

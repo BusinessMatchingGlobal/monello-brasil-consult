@@ -17,7 +17,7 @@ export const translations = {
       title: "Doing business with Brazil shouldn't be a leap in the dark.",
       body: "Entering the Brazilian market often means dealing with a familiar set of challenges: unreliable or outdated information, fragmented data, sources that are difficult to verify, and regulations that can be complex to interpret.\n\nBut the issue is not simply a matter of language. To operate effectively in Brazil, companies need to understand not only what the rules state, but how they are actually applied in practice within a distinct administrative, tax and business culture.\n\nThis complexity can generate blind spots, encourage wrong assumptions and expose businesses to avoidable risks. In a competitive market, even one misjudgement can result in lost time, unnecessary costs and missed opportunities.\n\nWe help transform uncertainty into a clear, verifiable and actionable picture, supporting informed decisions based on context, evidence and practical insight.",
       items: [
-        ["Scattered information", "Sources that contradict each other and are hard to trust."],
+        ["Fragmented information", "Difficult to find and often complex to verify, both in terms of reliability and timeliness.\n\nSources that sometimes contradict each other, making it hard to tell which data are truly reliable and which elements can serve as a basis for decision-making."],
         ["Language & bureaucracy", "Local rules and documents that are easy to misread."],
         ["Costly mistakes", "Decisions made on incomplete or outdated data."],
       ],
@@ -129,7 +129,7 @@ export const translations = {
       title: "Fare affari in Brasile non dovrebbe essere un salto nel buio.",
       body: "Chi si avvicina al mercato brasiliano si trova spesso ad affrontare gli stessi ostacoli: difficoltà di accesso a informazioni affidabili e aggiornate, dati frammentati, fonti difficili da verificare e norme non sempre semplici da interpretare.\n\nIl problema non è solo linguistico. Per operare in Brasile, infatti, non basta comprendere cosa prevedono le regole: è necessario anche capire come vengono applicate nella pratica, all’interno di un sistema amministrativo, fiscale e culturale diverso.\n\nQuesta complessità può creare punti ciechi e portare a supposizioni errate. Nel business, una singola valutazione sbagliata può costare tempo, denaro e opportunità.\n\nNoi trasformiamo questa incertezza in un quadro chiaro, verificabile e operativo, che consente di prendere decisioni con piena consapevolezza.",
       items: [
-        ["Informazioni sparse", "Fonti che si contraddicono e di cui è difficile fidarsi."],
+        ["Informazioni frammentate", "Difficili da reperire e spesso complesse da verificare, sia in termini di attendibilità sia di aggiornamento.\n\nFonti che talvolta si contraddicono tra loro, rendendo difficile capire quali dati siano realmente affidabili e su quali elementi sia possibile fondare una decisione."],
         ["Lingua e burocrazia", "Regole e documenti locali facili da fraintendere."],
         ["Errori costosi", "Decisioni prese su dati incompleti o superati."],
       ],
