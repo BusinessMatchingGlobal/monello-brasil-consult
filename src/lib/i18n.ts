@@ -258,7 +258,7 @@ export const translations = {
       title: "Como podemos te ajudar?",
       from: "a partir de",
       request: "Solicitar",
-      custom: "Precisa de algo diferente ou recorrente? Pesquisas sob medida e por contrato disponíveis — é só descrever o que você precisa.",
+      custom: "Você precisa de uma análise sob medida?\nPodemos realizar pesquisas personalizadas com base no seu setor, produto ou objetivo. Conte-nos quais são as suas necessidades e avaliaremos juntos a solução mais adequada.",
       cards: [
         {
           name: "Verificação de Contraparte no Brasil",
