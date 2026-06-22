@@ -12,6 +12,7 @@ export const translations = {
       sub: "We help companies and investors make sound and informed decisions when doing business in Brazil, including exporting, investing, and forming commercial partnerships.\n\nOur services include business intelligence, due diligence on potential suppliers and customers, and analysis of key regulatory, tax, and operational information, such as import/export and customs procedures, local requirements and permits, regional incentives, and market access conditions.\n\nThrough tailored services, we produce clear, practical, and ready-to-use reports designed to support commercial, strategic, and operational decisions.",
       cta1: "Request a report",
       cta2: "See services",
+      linkedin: "Follow Business Matching Global on LinkedIn for insights, reports and updates on Brazil.",
     },
     problem: {
       title: "Doing business with Brazil shouldn't be a leap in the dark.",
@@ -128,6 +129,7 @@ export const translations = {
       sub: "Aiutiamo le aziende e gli investitori a prendere decisioni sicure e informate per operare in Brasile, esportare, investire o creare partnership commerciali.\n\nOffriamo servizi di business intelligence, verifica dei potenziali fornitori e clienti e analisi delle principali informazioni normative, fiscali e operative, quali import/export, procedure doganali, requisiti locali, autorizzazioni, incentivi territoriali e condizioni di accesso al mercato.\n\nAttraverso servizi su misura, realizziamo report chiari, pratici e pronti all'uso, pensati per supportare decisioni commerciali, strategiche e operative.",
       cta1: "Richiedi un report",
       cta2: "Scopri i servizi",
+      linkedin: "Seguici su LinkedIn per approfondimenti e aggiornamenti sul Brasile →",
     },
     problem: {
       title: "Fare affari in Brasile non dovrebbe essere un salto nel buio.",
@@ -244,6 +246,7 @@ export const translations = {
       sub: "Ajudamos empresas e investidores a tomar decisões sólidas e bem fundamentadas ao fazer negócios no Brasil, incluindo exportação, investimento e desenvolvimento de parcerias comerciais.\n\nNossos serviços incluem inteligência de negócios, due diligence de potenciais fornecedores e clientes, e análise de informações regulatórias, tributárias e operacionais essenciais, tais como procedimentos de importação, exportação e desembaraço aduaneiro, requisitos e licenças locais, incentivos regionais e condições de acesso ao mercado.\n\nPor meio de serviços personalizados, elaboramos relatórios claros, práticos e prontos para uso, desenvolvidos para apoiar decisões comerciais, estratégicas e operacionais.",
       cta1: "Solicite um relatório",
       cta2: "Ver serviços",
+      linkedin: "Acompanhe a Business Matching Global no LinkedIn para acessar análises, relatórios e atualizações sobre o Brasil.",
     },
     problem: {
       title: "Fazer negócios no Brasil não precisa ser um salto no escuro.",

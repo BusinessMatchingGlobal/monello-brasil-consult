@@ -171,6 +171,17 @@ function Hero() {
             <ArrowRight className="h-3.5 w-3.5" />
           </a>
         </div>
+        <div className="mt-3">
+          <a
+            href="https://www.linkedin.com/company/109746306/admin/dashboard/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
+          >
+            <Linkedin className="h-3.5 w-3.5" />
+            {t.hero.linkedin}
+          </a>
+        </div>
       </div>
     </section>
   );
