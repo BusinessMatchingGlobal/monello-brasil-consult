@@ -262,7 +262,11 @@ function Services() {
             </div>
           ))}
         </div>
-        <p className="mt-10 text-center text-background/65 italic">{t.services.custom}</p>
+        <div className="mt-10 text-center text-background/65 italic space-y-4">
+          {t.services.custom.split("\n\n").map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
       </div>
     </section>
   );
