@@ -262,10 +262,24 @@ function Services() {
             </div>
           ))}
         </div>
-        <div className="mt-10 text-center text-background/65 italic space-y-4">
-          {t.services.custom.split("\n\n").map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
+        <div className="mt-14">
+          {(() => {
+            const parts = t.services.custom.split("\n\n");
+            const title = parts[0];
+            const body = parts.slice(1);
+            return (
+              <>
+                <h3 className="text-2xl md:text-3xl font-display text-background text-left mb-6">
+                  {title}
+                </h3>
+                <div className="text-background/65 italic space-y-4 text-justify">
+                  {body.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+              </>
+            );
+          })()}
         </div>
       </div>
     </section>
