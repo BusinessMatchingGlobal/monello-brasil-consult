@@ -26,7 +26,7 @@ export const translations = {
       title: "How can we support you?",
       from: "from",
       request: "Request this",
-      custom: "The first step is simple: contact us and tell us what you need.",
+      custom: "Need a tailored information service?\n\nContact us and tell us what you need. Together, we will identify the solution that best fits your requirements.\n\nDepending on the country in which you operate and on the programs available, the cost of our information services may, in some cases, be supported partially or even fully through European, national or regional funding schemes dedicated to internationalisation, innovation and business development.\n\nIf required, we will be pleased to help you identify these opportunities and assess whether our services may qualify as eligible expenses under the applicable programs.\n\nOur goal is to provide you with the greatest possible value by turning reliable and verifiable information into more informed decisions and new opportunities for growth.",
       cards: [
         {
           name: "Brazil Counterparty Check",
@@ -142,7 +142,7 @@ export const translations = {
       title: "Come possiamo aiutarti?",
       from: "a partire da",
       request: "Richiedi",
-      custom: "Dimmi cosa ti serve\nUn breve briefing o una rapida call. Il primo passo è semplice: contattaci e raccontaci di cosa hai bisogno.",
+      custom: "Hai bisogno di un servizio informativo su misura?\n\nContattaci e raccontaci di cosa hai bisogno. Studieremo insieme la soluzione più adatta alle tue esigenze.\n\nA seconda del Paese in cui operi e dei programmi disponibili, il costo dei nostri servizi informativi potrebbe, in alcuni casi, essere sostenuto in parte o anche interamente da programmi europei, nazionali o regionali dedicati all’internazionalizzazione, all’innovazione e allo sviluppo delle imprese.\n\nSe necessario, saremo lieti di aiutarti a individuare queste opportunità e a valutare se i nostri servizi possano rientrare tra le spese ammissibili previste dai programmi applicabili.\n\nIl nostro obiettivo è offrirti il massimo valore possibile, trasformando informazioni affidabili e verificabili in decisioni più consapevoli e nuove opportunità di crescita.",
       cards: [
         {
           name: "Verifica Controparte Brasile",
@@ -258,7 +258,7 @@ export const translations = {
       title: "Como podemos te ajudar?",
       from: "a partir de",
       request: "Solicitar",
-      custom: "O primeiro passo é simples: entre em contato conosco e conte o que você precisa.",
+      custom: "Precisa de um serviço de informação sob medida?\n\nEntre em contato conosco e conte-nos do que você precisa. Juntos, estudaremos a solução mais adequada às suas necessidades.\n\nDependendo do país em que você atua e dos programas disponíveis, o custo dos nossos serviços de informação poderá, em alguns casos, ser financiado parcial ou até integralmente por programas europeus, nacionais ou regionais voltados para a internacionalização, a inovação e o desenvolvimento das empresas.\n\nSe necessário, teremos prazer em ajudá-lo a identificar essas oportunidades e a avaliar se os nossos serviços podem ser considerados despesas elegíveis no âmbito dos programas aplicáveis.\n\nNosso objetivo é oferecer o máximo valor possível, transformando informações confiáveis e verificáveis em decisões mais conscientes e em novas oportunidades de crescimento.",
       cards: [
         {
           name: "Verificação de Contraparte no Brasil",
