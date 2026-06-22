@@ -9,11 +9,11 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import dossierAsset from "@/assets/sample-dossier.pdf.asset.json";
+import dossierAsset from "@/assets/dossier.pdf.asset.json";
 
 const OWNER_EMAIL = "info@businessmatching.global";
 const PDF_URL = dossierAsset.url;
-const PDF_FILENAME = "Ajvar_Brazil_Dossier_SAMPLE_BusinessMatchingGlobal.pdf";
+const PDF_FILENAME = "Ajvar_Brazil_Dossier_BusinessMatchingGlobal.pdf";
 
 const schema = z.object({
   firstName: z.string().trim().min(1).max(80),
