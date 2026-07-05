@@ -1,12 +1,239 @@
+import { useState, useEffect, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, Menu, X, Mail } from "lucide-react";
+import { useT, Lang } from "@/lib/i18n";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+
+const EMAIL = "info@businessmatching.global";
 
 type Block =
   | { type: "h2"; text: string }
-  | { type: "p"; text: string };
+  | { type: "p"; text: string; italic?: boolean };
+
+function LangSwitcher() {
+  const { lang, setLang } = useT();
+  const langs: Lang[] = ["en", "it", "pt"];
+  return (
+    <div className="inline-flex items-center gap-1 text-xs font-medium tracking-wider uppercase">
+      {langs.map((l, i) => (
+        <div key={l} className="flex items-center">
+          <button
+            onClick={() => setLang(l)}
+            className={`px-1.5 py-1 transition-colors ${
+              lang === l ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {l === "pt" ? "PT-BR" : l.toUpperCase()}
+          </button>
+          {i < langs.length - 1 && <span className="text-border">/</span>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Nav() {
+  const { t } = useT();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const links = [
+    { href: "/#services", label: t.nav.services },
+    { href: "/#how", label: t.nav.how },
+    { href: "/#about", label: t.nav.about },
+  ];
+
+  return (
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-background/85 backdrop-blur-md border-b border-border/60" : "bg-transparent"
+      }`}
+    >
+      <div className="container flex h-16 md:h-20 items-center justify-between">
+        <Link to="/" className="font-display text-lg md:text-xl font-medium tracking-tight">
+          Business Matching <span className="text-primary">Global</span>
+        </Link>
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-sm text-foreground/75 hover:text-foreground transition-colors"
+            >
+              {l.label}
+            </a>
+          ))}
+          <LangSwitcher />
+          <Button asChild size="sm" className="rounded-full">
+            <a href="/#contact">{t.nav.contact}</a>
+          </Button>
+        </nav>
+        <button
+          className="md:hidden p-2 -mr-2"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </div>
+      {open && (
+        <div className="md:hidden border-t border-border/60 bg-background">
+          <div className="container py-4 flex flex-col gap-4">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="text-base py-2"
+              >
+                {l.label}
+              </a>
+            ))}
+            <div className="flex items-center justify-between pt-2 border-t border-border/60">
+              <LangSwitcher />
+              <Button asChild size="sm" className="rounded-full" onClick={() => setOpen(false)}>
+                <a href="/#contact">{t.nav.contact}</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+function ContactForm() {
+  const { t } = useT();
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = (data.get("name") as string) || "";
+    const email = (data.get("email") as string) || "";
+    const company = (data.get("company") as string) || "";
+    const message = (data.get("message") as string) || "";
+    const consent = data.get("consent") === "on";
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      toast.error("Please fill in name, email and message.");
+      return;
+    }
+    if (!consent) {
+      toast.error(t.consent.required);
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-notification",
+          idempotencyKey: `contact-${email}-${Date.now()}`,
+          templateData: {
+            name,
+            email,
+            company: company || "—",
+            message,
+            source: "Contact form",
+            submittedAt: new Date().toISOString(),
+          },
+        },
+      });
+      if (error) throw error;
+      toast.success("Thanks — your message has been sent.");
+      form.reset();
+    } catch (err) {
+      console.error("Contact form send failed", err);
+      toast.error("Sending failed. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <section id="contact" className="py-20 md:py-28">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="font-display text-3xl md:text-4xl leading-tight mb-8">
+          {t.contact.title}
+        </h2>
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+          <div>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-10">
+              {t.contact.sub}
+            </p>
+            <div className="space-y-4 text-foreground/85">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="flex items-center gap-3 hover:text-primary transition-colors"
+              >
+                <Mail className="h-4 w-4" /> {EMAIL}
+              </a>
+            </div>
+          </div>
+          <form onSubmit={onSubmit} className="space-y-5">
+            <div>
+              <Label htmlFor="name" className="text-xs tracking-wider uppercase text-muted-foreground">
+                {t.contact.name}
+              </Label>
+              <Input id="name" name="name" required maxLength={100} className="mt-2" />
+            </div>
+            <div>
+              <Label htmlFor="email" className="text-xs tracking-wider uppercase text-muted-foreground">
+                {t.contact.email}
+              </Label>
+              <Input id="email" name="email" type="email" required maxLength={255} className="mt-2" />
+            </div>
+            <div>
+              <Label htmlFor="company" className="text-xs tracking-wider uppercase text-muted-foreground">
+                {t.contact.company}
+              </Label>
+              <Input id="company" name="company" maxLength={150} className="mt-2" />
+            </div>
+            <div>
+              <Label htmlFor="message" className="text-xs tracking-wider uppercase text-muted-foreground">
+                {t.contact.message}
+              </Label>
+              <Textarea id="message" name="message" required rows={5} maxLength={2000} className="mt-2 resize-none" />
+            </div>
+            <Button type="submit" size="lg" disabled={submitting} className="rounded-full w-full h-12">
+              {submitting ? "…" : t.contact.send} <ArrowRight className="ml-1 h-4 w-4" />
+            </Button>
+            <label className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed cursor-pointer">
+              <input
+                type="checkbox"
+                name="consent"
+                required
+                className="mt-0.5 h-4 w-4 rounded border-border bg-background accent-primary"
+              />
+              <span>
+                {t.consent.label}{" "}
+                <Link to="/privacy" className="underline hover:text-foreground">
+                  {t.consent.link}
+                </Link>{" "}
+                {t.consent.suffix}
+              </span>
+            </label>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const blocks: Block[] = [
-  { type: "h2", text: "Scientia potentia est — “Sapere è potere”" },
+  { type: "h2", text: "Scientia potentia est — \"Sapere è potere\"" },
   { type: "p", text: "L'intuizione attribuita a Francis Bacon oltre quattro secoli fa resta, oggi più che mai, attuale: sapere è potere. Ma nel mondo dell'internazionalizzazione non basta avere accesso alle informazioni. Occorre saperle cercare, selezionare, aggiornare e interpretare correttamente." },
   { type: "p", text: "Noi crediamo che l'accesso a informazioni affidabili — comprese quelle di cui non sapevate di aver bisogno — e la capacità di trasformarle in decisioni operative possano fare la differenza tra una strategia solida e un errore costoso." },
   { type: "p", text: "Questo è il cuore del nostro lavoro: fornire informazioni affidabili, contestualizzarle e aiutarvi a interpretarle nel modo corretto, prima che una scelta sbagliata diventi un costo." },
@@ -59,13 +286,14 @@ const blocks: Block[] = [
   { type: "p", text: "Ogni progetto di internazionalizzazione di successo — che si tratti di import-export, soft landing, ricerca partner, analisi di mercato o sviluppo commerciale — inizia con le domande giuste." },
   { type: "p", text: "Sottoponeteci i vostri quesiti, i vostri dubbi e le vostre esigenze. Vi aiuteremo a trasformarli in un percorso concreto, basato su informazioni affidabili, risposte chiare e decisioni ben ponderate." },
   { type: "p", text: "E per restare aggiornati su costi occulti, incentivi, rischi e opportunità del mercato brasiliano, consultate e iscrivetevi alla nostra newsletter \"Custo Brasil\" sulla nostra pagina LinkedIn: analisi pratiche, senza giri di parole, direttamente dal cuore del Brasile." },
-  { type: "p", text: "Perché sapere è potere. Ma saper interpretare correttamente ciò che si sa è il vero vantaggio competitivo." },
+  { type: "p", text: "Perché sapere è potere. Ma saper interpretare correttamente ciò che si sa è il vero vantaggio competitivo.", italic: true },
 ];
 
 export default function AboutUs() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="container max-w-3xl py-16 md:py-24">
+      <Nav />
+      <div className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-10"
@@ -75,9 +303,6 @@ export default function AboutUs() {
         <h1 className="font-display text-4xl md:text-5xl leading-tight mb-4">
           Chi siamo
         </h1>
-        <p className="text-muted-foreground text-lg mb-12">
-          Un ponte tra Unione Europea e Brasile.
-        </p>
         <article className="space-y-6">
           {blocks.map((b, i) =>
             b.type === "h2" ? (
@@ -90,13 +315,14 @@ export default function AboutUs() {
             ) : (
               <p
                 key={i}
-                className="text-base md:text-lg leading-relaxed text-muted-foreground text-justify"
+                className={`text-base md:text-lg leading-relaxed text-muted-foreground text-justify${b.italic ? " italic" : ""}`}
               >
                 {b.text}
               </p>
             )
           )}
         </article>
+        <ContactForm />
       </div>
     </div>
   );
