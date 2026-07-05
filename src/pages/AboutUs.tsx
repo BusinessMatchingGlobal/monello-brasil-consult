@@ -292,8 +292,10 @@ const blocks: Block[] = [
   { type: "p", text: "Da diversi anni risiede a Belo Horizonte, capitale del Minas Gerais, nel cuore del Sud-Est brasiliano: l'area che, insieme a San Paolo e Rio de Janeiro, concentra una parte rilevante del PIL, dell'industria, della finanza e dell'innovazione del Paese." },
   { type: "p", text: "Belo Horizonte non è soltanto una grande capitale economica regionale. È anche la casa della San Pedro Valley, uno degli ecosistemi startup più dinamici del Brasile: un segnale importante di un tessuto produttivo che non è fatto solo di industria, finanza e commercio, ma anche di tecnologia, innovazione e nuova imprenditorialità." },
   { type: "p", text: "Non un osservatorio a distanza, quindi, ma una presenza diretta nel cuore economico del Brasile." },
-  { type: "p", text: "Siamo soci della Câmara de Comércio Italiana e dell'Associazione Export Strategist.", linkText: "Câmara de Comércio Italiana", linkHref: "https://www.italiabrasil.com.br" },
-  { type: "link", text: "www.exportstrategist.it", href: "https://www.exportstrategist.it" },
+  { type: "p", text: "Siamo soci della Câmara de Comércio Italiana e dell'Associazione Export Strategist.", links: [
+    { text: "Câmara de Comércio Italiana", href: "https://www.italiabrasil.com.br" },
+    { text: "Export Strategist", href: "https://www.exportstrategist.it" },
+  ]},
 
   { type: "h2", text: "Finanza agevolata: le risorse per partire" },
   { type: "p", text: "Una strategia di internazionalizzazione richiede visione, informazioni corrette e partner affidabili. Ma richiede anche risorse." },
