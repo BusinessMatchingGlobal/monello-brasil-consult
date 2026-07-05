@@ -256,7 +256,7 @@ function ContactForm() {
   );
 }
 
-const blocks: Block[] = [
+const blocksIt: Block[] = [
   { type: "h2", text: "Scientia potentia est — \"Sapere è potere\"" },
   { type: "p", text: "L'intuizione attribuita a Francis Bacon oltre quattro secoli fa resta, oggi più che mai, attuale: sapere è potere. Ma nel mondo dell'internazionalizzazione non basta avere accesso alle informazioni. Occorre saperle cercare, selezionare, aggiornare e interpretare correttamente." },
   { type: "p", text: "Noi crediamo che l'accesso a informazioni affidabili — comprese quelle di cui non sapevate di aver bisogno — e la capacità di trasformarle in decisioni operative possano fare la differenza tra una strategia solida e un errore costoso." },
@@ -316,16 +316,80 @@ const blocks: Block[] = [
   { type: "p", text: "Perché sapere è potere. Ma saper interpretare correttamente ciò che si sa è il vero vantaggio competitivo.", italic: true },
 ];
 
+const blocksEn: Block[] = [
+  { type: "h2", text: "Scientia potentia est — \"Knowledge is power\"" },
+  { type: "p", text: "The insight attributed to Francis Bacon more than four centuries ago remains as relevant as ever: knowledge is power. Yet in international business, access to information alone is not enough. Information must be searched for, selected, verified, updated and interpreted correctly." },
+  { type: "p", text: "We believe that access to reliable information — including information you did not even know you needed — and the ability to turn it into operational decisions can make the difference between a sound strategy and a costly mistake." },
+  { type: "p", text: "This is at the heart of our work: providing reliable information, placing it in the right context and helping you interpret it correctly before a wrong decision becomes an expensive one." },
+
+  { type: "h2", text: "Custo Brasil: from hidden cost to strategic variable" },
+  { type: "p", text: "Operating in Brazil means navigating a complex system that is often difficult to understand from the outside." },
+  { type: "p", text: "One of the key concepts to understand is Custo Brasil: the combined effect of bureaucratic, tax, logistical, infrastructural and administrative inefficiencies that can significantly affect the real cost of entering and developing within the Brazilian market." },
+  { type: "p", text: "Many companies discover this too late, once it has already started to erode their margins. Others, on the contrary, overestimate it and miss real opportunities because they perceive the market as too difficult." },
+  { type: "p", text: "The truth is that Custo Brasil should neither be ignored nor feared in generic terms. It must be measured, understood and managed. In some cases, when correctly interpreted, it can even become a competitive advantage. Those who understand the system's complexities better can identify solutions, regions, partners and pathways that others overlook." },
+
+  { type: "h2", text: "The Brazilian archipelago" },
+  { type: "p", text: "The second, even more common mistake is treating Brazil as a single market. It is not." },
+  { type: "p", text: "Brazil is an economic continent made up of many local, sector-specific and regional markets. It is an archipelago of mini-markets, each with its own characteristics, costs, incentives, consumer habits, logistics networks and key stakeholders." },
+  { type: "p", text: "Tax incentives and benefits can vary from state to state and, in some cases, even from municipality to municipality. The choice of where to enter the market, produce, distribute or seek partners can make the difference between a sustainable project and one destined to struggle." },
+  { type: "p", text: "That is why it is not enough to ask whether a product can work \"in Brazil\". The right questions are: where, with whom, under what conditions, with what cost structure and with what competitive advantages?" },
+  { type: "p", text: "Our job is to help you navigate this archipelago: identifying the most suitable regions, reliable partners, hidden opportunities and risks to anticipate." },
+
+  { type: "h2", text: "In both directions" },
+  { type: "p", text: "We operate between Europe, Brazil and Mercosur in both directions." },
+  { type: "p", text: "We assist European companies seeking to enter or expand in Brazil and South America. At the same time, we support Brazilian and South American companies looking to establish a presence, structure their operations and grow in Europe." },
+  { type: "p", text: "Understanding two worlds means knowing how to build bridges, not merely act as a guide." },
+  { type: "p", text: "Our work operates on two fronts. On the one hand, we identify opportunities that aggregated data often fails to reveal: the right niche market, a reliable partner, or an opening created by regulatory or commercial change. On the other hand, we anticipate problems before they become costs." },
+  { type: "p", text: "We spot opportunities before competitors do. We identify problems before they become expensive." },
+
+  { type: "h2", text: "Why now: the new EU-Mercosur landscape" },
+  { type: "p", text: "The framework of trade relations between the European Union and Mercosur is entering a phase of profound transformation. Tariffs, barriers, market access rules, technical standards and trade opportunities are changing the way many European and South American companies look at their respective markets." },
+  { type: "p", text: "In this scenario, acting with the right information can help build a competitive advantage that will be difficult for others to recover later." },
+  { type: "p", text: "The opportunities are not limited to large companies. They may also benefit SMEs, specialised manufacturers, agri-food supply chains, industrial firms, professional services, technology, logistics, sustainability and partnership projects between European and Brazilian operators." },
+  { type: "p", text: "However, every opportunity must be understood in context. A trade agreement can open doors, but it does not replace knowledge of the local landscape, regulations, business practices and the right contacts." },
+
+  { type: "h2", text: "Who is behind it: method, not improvisation" },
+  { type: "p", text: "The founder, Enzo Aldo Stobbione, holds a degree in Political Science, with a focus on international politics, from the University of Turin. He also earned a Master's degree in Economics and International Relations from ASERI — the Graduate School of Economics and International Relations of the Catholic University of the Sacred Heart in Milan — and a Master's degree in Integrated Strategies for Sustainability and Ecological Transition from the University of Eastern Piedmont." },
+  { type: "p", text: "He has lived for several years in Belo Horizonte, the capital of Minas Gerais, in the heart of South-East Brazil. This region, together with São Paulo and Rio de Janeiro, accounts for a significant share of the country's GDP, industry, finance and innovation." },
+  { type: "p", text: "Belo Horizonte is not only a major regional economic hub. It is also home to San Pedro Valley, one of Brazil's most dynamic startup ecosystems — a clear sign of a productive fabric that is not limited to industry, finance and commerce, but also includes technology, innovation and new entrepreneurship." },
+  { type: "p", text: "This is not a remote observation point. It is a direct presence in one of Brazil's most important economic regions." },
+  { type: "p", text: "We are members of the Italian Chamber of Commerce of Minas Gerais and the Export Strategist Association.", links: [
+    { text: "Italian Chamber of Commerce", href: "https://www.italiabrasil.com.br" },
+    { text: "Export Strategist", href: "https://www.exportstrategist.it" },
+  ]},
+
+  { type: "h2", text: "Subsidised finance: resources to get started" },
+  { type: "p", text: "An internationalisation strategy requires vision, accurate information and reliable partners. It also requires resources." },
+  { type: "p", text: "As EU Project Management Specialists trained at CEIPIEMONTE — the Piedmont Centre for Internationalisation — we are able to identify the most suitable subsidised finance measures to support internationalisation projects, business development, partnerships and entry into new markets." },
+  { type: "p", text: "This applies both to individual companies and to projects developed in partnership with other Italian and European firms." },
+  { type: "p", text: "Our operations in Italy and other European Union countries — with a particular focus on the Republic of Croatia — also allow us to develop broader strategies that connect expertise, territories, funding and opportunities within a European framework." },
+
+  { type: "h2", text: "One approach, one network" },
+  { type: "p", text: "No single consultant can replace a network of specialists." },
+  { type: "p", text: "That is why we work with a selected network of professionals in Europe and Brazil: corporate lawyers, tax advisors, customs specialists and experts in logistics, taxation, contracts, incentives and international operations." },
+  { type: "p", text: "For each project, we bring in the right expertise at the right time. Our role is to coordinate the process, ask the right questions, select the relevant information and develop comprehensive, up-to-date and actionable solutions." },
+  { type: "p", text: "For you, this means having a single point of contact who coordinates the work and takes responsibility for the outcome. Behind the scenes, a network of specialists enables us to approach every project with method, expertise and depth." },
+
+  { type: "h2", text: "Let's talk" },
+  { type: "p", text: "Every successful internationalisation project — whether it involves import-export, soft landing, partner search, market analysis or business development — starts with the right questions." },
+  { type: "p", text: "Share your questions, concerns and needs with us. We will help you turn them into a concrete path based on reliable information, clear answers and well-considered decisions." },
+  { type: "p", text: "To stay up to date on hidden costs, incentives, risks and opportunities in the Brazilian market, visit and subscribe to our \"Custo Brasil\" newsletter on LinkedIn: practical analysis, without unnecessary noise, straight from the heart of Brazil.", links: [{ text: "Custo Brasil", href: "https://www.linkedin.com/company/businessmatchingglobal" }] },
+  { type: "p", text: "Because knowledge is power. But knowing how to interpret it is the real competitive advantage.", italic: true },
+];
+
 export default function AboutUs() {
+  const { lang } = useT();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const blocks = lang === "en" ? blocksEn : blocksIt;
+  const pageTitle = lang === "en" ? "About us" : "Chi siamo";
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <div className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
         <h1 className="font-display text-4xl md:text-5xl leading-tight mb-4">
-          Chi siamo
+          {pageTitle}
         </h1>
         <article className="space-y-6">
           {blocks.map((b, i) =>
