@@ -333,6 +333,17 @@ export default function AboutUs() {
               >
                 {b.text}
               </h2>
+            ) : b.type === "link" ? (
+              <p key={i} className="text-base md:text-lg leading-relaxed text-muted-foreground text-justify">
+                <a
+                  href={b.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline hover:text-primary/80 transition-colors"
+                >
+                  {b.text}
+                </a>
+              </p>
             ) : (
               <p
                 key={i}
