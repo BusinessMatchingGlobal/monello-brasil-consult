@@ -312,7 +312,7 @@ const blocks: Block[] = [
   { type: "h2", text: "Parliamone" },
   { type: "p", text: "Ogni progetto di internazionalizzazione di successo — che si tratti di import-export, soft landing, ricerca partner, analisi di mercato o sviluppo commerciale — inizia con le domande giuste." },
   { type: "p", text: "Sottoponeteci i vostri quesiti, i vostri dubbi e le vostre esigenze. Vi aiuteremo a trasformarli in un percorso concreto, basato su informazioni affidabili, risposte chiare e decisioni ben ponderate." },
-  { type: "p", text: "E per restare aggiornati su costi occulti, incentivi, rischi e opportunità del mercato brasiliano, consultate e iscrivetevi alla nostra newsletter \"Custo Brasil\" sulla nostra pagina LinkedIn: analisi pratiche, senza giri di parole, direttamente dal cuore del Brasile." },
+  { type: "p", text: "E per restare aggiornati su costi occulti, incentivi, rischi e opportunità del mercato brasiliano, consultate e iscrivetevi alla nostra newsletter \"Custo Brasil\" sulla nostra pagina LinkedIn: analisi pratiche, senza giri di parole, direttamente dal cuore del Brasile.", links: [{ text: "Custo Brasil", href: "https://www.linkedin.com/company/businessmatchingglobal" }] },
   { type: "p", text: "Perché sapere è potere. Ma saper interpretare correttamente ciò che si sa è il vero vantaggio competitivo.", italic: true },
 ];
 
