@@ -342,6 +342,16 @@ export default function AboutUs() {
             )
           )}
         </article>
+        <p className="text-base md:text-lg leading-relaxed text-muted-foreground text-justify mt-6">
+          <a
+            href="https://www.linkedin.com/company/businessmatchingglobal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline hover:text-primary/80 transition-colors"
+          >
+            Business Matching Global su LinkedIn
+          </a>
+        </p>
         <ContactForm />
       </div>
     </div>
