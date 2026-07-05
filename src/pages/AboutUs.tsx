@@ -1,6 +1,6 @@
 import { useState, useEffect, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Menu, X, Mail } from "lucide-react";
+import { ArrowRight, Menu, X, Mail } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,10 +49,12 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = [
+  const links: Array<{ href: string; label: string; internal?: boolean }> = [
+    { href: "/", label: t.nav.home, internal: true },
     { href: "/#services", label: t.nav.services },
     { href: "/#how", label: t.nav.how },
-    { href: "/#about", label: t.nav.about },
+    { href: "/#about", label: t.nav.method },
+    { href: "/About_us", label: t.nav.about, internal: true },
   ];
 
   return (
@@ -66,15 +68,25 @@ function Nav() {
           Business Matching <span className="text-primary">Global</span>
         </Link>
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-foreground/75 hover:text-foreground transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.internal ? (
+              <Link
+                key={l.href}
+                to={l.href}
+                className="text-sm text-foreground/75 hover:text-foreground transition-colors"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-sm text-foreground/75 hover:text-foreground transition-colors"
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <LangSwitcher />
           <Button asChild size="sm" className="rounded-full">
             <a href="/#contact">{t.nav.contact}</a>
@@ -91,16 +103,27 @@ function Nav() {
       {open && (
         <div className="md:hidden border-t border-border/60 bg-background">
           <div className="container py-4 flex flex-col gap-4">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="text-base py-2"
-              >
-                {l.label}
-              </a>
-            ))}
+            {links.map((l) =>
+              l.internal ? (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-base py-2"
+                >
+                  {l.label}
+                </Link>
+              ) : (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-base py-2"
+                >
+                  {l.label}
+                </a>
+              )
+            )}
             <div className="flex items-center justify-between pt-2 border-t border-border/60">
               <LangSwitcher />
               <Button asChild size="sm" className="rounded-full" onClick={() => setOpen(false)}>
@@ -290,16 +313,13 @@ const blocks: Block[] = [
 ];
 
 export default function AboutUs() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <div className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-10"
-        >
-          <ArrowLeft className="h-4 w-4" /> Torna alla home
-        </Link>
         <h1 className="font-display text-4xl md:text-5xl leading-tight mb-4">
           Chi siamo
         </h1>
