@@ -13,7 +13,7 @@ const EMAIL = "info@businessmatching.global";
 
 type Block =
   | { type: "h2"; text: string }
-  | { type: "p"; text: string; italic?: boolean }
+  | { type: "p"; text: string; italic?: boolean; linkText?: string; linkHref?: string }
   | { type: "link"; text: string; href: string };
 
 function LangSwitcher() {
@@ -292,7 +292,7 @@ const blocks: Block[] = [
   { type: "p", text: "Da diversi anni risiede a Belo Horizonte, capitale del Minas Gerais, nel cuore del Sud-Est brasiliano: l'area che, insieme a San Paolo e Rio de Janeiro, concentra una parte rilevante del PIL, dell'industria, della finanza e dell'innovazione del Paese." },
   { type: "p", text: "Belo Horizonte non è soltanto una grande capitale economica regionale. È anche la casa della San Pedro Valley, uno degli ecosistemi startup più dinamici del Brasile: un segnale importante di un tessuto produttivo che non è fatto solo di industria, finanza e commercio, ma anche di tecnologia, innovazione e nuova imprenditorialità." },
   { type: "p", text: "Non un osservatorio a distanza, quindi, ma una presenza diretta nel cuore economico del Brasile." },
-  { type: "p", text: "Siamo soci della Camera di Commercio Italiana di Minas Gerais e dell'Associazione Export Strategist." },
+  { type: "p", text: "Siamo soci della Câmara de Comércio Italiana e dell'Associazione Export Strategist.", linkText: "Câmara de Comércio Italiana", linkHref: "https://www.italiabrasil.com.br" },
   { type: "link", text: "www.exportstrategist.it", href: "https://www.exportstrategist.it" },
 
   { type: "h2", text: "Finanza agevolata: le risorse per partire" },
@@ -350,7 +350,30 @@ export default function AboutUs() {
                 key={i}
                 className={`text-base md:text-lg leading-relaxed text-muted-foreground text-justify${b.italic ? " italic" : ""}`}
               >
-                {b.text}
+                {b.linkText && b.linkHref ? (
+                  (() => {
+                    const idx = b.text.indexOf(b.linkText);
+                    if (idx === -1) return b.text;
+                    const before = b.text.slice(0, idx);
+                    const after = b.text.slice(idx + b.linkText.length);
+                    return (
+                      <>
+                        {before}
+                        <a
+                          href={b.linkHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary underline hover:text-primary/80 transition-colors"
+                        >
+                          {b.linkText}
+                        </a>
+                        {after}
+                      </>
+                    );
+                  })()
+                ) : (
+                  b.text
+                )}
               </p>
             )
           )}
