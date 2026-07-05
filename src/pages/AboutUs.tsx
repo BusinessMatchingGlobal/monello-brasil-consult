@@ -375,6 +375,8 @@ const blocksEn: Block[] = [
   { type: "p", text: "Share your questions, concerns and needs with us. We will help you turn them into a concrete path based on reliable information, clear answers and well-considered decisions." },
   { type: "p", text: "To stay up to date on hidden costs, incentives, risks and opportunities in the Brazilian market, visit and subscribe to our \"Custo Brasil\" newsletter on LinkedIn: practical analysis, without unnecessary noise, straight from the heart of Brazil.", links: [{ text: "Custo Brasil", href: "https://www.linkedin.com/company/businessmatchingglobal" }] },
   { type: "p", text: "Because knowledge is power. But knowing how to interpret it is the real competitive advantage.", italic: true },
+];
+
 const blocksPt: Block[] = [
   { type: "h2", text: 'Scientia potentia est — "Saber é poder"' },
   { type: "p", text: "A máxima atribuída a Francis Bacon há mais de quatro séculos continua, hoje mais do que nunca, atual: saber é poder. No entanto, no mundo da internacionalização, não basta ter acesso à informação. É preciso saber buscá-la, selecioná-la, atualizá-la e interpretá-la corretamente." },
