@@ -62,10 +62,12 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = [
+  const links: Array<{ href: string; label: string; internal?: boolean }> = [
+    { href: "#top", label: t.nav.home },
     { href: "#services", label: t.nav.services },
     { href: "#how", label: t.nav.how },
-    { href: "#about", label: t.nav.about },
+    { href: "#about", label: t.nav.method },
+    { href: "/About_us", label: t.nav.about, internal: true },
   ];
 
   return (
@@ -79,15 +81,25 @@ function Nav() {
           Business Matching <span className="text-primary">Global</span>
         </a>
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-foreground/75 hover:text-foreground transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.internal ? (
+              <Link
+                key={l.href}
+                to={l.href}
+                className="text-sm text-foreground/75 hover:text-foreground transition-colors"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-sm text-foreground/75 hover:text-foreground transition-colors"
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <LangSwitcher />
           <Button asChild size="sm" className="rounded-full">
             <a href="#contact">{t.nav.contact}</a>
@@ -104,16 +116,27 @@ function Nav() {
       {open && (
         <div className="md:hidden border-t border-border/60 bg-background">
           <div className="container py-4 flex flex-col gap-4">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="text-base py-2"
-              >
-                {l.label}
-              </a>
-            ))}
+            {links.map((l) =>
+              l.internal ? (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-base py-2"
+                >
+                  {l.label}
+                </Link>
+              ) : (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-base py-2"
+                >
+                  {l.label}
+                </a>
+              )
+            )}
             <div className="flex items-center justify-between pt-2 border-t border-border/60">
               <LangSwitcher />
               <Button asChild size="sm" className="rounded-full" onClick={() => setOpen(false)}>
@@ -330,7 +353,7 @@ function About() {
     <section id="about" className="py-20 md:py-28 border-t border-border/60">
       <div className="container max-w-4xl text-center">
         <span className="text-xs tracking-wider uppercase text-primary mb-6 inline-block">
-          {t.nav.about}
+          {t.nav.method}
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-8">{t.about.title}</h2>
         <div className="space-y-5 text-left md:text-center">
