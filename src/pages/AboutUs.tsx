@@ -13,7 +13,8 @@ const EMAIL = "info@businessmatching.global";
 
 type Block =
   | { type: "h2"; text: string }
-  | { type: "p"; text: string; italic?: boolean };
+  | { type: "p"; text: string; italic?: boolean }
+  | { type: "link"; text: string; href: string };
 
 function LangSwitcher() {
   const { lang, setLang } = useT();
@@ -292,6 +293,7 @@ const blocks: Block[] = [
   { type: "p", text: "Belo Horizonte non è soltanto una grande capitale economica regionale. È anche la casa della San Pedro Valley, uno degli ecosistemi startup più dinamici del Brasile: un segnale importante di un tessuto produttivo che non è fatto solo di industria, finanza e commercio, ma anche di tecnologia, innovazione e nuova imprenditorialità." },
   { type: "p", text: "Non un osservatorio a distanza, quindi, ma una presenza diretta nel cuore economico del Brasile." },
   { type: "p", text: "Siamo soci della Camera di Commercio Italiana di Minas Gerais e dell'Associazione Export Strategist." },
+  { type: "link", text: "www.exportstrategist.it", href: "https://www.exportstrategist.it" },
 
   { type: "h2", text: "Finanza agevolata: le risorse per partire" },
   { type: "p", text: "Una strategia di internazionalizzazione richiede visione, informazioni corrette e partner affidabili. Ma richiede anche risorse." },
@@ -332,6 +334,17 @@ export default function AboutUs() {
               >
                 {b.text}
               </h2>
+            ) : b.type === "link" ? (
+              <p key={i} className="text-base md:text-lg leading-relaxed text-muted-foreground text-justify">
+                <a
+                  href={b.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline hover:text-primary/80 transition-colors"
+                >
+                  {b.text}
+                </a>
+              </p>
             ) : (
               <p
                 key={i}
