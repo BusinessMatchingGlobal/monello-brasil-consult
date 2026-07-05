@@ -13,7 +13,7 @@ const EMAIL = "info@businessmatching.global";
 
 type Block =
   | { type: "h2"; text: string }
-  | { type: "p"; text: string; italic?: boolean; linkText?: string; linkHref?: string }
+  | { type: "p"; text: string; italic?: boolean; linkText?: string; linkHref?: string; links?: Array<{ text: string; href: string }> }
   | { type: "link"; text: string; href: string };
 
 function LangSwitcher() {
@@ -292,8 +292,10 @@ const blocks: Block[] = [
   { type: "p", text: "Da diversi anni risiede a Belo Horizonte, capitale del Minas Gerais, nel cuore del Sud-Est brasiliano: l'area che, insieme a San Paolo e Rio de Janeiro, concentra una parte rilevante del PIL, dell'industria, della finanza e dell'innovazione del Paese." },
   { type: "p", text: "Belo Horizonte non è soltanto una grande capitale economica regionale. È anche la casa della San Pedro Valley, uno degli ecosistemi startup più dinamici del Brasile: un segnale importante di un tessuto produttivo che non è fatto solo di industria, finanza e commercio, ma anche di tecnologia, innovazione e nuova imprenditorialità." },
   { type: "p", text: "Non un osservatorio a distanza, quindi, ma una presenza diretta nel cuore economico del Brasile." },
-  { type: "p", text: "Siamo soci della Câmara de Comércio Italiana e dell'Associazione Export Strategist.", linkText: "Câmara de Comércio Italiana", linkHref: "https://www.italiabrasil.com.br" },
-  { type: "link", text: "www.exportstrategist.it", href: "https://www.exportstrategist.it" },
+  { type: "p", text: "Siamo soci della Câmara de Comércio Italiana e dell'Associazione Export Strategist.", links: [
+    { text: "Câmara de Comércio Italiana", href: "https://www.italiabrasil.com.br" },
+    { text: "Export Strategist", href: "https://www.exportstrategist.it" },
+  ]},
 
   { type: "h2", text: "Finanza agevolata: le risorse per partire" },
   { type: "p", text: "Una strategia di internazionalizzazione richiede visione, informazioni corrette e partner affidabili. Ma richiede anche risorse." },
@@ -350,7 +352,38 @@ export default function AboutUs() {
                 key={i}
                 className={`text-base md:text-lg leading-relaxed text-muted-foreground text-justify${b.italic ? " italic" : ""}`}
               >
-                {b.linkText && b.linkHref ? (
+                {b.links && b.links.length > 0 ? (
+                  (() => {
+                    type Match = { start: number; end: number; text: string; href: string };
+                    const matches: Match[] = b.links
+                      .map((l) => {
+                        const idx = b.text.indexOf(l.text);
+                        return idx !== -1 ? { start: idx, end: idx + l.text.length, ...l } : null;
+                      })
+                      .filter((m): m is Match => m !== null);
+                    matches.sort((a, b) => a.start - b.start);
+                    const nodes: React.ReactNode[] = [];
+                    let pos = 0;
+                    for (const m of matches) {
+                      if (m.start < pos) continue;
+                      nodes.push(b.text.slice(pos, m.start));
+                      nodes.push(
+                        <a
+                          key={m.start}
+                          href={m.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary underline hover:text-primary/80 transition-colors"
+                        >
+                          {m.text}
+                        </a>
+                      );
+                      pos = m.end;
+                    }
+                    nodes.push(b.text.slice(pos));
+                    return <>{nodes}</>;
+                  })()
+                ) : b.linkText && b.linkHref ? (
                   (() => {
                     const idx = b.text.indexOf(b.linkText);
                     if (idx === -1) return b.text;
