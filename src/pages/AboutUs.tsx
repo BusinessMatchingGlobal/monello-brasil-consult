@@ -350,7 +350,30 @@ export default function AboutUs() {
                 key={i}
                 className={`text-base md:text-lg leading-relaxed text-muted-foreground text-justify${b.italic ? " italic" : ""}`}
               >
-                {b.text}
+                {b.linkText && b.linkHref ? (
+                  (() => {
+                    const idx = b.text.indexOf(b.linkText);
+                    if (idx === -1) return b.text;
+                    const before = b.text.slice(0, idx);
+                    const after = b.text.slice(idx + b.linkText.length);
+                    return (
+                      <>
+                        {before}
+                        <a
+                          href={b.linkHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary underline hover:text-primary/80 transition-colors"
+                        >
+                          {b.linkText}
+                        </a>
+                        {after}
+                      </>
+                    );
+                  })()
+                ) : (
+                  b.text
+                )}
               </p>
             )
           )}
