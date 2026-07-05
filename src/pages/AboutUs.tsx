@@ -352,7 +352,38 @@ export default function AboutUs() {
                 key={i}
                 className={`text-base md:text-lg leading-relaxed text-muted-foreground text-justify${b.italic ? " italic" : ""}`}
               >
-                {b.linkText && b.linkHref ? (
+                {b.links && b.links.length > 0 ? (
+                  (() => {
+                    type Match = { start: number; end: number; text: string; href: string };
+                    const matches: Match[] = b.links
+                      .map((l) => {
+                        const idx = b.text.indexOf(l.text);
+                        return idx !== -1 ? { start: idx, end: idx + l.text.length, ...l } : null;
+                      })
+                      .filter((m): m is Match => m !== null);
+                    matches.sort((a, b) => a.start - b.start);
+                    const nodes: React.ReactNode[] = [];
+                    let pos = 0;
+                    for (const m of matches) {
+                      if (m.start < pos) continue;
+                      nodes.push(b.text.slice(pos, m.start));
+                      nodes.push(
+                        <a
+                          key={m.start}
+                          href={m.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary underline hover:text-primary/80 transition-colors"
+                        >
+                          {m.text}
+                        </a>
+                      );
+                      pos = m.end;
+                    }
+                    nodes.push(b.text.slice(pos));
+                    return <>{nodes}</>;
+                  })()
+                ) : b.linkText && b.linkHref ? (
                   (() => {
                     const idx = b.text.indexOf(b.linkText);
                     if (idx === -1) return b.text;
