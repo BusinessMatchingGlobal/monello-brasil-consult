@@ -323,7 +323,9 @@ function HowItWorks() {
 }
 
 function About() {
-  const { t } = useT();
+  const { t, lang } = useT();
+  const moreLabel =
+    lang === "it" ? "Per saperne di più" : lang === "pt" ? "Saiba mais" : "Learn more";
   return (
     <section id="about" className="py-20 md:py-28 border-t border-border/60">
       <div className="container max-w-4xl text-center">
@@ -335,6 +337,14 @@ function About() {
           {t.about.body.split("\n\n").map((para, i) => (
             <p key={i} className="text-lg text-muted-foreground leading-relaxed">{para}</p>
           ))}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/About_us"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-amber transition-colors underline underline-offset-4"
+          >
+            {moreLabel} <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
