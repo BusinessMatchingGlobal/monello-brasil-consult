@@ -4,7 +4,7 @@ import { useT } from "@/lib/i18n";
 
 const CONTROLLER_EMAIL = "info@businessmatching.global";
 const COMPANY = "ENZO ALDO STOBBIONE LTDA (Business Matching Global)";
-const ADDRESS = "Avenida Getúlio Vargas, 671, Sala 500, Savassi, Belo Horizonte/MG, Brasil";
+const ADDRESS = "Avenida Getúlio Vargas, 671, Sala 500, CEP 30.112-021, Savassi, Belo Horizonte/MG, Brasil";
 const CNPJ = "67.589.228/0001-30";
 
 type Section = { h: string; p: (string | JSX.Element)[] };
