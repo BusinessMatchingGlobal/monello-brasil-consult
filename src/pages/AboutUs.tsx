@@ -13,7 +13,7 @@ const EMAIL = "info@businessmatching.global";
 
 type Block =
   | { type: "h2"; text: string }
-  | { type: "p"; text: string; italic?: boolean; linkText?: string; linkHref?: string }
+  | { type: "p"; text: string; italic?: boolean; linkText?: string; linkHref?: string; links?: Array<{ text: string; href: string }> }
   | { type: "link"; text: string; href: string };
 
 function LangSwitcher() {
