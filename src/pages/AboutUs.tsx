@@ -375,6 +375,64 @@ const blocksEn: Block[] = [
   { type: "p", text: "Share your questions, concerns and needs with us. We will help you turn them into a concrete path based on reliable information, clear answers and well-considered decisions." },
   { type: "p", text: "To stay up to date on hidden costs, incentives, risks and opportunities in the Brazilian market, visit and subscribe to our \"Custo Brasil\" newsletter on LinkedIn: practical analysis, without unnecessary noise, straight from the heart of Brazil.", links: [{ text: "Custo Brasil", href: "https://www.linkedin.com/company/businessmatchingglobal" }] },
   { type: "p", text: "Because knowledge is power. But knowing how to interpret it is the real competitive advantage.", italic: true },
+const blocksPt: Block[] = [
+  { type: "h2", text: 'Scientia potentia est — "Saber é poder"' },
+  { type: "p", text: "A máxima atribuída a Francis Bacon há mais de quatro séculos continua, hoje mais do que nunca, atual: saber é poder. No entanto, no mundo da internacionalização, não basta ter acesso à informação. É preciso saber buscá-la, selecioná-la, atualizá-la e interpretá-la corretamente." },
+  { type: "p", text: "Acreditamos que o acesso a informações confiáveis — incluindo aquelas de que sua empresa nem sabia que precisava — e a capacidade de transformá-las em decisões operacionais podem fazer a diferença entre uma estratégia sólida e um erro custoso." },
+  { type: "p", text: "Esse é o centro do nosso trabalho: fornecer informações confiáveis, contextualizá-las e ajudar você a interpretá-las corretamente, antes que uma escolha equivocada se transforme em custo." },
+
+  { type: "h2", text: "O Custo Brasil: de custo oculto a variável estratégica" },
+  { type: "p", text: "Atuar no Brasil significa lidar com um sistema complexo, muitas vezes difícil de compreender para quem está de fora. Um dos elementos mais importantes a considerar é o chamado Custo Brasil: o conjunto de ineficiências burocráticas, tributárias, logísticas, de infraestrutura e administrativas que podem impactar de forma significativa os custos reais de entrada e desenvolvimento no mercado brasileiro." },
+  { type: "p", text: "Muitas empresas percebem isso tarde demais, quando o Custo Brasil já começou a corroer suas margens. Outras, ao contrário, superestimam esse fator e acabam abrindo mão de oportunidades reais por enxergarem o mercado como excessivamente difícil." },
+  { type: "p", text: "A verdade é que o Custo Brasil não deve ser ignorado nem temido de forma genérica. Ele precisa ser medido, compreendido e gerido. Em alguns casos, quando corretamente interpretado, pode até se transformar em vantagem competitiva. Quem compreende melhor as complexidades do sistema consegue identificar soluções, regiões, parceiros e caminhos que outros não enxergam." },
+
+  { type: "h2", text: "O arquipélago Brasil" },
+  { type: "p", text: "O segundo erro, ainda mais comum, é tratar o Brasil como um único mercado. Ele não é." },
+  { type: "p", text: "O Brasil é um continente econômico composto por uma pluralidade de mercados locais, setoriais e regionais. É um arquipélago de minimercados, cada um com características, custos, incentivos, hábitos de consumo, redes logísticas e interlocutores próprios." },
+  { type: "p", text: "Incentivos e benefícios fiscais podem variar de estado para estado e, em alguns casos, até de município para município. A escolha do território onde entrar, produzir, distribuir ou buscar parceiros pode fazer a diferença entre um projeto sustentável e um projeto destinado a enfrentar dificuldades." },
+  { type: "p", text: "Por isso, não basta perguntar se um produto pode funcionar \"no Brasil\". As perguntas certas são: onde, com quem, em quais condições, com qual estrutura de custos e com quais vantagens competitivas?" },
+  { type: "p", text: "Nosso trabalho consiste justamente em ajudar sua empresa a compreender esse arquipélago: identificar os territórios mais adequados, os parceiros mais confiáveis, as oportunidades menos visíveis e os riscos que precisam ser antecipados." },
+
+  { type: "h2", text: "Em ambas as direções" },
+  { type: "p", text: "Atuamos entre Europa, Brasil e Mercosul em ambas as direções." },
+  { type: "p", text: "Apoiamos empresas europeias que desejam entrar ou crescer no Brasil e na América do Sul. Ao mesmo tempo, apoiamos empresas brasileiras e sul-americanas que pretendem se estabelecer, se estruturar e crescer na Europa." },
+  { type: "p", text: "Conhecer dois mundos significa saber construir pontes, não apenas servir de guia." },
+  { type: "p", text: "Nosso trabalho se desenvolve em duas frentes: de um lado, identificamos oportunidades que os dados agregados muitas vezes não revelam — o nicho de mercado certo, o parceiro confiável, a janela de oportunidade aberta por uma mudança regulatória ou comercial; de outro, antecipamos problemas antes que eles se transformem em custos." },
+  { type: "p", text: "Enxergar oportunidades antes dos concorrentes. Antecipar problemas antes que eles gerem custos." },
+
+  { type: "h2", text: "Por que agora: o novo cenário UE-Mercosul" },
+  { type: "p", text: "O cenário das relações comerciais entre a União Europeia e o Mercosul está entrando em uma fase de profunda transformação. Tarifas, barreiras, regras de acesso ao mercado, normas técnicas e oportunidades de comércio tendem a alterar a forma como muitas empresas europeias e sul-americanas enxergam seus respectivos mercados." },
+  { type: "p", text: "Nesse contexto, agir com as informações certas pode significar construir uma vantagem competitiva difícil de recuperar para quem chegar depois." },
+  { type: "p", text: "As oportunidades não se limitam às grandes empresas. Elas também podem interessar a pequenas e médias empresas, produtores especializados, cadeias agroalimentares, empresas industriais, serviços profissionais, tecnologia, logística, sustentabilidade e projetos de parceria entre operadores europeus e brasileiros." },
+  { type: "p", text: "No entanto, toda oportunidade precisa ser analisada dentro do seu contexto. Um acordo comercial pode abrir portas, mas não substitui o conhecimento do território, das regras, das práticas locais e dos interlocutores certos." },
+
+  { type: "h2", text: "Por trás de tudo: método, não improvisação" },
+  { type: "p", text: "O fundador, Enzo Aldo Stobbione, é formado em Ciências Políticas, com foco político-internacional, pela Universidade de Turim. Também possui mestrado em Economia e Relações Internacionais pela ASERI — Alta Escola de Economia e Relações Internacionais da Universidade Católica do Sagrado Coração de Milão — e mestrado em Estratégias Integradas para a Sustentabilidade e a Transição Ecológica pela Universidade do Piemonte Oriental." },
+  { type: "p", text: "Há vários anos reside em Belo Horizonte, capital de Minas Gerais, no coração da região Sudeste do Brasil: uma área que, junto com São Paulo e Rio de Janeiro, concentra uma parte significativa do PIB, da indústria, das finanças e da inovação do país." },
+  { type: "p", text: "Belo Horizonte não é apenas uma importante capital econômica regional. É também sede da San Pedro Valley, um dos ecossistemas de startups mais dinâmicos do Brasil — sinal de um tecido produtivo que não é composto apenas por indústria, finanças e comércio, mas também por tecnologia, inovação e novo empreendedorismo." },
+  { type: "p", text: "Não se trata, portanto, de um observatório à distância, mas de uma presença direta no coração econômico do Brasil." },
+  { type: "p", text: "Somos associados à Câmara de Comércio Italiana e à Associação Export Strategist.", links: [
+    { text: "Câmara de Comércio Italiana", href: "https://www.italiabrasil.com.br" },
+    { text: "Export Strategist", href: "https://www.exportstrategist.it" },
+  ]},
+
+  { type: "h2", text: "Financiamento subsidiado: recursos para começar" },
+  { type: "p", text: "Uma estratégia de internacionalização exige visão, informações precisas e parceiros confiáveis. Mas também exige recursos." },
+  { type: "p", text: "Como EU Project Management Specialist, com formação pelo CEIPIEMONTE — Centro para a Internacionalização do Piemonte —, somos capazes de identificar as medidas de financiamento subsidiado mais adequadas para apoiar projetos de internacionalização, desenvolvimento comercial, parcerias e entrada em novos mercados." },
+  { type: "p", text: "Isso se aplica tanto a empresas individuais quanto a projetos desenvolvidos em parceria com outras empresas italianas e europeias." },
+  { type: "p", text: "Nossa atuação na Itália e em outros países da União Europeia — com atenção especial também à República da Croácia — permite ainda desenvolver estratégias mais amplas, capazes de conectar competências, territórios, fundos e oportunidades dentro de uma lógica europeia." },
+
+  { type: "h2", text: "Um método, uma rede" },
+  { type: "p", text: "Nenhum consultor, sozinho, substitui uma rede de especialistas." },
+  { type: "p", text: "Por isso, trabalhamos com uma rede selecionada de profissionais na Europa e no Brasil: advogados empresariais, tributaristas, especialistas aduaneiros, especialistas em logística, contratos, incentivos e operações internacionais." },
+  { type: "p", text: "Para cada projeto, mobilizamos as competências certas no momento certo. Nosso papel é coordenar o processo, fazer as perguntas certas, selecionar as informações relevantes e construir uma resposta completa, atualizada e operacional." },
+  { type: "p", text: "Para você, um único interlocutor que coordena o trabalho e responde pelo resultado. Por trás, uma rede de especialistas que permite abordar cada projeto com método, competência e profundidade." },
+
+  { type: "h2", text: "Vamos conversar?" },
+  { type: "p", text: "Todo projeto de internacionalização bem-sucedido — seja de importação e exportação, soft landing, busca de parceiros, análise de mercado ou desenvolvimento comercial — começa com as perguntas certas." },
+  { type: "p", text: "Envie-nos suas dúvidas, questões e necessidades. Ajudaremos você a transformá-las em um plano concreto, baseado em informações confiáveis, respostas claras e decisões bem fundamentadas." },
+  { type: "p", text: 'Para se manter atualizado sobre custos ocultos, incentivos, riscos e oportunidades do mercado brasileiro, consulte e assine nossa newsletter "Custo Brasil" em nossa página no LinkedIn: análises práticas, sem rodeios, diretamente do coração do Brasil.', links: [{ text: "Custo Brasil", href: "https://www.linkedin.com/company/businessmatchingglobal" }] },
+  { type: "p", text: "Porque saber é poder. Mas saber interpretar corretamente o que se sabe é a verdadeira vantagem competitiva.", italic: true },
 ];
 
 export default function AboutUs() {
@@ -382,8 +440,8 @@ export default function AboutUs() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const blocks = lang === "en" ? blocksEn : blocksIt;
-  const pageTitle = lang === "en" ? "About us" : "Chi siamo";
+  const blocks = lang === "en" ? blocksEn : lang === "pt" ? blocksPt : blocksIt;
+  const pageTitle = lang === "en" ? "About us" : lang === "pt" ? "Quem somos" : "Chi siamo";
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
