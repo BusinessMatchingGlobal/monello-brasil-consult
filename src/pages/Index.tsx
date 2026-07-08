@@ -1,7 +1,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useT, Lang } from "@/lib/i18n";
-import italcamLogo from "@/assets/italcam.png.asset.json";
+import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italiabrasil.svg.asset.json";
 import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
 import { Button } from "@/components/ui/button";
@@ -598,7 +598,7 @@ function Footer() {
           <p className="text-center text-sm font-medium text-foreground mb-4">{t.footer.memberOf}</p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-6">
             <a href="https://www.italiabrasil.com.br" target="_blank" rel="noopener noreferrer">
-              <img src={italcamLogo.url} alt="Câmara de Comércio Italiana - Italcam" className="h-10 md:h-12 w-auto object-contain" />
+              <img src={italcamLogo.url} alt="Câmara de Comércio Italiana - Italcam Associado 2026" className="h-12 md:h-14 w-auto max-w-[260px] md:max-w-[320px] object-contain" />
             </a>
             <a href="https://www.italiabrasil.com.br" target="_blank" rel="noopener noreferrer">
               <img src={italiabrasilLogo.url} alt="Italia Brasil" className="h-10 md:h-12 w-auto object-contain" />
