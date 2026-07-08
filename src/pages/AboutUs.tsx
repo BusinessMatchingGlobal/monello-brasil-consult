@@ -442,6 +442,7 @@ const blocksPt: Block[] = [
 ];
 
 export default function AboutUs() {
+  useCanonical("/About_us");
   const { lang } = useT();
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import dossierAsset from "@/assets/dossier.pdf.asset.json";
+import { useCanonical } from "@/lib/useCanonical";
 
 const OWNER_EMAIL = "info@businessmatching.global";
 const PDF_URL = dossierAsset.url;
@@ -161,6 +162,7 @@ function triggerDownload() {
 }
 
 export default function SampleReport() {
+  useCanonical("/sample-report");
   const { lang } = useT();
   const c = copy[lang];
 
