@@ -120,6 +120,7 @@ export const translations = {
       cnae: "Main activity",
       capital: "Share capital",
       privacy: "Privacy & Data Protection",
+      memberOf: "Member of:",
     },
   },
   it: {
@@ -237,6 +238,7 @@ export const translations = {
       cnae: "CNAE principale",
       capital: "Capitale sociale",
       privacy: "Privacy e Protezione Dati",
+      memberOf: "Membro di:",
     },
   },
   pt: {
@@ -354,6 +356,7 @@ export const translations = {
       cnae: "CNAE principal",
       capital: "Capital social",
       privacy: "Privacidade e Proteção de Dados",
+      memberOf: "Membro de:",
     },
   },
 } as const;
