@@ -592,6 +592,17 @@ function Footer() {
         </div>
       </div>
       <div className="container mt-8 pt-6 border-t border-border/40 text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-6">
+          <a href="https://www.italiabrasil.com.br" target="_blank" rel="noopener noreferrer">
+            <img src={italcamLogo.url} alt="Câmara de Comércio Italiana - Italcam" className="h-10 md:h-12 w-auto object-contain" />
+          </a>
+          <a href="https://www.italiabrasil.com.br" target="_blank" rel="noopener noreferrer">
+            <img src={italiabrasilLogo.url} alt="Italia Brasil" className="h-10 md:h-12 w-auto object-contain" />
+          </a>
+          <a href="https://www.exportstrategist.it" target="_blank" rel="noopener noreferrer">
+            <img src={exportStrategistLogo.url} alt="Associazione Export Strategist" className="h-10 md:h-12 w-auto object-contain" />
+          </a>
+        </div>
         <p>{t.footer.rights}</p>
         <p className="mt-2 text-muted-foreground/70 leading-relaxed">
           {t.footer.legalName}: ENZO ALDO STOBBIONE LTDA · CNPJ: 67.589.228/0001-30 · {t.footer.address}: Avenida Getúlio Vargas, 671, Sala 500, CEP 30.112-021, Savassi, Belo Horizonte/MG · CNAE 6399-2/00 · {t.footer.capital}: R$ 1.000,00
