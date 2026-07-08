@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
+import { useCanonical } from "@/lib/useCanonical";
+import { openConsentBanner } from "@/lib/consent";
 
 const CONTROLLER_EMAIL = "info@businessmatching.global";
 const COMPANY = "ENZO ALDO STOBBIONE LTDA (Business Matching Global)";
