@@ -4,24 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="google-site-verification" content="FZfZw0Avtu5u43MIpNZfcGyJPQOvpw68cueBANvGVJc" />
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-151TSCGBDD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-151TSCGBDD');
-    </script>
-
-    <!-- Google tag (gtag.js) - Additional Property -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R1WPY0LSNM"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-R1WPY0LSNM');
-    </script>
+    <!-- Analytics (GA4 + LinkedIn Insight) are loaded only after user consent; see src/lib/consent.ts -->
     <link rel="icon" href="/favicon.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
@@ -30,7 +13,7 @@
     <meta name="description" content="I help international companies make confident decisions in and with Brazil. Market research, supplier verification and import/export information, delivered as clear, actionable reports." />
     <meta name="keywords" content="Brazil business intelligence, supplier verification Brazil, Brazil market research, import export Brazil, due diligence Brazil, Italy Brazil business" />
     <meta name="author" content="Business Matching Global" />
-    <link rel="canonical" href="https://businessmatching.global/" />
+    <!-- Per-route canonical is set at runtime; see src/lib/useCanonical.ts -->
     
     <!-- Multilingual Support -->
     <link rel="alternate" hreflang="en" href="https://businessmatching.global/" />
