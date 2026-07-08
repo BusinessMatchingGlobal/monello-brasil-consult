@@ -468,7 +468,7 @@ export default function AboutUs() {
                 <a
                   href={b.href}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-primary underline hover:text-primary/80 transition-colors"
                 >
                   {b.text}
@@ -499,7 +499,7 @@ export default function AboutUs() {
                           key={m.start}
                           href={m.href}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener"
                           className="text-primary underline hover:text-primary/80 transition-colors"
                         >
                           {m.text}
@@ -522,7 +522,7 @@ export default function AboutUs() {
                         <a
                           href={b.linkHref}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener"
                           className="text-primary underline hover:text-primary/80 transition-colors"
                         >
                           {b.linkText}
@@ -542,7 +542,7 @@ export default function AboutUs() {
           <a
             href="https://www.linkedin.com/company/businessmatchingglobal"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             className="text-primary underline hover:text-primary/80 transition-colors"
           >
             Business Matching Global su LinkedIn
