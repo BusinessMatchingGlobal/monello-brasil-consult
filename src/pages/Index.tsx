@@ -601,7 +601,7 @@ function Footer() {
               <img src={italcamLogo.url} alt="Câmara de Comércio Italiana - Italcam Associado 2026" className="h-12 md:h-14 w-auto max-w-[260px] md:max-w-[320px] object-contain" />
             </a>
             <a href="https://www.italiabrasil.com.br" target="_blank" rel="noopener noreferrer">
-              <img src={italiabrasilLogo.url} alt="Italia Brasil" className="h-10 md:h-12 w-auto object-contain" />
+              <img src={italiabrasilLogo.url} alt="Câmara de Comércio Italiana de Minas Gerais" className="h-12 md:h-14 w-auto max-w-[260px] md:max-w-[320px] object-contain" />
             </a>
             <a href="https://www.exportstrategist.it" target="_blank" rel="noopener noreferrer">
               <img src={exportStrategistLogo.url} alt="Associazione Export Strategist" className="h-10 md:h-12 w-auto object-contain" />
