@@ -1,7 +1,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useT, Lang } from "@/lib/i18n";
-import italcamLogo from "@/assets/italcam.png.asset.json";
+import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italiabrasil.svg.asset.json";
 import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
 import { Button } from "@/components/ui/button";
