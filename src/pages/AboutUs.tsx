@@ -292,9 +292,10 @@ const blocksIt: Block[] = [
   { type: "p", text: "Da diversi anni risiede a Belo Horizonte, capitale del Minas Gerais, nel cuore del Sud-Est brasiliano: l'area che, insieme a San Paolo e Rio de Janeiro, concentra una parte rilevante del PIL, dell'industria, della finanza e dell'innovazione del Paese." },
   { type: "p", text: "Belo Horizonte non è soltanto una grande capitale economica regionale. È anche la casa della San Pedro Valley, uno degli ecosistemi startup più dinamici del Brasile: un segnale importante di un tessuto produttivo che non è fatto solo di industria, finanza e commercio, ma anche di tecnologia, innovazione e nuova imprenditorialità." },
   { type: "p", text: "Non un osservatorio a distanza, quindi, ma una presenza diretta nel cuore economico del Brasile." },
-  { type: "p", text: "Siamo soci della Câmara de Comércio Italiana e dell'Associazione Export Strategist.", links: [
-    { text: "Câmara de Comércio Italiana", href: "https://www.italiabrasil.com.br" },
-    { text: "Export Strategist", href: "https://www.exportstrategist.it" },
+  { type: "p", text: "Siamo membri di ITALCAM – Camera Italo-Brasiliana di Commercio, Industria e Agricoltura di San Paolo, della Camera di Commercio Italiana di Minas Gerais e dell'Associazione Export Strategist.", links: [
+    { text: "ITALCAM – Camera Italo-Brasiliana di Commercio, Industria e Agricoltura di San Paolo", href: "https://italcam.com.br/" },
+    { text: "Camera di Commercio Italiana di Minas Gerais", href: "https://italiabrasil.com.br/" },
+    { text: "Associazione Export Strategist", href: "https://www.exportstrategist.it/" },
   ]},
 
   { type: "h2", text: "Finanza agevolata: le risorse per partire" },
@@ -353,9 +354,10 @@ const blocksEn: Block[] = [
   { type: "p", text: "He has lived for several years in Belo Horizonte, the capital of Minas Gerais, in the heart of South-East Brazil. This region, together with São Paulo and Rio de Janeiro, accounts for a significant share of the country's GDP, industry, finance and innovation." },
   { type: "p", text: "Belo Horizonte is not only a major regional economic hub. It is also home to San Pedro Valley, one of Brazil's most dynamic startup ecosystems — a clear sign of a productive fabric that is not limited to industry, finance and commerce, but also includes technology, innovation and new entrepreneurship." },
   { type: "p", text: "This is not a remote observation point. It is a direct presence in one of Brazil's most important economic regions." },
-  { type: "p", text: "We are members of the Italian Chamber of Commerce of Minas Gerais and the Export Strategist Association.", links: [
-    { text: "Italian Chamber of Commerce", href: "https://www.italiabrasil.com.br" },
-    { text: "Export Strategist", href: "https://www.exportstrategist.it" },
+  { type: "p", text: "We are members of ITALCAM – Italian-Brazilian Chamber of Commerce, Industry and Agriculture of São Paulo, of the Italian Chamber of Commerce of Minas Gerais and of the Associazione Export Strategist.", links: [
+    { text: "ITALCAM – Italian-Brazilian Chamber of Commerce, Industry and Agriculture of São Paulo", href: "https://italcam.com.br/" },
+    { text: "Italian Chamber of Commerce of Minas Gerais", href: "https://italiabrasil.com.br/" },
+    { text: "Associazione Export Strategist", href: "https://www.exportstrategist.it/" },
   ]},
 
   { type: "h2", text: "Subsidised finance: resources to get started" },
@@ -413,9 +415,10 @@ const blocksPt: Block[] = [
   { type: "p", text: "Há vários anos reside em Belo Horizonte, capital de Minas Gerais, no coração da região Sudeste do Brasil: uma área que, junto com São Paulo e Rio de Janeiro, concentra uma parte significativa do PIB, da indústria, das finanças e da inovação do país." },
   { type: "p", text: "Belo Horizonte não é apenas uma importante capital econômica regional. É também sede da San Pedro Valley, um dos ecossistemas de startups mais dinâmicos do Brasil — sinal de um tecido produtivo que não é composto apenas por indústria, finanças e comércio, mas também por tecnologia, inovação e novo empreendedorismo." },
   { type: "p", text: "Não se trata, portanto, de um observatório à distância, mas de uma presença direta no coração econômico do Brasil." },
-  { type: "p", text: "Somos associados à Câmara de Comércio Italiana e à Associação Export Strategist.", links: [
-    { text: "Câmara de Comércio Italiana", href: "https://www.italiabrasil.com.br" },
-    { text: "Export Strategist", href: "https://www.exportstrategist.it" },
+  { type: "p", text: "Somos membros da ITALCAM – Câmara Ítalo-Brasileira de Comércio, Indústria e Agricultura de São Paulo, da Câmara de Comércio Italiana de Minas Gerais e da Associazione Export Strategist.", links: [
+    { text: "ITALCAM – Câmara Ítalo-Brasileira de Comércio, Indústria e Agricultura de São Paulo", href: "https://italcam.com.br/" },
+    { text: "Câmara de Comércio Italiana de Minas Gerais", href: "https://italiabrasil.com.br/" },
+    { text: "Associazione Export Strategist", href: "https://www.exportstrategist.it/" },
   ]},
 
   { type: "h2", text: "Financiamento subsidiado: recursos para começar" },
@@ -465,7 +468,7 @@ export default function AboutUs() {
                 <a
                   href={b.href}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-primary underline hover:text-primary/80 transition-colors"
                 >
                   {b.text}
@@ -496,7 +499,7 @@ export default function AboutUs() {
                           key={m.start}
                           href={m.href}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener"
                           className="text-primary underline hover:text-primary/80 transition-colors"
                         >
                           {m.text}
@@ -519,7 +522,7 @@ export default function AboutUs() {
                         <a
                           href={b.linkHref}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener"
                           className="text-primary underline hover:text-primary/80 transition-colors"
                         >
                           {b.linkText}
@@ -539,7 +542,7 @@ export default function AboutUs() {
           <a
             href="https://www.linkedin.com/company/businessmatchingglobal"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             className="text-primary underline hover:text-primary/80 transition-colors"
           >
             Business Matching Global su LinkedIn
