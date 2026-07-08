@@ -10,10 +10,15 @@ import SampleReport from "./pages/SampleReport";
 import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
 import { LanguageProvider } from "./lib/i18n";
+import { CookieConsent } from "./components/CookieConsent";
+import { useEffect } from "react";
+import { initConsent } from "./lib/consent";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  useEffect(() => { initConsent(); }, []);
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -29,10 +34,12 @@ const App = () => (
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <CookieConsent />
         </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

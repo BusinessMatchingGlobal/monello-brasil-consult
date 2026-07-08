@@ -2,6 +2,7 @@ import { useState, useEffect, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Menu, X, Mail } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
+import { useCanonical } from "@/lib/useCanonical";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -441,6 +442,7 @@ const blocksPt: Block[] = [
 ];
 
 export default function AboutUs() {
+  useCanonical("/About_us");
   const { lang } = useT();
   useEffect(() => {
     window.scrollTo(0, 0);

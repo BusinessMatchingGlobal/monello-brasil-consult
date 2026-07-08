@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
+import { useCanonical } from "@/lib/useCanonical";
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
@@ -9,6 +10,7 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as strin
 type State = "checking" | "ready" | "already" | "invalid" | "done" | "error";
 
 export default function Unsubscribe() {
+  useCanonical("/unsubscribe");
   const [params] = useSearchParams();
   const token = params.get("token") ?? "";
   const [state, setState] = useState<State>("checking");

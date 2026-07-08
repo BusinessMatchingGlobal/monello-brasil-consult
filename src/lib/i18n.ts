@@ -121,6 +121,7 @@ export const translations = {
       capital: "Share capital",
       privacy: "Privacy & Data Protection",
       memberOf: "Member of:",
+      cookies: "Cookie preferences",
     },
   },
   it: {
@@ -239,6 +240,7 @@ export const translations = {
       capital: "Capitale sociale",
       privacy: "Privacy e Protezione Dati",
       memberOf: "Membro di:",
+      cookies: "Preferenze cookie",
     },
   },
   pt: {
@@ -357,6 +359,7 @@ export const translations = {
       capital: "Capital social",
       privacy: "Privacidade e Proteção de Dados",
       memberOf: "Membro de:",
+      cookies: "Preferências de cookies",
     },
   },
 } as const;

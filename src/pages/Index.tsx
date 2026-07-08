@@ -28,6 +28,8 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { openConsentBanner } from "@/lib/consent";
+import { useCanonical } from "@/lib/useCanonical";
 
 const EMAIL = "info@businessmatching.global";
 
@@ -580,6 +582,13 @@ function Footer() {
           <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.footer.privacy}
           </Link>
+          <button
+            type="button"
+            onClick={() => openConsentBanner()}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {t.footer.cookies}
+          </button>
           <a href={`mailto:${EMAIL}`} className="text-muted-foreground hover:text-foreground transition-colors">
             {EMAIL}
           </a>
@@ -617,6 +626,7 @@ function Footer() {
 }
 
 export default function Index() {
+  useCanonical("/");
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />

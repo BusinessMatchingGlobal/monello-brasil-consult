@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
+import { useCanonical } from "@/lib/useCanonical";
+import { openConsentBanner } from "@/lib/consent";
 
 const CONTROLLER_EMAIL = "info@businessmatching.global";
 const COMPANY = "ENZO ALDO STOBBIONE LTDA (Business Matching Global)";
@@ -76,6 +78,14 @@ const content: Record<"en" | "it" | "pt", Content> = {
           "Questa informativa può essere aggiornata. La versione vigente è sempre quella pubblicata su questa pagina con la data di ultimo aggiornamento riportata in alto.",
         ],
       },
+      {
+        h: "10. Cookie, Google Analytics 4 e LinkedIn Insight Tag",
+        p: [
+          "Il sito utilizza Google Analytics 4 (fornito da Google LLC) e il LinkedIn Insight Tag (fornito da LinkedIn Corporation) per l'analisi del traffico e la misurazione delle campagne pubblicitarie. Questi strumenti installano cookie sul tuo dispositivo e trasferiscono dati ai rispettivi fornitori, con sede negli Stati Uniti. Vengono caricati esclusivamente dopo che hai prestato consenso esplicito tramite il banner cookie; se rifiuti, nessuno script di tracciamento viene eseguito e nessun cookie viene installato. Puoi modificare o revocare il consenso in qualsiasi momento cliccando su ",
+          <button key="c" type="button" onClick={() => openConsentBanner()} className="text-primary underline">Preferenze cookie</button>,
+          " nel footer del sito.",
+        ],
+      },
     ],
   },
   en: {
@@ -141,6 +151,14 @@ const content: Record<"en" | "it" | "pt", Content> = {
         h: "9. Changes to this notice",
         p: [
           "This notice may be updated. The version in force is always the one published on this page, with the last-updated date shown at the top.",
+        ],
+      },
+      {
+        h: "10. Cookies, Google Analytics 4 and LinkedIn Insight Tag",
+        p: [
+          "This site uses Google Analytics 4 (provided by Google LLC) and the LinkedIn Insight Tag (provided by LinkedIn Corporation) for traffic analysis and advertising measurement. These tools set cookies on your device and transfer data to their respective providers, which are based in the United States. They are loaded only after you have given explicit consent through the cookie banner; if you decline, no tracking script is executed and no cookie is set. You can change or withdraw your consent at any time by clicking ",
+          <button key="c" type="button" onClick={() => openConsentBanner()} className="text-primary underline">Cookie preferences</button>,
+          " in the site footer.",
         ],
       },
     ],
@@ -210,11 +228,20 @@ const content: Record<"en" | "it" | "pt", Content> = {
           "Este aviso pode ser atualizado. A versão em vigor é sempre a publicada nesta página, com a data de última atualização indicada no topo.",
         ],
       },
+      {
+        h: "10. Cookies, Google Analytics 4 e LinkedIn Insight Tag",
+        p: [
+          "Este site utiliza o Google Analytics 4 (fornecido pela Google LLC) e o LinkedIn Insight Tag (fornecido pela LinkedIn Corporation) para análise de tráfego e mensuração de campanhas publicitárias. Essas ferramentas instalam cookies no seu dispositivo e transferem dados aos respectivos fornecedores, sediados nos Estados Unidos. São carregadas somente após o seu consentimento explícito por meio do banner de cookies; se você recusar, nenhum script de rastreamento é executado e nenhum cookie é instalado. Você pode alterar ou revogar seu consentimento a qualquer momento clicando em ",
+          <button key="c" type="button" onClick={() => openConsentBanner()} className="text-primary underline">Preferências de cookies</button>,
+          " no rodapé do site.",
+        ],
+      },
     ],
   },
 };
 
 export default function Privacy() {
+  useCanonical("/privacy");
   const { lang } = useT();
   const c = content[lang];
   return (
