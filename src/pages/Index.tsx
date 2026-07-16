@@ -608,6 +608,15 @@ function Footer() {
           <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.footer.privacy}
           </Link>
+          {lang === "en" && (
+            <a
+              href="https://www.iubenda.com/privacy-policy/22477622"
+              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              title="Privacy Policy"
+            >
+              Privacy Policy (Iubenda)
+            </a>
+          )}
           {lang === "it" && (
             <a
               href="https://www.iubenda.com/privacy-policy/32646575"
