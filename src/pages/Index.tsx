@@ -626,6 +626,15 @@ function Footer() {
               Cookie Policy (Iubenda)
             </a>
           )}
+          {lang === "it" && (
+            <a
+              href="https://www.iubenda.com/termini-e-condizioni/32646575"
+              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              title="Termini e Condizioni"
+            >
+              Termini e Condizioni (Iubenda)
+            </a>
+          )}
           <button
             type="button"
             onClick={() => openConsentBanner()}
