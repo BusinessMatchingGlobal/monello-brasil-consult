@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useT } from "@/lib/i18n";
-import { NEWSLETTER_FALLBACK_KEY, openIubendaNewsletter } from "@/lib/consent";
+import { NEWSLETTER_FALLBACK_KEY } from "@/lib/consent";
+import { NewsletterInlineForm } from "@/components/NewsletterInlineForm";
 
 const TARGET = "https://www.linkedin.com/company/109746306/admin/page-posts/published/";
 
@@ -53,13 +54,9 @@ export default function CustoBrasil() {
       <section id="newsletter" className="max-w-2xl">
         <h1 className="text-2xl md:text-3xl font-bold mb-4">{t.newsletter.title}</h1>
         <p className="text-foreground/80 mb-6">{t.newsletter.body}</p>
-        <button
-          type="button"
-          onClick={() => openIubendaNewsletter()}
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-primary-foreground hover:bg-primary/90 transition-colors"
-        >
-          {t.newsletter.cta}
-        </button>
+        <div className="flex justify-center">
+          <NewsletterInlineForm />
+        </div>
       </section>
     </main>
   );
