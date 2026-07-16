@@ -1,0 +1,17 @@
+# Business Matching Global
+
+> Independent research and business intelligence on Brazil for international companies — market research, supplier verification, and import/export information, delivered as clear, actionable reports.
+
+Business Matching Global helps European (and especially Italian) investors and operators enter and grow in the Brazilian market. The site presents services, methodology, sample outputs, and contact channels in English, Italian, and Portuguese.
+
+## Pages
+
+- [Home](/): Services, method, FAQ, and contact for Brazil market intelligence.
+- [Our method / About us](/About_us): How we work — "Scientia potentia est", methodology, memberships (Italcam, Câmara de Comércio Italiana, Export Strategist), and positioning around Custo Brasil.
+- [Sample report](/sample-report): Downloadable example dossier illustrating the depth and format of our reports.
+- [Custo Brasil](/custo-brasil): Redirect to our LinkedIn page publishing insights on the "Custo Brasil" topic.
+
+## Optional
+
+- [Privacy notice](/privacy): GDPR/LGPD privacy policy.
+- [Unsubscribe](/unsubscribe): Newsletter opt-out.

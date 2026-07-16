@@ -375,7 +375,11 @@ function HowItWorks() {
 function About() {
   const { t, lang } = useT();
   const moreLabel =
-    lang === "it" ? "Per saperne di più" : lang === "pt" ? "Saiba mais" : "Learn more";
+    lang === "it"
+      ? "Scopri il nostro metodo"
+      : lang === "pt"
+      ? "Saiba mais sobre o nosso método"
+      : "Learn more about our method";
   return (
     <section id="about" className="py-20 md:py-28 border-t border-border/60">
       <div className="container max-w-4xl text-center">
