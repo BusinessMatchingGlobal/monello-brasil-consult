@@ -184,6 +184,8 @@ export default function SampleReport() {
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [consent, setConsent] = useState(false);
+  const [wantsNewsletter, setWantsNewsletter] = useState(false);
+  const [subscribedNewsletter, setSubscribedNewsletter] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -218,6 +220,16 @@ export default function SampleReport() {
     }
     triggerDownload();
     setSubmitted(true);
+    if (wantsNewsletter) {
+      setSubscribedNewsletter(true);
+      setTimeout(() => {
+        openIubendaNewsletter({
+          email: parsed.data.email,
+          firstName: parsed.data.firstName,
+          lastName: parsed.data.lastName,
+        });
+      }, 400);
+    }
   }
 
   return (
@@ -297,6 +309,13 @@ export default function SampleReport() {
                     {c.consentSuffix}
                   </span>
                 </label>
+                <label className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <Checkbox checked={wantsNewsletter} onCheckedChange={(v) => setWantsNewsletter(v === true)} className="mt-0.5" />
+                  <span>
+                    {c.newsletterLabel}
+                    <span className="block text-xs opacity-80 mt-0.5">{c.newsletterHint}</span>
+                  </span>
+                </label>
                 <Button type="submit" size="lg" className="w-full">
                   <Download className="mr-2 h-4 w-4" />
                   {c.submit}
@@ -307,6 +326,9 @@ export default function SampleReport() {
                 <CheckCircle2 className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-xl font-semibold mb-2">{c.successTitle}</h2>
                 <p className="text-muted-foreground mb-6">{c.successBody}</p>
+                {subscribedNewsletter && (
+                  <p className="text-sm text-primary mb-4">{c.newsletterSuccess}</p>
+                )}
                 <Button onClick={triggerDownload} size="lg" className="w-full mb-3">
                   <Download className="mr-2 h-4 w-4" />
                   {c.download}
