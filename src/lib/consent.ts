@@ -20,6 +20,49 @@ export function openConsentBanner() {
   window.dispatchEvent(new CustomEvent("bmg-open-consent"));
 }
 
+export function openIubendaNewsletter() {
+  if (typeof window === "undefined") return;
+  const w = window as any;
+  const iub = w._iub;
+  const newsletter = iub?.cs?.api?.emailMarketing?.();
+  if (!newsletter || typeof newsletter.init !== "function") {
+    w.location.href = "/custo-brasil#newsletter";
+    return;
+  }
+  const showWidget = () => {
+    try {
+      const original = newsletter.configuration?.showFromPageView;
+      if (newsletter.configuration && typeof newsletter.configuration === "object") {
+        newsletter.configuration.showFromPageView = 0;
+      }
+      newsletter.init();
+      if (original !== undefined) newsletter.configuration.showFromPageView = original;
+    } catch {
+      w.location.href = "/custo-brasil#newsletter";
+    }
+  };
+  if (newsletter.loaded) {
+    showWidget();
+    return;
+  }
+  const onReady = () => {
+    try { newsletter.off("iub.newsletter.load", onReady); } catch {}
+    showWidget();
+  };
+  try {
+    newsletter.on("iub.newsletter.load", onReady);
+  } catch {}
+  if (typeof newsletter.load === "function") {
+    newsletter.load();
+  }
+  setTimeout(() => {
+    try { newsletter.off("iub.newsletter.load", onReady); } catch {}
+    if (!newsletter.loaded) {
+      w.location.href = "/custo-brasil#newsletter";
+    }
+  }, 3000);
+}
+
 let loaded = false;
 export function loadTrackers() {
   if (loaded || typeof window === "undefined") return;

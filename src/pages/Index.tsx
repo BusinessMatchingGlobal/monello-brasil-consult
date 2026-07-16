@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { openConsentBanner } from "@/lib/consent";
+import { openConsentBanner, openIubendaNewsletter } from "@/lib/consent";
 import { useCanonical } from "@/lib/useCanonical";
 
 const EMAIL = "info@businessmatching.global";
@@ -695,6 +695,13 @@ function Footer() {
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             {t.footer.cookies}
+          </button>
+          <button
+            type="button"
+            onClick={() => openIubendaNewsletter()}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {t.footer.newsletter}
           </button>
           <a href={`mailto:${EMAIL}`} className="text-muted-foreground hover:text-foreground transition-colors">
             {EMAIL}
