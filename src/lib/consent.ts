@@ -21,7 +21,7 @@ export function openConsentBanner() {
   window.dispatchEvent(new CustomEvent("bmg-open-consent"));
 }
 
-export function openIubendaNewsletter() {
+export function openIubendaNewsletter(prefill?: { email?: string; firstName?: string; lastName?: string }) {
   if (typeof window === "undefined") return;
   const w = window as any;
   let initialized = false;
@@ -49,6 +49,33 @@ export function openIubendaNewsletter() {
     document.head.appendChild(style);
   };
 
+  const applyPrefill = () => {
+    if (!prefill?.email) return;
+    const emailInput = document.getElementById("iub-newsletter-email-input") as HTMLInputElement | null;
+    if (emailInput && !emailInput.value) {
+      const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+      setter?.call(emailInput, prefill.email);
+      emailInput.dispatchEvent(new Event("input", { bubbles: true }));
+      emailInput.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    if (prefill.firstName) {
+      const first = document.querySelector<HTMLInputElement>('input[name="first_name"], #iub-newsletter-first-name-input');
+      if (first && !first.value) {
+        const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+        setter?.call(first, prefill.firstName);
+        first.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+    }
+    if (prefill.lastName) {
+      const last = document.querySelector<HTMLInputElement>('input[name="last_name"], #iub-newsletter-last-name-input');
+      if (last && !last.value) {
+        const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+        setter?.call(last, prefill.lastName);
+        last.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+    }
+  };
+
   const focusNewsletterWidget = () => {
     ensureNewsletterCss();
     const focus = () => {
@@ -58,6 +85,7 @@ export function openIubendaNewsletter() {
       if (!widget) return;
       widget.style.zIndex = "2147483647";
       widget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+      applyPrefill();
       const input = document.getElementById("iub-newsletter-email-input") as HTMLInputElement | null;
       input?.focus({ preventScroll: true });
     };

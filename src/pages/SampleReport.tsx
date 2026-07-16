@@ -11,6 +11,7 @@ import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import dossierAsset from "@/assets/dossier.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
+import { openIubendaNewsletter } from "@/lib/consent";
 
 const OWNER_EMAIL = "info@businessmatching.global";
 const PDF_URL = dossierAsset.url;
@@ -40,10 +41,13 @@ type Copy = {
   consentLink: string;
   consentSuffix: string;
   consentRequired: string;
+  newsletterLabel: string;
+  newsletterHint: string;
   submit: string;
   invalid: string;
   successTitle: string;
   successBody: string;
+  newsletterSuccess: string;
   download: string;
   again: string;
   fileLabel: string;
@@ -75,10 +79,13 @@ const copy: Record<Lang, Copy> = {
     consentLink: "informativa privacy",
     consentSuffix: "e acconsento al trattamento dei miei dati per ricevere il documento e un eventuale follow-up.",
     consentRequired: "Devi accettare l'informativa privacy per scaricare il documento.",
+    newsletterLabel: "Iscrivimi anche alla newsletter #CustoBrasil",
+    newsletterHint: "Riceverai un'email di conferma per completare l'iscrizione (double opt-in).",
     submit: "Scarica il dossier",
     invalid: "Controlla i campi: nome, cognome ed email sono obbligatori.",
     successTitle: "Grazie! Il download è pronto.",
     successBody: "Se il download non parte automaticamente, usa il pulsante qui sotto.",
+    newsletterSuccess: "Controlla la tua casella email per confermare l'iscrizione alla newsletter.",
     download: "Scarica il PDF",
     again: "Scarica per un'altra persona",
     fileLabel: "Dossier Ajvar — Brasile (campione)",
@@ -108,10 +115,13 @@ const copy: Record<Lang, Copy> = {
     consentLink: "privacy notice",
     consentSuffix: "and I consent to the processing of my data to receive the document and a possible follow-up.",
     consentRequired: "You must accept the privacy notice to download the document.",
+    newsletterLabel: "Also subscribe me to the #CustoBrasil newsletter",
+    newsletterHint: "You'll receive a confirmation email to complete the subscription (double opt-in).",
     submit: "Download the dossier",
     invalid: "Please check the fields: first name, last name and email are required.",
     successTitle: "Thanks! Your download is ready.",
     successBody: "If the download does not start automatically, use the button below.",
+    newsletterSuccess: "Check your inbox to confirm your newsletter subscription.",
     download: "Download the PDF",
     again: "Download for another person",
     fileLabel: "Ajvar Dossier — Brazil (sample)",
@@ -141,10 +151,13 @@ const copy: Record<Lang, Copy> = {
     consentLink: "aviso de privacidade",
     consentSuffix: "e concordo com o tratamento dos meus dados para receber o documento e um possível follow-up.",
     consentRequired: "Você precisa aceitar o aviso de privacidade para baixar o documento.",
+    newsletterLabel: "Inscreva-me também na newsletter #CustoBrasil",
+    newsletterHint: "Você receberá um e-mail de confirmação para concluir a inscrição (double opt-in).",
     submit: "Baixar o dossiê",
     invalid: "Verifique os campos: nome, sobrenome e e-mail são obrigatórios.",
     successTitle: "Obrigado! Seu download está pronto.",
     successBody: "Se o download não começar automaticamente, use o botão abaixo.",
+    newsletterSuccess: "Verifique seu e-mail para confirmar a inscrição na newsletter.",
     download: "Baixar o PDF",
     again: "Baixar para outra pessoa",
     fileLabel: "Dossiê Ajvar — Brasil (amostra)",
@@ -171,6 +184,8 @@ export default function SampleReport() {
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [consent, setConsent] = useState(false);
+  const [wantsNewsletter, setWantsNewsletter] = useState(false);
+  const [subscribedNewsletter, setSubscribedNewsletter] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -205,6 +220,16 @@ export default function SampleReport() {
     }
     triggerDownload();
     setSubmitted(true);
+    if (wantsNewsletter) {
+      setSubscribedNewsletter(true);
+      setTimeout(() => {
+        openIubendaNewsletter({
+          email: parsed.data.email,
+          firstName: parsed.data.firstName,
+          lastName: parsed.data.lastName,
+        });
+      }, 400);
+    }
   }
 
   return (
@@ -284,6 +309,13 @@ export default function SampleReport() {
                     {c.consentSuffix}
                   </span>
                 </label>
+                <label className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <Checkbox checked={wantsNewsletter} onCheckedChange={(v) => setWantsNewsletter(v === true)} className="mt-0.5" />
+                  <span>
+                    {c.newsletterLabel}
+                    <span className="block text-xs opacity-80 mt-0.5">{c.newsletterHint}</span>
+                  </span>
+                </label>
                 <Button type="submit" size="lg" className="w-full">
                   <Download className="mr-2 h-4 w-4" />
                   {c.submit}
@@ -294,6 +326,9 @@ export default function SampleReport() {
                 <CheckCircle2 className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-xl font-semibold mb-2">{c.successTitle}</h2>
                 <p className="text-muted-foreground mb-6">{c.successBody}</p>
+                {subscribedNewsletter && (
+                  <p className="text-sm text-primary mb-4">{c.newsletterSuccess}</p>
+                )}
                 <Button onClick={triggerDownload} size="lg" className="w-full mb-3">
                   <Download className="mr-2 h-4 w-4" />
                   {c.download}
