@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, BookOpen, Download, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, BookOpen, Download, CheckCircle2, MailCheck } from "lucide-react";
 import { z } from "zod";
 import { useT, type Lang } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
@@ -47,6 +47,7 @@ type Copy = {
   successTitle: string;
   successBody: string;
   newsletterSuccess: string;
+  newsletterAction: string;
   download: string;
   again: string;
   fileLabel: string;
@@ -84,7 +85,8 @@ const copy: Record<Lang, Copy> = {
     invalid: "Controlla i campi: nome, cognome ed email sono obbligatori.",
     successTitle: "Grazie! Il download è pronto.",
     successBody: "Se il download non parte automaticamente, usa il pulsante qui sotto.",
-    newsletterSuccess: "Completa il popup newsletter: dopo aver premuto Continua riceverai l'email di conferma.",
+    newsletterSuccess: "Per completare l’iscrizione alla newsletter, compila il controllo di sicurezza nel popup Iubenda e premi Subscribe. Solo dopo quel passaggio riceverai l’email di conferma.",
+    newsletterAction: "Riapri popup newsletter",
     download: "Scarica il PDF",
     again: "Scarica per un'altra persona",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -120,7 +122,8 @@ const copy: Record<Lang, Copy> = {
     invalid: "Please check the fields: first name, last name and email are required.",
     successTitle: "Thanks! Your download is ready.",
     successBody: "If the download does not start automatically, use the button below.",
-    newsletterSuccess: "Complete the newsletter popup: after pressing Continue, you'll receive the confirmation email.",
+    newsletterSuccess: "To complete the newsletter subscription, fill in the security check in the Iubenda popup and press Subscribe. Only after that step will you receive the confirmation email.",
+    newsletterAction: "Reopen newsletter popup",
     download: "Download the PDF",
     again: "Download for another person",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -156,7 +159,8 @@ const copy: Record<Lang, Copy> = {
     invalid: "Verifique os campos: nome, sobrenome e e-mail são obrigatórios.",
     successTitle: "Obrigado! Seu download está pronto.",
     successBody: "Se o download não começar automaticamente, use o botão abaixo.",
-    newsletterSuccess: "Conclua o popup da newsletter: depois de clicar em Continuar, você receberá o e-mail de confirmação.",
+    newsletterSuccess: "Para concluir a inscrição na newsletter, preencha o controle de segurança no popup Iubenda e clique em Subscribe. Só depois dessa etapa você receberá o e-mail de confirmação.",
+    newsletterAction: "Reabrir popup newsletter",
     download: "Baixar o PDF",
     again: "Baixar para outra pessoa",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -229,6 +233,14 @@ export default function NewsEbook() {
         });
       }, 400);
     }
+  }
+
+  function reopenNewsletter() {
+    openIubendaNewsletter({
+      email,
+      firstName,
+      lastName,
+    });
   }
 
   return (
@@ -326,7 +338,15 @@ export default function NewsEbook() {
                 <h2 className="text-xl font-semibold mb-2">{c.successTitle}</h2>
                 <p className="text-muted-foreground mb-6">{c.successBody}</p>
                 {subscribedNewsletter && (
-                  <p className="text-sm text-primary mb-4">{c.newsletterSuccess}</p>
+                  <div className="mb-4 rounded-lg border border-primary/30 bg-primary/5 p-4 text-left">
+                    <div className="flex gap-3">
+                      <MailCheck className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-foreground leading-relaxed">{c.newsletterSuccess}</p>
+                    </div>
+                    <Button type="button" onClick={reopenNewsletter} variant="outline" size="sm" className="mt-3 w-full">
+                      {c.newsletterAction}
+                    </Button>
+                  </div>
                 )}
                 <Button onClick={triggerDownload} size="lg" className="w-full mb-3">
                   <Download className="mr-2 h-4 w-4" />
