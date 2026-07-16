@@ -25,7 +25,6 @@ export function openConsentBanner() {
         w._iub.cs.api.openPreferences();
         return;
       }
-### FALLBACK ###
     } catch {}
   }
   window.dispatchEvent(new CustomEvent("bmg-open-consent"));
