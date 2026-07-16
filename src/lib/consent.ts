@@ -35,6 +35,7 @@ export function openIubendaNewsletter(prefill?: { email?: string; firstName?: st
   const w = window as any;
   let initialized = false;
   let askedCookieBannerToClose = false;
+  let observer: MutationObserver | null = null;
 
   const ensureNewsletterCss = () => {
     if (document.getElementById("bmg-iubenda-newsletter-css")) return;
@@ -60,12 +61,16 @@ export function openIubendaNewsletter(prefill?: { email?: string; firstName?: st
 
   const applyPrefill = () => {
     if (!prefill?.email) return;
-    const emailInput = document.getElementById("iub-newsletter-email-input") as HTMLInputElement | null;
-    if (emailInput && !emailInput.value) {
+    const emailInput = document.querySelector<HTMLInputElement>(
+      "#iub-newsletter-email-input, #iub-email-pref input[type='email'], .iub-newsletter-widget input[type='email']"
+    );
+    if (emailInput && emailInput.value !== prefill.email) {
       const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
-      setter?.call(emailInput, prefill.email);
+      if (setter) setter.call(emailInput, prefill.email);
+      else emailInput.value = prefill.email;
       emailInput.dispatchEvent(new Event("input", { bubbles: true }));
       emailInput.dispatchEvent(new Event("change", { bubbles: true }));
+      emailInput.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
     }
     if (prefill.firstName) {
       const first = document.querySelector<HTMLInputElement>('input[name="first_name"], #iub-newsletter-first-name-input');
@@ -98,7 +103,15 @@ export function openIubendaNewsletter(prefill?: { email?: string; firstName?: st
       const input = document.getElementById("iub-newsletter-email-input") as HTMLInputElement | null;
       input?.focus({ preventScroll: true });
     };
-    [150, 500, 1000, 1800].forEach((delay) => window.setTimeout(focus, delay));
+    if (!observer) {
+      observer = new MutationObserver(() => focus());
+      observer.observe(document.body, { childList: true, subtree: true });
+      window.setTimeout(() => {
+        observer?.disconnect();
+        observer = null;
+      }, 15000);
+    }
+    [150, 500, 1000, 1800, 3000, 5000, 8000, 12000].forEach((delay) => window.setTimeout(focus, delay));
   };
   const dismissIubendaCookieBannerIfOpen = () => {
     const banner = document.getElementById("iubenda-cs-banner");
@@ -154,7 +167,7 @@ export function openIubendaNewsletter(prefill?: { email?: string; firstName?: st
       newsletter.init();
       focusNewsletterWidget();
     } catch {
-      openConsentBanner();
+      focusNewsletterWidget();
     }
   };
 
@@ -165,7 +178,7 @@ export function openIubendaNewsletter(prefill?: { email?: string; firstName?: st
     if (!newsletter || typeof newsletter.init !== "function") {
       if (attempts >= 30) {
         window.clearInterval(poll);
-        openConsentBanner();
+        focusNewsletterWidget();
       }
       return;
     }
@@ -188,11 +201,7 @@ export function openIubendaNewsletter(prefill?: { email?: string; firstName?: st
     } else if (attempts >= 30) {
       window.clearInterval(poll);
       showWidget();
-      window.setTimeout(() => {
-        if (!document.querySelector("#iub-email-pref, .iub-newsletter-widget-bottom-right")) {
-          openConsentBanner();
-        }
-      }, 800);
+      focusNewsletterWidget();
     }
   }, 200);
   showWidget();
