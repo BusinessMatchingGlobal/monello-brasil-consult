@@ -117,7 +117,7 @@ export function openIubendaNewsletter() {
       newsletter.init();
       focusNewsletterWidget();
     } catch {
-      openFallback();
+      openConsentBanner();
     }
   };
 
