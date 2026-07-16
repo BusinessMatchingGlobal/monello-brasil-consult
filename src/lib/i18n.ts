@@ -128,6 +128,12 @@ export const translations = {
       title: "Newsletter #CustoBrasil",
       body: "Subscribe for updates on Brazil, the Custo Brasil and business opportunities.",
       cta: "Subscribe",
+      emailPlaceholder: "Your email address",
+      consent: "I agree to receive the newsletter and accept the privacy policy.",
+      success: "Thanks! Your subscription has been recorded.",
+      error: "Something went wrong. Please try again.",
+      invalid: "Please enter a valid email address.",
+      consentRequired: "Please accept the privacy policy to continue.",
     },
   },
   it: {
