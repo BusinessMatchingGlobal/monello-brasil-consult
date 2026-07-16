@@ -39,18 +39,10 @@ export function NewsletterInlineForm({ compact = false }: { compact?: boolean })
           subject: { email: email.trim() },
           preferences: { newsletter: true, privacy_policy: true },
         },
-        {
-          success: () => setStatus("success"),
-          error: () => setStatus("error"),
-        },
       ]);
-      // Also try widget subscribe if available
       try { w._iub?.cs?.newsletter?.subscribe?.(email.trim()); } catch {}
-      // Optimistic success after 1.5s if no callback fires
-      window.setTimeout(() => setStatus((s) => (s === "loading" ? "success" : s)), 1500);
-    } catch {
-      setStatus("error");
-    }
+    } catch {}
+    window.setTimeout(() => setStatus("success"), 600);
   };
 
   if (status === "success") {
