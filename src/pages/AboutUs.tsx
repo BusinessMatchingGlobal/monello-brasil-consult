@@ -57,6 +57,7 @@ function Nav() {
     { href: "/#how", label: t.nav.how },
     { href: "/#about", label: t.nav.method },
     { href: "/About_us", label: t.nav.about, internal: true },
+    { href: "/news", label: t.nav.news, internal: true },
     { href: "https://www.linkedin.com/company/109746306/admin/page-posts/published/", label: "Custo Brasil", external: true },
   ];
 

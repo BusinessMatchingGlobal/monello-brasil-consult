@@ -10,6 +10,7 @@ import SampleReport from "./pages/SampleReport";
 import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
 import CustoBrasil from "./pages/CustoBrasil";
+import NewsEbook from "./pages/NewsEbook";
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
 import { useEffect } from "react";
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/About_us" element={<AboutUs />} />
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="/custo-brasil" element={<CustoBrasil />} />
+            <Route path="/news" element={<NewsEbook />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent />
