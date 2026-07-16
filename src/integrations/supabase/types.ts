@@ -103,28 +103,55 @@ export type Database = {
       }
       newsletter_subscribers: {
         Row: {
+          confirmation_sent_at: string | null
+          confirmation_token: string | null
+          confirmed_at: string | null
           consent: boolean
           created_at: string
           email: string
+          first_name: string | null
           id: string
+          ip_address: string | null
           language: string | null
+          last_name: string | null
           source: string | null
+          status: string
+          unsubscribed_at: string | null
+          user_agent: string | null
         }
         Insert: {
+          confirmation_sent_at?: string | null
+          confirmation_token?: string | null
+          confirmed_at?: string | null
           consent?: boolean
           created_at?: string
           email: string
+          first_name?: string | null
           id?: string
+          ip_address?: string | null
           language?: string | null
+          last_name?: string | null
           source?: string | null
+          status?: string
+          unsubscribed_at?: string | null
+          user_agent?: string | null
         }
         Update: {
+          confirmation_sent_at?: string | null
+          confirmation_token?: string | null
+          confirmed_at?: string | null
           consent?: boolean
           created_at?: string
           email?: string
+          first_name?: string | null
           id?: string
+          ip_address?: string | null
           language?: string | null
+          last_name?: string | null
           source?: string | null
+          status?: string
+          unsubscribed_at?: string | null
+          user_agent?: string | null
         }
         Relationships: []
       }
