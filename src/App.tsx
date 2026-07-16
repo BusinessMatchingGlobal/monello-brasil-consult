@@ -9,6 +9,7 @@ import Privacy from "./pages/Privacy";
 import SampleReport from "./pages/SampleReport";
 import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
+import CustoBrasil from "./pages/CustoBrasil";
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
 import { useEffect } from "react";
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             <Route path="/About_us" element={<AboutUs />} />
             <Route path="/about_us" element={<AboutUs />} />
+            <Route path="/custo-brasil" element={<CustoBrasil />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent />
