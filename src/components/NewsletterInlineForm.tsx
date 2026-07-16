@@ -27,8 +27,9 @@ export function NewsletterInlineForm({ compact = false }: { compact?: boolean })
     if (!EMAIL_RE.test(email.trim())) { setError(n.invalid); return; }
     if (!consent) { setError(n.consentRequired); return; }
     setStatus("loading");
-    // Drive the Iubenda newsletter widget so it triggers the full double
-    // opt-in flow (confirmation email + consent database registration).
+    // Open the official Iubenda newsletter flow and prefill the email.
+    // Iubenda may require a visible CAPTCHA/security step, so we must leave
+    // the widget open for the user instead of pretending the signup completed.
     const target = email.trim();
     try {
       openIubendaNewsletter();
@@ -37,21 +38,21 @@ export function NewsletterInlineForm({ compact = false }: { compact?: boolean })
     const start = Date.now();
     const tryFill = () => {
       const input = document.getElementById("iub-newsletter-email-input") as HTMLInputElement | null;
-      const submitBtn = document.querySelector<HTMLElement>(
-        "#iub-newsletter-submit-btn, .iub-newsletter-widget button[type=submit], #iub-email-pref button[type=submit]"
-      );
-      const consentBox = document.querySelector<HTMLInputElement>(
-        "#iub-newsletter-privacy-policy-checkbox, .iub-newsletter-widget input[type=checkbox]"
-      );
-      if (input && submitBtn) {
+      const continueBtn = document.getElementById("iub-email-pref-step1-btn") as HTMLButtonElement | null;
+      const captchaInput = document.getElementById("iub-newsletter-captcha-input") as HTMLInputElement | null;
+
+      if (captchaInput) {
+        captchaInput.focus({ preventScroll: true });
+        setStatus("success");
+        return true;
+      }
+
+      if (input && continueBtn) {
         const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
         setter?.call(input, target);
         input.dispatchEvent(new Event("input", { bubbles: true }));
         input.dispatchEvent(new Event("change", { bubbles: true }));
-        if (consentBox && !consentBox.checked) {
-          consentBox.click();
-        }
-        submitBtn.click();
+        continueBtn.click();
         setStatus("success");
         return true;
       }
@@ -61,8 +62,7 @@ export function NewsletterInlineForm({ compact = false }: { compact?: boolean })
       if (tryFill() || Date.now() - start > 8000) {
         window.clearInterval(poll);
         if (status !== "success") {
-          // Widget didn't appear: keep the Iubenda popup open for the user
-          // to complete the subscription manually.
+          // Keep the Iubenda popup/fallback visible for manual completion.
           setStatus("success");
         }
       }
