@@ -85,11 +85,28 @@ export function openIubendaNewsletter() {
     const iub = w._iub;
     return iub?.cs?.newsletter || iub?.cs?.api?.emailMarketing?.();
   };
+  const clearNewsletterClosedState = (newsletter?: any) => {
+    try {
+      const storageKey = newsletter?.storageKey || "iub_newsletter_store";
+      const stored = localStorage.getItem(storageKey);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (!parsed?.subscribed) localStorage.removeItem(storageKey);
+      }
+      localStorage.removeItem(`${storageKey}_views`);
+    } catch {
+      try {
+        localStorage.removeItem("iub_newsletter_store");
+        localStorage.removeItem("iub_newsletter_store_views");
+      } catch {}
+    }
+  };
   const showWidget = () => {
     const newsletter = getNewsletter();
     if (!newsletter || typeof newsletter.init !== "function" || initialized) return;
     initialized = true;
     try {
+      clearNewsletterClosedState(newsletter);
       if (newsletter.configuration && typeof newsletter.configuration === "object") {
         newsletter.configuration.showFromPageView = 0;
       }
@@ -112,6 +129,7 @@ export function openIubendaNewsletter() {
       return;
     }
     try {
+      clearNewsletterClosedState(newsletter);
       if (newsletter.configuration && typeof newsletter.configuration === "object") {
         newsletter.configuration.showFromPageView = 0;
       }
