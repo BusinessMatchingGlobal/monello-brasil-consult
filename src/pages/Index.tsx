@@ -598,20 +598,6 @@ function Footer() {
   const { t, lang } = useT();
   return (
     <footer className="py-12 border-t border-border/60">
-      <div className="container mb-10">
-        <div id="newsletter-inline" className="scroll-mt-24 rounded-2xl border border-primary/30 bg-primary/5 p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 justify-between">
-          <div className="flex items-start gap-4">
-            <div className="hidden sm:flex h-11 w-11 rounded-full bg-primary/15 items-center justify-center shrink-0">
-              <Mail className="h-5 w-5 text-primary" />
-            </div>
-            <div>
-              <div className="font-display text-lg md:text-xl font-semibold">{t.newsletter.title}</div>
-              <p className="text-sm text-muted-foreground mt-1 max-w-xl">{t.newsletter.body}</p>
-            </div>
-          </div>
-          <NewsletterInlineForm />
-        </div>
-      </div>
       <div className="container flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
         <div>
           <div className="font-display text-base font-medium">
