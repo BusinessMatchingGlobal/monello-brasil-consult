@@ -635,6 +635,15 @@ function Footer() {
               Termini e Condizioni (Iubenda)
             </a>
           )}
+          {lang === "pt" && (
+            <a
+              href="https://www.iubenda.com/privacy-policy/16979386"
+              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              title="Política de Privacidade"
+            >
+              Política de Privacidade (Iubenda)
+            </a>
+          )}
           <button
             type="button"
             onClick={() => openConsentBanner()}
