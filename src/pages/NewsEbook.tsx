@@ -46,6 +46,7 @@ type Copy = {
   successTitle: string;
   successBody: string;
   newsletterSuccess: string;
+  newsletterError: string;
   download: string;
   again: string;
   fileLabel: string;
@@ -84,6 +85,7 @@ const copy: Record<Lang, Copy> = {
     successTitle: "Grazie! Il download è pronto.",
     successBody: "Se il download non parte automaticamente, usa il pulsante qui sotto.",
     newsletterSuccess: "Ti abbiamo inviato un'email: se vuoi confermare l'iscrizione alla newsletter, clicca sul link \"Conferma iscrizione\" che trovi nel messaggio.",
+    newsletterError: "Il download è pronto, ma l'invio dell'email newsletter non è riuscito. Riprova tra poco.",
     download: "Scarica il PDF",
     again: "Scarica per un'altra persona",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -120,6 +122,7 @@ const copy: Record<Lang, Copy> = {
     successTitle: "Thanks! Your download is ready.",
     successBody: "If the download does not start automatically, use the button below.",
     newsletterSuccess: "We've sent you an email: to confirm your newsletter subscription, click the \"Confirm subscription\" link inside the message.",
+    newsletterError: "Your download is ready, but the newsletter email could not be sent. Please try again shortly.",
     download: "Download the PDF",
     again: "Download for another person",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -156,6 +159,7 @@ const copy: Record<Lang, Copy> = {
     successTitle: "Obrigado! Seu download está pronto.",
     successBody: "Se o download não começar automaticamente, use o botão abaixo.",
     newsletterSuccess: "Enviamos um e-mail: para confirmar sua inscrição na newsletter, clique no link \"Confirmar inscrição\" dentro da mensagem.",
+    newsletterError: "O download está pronto, mas não foi possível enviar o e-mail da newsletter. Tente novamente em instantes.",
     download: "Baixar o PDF",
     again: "Baixar para outra pessoa",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -218,7 +222,7 @@ export default function NewsEbook() {
     }
     if (wantsNewsletter) {
       try {
-        await supabase.functions.invoke("newsletter-subscribe", {
+        const { error } = await supabase.functions.invoke("newsletter-subscribe", {
           body: {
             email: parsed.data.email,
             firstName: parsed.data.firstName,
@@ -226,11 +230,14 @@ export default function NewsEbook() {
             company: parsed.data.company ?? null,
             language: lang,
             source: "Newsletter & Ebook page",
+            consent: true,
           },
         });
+        if (error) throw error;
         setSubscribedNewsletter(true);
       } catch (err) {
         console.error("Newsletter subscribe failed", err);
+        toast({ title: c.newsletterError, variant: "destructive" });
       }
     }
     triggerDownload();
