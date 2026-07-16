@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useT } from "@/lib/i18n";
+import { NEWSLETTER_FALLBACK_KEY, openIubendaNewsletter } from "@/lib/consent";
 
 const TARGET = "https://www.linkedin.com/company/109746306/admin/page-posts/published/";
 
@@ -8,11 +9,29 @@ export default function CustoBrasil() {
   const [isNewsletter, setIsNewsletter] = useState(false);
 
   useEffect(() => {
-    if (window.location.hash === "#newsletter") {
+    const params = new URLSearchParams(window.location.search);
+    const fallbackRequested = (() => {
+      try {
+        return sessionStorage.getItem(NEWSLETTER_FALLBACK_KEY) === "1";
+      } catch {
+        return false;
+      }
+    })();
+    const showNewsletter =
+      window.location.hash === "#newsletter" || params.get("newsletter") === "1" || fallbackRequested;
+
+    if (showNewsletter) {
       setIsNewsletter(true);
+      try {
+        sessionStorage.removeItem(NEWSLETTER_FALLBACK_KEY);
+      } catch {}
     } else {
       window.location.replace(TARGET);
     }
+
+    const onFallback = () => setIsNewsletter(true);
+    window.addEventListener("bmg-show-newsletter-fallback", onFallback);
+    return () => window.removeEventListener("bmg-show-newsletter-fallback", onFallback);
   }, []);
 
   if (!isNewsletter) {
@@ -36,24 +55,7 @@ export default function CustoBrasil() {
         <p className="text-foreground/80 mb-6">{t.newsletter.body}</p>
         <button
           type="button"
-          onClick={() => {
-            const w = window as any;
-            const newsletter = w._iub?.cs?.api?.emailMarketing?.();
-            if (newsletter && typeof newsletter.init === "function") {
-              try {
-                const original = newsletter.configuration?.showFromPageView;
-                if (newsletter.configuration && typeof newsletter.configuration === "object") {
-                  newsletter.configuration.showFromPageView = 0;
-                }
-                newsletter.init();
-                if (original !== undefined) newsletter.configuration.showFromPageView = original;
-              } catch {
-                window.location.href = TARGET;
-              }
-            } else {
-              window.location.href = TARGET;
-            }
-          }}
+          onClick={() => openIubendaNewsletter()}
           className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-primary-foreground hover:bg-primary/90 transition-colors"
         >
           {t.newsletter.cta}
