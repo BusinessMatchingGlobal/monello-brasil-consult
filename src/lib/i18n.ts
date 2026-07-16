@@ -392,7 +392,7 @@ export const translations = {
       cta: "Inscreva-se",
       emailPlaceholder: "Seu e-mail",
       consent: "Aceito receber a newsletter e a política de privacidade.",
-      success: "Obrigado! Sua inscrição foi registrada.",
+      success: "Quase lá! Verifique seu e-mail e confirme a inscrição.",
       error: "Algo deu errado. Tente novamente.",
       invalid: "Digite um endereço de e-mail válido.",
       consentRequired: "Você precisa aceitar a política de privacidade para continuar.",
