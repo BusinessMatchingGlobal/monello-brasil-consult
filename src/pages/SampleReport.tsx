@@ -11,7 +11,7 @@ import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import dossierAsset from "@/assets/dossier.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
-import { openIubendaNewsletter } from "@/lib/consent";
+import { NewsletterPopup } from "@/components/NewsletterPopup";
 
 const OWNER_EMAIL = "info@businessmatching.global";
 const PDF_URL = dossierAsset.url;
@@ -186,6 +186,7 @@ export default function SampleReport() {
   const [consent, setConsent] = useState(false);
   const [wantsNewsletter, setWantsNewsletter] = useState(false);
   const [subscribedNewsletter, setSubscribedNewsletter] = useState(false);
+  const [newsletterOpen, setNewsletterOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -222,13 +223,7 @@ export default function SampleReport() {
     setSubmitted(true);
     if (wantsNewsletter) {
       setSubscribedNewsletter(true);
-      setTimeout(() => {
-        openIubendaNewsletter({
-          email: parsed.data.email,
-          firstName: parsed.data.firstName,
-          lastName: parsed.data.lastName,
-        });
-      }, 400);
+      setNewsletterOpen(true);
     }
   }
 
@@ -245,6 +240,12 @@ export default function SampleReport() {
       </header>
 
       <main className="container mx-auto px-4 py-12 md:py-16">
+        <NewsletterPopup
+          open={newsletterOpen}
+          onOpenChange={setNewsletterOpen}
+          prefill={{ email, firstName, lastName }}
+          source="Sample dossier page"
+        />
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
             <span className="inline-block text-xs uppercase tracking-widest text-primary font-semibold mb-3">

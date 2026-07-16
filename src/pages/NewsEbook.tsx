@@ -11,7 +11,7 @@ import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import ebookAsset from "@/assets/ebook-exporting-to-brazil.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
-import { openIubendaNewsletter } from "@/lib/consent";
+import { NewsletterPopup } from "@/components/NewsletterPopup";
 
 const PDF_URL = ebookAsset.url;
 const PDF_FILENAME = "Exporting_to_Brazil_EU_Manual_BMG.pdf";
@@ -85,8 +85,8 @@ const copy: Record<Lang, Copy> = {
     invalid: "Controlla i campi: nome, cognome ed email sono obbligatori.",
     successTitle: "Grazie! Il download è pronto.",
     successBody: "Se il download non parte automaticamente, usa il pulsante qui sotto.",
-    newsletterSuccess: "Per completare l’iscrizione alla newsletter, compila il controllo di sicurezza nel popup Iubenda e premi Subscribe. Solo dopo quel passaggio riceverai l’email di conferma.",
-    newsletterAction: "Riapri popup newsletter",
+    newsletterSuccess: "Completa l’iscrizione nel popup newsletter. Se lo hai chiuso, puoi riaprirlo qui sotto.",
+    newsletterAction: "Apri popup newsletter",
     download: "Scarica il PDF",
     again: "Scarica per un'altra persona",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -122,8 +122,8 @@ const copy: Record<Lang, Copy> = {
     invalid: "Please check the fields: first name, last name and email are required.",
     successTitle: "Thanks! Your download is ready.",
     successBody: "If the download does not start automatically, use the button below.",
-    newsletterSuccess: "To complete the newsletter subscription, fill in the security check in the Iubenda popup and press Subscribe. Only after that step will you receive the confirmation email.",
-    newsletterAction: "Reopen newsletter popup",
+    newsletterSuccess: "Complete the subscription in the newsletter popup. If you closed it, you can reopen it below.",
+    newsletterAction: "Open newsletter popup",
     download: "Download the PDF",
     again: "Download for another person",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -159,8 +159,8 @@ const copy: Record<Lang, Copy> = {
     invalid: "Verifique os campos: nome, sobrenome e e-mail são obrigatórios.",
     successTitle: "Obrigado! Seu download está pronto.",
     successBody: "Se o download não começar automaticamente, use o botão abaixo.",
-    newsletterSuccess: "Para concluir a inscrição na newsletter, preencha o controle de segurança no popup Iubenda e clique em Subscribe. Só depois dessa etapa você receberá o e-mail de confirmação.",
-    newsletterAction: "Reabrir popup newsletter",
+    newsletterSuccess: "Conclua a inscrição no popup da newsletter. Se você o fechou, pode reabri-lo abaixo.",
+    newsletterAction: "Abrir popup newsletter",
     download: "Baixar o PDF",
     again: "Baixar para outra pessoa",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -189,6 +189,7 @@ export default function NewsEbook() {
   const [consent, setConsent] = useState(false);
   const [wantsNewsletter, setWantsNewsletter] = useState(true);
   const [subscribedNewsletter, setSubscribedNewsletter] = useState(false);
+  const [newsletterOpen, setNewsletterOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -225,22 +226,12 @@ export default function NewsEbook() {
     setSubmitted(true);
     if (wantsNewsletter) {
       setSubscribedNewsletter(true);
-      setTimeout(() => {
-        openIubendaNewsletter({
-          email: parsed.data.email,
-          firstName: parsed.data.firstName,
-          lastName: parsed.data.lastName,
-        });
-      }, 400);
+      setNewsletterOpen(true);
     }
   }
 
   function reopenNewsletter() {
-    openIubendaNewsletter({
-      email,
-      firstName,
-      lastName,
-    });
+    setNewsletterOpen(true);
   }
 
   return (
@@ -256,6 +247,12 @@ export default function NewsEbook() {
       </header>
 
       <main className="container mx-auto px-4 py-12 md:py-16">
+        <NewsletterPopup
+          open={newsletterOpen}
+          onOpenChange={setNewsletterOpen}
+          prefill={{ email, firstName, lastName }}
+          source="Newsletter & Ebook page"
+        />
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
             <span className="inline-block text-xs uppercase tracking-widest text-primary font-semibold mb-3">
