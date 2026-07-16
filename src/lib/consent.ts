@@ -24,18 +24,48 @@ export function openConsentBanner() {
 export function openIubendaNewsletter() {
   if (typeof window === "undefined") return;
   const w = window as any;
+  let initialized = false;
+  let fallbackOpened = false;
+
+  const ensureNewsletterCss = () => {
+    if (document.getElementById("bmg-iubenda-newsletter-css")) return;
+    const style = document.createElement("style");
+    style.id = "bmg-iubenda-newsletter-css";
+    style.textContent = `
+      .iub-newsletter-widget-bottom-right,
+      #iub-email-pref {
+        z-index: 2147483647 !important;
+      }
+      @media (max-width: 640px) {
+        .iub-newsletter-widget-bottom-right {
+          right: 12px !important;
+          left: 12px !important;
+          bottom: 12px !important;
+          width: auto !important;
+          max-width: calc(100vw - 24px) !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
   const focusNewsletterWidget = () => {
-    window.setTimeout(() => {
+    ensureNewsletterCss();
+    const focus = () => {
       const widget = document.querySelector<HTMLElement>(
         "#iub-email-pref, .iub-newsletter-widget, .iub-newsletter-widget-bottom-right"
       );
       if (!widget) return;
+      widget.style.zIndex = "2147483647";
       widget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
       const input = document.getElementById("iub-newsletter-email-input") as HTMLInputElement | null;
       input?.focus({ preventScroll: true });
-    }, 250);
+    };
+    [150, 500, 1000, 1800].forEach((delay) => window.setTimeout(focus, delay));
   };
   const openFallback = () => {
+    if (fallbackOpened) return;
+    fallbackOpened = true;
     try {
       sessionStorage.setItem(NEWSLETTER_FALLBACK_KEY, "1");
     } catch {}
@@ -51,56 +81,58 @@ export function openIubendaNewsletter() {
     }
     w.location.href = "/custo-brasil?newsletter=1#newsletter";
   };
-  const iub = w._iub;
-  const newsletter = iub?.cs?.api?.emailMarketing?.();
-  if (!newsletter || typeof newsletter.init !== "function") {
-    openFallback();
-    return;
-  }
+  const getNewsletter = () => {
+    const iub = w._iub;
+    return iub?.cs?.newsletter || iub?.cs?.api?.emailMarketing?.();
+  };
   const showWidget = () => {
+    const newsletter = getNewsletter();
+    if (!newsletter || typeof newsletter.init !== "function" || initialized) return;
+    initialized = true;
     try {
-      const original = newsletter.configuration?.showFromPageView;
       if (newsletter.configuration && typeof newsletter.configuration === "object") {
         newsletter.configuration.showFromPageView = 0;
       }
       newsletter.init();
       focusNewsletterWidget();
-      if (original !== undefined) newsletter.configuration.showFromPageView = original;
     } catch {
       openFallback();
     }
   };
-  if (newsletter.loaded) {
-    showWidget();
-    return;
-  }
-  const onReady = () => {
-    try { newsletter.off("iub.newsletter.load", onReady); } catch {}
-    showWidget();
-  };
-  try {
-    newsletter.on("iub.newsletter.load", onReady);
-  } catch {}
-  if (typeof newsletter.load === "function") {
-    newsletter.load();
-    window.setTimeout(showWidget, 600);
-  }
+
   let attempts = 0;
   const poll = window.setInterval(() => {
     attempts += 1;
+    const newsletter = getNewsletter();
+    if (!newsletter || typeof newsletter.init !== "function") {
+      if (attempts >= 30) {
+        window.clearInterval(poll);
+        openFallback();
+      }
+      return;
+    }
+    try {
+      if (newsletter.configuration && typeof newsletter.configuration === "object") {
+        newsletter.configuration.showFromPageView = 0;
+      }
+      if (!newsletter.loaded && typeof newsletter.load === "function") {
+        newsletter.load();
+      }
+    } catch {}
     if (newsletter.loaded) {
       window.clearInterval(poll);
       showWidget();
-    } else if (attempts >= 10) {
+    } else if (attempts >= 30) {
       window.clearInterval(poll);
+      showWidget();
+      window.setTimeout(() => {
+        if (!document.querySelector("#iub-email-pref, .iub-newsletter-widget-bottom-right")) {
+          openFallback();
+        }
+      }, 800);
     }
-  }, 300);
-  setTimeout(() => {
-    try { newsletter.off("iub.newsletter.load", onReady); } catch {}
-    if (!newsletter.loaded) {
-      openFallback();
-    }
-  }, 3000);
+  }, 200);
+  showWidget();
 }
 
 let loaded = false;
