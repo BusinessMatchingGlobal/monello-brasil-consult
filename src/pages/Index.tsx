@@ -28,9 +28,8 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { openConsentBanner, openIubendaNewsletter } from "@/lib/consent";
+import { openConsentBanner } from "@/lib/consent";
 import { useCanonical } from "@/lib/useCanonical";
-import { NewsletterInlineForm } from "@/components/NewsletterInlineForm";
 
 const EMAIL = "info@businessmatching.global";
 
