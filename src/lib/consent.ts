@@ -25,7 +25,7 @@ export function openIubendaNewsletter() {
   if (typeof window === "undefined") return;
   const w = window as any;
   let initialized = false;
-  let fallbackOpened = false;
+  let askedCookieBannerToClose = false;
 
   const ensureNewsletterCss = () => {
     if (document.getElementById("bmg-iubenda-newsletter-css")) return;
@@ -63,23 +63,27 @@ export function openIubendaNewsletter() {
     };
     [150, 500, 1000, 1800].forEach((delay) => window.setTimeout(focus, delay));
   };
-  const openFallback = () => {
-    if (fallbackOpened) return;
-    fallbackOpened = true;
-    try {
-      sessionStorage.setItem(NEWSLETTER_FALLBACK_KEY, "1");
-    } catch {}
-    if (w.location.pathname === "/custo-brasil") {
-      if (w.location.hash !== "#newsletter") {
-        w.history.pushState(null, "", "/custo-brasil?newsletter=1#newsletter");
-      }
-      w.dispatchEvent(new CustomEvent("bmg-show-newsletter-fallback"));
-      setTimeout(() => {
-        document.getElementById("newsletter")?.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 0);
-      return;
+  const dismissIubendaCookieBannerIfOpen = () => {
+    const banner = document.getElementById("iubenda-cs-banner");
+    if (!banner || !banner.className.includes("iubenda-cs-visible")) return false;
+
+    const rejectButton = banner.querySelector<HTMLButtonElement>(
+      ".iubenda-cs-reject-btn, [class*='reject']"
+    );
+    if (rejectButton) {
+      rejectButton.click();
+      return true;
     }
-    w.location.href = "/custo-brasil?newsletter=1#newsletter";
+
+    try {
+      if (typeof w._iub?.cs?.api?.reject === "function") {
+        w._iub.cs.api.reject();
+        return true;
+      }
+    } catch {}
+
+    banner.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+    return true;
   };
   const getNewsletter = () => {
     const iub = w._iub;
@@ -113,7 +117,7 @@ export function openIubendaNewsletter() {
       newsletter.init();
       focusNewsletterWidget();
     } catch {
-      openFallback();
+      openConsentBanner();
     }
   };
 
@@ -124,8 +128,12 @@ export function openIubendaNewsletter() {
     if (!newsletter || typeof newsletter.init !== "function") {
       if (attempts >= 30) {
         window.clearInterval(poll);
-        openFallback();
+        openConsentBanner();
       }
+      return;
+    }
+    if (!askedCookieBannerToClose && dismissIubendaCookieBannerIfOpen()) {
+      askedCookieBannerToClose = true;
       return;
     }
     try {
@@ -145,7 +153,7 @@ export function openIubendaNewsletter() {
       showWidget();
       window.setTimeout(() => {
         if (!document.querySelector("#iub-email-pref, .iub-newsletter-widget-bottom-right")) {
-          openFallback();
+          openConsentBanner();
         }
       }, 800);
     }
