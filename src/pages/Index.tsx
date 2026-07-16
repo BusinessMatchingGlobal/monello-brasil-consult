@@ -594,7 +594,7 @@ function Contact() {
 }
 
 function Footer() {
-  const { t } = useT();
+  const { t, lang } = useT();
   return (
     <footer className="py-12 border-t border-border/60">
       <div className="container flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
@@ -608,6 +608,15 @@ function Footer() {
           <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.footer.privacy}
           </Link>
+          {lang === "it" && (
+            <a
+              href="https://www.iubenda.com/privacy-policy/32646575"
+              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              title="Privacy Policy"
+            >
+              Privacy Policy (Iubenda)
+            </a>
+          )}
           <button
             type="button"
             onClick={() => openConsentBanner()}
