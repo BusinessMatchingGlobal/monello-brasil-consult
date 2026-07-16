@@ -11,6 +11,7 @@ import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import dossierAsset from "@/assets/dossier.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
+import { openIubendaNewsletter } from "@/lib/consent";
 
 const OWNER_EMAIL = "info@businessmatching.global";
 const PDF_URL = dossierAsset.url;
@@ -40,10 +41,13 @@ type Copy = {
   consentLink: string;
   consentSuffix: string;
   consentRequired: string;
+  newsletterLabel: string;
+  newsletterHint: string;
   submit: string;
   invalid: string;
   successTitle: string;
   successBody: string;
+  newsletterSuccess: string;
   download: string;
   again: string;
   fileLabel: string;
