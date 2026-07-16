@@ -617,6 +617,15 @@ function Footer() {
               Privacy Policy (Iubenda)
             </a>
           )}
+          {lang === "it" && (
+            <a
+              href="https://www.iubenda.com/privacy-policy/32646575/cookie-policy"
+              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              title="Cookie Policy"
+            >
+              Cookie Policy (Iubenda)
+            </a>
+          )}
           <button
             type="button"
             onClick={() => openConsentBanner()}
