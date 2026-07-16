@@ -67,12 +67,13 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links: Array<{ href: string; label: string; internal?: boolean }> = [
+  const links: Array<{ href: string; label: string; internal?: boolean; external?: boolean }> = [
     { href: "#top", label: t.nav.home },
     { href: "#services", label: t.nav.services },
     { href: "#how", label: t.nav.how },
     { href: "#about", label: t.nav.method },
     { href: "/About_us", label: t.nav.about, internal: true },
+    { href: "https://www.linkedin.com/company/109746306/admin/page-posts/published/", label: "Custo Brasil", external: true },
   ];
 
   return (
@@ -95,6 +96,16 @@ function Nav() {
               >
                 {l.label}
               </Link>
+            ) : l.external ? (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener"
+                className="text-sm text-foreground/75 hover:text-foreground transition-colors"
+              >
+                {l.label}
+              </a>
             ) : (
               <a
                 key={l.href}
@@ -131,6 +142,17 @@ function Nav() {
                 >
                   {l.label}
                 </Link>
+              ) : l.external ? (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener"
+                  onClick={() => setOpen(false)}
+                  className="text-base py-2"
+                >
+                  {l.label}
+                </a>
               ) : (
                 <a
                   key={l.href}
