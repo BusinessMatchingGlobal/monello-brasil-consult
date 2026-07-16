@@ -130,7 +130,7 @@ export const translations = {
       cta: "Subscribe",
       emailPlaceholder: "Your email address",
       consent: "I agree to receive the newsletter and accept the privacy policy.",
-      success: "Thanks! Your subscription has been recorded.",
+      success: "Almost there! Check your inbox and confirm your subscription.",
       error: "Something went wrong. Please try again.",
       invalid: "Please enter a valid email address.",
       consentRequired: "Please accept the privacy policy to continue.",
