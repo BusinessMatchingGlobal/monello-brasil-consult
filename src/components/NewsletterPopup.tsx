@@ -51,8 +51,8 @@ const copy: Record<Lang, {
     consent: "Accetto di ricevere comunicazioni informative e newsletter da Business Matching Global e confermo di aver letto l’",
     privacy: "informativa privacy",
     submit: "Invia iscrizione",
-    successTitle: "Richiesta ricevuta",
-    successBody: "Grazie, abbiamo ricevuto la tua richiesta di iscrizione alla newsletter.",
+    successTitle: "Controlla la tua email",
+    successBody: "Ti abbiamo inviato un messaggio con un link per confermare l'iscrizione. Clicca sul link per attivarla (controlla anche spam/promozioni).",
     invalid: "Inserisci almeno nome, cognome e un’email valida.",
     consentRequired: "Devi accettare il consenso newsletter per continuare.",
     error: "Non è stato possibile inviare la richiesta. Riprova tra poco.",
@@ -66,8 +66,8 @@ const copy: Record<Lang, {
     consent: "I agree to receive informational communications and newsletters from Business Matching Global and confirm that I have read the ",
     privacy: "privacy notice",
     submit: "Send subscription",
-    successTitle: "Request received",
-    successBody: "Thank you, we have received your newsletter subscription request.",
+    successTitle: "Check your inbox",
+    successBody: "We just sent you an email with a link to confirm your subscription. Click the link to activate it (check spam/promotions too).",
     invalid: "Please enter at least first name, last name and a valid email.",
     consentRequired: "You must accept the newsletter consent to continue.",
     error: "We could not send the request. Please try again shortly.",
@@ -81,8 +81,8 @@ const copy: Record<Lang, {
     consent: "Aceito receber comunicações informativas e newsletters da Business Matching Global e confirmo que li o ",
     privacy: "aviso de privacidade",
     submit: "Enviar inscrição",
-    successTitle: "Solicitação recebida",
-    successBody: "Obrigado, recebemos sua solicitação de inscrição na newsletter.",
+    successTitle: "Verifique seu e-mail",
+    successBody: "Enviamos uma mensagem com um link para confirmar sua inscrição. Clique no link para ativá-la (verifique também spam/promoções).",
     invalid: "Insira pelo menos nome, sobrenome e um e-mail válido.",
     consentRequired: "Você precisa aceitar o consentimento da newsletter para continuar.",
     error: "Não foi possível enviar a solicitação. Tente novamente em instantes.",
@@ -99,7 +99,7 @@ export function NewsletterPopup({ open, onOpenChange, prefill, source = "Newslet
   const [firstName, setFirstName] = useState(prefill?.firstName ?? "");
   const [lastName, setLastName] = useState(prefill?.lastName ?? "");
   const [email, setEmail] = useState(prefill?.email ?? "");
-  const [consent, setConsent] = useState(false);
+  const [consent, setConsent] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -108,7 +108,7 @@ export function NewsletterPopup({ open, onOpenChange, prefill, source = "Newslet
     setFirstName(prefill?.firstName ?? "");
     setLastName(prefill?.lastName ?? "");
     setEmail(prefill?.email ?? "");
-    setConsent(false);
+    setConsent(true);
     setSent(false);
   }, [open, prefill?.email, prefill?.firstName, prefill?.lastName]);
 
@@ -129,19 +129,14 @@ export function NewsletterPopup({ open, onOpenChange, prefill, source = "Newslet
 
     setSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("send-transactional-email", {
+      const { error } = await supabase.functions.invoke("newsletter-subscribe", {
         body: {
-          templateName: "contact-notification",
-          idempotencyKey: `newsletter-${cleanEmail}-${Date.now()}`,
-          templateData: {
-            name: `${cleanFirstName} ${cleanLastName}`,
-            email: cleanEmail,
-            company: "Newsletter #CustoBrasil",
-            message: "Newsletter #CustoBrasil subscription request. The user explicitly accepted the newsletter consent in the website popup.",
-            source,
-            language: lang,
-            submittedAt: new Date().toISOString(),
-          },
+          firstName: cleanFirstName,
+          lastName: cleanLastName,
+          email: cleanEmail,
+          language: lang,
+          source,
+          consent: true,
         },
       });
       if (error) throw error;
