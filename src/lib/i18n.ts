@@ -6,7 +6,7 @@ type Dict = typeof translations.en;
 
 export const translations = {
   en: {
-    nav: { home: "Home", services: "Services", how: "How it works", method: "Our method", about: "Who we are", contact: "Contact" },
+    nav: { home: "Home", services: "Services", how: "How it works", method: "Our method", about: "Who we are", news: "Newsletter & Ebook", contact: "Contact" },
     hero: {
       title: "Reliable business intelligence on Brazil — without the guesswork.",
       sub: "We help companies and investors make sound and informed decisions when doing business in Brazil, including exporting, investing, and forming commercial partnerships.\n\nOur services include business intelligence, due diligence on potential suppliers and customers, and analysis of key regulatory, tax, and operational information, such as import/export and customs procedures, local requirements and permits, regional incentives, and market access conditions.\n\nThrough tailored services, we produce clear, practical, and ready-to-use reports designed to support commercial, strategic, and operational decisions.",
@@ -137,7 +137,7 @@ export const translations = {
     },
   },
   it: {
-    nav: { home: "Home", services: "Servizi", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", contact: "Contatti" },
+    nav: { home: "Home", services: "Servizi", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", news: "Newsletter & Ebook", contact: "Contatti" },
     hero: {
       title: "Business intelligence affidabile sul Brasile — senza tirare a indovinare.",
       sub: "Aiutiamo le aziende e gli investitori a prendere decisioni sicure e informate per operare in Brasile, esportare, investire o creare partnership commerciali.\n\nOffriamo servizi di business intelligence, verifica dei potenziali fornitori e clienti e analisi delle principali informazioni normative, fiscali e operative, quali import/export, procedure doganali, requisiti locali, autorizzazioni, incentivi territoriali e condizioni di accesso al mercato.\n\nAttraverso servizi su misura, realizziamo report chiari, pratici e pronti all'uso, pensati per supportare decisioni commerciali, strategiche e operative.",
@@ -268,7 +268,7 @@ export const translations = {
     },
   },
   pt: {
-    nav: { home: "Home", services: "Serviços", how: "Como funciona", method: "Nosso método", about: "Quem somos", contact: "Contato" },
+    nav: { home: "Home", services: "Serviços", how: "Como funciona", method: "Nosso método", about: "Quem somos", news: "Newsletter & Ebook", contact: "Contato" },
     hero: {
       title: "Inteligência de negócios confiável sobre o Brasil — sem achismos.",
       sub: "Ajudamos empresas e investidores a tomar decisões sólidas e bem fundamentadas ao fazer negócios no Brasil, incluindo exportação, investimento e desenvolvimento de parcerias comerciais.\n\nNossos serviços incluem inteligência de negócios, due diligence de potenciais fornecedores e clientes, e análise de informações regulatórias, tributárias e operacionais essenciais, tais como procedimentos de importação, exportação e desembaraço aduaneiro, requisitos e licenças locais, incentivos regionais e condições de acesso ao mercado.\n\nPor meio de serviços personalizados, elaboramos relatórios claros, práticos e prontos para uso, desenvolvidos para apoiar decisões comerciais, estratégicas e operacionais.",
