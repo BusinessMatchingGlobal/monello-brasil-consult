@@ -1,4 +1,5 @@
 const STORAGE_KEY = "bmg-cookie-consent"; // "accepted" | "declined"
+export const NEWSLETTER_FALLBACK_KEY = "bmg-newsletter-fallback";
 const GA_ID = "G-R1WPY0LSNM";
 const LI_PARTNER_ID = "10524913";
 
@@ -23,10 +24,26 @@ export function openConsentBanner() {
 export function openIubendaNewsletter() {
   if (typeof window === "undefined") return;
   const w = window as any;
+  const openFallback = () => {
+    try {
+      sessionStorage.setItem(NEWSLETTER_FALLBACK_KEY, "1");
+    } catch {}
+    if (w.location.pathname === "/custo-brasil") {
+      if (w.location.hash !== "#newsletter") {
+        w.history.pushState(null, "", "/custo-brasil?newsletter=1#newsletter");
+      }
+      w.dispatchEvent(new CustomEvent("bmg-show-newsletter-fallback"));
+      setTimeout(() => {
+        document.getElementById("newsletter")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 0);
+      return;
+    }
+    w.location.href = "/custo-brasil?newsletter=1#newsletter";
+  };
   const iub = w._iub;
   const newsletter = iub?.cs?.api?.emailMarketing?.();
   if (!newsletter || typeof newsletter.init !== "function") {
-    w.location.href = "/custo-brasil#newsletter";
+    openFallback();
     return;
   }
   const showWidget = () => {
@@ -38,7 +55,7 @@ export function openIubendaNewsletter() {
       newsletter.init();
       if (original !== undefined) newsletter.configuration.showFromPageView = original;
     } catch {
-      w.location.href = "/custo-brasil#newsletter";
+      openFallback();
     }
   };
   if (newsletter.loaded) {
@@ -58,7 +75,7 @@ export function openIubendaNewsletter() {
   setTimeout(() => {
     try { newsletter.off("iub.newsletter.load", onReady); } catch {}
     if (!newsletter.loaded) {
-      w.location.href = "/custo-brasil#newsletter";
+      openFallback();
     }
   }, 3000);
 }
