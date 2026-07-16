@@ -122,6 +122,12 @@ export const translations = {
       privacy: "Privacy & Data Protection",
       memberOf: "Member of:",
       cookies: "Cookie preferences",
+      newsletter: "Newsletter #CustoBrasil",
+    },
+    newsletter: {
+      title: "Newsletter #CustoBrasil",
+      body: "Subscribe for updates on Brazil, the Custo Brasil and business opportunities.",
+      cta: "Subscribe with Iubenda",
     },
   },
   it: {
@@ -241,6 +247,12 @@ export const translations = {
       privacy: "Privacy e Protezione Dati",
       memberOf: "Membro di:",
       cookies: "Preferenze cookie",
+      newsletter: "Newsletter #CustoBrasil",
+    },
+    newsletter: {
+      title: "Newsletter #CustoBrasil",
+      body: "Iscriviti per ricevere aggiornamenti sul Brasile, il Custo Brasil e le opportunità di business.",
+      cta: "Iscriviti con Iubenda",
     },
   },
   pt: {
@@ -360,6 +372,12 @@ export const translations = {
       privacy: "Privacidade e Proteção de Dados",
       memberOf: "Membro de:",
       cookies: "Preferências de cookies",
+      newsletter: "Newsletter #CustoBrasil",
+    },
+    newsletter: {
+      title: "Newsletter #CustoBrasil",
+      body: "Inscreva-se para receber atualizações sobre o Brasil, o Custo Brasil e oportunidades de negócios.",
+      cta: "Inscreva-se com a Iubenda",
     },
   },
 } as const;
