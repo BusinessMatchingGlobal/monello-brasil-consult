@@ -641,82 +641,82 @@ function Footer() {
           {lang === "en" && (
             <a
               href="https://www.iubenda.com/privacy-policy/22477622"
-              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               title="Privacy Policy"
             >
-              Privacy Policy (Iubenda)
+              Privacy Policy
             </a>
           )}
           {lang === "en" && (
             <a
               href="https://www.iubenda.com/privacy-policy/22477622/cookie-policy"
-              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               title="Cookie Policy"
             >
-              Cookie Policy (Iubenda)
+              Cookie Policy
             </a>
           )}
           {lang === "en" && (
             <a
               href="https://www.iubenda.com/terms-and-conditions/22477622"
-              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               title="Terms and Conditions"
             >
-              Terms and Conditions (Iubenda)
+              Terms and Conditions
             </a>
           )}
           {lang === "it" && (
             <a
               href="https://www.iubenda.com/privacy-policy/32646575"
-              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               title="Privacy Policy"
             >
-              Privacy Policy (Iubenda)
+              Privacy Policy
             </a>
           )}
           {lang === "it" && (
             <a
               href="https://www.iubenda.com/privacy-policy/32646575/cookie-policy"
-              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               title="Cookie Policy"
             >
-              Cookie Policy (Iubenda)
+              Cookie Policy
             </a>
           )}
           {lang === "it" && (
             <a
               href="https://www.iubenda.com/termini-e-condizioni/32646575"
-              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               title="Termini e Condizioni"
             >
-              Termini e Condizioni (Iubenda)
+              Termini e Condizioni
             </a>
           )}
           {lang === "pt" && (
             <a
               href="https://www.iubenda.com/privacy-policy/16979386"
-              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               title="Política de Privacidade"
             >
-              Política de Privacidade (Iubenda)
+              Política de Privacidade
             </a>
           )}
           {lang === "pt" && (
             <a
               href="https://www.iubenda.com/privacy-policy/16979386/cookie-policy"
-              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               title="Política de Cookies"
             >
-              Política de Cookies (Iubenda)
+              Política de Cookies
             </a>
           )}
           {lang === "pt" && (
             <a
               href="https://www.iubenda.com/termos-e-condicoes/16979386"
-              className="iubenda-white iubenda-noiframe iubenda-embed text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               title="Termos e Condições"
             >
-              Termos e Condições (Iubenda)
+              Termos e Condições
             </a>
           )}
           <button
