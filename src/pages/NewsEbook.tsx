@@ -11,7 +11,6 @@ import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import ebookAsset from "@/assets/ebook-exporting-to-brazil.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
-import { NewsletterPopup } from "@/components/NewsletterPopup";
 
 const PDF_URL = ebookAsset.url;
 const PDF_FILENAME = "Exporting_to_Brazil_EU_Manual_BMG.pdf";
@@ -47,7 +46,6 @@ type Copy = {
   successTitle: string;
   successBody: string;
   newsletterSuccess: string;
-  newsletterAction: string;
   download: string;
   again: string;
   fileLabel: string;
@@ -85,8 +83,7 @@ const copy: Record<Lang, Copy> = {
     invalid: "Controlla i campi: nome, cognome ed email sono obbligatori.",
     successTitle: "Grazie! Il download è pronto.",
     successBody: "Se il download non parte automaticamente, usa il pulsante qui sotto.",
-    newsletterSuccess: "Completa l’iscrizione nel popup newsletter. Se lo hai chiuso, puoi riaprirlo qui sotto.",
-    newsletterAction: "Apri popup newsletter",
+    newsletterSuccess: "Ti abbiamo inviato un'email: se vuoi confermare l'iscrizione alla newsletter, clicca sul link \"Conferma iscrizione\" che trovi nel messaggio.",
     download: "Scarica il PDF",
     again: "Scarica per un'altra persona",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -122,8 +119,7 @@ const copy: Record<Lang, Copy> = {
     invalid: "Please check the fields: first name, last name and email are required.",
     successTitle: "Thanks! Your download is ready.",
     successBody: "If the download does not start automatically, use the button below.",
-    newsletterSuccess: "Complete the subscription in the newsletter popup. If you closed it, you can reopen it below.",
-    newsletterAction: "Open newsletter popup",
+    newsletterSuccess: "We've sent you an email: to confirm your newsletter subscription, click the \"Confirm subscription\" link inside the message.",
     download: "Download the PDF",
     again: "Download for another person",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -159,8 +155,7 @@ const copy: Record<Lang, Copy> = {
     invalid: "Verifique os campos: nome, sobrenome e e-mail são obrigatórios.",
     successTitle: "Obrigado! Seu download está pronto.",
     successBody: "Se o download não começar automaticamente, use o botão abaixo.",
-    newsletterSuccess: "Conclua a inscrição no popup da newsletter. Se você o fechou, pode reabri-lo abaixo.",
-    newsletterAction: "Abrir popup newsletter",
+    newsletterSuccess: "Enviamos um e-mail: para confirmar sua inscrição na newsletter, clique no link \"Confirmar inscrição\" dentro da mensagem.",
     download: "Baixar o PDF",
     again: "Baixar para outra pessoa",
     fileLabel: "Exporting to Brazil — EU Manual",
@@ -189,7 +184,6 @@ export default function NewsEbook() {
   const [consent, setConsent] = useState(false);
   const [wantsNewsletter, setWantsNewsletter] = useState(true);
   const [subscribedNewsletter, setSubscribedNewsletter] = useState(false);
-  const [newsletterOpen, setNewsletterOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -222,16 +216,25 @@ export default function NewsEbook() {
     } catch (err) {
       console.error("Ebook notification failed", err);
     }
+    if (wantsNewsletter) {
+      try {
+        await supabase.functions.invoke("newsletter-subscribe", {
+          body: {
+            email: parsed.data.email,
+            firstName: parsed.data.firstName,
+            lastName: parsed.data.lastName,
+            company: parsed.data.company ?? null,
+            language: lang,
+            source: "Newsletter & Ebook page",
+          },
+        });
+        setSubscribedNewsletter(true);
+      } catch (err) {
+        console.error("Newsletter subscribe failed", err);
+      }
+    }
     triggerDownload();
     setSubmitted(true);
-    if (wantsNewsletter) {
-      setSubscribedNewsletter(true);
-      setNewsletterOpen(true);
-    }
-  }
-
-  function reopenNewsletter() {
-    setNewsletterOpen(true);
   }
 
   return (
@@ -247,12 +250,6 @@ export default function NewsEbook() {
       </header>
 
       <main className="container mx-auto px-4 py-12 md:py-16">
-        <NewsletterPopup
-          open={newsletterOpen}
-          onOpenChange={setNewsletterOpen}
-          prefill={{ email, firstName, lastName }}
-          source="Newsletter & Ebook page"
-        />
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
             <span className="inline-block text-xs uppercase tracking-widest text-primary font-semibold mb-3">
@@ -340,9 +337,6 @@ export default function NewsEbook() {
                       <MailCheck className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-foreground leading-relaxed">{c.newsletterSuccess}</p>
                     </div>
-                    <Button type="button" onClick={reopenNewsletter} variant="outline" size="sm" className="mt-3 w-full">
-                      {c.newsletterAction}
-                    </Button>
                   </div>
                 )}
                 <Button onClick={triggerDownload} size="lg" className="w-full mb-3">
