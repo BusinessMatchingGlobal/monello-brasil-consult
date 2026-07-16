@@ -46,6 +46,17 @@ export function openIubendaNewsletter(prefill?: { email?: string; firstName?: st
       #iub-email-pref {
         z-index: 2147483647 !important;
       }
+      body.bmg-newsletter-active .iub-newsletter-widget-bottom-right {
+        position: fixed !important;
+        right: max(16px, calc(50vw - 220px)) !important;
+        bottom: 32px !important;
+        width: min(440px, calc(100vw - 32px)) !important;
+        max-width: calc(100vw - 32px) !important;
+        box-shadow: 0 24px 80px hsl(var(--foreground) / 0.28) !important;
+      }
+      body.bmg-newsletter-active #iub-email-pref {
+        width: 100% !important;
+      }
       @media (max-width: 640px) {
         .iub-newsletter-widget-bottom-right {
           right: 12px !important;
@@ -92,6 +103,7 @@ export function openIubendaNewsletter(prefill?: { email?: string; firstName?: st
 
   const focusNewsletterWidget = () => {
     ensureNewsletterCss();
+    document.body.classList.add("bmg-newsletter-active");
     const focus = () => {
       const widget = document.querySelector<HTMLElement>(
         "#iub-email-pref, .iub-newsletter-widget, .iub-newsletter-widget-bottom-right"
@@ -100,8 +112,9 @@ export function openIubendaNewsletter(prefill?: { email?: string; firstName?: st
       widget.style.zIndex = "2147483647";
       widget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
       applyPrefill();
-      const input = document.getElementById("iub-newsletter-email-input") as HTMLInputElement | null;
-      input?.focus({ preventScroll: true });
+      const emailInput = document.getElementById("iub-newsletter-email-input") as HTMLInputElement | null;
+      const captchaInput = document.getElementById("iub-newsletter-captcha-input") as HTMLInputElement | null;
+      (captchaInput || emailInput)?.focus({ preventScroll: true });
     };
     if (!observer) {
       observer = new MutationObserver(() => focus());
