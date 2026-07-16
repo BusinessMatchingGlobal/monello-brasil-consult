@@ -261,7 +261,7 @@ export const translations = {
       cta: "Iscriviti",
       emailPlaceholder: "La tua email",
       consent: "Accetto di ricevere la newsletter e l'informativa sulla privacy.",
-      success: "Grazie! La tua iscrizione è stata registrata.",
+      success: "Ci siamo quasi! Controlla la tua email e conferma l'iscrizione.",
       error: "Qualcosa è andato storto. Riprova.",
       invalid: "Inserisci un indirizzo email valido.",
       consentRequired: "Devi accettare l'informativa sulla privacy per continuare.",
