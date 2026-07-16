@@ -127,7 +127,7 @@ export const translations = {
     newsletter: {
       title: "Newsletter #CustoBrasil",
       body: "Subscribe for updates on Brazil, the Custo Brasil and business opportunities.",
-      cta: "Subscribe with Iubenda",
+      cta: "Subscribe",
     },
   },
   it: {
@@ -252,7 +252,7 @@ export const translations = {
     newsletter: {
       title: "Newsletter #CustoBrasil",
       body: "Iscriviti per ricevere aggiornamenti sul Brasile, il Custo Brasil e le opportunità di business.",
-      cta: "Iscriviti con Iubenda",
+      cta: "Iscriviti",
     },
   },
   pt: {
@@ -377,7 +377,7 @@ export const translations = {
     newsletter: {
       title: "Newsletter #CustoBrasil",
       body: "Inscreva-se para receber atualizações sobre o Brasil, o Custo Brasil e oportunidades de negócios.",
-      cta: "Inscreva-se com a Iubenda",
+      cta: "Inscreva-se",
     },
   },
 } as const;
