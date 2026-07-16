@@ -18,6 +18,16 @@ export function setConsent(v: "accepted" | "declined") {
 }
 
 export function openConsentBanner() {
+  if (typeof window !== "undefined") {
+    const w = window as any;
+    try {
+      if (typeof w._iub?.cs?.api?.openPreferences === "function") {
+        w._iub.cs.api.openPreferences();
+        return;
+      }
+### FALLBACK ###
+    } catch {}
+  }
   window.dispatchEvent(new CustomEvent("bmg-open-consent"));
 }
 
