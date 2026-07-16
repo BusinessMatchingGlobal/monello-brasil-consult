@@ -696,6 +696,13 @@ function Footer() {
           >
             {t.footer.cookies}
           </button>
+          <button
+            type="button"
+            onClick={() => openIubendaNewsletter()}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {t.footer.newsletter}
+          </button>
           <a href={`mailto:${EMAIL}`} className="text-muted-foreground hover:text-foreground transition-colors">
             {EMAIL}
           </a>
