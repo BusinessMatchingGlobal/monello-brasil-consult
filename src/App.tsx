@@ -12,6 +12,7 @@ import AboutUs from "./pages/AboutUs";
 import CustoBrasil from "./pages/CustoBrasil";
 import NewsEbook from "./pages/NewsEbook";
 import NewsletterConfirm from "./pages/NewsletterConfirm";
+import Admin from "./pages/Admin";
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
 import { useEffect } from "react";
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/custo-brasil" element={<CustoBrasil />} />
             <Route path="/news" element={<NewsEbook />} />
             <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent />
