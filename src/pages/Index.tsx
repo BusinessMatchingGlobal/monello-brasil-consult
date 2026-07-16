@@ -595,8 +595,38 @@ function Contact() {
 
 function Footer() {
   const { t, lang } = useT();
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("bmg-newsletter-auto-opened") === "1") return;
+    const timer = window.setTimeout(() => {
+      sessionStorage.setItem("bmg-newsletter-auto-opened", "1");
+      openIubendaNewsletter();
+    }, 25000);
+    return () => window.clearTimeout(timer);
+  }, []);
   return (
     <footer className="py-12 border-t border-border/60">
+      <div className="container mb-10">
+        <div className="rounded-2xl border border-primary/30 bg-primary/5 p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 justify-between">
+          <div className="flex items-start gap-4">
+            <div className="hidden sm:flex h-11 w-11 rounded-full bg-primary/15 items-center justify-center shrink-0">
+              <Mail className="h-5 w-5 text-primary" />
+            </div>
+            <div>
+              <div className="font-display text-lg md:text-xl font-semibold">{t.newsletter.title}</div>
+              <p className="text-sm text-muted-foreground mt-1 max-w-xl">{t.newsletter.body}</p>
+            </div>
+          </div>
+          <Button
+            type="button"
+            size="lg"
+            onClick={() => openIubendaNewsletter()}
+            className="rounded-full shrink-0"
+          >
+            {t.newsletter.cta} <ArrowRight className="ml-1 h-4 w-4" />
+          </Button>
+        </div>
+      </div>
       <div className="container flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
         <div>
           <div className="font-display text-base font-medium">
