@@ -699,15 +699,7 @@ function Footer() {
           </button>
           <button
             type="button"
-            onClick={() => {
-              const el = document.getElementById("newsletter-inline");
-              if (el) {
-                el.scrollIntoView({ behavior: "smooth", block: "center" });
-                setTimeout(() => {
-                  el.querySelector<HTMLInputElement>("input[type=email]")?.focus();
-                }, 400);
-              }
-            }}
+            onClick={() => openIubendaNewsletter()}
             className="text-primary font-medium hover:text-primary/80 transition-colors inline-flex items-center gap-1"
           >
             <Mail className="h-3.5 w-3.5" /> {t.footer.newsletter}
