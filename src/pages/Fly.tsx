@@ -660,10 +660,15 @@ export default function Fly() {
       toast({ title: c.itineraryIncomplete, variant: "destructive" });
       return;
     }
+    if (!passengersComplete()) {
+      toast({ title: c.passengerIncomplete, variant: "destructive" });
+      return;
+    }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
     const itineraryText = itineraryToText();
+    const passengersText = passengersToText();
     try {
       await supabase.functions.invoke("send-transactional-email", {
         body: {
@@ -673,7 +678,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
