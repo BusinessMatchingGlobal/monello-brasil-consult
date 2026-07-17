@@ -157,6 +157,7 @@ export const translations = {
       successBody: "We will get back to you soon. If you do not hear from us, please check your SPAM folder.",
       passengerTitle: "Passengers",
       passengerSub: "Enter passenger details for the flight request.",
+      passengerAttention: "Please pay close attention when entering passenger details: they must match the travel documents exactly.",
       passenger: "Passenger",
       addPassenger: "Add passenger",
       removePassenger: "Remove",
@@ -169,7 +170,7 @@ export const translations = {
       classBusiness: "Business",
       bags: "Checked bags",
       weight: "Bag weight",
-      passengerIncomplete: "Please complete all passenger details: last name, first name and date of birth are required.",
+      passengerIncomplete: "Please complete all passenger details: last name, first name, date of birth and citizenship/passport are required.",
     },
   },
   it: {
