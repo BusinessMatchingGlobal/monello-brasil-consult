@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Send, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2 } from "lucide-react";
+import { format } from "date-fns";
 import { z } from "zod";
 import { useT, type Lang } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   Select,
   SelectContent,
@@ -17,6 +21,9 @@ import {
 import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useCanonical } from "@/lib/useCanonical";
+import { AirportCombobox } from "@/components/AirportCombobox";
+import { AIRPORTS } from "@/lib/airports";
+import { cn } from "@/lib/utils";
 
 const PREFIXES = [
   { value: "+39", label: "+39 Italia" },
@@ -43,6 +50,45 @@ const schema = z.object({
   consent: z.literal(true),
 });
 
+type TripType = "roundtrip" | "oneway" | "complex";
+type Flex = "fixed" | "flexible";
+
+type Leg = {
+  id: string;
+  origin: string;
+  destination: string;
+  date: Date | undefined;
+  flex: Flex;
+  daysBefore: number;
+  daysAfter: number;
+};
+
+function newLeg(): Leg {
+  return {
+    id: Math.random().toString(36).slice(2),
+    origin: "",
+    destination: "",
+    date: undefined,
+    flex: "fixed",
+    daysBefore: 0,
+    daysAfter: 0,
+  };
+}
+
+function airportLabel(code: string) {
+  const a = AIRPORTS.find((x) => x.code === code);
+  return a ? `${a.code} — ${a.name}` : code || "—";
+}
+
+function legToText(leg: Leg, dateFmtLabel: string, fixedLabel: string, flexLabel: string) {
+  const dateStr = leg.date ? format(leg.date, "yyyy-MM-dd") : "—";
+  const flexStr =
+    leg.flex === "flexible"
+      ? `${flexLabel} (−${leg.daysBefore}/+${leg.daysAfter} ${dateFmtLabel})`
+      : fixedLabel;
+  return `${airportLabel(leg.origin)} → ${airportLabel(leg.destination)} | ${dateStr} | ${flexStr}`;
+}
+
 type Copy = {
   back: string;
   eyebrow: string;
@@ -63,6 +109,27 @@ type Copy = {
   required: string;
   successTitle: string;
   successBody: string;
+  itineraryTitle: string;
+  itinerarySub: string;
+  tripRoundtrip: string;
+  tripOneway: string;
+  tripComplex: string;
+  outbound: string;
+  return: string;
+  leg: string;
+  addLeg: string;
+  removeLeg: string;
+  origin: string;
+  destination: string;
+  date: string;
+  pickDate: string;
+  flexibility: string;
+  fixedDate: string;
+  flexibleDate: string;
+  daysBefore: string;
+  daysAfter: string;
+  days: string;
+  itineraryIncomplete: string;
 };
 
 const copy: Record<Lang, Copy> = {
@@ -86,6 +153,27 @@ const copy: Record<Lang, Copy> = {
     required: "Tutti i campi sono obbligatori.",
     successTitle: "Grazie! La richiesta è stata inviata.",
     successBody: "Ti ricontatteremo al più presto. Se non ricevi risposta, controlla anche la cartella SPAM.",
+    itineraryTitle: "Itinerario voli",
+    itinerarySub: "Seleziona il tipo di viaggio e compila le tratte richieste.",
+    tripRoundtrip: "Andata e Ritorno",
+    tripOneway: "Solo Andata",
+    tripComplex: "Itinerario complesso",
+    outbound: "Andata",
+    return: "Ritorno",
+    leg: "Tratta",
+    addLeg: "Aggiungi tratta",
+    removeLeg: "Rimuovi",
+    origin: "APT Partenza",
+    destination: "APT Destinazione",
+    date: "Data",
+    pickDate: "Scegli una data",
+    flexibility: "Flessibilità",
+    fixedDate: "Data fissa",
+    flexibleDate: "Flessibile",
+    daysBefore: "Giorni prima",
+    daysAfter: "Giorni dopo",
+    days: "giorni",
+    itineraryIncomplete: "Completa l'itinerario voli: aeroporti e date sono obbligatori.",
   },
   en: {
     back: "Back to home",
@@ -107,6 +195,27 @@ const copy: Record<Lang, Copy> = {
     required: "All fields are required.",
     successTitle: "Thank you! Your request has been sent.",
     successBody: "We will get back to you soon. If you do not hear from us, please check your SPAM folder.",
+    itineraryTitle: "Flight itinerary",
+    itinerarySub: "Select trip type and fill in the required legs.",
+    tripRoundtrip: "Round trip",
+    tripOneway: "One way",
+    tripComplex: "Complex itinerary",
+    outbound: "Outbound",
+    return: "Return",
+    leg: "Leg",
+    addLeg: "Add leg",
+    removeLeg: "Remove",
+    origin: "Departure APT",
+    destination: "Arrival APT",
+    date: "Date",
+    pickDate: "Pick a date",
+    flexibility: "Flexibility",
+    fixedDate: "Fixed date",
+    flexibleDate: "Flexible",
+    daysBefore: "Days before",
+    daysAfter: "Days after",
+    days: "days",
+    itineraryIncomplete: "Please complete the flight itinerary: airports and dates are required.",
   },
   pt: {
     back: "Voltar para a home",
@@ -128,8 +237,133 @@ const copy: Record<Lang, Copy> = {
     required: "Todos os campos são obrigatórios.",
     successTitle: "Obrigado! Sua solicitação foi enviada.",
     successBody: "Entraremos em contato em breve. Se não receber resposta, verifique a pasta de SPAM.",
+    itineraryTitle: "Itinerário de voos",
+    itinerarySub: "Selecione o tipo de viagem e preencha os trechos solicitados.",
+    tripRoundtrip: "Ida e Volta",
+    tripOneway: "Somente Ida",
+    tripComplex: "Itinerário complexo",
+    outbound: "Ida",
+    return: "Volta",
+    leg: "Trecho",
+    addLeg: "Adicionar trecho",
+    removeLeg: "Remover",
+    origin: "APT Partida",
+    destination: "APT Destino",
+    date: "Data",
+    pickDate: "Escolha uma data",
+    flexibility: "Flexibilidade",
+    fixedDate: "Data fixa",
+    flexibleDate: "Flexível",
+    daysBefore: "Dias antes",
+    daysAfter: "Dias depois",
+    days: "dias",
+    itineraryIncomplete: "Complete o itinerário de voos: aeroportos e datas são obrigatórios.",
   },
 };
+
+function LegEditor({
+  leg,
+  onChange,
+  c,
+}: {
+  leg: Leg;
+  onChange: (patch: Partial<Leg>) => void;
+  c: Copy;
+}) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="space-y-1.5">
+        <Label>{c.origin} *</Label>
+        <AirportCombobox
+          value={leg.origin}
+          onChange={(v) => onChange({ origin: v })}
+          placeholder={c.origin}
+          ariaLabel={c.origin}
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.destination} *</Label>
+        <AirportCombobox
+          value={leg.destination}
+          onChange={(v) => onChange({ destination: v })}
+          placeholder={c.destination}
+          ariaLabel={c.destination}
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.date} *</Label>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              type="button"
+              variant="outline"
+              className={cn("w-full justify-start text-left font-normal", !leg.date && "text-muted-foreground")}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              {leg.date ? format(leg.date, "PPP") : <span>{c.pickDate}</span>}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0 pointer-events-auto" align="start">
+            <Calendar
+              mode="single"
+              selected={leg.date}
+              onSelect={(d) => onChange({ date: d ?? undefined })}
+              initialFocus
+              className={cn("p-3 pointer-events-auto")}
+            />
+          </PopoverContent>
+        </Popover>
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.flexibility}</Label>
+        <RadioGroup
+          value={leg.flex}
+          onValueChange={(v) => onChange({ flex: v as Flex })}
+          className="flex gap-4 pt-2"
+        >
+          <label className="flex items-center gap-2 text-sm">
+            <RadioGroupItem value="fixed" />
+            {c.fixedDate}
+          </label>
+          <label className="flex items-center gap-2 text-sm">
+            <RadioGroupItem value="flexible" />
+            {c.flexibleDate}
+          </label>
+        </RadioGroup>
+      </div>
+      {leg.flex === "flexible" && (
+        <div className="md:col-span-2 grid grid-cols-2 gap-3">
+          <div className="space-y-1.5">
+            <Label>{c.daysBefore}</Label>
+            <div className="flex items-center gap-2">
+              <Input
+                type="number"
+                min={0}
+                max={30}
+                value={leg.daysBefore}
+                onChange={(e) => onChange({ daysBefore: Math.max(0, Number(e.target.value) || 0) })}
+              />
+              <span className="text-sm text-muted-foreground">{c.days}</span>
+            </div>
+          </div>
+          <div className="space-y-1.5">
+            <Label>{c.daysAfter}</Label>
+            <div className="flex items-center gap-2">
+              <Input
+                type="number"
+                min={0}
+                max={30}
+                value={leg.daysAfter}
+                onChange={(e) => onChange({ daysAfter: Math.max(0, Number(e.target.value) || 0) })}
+              />
+              <span className="text-sm text-muted-foreground">{c.days}</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Fly() {
   useCanonical("/fly");
@@ -145,6 +379,52 @@ export default function Fly() {
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const [tripType, setTripType] = useState<TripType>("roundtrip");
+  const [outbound, setOutbound] = useState<Leg>(newLeg());
+  const [returnLeg, setReturnLeg] = useState<Leg>(newLeg());
+  const [complexLegs, setComplexLegs] = useState<Leg[]>([newLeg(), newLeg()]);
+
+  function patchOutbound(patch: Partial<Leg>) {
+    setOutbound((prev) => ({ ...prev, ...patch }));
+  }
+  function patchReturn(patch: Partial<Leg>) {
+    setReturnLeg((prev) => ({ ...prev, ...patch }));
+  }
+  function patchComplex(id: string, patch: Partial<Leg>) {
+    setComplexLegs((prev) => prev.map((l) => (l.id === id ? { ...l, ...patch } : l)));
+  }
+  function addComplexLeg() {
+    setComplexLegs((prev) => [...prev, newLeg()]);
+  }
+  function removeComplexLeg(id: string) {
+    setComplexLegs((prev) => (prev.length <= 1 ? prev : prev.filter((l) => l.id !== id)));
+  }
+
+  function legComplete(l: Leg) {
+    return !!(l.origin && l.destination && l.date);
+  }
+  function itineraryComplete(): boolean {
+    if (tripType === "oneway") return legComplete(outbound);
+    if (tripType === "roundtrip") return legComplete(outbound) && legComplete(returnLeg);
+    return complexLegs.every(legComplete);
+  }
+  function itineraryToText(): string {
+    const tripLabel =
+      tripType === "roundtrip" ? c.tripRoundtrip : tripType === "oneway" ? c.tripOneway : c.tripComplex;
+    const lines: string[] = [`${c.itineraryTitle}: ${tripLabel}`];
+    if (tripType === "roundtrip") {
+      lines.push(`  ${c.outbound}: ${legToText(outbound, c.days, c.fixedDate, c.flexibleDate)}`);
+      lines.push(`  ${c.return}: ${legToText(returnLeg, c.days, c.fixedDate, c.flexibleDate)}`);
+    } else if (tripType === "oneway") {
+      lines.push(`  ${c.outbound}: ${legToText(outbound, c.days, c.fixedDate, c.flexibleDate)}`);
+    } else {
+      complexLegs.forEach((l, i) => {
+        lines.push(`  ${c.leg} ${i + 1}: ${legToText(l, c.days, c.fixedDate, c.flexibleDate)}`);
+      });
+    }
+    return lines.join("\n");
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -163,9 +443,14 @@ export default function Fly() {
       toast({ title: c.invalid, variant: "destructive" });
       return;
     }
+    if (!itineraryComplete()) {
+      toast({ title: c.itineraryIncomplete, variant: "destructive" });
+      return;
+    }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
+    const itineraryText = itineraryToText();
     try {
       await supabase.functions.invoke("send-transactional-email", {
         body: {
@@ -175,7 +460,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
@@ -312,6 +597,89 @@ export default function Fly() {
                   {c.consentSuffix}
                 </span>
               </label>
+
+              <div className="pt-2 border-t border-border">
+                <div className="mb-3">
+                  <h2 className="text-lg font-semibold">{c.itineraryTitle}</h2>
+                  <p className="text-sm text-muted-foreground">{c.itinerarySub}</p>
+                </div>
+
+                <RadioGroup
+                  value={tripType}
+                  onValueChange={(v) => setTripType(v as TripType)}
+                  className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-5"
+                >
+                  {(
+                    [
+                      ["roundtrip", c.tripRoundtrip],
+                      ["oneway", c.tripOneway],
+                      ["complex", c.tripComplex],
+                    ] as const
+                  ).map(([val, label]) => (
+                    <label
+                      key={val}
+                      className={cn(
+                        "flex items-center gap-2 rounded-md border border-border px-3 py-2 cursor-pointer text-sm",
+                        tripType === val && "border-primary bg-primary/5",
+                      )}
+                    >
+                      <RadioGroupItem value={val} />
+                      {label}
+                    </label>
+                  ))}
+                </RadioGroup>
+
+                {tripType === "roundtrip" && (
+                  <div className="space-y-6">
+                    <div>
+                      <div className="text-sm font-semibold mb-2">{c.outbound}</div>
+                      <LegEditor leg={outbound} onChange={patchOutbound} c={c} />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold mb-2">{c.return}</div>
+                      <LegEditor leg={returnLeg} onChange={patchReturn} c={c} />
+                    </div>
+                  </div>
+                )}
+
+                {tripType === "oneway" && (
+                  <div>
+                    <div className="text-sm font-semibold mb-2">{c.outbound}</div>
+                    <LegEditor leg={outbound} onChange={patchOutbound} c={c} />
+                  </div>
+                )}
+
+                {tripType === "complex" && (
+                  <div className="space-y-6">
+                    {complexLegs.map((l, i) => (
+                      <div key={l.id} className="rounded-md border border-border p-3">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="text-sm font-semibold">
+                            {c.leg} {i + 1}
+                          </div>
+                          {complexLegs.length > 1 && (
+                            <Button
+                              type="button"
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => removeComplexLeg(l.id)}
+                              className="text-destructive"
+                            >
+                              <Trash2 className="h-4 w-4 mr-1" />
+                              {c.removeLeg}
+                            </Button>
+                          )}
+                        </div>
+                        <LegEditor leg={l} onChange={(p) => patchComplex(l.id, p)} c={c} />
+                      </div>
+                    ))}
+                    <Button type="button" variant="outline" onClick={addComplexLeg} className="w-full">
+                      <Plus className="h-4 w-4 mr-2" />
+                      {c.addLeg}
+                    </Button>
+                  </div>
+                )}
+              </div>
 
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
                 <Send className="mr-2 h-4 w-4" />
