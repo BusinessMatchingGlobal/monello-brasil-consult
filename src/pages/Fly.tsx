@@ -7,15 +7,39 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useCanonical } from "@/lib/useCanonical";
 
+const PREFIXES = [
+  { value: "+39", label: "+39 Italia" },
+  { value: "+55", label: "+55 Brasil" },
+  { value: "+351", label: "+351 Portugal" },
+  { value: "+44", label: "+44 United Kingdom" },
+  { value: "+49", label: "+49 Germany" },
+  { value: "+33", label: "+33 France" },
+  { value: "+34", label: "+34 Spain" },
+  { value: "+41", label: "+41 Switzerland" },
+  { value: "+31", label: "+31 Netherlands" },
+  { value: "+1", label: "+1 USA / Canada" },
+  { value: "+61", label: "+61 Australia" },
+  { value: "+86", label: "+86 China" },
+];
+
+const numberSchema = z.string().trim().min(5).max(20);
+
 const schema = z.object({
   organization: z.string().trim().min(1).max(120),
   email: z.string().trim().email().max(255),
-  phone: z.string().trim().min(5).max(40),
-  whatsapp: z.string().trim().min(5).max(40),
+  phoneNumber: numberSchema,
+  whatsappNumber: numberSchema,
   consent: z.literal(true),
 });
 
@@ -28,6 +52,8 @@ type Copy = {
   email: string;
   phone: string;
   whatsapp: string;
+  prefix: string;
+  number: string;
   consentLabel: string;
   consentLink: string;
   consentSuffix: string;
@@ -49,6 +75,8 @@ const copy: Record<Lang, Copy> = {
     email: "Email",
     phone: "Cellulare",
     whatsapp: "WhatsApp",
+    prefix: "Prefisso",
+    number: "Numero",
     consentLabel: "Ho letto l'",
     consentLink: "informativa privacy",
     consentSuffix: "e acconsento al trattamento dei miei dati per essere ricontattato.",
@@ -68,6 +96,8 @@ const copy: Record<Lang, Copy> = {
     email: "Email",
     phone: "Mobile phone",
     whatsapp: "WhatsApp",
+    prefix: "Prefix",
+    number: "Number",
     consentLabel: "I have read the ",
     consentLink: "privacy notice",
     consentSuffix: "and I consent to the processing of my data to be contacted.",
@@ -87,6 +117,8 @@ const copy: Record<Lang, Copy> = {
     email: "E-mail",
     phone: "Telemóvel",
     whatsapp: "WhatsApp",
+    prefix: "Prefixo",
+    number: "Número",
     consentLabel: "Li o ",
     consentLink: "aviso de privacidade",
     consentSuffix: "e concordo com o tratamento dos meus dados para ser contatado.",
@@ -106,8 +138,10 @@ export default function Fly() {
 
   const [organization, setOrganization] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
+  const [phonePrefix, setPhonePrefix] = useState("+39");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [whatsappPrefix, setWhatsappPrefix] = useState("+39");
+  const [whatsappNumber, setWhatsappNumber] = useState("");
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -118,12 +152,20 @@ export default function Fly() {
       toast({ title: c.consentRequired, variant: "destructive" });
       return;
     }
-    const parsed = schema.safeParse({ organization, email, phone, whatsapp, consent });
+    const parsed = schema.safeParse({
+      organization,
+      email,
+      phoneNumber,
+      whatsappNumber,
+      consent,
+    });
     if (!parsed.success) {
       toast({ title: c.invalid, variant: "destructive" });
       return;
     }
     setLoading(true);
+    const fullPhone = `${phonePrefix} ${phoneNumber}`;
+    const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
     try {
       await supabase.functions.invoke("send-transactional-email", {
         body: {
@@ -133,7 +175,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${parsed.data.phone}\nWhatsApp: ${parsed.data.whatsapp}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
@@ -197,29 +239,67 @@ export default function Fly() {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="phone">{c.phone} *</Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  required
-                  minLength={5}
-                  maxLength={40}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
+                <Label>{c.phone} *</Label>
+                <div className="flex gap-3">
+                  <div className="w-[140px] shrink-0">
+                    <Select value={phonePrefix} onValueChange={setPhonePrefix}>
+                      <SelectTrigger aria-label={c.prefix}>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {PREFIXES.map((p) => (
+                          <SelectItem key={p.value} value={p.value}>
+                            {p.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    required
+                    minLength={5}
+                    maxLength={20}
+                    placeholder={c.number}
+                    aria-label={c.number}
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    className="flex-1"
+                  />
+                </div>
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="whatsapp">{c.whatsapp} *</Label>
-                <Input
-                  id="whatsapp"
-                  type="tel"
-                  required
-                  minLength={5}
-                  maxLength={40}
-                  value={whatsapp}
-                  onChange={(e) => setWhatsapp(e.target.value)}
-                />
+                <Label>{c.whatsapp} *</Label>
+                <div className="flex gap-3">
+                  <div className="w-[140px] shrink-0">
+                    <Select value={whatsappPrefix} onValueChange={setWhatsappPrefix}>
+                      <SelectTrigger aria-label={c.prefix}>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {PREFIXES.map((p) => (
+                          <SelectItem key={p.value} value={p.value}>
+                            {p.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <Input
+                    id="whatsapp"
+                    type="tel"
+                    required
+                    minLength={5}
+                    maxLength={20}
+                    placeholder={c.number}
+                    aria-label={c.number}
+                    value={whatsappNumber}
+                    onChange={(e) => setWhatsappNumber(e.target.value)}
+                    className="flex-1"
+                  />
+                </div>
               </div>
 
               <label className="flex items-start gap-3 text-sm text-muted-foreground pt-1">
