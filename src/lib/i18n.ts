@@ -493,7 +493,7 @@ export const translations = {
       successBody: "Entraremos em contato em breve. Se não receber resposta, verifique a pasta de SPAM.",
       passengerTitle: "Passageiros",
       passengerSub: "Insira os dados dos passageiros para a solicitação de voo.",
-      passengerAttention: "Preste atenção especial ao preencher os dados dos passageiros: eles devem corresponder exatamente aos documentos de viagem.",
+      passengerAttention: "Prestar máxima atenção ao preencher NOME e SOBRENOME: devem corresponder exatamente ao que consta no passaporte utilizado para a viagem.",
       passenger: "Passageiro",
       addPassenger: "Adicionar passageiro",
       removePassenger: "Remover",
