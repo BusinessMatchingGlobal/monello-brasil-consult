@@ -746,6 +746,7 @@ export default function Index() {
         <About />
         <FAQ />
         <Contact />
+        <HomeNewsletter />
       </main>
       <Footer />
     </div>
