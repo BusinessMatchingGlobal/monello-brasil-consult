@@ -899,6 +899,41 @@ export default function Fly() {
                 )}
               </div>
 
+              <div className="pt-2 border-t border-border">
+                <div className="mb-3">
+                  <h2 className="text-lg font-semibold">{c.passengerTitle}</h2>
+                  <p className="text-sm text-muted-foreground">{c.passengerSub}</p>
+                </div>
+                <div className="space-y-6">
+                  {passengers.map((p, i) => (
+                    <div key={p.id} className="rounded-md border border-border p-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="text-sm font-semibold">
+                          {c.passenger} {i + 1}
+                        </div>
+                        {passengers.length > 1 && (
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => removePassenger(p.id)}
+                            className="text-destructive"
+                          >
+                            <Trash2 className="h-4 w-4 mr-1" />
+                            {c.removePassenger}
+                          </Button>
+                        )}
+                      </div>
+                      <PassengerEditor passenger={p} onChange={(patch) => patchPassenger(p.id, patch)} c={c} />
+                    </div>
+                  ))}
+                  <Button type="button" variant="outline" onClick={addPassenger} className="w-full">
+                    <Plus className="h-4 w-4 mr-2" />
+                    {c.addPassenger}
+                  </Button>
+                </div>
+              </div>
+
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
                 <Send className="mr-2 h-4 w-4" />
                 {c.submit}
