@@ -4,6 +4,7 @@ import { useT, Lang } from "@/lib/i18n";
 import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italcam-minas-gerais.png.asset.json";
 import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
+import logoBMG from "@/assets/logo-business-matching-global.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -84,8 +85,12 @@ function Nav() {
       }`}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between">
-        <a href="#top" className="font-display text-lg md:text-xl font-medium tracking-tight">
-          Business Matching <span className="text-primary">Global</span>
+        <a href="#top" className="flex items-center" aria-label="Business Matching Global">
+          <img
+            src={logoBMG.url}
+            alt="Business Matching Global"
+            className="h-10 md:h-12 w-auto"
+          />
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) =>
