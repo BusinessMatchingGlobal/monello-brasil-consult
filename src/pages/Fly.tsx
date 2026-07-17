@@ -183,6 +183,7 @@ type Copy = {
   itineraryIncomplete: string;
   passengerTitle: string;
   passengerSub: string;
+  passengerAttention: string;
   passenger: string;
   addPassenger: string;
   removePassenger: string;
@@ -254,6 +255,7 @@ const copy: Record<Lang, Copy> = {
     itineraryIncomplete: "Completa l'itinerario voli: aeroporti e date sono obbligatori.",
     passengerTitle: "Passeggeri",
     passengerSub: "Inserisci i dati dei passeggeri per la richiesta di volo.",
+    passengerAttention: "Prestare particolare attenzione alla compilazione dei dati dei passeggeri: devono corrispondere esattamente ai documenti di viaggio.",
     passenger: "Passeggero",
     addPassenger: "Aggiungi passeggero",
     removePassenger: "Rimuovi",
@@ -266,7 +268,7 @@ const copy: Record<Lang, Copy> = {
     classBusiness: "Business",
     bags: "Bagagli in stiva",
     weight: "Peso bagaglio",
-    passengerIncomplete: "Completa i dati di tutti i passeggeri: cognome, nome e data di nascita sono obbligatori.",
+    passengerIncomplete: "Completa i dati di tutti i passeggeri: cognome, nome, data di nascita e cittadinanza/passaporto sono obbligatori.",
     citizenship1: "Cittadinanza / Passaporto",
     citizenship2: "Seconda cittadinanza / Passaporto",
     citizenshipPlaceholder: "Seleziona paese",
@@ -323,6 +325,7 @@ const copy: Record<Lang, Copy> = {
     itineraryIncomplete: "Please complete the flight itinerary: airports and dates are required.",
     passengerTitle: "Passengers",
     passengerSub: "Enter passenger details for the flight request.",
+    passengerAttention: "Please pay close attention when entering passenger details: they must match the travel documents exactly.",
     passenger: "Passenger",
     addPassenger: "Add passenger",
     removePassenger: "Remove",
@@ -335,7 +338,7 @@ const copy: Record<Lang, Copy> = {
     classBusiness: "Business",
     bags: "Checked bags",
     weight: "Bag weight",
-    passengerIncomplete: "Please complete all passenger details: last name, first name and date of birth are required.",
+    passengerIncomplete: "Please complete all passenger details: last name, first name, date of birth and citizenship/passport are required.",
     citizenship1: "Citizenship / Passport",
     citizenship2: "Second citizenship / Passport",
     citizenshipPlaceholder: "Select country",
@@ -392,6 +395,7 @@ const copy: Record<Lang, Copy> = {
     itineraryIncomplete: "Complete o itinerário de voos: aeroportos e datas são obrigatórios.",
     passengerTitle: "Passageiros",
     passengerSub: "Insira os dados dos passageiros para a solicitação de voo.",
+    passengerAttention: "Preste atenção especial ao preencher os dados dos passageiros: eles devem corresponder exatamente aos documentos de viagem.",
     passenger: "Passageiro",
     addPassenger: "Adicionar passageiro",
     removePassenger: "Remover",
@@ -404,7 +408,7 @@ const copy: Record<Lang, Copy> = {
     classBusiness: "Executiva",
     bags: "Bagagem despachada",
     weight: "Peso da bagagem",
-    passengerIncomplete: "Complete os dados de todos os passageiros: sobrenome, nome e data de nascimento são obrigatórios.",
+    passengerIncomplete: "Complete os dados de todos os passageiros: sobrenome, nome, data de nascimento e cidadania/passaporte são obrigatórios.",
     citizenship1: "Cidadania / Passaporte",
     citizenship2: "Segunda cidadania / Passaporte",
     citizenshipPlaceholder: "Selecione o país",
@@ -578,7 +582,7 @@ function PassengerEditor({
         </Popover>
       </div>
       <div className="space-y-1.5">
-        <Label>{c.citizenship1}</Label>
+        <Label>{c.citizenship1} *</Label>
         <CountryCombobox
           value={passenger.citizenship1}
           onChange={(v) => onChange({ citizenship1: v })}
@@ -586,8 +590,6 @@ function PassengerEditor({
           searchLabel={c.citizenshipSearch}
           emptyLabel={c.citizenshipEmpty}
           ariaLabel={c.citizenship1}
-          allowClear
-          clearLabel={c.citizenshipNone}
         />
       </div>
       <div className="space-y-1.5">
@@ -720,7 +722,7 @@ export default function Fly() {
     return complexLegs.every(legComplete);
   }
   function passengerComplete(p: Passenger) {
-    return !!(p.lastName.trim() && p.firstName.trim() && p.birthDate);
+    return !!(p.lastName.trim() && p.firstName.trim() && p.birthDate && p.citizenship1.trim());
   }
   function passengersComplete(): boolean {
     return passengers.every(passengerComplete);
@@ -1014,6 +1016,9 @@ export default function Fly() {
                 <div className="mb-3">
                   <h2 className="text-lg font-semibold">{c.passengerTitle}</h2>
                   <p className="text-sm text-muted-foreground">{c.passengerSub}</p>
+                  <p className="mt-2 text-sm font-medium text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md px-3 py-2">
+                    {c.passengerAttention}
+                  </p>
                 </div>
                 <div className="space-y-6">
                   {passengers.map((p, i) => (
