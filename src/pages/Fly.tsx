@@ -162,6 +162,21 @@ type Copy = {
   daysAfter: string;
   days: string;
   itineraryIncomplete: string;
+  passengerTitle: string;
+  passengerSub: string;
+  passenger: string;
+  addPassenger: string;
+  removePassenger: string;
+  lastName: string;
+  firstName: string;
+  birthDate: string;
+  class: string;
+  classEconomy: string;
+  classPremium: string;
+  classBusiness: string;
+  bags: string;
+  weight: string;
+  passengerIncomplete: string;
 };
 
 const copy: Record<Lang, Copy> = {
