@@ -1,0 +1,2 @@
+GRANT UPDATE ON public.newsletter_subscribers TO authenticated;
+CREATE POLICY "Admins can update newsletter subscribers" ON public.newsletter_subscribers FOR UPDATE TO authenticated USING (public.has_role(auth.uid(), 'admin')) WITH CHECK (public.has_role(auth.uid(), 'admin'));
