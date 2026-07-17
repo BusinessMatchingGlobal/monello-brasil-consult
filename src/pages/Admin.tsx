@@ -66,13 +66,24 @@ export default function Admin() {
 
   const exportCsv = () => {
     const rows = [["email","first_name","last_name","language","status","created_at","confirmed_at"]];
-    subs.forEach(s => rows.push([s.email, s.first_name||"", s.last_name||"", s.language||"", s.status, s.created_at, s.confirmed_at||""]));
+    subs
+      .filter(s => s.status !== "opted_out")
+      .forEach(s => rows.push([s.email, s.first_name||"", s.last_name||"", s.language||"", s.status, s.created_at, s.confirmed_at||""]));
     const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
     const blob = new Blob([csv], { type: "text/csv" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = `newsletter_subscribers_${new Date().toISOString().slice(0,10)}.csv`;
     a.click();
+  };
+
+  const toggleOptOut = async (s: Sub) => {
+    const next = s.status === "opted_out" ? (s.confirmed_at ? "confirmed" : "pending") : "opted_out";
+    const label = next === "opted_out" ? `Escludere ${s.email} dall'export CSV?` : `Riattivare ${s.email}?`;
+    if (!confirm(label)) return;
+    const { error } = await supabase.from("newsletter_subscribers").update({ status: next }).eq("id", s.id);
+    if (error) { alert(error.message); return; }
+    setSubs(prev => prev.map(x => x.id === s.id ? { ...x, status: next } : x));
   };
 
   if (!session) {
@@ -106,6 +117,7 @@ export default function Admin() {
 
   const confirmed = subs.filter(s => s.status === "confirmed").length;
   const pending = subs.filter(s => s.status === "pending").length;
+  const optedOut = subs.filter(s => s.status === "opted_out").length;
 
   return (
     <div className="min-h-screen bg-background p-6">
@@ -121,6 +133,7 @@ export default function Admin() {
           <span>Totali: <strong>{subs.length}</strong></span>
           <span>Confermati: <strong>{confirmed}</strong></span>
           <span>In attesa: <strong>{pending}</strong></span>
+          <span>Esclusi: <strong>{optedOut}</strong></span>
         </div>
         <div className="overflow-x-auto border rounded-lg">
           <table className="w-full text-sm">
@@ -132,6 +145,7 @@ export default function Admin() {
                 <th className="text-left p-3">Stato</th>
                 <th className="text-left p-3">Iscritto</th>
                 <th className="text-left p-3">Confermato</th>
+                <th className="text-left p-3">Azioni</th>
               </tr>
             </thead>
             <tbody>
@@ -141,13 +155,18 @@ export default function Admin() {
                   <td className="p-3">{[s.first_name, s.last_name].filter(Boolean).join(" ") || "—"}</td>
                   <td className="p-3 uppercase">{s.language || "—"}</td>
                   <td className="p-3">
-                    <span className={s.status === "confirmed" ? "text-green-600" : "text-amber-600"}>{s.status}</span>
+                    <span className={s.status === "confirmed" ? "text-green-600" : s.status === "opted_out" ? "text-destructive" : "text-amber-600"}>{s.status}</span>
                   </td>
                   <td className="p-3">{new Date(s.created_at).toLocaleString()}</td>
                   <td className="p-3">{s.confirmed_at ? new Date(s.confirmed_at).toLocaleString() : "—"}</td>
+                  <td className="p-3">
+                    <button onClick={() => toggleOptOut(s)} className="text-xs underline hover:no-underline">
+                      {s.status === "opted_out" ? "Riattiva" : "Escludi"}
+                    </button>
+                  </td>
                 </tr>
               ))}
-              {subs.length === 0 && <tr><td colSpan={6} className="p-6 text-center text-muted-foreground">Nessun iscritto</td></tr>}
+              {subs.length === 0 && <tr><td colSpan={7} className="p-6 text-center text-muted-foreground">Nessun iscritto</td></tr>}
             </tbody>
           </table>
         </div>
