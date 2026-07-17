@@ -325,7 +325,7 @@ export const translations = {
       successBody: "Ti ricontatteremo al più presto. Se non ricevi risposta, controlla anche la cartella SPAM.",
       passengerTitle: "Passeggeri",
       passengerSub: "Inserisci i dati dei passeggeri per la richiesta di volo.",
-      passengerAttention: "Prestare particolare attenzione alla compilazione dei dati dei passeggeri: devono corrispondere esattamente ai documenti di viaggio.",
+      passengerAttention: "Prestare massima attenzione nella compilazione di NOME e COGNOME: devono corrispondere esattamente a quanto riportato sul passaporto utilizzato per il viaggio.",
       passenger: "Passeggero",
       addPassenger: "Aggiungi passeggero",
       removePassenger: "Rimuovi",
