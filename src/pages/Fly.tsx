@@ -707,7 +707,7 @@ export default function Fly() {
       </header>
 
       <main className="container mx-auto px-4 py-12 md:py-20">
-        <div className="max-w-xl mx-auto rounded-xl border border-border bg-card p-6 md:p-10 shadow-sm">
+        <div className="max-w-3xl mx-auto rounded-xl border border-border bg-card p-6 md:p-10 shadow-sm">
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="mb-2">
