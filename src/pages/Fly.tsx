@@ -89,6 +89,38 @@ function legToText(leg: Leg, dateFmtLabel: string, fixedLabel: string, flexLabel
   return `${airportLabel(leg.origin)} → ${airportLabel(leg.destination)} | ${dateStr} | ${flexStr}`;
 }
 
+type TravelClass = "Economy" | "Premium" | "Business";
+
+type Passenger = {
+  id: string;
+  lastName: string;
+  firstName: string;
+  birthDate: Date | undefined;
+  travelClass: TravelClass;
+  bags: number;
+  weight: "15" | "23" | "32";
+};
+
+function newPassenger(): Passenger {
+  return {
+    id: Math.random().toString(36).slice(2),
+    lastName: "",
+    firstName: "",
+    birthDate: undefined,
+    travelClass: "Economy",
+    bags: 0,
+    weight: "23",
+  };
+}
+
+function passengerToText(p: Passenger, c: Copy) {
+  const dob = p.birthDate ? format(p.birthDate, "yyyy-MM-dd") : "—";
+  const cls =
+    p.travelClass === "Economy" ? c.classEconomy :
+    p.travelClass === "Premium" ? c.classPremium : c.classBusiness;
+  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${p.weight}kg`;
+}
+
 type Copy = {
   back: string;
   eyebrow: string;
