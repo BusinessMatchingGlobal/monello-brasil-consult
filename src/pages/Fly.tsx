@@ -89,6 +89,38 @@ function legToText(leg: Leg, dateFmtLabel: string, fixedLabel: string, flexLabel
   return `${airportLabel(leg.origin)} → ${airportLabel(leg.destination)} | ${dateStr} | ${flexStr}`;
 }
 
+type TravelClass = "Economy" | "Premium" | "Business";
+
+type Passenger = {
+  id: string;
+  lastName: string;
+  firstName: string;
+  birthDate: Date | undefined;
+  travelClass: TravelClass;
+  bags: number;
+  weight: "15" | "23" | "32";
+};
+
+function newPassenger(): Passenger {
+  return {
+    id: Math.random().toString(36).slice(2),
+    lastName: "",
+    firstName: "",
+    birthDate: undefined,
+    travelClass: "Economy",
+    bags: 0,
+    weight: "23",
+  };
+}
+
+function passengerToText(p: Passenger, c: Copy) {
+  const dob = p.birthDate ? format(p.birthDate, "yyyy-MM-dd") : "—";
+  const cls =
+    p.travelClass === "Economy" ? c.classEconomy :
+    p.travelClass === "Premium" ? c.classPremium : c.classBusiness;
+  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${p.weight}kg`;
+}
+
 type Copy = {
   back: string;
   eyebrow: string;
@@ -130,6 +162,21 @@ type Copy = {
   daysAfter: string;
   days: string;
   itineraryIncomplete: string;
+  passengerTitle: string;
+  passengerSub: string;
+  passenger: string;
+  addPassenger: string;
+  removePassenger: string;
+  lastName: string;
+  firstName: string;
+  birthDate: string;
+  class: string;
+  classEconomy: string;
+  classPremium: string;
+  classBusiness: string;
+  bags: string;
+  weight: string;
+  passengerIncomplete: string;
 };
 
 const copy: Record<Lang, Copy> = {
@@ -174,6 +221,21 @@ const copy: Record<Lang, Copy> = {
     daysAfter: "Giorni dopo",
     days: "giorni",
     itineraryIncomplete: "Completa l'itinerario voli: aeroporti e date sono obbligatori.",
+    passengerTitle: "Passeggeri",
+    passengerSub: "Inserisci i dati dei passeggeri per la richiesta di volo.",
+    passenger: "Passeggero",
+    addPassenger: "Aggiungi passeggero",
+    removePassenger: "Rimuovi",
+    lastName: "Cognome",
+    firstName: "Nome",
+    birthDate: "Data di nascita",
+    class: "Classe",
+    classEconomy: "Economy",
+    classPremium: "Premium",
+    classBusiness: "Business",
+    bags: "Bagagli in stiva",
+    weight: "Peso bagaglio",
+    passengerIncomplete: "Completa i dati di tutti i passeggeri: cognome, nome e data di nascita sono obbligatori.",
   },
   en: {
     back: "Back to home",
@@ -216,6 +278,21 @@ const copy: Record<Lang, Copy> = {
     daysAfter: "Days after",
     days: "days",
     itineraryIncomplete: "Please complete the flight itinerary: airports and dates are required.",
+    passengerTitle: "Passengers",
+    passengerSub: "Enter passenger details for the flight request.",
+    passenger: "Passenger",
+    addPassenger: "Add passenger",
+    removePassenger: "Remove",
+    lastName: "Last name",
+    firstName: "First name",
+    birthDate: "Date of birth",
+    class: "Class",
+    classEconomy: "Economy",
+    classPremium: "Premium",
+    classBusiness: "Business",
+    bags: "Checked bags",
+    weight: "Bag weight",
+    passengerIncomplete: "Please complete all passenger details: last name, first name and date of birth are required.",
   },
   pt: {
     back: "Voltar para a home",
@@ -258,6 +335,21 @@ const copy: Record<Lang, Copy> = {
     daysAfter: "Dias depois",
     days: "dias",
     itineraryIncomplete: "Complete o itinerário de voos: aeroportos e datas são obrigatórios.",
+    passengerTitle: "Passageiros",
+    passengerSub: "Insira os dados dos passageiros para a solicitação de voo.",
+    passenger: "Passageiro",
+    addPassenger: "Adicionar passageiro",
+    removePassenger: "Remover",
+    lastName: "Sobrenome",
+    firstName: "Nome",
+    birthDate: "Data de nascimento",
+    class: "Classe",
+    classEconomy: "Econômica",
+    classPremium: "Premium",
+    classBusiness: "Executiva",
+    bags: "Bagagem despachada",
+    weight: "Peso da bagagem",
+    passengerIncomplete: "Complete os dados de todos os passageiros: sobrenome, nome e data de nascimento são obrigatórios.",
   },
 };
 
@@ -365,6 +457,104 @@ function LegEditor({
   );
 }
 
+function PassengerEditor({
+  passenger,
+  onChange,
+  c,
+}: {
+  passenger: Passenger;
+  onChange: (patch: Partial<Passenger>) => void;
+  c: Copy;
+}) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+      <div className="space-y-1.5">
+        <Label>{c.lastName} *</Label>
+        <Input
+          value={passenger.lastName}
+          onChange={(e) => onChange({ lastName: e.target.value })}
+          maxLength={80}
+          required
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.firstName} *</Label>
+        <Input
+          value={passenger.firstName}
+          onChange={(e) => onChange({ firstName: e.target.value })}
+          maxLength={80}
+          required
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.birthDate} *</Label>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              type="button"
+              variant="outline"
+              className={cn("w-full justify-start text-left font-normal", !passenger.birthDate && "text-muted-foreground")}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              {passenger.birthDate ? format(passenger.birthDate, "PPP") : <span>{c.pickDate}</span>}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0 pointer-events-auto" align="start">
+            <Calendar
+              mode="single"
+              selected={passenger.birthDate}
+              onSelect={(d) => onChange({ birthDate: d ?? undefined })}
+              initialFocus
+              className={cn("p-3 pointer-events-auto")}
+            />
+          </PopoverContent>
+        </Popover>
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.class}</Label>
+        <Select value={passenger.travelClass} onValueChange={(v) => onChange({ travelClass: v as TravelClass })}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="Economy">{c.classEconomy}</SelectItem>
+            <SelectItem value="Premium">{c.classPremium}</SelectItem>
+            <SelectItem value="Business">{c.classBusiness}</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.bags}</Label>
+        <Select value={String(passenger.bags)} onValueChange={(v) => onChange({ bags: Number(v) })}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {[0, 1, 2, 3, 4, 5].map((n) => (
+              <SelectItem key={n} value={String(n)}>
+                {n}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.weight}</Label>
+        <Select value={passenger.weight} onValueChange={(v) => onChange({ weight: v as "15" | "23" | "32" })}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="15">15 kg</SelectItem>
+            <SelectItem value="23">23 kg</SelectItem>
+            <SelectItem value="32">32 kg</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
+  );
+}
+
 export default function Fly() {
   useCanonical("/fly");
   const { lang } = useT();
@@ -384,6 +574,7 @@ export default function Fly() {
   const [outbound, setOutbound] = useState<Leg>(newLeg());
   const [returnLeg, setReturnLeg] = useState<Leg>(newLeg());
   const [complexLegs, setComplexLegs] = useState<Leg[]>([newLeg()]);
+  const [passengers, setPassengers] = useState<Passenger[]>([newPassenger()]);
 
   function patchOutbound(patch: Partial<Leg>) {
     setOutbound((prev) => ({ ...prev, ...patch }));
@@ -400,6 +591,15 @@ export default function Fly() {
   function removeComplexLeg(id: string) {
     setComplexLegs((prev) => (prev.length <= 1 ? prev : prev.filter((l) => l.id !== id)));
   }
+  function patchPassenger(id: string, patch: Partial<Passenger>) {
+    setPassengers((prev) => prev.map((p) => (p.id === id ? { ...p, ...patch } : p)));
+  }
+  function addPassenger() {
+    setPassengers((prev) => [...prev, newPassenger()]);
+  }
+  function removePassenger(id: string) {
+    setPassengers((prev) => (prev.length <= 1 ? prev : prev.filter((p) => p.id !== id)));
+  }
 
   function legComplete(l: Leg) {
     return !!(l.origin && l.destination && l.date);
@@ -408,6 +608,19 @@ export default function Fly() {
     if (tripType === "oneway") return legComplete(outbound);
     if (tripType === "roundtrip") return legComplete(outbound) && legComplete(returnLeg);
     return complexLegs.every(legComplete);
+  }
+  function passengerComplete(p: Passenger) {
+    return !!(p.lastName.trim() && p.firstName.trim() && p.birthDate);
+  }
+  function passengersComplete(): boolean {
+    return passengers.every(passengerComplete);
+  }
+  function passengersToText(): string {
+    const lines: string[] = [c.passengerTitle];
+    passengers.forEach((p, i) => {
+      lines.push(`  ${c.passenger} ${i + 1}: ${passengerToText(p, c)}`);
+    });
+    return lines.join("\n");
   }
   function itineraryToText(): string {
     const tripLabel =
@@ -447,10 +660,15 @@ export default function Fly() {
       toast({ title: c.itineraryIncomplete, variant: "destructive" });
       return;
     }
+    if (!passengersComplete()) {
+      toast({ title: c.passengerIncomplete, variant: "destructive" });
+      return;
+    }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
     const itineraryText = itineraryToText();
+    const passengersText = passengersToText();
     try {
       await supabase.functions.invoke("send-transactional-email", {
         body: {
@@ -460,7 +678,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
@@ -679,6 +897,41 @@ export default function Fly() {
                     </Button>
                   </div>
                 )}
+              </div>
+
+              <div className="pt-2 border-t border-border">
+                <div className="mb-3">
+                  <h2 className="text-lg font-semibold">{c.passengerTitle}</h2>
+                  <p className="text-sm text-muted-foreground">{c.passengerSub}</p>
+                </div>
+                <div className="space-y-6">
+                  {passengers.map((p, i) => (
+                    <div key={p.id} className="rounded-md border border-border p-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="text-sm font-semibold">
+                          {c.passenger} {i + 1}
+                        </div>
+                        {passengers.length > 1 && (
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => removePassenger(p.id)}
+                            className="text-destructive"
+                          >
+                            <Trash2 className="h-4 w-4 mr-1" />
+                            {c.removePassenger}
+                          </Button>
+                        )}
+                      </div>
+                      <PassengerEditor passenger={p} onChange={(patch) => patchPassenger(p.id, patch)} c={c} />
+                    </div>
+                  ))}
+                  <Button type="button" variant="outline" onClick={addPassenger} className="w-full">
+                    <Plus className="h-4 w-4 mr-2" />
+                    {c.addPassenger}
+                  </Button>
+                </div>
               </div>
 
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
