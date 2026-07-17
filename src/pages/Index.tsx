@@ -84,8 +84,12 @@ function Nav() {
       }`}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between">
-        <a href="#top" className="font-display text-lg md:text-xl font-medium tracking-tight">
-          Business Matching <span className="text-primary">Global</span>
+        <a href="#top" className="flex items-center" aria-label="Business Matching Global">
+          <img
+            src={logoBMG.url}
+            alt="Business Matching Global"
+            className="h-10 md:h-12 w-auto"
+          />
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) =>
