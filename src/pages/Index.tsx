@@ -4,7 +4,7 @@ import { useT, Lang } from "@/lib/i18n";
 import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italcam-minas-gerais.png.asset.json";
 import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
-import logoBMG from "@/assets/logo-business-matching-global.png.asset.json";
+import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -89,7 +89,7 @@ function Nav() {
           <img
             src={logoBMG.url}
             alt="Business Matching Global"
-            className="h-10 md:h-12 w-auto"
+            className="h-12 md:h-14 w-auto"
           />
         </a>
         <nav className="hidden md:flex items-center gap-8">

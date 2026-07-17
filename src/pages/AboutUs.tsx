@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import logoBMG from "@/assets/logo-business-matching-global.png.asset.json";
+import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 
 const EMAIL = "info@businessmatching.global";
 
@@ -73,7 +73,7 @@ function Nav() {
           <img
             src={logoBMG.url}
             alt="Business Matching Global"
-            className="h-10 md:h-12 w-auto"
+            className="h-12 md:h-14 w-auto"
           />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
