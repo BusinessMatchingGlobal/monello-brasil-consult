@@ -582,7 +582,7 @@ function PassengerEditor({
         </Popover>
       </div>
       <div className="space-y-1.5">
-        <Label>{c.citizenship1}</Label>
+        <Label>{c.citizenship1} *</Label>
         <CountryCombobox
           value={passenger.citizenship1}
           onChange={(v) => onChange({ citizenship1: v })}
@@ -590,8 +590,6 @@ function PassengerEditor({
           searchLabel={c.citizenshipSearch}
           emptyLabel={c.citizenshipEmpty}
           ariaLabel={c.citizenship1}
-          allowClear
-          clearLabel={c.citizenshipNone}
         />
       </div>
       <div className="space-y-1.5">
