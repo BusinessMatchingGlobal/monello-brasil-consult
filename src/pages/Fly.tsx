@@ -325,7 +325,7 @@ const copy: Record<Lang, Copy> = {
     itineraryIncomplete: "Please complete the flight itinerary: airports and dates are required.",
     passengerTitle: "Passengers",
     passengerSub: "Enter passenger details for the flight request.",
-    passengerAttention: "Please pay close attention when entering passenger details: they must match the travel documents exactly.",
+    passengerAttention: "Please pay maximum attention when entering FIRST and LAST NAME: they must match exactly what is shown on the passport used for the trip.",
     passenger: "Passenger",
     addPassenger: "Add passenger",
     removePassenger: "Remove",
