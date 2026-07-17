@@ -268,7 +268,7 @@ const copy: Record<Lang, Copy> = {
     classBusiness: "Business",
     bags: "Bagagli in stiva",
     weight: "Peso bagaglio",
-    passengerIncomplete: "Completa i dati di tutti i passeggeri: cognome, nome e data di nascita sono obbligatori.",
+    passengerIncomplete: "Completa i dati di tutti i passeggeri: cognome, nome, data di nascita e cittadinanza/passaporto sono obbligatori.",
     citizenship1: "Cittadinanza / Passaporto",
     citizenship2: "Seconda cittadinanza / Passaporto",
     citizenshipPlaceholder: "Seleziona paese",
