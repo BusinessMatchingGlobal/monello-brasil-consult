@@ -383,7 +383,7 @@ export default function Fly() {
   const [tripType, setTripType] = useState<TripType>("roundtrip");
   const [outbound, setOutbound] = useState<Leg>(newLeg());
   const [returnLeg, setReturnLeg] = useState<Leg>(newLeg());
-  const [complexLegs, setComplexLegs] = useState<Leg[]>([newLeg(), newLeg()]);
+  const [complexLegs, setComplexLegs] = useState<Leg[]>([newLeg()]);
 
   function patchOutbound(patch: Partial<Leg>) {
     setOutbound((prev) => ({ ...prev, ...patch }));
