@@ -578,6 +578,48 @@ function PassengerEditor({
         </Popover>
       </div>
       <div className="space-y-1.5">
+        <Label>{c.citizenship1}</Label>
+        <CountryCombobox
+          value={passenger.citizenship1}
+          onChange={(v) => onChange({ citizenship1: v })}
+          placeholder={c.citizenshipPlaceholder}
+          searchLabel={c.citizenshipSearch}
+          emptyLabel={c.citizenshipEmpty}
+          ariaLabel={c.citizenship1}
+          allowClear
+          clearLabel={c.citizenshipNone}
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.citizenship2}</Label>
+        <CountryCombobox
+          value={passenger.citizenship2}
+          onChange={(v) => onChange({ citizenship2: v })}
+          placeholder={c.citizenshipPlaceholder}
+          searchLabel={c.citizenshipSearch}
+          emptyLabel={c.citizenshipEmpty}
+          ariaLabel={c.citizenship2}
+          allowClear
+          clearLabel={c.citizenshipNone}
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.residencePermit}</Label>
+        <Select
+          value={passenger.residencePermit}
+          onValueChange={(v) => onChange({ residencePermit: v as "none" | "yes" | "no" })}
+        >
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="none">{c.permitNone}</SelectItem>
+            <SelectItem value="yes">{c.permitYes}</SelectItem>
+            <SelectItem value="no">{c.permitNo}</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="space-y-1.5">
         <Label>{c.class}</Label>
         <Select value={passenger.travelClass} onValueChange={(v) => onChange({ travelClass: v as TravelClass })}>
           <SelectTrigger>
