@@ -1045,6 +1045,20 @@ export default function Fly() {
                 </div>
               </div>
 
+              <div className="pt-2 border-t border-border space-y-1.5">
+                <Label htmlFor="notes" className="text-lg font-semibold">
+                  {c.notesTitle}
+                </Label>
+                <Textarea
+                  id="notes"
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder={c.notesPlaceholder}
+                  maxLength={2000}
+                  rows={5}
+                />
+              </div>
+
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
                 <Send className="mr-2 h-4 w-4" />
                 {c.submit}
