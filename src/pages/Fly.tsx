@@ -255,6 +255,7 @@ const copy: Record<Lang, Copy> = {
     itineraryIncomplete: "Completa l'itinerario voli: aeroporti e date sono obbligatori.",
     passengerTitle: "Passeggeri",
     passengerSub: "Inserisci i dati dei passeggeri per la richiesta di volo.",
+    passengerAttention: "Prestare particolare attenzione alla compilazione dei dati dei passeggeri: devono corrispondere esattamente ai documenti di viaggio.",
     passenger: "Passeggero",
     addPassenger: "Aggiungi passeggero",
     removePassenger: "Rimuovi",
