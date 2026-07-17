@@ -324,6 +324,7 @@ export const translations = {
       successBody: "Ti ricontatteremo al più presto. Se non ricevi risposta, controlla anche la cartella SPAM.",
       passengerTitle: "Passeggeri",
       passengerSub: "Inserisci i dati dei passeggeri per la richiesta di volo.",
+      passengerAttention: "Prestare particolare attenzione alla compilazione dei dati dei passeggeri: devono corrispondere esattamente ai documenti di viaggio.",
       passenger: "Passeggero",
       addPassenger: "Aggiungi passeggero",
       removePassenger: "Rimuovi",
@@ -336,7 +337,7 @@ export const translations = {
       classBusiness: "Business",
       bags: "Bagagli in stiva",
       weight: "Peso bagaglio",
-      passengerIncomplete: "Completa i dati di tutti i passeggeri: cognome, nome e data di nascita sono obbligatori.",
+      passengerIncomplete: "Completa i dati di tutti i passeggeri: cognome, nome, data di nascita e cittadinanza/passaporto sono obbligatori.",
     },
   },
   pt: {
