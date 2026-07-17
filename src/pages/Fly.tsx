@@ -457,6 +457,104 @@ function LegEditor({
   );
 }
 
+function PassengerEditor({
+  passenger,
+  onChange,
+  c,
+}: {
+  passenger: Passenger;
+  onChange: (patch: Partial<Passenger>) => void;
+  c: Copy;
+}) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+      <div className="space-y-1.5">
+        <Label>{c.lastName} *</Label>
+        <Input
+          value={passenger.lastName}
+          onChange={(e) => onChange({ lastName: e.target.value })}
+          maxLength={80}
+          required
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.firstName} *</Label>
+        <Input
+          value={passenger.firstName}
+          onChange={(e) => onChange({ firstName: e.target.value })}
+          maxLength={80}
+          required
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.birthDate} *</Label>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              type="button"
+              variant="outline"
+              className={cn("w-full justify-start text-left font-normal", !passenger.birthDate && "text-muted-foreground")}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              {passenger.birthDate ? format(passenger.birthDate, "PPP") : <span>{c.pickDate}</span>}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0 pointer-events-auto" align="start">
+            <Calendar
+              mode="single"
+              selected={passenger.birthDate}
+              onSelect={(d) => onChange({ birthDate: d ?? undefined })}
+              initialFocus
+              className={cn("p-3 pointer-events-auto")}
+            />
+          </PopoverContent>
+        </Popover>
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.class}</Label>
+        <Select value={passenger.travelClass} onValueChange={(v) => onChange({ travelClass: v as TravelClass })}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="Economy">{c.classEconomy}</SelectItem>
+            <SelectItem value="Premium">{c.classPremium}</SelectItem>
+            <SelectItem value="Business">{c.classBusiness}</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.bags}</Label>
+        <Select value={String(passenger.bags)} onValueChange={(v) => onChange({ bags: Number(v) })}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {[0, 1, 2, 3, 4, 5].map((n) => (
+              <SelectItem key={n} value={String(n)}>
+                {n}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.weight}</Label>
+        <Select value={passenger.weight} onValueChange={(v) => onChange({ weight: v as "15" | "23" | "32" })}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="15">15 kg</SelectItem>
+            <SelectItem value="23">23 kg</SelectItem>
+            <SelectItem value="32">32 kg</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
+  );
+}
+
 export default function Fly() {
   useCanonical("/fly");
   const { lang } = useT();
