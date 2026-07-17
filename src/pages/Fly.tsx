@@ -724,7 +724,7 @@ export default function Fly() {
     return complexLegs.every(legComplete);
   }
   function passengerComplete(p: Passenger) {
-    return !!(p.lastName.trim() && p.firstName.trim() && p.birthDate);
+    return !!(p.lastName.trim() && p.firstName.trim() && p.birthDate && p.citizenship1.trim());
   }
   function passengersComplete(): boolean {
     return passengers.every(passengerComplete);
