@@ -23,6 +23,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useCanonical } from "@/lib/useCanonical";
 import { AirportCombobox } from "@/components/AirportCombobox";
 import { AIRPORTS } from "@/lib/airports";
+import { CountryCombobox } from "@/components/CountryCombobox";
+import { COUNTRIES } from "@/lib/countries";
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 const PREFIXES = [
@@ -96,6 +99,9 @@ type Passenger = {
   lastName: string;
   firstName: string;
   birthDate: Date | undefined;
+  citizenship1: string;
+  citizenship2: string;
+  residencePermit: "none" | "yes" | "no";
   travelClass: TravelClass;
   bags: number;
   weight: "15" | "23" | "32";
@@ -107,10 +113,18 @@ function newPassenger(): Passenger {
     lastName: "",
     firstName: "",
     birthDate: undefined,
+    citizenship1: "",
+    citizenship2: "",
+    residencePermit: "none",
     travelClass: "Economy",
     bags: 0,
     weight: "23",
   };
+}
+
+function countryLabel(code: string) {
+  const c = COUNTRIES.find((x) => x.code === code);
+  return c ? `${c.code} — ${c.name}` : "—";
 }
 
 function passengerToText(p: Passenger, c: Copy) {
@@ -118,7 +132,12 @@ function passengerToText(p: Passenger, c: Copy) {
   const cls =
     p.travelClass === "Economy" ? c.classEconomy :
     p.travelClass === "Premium" ? c.classPremium : c.classBusiness;
-  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${p.weight}kg`;
+  const cit1 = p.citizenship1 ? countryLabel(p.citizenship1) : "—";
+  const cit2 = p.citizenship2 ? countryLabel(p.citizenship2) : "—";
+  const permit =
+    p.residencePermit === "yes" ? c.permitYes :
+    p.residencePermit === "no" ? c.permitNo : c.permitNone;
+  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.citizenship1}: ${cit1} | ${c.citizenship2}: ${cit2} | ${c.residencePermit}: ${permit} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${p.weight}kg`;
 }
 
 type Copy = {
@@ -177,6 +196,18 @@ type Copy = {
   bags: string;
   weight: string;
   passengerIncomplete: string;
+  citizenship1: string;
+  citizenship2: string;
+  citizenshipPlaceholder: string;
+  citizenshipSearch: string;
+  citizenshipEmpty: string;
+  citizenshipNone: string;
+  residencePermit: string;
+  permitNone: string;
+  permitYes: string;
+  permitNo: string;
+  notesTitle: string;
+  notesPlaceholder: string;
 };
 
 const copy: Record<Lang, Copy> = {
@@ -236,6 +267,18 @@ const copy: Record<Lang, Copy> = {
     bags: "Bagagli in stiva",
     weight: "Peso bagaglio",
     passengerIncomplete: "Completa i dati di tutti i passeggeri: cognome, nome e data di nascita sono obbligatori.",
+    citizenship1: "Cittadinanza / Passaporto",
+    citizenship2: "Seconda cittadinanza / Passaporto",
+    citizenshipPlaceholder: "Seleziona paese",
+    citizenshipSearch: "Cerca paese…",
+    citizenshipEmpty: "Nessun risultato",
+    citizenshipNone: "— Nessuna —",
+    residencePermit: "Permesso di soggiorno paese di destinazione",
+    permitNone: "Nessuno",
+    permitYes: "Sì",
+    permitNo: "No",
+    notesTitle: "Altre informazioni",
+    notesPlaceholder: "Si prega di inserire tutte le altre informazioni aggiuntive che ritenete utili (esigenze particolari, preferenze di orario, richieste speciali, ecc.).",
   },
   en: {
     back: "Back to home",
@@ -293,6 +336,18 @@ const copy: Record<Lang, Copy> = {
     bags: "Checked bags",
     weight: "Bag weight",
     passengerIncomplete: "Please complete all passenger details: last name, first name and date of birth are required.",
+    citizenship1: "Citizenship / Passport",
+    citizenship2: "Second citizenship / Passport",
+    citizenshipPlaceholder: "Select country",
+    citizenshipSearch: "Search country…",
+    citizenshipEmpty: "No results",
+    citizenshipNone: "— None —",
+    residencePermit: "Residence permit in destination country",
+    permitNone: "None",
+    permitYes: "Yes",
+    permitNo: "No",
+    notesTitle: "Additional information",
+    notesPlaceholder: "Please provide any additional information you consider useful (special needs, time preferences, special requests, etc.).",
   },
   pt: {
     back: "Voltar para a home",
@@ -350,6 +405,18 @@ const copy: Record<Lang, Copy> = {
     bags: "Bagagem despachada",
     weight: "Peso da bagagem",
     passengerIncomplete: "Complete os dados de todos os passageiros: sobrenome, nome e data de nascimento são obrigatórios.",
+    citizenship1: "Cidadania / Passaporte",
+    citizenship2: "Segunda cidadania / Passaporte",
+    citizenshipPlaceholder: "Selecione o país",
+    citizenshipSearch: "Buscar país…",
+    citizenshipEmpty: "Sem resultados",
+    citizenshipNone: "— Nenhuma —",
+    residencePermit: "Autorização de residência no país de destino",
+    permitNone: "Nenhuma",
+    permitYes: "Sim",
+    permitNo: "Não",
+    notesTitle: "Informações adicionais",
+    notesPlaceholder: "Por favor, inclua todas as informações adicionais que considerar úteis (necessidades especiais, preferências de horário, pedidos especiais, etc.).",
   },
 };
 
@@ -511,6 +578,48 @@ function PassengerEditor({
         </Popover>
       </div>
       <div className="space-y-1.5">
+        <Label>{c.citizenship1}</Label>
+        <CountryCombobox
+          value={passenger.citizenship1}
+          onChange={(v) => onChange({ citizenship1: v })}
+          placeholder={c.citizenshipPlaceholder}
+          searchLabel={c.citizenshipSearch}
+          emptyLabel={c.citizenshipEmpty}
+          ariaLabel={c.citizenship1}
+          allowClear
+          clearLabel={c.citizenshipNone}
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.citizenship2}</Label>
+        <CountryCombobox
+          value={passenger.citizenship2}
+          onChange={(v) => onChange({ citizenship2: v })}
+          placeholder={c.citizenshipPlaceholder}
+          searchLabel={c.citizenshipSearch}
+          emptyLabel={c.citizenshipEmpty}
+          ariaLabel={c.citizenship2}
+          allowClear
+          clearLabel={c.citizenshipNone}
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label>{c.residencePermit}</Label>
+        <Select
+          value={passenger.residencePermit}
+          onValueChange={(v) => onChange({ residencePermit: v as "none" | "yes" | "no" })}
+        >
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="none">{c.permitNone}</SelectItem>
+            <SelectItem value="yes">{c.permitYes}</SelectItem>
+            <SelectItem value="no">{c.permitNo}</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="space-y-1.5">
         <Label>{c.class}</Label>
         <Select value={passenger.travelClass} onValueChange={(v) => onChange({ travelClass: v as TravelClass })}>
           <SelectTrigger>
@@ -575,6 +684,7 @@ export default function Fly() {
   const [returnLeg, setReturnLeg] = useState<Leg>(newLeg());
   const [complexLegs, setComplexLegs] = useState<Leg[]>([newLeg()]);
   const [passengers, setPassengers] = useState<Passenger[]>([newPassenger()]);
+  const [notes, setNotes] = useState("");
 
   function patchOutbound(patch: Partial<Leg>) {
     setOutbound((prev) => ({ ...prev, ...patch }));
@@ -669,6 +779,7 @@ export default function Fly() {
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
     const itineraryText = itineraryToText();
     const passengersText = passengersToText();
+    const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
     try {
       await supabase.functions.invoke("send-transactional-email", {
         body: {
@@ -678,7 +789,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
@@ -932,6 +1043,20 @@ export default function Fly() {
                     {c.addPassenger}
                   </Button>
                 </div>
+              </div>
+
+              <div className="pt-2 border-t border-border space-y-1.5">
+                <Label htmlFor="notes" className="text-lg font-semibold">
+                  {c.notesTitle}
+                </Label>
+                <Textarea
+                  id="notes"
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder={c.notesPlaceholder}
+                  maxLength={2000}
+                  rows={5}
+                />
               </div>
 
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
