@@ -609,6 +609,19 @@ export default function Fly() {
     if (tripType === "roundtrip") return legComplete(outbound) && legComplete(returnLeg);
     return complexLegs.every(legComplete);
   }
+  function passengerComplete(p: Passenger) {
+    return !!(p.lastName.trim() && p.firstName.trim() && p.birthDate);
+  }
+  function passengersComplete(): boolean {
+    return passengers.every(passengerComplete);
+  }
+  function passengersToText(): string {
+    const lines: string[] = [c.passengerTitle];
+    passengers.forEach((p, i) => {
+      lines.push(`  ${c.passenger} ${i + 1}: ${passengerToText(p, c)}`);
+    });
+    return lines.join("\n");
+  }
   function itineraryToText(): string {
     const tripLabel =
       tripType === "roundtrip" ? c.tripRoundtrip : tripType === "oneway" ? c.tripOneway : c.tripComplex;
