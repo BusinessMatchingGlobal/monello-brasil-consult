@@ -408,7 +408,7 @@ const copy: Record<Lang, Copy> = {
     classBusiness: "Executiva",
     bags: "Bagagem despachada",
     weight: "Peso da bagagem",
-    passengerIncomplete: "Complete os dados de todos os passageiros: sobrenome, nome e data de nascimento são obrigatórios.",
+    passengerIncomplete: "Complete os dados de todos os passageiros: sobrenome, nome, data de nascimento e cidadania/passaporte são obrigatórios.",
     citizenship1: "Cidadania / Passaporte",
     citizenship2: "Segunda cidadania / Passaporte",
     citizenshipPlaceholder: "Selecione o país",
