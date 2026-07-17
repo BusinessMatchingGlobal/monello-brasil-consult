@@ -196,6 +196,18 @@ type Copy = {
   bags: string;
   weight: string;
   passengerIncomplete: string;
+  citizenship1: string;
+  citizenship2: string;
+  citizenshipPlaceholder: string;
+  citizenshipSearch: string;
+  citizenshipEmpty: string;
+  citizenshipNone: string;
+  residencePermit: string;
+  permitNone: string;
+  permitYes: string;
+  permitNo: string;
+  notesTitle: string;
+  notesPlaceholder: string;
 };
 
 const copy: Record<Lang, Copy> = {
