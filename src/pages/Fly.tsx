@@ -591,6 +591,15 @@ export default function Fly() {
   function removeComplexLeg(id: string) {
     setComplexLegs((prev) => (prev.length <= 1 ? prev : prev.filter((l) => l.id !== id)));
   }
+  function patchPassenger(id: string, patch: Partial<Passenger>) {
+    setPassengers((prev) => prev.map((p) => (p.id === id ? { ...p, ...patch } : p)));
+  }
+  function addPassenger() {
+    setPassengers((prev) => [...prev, newPassenger()]);
+  }
+  function removePassenger(id: string) {
+    setPassengers((prev) => (prev.length <= 1 ? prev : prev.filter((p) => p.id !== id)));
+  }
 
   function legComplete(l: Leg) {
     return !!(l.origin && l.destination && l.date);
