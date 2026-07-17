@@ -684,6 +684,7 @@ export default function Fly() {
   const [returnLeg, setReturnLeg] = useState<Leg>(newLeg());
   const [complexLegs, setComplexLegs] = useState<Leg[]>([newLeg()]);
   const [passengers, setPassengers] = useState<Passenger[]>([newPassenger()]);
+  const [notes, setNotes] = useState("");
 
   function patchOutbound(patch: Partial<Leg>) {
     setOutbound((prev) => ({ ...prev, ...patch }));
@@ -778,6 +779,7 @@ export default function Fly() {
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
     const itineraryText = itineraryToText();
     const passengersText = passengersToText();
+    const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
     try {
       await supabase.functions.invoke("send-transactional-email", {
         body: {
@@ -787,7 +789,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
