@@ -73,7 +73,7 @@ function Nav() {
           <img
             src={logoBMG.url}
             alt="Business Matching Global"
-            className="h-12 md:h-14 w-auto"
+            className="h-11 md:h-13 w-auto"
           />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
