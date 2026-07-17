@@ -493,6 +493,7 @@ export const translations = {
       successBody: "Entraremos em contato em breve. Se não receber resposta, verifique a pasta de SPAM.",
       passengerTitle: "Passageiros",
       passengerSub: "Insira os dados dos passageiros para a solicitação de voo.",
+      passengerAttention: "Preste atenção especial ao preencher os dados dos passageiros: eles devem corresponder exatamente aos documentos de viagem.",
       passenger: "Passageiro",
       addPassenger: "Adicionar passageiro",
       removePassenger: "Remover",
@@ -505,7 +506,7 @@ export const translations = {
       classBusiness: "Executiva",
       bags: "Bagagem despachada",
       weight: "Peso da bagagem",
-      passengerIncomplete: "Complete os dados de todos os passageiros: sobrenome, nome e data de nascimento são obrigatórios.",
+      passengerIncomplete: "Complete os dados de todos os passageiros: sobrenome, nome, data de nascimento e cidadania/passaporte são obrigatórios.",
     },
   },
 } as const;
