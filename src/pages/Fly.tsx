@@ -183,6 +183,7 @@ type Copy = {
   itineraryIncomplete: string;
   passengerTitle: string;
   passengerSub: string;
+  passengerAttention: string;
   passenger: string;
   addPassenger: string;
   removePassenger: string;
