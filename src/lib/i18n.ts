@@ -486,7 +486,7 @@ export const translations = {
       consentRequired: "Você precisa aceitar o aviso de privacidade para enviar a solicitação.",
       submit: "Enviar solicitação",
       invalid: "Verifique os campos: todos são obrigatórios e o e-mail deve ser válido.",
-      required: "Todos os campi sono obrigatórios.",
+      required: "Todos os campos são obrigatórios.",
       successTitle: "Obrigado! Sua solicitação foi enviada.",
       successBody: "Entraremos em contato em breve. Se não receber resposta, verifique a pasta de SPAM.",
       passengerTitle: "Passageiros",
