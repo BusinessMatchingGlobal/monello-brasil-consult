@@ -13,7 +13,7 @@ import ebookAsset from "@/assets/ebook-exporting-to-brazil.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
 
 const PDF_URL = ebookAsset.url;
-const PDF_FILENAME = "Exporting_to_Brazil_EU_Manual_BMG.pdf";
+const PDF_FILENAME = "Exporting_to_Brazil_EU_Manual_BMG_v9.pdf";
 
 const schema = z.object({
   firstName: z.string().trim().min(1).max(80),
