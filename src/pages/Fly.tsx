@@ -23,6 +23,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useCanonical } from "@/lib/useCanonical";
 import { AirportCombobox } from "@/components/AirportCombobox";
 import { AIRPORTS } from "@/lib/airports";
+import { CountryCombobox } from "@/components/CountryCombobox";
+import { COUNTRIES } from "@/lib/countries";
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 const PREFIXES = [
@@ -96,6 +99,9 @@ type Passenger = {
   lastName: string;
   firstName: string;
   birthDate: Date | undefined;
+  citizenship1: string;
+  citizenship2: string;
+  residencePermit: "none" | "yes" | "no";
   travelClass: TravelClass;
   bags: number;
   weight: "15" | "23" | "32";
@@ -107,10 +113,18 @@ function newPassenger(): Passenger {
     lastName: "",
     firstName: "",
     birthDate: undefined,
+    citizenship1: "",
+    citizenship2: "",
+    residencePermit: "none",
     travelClass: "Economy",
     bags: 0,
     weight: "23",
   };
+}
+
+function countryLabel(code: string) {
+  const c = COUNTRIES.find((x) => x.code === code);
+  return c ? `${c.code} — ${c.name}` : "—";
 }
 
 function passengerToText(p: Passenger, c: Copy) {
@@ -118,7 +132,12 @@ function passengerToText(p: Passenger, c: Copy) {
   const cls =
     p.travelClass === "Economy" ? c.classEconomy :
     p.travelClass === "Premium" ? c.classPremium : c.classBusiness;
-  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${p.weight}kg`;
+  const cit1 = p.citizenship1 ? countryLabel(p.citizenship1) : "—";
+  const cit2 = p.citizenship2 ? countryLabel(p.citizenship2) : "—";
+  const permit =
+    p.residencePermit === "yes" ? c.permitYes :
+    p.residencePermit === "no" ? c.permitNo : c.permitNone;
+  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.citizenship1}: ${cit1} | ${c.citizenship2}: ${cit2} | ${c.residencePermit}: ${permit} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${p.weight}kg`;
 }
 
 type Copy = {
