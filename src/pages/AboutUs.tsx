@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import logoBMG from "@/assets/logo-business-matching-global.png.asset.json";
 
 const EMAIL = "info@businessmatching.global";
 

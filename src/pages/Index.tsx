@@ -4,6 +4,7 @@ import { useT, Lang } from "@/lib/i18n";
 import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italcam-minas-gerais.png.asset.json";
 import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
+import logoBMG from "@/assets/logo-business-matching-global.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
