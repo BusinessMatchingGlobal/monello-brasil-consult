@@ -1004,6 +1004,9 @@ export default function Fly() {
   function passengerComplete(p: Passenger) {
     return !!(p.lastName.trim() && p.firstName.trim() && p.birthDate && p.citizenship1.trim());
   }
+  function passengerResponsibilityOk(p: Passenger) {
+    return !!p.passportFile || p.responsibilityAck;
+  }
   function passengersComplete(): boolean {
     return passengers.every(passengerComplete);
   }
@@ -1056,6 +1059,10 @@ export default function Fly() {
       toast({ title: c.passengerIncomplete, variant: "destructive" });
       return;
     }
+    if (!passengers.every(passengerResponsibilityOk)) {
+      toast({ title: c.responsibilityRequired, variant: "destructive" });
+      return;
+    }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
@@ -1063,6 +1070,77 @@ export default function Fly() {
     const passengersText = passengersToText();
     const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
     try {
+      // 1) Upload documents to private storage bucket, then sign URLs.
+      const submissionId = crypto.randomUUID();
+      const uploadedByPassenger: Array<{ passportUrl?: string; residenceUrls: string[] }> = [];
+      const pathsToSign: string[] = [];
+      const perPassengerPaths: Array<{ passportPath?: string; residencePaths: string[] }> = [];
+
+      for (let i = 0; i < passengers.length; i++) {
+        const p = passengers[i];
+        const entry: { passportPath?: string; residencePaths: string[] } = { residencePaths: [] };
+        if (p.passportFile) {
+          const ext = p.passportFile.name.split(".").pop() || "bin";
+          const path = `${submissionId}/p${i + 1}/passport-${Date.now()}.${ext}`;
+          const { error } = await supabase.storage
+            .from("fly-documents")
+            .upload(path, p.passportFile, { contentType: p.passportFile.type, upsert: false });
+          if (error) throw error;
+          entry.passportPath = path;
+          pathsToSign.push(path);
+        }
+        for (let j = 0; j < p.residenceFiles.length; j++) {
+          const f = p.residenceFiles[j];
+          const ext = f.name.split(".").pop() || "bin";
+          const path = `${submissionId}/p${i + 1}/residence-${j + 1}-${Date.now()}.${ext}`;
+          const { error } = await supabase.storage
+            .from("fly-documents")
+            .upload(path, f, { contentType: f.type, upsert: false });
+          if (error) throw error;
+          entry.residencePaths.push(path);
+          pathsToSign.push(path);
+        }
+        perPassengerPaths.push(entry);
+      }
+
+      // 2) Ask backend for signed URLs (30-day validity).
+      const pathToUrl = new Map<string, string>();
+      if (pathsToSign.length > 0) {
+        const { data: signed, error: signErr } = await supabase.functions.invoke(
+          "sign-fly-documents",
+          { body: { paths: pathsToSign } },
+        );
+        if (signErr) throw signErr;
+        const urls = (signed as { urls: Array<{ path: string; url: string }> } | null)?.urls ?? [];
+        for (const u of urls) pathToUrl.set(u.path, u.url);
+      }
+
+      for (const entry of perPassengerPaths) {
+        uploadedByPassenger.push({
+          passportUrl: entry.passportPath ? pathToUrl.get(entry.passportPath) : undefined,
+          residenceUrls: entry.residencePaths
+            .map((p) => pathToUrl.get(p))
+            .filter((u): u is string => !!u),
+        });
+      }
+
+      // 3) Build documents block for the email.
+      let documentsText = "";
+      const hasAnyDoc = uploadedByPassenger.some((u) => u.passportUrl || u.residenceUrls.length > 0);
+      const acksOnly = passengers.map((p, i) => ({ i, ack: !p.passportFile && p.responsibilityAck }));
+      if (hasAnyDoc || acksOnly.some((a) => a.ack)) {
+        const docLines: string[] = ["", "Documenti / Documents:"];
+        uploadedByPassenger.forEach((u, i) => {
+          docLines.push(`  ${c.passenger} ${i + 1}:`);
+          if (u.passportUrl) docLines.push(`    Passport: ${u.passportUrl}`);
+          u.residenceUrls.forEach((url, j) => docLines.push(`    Residence ${j + 1}: ${url}`));
+          if (!u.passportUrl && passengers[i].responsibilityAck) {
+            docLines.push(`    ⚠ Nessun documento — responsabilità confermata dal richiedente.`);
+          }
+        });
+        documentsText = "\n" + docLines.join("\n");
+      }
+
       await supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-notification",
@@ -1071,7 +1149,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${documentsText}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
@@ -1081,7 +1159,7 @@ export default function Fly() {
       setSubmitted(true);
     } catch (err) {
       console.error("Fly page notification failed", err);
-      toast({ title: c.invalid, variant: "destructive" });
+      toast({ title: c.uploadFailed, variant: "destructive" });
     } finally {
       setLoading(false);
     }
