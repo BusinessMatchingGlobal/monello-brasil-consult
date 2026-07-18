@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2 } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2, Upload, FileText, X, HelpCircle } from "lucide-react";
 import { format } from "date-fns";
 import { z } from "zod";
 import { useT, type Lang } from "@/lib/i18n";
@@ -27,6 +27,10 @@ import { CountryCombobox } from "@/components/CountryCombobox";
 import { COUNTRIES } from "@/lib/countries";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import rneExample from "@/assets/rne-example.png.asset.json";
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/jpg", "application/pdf"];
 
 const PREFIXES = [
   { value: "+39", label: "+39 Italia" },
