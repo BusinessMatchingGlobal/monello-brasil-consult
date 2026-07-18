@@ -635,12 +635,17 @@ function PassengerEditor({
   passenger,
   onChange,
   c,
+  tripType,
 }: {
   passenger: Passenger;
   onChange: (patch: Partial<Passenger>) => void;
   c: Copy;
+  tripType: TripType;
 }) {
+  const showResidenceUpload = tripType === "oneway" || passenger.residencePermit !== "none";
+  const showResponsibilityAck = !passenger.passportFile;
   return (
+    <div className="space-y-5">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <div className="space-y-1.5">
         <Label>{c.lastName} *</Label>
@@ -765,6 +770,178 @@ function PassengerEditor({
           </SelectContent>
         </Select>
       </div>
+    </div>
+
+      <div className="rounded-md border border-dashed border-border p-4 bg-muted/30 space-y-4">
+        <div className="flex items-center justify-between gap-2 flex-wrap">
+          <h4 className="text-sm font-semibold">{c.docsTitle}</h4>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button type="button" size="sm" variant="ghost" className="text-primary">
+                <HelpCircle className="h-4 w-4 mr-1" />
+                {c.seeExample}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-[320px] p-2" align="end">
+              <img
+                src={rneExample.url}
+                alt={c.exampleCaption}
+                className="w-full h-auto rounded"
+                loading="lazy"
+              />
+              <p className="text-xs text-muted-foreground mt-2">{c.exampleCaption}</p>
+            </PopoverContent>
+          </Popover>
+        </div>
+        <p className="text-xs text-muted-foreground">{c.docsIntro}</p>
+
+        <DocumentUploader
+          label={c.passportLabel}
+          help={c.passportHelp}
+          files={passenger.passportFile ? [passenger.passportFile] : []}
+          multiple={false}
+          onFilesChange={(files) => onChange({ passportFile: files[0] ?? null })}
+          c={c}
+        />
+
+        {showResidenceUpload && (
+          <DocumentUploader
+            label={c.residenceLabel}
+            help={c.residenceHelp}
+            files={passenger.residenceFiles}
+            multiple
+            maxFiles={2}
+            onFilesChange={(files) => onChange({ residenceFiles: files })}
+            c={c}
+          />
+        )}
+
+        <p className="text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded px-2 py-1.5">
+          {c.docsWarning}
+        </p>
+
+        {showResponsibilityAck && (
+          <label className="flex items-start gap-2 text-xs text-foreground pt-1">
+            <Checkbox
+              checked={passenger.responsibilityAck}
+              onCheckedChange={(v) => onChange({ responsibilityAck: v === true })}
+              className="mt-0.5"
+            />
+            <span>{c.responsibilityAck}</span>
+          </label>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function DocumentUploader({
+  label,
+  help,
+  files,
+  multiple,
+  maxFiles,
+  onFilesChange,
+  c,
+}: {
+  label: string;
+  help?: string;
+  files: File[];
+  multiple: boolean;
+  maxFiles?: number;
+  onFilesChange: (files: File[]) => void;
+  c: Copy;
+}) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  function handleFiles(list: FileList | null) {
+    if (!list) return;
+    const incoming = Array.from(list);
+    for (const f of incoming) {
+      if (!ACCEPTED_TYPES.includes(f.type)) {
+        toast({ title: c.fileTypeInvalid, variant: "destructive" });
+        return;
+      }
+      if (f.size > MAX_FILE_SIZE) {
+        toast({ title: c.fileTooLarge, variant: "destructive" });
+        return;
+      }
+    }
+    if (multiple) {
+      const combined = [...files, ...incoming];
+      const limit = maxFiles ?? combined.length;
+      if (combined.length > limit) {
+        toast({ title: c.tooManyFiles, variant: "destructive" });
+        onFilesChange(combined.slice(0, limit));
+      } else {
+        onFilesChange(combined);
+      }
+    } else {
+      onFilesChange([incoming[0]]);
+    }
+    if (inputRef.current) inputRef.current.value = "";
+  }
+
+  function removeAt(idx: number) {
+    const next = files.slice();
+    next.splice(idx, 1);
+    onFilesChange(next);
+  }
+
+  return (
+    <div className="space-y-2">
+      <div>
+        <div className="text-sm font-medium">{label}</div>
+        {help && <p className="text-xs text-muted-foreground mt-0.5">{help}</p>}
+      </div>
+      <div className="flex items-center gap-2 flex-wrap">
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          onClick={() => inputRef.current?.click()}
+        >
+          <Upload className="h-4 w-4 mr-1" />
+          {multiple ? c.chooseFiles : c.chooseFile}
+        </Button>
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/jpg,application/pdf"
+          capture="environment"
+          multiple={multiple}
+          className="hidden"
+          onChange={(e) => handleFiles(e.target.files)}
+        />
+      </div>
+      {files.length > 0 && (
+        <ul className="space-y-1">
+          {files.map((f, idx) => (
+            <li
+              key={`${f.name}-${idx}`}
+              className="flex items-center justify-between gap-2 rounded border border-border bg-background px-2 py-1 text-xs"
+            >
+              <span className="flex items-center gap-2 truncate">
+                <FileText className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                <span className="truncate">{f.name}</span>
+                <span className="text-muted-foreground shrink-0">
+                  ({(f.size / 1024).toFixed(0)} KB)
+                </span>
+              </span>
+              <Button
+                type="button"
+                size="sm"
+                variant="ghost"
+                className="h-6 px-2 text-destructive"
+                onClick={() => removeAt(idx)}
+                aria-label={c.remove}
+              >
+                <X className="h-3.5 w-3.5" />
+              </Button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
