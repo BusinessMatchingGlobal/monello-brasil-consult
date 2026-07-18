@@ -1082,6 +1082,7 @@ export default function Fly() {
     const itineraryText = itineraryToText();
     const passengersText = passengersToText();
     const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
+    const servicesText = services.trim() ? `\n\n${c.servicesTitle}:\n${services.trim()}` : "";
     try {
       // 1) Upload documents to private storage bucket, then sign URLs.
       const submissionId = crypto.randomUUID();
@@ -1162,7 +1163,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${documentsText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${servicesText}${documentsText}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
