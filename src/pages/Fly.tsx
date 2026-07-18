@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2 } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2, Upload, FileText, X, HelpCircle } from "lucide-react";
 import { format } from "date-fns";
 import { z } from "zod";
 import { useT, type Lang } from "@/lib/i18n";
@@ -27,6 +27,10 @@ import { CountryCombobox } from "@/components/CountryCombobox";
 import { COUNTRIES } from "@/lib/countries";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import rneExample from "@/assets/rne-example.png.asset.json";
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/jpg", "application/pdf"];
 
 const PREFIXES = [
   { value: "+39", label: "+39 Italia" },
@@ -105,6 +109,9 @@ type Passenger = {
   travelClass: TravelClass;
   bags: number;
   weight: "15" | "23" | "32";
+  passportFile: File | null;
+  residenceFiles: File[];
+  responsibilityAck: boolean;
 };
 
 function newPassenger(): Passenger {
@@ -119,6 +126,9 @@ function newPassenger(): Passenger {
     travelClass: "Economy",
     bags: 0,
     weight: "23",
+    passportFile: null,
+    residenceFiles: [],
+    responsibilityAck: false,
   };
 }
 
@@ -209,6 +219,30 @@ type Copy = {
   permitNo: string;
   notesTitle: string;
   notesPlaceholder: string;
+  // Documents upload
+  passengerAttentionLead: string;
+  passengerAttentionMid1: string;
+  passengerAttentionEmph: string;
+  passengerAttentionMid2: string;
+  passengerAttentionTail: string;
+  docsTitle: string;
+  docsIntro: string;
+  passportLabel: string;
+  passportHelp: string;
+  residenceLabel: string;
+  residenceHelp: string;
+  docsWarning: string;
+  chooseFile: string;
+  chooseFiles: string;
+  remove: string;
+  seeExample: string;
+  exampleCaption: string;
+  fileTooLarge: string;
+  fileTypeInvalid: string;
+  tooManyFiles: string;
+  uploadFailed: string;
+  responsibilityAck: string;
+  responsibilityRequired: string;
 };
 
 const copy: Record<Lang, Copy> = {
@@ -281,6 +315,29 @@ const copy: Record<Lang, Copy> = {
     permitNo: "No",
     notesTitle: "Altre informazioni",
     notesPlaceholder: "Si prega di inserire tutte le altre informazioni aggiuntive che ritenete utili (esigenze particolari, preferenze di orario, richieste speciali, ecc.).",
+    passengerAttentionLead: "Prestare massima attenzione nella compilazione di NOME e COGNOME: devono corrispondere ",
+    passengerAttentionMid1: "",
+    passengerAttentionEmph: "esattamente",
+    passengerAttentionMid2: " a quanto riportato sul passaporto che verrà utilizzato per il viaggio. La tariffa viene emessa con questi dati — un errore anche di una sola lettera può richiedere la riemissione del biglietto, e la tariffa originale potrebbe non essere più disponibile.",
+    passengerAttentionTail: "",
+    docsTitle: "Allegare copia dei documenti (facoltativo, ma fortemente consigliato)",
+    docsIntro: "Non è obbligatorio — ma è il modo più semplice per proteggere la tua tariffa: il nostro team verifica nome, numero e validità prima dell'emissione.",
+    passportLabel: "Passaporto — pagina identificativa",
+    passportHelp: "Foto o scansione in cui siano chiaramente visibili nome e cognome, numero del documento, data di emissione e data di scadenza. L'immagine deve essere nitida, completa e senza riflessi.",
+    residenceLabel: "Documento di residenza (es. CRNM/RNE, permesso di soggiorno) — fronte e retro",
+    residenceHelp: "Entrambi i lati, leggibili.",
+    docsWarning: "⚠️ Documenti illeggibili, tagliati o incompleti equivalgono a documenti non inviati: in tal caso la verifica non è possibile e l'esattezza dei dati inseriti rimane di esclusiva responsabilità del passeggero.",
+    chooseFile: "Scegli file",
+    chooseFiles: "Scegli file (max 2)",
+    remove: "Rimuovi",
+    seeExample: "Vedi esempio",
+    exampleCaption: "Esempio di documento leggibile",
+    fileTooLarge: "File troppo grande (max 10 MB).",
+    fileTypeInvalid: "Formato non valido. Ammessi: jpg, png, pdf.",
+    tooManyFiles: "Massimo 2 file per il documento di residenza.",
+    uploadFailed: "Caricamento file non riuscito. Riprova.",
+    responsibilityAck: "Ho scelto di non inviare i documenti. Confermo che i dati inseriti corrispondono esattamente ai documenti che verranno utilizzati per il viaggio e sono consapevole che eventuali costi di riemissione o impedimenti all'imbarco derivanti da divergenze saranno di mia esclusiva responsabilità.",
+    responsibilityRequired: "Per ogni passeggero senza copia del passaporto caricata, devi confermare la presa di responsabilità.",
   },
   en: {
     back: "Back to home",
@@ -351,6 +408,29 @@ const copy: Record<Lang, Copy> = {
     permitNo: "No",
     notesTitle: "Additional information",
     notesPlaceholder: "Please provide any additional information you consider useful (special needs, time preferences, special requests, etc.).",
+    passengerAttentionLead: "Please pay maximum attention when entering FIRST and LAST NAME: they must match ",
+    passengerAttentionMid1: "",
+    passengerAttentionEmph: "exactly",
+    passengerAttentionMid2: " what is shown on the passport that will be used for the trip. The fare is issued with this data — even a single-letter error may require ticket reissue, and the original fare may no longer be available.",
+    passengerAttentionTail: "",
+    docsTitle: "Attach a copy of the documents (optional, but strongly recommended)",
+    docsIntro: "Not mandatory — but it is the simplest way to protect your fare: our team verifies name, number and validity before issuing.",
+    passportLabel: "Passport — ID page",
+    passportHelp: "Photo or scan clearly showing first and last name, document number, issue date and expiry date. The image must be sharp, complete and free of glare.",
+    residenceLabel: "Residence document (e.g. CRNM/RNE, residence permit) — front and back",
+    residenceHelp: "Both sides, legible.",
+    docsWarning: "⚠️ Illegible, cropped or incomplete documents are equivalent to no documents at all: in that case verification is not possible and the accuracy of the data provided remains the sole responsibility of the passenger.",
+    chooseFile: "Choose file",
+    chooseFiles: "Choose files (max 2)",
+    remove: "Remove",
+    seeExample: "See example",
+    exampleCaption: "Example of a legible document",
+    fileTooLarge: "File too large (max 10 MB).",
+    fileTypeInvalid: "Invalid format. Accepted: jpg, png, pdf.",
+    tooManyFiles: "Maximum 2 files for the residence document.",
+    uploadFailed: "File upload failed. Please try again.",
+    responsibilityAck: "I chose not to send the documents. I confirm that the data provided matches exactly the documents that will be used for the trip, and I acknowledge that any reissue costs or boarding denials caused by discrepancies will be my sole responsibility.",
+    responsibilityRequired: "For every passenger without a passport copy uploaded, you must confirm the responsibility acknowledgement.",
   },
   pt: {
     back: "Voltar para a home",
@@ -421,6 +501,29 @@ const copy: Record<Lang, Copy> = {
     permitNo: "Não",
     notesTitle: "Informações adicionais",
     notesPlaceholder: "Por favor, inclua todas as informações adicionais que considerar úteis (necessidades especiais, preferências de horário, pedidos especiais, etc.).",
+    passengerAttentionLead: "Preste máxima atenção ao preencher NOME e SOBRENOME: devem corresponder ",
+    passengerAttentionMid1: "",
+    passengerAttentionEmph: "exatamente",
+    passengerAttentionMid2: " ao que consta no passaporte que será utilizado na viagem. A tarifa é emitida com esses dados — um erro de uma única letra pode exigir a reemissão do bilhete, e a tarifa original pode não estar mais disponível.",
+    passengerAttentionTail: "",
+    docsTitle: "Anexar cópia dos documentos (opcional, mas fortemente recomendado)",
+    docsIntro: "Não é obrigatório — mas é a forma mais simples de proteger a sua tarifa: nossa equipe confere nome, número e validade antes da emissão.",
+    passportLabel: "Passaporte — página de identificação",
+    passportHelp: "Foto ou digitalização onde estejam claramente visíveis nome e sobrenome, número do documento, data de emissão e data de validade. A imagem deve estar nítida, completa e sem reflexos.",
+    residenceLabel: "Documento de residência (ex.: CRNM/RNE, autorização de residência) — frente e verso",
+    residenceHelp: "Ambos os lados, legíveis.",
+    docsWarning: "⚠️ Documentos ilegíveis, cortados ou incompletos equivalem a documentos não enviados: nesse caso, a conferência não é possível e a exatidão dos dados informados permanece de responsabilidade exclusiva do passageiro.",
+    chooseFile: "Escolher arquivo",
+    chooseFiles: "Escolher arquivos (máx. 2)",
+    remove: "Remover",
+    seeExample: "Ver exemplo",
+    exampleCaption: "Exemplo de documento legível",
+    fileTooLarge: "Arquivo muito grande (máx. 10 MB).",
+    fileTypeInvalid: "Formato inválido. Aceitos: jpg, png, pdf.",
+    tooManyFiles: "Máximo de 2 arquivos para o documento de residência.",
+    uploadFailed: "Falha no envio do arquivo. Tente novamente.",
+    responsibilityAck: "Optei por não enviar os documentos. Confirmo que os dados informados correspondem exatamente aos documentos que serão utilizados na viagem e estou ciente de que eventuais custos de reemissão ou impedimentos de embarque decorrentes de divergências serão de minha exclusiva responsabilidade.",
+    responsibilityRequired: "Para cada passageiro sem cópia do passaporte enviada, é necessário confirmar a declaração de responsabilidade.",
   },
 };
 
@@ -532,12 +635,17 @@ function PassengerEditor({
   passenger,
   onChange,
   c,
+  tripType,
 }: {
   passenger: Passenger;
   onChange: (patch: Partial<Passenger>) => void;
   c: Copy;
+  tripType: TripType;
 }) {
+  const showResidenceUpload = tripType === "oneway" || passenger.residencePermit !== "none";
+  const showResponsibilityAck = !passenger.passportFile;
   return (
+    <div className="space-y-5">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <div className="space-y-1.5">
         <Label>{c.lastName} *</Label>
@@ -663,6 +771,178 @@ function PassengerEditor({
         </Select>
       </div>
     </div>
+
+      <div className="rounded-md border border-dashed border-border p-4 bg-muted/30 space-y-4">
+        <div className="flex items-center justify-between gap-2 flex-wrap">
+          <h4 className="text-sm font-semibold">{c.docsTitle}</h4>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button type="button" size="sm" variant="ghost" className="text-primary">
+                <HelpCircle className="h-4 w-4 mr-1" />
+                {c.seeExample}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-[320px] p-2" align="end">
+              <img
+                src={rneExample.url}
+                alt={c.exampleCaption}
+                className="w-full h-auto rounded"
+                loading="lazy"
+              />
+              <p className="text-xs text-muted-foreground mt-2">{c.exampleCaption}</p>
+            </PopoverContent>
+          </Popover>
+        </div>
+        <p className="text-xs text-muted-foreground">{c.docsIntro}</p>
+
+        <DocumentUploader
+          label={c.passportLabel}
+          help={c.passportHelp}
+          files={passenger.passportFile ? [passenger.passportFile] : []}
+          multiple={false}
+          onFilesChange={(files) => onChange({ passportFile: files[0] ?? null })}
+          c={c}
+        />
+
+        {showResidenceUpload && (
+          <DocumentUploader
+            label={c.residenceLabel}
+            help={c.residenceHelp}
+            files={passenger.residenceFiles}
+            multiple
+            maxFiles={2}
+            onFilesChange={(files) => onChange({ residenceFiles: files })}
+            c={c}
+          />
+        )}
+
+        <p className="text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded px-2 py-1.5">
+          {c.docsWarning}
+        </p>
+
+        {showResponsibilityAck && (
+          <label className="flex items-start gap-2 text-xs text-foreground pt-1">
+            <Checkbox
+              checked={passenger.responsibilityAck}
+              onCheckedChange={(v) => onChange({ responsibilityAck: v === true })}
+              className="mt-0.5"
+            />
+            <span>{c.responsibilityAck}</span>
+          </label>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function DocumentUploader({
+  label,
+  help,
+  files,
+  multiple,
+  maxFiles,
+  onFilesChange,
+  c,
+}: {
+  label: string;
+  help?: string;
+  files: File[];
+  multiple: boolean;
+  maxFiles?: number;
+  onFilesChange: (files: File[]) => void;
+  c: Copy;
+}) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  function handleFiles(list: FileList | null) {
+    if (!list) return;
+    const incoming = Array.from(list);
+    for (const f of incoming) {
+      if (!ACCEPTED_TYPES.includes(f.type)) {
+        toast({ title: c.fileTypeInvalid, variant: "destructive" });
+        return;
+      }
+      if (f.size > MAX_FILE_SIZE) {
+        toast({ title: c.fileTooLarge, variant: "destructive" });
+        return;
+      }
+    }
+    if (multiple) {
+      const combined = [...files, ...incoming];
+      const limit = maxFiles ?? combined.length;
+      if (combined.length > limit) {
+        toast({ title: c.tooManyFiles, variant: "destructive" });
+        onFilesChange(combined.slice(0, limit));
+      } else {
+        onFilesChange(combined);
+      }
+    } else {
+      onFilesChange([incoming[0]]);
+    }
+    if (inputRef.current) inputRef.current.value = "";
+  }
+
+  function removeAt(idx: number) {
+    const next = files.slice();
+    next.splice(idx, 1);
+    onFilesChange(next);
+  }
+
+  return (
+    <div className="space-y-2">
+      <div>
+        <div className="text-sm font-medium">{label}</div>
+        {help && <p className="text-xs text-muted-foreground mt-0.5">{help}</p>}
+      </div>
+      <div className="flex items-center gap-2 flex-wrap">
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          onClick={() => inputRef.current?.click()}
+        >
+          <Upload className="h-4 w-4 mr-1" />
+          {multiple ? c.chooseFiles : c.chooseFile}
+        </Button>
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/jpg,application/pdf"
+          capture="environment"
+          multiple={multiple}
+          className="hidden"
+          onChange={(e) => handleFiles(e.target.files)}
+        />
+      </div>
+      {files.length > 0 && (
+        <ul className="space-y-1">
+          {files.map((f, idx) => (
+            <li
+              key={`${f.name}-${idx}`}
+              className="flex items-center justify-between gap-2 rounded border border-border bg-background px-2 py-1 text-xs"
+            >
+              <span className="flex items-center gap-2 truncate">
+                <FileText className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                <span className="truncate">{f.name}</span>
+                <span className="text-muted-foreground shrink-0">
+                  ({(f.size / 1024).toFixed(0)} KB)
+                </span>
+              </span>
+              <Button
+                type="button"
+                size="sm"
+                variant="ghost"
+                className="h-6 px-2 text-destructive"
+                onClick={() => removeAt(idx)}
+                aria-label={c.remove}
+              >
+                <X className="h-3.5 w-3.5" />
+              </Button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 
@@ -724,6 +1004,9 @@ export default function Fly() {
   function passengerComplete(p: Passenger) {
     return !!(p.lastName.trim() && p.firstName.trim() && p.birthDate && p.citizenship1.trim());
   }
+  function passengerResponsibilityOk(p: Passenger) {
+    return !!p.passportFile || p.responsibilityAck;
+  }
   function passengersComplete(): boolean {
     return passengers.every(passengerComplete);
   }
@@ -776,6 +1059,10 @@ export default function Fly() {
       toast({ title: c.passengerIncomplete, variant: "destructive" });
       return;
     }
+    if (!passengers.every(passengerResponsibilityOk)) {
+      toast({ title: c.responsibilityRequired, variant: "destructive" });
+      return;
+    }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
@@ -783,6 +1070,77 @@ export default function Fly() {
     const passengersText = passengersToText();
     const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
     try {
+      // 1) Upload documents to private storage bucket, then sign URLs.
+      const submissionId = crypto.randomUUID();
+      const uploadedByPassenger: Array<{ passportUrl?: string; residenceUrls: string[] }> = [];
+      const pathsToSign: string[] = [];
+      const perPassengerPaths: Array<{ passportPath?: string; residencePaths: string[] }> = [];
+
+      for (let i = 0; i < passengers.length; i++) {
+        const p = passengers[i];
+        const entry: { passportPath?: string; residencePaths: string[] } = { residencePaths: [] };
+        if (p.passportFile) {
+          const ext = p.passportFile.name.split(".").pop() || "bin";
+          const path = `${submissionId}/p${i + 1}/passport-${Date.now()}.${ext}`;
+          const { error } = await supabase.storage
+            .from("fly-documents")
+            .upload(path, p.passportFile, { contentType: p.passportFile.type, upsert: false });
+          if (error) throw error;
+          entry.passportPath = path;
+          pathsToSign.push(path);
+        }
+        for (let j = 0; j < p.residenceFiles.length; j++) {
+          const f = p.residenceFiles[j];
+          const ext = f.name.split(".").pop() || "bin";
+          const path = `${submissionId}/p${i + 1}/residence-${j + 1}-${Date.now()}.${ext}`;
+          const { error } = await supabase.storage
+            .from("fly-documents")
+            .upload(path, f, { contentType: f.type, upsert: false });
+          if (error) throw error;
+          entry.residencePaths.push(path);
+          pathsToSign.push(path);
+        }
+        perPassengerPaths.push(entry);
+      }
+
+      // 2) Ask backend for signed URLs (30-day validity).
+      const pathToUrl = new Map<string, string>();
+      if (pathsToSign.length > 0) {
+        const { data: signed, error: signErr } = await supabase.functions.invoke(
+          "sign-fly-documents",
+          { body: { paths: pathsToSign } },
+        );
+        if (signErr) throw signErr;
+        const urls = (signed as { urls: Array<{ path: string; url: string }> } | null)?.urls ?? [];
+        for (const u of urls) pathToUrl.set(u.path, u.url);
+      }
+
+      for (const entry of perPassengerPaths) {
+        uploadedByPassenger.push({
+          passportUrl: entry.passportPath ? pathToUrl.get(entry.passportPath) : undefined,
+          residenceUrls: entry.residencePaths
+            .map((p) => pathToUrl.get(p))
+            .filter((u): u is string => !!u),
+        });
+      }
+
+      // 3) Build documents block for the email.
+      let documentsText = "";
+      const hasAnyDoc = uploadedByPassenger.some((u) => u.passportUrl || u.residenceUrls.length > 0);
+      const acksOnly = passengers.map((p, i) => ({ i, ack: !p.passportFile && p.responsibilityAck }));
+      if (hasAnyDoc || acksOnly.some((a) => a.ack)) {
+        const docLines: string[] = ["", "Documenti / Documents:"];
+        uploadedByPassenger.forEach((u, i) => {
+          docLines.push(`  ${c.passenger} ${i + 1}:`);
+          if (u.passportUrl) docLines.push(`    Passport: ${u.passportUrl}`);
+          u.residenceUrls.forEach((url, j) => docLines.push(`    Residence ${j + 1}: ${url}`));
+          if (!u.passportUrl && passengers[i].responsibilityAck) {
+            docLines.push(`    ⚠ Nessun documento — responsabilità confermata dal richiedente.`);
+          }
+        });
+        documentsText = "\n" + docLines.join("\n");
+      }
+
       await supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-notification",
@@ -791,7 +1149,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${documentsText}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
@@ -801,7 +1159,7 @@ export default function Fly() {
       setSubmitted(true);
     } catch (err) {
       console.error("Fly page notification failed", err);
-      toast({ title: c.invalid, variant: "destructive" });
+      toast({ title: c.uploadFailed, variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -1016,8 +1374,10 @@ export default function Fly() {
                 <div className="mb-3">
                   <h2 className="text-lg font-semibold">{c.passengerTitle}</h2>
                   <p className="text-sm text-muted-foreground">{c.passengerSub}</p>
-                  <p className="mt-2 text-sm font-medium text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md px-3 py-2">
-                    {c.passengerAttention}
+                  <p className="mt-2 text-sm font-medium text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md px-3 py-2">
+                    {c.passengerAttentionLead}
+                    <strong className="font-bold">{c.passengerAttentionEmph}</strong>
+                    {c.passengerAttentionMid2}
                   </p>
                 </div>
                 <div className="space-y-6">
@@ -1040,7 +1400,12 @@ export default function Fly() {
                           </Button>
                         )}
                       </div>
-                      <PassengerEditor passenger={p} onChange={(patch) => patchPassenger(p.id, patch)} c={c} />
+                      <PassengerEditor
+                        passenger={p}
+                        onChange={(patch) => patchPassenger(p.id, patch)}
+                        c={c}
+                        tripType={tripType}
+                      />
                     </div>
                   ))}
                   <Button type="button" variant="outline" onClick={addPassenger} className="w-full">

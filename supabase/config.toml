@@ -20,3 +20,6 @@ verify_jwt = false
 
 [functions.newsletter-confirm]
 verify_jwt = false
+
+[functions.sign-fly-documents]
+verify_jwt = false
