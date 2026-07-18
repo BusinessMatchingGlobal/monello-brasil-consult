@@ -1185,7 +1185,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${servicesText}${documentsText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${servicesText}${documentsText}${agencyBlock}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
