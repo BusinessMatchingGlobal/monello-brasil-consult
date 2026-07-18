@@ -979,6 +979,7 @@ export default function Fly() {
   const [complexLegs, setComplexLegs] = useState<Leg[]>([newLeg()]);
   const [passengers, setPassengers] = useState<Passenger[]>([newPassenger()]);
   const [notes, setNotes] = useState("");
+  const [services, setServices] = useState("");
 
   function patchOutbound(patch: Partial<Leg>) {
     setOutbound((prev) => ({ ...prev, ...patch }));
