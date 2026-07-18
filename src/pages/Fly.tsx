@@ -246,6 +246,10 @@ type Copy = {
   uploadFailed: string;
   responsibilityAck: string;
   responsibilityRequired: string;
+  agencyTitle: string;
+  agencyText: string;
+  agencyAuthLabel: string;
+  agencyAuthRequired: string;
 };
 
 const copy: Record<Lang, Copy> = {
