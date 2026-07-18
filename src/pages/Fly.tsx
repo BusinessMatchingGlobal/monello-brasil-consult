@@ -219,6 +219,9 @@ type Copy = {
   permitNo: string;
   notesTitle: string;
   notesPlaceholder: string;
+  servicesTitle: string;
+  servicesIntro: string;
+  servicesPlaceholder: string;
   // Documents upload
   passengerAttentionLead: string;
   passengerAttentionMid1: string;
