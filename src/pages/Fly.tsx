@@ -109,6 +109,9 @@ type Passenger = {
   travelClass: TravelClass;
   bags: number;
   weight: "15" | "23" | "32";
+  passportFile: File | null;
+  residenceFiles: File[];
+  responsibilityAck: boolean;
 };
 
 function newPassenger(): Passenger {
@@ -123,6 +126,9 @@ function newPassenger(): Passenger {
     travelClass: "Economy",
     bags: 0,
     weight: "23",
+    passportFile: null,
+    residenceFiles: [],
+    responsibilityAck: false,
   };
 }
 
