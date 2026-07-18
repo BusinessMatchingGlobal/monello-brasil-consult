@@ -246,6 +246,10 @@ type Copy = {
   uploadFailed: string;
   responsibilityAck: string;
   responsibilityRequired: string;
+  agencyTitle: string;
+  agencyText: string;
+  agencyAuthLabel: string;
+  agencyAuthRequired: string;
 };
 
 const copy: Record<Lang, Copy> = {
@@ -344,6 +348,10 @@ const copy: Record<Lang, Copy> = {
     uploadFailed: "Caricamento file non riuscito. Riprova.",
     responsibilityAck: "Ho scelto di non inviare i documenti. Confermo che i dati inseriti corrispondono esattamente ai documenti che verranno utilizzati per il viaggio e sono consapevole che eventuali costi di riemissione o impedimenti all'imbarco derivanti da divergenze saranno di mia esclusiva responsabilità.",
     responsibilityRequired: "Per ogni passeggero senza copia del passaporto caricata, devi confermare la presa di responsabilità.",
+    agencyTitle: "Agenzia incaricata",
+    agencyText: "Le informazioni di questa richiesta saranno inoltrate a:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT)\nP.IVA IT01416950051\n\nche opera come agenzia di viaggi con il marchio Calliphora.\nLicenza n. 2/08 rilasciata dal Comune di Asti in data 8 luglio 2008 · Numero REA AT-113765\nSocio ordinario del Fondo Vacanze Felici S.c.a.r.l. — iscrizione n. 1890 · Polizza responsabilità civile Revo OX00006698",
+    agencyAuthLabel: "Autorizzo Cavallinodieci S.r.l. a utilizzare i dati inseriti per preventivare e, alla conferma, a erogare i servizi richiesti.",
+    agencyAuthRequired: "Devi autorizzare l'agenzia a preventivare ed erogare i servizi per inviare la richiesta.",
   },
   en: {
     back: "Back to home",
@@ -440,6 +448,10 @@ const copy: Record<Lang, Copy> = {
     uploadFailed: "File upload failed. Please try again.",
     responsibilityAck: "I chose not to send the documents. I confirm that the data provided matches exactly the documents that will be used for the trip, and I acknowledge that any reissue costs or boarding denials caused by discrepancies will be my sole responsibility.",
     responsibilityRequired: "For every passenger without a passport copy uploaded, you must confirm the responsibility acknowledgement.",
+    agencyTitle: "Appointed agency",
+    agencyText: "The information in this request will be forwarded to:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT)\nVAT IT01416950051\n\noperating as a travel agency under the brand Calliphora.\nLicense no. 2/08 issued by the Municipality of Asti on 8 July 2008 · REA no. AT-113765\nOrdinary member of Fondo Vacanze Felici S.c.a.r.l. — registration no. 1890 · Civil liability policy Revo OX00006698",
+    agencyAuthLabel: "I authorize Cavallinodieci S.r.l. to use the data provided to prepare a quote and, upon confirmation, to deliver the requested services.",
+    agencyAuthRequired: "You must authorize the agency to quote and provide the services in order to submit the request.",
   },
   pt: {
     back: "Voltar para a home",
@@ -536,6 +548,10 @@ const copy: Record<Lang, Copy> = {
     uploadFailed: "Falha no envio do arquivo. Tente novamente.",
     responsibilityAck: "Optei por não enviar os documentos. Confirmo que os dados informados correspondem exatamente aos documentos que serão utilizados na viagem e estou ciente de que eventuais custos de reemissão ou impedimentos de embarque decorrentes de divergências serão de minha exclusiva responsabilidade.",
     responsibilityRequired: "Para cada passageiro sem cópia do passaporte enviada, é necessário confirmar a declaração de responsabilidade.",
+    agencyTitle: "Agência indicada",
+    agencyText: "As informações desta solicitação serão encaminhadas para:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT)\nNIF IT01416950051\n\nque opera como agência de viagens com a marca Calliphora.\nLicença n.º 2/08 emitida pela Comuna de Asti em 8 de julho de 2008 · Número REA AT-113765\nSócio ordinário do Fondo Vacanze Felici S.c.a.r.l. — inscrição n.º 1890 · Apólice de responsabilidade civil Revo OX00006698",
+    agencyAuthLabel: "Autorizo a Cavallinodieci S.r.l. a usar os dados informados para elaborar um orçamento e, após a confirmação, a prestar os serviços solicitados.",
+    agencyAuthRequired: "Você precisa autorizar a agência a orçar e prestar os serviços para enviar a solicitação.",
   },
 };
 
@@ -980,6 +996,7 @@ export default function Fly() {
   const [passengers, setPassengers] = useState<Passenger[]>([newPassenger()]);
   const [notes, setNotes] = useState("");
   const [services, setServices] = useState("");
+  const [serviceAuth, setServiceAuth] = useState(false);
 
   function patchOutbound(patch: Partial<Leg>) {
     setOutbound((prev) => ({ ...prev, ...patch }));
@@ -1076,6 +1093,10 @@ export default function Fly() {
       toast({ title: c.responsibilityRequired, variant: "destructive" });
       return;
     }
+    if (!serviceAuth) {
+      toast({ title: c.agencyAuthRequired, variant: "destructive" });
+      return;
+    }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
@@ -1083,6 +1104,7 @@ export default function Fly() {
     const passengersText = passengersToText();
     const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
     const servicesText = services.trim() ? `\n\n${c.servicesTitle}:\n${services.trim()}` : "";
+    const agencyBlock = `\n\n${c.agencyTitle}:\n${c.agencyText}\n\n✅ Autorizzazione / Authorization: ${c.agencyAuthLabel}`;
     try {
       // 1) Upload documents to private storage bucket, then sign URLs.
       const submissionId = crypto.randomUUID();
@@ -1163,7 +1185,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${servicesText}${documentsText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${servicesText}${documentsText}${agencyBlock}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
@@ -1458,6 +1480,19 @@ export default function Fly() {
                   maxLength={2000}
                   rows={5}
                 />
+              </div>
+
+              <div className="pt-2 border-t border-border space-y-3">
+                <h3 className="text-lg font-semibold">{c.agencyTitle}</h3>
+                <p className="text-sm text-muted-foreground whitespace-pre-wrap">{c.agencyText}</p>
+                <label className="flex items-start gap-3 text-sm text-foreground">
+                  <Checkbox
+                    checked={serviceAuth}
+                    onCheckedChange={(v) => setServiceAuth(v === true)}
+                    className="mt-0.5"
+                  />
+                  <span>{c.agencyAuthLabel}</span>
+                </label>
               </div>
 
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
