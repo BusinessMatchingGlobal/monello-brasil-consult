@@ -1482,6 +1482,19 @@ export default function Fly() {
                 />
               </div>
 
+              <div className="pt-2 border-t border-border space-y-3">
+                <h3 className="text-lg font-semibold">{c.agencyTitle}</h3>
+                <p className="text-sm text-muted-foreground whitespace-pre-wrap">{c.agencyText}</p>
+                <label className="flex items-start gap-3 text-sm text-foreground">
+                  <Checkbox
+                    checked={serviceAuth}
+                    onCheckedChange={(v) => setServiceAuth(v === true)}
+                    className="mt-0.5"
+                  />
+                  <span>{c.agencyAuthLabel}</span>
+                </label>
+              </div>
+
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
                 <Send className="mr-2 h-4 w-4" />
                 {c.submit}
