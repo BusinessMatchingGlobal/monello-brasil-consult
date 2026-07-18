@@ -327,7 +327,7 @@ const copy: Record<Lang, Copy> = {
     passengerAttentionMid2: " a quanto riportato sul passaporto che verrà utilizzato per il viaggio. La tariffa viene emessa con questi dati — un errore anche di una sola lettera può richiedere la riemissione del biglietto, e la tariffa originale potrebbe non essere più disponibile.",
     passengerAttentionTail: "",
     docsTitle: "Allegare copia dei documenti (facoltativo, ma fortemente consigliato)",
-    docsIntro: "Allega passaporto e/o documento di residenza (RNE/CRNM). Non è obbligatorio — ma è il modo più semplice per proteggere la tua tariffa: il nostro team verifica nome, numero e validità prima dell'emissione."
+    docsIntro: "Allega passaporto e/o documento di residenza (RNE/CRNM). Non è obbligatorio — ma è il modo più semplice per proteggere la tua tariffa: il nostro team verifica nome, numero e validità prima dell'emissione.",
     passportLabel: "Passaporto — pagina identificativa",
     passportHelp: "Foto o scansione in cui siano chiaramente visibili nome e cognome, numero del documento, data di emissione e data di scadenza. L'immagine deve essere nitida, completa e senza riflessi.",
     residenceLabel: "Documento di residenza (es. CRNM/RNE, permesso di soggiorno) — fronte e retro",
@@ -423,7 +423,7 @@ const copy: Record<Lang, Copy> = {
     passengerAttentionMid2: " what is shown on the passport that will be used for the trip. The fare is issued with this data — even a single-letter error may require ticket reissue, and the original fare may no longer be available.",
     passengerAttentionTail: "",
     docsTitle: "Attach a copy of the documents (optional, but strongly recommended)",
-    docsIntro: "Attach passport and/or residence document (RNE/CRNM). Not mandatory — but it is the simplest way to protect your fare: our team verifies name, number and validity before issuing."
+    docsIntro: "Attach passport and/or residence document (RNE/CRNM). Not mandatory — but it is the simplest way to protect your fare: our team verifies name, number and validity before issuing.",
     passportLabel: "Passport — ID page",
     passportHelp: "Photo or scan clearly showing first and last name, document number, issue date and expiry date. The image must be sharp, complete and free of glare.",
     residenceLabel: "Residence document (e.g. CRNM/RNE, residence permit) — front and back",
@@ -519,7 +519,7 @@ const copy: Record<Lang, Copy> = {
     passengerAttentionMid2: " ao que consta no passaporte que será utilizado na viagem. A tarifa é emitida com esses dados — um erro de uma única letra pode exigir a reemissão do bilhete, e a tarifa original pode não estar mais disponível.",
     passengerAttentionTail: "",
     docsTitle: "Anexar cópia dos documentos (opcional, mas fortemente recomendado)",
-    docsIntro: "Anexe passaporte e/ou documento de residência (RNE/CRNM). Não é obrigatório — mas é a forma mais simples de proteger a sua tarifa: nossa equipe confere nome, número e validade antes da emissão."
+    docsIntro: "Anexe passaporte e/ou documento de residência (RNE/CRNM). Não é obrigatório — mas é a forma mais simples de proteger a sua tarifa: nossa equipe confere nome, número e validade antes da emissão.",
     passportLabel: "Passaporte — página de identificação",
     passportHelp: "Foto ou digitalização onde estejam claramente visíveis nome e sobrenome, número do documento, data de emissão e data de validade. A imagem deve estar nítida, completa e sem reflexos.",
     residenceLabel: "Documento de residência (ex.: CRNM/RNE, autorização de residência) — frente e verso",
