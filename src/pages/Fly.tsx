@@ -348,6 +348,10 @@ const copy: Record<Lang, Copy> = {
     uploadFailed: "Caricamento file non riuscito. Riprova.",
     responsibilityAck: "Ho scelto di non inviare i documenti. Confermo che i dati inseriti corrispondono esattamente ai documenti che verranno utilizzati per il viaggio e sono consapevole che eventuali costi di riemissione o impedimenti all'imbarco derivanti da divergenze saranno di mia esclusiva responsabilità.",
     responsibilityRequired: "Per ogni passeggero senza copia del passaporto caricata, devi confermare la presa di responsabilità.",
+    agencyTitle: "Agenzia incaricata",
+    agencyText: "Le informazioni di questa richiesta saranno inoltrate a:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT)\nP.IVA IT01416950051\n\nche opera come agenzia di viaggi con il marchio Calliphora.\nLicenza n. 2/08 rilasciata dal Comune di Asti in data 8 luglio 2008 · Numero REA AT-113765\nSocio ordinario del Fondo Vacanze Felici S.c.a.r.l. — iscrizione n. 1890 · Polizza responsabilità civile Revo OX00006698",
+    agencyAuthLabel: "Autorizzo Cavallinodieci S.r.l. a utilizzare i dati inseriti per preventivare e, alla conferma, a erogare i servizi richiesti.",
+    agencyAuthRequired: "Devi autorizzare l'agenzia a preventivare ed erogare i servizi per inviare la richiesta.",
   },
   en: {
     back: "Back to home",
