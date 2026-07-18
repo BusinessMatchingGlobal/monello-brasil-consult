@@ -1443,6 +1443,23 @@ export default function Fly() {
                 />
               </div>
 
+              <div className="pt-2 border-t border-border space-y-1.5">
+                <Label htmlFor="services" className="text-lg font-semibold">
+                  {c.servicesTitle}
+                </Label>
+                <p className="text-sm text-muted-foreground text-justify">
+                  {c.servicesIntro}
+                </p>
+                <Textarea
+                  id="services"
+                  value={services}
+                  onChange={(e) => setServices(e.target.value)}
+                  placeholder={c.servicesPlaceholder}
+                  maxLength={2000}
+                  rows={5}
+                />
+              </div>
+
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
                 <Send className="mr-2 h-4 w-4" />
                 {c.submit}
