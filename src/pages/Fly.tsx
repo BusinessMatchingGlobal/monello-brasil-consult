@@ -654,7 +654,7 @@ function PassengerEditor({
   c: Copy;
   tripType: TripType;
 }) {
-  const showResidenceUpload = tripType === "oneway" || passenger.residencePermit !== "none";
+  const showResidenceUpload = true;
   const showResponsibilityAck = !passenger.passportFile;
   return (
     <div className="space-y-5">
