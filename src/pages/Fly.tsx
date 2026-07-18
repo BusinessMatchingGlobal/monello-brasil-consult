@@ -219,6 +219,9 @@ type Copy = {
   permitNo: string;
   notesTitle: string;
   notesPlaceholder: string;
+  servicesTitle: string;
+  servicesIntro: string;
+  servicesPlaceholder: string;
   // Documents upload
   passengerAttentionLead: string;
   passengerAttentionMid1: string;
@@ -315,6 +318,9 @@ const copy: Record<Lang, Copy> = {
     permitNo: "No",
     notesTitle: "Altre informazioni",
     notesPlaceholder: "Si prega di inserire tutte le altre informazioni aggiuntive che ritenete utili (esigenze particolari, preferenze di orario, richieste speciali, ecc.).",
+    servicesTitle: "Altri servizi richiesti",
+    servicesIntro: "Possiamo offrire, a tariffe negoziate con i nostri fornitori: hotel, trasferimenti privati o collettivi, autonoleggio, attrazioni ed escursioni, assicurazione viaggio. Se ha preferenze indichi zona/nome hotel, date e — se lo ha — il miglior prezzo che ha trovato: cercheremo di formulare la nostra migliore offerta.",
+    servicesPlaceholder: "Es.: Hotel 4* zona Savassi (BH), check-in 12/03 – check-out 16/03, miglior prezzo trovato € 120/notte. Trasferimento aeroporto–hotel per 2 persone. Noleggio auto categoria SUV per 3 giorni. Assicurazione viaggio.",
     passengerAttentionLead: "Prestare massima attenzione nella compilazione di NOME e COGNOME: devono corrispondere ",
     passengerAttentionMid1: "",
     passengerAttentionEmph: "esattamente",
@@ -408,6 +414,9 @@ const copy: Record<Lang, Copy> = {
     permitNo: "No",
     notesTitle: "Additional information",
     notesPlaceholder: "Please provide any additional information you consider useful (special needs, time preferences, special requests, etc.).",
+    servicesTitle: "Other services requested",
+    servicesIntro: "We can also offer, at rates negotiated with our suppliers: hotels, private or shared transfers, car rental, attractions and excursions, and travel insurance. If you have preferences, please indicate the area/name of the hotel, dates and — if you have one — the best price you have found: we will try to put together our best offer.",
+    servicesPlaceholder: "E.g.: 4* hotel in Savassi area (BH), check-in 12/03 – check-out 16/03, best price found $120/night. Airport–hotel transfer for 2 people. SUV car rental for 3 days. Travel insurance.",
     passengerAttentionLead: "Please pay maximum attention when entering FIRST and LAST NAME: they must match ",
     passengerAttentionMid1: "",
     passengerAttentionEmph: "exactly",
@@ -501,6 +510,9 @@ const copy: Record<Lang, Copy> = {
     permitNo: "Não",
     notesTitle: "Informações adicionais",
     notesPlaceholder: "Por favor, inclua todas as informações adicionais que considerar úteis (necessidades especiais, preferências de horário, pedidos especiais, etc.).",
+    servicesTitle: "Outros serviços solicitados",
+    servicesIntro: "Podemos oferecer, com tarifas negociadas com nossos fornecedores: hotéis, transfers privados ou compartilhados, aluguel de carro, atrações e passeios, e seguro viagem. Se tiver preferências, indique a região/nome do hotel, as datas e — se tiver — o melhor preço que encontrou: buscaremos apresentar nossa melhor oferta.",
+    servicesPlaceholder: "Ex.: Hotel 4* na região da Savassi (BH), check-in 12/03 – check-out 16/03, melhor preço encontrado R$ 600/noite. Transfer aeroporto–hotel para 2 pessoas. Aluguel de carro SUV por 3 dias. Seguro viagem.",
     passengerAttentionLead: "Preste máxima atenção ao preencher NOME e SOBRENOME: devem corresponder ",
     passengerAttentionMid1: "",
     passengerAttentionEmph: "exatamente",
@@ -967,6 +979,7 @@ export default function Fly() {
   const [complexLegs, setComplexLegs] = useState<Leg[]>([newLeg()]);
   const [passengers, setPassengers] = useState<Passenger[]>([newPassenger()]);
   const [notes, setNotes] = useState("");
+  const [services, setServices] = useState("");
 
   function patchOutbound(patch: Partial<Leg>) {
     setOutbound((prev) => ({ ...prev, ...patch }));
@@ -1069,6 +1082,7 @@ export default function Fly() {
     const itineraryText = itineraryToText();
     const passengersText = passengersToText();
     const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
+    const servicesText = services.trim() ? `\n\n${c.servicesTitle}:\n${services.trim()}` : "";
     try {
       // 1) Upload documents to private storage bucket, then sign URLs.
       const submissionId = crypto.randomUUID();
@@ -1149,7 +1163,7 @@ export default function Fly() {
             name: parsed.data.organization,
             email: parsed.data.email,
             company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${documentsText}`,
+            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${servicesText}${documentsText}`,
             source: "Fly page",
             language: lang,
             submittedAt: new Date().toISOString(),
@@ -1424,6 +1438,23 @@ export default function Fly() {
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder={c.notesPlaceholder}
+                  maxLength={2000}
+                  rows={5}
+                />
+              </div>
+
+              <div className="pt-2 border-t border-border space-y-1.5">
+                <Label htmlFor="services" className="text-lg font-semibold">
+                  {c.servicesTitle}
+                </Label>
+                <p className="text-sm text-muted-foreground text-justify">
+                  {c.servicesIntro}
+                </p>
+                <Textarea
+                  id="services"
+                  value={services}
+                  onChange={(e) => setServices(e.target.value)}
+                  placeholder={c.servicesPlaceholder}
                   maxLength={2000}
                   rows={5}
                 />
