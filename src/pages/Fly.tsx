@@ -1093,6 +1093,10 @@ export default function Fly() {
       toast({ title: c.responsibilityRequired, variant: "destructive" });
       return;
     }
+    if (!serviceAuth) {
+      toast({ title: c.agencyAuthRequired, variant: "destructive" });
+      return;
+    }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
