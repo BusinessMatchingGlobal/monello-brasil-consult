@@ -219,6 +219,30 @@ type Copy = {
   permitNo: string;
   notesTitle: string;
   notesPlaceholder: string;
+  // Documents upload
+  passengerAttentionLead: string;
+  passengerAttentionMid1: string;
+  passengerAttentionEmph: string;
+  passengerAttentionMid2: string;
+  passengerAttentionTail: string;
+  docsTitle: string;
+  docsIntro: string;
+  passportLabel: string;
+  passportHelp: string;
+  residenceLabel: string;
+  residenceHelp: string;
+  docsWarning: string;
+  chooseFile: string;
+  chooseFiles: string;
+  remove: string;
+  seeExample: string;
+  exampleCaption: string;
+  fileTooLarge: string;
+  fileTypeInvalid: string;
+  tooManyFiles: string;
+  uploadFailed: string;
+  responsibilityAck: string;
+  responsibilityRequired: string;
 };
 
 const copy: Record<Lang, Copy> = {
