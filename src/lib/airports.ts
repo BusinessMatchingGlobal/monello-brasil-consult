@@ -5,10 +5,12 @@ export type Airport = {
   code: string;
   name: string;
   city?: string;
-  uf?: string;   // Brazilian state (UF)
-  country?: string; // Country name for South American airports
+  uf?: string;
+  country?: string;
   lat?: number;
   lon?: number;
+  isCity?: boolean;
+  children?: string[]; // For metropolitan city codes: list of child airport codes
 };
 
 export const AIRPORTS: Airport[] = [
@@ -1138,4 +1140,72 @@ export const AIRPORTS: Airport[] = [
   { code: "DEB", name: "Debrecen International Airport", city: "Debrecen", country: "Ungheria", lat: 47.489469, lon: 21.616278 },
   { code: "PEV", name: "Pécs-Pogány International Airport", city: "Pécs", country: "Ungheria", lat: 45.988891, lon: 18.242044 },
   { code: "SOB", name: "Hévíz–Balaton Airport", city: "Sármellék", country: "Ungheria", lat: 46.686391, lon: 17.159084 },
+  // Metropolitan city codes (IATA) — 'any airport in the area'
+  { code: "AMM", name: "Qualsiasi aeroporto di Amman", city: "Amman", country: "Jordan", isCity: true, children: ["ADJ", "AMM"] },
+  { code: "ANC", name: "Qualsiasi aeroporto di Anchorage", city: "Anchorage", country: "United States", isCity: true, children: ["ANC", "MRI"] },
+  { code: "BIM", name: "Qualsiasi aeroporto di Bimini", city: "Bimini", country: "Bahamas", isCity: true, children: ["BIM", "NSB"] },
+  { code: "BJS", name: "Qualsiasi aeroporto di Beijing", city: "Beijing", country: "China", isCity: true, children: ["PEK", "PKX"] },
+  { code: "BUE", name: "Qualsiasi aeroporto di Buenos Aires", city: "Buenos Aires", country: "Argentina", isCity: true, children: ["AEP", "EZE"] },
+  { code: "BUH", name: "Qualsiasi aeroporto di Bucharest", city: "Bucharest", country: "Romania", isCity: true, children: ["BBU", "OTP"] },
+  { code: "BZE", name: "Qualsiasi aeroporto di Belize City", city: "Belize City", country: "Belize", isCity: true, children: ["BZE", "TZA"] },
+  { code: "CHI", name: "Qualsiasi aeroporto di Chicago", city: "Chicago", country: "United States", isCity: true, children: ["MDW", "ORD", "RFD"] },
+  { code: "CMB", name: "Qualsiasi aeroporto di Colombo", city: "Colombo", country: "Sri Lanka", isCity: true, children: ["CMB", "RML"] },
+  { code: "CMH", name: "Qualsiasi aeroporto di Columbus", city: "Columbus", country: "United States", isCity: true, children: ["CMH", "LCK"] },
+  { code: "CVG", name: "Qualsiasi aeroporto di Covington", city: "Covington", country: "United States", isCity: true, children: ["CVG", "LUK"] },
+  { code: "DKR", name: "Qualsiasi aeroporto di Dakar", city: "Dakar", country: "Senegal", isCity: true, children: ["DKR", "DSS"] },
+  { code: "DLH", name: "Qualsiasi aeroporto di Duluth", city: "Duluth", country: "United States", isCity: true, children: ["DLH", "LKI"] },
+  { code: "DOM", name: "Qualsiasi aeroporto di Dominica", city: "Dominica", country: "Dominica", isCity: true, children: ["DCF", "DOM"] },
+  { code: "GCN", name: "Qualsiasi aeroporto di Grand Canyon", city: "Grand Canyon", country: "United States", isCity: true, children: ["FLG", "GCN"] },
+  { code: "HOU", name: "Qualsiasi aeroporto di HOU", city: "HOU", country: "United States", isCity: true, children: ["HOU", "IAH"] },
+  { code: "HRI", name: "Qualsiasi aeroporto di HRI", city: "HRI", country: "Sri Lanka", isCity: true, children: ["HBT", "HRI"] },
+  { code: "JKT", name: "Qualsiasi aeroporto di Jakarta", city: "Jakarta", country: "Indonesia", isCity: true, children: ["CGK", "HLP"] },
+  { code: "KCL", name: "Qualsiasi aeroporto di KCL", city: "KCL", country: "United States", isCity: true, children: ["KCG", "KCQ"] },
+  { code: "KIN", name: "Qualsiasi aeroporto di Kingston", city: "Kingston", country: "Jamaica", isCity: true, children: ["KIN", "KTP"] },
+  { code: "KTN", name: "Qualsiasi aeroporto di Ketchikan", city: "Ketchikan", country: "United States", isCity: true, children: ["KTN", "WFB"] },
+  { code: "LAS", name: "Qualsiasi aeroporto di Las Vegas", city: "Las Vegas", country: "United States", isCity: true, children: ["BLD", "LAS"] },
+  { code: "LON", name: "Qualsiasi aeroporto di London", city: "London", country: "United Kingdom", isCity: true, children: ["LCY", "LGW", "LHR", "LTN", "SEN", "STN"] },
+  { code: "MCT", name: "Qualsiasi aeroporto di Muscat", city: "Muscat", country: "Oman", isCity: true, children: ["MCT", "OHS"] },
+  { code: "MIL", name: "Qualsiasi aeroporto di Milan", city: "Milan", country: "Italy", isCity: true, children: ["BGY", "LIN", "MXP", "PMF"] },
+  { code: "MLW", name: "Qualsiasi aeroporto di MLW", city: "MLW", country: "Liberia", isCity: true, children: ["MLW", "ROB"] },
+  { code: "MOW", name: "Qualsiasi aeroporto di Moscow", city: "Moscow", country: "Russia", isCity: true, children: ["DME", "SVO", "VKO", "ZIA"] },
+  { code: "NGO", name: "Qualsiasi aeroporto di Tokoname", city: "Tokoname", country: "Japan", isCity: true, children: ["NGO", "NKM"] },
+  { code: "NOU", name: "Qualsiasi aeroporto di Noumea", city: "Noumea", country: "New Caledonia", isCity: true, children: ["GEA", "NOU"] },
+  { code: "NYC", name: "Qualsiasi aeroporto di New York", city: "New York", country: "United States", isCity: true, children: ["EWR", "JFK", "LGA"] },
+  { code: "ONT", name: "Qualsiasi aeroporto di Ontario", city: "Ontario", country: "United States", isCity: true, children: ["JIO", "ONT"] },
+  { code: "ORL", name: "Qualsiasi aeroporto di ORL", city: "ORL", country: "United States", isCity: true, children: ["MCO", "SFB"] },
+  { code: "OSA", name: "Qualsiasi aeroporto di Osaka", city: "Osaka", country: "Japan", isCity: true, children: ["ITM", "KIX", "UKB"] },
+  { code: "PAR", name: "Qualsiasi aeroporto di Paris", city: "Paris", country: "France", isCity: true, children: ["BVA", "CDG", "LBG", "ORY", "XCR"] },
+  { code: "PHC", name: "Qualsiasi aeroporto di Port Harcourt", city: "Port Harcourt", country: "Nigeria", isCity: true, children: ["PHC", "PHG"] },
+  { code: "PHL", name: "Qualsiasi aeroporto di Philadelphia", city: "Philadelphia", country: "United States", isCity: true, children: ["PHL", "TTN"] },
+  { code: "PHX", name: "Qualsiasi aeroporto di Phoenix", city: "Phoenix", country: "United States", isCity: true, children: ["AZA", "PHX"] },
+  { code: "REK", name: "Qualsiasi aeroporto di Reykjavik", city: "Reykjavik", country: "Iceland", isCity: true, children: ["KEF", "RKV"] },
+  { code: "RIO", name: "Qualsiasi aeroporto di Rio de Janeiro", city: "Rio de Janeiro", country: "Brazil", isCity: true, children: ["GIG", "SDU"] },
+  { code: "ROM", name: "Qualsiasi aeroporto di Rome", city: "Rome", country: "Italy", isCity: true, children: ["CIA", "FCO"] },
+  { code: "SAC", name: "Qualsiasi aeroporto di SAC", city: "SAC", country: "United States", isCity: true, children: ["SCK", "SMF"] },
+  { code: "SAN", name: "Qualsiasi aeroporto di San Diego", city: "San Diego", country: "United States", isCity: true, children: ["CLD", "SAN"] },
+  { code: "SAO", name: "Qualsiasi aeroporto di Sao Paulo", city: "Sao Paulo", country: "Brazil", isCity: true, children: ["CGH", "GRU", "VCP"] },
+  { code: "SDQ", name: "Qualsiasi aeroporto di Santo Domingo", city: "Santo Domingo", country: "Dominican Republic", isCity: true, children: ["JBQ", "SDQ"] },
+  { code: "SDZ", name: "Qualsiasi aeroporto di Shetland Islands", city: "Shetland Islands", country: "United Kingdom", isCity: true, children: ["FIE", "FOA", "LSI", "LWK"] },
+  { code: "SEA", name: "Qualsiasi aeroporto di Seattle", city: "Seattle", country: "United States", isCity: true, children: ["BFI", "LKE", "SEA"] },
+  { code: "SEL", name: "Qualsiasi aeroporto di Seoul", city: "Seoul", country: "South Korea", isCity: true, children: ["GMP", "ICN"] },
+  { code: "SJU", name: "Qualsiasi aeroporto di San Juan", city: "San Juan", country: "Puerto Rico", isCity: true, children: ["SIG", "SJU"] },
+  { code: "SLU", name: "Qualsiasi aeroporto di Castries", city: "Castries", country: "Saint Lucia", isCity: true, children: ["SLU", "UVF"] },
+  { code: "SPK", name: "Qualsiasi aeroporto di Sapporo", city: "Sapporo", country: "Japan", isCity: true, children: ["CTS", "OKD"] },
+  { code: "STO", name: "Qualsiasi aeroporto di Stockholm", city: "Stockholm", country: "Sweden", isCity: true, children: ["ARN", "BMA", "NYO", "VST"] },
+  { code: "STT", name: "Qualsiasi aeroporto di Charlotte Amalie", city: "Charlotte Amalie", country: "U.S. Virgin Islands", isCity: true, children: ["SPB", "STT"] },
+  { code: "STX", name: "Qualsiasi aeroporto di Christiansted", city: "Christiansted", country: "U.S. Virgin Islands", isCity: true, children: ["SSB", "STX"] },
+  { code: "TCI", name: "Qualsiasi aeroporto di Tenerife", city: "Tenerife", country: "Spain", isCity: true, children: ["TFN", "TFS"] },
+  { code: "THR", name: "Qualsiasi aeroporto di Tehran", city: "Tehran", country: "Iran", isCity: true, children: ["IKA", "THR"] },
+  { code: "TPA", name: "Qualsiasi aeroporto di Tampa (Saint Petersburg)", city: "Tampa (Saint Petersburg)", country: "United States", isCity: true, children: ["PIE", "TPA"] },
+  { code: "TYO", name: "Qualsiasi aeroporto di Tokyo", city: "Tokyo", country: "Japan", isCity: true, children: ["HND", "NRT"] },
+  { code: "WAS", name: "Qualsiasi aeroporto di Washington", city: "Washington", country: "United States", isCity: true, children: ["DCA", "IAD"] },
+  { code: "WDH", name: "Qualsiasi aeroporto di Windhoek", city: "Windhoek", country: "Namibia", isCity: true, children: ["ERS", "WDH"] },
+  { code: "YAZ", name: "Qualsiasi aeroporto di Tofino", city: "Tofino", country: "Canada", isCity: true, children: ["YAZ", "YTP"] },
+  { code: "YBL", name: "Qualsiasi aeroporto di Campbell River", city: "Campbell River", country: "Canada", isCity: true, children: ["YBL", "YHH"] },
+  { code: "YCD", name: "Qualsiasi aeroporto di YCD", city: "YCD", country: "Canada", isCity: true, children: ["YCD", "ZNA"] },
+  { code: "YMQ", name: "Qualsiasi aeroporto di Montreal", city: "Montreal", country: "Canada", isCity: true, children: ["YHU", "YMX", "YUL"] },
+  { code: "YOW", name: "Qualsiasi aeroporto di Ottawa", city: "Ottawa", country: "Canada", isCity: true, children: ["YND", "YOW", "YRO"] },
+  { code: "YTO", name: "Qualsiasi aeroporto di Toronto", city: "Toronto", country: "Canada", isCity: true, children: ["YHM", "YTZ", "YYZ"] },
+  { code: "YVR", name: "Qualsiasi aeroporto di Vancouver", city: "Vancouver", country: "Canada", isCity: true, children: ["CXH", "YVR"] },
+  { code: "YYJ", name: "Qualsiasi aeroporto di Victoria", city: "Victoria", country: "Canada", isCity: true, children: ["YWH", "YYJ"] },
 ];

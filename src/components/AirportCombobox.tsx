@@ -13,6 +13,8 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { AIRPORTS } from "@/lib/airports";
 
+const AIRPORT_BY_CODE = new Map(AIRPORTS.map((a) => [a.code, a]));
+
 type Props = {
   value: string;
   onChange: (code: string) => void;
@@ -37,6 +39,7 @@ export function AirportCombobox({
     s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
   const formatLabel = (a: typeof AIRPORTS[number]) => {
+    if (a.isCity) return `${a.city} — qualsiasi aeroporto`;
     if (a.city && a.uf) return `${a.city} (${a.uf}) — ${a.name}`;
     if (a.city && a.country) return `${a.city} (${a.country}) — ${a.name}`;
     return a.name;
@@ -79,7 +82,15 @@ export function AirportCombobox({
             <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>
               {AIRPORTS.map((a) => {
-                const itemValue = `${a.code} ${a.name} ${a.city ?? ""} ${a.uf ?? ""} ${a.country ?? ""}`;
+                const childrenInfo = a.children
+                  ? a.children
+                      .map((c) => {
+                        const ap = AIRPORT_BY_CODE.get(c);
+                        return ap ? `${c} ${ap.name} ${ap.city ?? ""}` : c;
+                      })
+                      .join(" ")
+                  : "";
+                const itemValue = `${a.code} ${a.name} ${a.city ?? ""} ${a.uf ?? ""} ${a.country ?? ""} ${childrenInfo}`;
                 const region = a.uf || a.country;
                 return (
                   <CommandItem
@@ -92,7 +103,15 @@ export function AirportCombobox({
                   >
                     <Check className={cn("mr-2 h-4 w-4", value === a.code ? "opacity-100" : "opacity-0")} />
                     <span className="font-semibold w-12 shrink-0">{a.code}</span>
-                    {a.city && region ? (
+                    {a.isCity ? (
+                      <span className="truncate">
+                        <span className="font-medium">{a.city}</span>{" "}
+                        <span className="text-[10px] uppercase tracking-wide bg-primary/10 text-primary rounded px-1 py-0.5 ml-1">
+                          Città
+                        </span>{" "}
+                        <span className="text-muted-foreground">— qualsiasi aeroporto ({a.children?.join(", ")})</span>
+                      </span>
+                    ) : a.city && region ? (
                       <span className="truncate">
                         <span className="font-medium">{a.city}</span>{" "}
                         <span className="text-muted-foreground">({region})</span>{" "}
