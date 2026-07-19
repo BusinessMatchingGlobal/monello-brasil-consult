@@ -1037,6 +1037,52 @@ export default function Fly() {
     return lines.join("\n");
   }
 
+  function buildItineraryRows() {
+    const rows: Array<{ label: string; from: string; to: string; date: string; flex: string }> = [];
+    const legRow = (label: string, l: Leg) => ({
+      label,
+      from: airportLabel(l.origin),
+      to: airportLabel(l.destination),
+      date: l.date ? format(l.date, "yyyy-MM-dd") : "—",
+      flex:
+        l.flex === "flexible"
+          ? `${c.flexibleDate} (−${l.daysBefore}/+${l.daysAfter} ${c.days})`
+          : c.fixedDate,
+    });
+    if (tripType === "roundtrip") {
+      rows.push(legRow(c.outbound, outbound));
+      rows.push(legRow(c.return, returnLeg));
+    } else if (tripType === "oneway") {
+      rows.push(legRow(c.outbound, outbound));
+    } else {
+      complexLegs.forEach((l, i) => rows.push(legRow(`${c.leg} ${i + 1}`, l)));
+    }
+    return rows;
+  }
+
+  function buildPassengerRows() {
+    return passengers.map((p, i) => {
+      const cls =
+        p.travelClass === "Economy" ? c.classEconomy :
+        p.travelClass === "Premium" ? c.classPremium : c.classBusiness;
+      const permit =
+        p.residencePermit === "yes" ? c.permitYes :
+        p.residencePermit === "no" ? c.permitNo : c.permitNone;
+      return {
+        n: i + 1,
+        lastName: p.lastName || "—",
+        firstName: p.firstName || "—",
+        dob: p.birthDate ? format(p.birthDate, "yyyy-MM-dd") : "—",
+        cit1: p.citizenship1 ? countryLabel(p.citizenship1) : "—",
+        cit2: p.citizenship2 ? countryLabel(p.citizenship2) : "—",
+        permit,
+        travelClass: cls,
+        bags: String(p.bags),
+        weight: `${p.weight} kg`,
+      };
+    });
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!consent) {
@@ -1073,8 +1119,10 @@ export default function Fly() {
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
-    const itineraryText = itineraryToText();
-    const passengersText = passengersToText();
+    const tripLabel =
+      tripType === "roundtrip" ? c.tripRoundtrip : tripType === "oneway" ? c.tripOneway : c.tripComplex;
+    const itineraryRows = buildItineraryRows();
+    const passengerRows = buildPassengerRows();
     const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
     const servicesText = services.trim() ? `\n\n${c.servicesTitle}:\n${services.trim()}` : "";
     const agencyBlock = `\n\n${c.agencyTitle}:\n${c.agencyText}\n\n✅ Autorizzazione / Authorization: ${c.agencyAuthLabel}`;
@@ -1160,22 +1208,13 @@ export default function Fly() {
         });
       }
 
-      // 3) Build documents block for the email.
-      let documentsText = "";
-      const hasAnyDoc = uploadedByPassenger.some((u) => u.passportUrl || u.residenceUrls.length > 0);
-      const acksOnly = passengers.map((p, i) => ({ i, ack: !p.passportFile && p.responsibilityAck }));
-      if (hasAnyDoc || acksOnly.some((a) => a.ack)) {
-        const docLines: string[] = ["", "Documenti / Documents:"];
-        uploadedByPassenger.forEach((u, i) => {
-          docLines.push(`  ${c.passenger} ${i + 1}:`);
-          if (u.passportUrl) docLines.push(`    Passport: ${u.passportUrl}`);
-          u.residenceUrls.forEach((url, j) => docLines.push(`    Residence ${j + 1}: ${url}`));
-          if (!u.passportUrl && passengers[i].responsibilityAck) {
-            docLines.push(`    ⚠ Nessun documento — responsabilità confermata dal richiedente.`);
-          }
-        });
-        documentsText = "\n" + docLines.join("\n");
-      }
+      // 3) Build documents rows for the email.
+      const documentRows = uploadedByPassenger.map((u, i) => ({
+        n: i + 1,
+        passportUrl: u.passportUrl ?? "",
+        residenceUrls: u.residenceUrls,
+        ackNoDocs: !u.passportUrl && passengers[i].responsibilityAck,
+      }));
 
       const recipients = ["info@businessmatching.global", "enstobbi@enstobbi.it"];
       const baseIdempotencyKey = `fly-${parsed.data.email}-${Date.now()}`;
@@ -1189,7 +1228,17 @@ export default function Fly() {
               name: parsed.data.organization,
               email: parsed.data.email,
               company: "—",
-              message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${servicesText}${documentsText}${agencyBlock}`,
+              phone: fullPhone,
+              whatsapp: fullWhatsapp,
+              tripLabel,
+              itinerary: itineraryRows,
+              passengers: passengerRows,
+              documents: documentRows,
+              notes: notes.trim(),
+              services: services.trim(),
+              agencyText: c.agencyText,
+              agencyAuthLabel: c.agencyAuthLabel,
+              message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}${notesText}${servicesText}${agencyBlock}`,
               source: "Fly page",
               language: lang,
               submittedAt: new Date().toISOString(),
