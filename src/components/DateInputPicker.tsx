@@ -39,18 +39,43 @@ export function DateInputPicker({
   const tryParse = (raw: string) => {
     const s = raw.trim();
     if (!s) return { ok: true, date: undefined as Date | undefined };
+    const pivotYear = (yy: number) => {
+      const c20 = 2000 + yy;
+      const c19 = 1900 + yy;
+      if (maxDate) {
+        if (c20 > maxDate.getFullYear()) return c19;
+        return c20;
+      }
+      if (minDate) {
+        if (c20 < minDate.getFullYear()) return c19 >= minDate.getFullYear() ? c19 : c20;
+        return c20;
+      }
+      // No bounds: pivot at current year + 20
+      const cutoff = new Date().getFullYear() + 20;
+      return c20 > cutoff ? c19 : c20;
+    };
     // Digits-only shortcuts: ddmmyy or ddmmyyyy
     if (/^\d{6}$/.test(s)) {
       const dd = s.slice(0, 2);
       const mm = s.slice(2, 4);
-      const yy = s.slice(4, 6);
-      const d = parse(`${dd}/${mm}/20${yy}`, "dd/MM/yyyy", new Date());
+      const yy = Number(s.slice(4, 6));
+      const yyyy = pivotYear(yy);
+      const d = parse(`${dd}/${mm}/${yyyy}`, "dd/MM/yyyy", new Date());
       if (isValid(d)) return { ok: true, date: d };
     }
     if (/^\d{8}$/.test(s)) {
       const dd = s.slice(0, 2);
       const mm = s.slice(2, 4);
       const yyyy = s.slice(4, 8);
+      const d = parse(`${dd}/${mm}/${yyyy}`, "dd/MM/yyyy", new Date());
+      if (isValid(d)) return { ok: true, date: d };
+    }
+    // 2-digit year patterns with separators
+    const yyMatch = s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2})$/);
+    if (yyMatch) {
+      const dd = yyMatch[1].padStart(2, "0");
+      const mm = yyMatch[2].padStart(2, "0");
+      const yyyy = pivotYear(Number(yyMatch[3]));
       const d = parse(`${dd}/${mm}/${yyyy}`, "dd/MM/yyyy", new Date());
       if (isValid(d)) return { ok: true, date: d };
     }
