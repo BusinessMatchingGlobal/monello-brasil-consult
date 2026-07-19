@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2, Upload, FileText, X, HelpCircle } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2, Upload, FileText, X, HelpCircle, Camera } from "lucide-react";
 import { format } from "date-fns";
 import { z } from "zod";
 import { useT, type Lang } from "@/lib/i18n";
