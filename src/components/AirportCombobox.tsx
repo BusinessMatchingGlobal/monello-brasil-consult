@@ -76,7 +76,8 @@ export function AirportCombobox({
             <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>
               {AIRPORTS.map((a) => {
-                const itemValue = `${a.code} ${a.name} ${a.city ?? ""} ${a.uf ?? ""}`;
+                const itemValue = `${a.code} ${a.name} ${a.city ?? ""} ${a.uf ?? ""} ${a.country ?? ""}`;
+                const region = a.uf || a.country;
                 return (
                   <CommandItem
                     key={a.code}
@@ -88,10 +89,10 @@ export function AirportCombobox({
                   >
                     <Check className={cn("mr-2 h-4 w-4", value === a.code ? "opacity-100" : "opacity-0")} />
                     <span className="font-semibold w-12 shrink-0">{a.code}</span>
-                    {a.city && a.uf ? (
+                    {a.city && region ? (
                       <span className="truncate">
                         <span className="font-medium">{a.city}</span>{" "}
-                        <span className="text-muted-foreground">({a.uf})</span>{" "}
+                        <span className="text-muted-foreground">({region})</span>{" "}
                         <span className="text-muted-foreground">— {a.name}</span>
                       </span>
                     ) : (
