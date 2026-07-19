@@ -976,7 +976,28 @@ export default function Fly() {
   const [serviceAuth, setServiceAuth] = useState(false);
 
   function patchOutbound(patch: Partial<Leg>) {
-    setOutbound((prev) => ({ ...prev, ...patch }));
+    setOutbound((prev) => {
+      const next = { ...prev, ...patch };
+      // Auto-mirror airports to the return leg (roundtrip only), so
+      // MXP → FLN on outbound proposes FLN → MXP on return by default.
+      if (patch.origin !== undefined || patch.destination !== undefined) {
+        setReturnLeg((r) => ({
+          ...r,
+          origin: next.destination || r.origin,
+          destination: next.origin || r.destination,
+        }));
+      }
+      // If the return date is now before the new outbound date, clear it.
+      if (patch.date !== undefined) {
+        setReturnLeg((r) => {
+          if (r.date && next.date && r.date.getTime() < next.date.getTime()) {
+            return { ...r, date: undefined };
+          }
+          return r;
+        });
+      }
+      return next;
+    });
   }
   function patchReturn(patch: Partial<Leg>) {
     setReturnLeg((prev) => ({ ...prev, ...patch }));
@@ -1413,7 +1434,12 @@ export default function Fly() {
                     </div>
                     <div>
                       <div className="text-sm font-semibold mb-2">{c.return}</div>
-                      <LegEditor leg={returnLeg} onChange={patchReturn} c={c} />
+                      <LegEditor
+                        leg={returnLeg}
+                        onChange={patchReturn}
+                        c={c}
+                        minDate={outbound.date ?? new Date()}
+                      />
                     </div>
                   </div>
                 )}
