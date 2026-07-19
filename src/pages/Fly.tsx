@@ -877,6 +877,7 @@ function DocumentUploader({
   c: Copy;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const cameraRef = useRef<HTMLInputElement>(null);
 
   function handleFiles(list: FileList | null) {
     if (!list) return;
@@ -928,15 +929,33 @@ function DocumentUploader({
           <Upload className="h-4 w-4 mr-1" />
           {multiple ? c.chooseFiles : c.chooseFile}
         </Button>
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          className="sm:hidden"
+          onClick={() => cameraRef.current?.click()}
+        >
+          <Camera className="h-4 w-4 mr-1" />
+          {c.takePhoto}
+        </Button>
         <input
           ref={inputRef}
           type="file"
           accept="image/jpeg,image/png,image/jpg,application/pdf"
-          capture="environment"
           multiple={multiple}
           className="hidden"
           onChange={(e) => handleFiles(e.target.files)}
         />
+        <input
+          ref={cameraRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          className="hidden"
+          onChange={(e) => handleFiles(e.target.files)}
+        />
+        <span className="text-xs text-muted-foreground">JPG · PNG · PDF</span>
       </div>
       {files.length > 0 && (
         <ul className="space-y-1">
