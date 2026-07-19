@@ -33,6 +33,9 @@ export function AirportCombobox({
   const [open, setOpen] = useState(false);
   const selected = useMemo(() => AIRPORTS.find((a) => a.code === value), [value]);
 
+  const normalize = (s: string) =>
+    s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
   const formatLabel = (a: typeof AIRPORTS[number]) => {
     if (a.city && a.uf) return `${a.city} (${a.uf}) — ${a.name}`;
     if (a.city && a.country) return `${a.city} (${a.country}) — ${a.name}`;
