@@ -593,6 +593,7 @@ function LegEditor({
           placeholder={c.pickDate}
           fromYear={new Date().getFullYear()}
           toYear={new Date().getFullYear() + 2}
+          minDate={new Date()}
         />
       </div>
       <div className="space-y-1.5">
@@ -688,6 +689,7 @@ function PassengerEditor({
           placeholder={c.pickDate}
           fromYear={1920}
           toYear={new Date().getFullYear()}
+          maxDate={new Date()}
         />
       </div>
       <div className="space-y-1.5">

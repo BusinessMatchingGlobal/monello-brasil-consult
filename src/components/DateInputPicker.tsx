@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { format, isValid, parse } from "date-fns";
+import { format, isValid, parse, startOfDay } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,8 @@ type Props = {
   fromYear?: number;
   toYear?: number;
   className?: string;
+  minDate?: Date;
+  maxDate?: Date;
 };
 
 // Accepts typing (dd/mm/yyyy, dd-mm-yyyy, yyyy-mm-dd) and picking from calendar.
@@ -24,6 +26,8 @@ export function DateInputPicker({
   fromYear,
   toYear,
   className,
+  minDate,
+  maxDate,
 }: Props) {
   const [text, setText] = useState<string>(value ? format(value, "dd/MM/yyyy") : "");
   const [open, setOpen] = useState(false);
@@ -58,9 +62,17 @@ export function DateInputPicker({
     return { ok: false, date: undefined };
   };
 
+  const inRange = (d: Date | undefined) => {
+    if (!d) return true;
+    const day = startOfDay(d).getTime();
+    if (minDate && day < startOfDay(minDate).getTime()) return false;
+    if (maxDate && day > startOfDay(maxDate).getTime()) return false;
+    return true;
+  };
+
   const commit = () => {
     const { ok, date } = tryParse(text);
-    if (ok) onChange(date);
+    if (ok && inRange(date)) onChange(date);
     else if (value) setText(format(value, "dd/MM/yyyy"));
     else setText("");
   };
@@ -92,13 +104,20 @@ export function DateInputPicker({
             mode="single"
             selected={value}
             onSelect={(d) => {
-              onChange(d ?? undefined);
-              setOpen(false);
+              if (inRange(d ?? undefined)) {
+                onChange(d ?? undefined);
+                setOpen(false);
+              }
             }}
             defaultMonth={value ?? (toYear ? new Date(toYear, 0, 1) : undefined)}
             captionLayout={fromYear || toYear ? "dropdown-buttons" : undefined}
             fromYear={fromYear}
             toYear={toYear}
+            disabled={
+              minDate || maxDate
+                ? { before: minDate as Date | undefined, after: maxDate as Date | undefined }
+                : undefined
+            }
             initialFocus
             className={cn("p-3 pointer-events-auto")}
           />
