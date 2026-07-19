@@ -71,7 +71,7 @@ export function AirportCombobox({
         <Command
           filter={(itemValue, search) => {
             if (!search) return 1;
-            return itemValue.toLowerCase().includes(search.toLowerCase()) ? 1 : 0;
+            return normalize(itemValue).includes(normalize(search)) ? 1 : 0;
           }}
         >
           <CommandInput placeholder={searchLabel} />
