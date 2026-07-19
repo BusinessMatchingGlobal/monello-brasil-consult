@@ -35,6 +35,7 @@ export function AirportCombobox({
 
   const formatLabel = (a: typeof AIRPORTS[number]) => {
     if (a.city && a.uf) return `${a.city} (${a.uf}) — ${a.name}`;
+    if (a.city && a.country) return `${a.city} (${a.country}) — ${a.name}`;
     return a.name;
   };
 
