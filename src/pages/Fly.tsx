@@ -1112,16 +1112,17 @@ export default function Fly() {
       const pathsToSign: string[] = [];
       const perPassengerPaths: Array<{ passportPath?: string; residencePaths: string[] }> = [];
 
+      // Collect all files to upload first, then request signed upload URLs from
+      // the server (service role) — the bucket does NOT accept anonymous INSERT.
+      type PendingUpload = { path: string; file: File };
+      const pending: PendingUpload[] = [];
       for (let i = 0; i < passengers.length; i++) {
         const p = passengers[i];
         const entry: { passportPath?: string; residencePaths: string[] } = { residencePaths: [] };
         if (p.passportFile) {
           const ext = p.passportFile.name.split(".").pop() || "bin";
           const path = `${submissionId}/p${i + 1}/passport-${Date.now()}.${ext}`;
-          const { error } = await supabase.storage
-            .from("fly-documents")
-            .upload(path, p.passportFile, { contentType: p.passportFile.type, upsert: false });
-          if (error) throw error;
+          pending.push({ path, file: p.passportFile });
           entry.passportPath = path;
           pathsToSign.push(path);
         }
@@ -1129,14 +1130,40 @@ export default function Fly() {
           const f = p.residenceFiles[j];
           const ext = f.name.split(".").pop() || "bin";
           const path = `${submissionId}/p${i + 1}/residence-${j + 1}-${Date.now()}.${ext}`;
-          const { error } = await supabase.storage
-            .from("fly-documents")
-            .upload(path, f, { contentType: f.type, upsert: false });
-          if (error) throw error;
+          pending.push({ path, file: f });
           entry.residencePaths.push(path);
           pathsToSign.push(path);
         }
         perPassengerPaths.push(entry);
+      }
+
+      if (pending.length > 0) {
+        const { data: uploadData, error: uploadErr } = await supabase.functions.invoke(
+          "create-fly-upload-urls",
+          {
+            body: {
+              submissionId,
+              files: pending.map((u) => ({
+                path: u.path,
+                contentType: u.file.type,
+                size: u.file.size,
+              })),
+            },
+          },
+        );
+        if (uploadErr) throw uploadErr;
+        const tokens = new Map<string, string>(
+          ((uploadData as { uploads?: Array<{ path: string; token: string }> } | null)
+            ?.uploads ?? []).map((u) => [u.path, u.token]),
+        );
+        for (const u of pending) {
+          const token = tokens.get(u.path);
+          if (!token) throw new Error("Missing upload token");
+          const { error } = await supabase.storage
+            .from("fly-documents")
+            .uploadToSignedUrl(u.path, token, u.file, { contentType: u.file.type });
+          if (error) throw error;
+        }
       }
 
       // 2) Ask backend for signed URLs (30-day validity).
