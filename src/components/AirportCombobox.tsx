@@ -33,6 +33,11 @@ export function AirportCombobox({
   const [open, setOpen] = useState(false);
   const selected = useMemo(() => AIRPORTS.find((a) => a.code === value), [value]);
 
+  const formatLabel = (a: typeof AIRPORTS[number]) => {
+    if (a.city && a.uf) return `${a.city} (${a.uf}) — ${a.name}`;
+    return a.name;
+  };
+
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -49,7 +54,7 @@ export function AirportCombobox({
             {selected ? (
               <span className="truncate">
                 <span className="font-semibold">{selected.code}</span>{" "}
-                <span className="text-muted-foreground">— {selected.name}</span>
+                <span className="text-muted-foreground">— {formatLabel(selected)}</span>
               </span>
             ) : (
               <span className="text-muted-foreground truncate">{placeholder}</span>
@@ -70,7 +75,7 @@ export function AirportCombobox({
             <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>
               {AIRPORTS.map((a) => {
-                const itemValue = `${a.code} ${a.name}`;
+                const itemValue = `${a.code} ${a.name} ${a.city ?? ""} ${a.uf ?? ""}`;
                 return (
                   <CommandItem
                     key={a.code}
@@ -81,8 +86,16 @@ export function AirportCombobox({
                     }}
                   >
                     <Check className={cn("mr-2 h-4 w-4", value === a.code ? "opacity-100" : "opacity-0")} />
-                    <span className="font-semibold w-12">{a.code}</span>
-                    <span className="text-muted-foreground truncate">{a.name}</span>
+                    <span className="font-semibold w-12 shrink-0">{a.code}</span>
+                    {a.city && a.uf ? (
+                      <span className="truncate">
+                        <span className="font-medium">{a.city}</span>{" "}
+                        <span className="text-muted-foreground">({a.uf})</span>{" "}
+                        <span className="text-muted-foreground">— {a.name}</span>
+                      </span>
+                    ) : (
+                      <span className="text-muted-foreground truncate">{a.name}</span>
+                    )}
                   </CommandItem>
                 );
               })}
