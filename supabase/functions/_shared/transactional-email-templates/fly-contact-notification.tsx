@@ -215,17 +215,6 @@ const Email = ({
                 </Section>
               ) : null}
 
-              {agencyText ? (
-                <Section style={block}>
-                  <Heading as="h3" style={h3}>Agenzia incaricata</Heading>
-                  <Text style={bodyText}>{agencyText}</Text>
-                  {agencyAuthLabel ? (
-                    <Text style={{ ...bodyText, marginTop: 8 }}>
-                      ✅ <strong>Autorizzazione:</strong> {agencyAuthLabel}
-                    </Text>
-                  ) : null}
-                </Section>
-              ) : null}
             </>
           ) : (
             <Section style={block}>
