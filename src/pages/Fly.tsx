@@ -1177,21 +1177,26 @@ export default function Fly() {
         documentsText = "\n" + docLines.join("\n");
       }
 
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-notification",
-          idempotencyKey: `fly-${parsed.data.email}-${Date.now()}`,
-          templateData: {
-            name: parsed.data.organization,
-            email: parsed.data.email,
-            company: "—",
-            message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${servicesText}${documentsText}${agencyBlock}`,
-            source: "Fly page",
-            language: lang,
-            submittedAt: new Date().toISOString(),
+      const recipients = ["info@businessmatching.global", "enstobbi@enstobbi.it"];
+      const baseIdempotencyKey = `fly-${parsed.data.email}-${Date.now()}`;
+      for (let i = 0; i < recipients.length; i++) {
+        await supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "fly-contact-notification",
+            recipientEmail: recipients[i],
+            idempotencyKey: `${baseIdempotencyKey}-${i}`,
+            templateData: {
+              name: parsed.data.organization,
+              email: parsed.data.email,
+              company: "—",
+              message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}\n\n${itineraryText}\n\n${passengersText}${notesText}${servicesText}${documentsText}${agencyBlock}`,
+              source: "Fly page",
+              language: lang,
+              submittedAt: new Date().toISOString(),
+            },
           },
-        },
-      });
+        });
+      }
       setSubmitted(true);
     } catch (err) {
       console.error("Fly page notification failed", err);
