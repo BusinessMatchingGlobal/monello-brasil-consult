@@ -576,21 +576,31 @@ function LegEditor({
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
       <div className="space-y-1.5">
         <Label>{c.origin} *</Label>
-        <AirportCombobox
-          value={leg.origin}
-          onChange={(v) => onChange({ origin: v })}
-          placeholder={c.origin}
-          ariaLabel={c.origin}
-        />
+        <div className="flex items-center gap-2">
+          <div className="flex-1 min-w-0">
+            <AirportCombobox
+              value={leg.origin}
+              onChange={(v) => onChange({ origin: v })}
+              placeholder={c.origin}
+              ariaLabel={c.origin}
+            />
+          </div>
+          <AirportMapDialog code={leg.origin} label={c.viewMap} />
+        </div>
       </div>
       <div className="space-y-1.5">
         <Label>{c.destination} *</Label>
-        <AirportCombobox
-          value={leg.destination}
-          onChange={(v) => onChange({ destination: v })}
-          placeholder={c.destination}
-          ariaLabel={c.destination}
-        />
+        <div className="flex items-center gap-2">
+          <div className="flex-1 min-w-0">
+            <AirportCombobox
+              value={leg.destination}
+              onChange={(v) => onChange({ destination: v })}
+              placeholder={c.destination}
+              ariaLabel={c.destination}
+            />
+          </div>
+          <AirportMapDialog code={leg.destination} label={c.viewMap} />
+        </div>
       </div>
       <div className="space-y-1.5">
         <Label>{c.date} *</Label>
