@@ -240,6 +240,7 @@ type Copy = {
   docsWarning: string;
   chooseFile: string;
   chooseFiles: string;
+  takePhoto: string;
   remove: string;
   seeExample: string;
   exampleCaption: string;
