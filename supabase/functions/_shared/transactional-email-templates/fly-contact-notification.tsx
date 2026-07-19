@@ -44,9 +44,8 @@ interface Props {
   }>
   notes?: string
   services?: string
-  agencyText?: string
-  agencyAuthLabel?: string
 }
+
 
 const Email = ({
   name = '—',
@@ -64,9 +63,8 @@ const Email = ({
   documents,
   notes,
   services,
-  agencyText,
-  agencyAuthLabel,
 }: Props) => {
+
   const when = submittedAt || new Date().toISOString()
   const hasStructured =
     (itinerary && itinerary.length > 0) || (passengers && passengers.length > 0)
@@ -217,17 +215,6 @@ const Email = ({
                 </Section>
               ) : null}
 
-              {agencyText ? (
-                <Section style={block}>
-                  <Heading as="h3" style={h3}>Agenzia incaricata</Heading>
-                  <Text style={bodyText}>{agencyText}</Text>
-                  {agencyAuthLabel ? (
-                    <Text style={{ ...bodyText, marginTop: 8 }}>
-                      ✅ <strong>Autorizzazione:</strong> {agencyAuthLabel}
-                    </Text>
-                  ) : null}
-                </Section>
-              ) : null}
             </>
           ) : (
             <Section style={block}>
@@ -295,12 +282,11 @@ export const template = {
     ],
     notes: 'Preferenza per volo diretto se disponibile.',
     services: 'Hotel a São Paulo 15–20/08, zona Jardins.',
-    agencyText: 'Cavallinodieci S.r.l. — Calliphora',
-    agencyAuthLabel: 'Autorizzo Cavallinodieci S.r.l.',
     message: '',
     source: 'Fly page',
     language: 'it',
   },
+
 } satisfies TemplateEntry
 
 const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif', color: '#0f172a' }
