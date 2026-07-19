@@ -22,6 +22,7 @@ import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useCanonical } from "@/lib/useCanonical";
 import { AirportCombobox } from "@/components/AirportCombobox";
+import { AirportMapDialog } from "@/components/AirportMapDialog";
 import { DateInputPicker } from "@/components/DateInputPicker";
 import { AIRPORTS } from "@/lib/airports";
 import { CountryCombobox } from "@/components/CountryCombobox";
