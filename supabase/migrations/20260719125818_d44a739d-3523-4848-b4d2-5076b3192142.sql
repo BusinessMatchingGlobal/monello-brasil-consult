@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Anyone can upload fly documents" ON storage.objects;
