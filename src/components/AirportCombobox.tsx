@@ -33,8 +33,12 @@ export function AirportCombobox({
   const [open, setOpen] = useState(false);
   const selected = useMemo(() => AIRPORTS.find((a) => a.code === value), [value]);
 
+  const normalize = (s: string) =>
+    s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
   const formatLabel = (a: typeof AIRPORTS[number]) => {
     if (a.city && a.uf) return `${a.city} (${a.uf}) — ${a.name}`;
+    if (a.city && a.country) return `${a.city} (${a.country}) — ${a.name}`;
     return a.name;
   };
 
@@ -67,7 +71,7 @@ export function AirportCombobox({
         <Command
           filter={(itemValue, search) => {
             if (!search) return 1;
-            return itemValue.toLowerCase().includes(search.toLowerCase()) ? 1 : 0;
+            return normalize(itemValue).includes(normalize(search)) ? 1 : 0;
           }}
         >
           <CommandInput placeholder={searchLabel} />
@@ -75,7 +79,8 @@ export function AirportCombobox({
             <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>
               {AIRPORTS.map((a) => {
-                const itemValue = `${a.code} ${a.name} ${a.city ?? ""} ${a.uf ?? ""}`;
+                const itemValue = `${a.code} ${a.name} ${a.city ?? ""} ${a.uf ?? ""} ${a.country ?? ""}`;
+                const region = a.uf || a.country;
                 return (
                   <CommandItem
                     key={a.code}
@@ -87,10 +92,10 @@ export function AirportCombobox({
                   >
                     <Check className={cn("mr-2 h-4 w-4", value === a.code ? "opacity-100" : "opacity-0")} />
                     <span className="font-semibold w-12 shrink-0">{a.code}</span>
-                    {a.city && a.uf ? (
+                    {a.city && region ? (
                       <span className="truncate">
                         <span className="font-medium">{a.city}</span>{" "}
-                        <span className="text-muted-foreground">({a.uf})</span>{" "}
+                        <span className="text-muted-foreground">({region})</span>{" "}
                         <span className="text-muted-foreground">— {a.name}</span>
                       </span>
                     ) : (
