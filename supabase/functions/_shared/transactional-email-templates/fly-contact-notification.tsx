@@ -20,6 +20,32 @@ interface Props {
   source?: string
   language?: string
   submittedAt?: string
+  phone?: string
+  whatsapp?: string
+  tripLabel?: string
+  itinerary?: Array<{ label: string; from: string; to: string; date: string; flex: string }>
+  passengers?: Array<{
+    n: number
+    lastName: string
+    firstName: string
+    dob: string
+    cit1: string
+    cit2: string
+    permit: string
+    travelClass: string
+    bags: string
+    weight: string
+  }>
+  documents?: Array<{
+    n: number
+    passportUrl?: string
+    residenceUrls?: string[]
+    ackNoDocs?: boolean
+  }>
+  notes?: string
+  services?: string
+  agencyText?: string
+  agencyAuthLabel?: string
 }
 
 const Email = ({
@@ -30,15 +56,20 @@ const Email = ({
   source = 'Website',
   language = '—',
   submittedAt,
+  phone,
+  whatsapp,
+  tripLabel,
+  itinerary,
+  passengers,
+  documents,
+  notes,
+  services,
+  agencyText,
+  agencyAuthLabel,
 }: Props) => {
   const when = submittedAt || new Date().toISOString()
-  // Split the free-form message into logical sections (double newline separated).
-  // The first block is contact/phones; subsequent blocks are itinerary, passengers,
-  // notes, services, documents, agency — each with an optional heading line.
-  const blocks = String(message)
-    .split(/\n{2,}/)
-    .map((b) => b.trim())
-    .filter(Boolean)
+  const hasStructured =
+    (itinerary && itinerary.length > 0) || (passengers && passengers.length > 0)
   return (
     <Html lang="en" dir="ltr">
       <Head />
@@ -57,11 +88,152 @@ const Email = ({
             <Row label="Organizzazione" value={name} />
             <Row label="Email" value={email} isLink linkHref={`mailto:${email}`} />
             {company && company !== '—' ? <Row label="Azienda" value={company} /> : null}
+            {phone ? <Row label="Telefono" value={phone} /> : null}
+            {whatsapp ? <Row label="WhatsApp" value={whatsapp} /> : null}
           </Section>
 
-          {blocks.map((block, idx) => (
-            <Block key={idx} raw={block} />
-          ))}
+          {hasStructured ? (
+            <>
+              {itinerary && itinerary.length > 0 ? (
+                <Section style={block}>
+                  <Heading as="h3" style={h3}>
+                    Itinerario voli{tripLabel ? ` — ${tripLabel}` : ''}
+                  </Heading>
+                  <table style={dataTable}>
+                    <thead>
+                      <tr>
+                        <th style={th}>Tratta</th>
+                        <th style={th}>Da</th>
+                        <th style={th}>A</th>
+                        <th style={th}>Data</th>
+                        <th style={th}>Flessibilità</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {itinerary.map((l, i) => (
+                        <tr key={i} style={i % 2 ? trAlt : trBase}>
+                          <td style={td}><strong>{l.label}</strong></td>
+                          <td style={td}>{l.from}</td>
+                          <td style={td}>{l.to}</td>
+                          <td style={td}>{l.date}</td>
+                          <td style={td}>{l.flex}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </Section>
+              ) : null}
+
+              {passengers && passengers.length > 0 ? (
+                <Section style={block}>
+                  <Heading as="h3" style={h3}>Passeggeri</Heading>
+                  <table style={dataTable}>
+                    <thead>
+                      <tr>
+                        <th style={th}>#</th>
+                        <th style={th}>Cognome</th>
+                        <th style={th}>Nome</th>
+                        <th style={th}>Nascita</th>
+                        <th style={th}>Cittadinanza</th>
+                        <th style={th}>2ª cittad.</th>
+                        <th style={th}>Residenza</th>
+                        <th style={th}>Classe</th>
+                        <th style={th}>Bag.</th>
+                        <th style={th}>Peso</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {passengers.map((p, i) => (
+                        <tr key={i} style={i % 2 ? trAlt : trBase}>
+                          <td style={td}>{p.n}</td>
+                          <td style={td}><strong>{p.lastName}</strong></td>
+                          <td style={td}>{p.firstName}</td>
+                          <td style={td}>{p.dob}</td>
+                          <td style={td}>{p.cit1}</td>
+                          <td style={td}>{p.cit2}</td>
+                          <td style={td}>{p.permit}</td>
+                          <td style={td}>{p.travelClass}</td>
+                          <td style={td}>{p.bags}</td>
+                          <td style={td}>{p.weight}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </Section>
+              ) : null}
+
+              {notes ? (
+                <Section style={block}>
+                  <Heading as="h3" style={h3}>Note</Heading>
+                  <Text style={bodyText}>{notes}</Text>
+                </Section>
+              ) : null}
+
+              {services ? (
+                <Section style={block}>
+                  <Heading as="h3" style={h3}>Altri servizi richiesti</Heading>
+                  <Text style={bodyText}>{services}</Text>
+                </Section>
+              ) : null}
+
+              {documents && documents.length > 0 &&
+              documents.some((d) => d.passportUrl || (d.residenceUrls && d.residenceUrls.length > 0) || d.ackNoDocs) ? (
+                <Section style={block}>
+                  <Heading as="h3" style={h3}>Documenti</Heading>
+                  <table style={dataTable}>
+                    <thead>
+                      <tr>
+                        <th style={th}>Passeggero</th>
+                        <th style={th}>Passaporto</th>
+                        <th style={th}>Residenza / RNE</th>
+                        <th style={th}>Stato</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {documents.map((d, i) => (
+                        <tr key={i} style={i % 2 ? trAlt : trBase}>
+                          <td style={td}>#{d.n}</td>
+                          <td style={td}>
+                            {d.passportUrl ? (
+                              <a href={d.passportUrl} style={linkStyle}>Apri</a>
+                            ) : '—'}
+                          </td>
+                          <td style={td}>
+                            {d.residenceUrls && d.residenceUrls.length > 0
+                              ? d.residenceUrls.map((u, j) => (
+                                  <div key={j}>
+                                    <a href={u} style={linkStyle}>File {j + 1}</a>
+                                  </div>
+                                ))
+                              : '—'}
+                          </td>
+                          <td style={td}>
+                            {d.ackNoDocs ? '⚠ Nessun documento — responsabilità confermata' : 'OK'}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </Section>
+              ) : null}
+
+              {agencyText ? (
+                <Section style={block}>
+                  <Heading as="h3" style={h3}>Agenzia incaricata</Heading>
+                  <Text style={bodyText}>{agencyText}</Text>
+                  {agencyAuthLabel ? (
+                    <Text style={{ ...bodyText, marginTop: 8 }}>
+                      ✅ <strong>Autorizzazione:</strong> {agencyAuthLabel}
+                    </Text>
+                  ) : null}
+                </Section>
+              ) : null}
+            </>
+          ) : (
+            <Section style={block}>
+              <Text style={bodyText}>{message}</Text>
+            </Section>
+          )}
 
           <Hr style={hr} />
           <Text style={footer}>
@@ -100,35 +272,6 @@ const Row = ({
   </table>
 )
 
-// Renders one section block. If the first line looks like a heading (ends with ":"),
-// it's shown as a colored heading and the rest becomes the body.
-const Block = ({ raw }: { raw: string }) => {
-  const lines = raw.split('\n')
-  let heading: string | null = null
-  let bodyLines = lines
-  if (lines.length > 0 && /:\s*$/.test(lines[0])) {
-    heading = lines[0].replace(/:\s*$/, '')
-    bodyLines = lines.slice(1)
-  }
-  // Detect key:value lines (label before first ": ")
-  const kvRows: Array<{ k: string; v: string } | { free: string }> = bodyLines.map((ln) => {
-    const m = ln.match(/^\s*([^:]{1,40})\s*:\s*(.+)$/)
-    if (m && !ln.startsWith('  ')) return { k: m[1].trim(), v: m[2].trim() }
-    return { free: ln }
-  })
-  const allKv = kvRows.every((r) => 'k' in r)
-  return (
-    <Section style={block}>
-      {heading ? <Heading as="h3" style={h3}>{heading}</Heading> : null}
-      {allKv && kvRows.length > 0 ? (
-        kvRows.map((r, i) => 'k' in r ? <Row key={i} label={r.k} value={r.v} /> : null)
-      ) : (
-        <Text style={bodyText}>{bodyLines.join('\n')}</Text>
-      )}
-    </Section>
-  )
-}
-
 export const template = {
   component: Email,
   subject: (data: Props) => `New flight request — ${data?.name ?? 'Website'}`,
@@ -137,8 +280,24 @@ export const template = {
     name: 'Jane Doe',
     email: 'jane@example.com',
     company: 'Acme SRL',
-    message:
-      'Phone: +39 123 456 7890\nWhatsApp: +55 11 91234 5678\n\nItinerario voli:\nGRU → MXP | 2026-08-01 | Data fissa\nMXP → GRU | 2026-08-20 | Flessibile (−1/+2 giorni)\n\nPasseggeri:\nDoe Jane | Data di nascita: 1985-04-12 | Cittadinanza: IT | Classe: Economy',
+    phone: '+39 123 456 7890',
+    whatsapp: '+55 11 91234 5678',
+    tripLabel: 'Andata e ritorno',
+    itinerary: [
+      { label: 'Andata', from: 'GRU — São Paulo', to: 'MXP — Milano', date: '2026-08-01', flex: 'Data fissa' },
+      { label: 'Ritorno', from: 'MXP — Milano', to: 'GRU — São Paulo', date: '2026-08-20', flex: 'Flessibile (−1/+2 giorni)' },
+    ],
+    passengers: [
+      { n: 1, lastName: 'DOE', firstName: 'Jane', dob: '1985-04-12', cit1: 'IT — Italy', cit2: '—', permit: 'Nessuna', travelClass: 'Economy', bags: '1', weight: '23 kg' },
+    ],
+    documents: [
+      { n: 1, passportUrl: 'https://example.com/passport.pdf', residenceUrls: [], ackNoDocs: false },
+    ],
+    notes: 'Preferenza per volo diretto se disponibile.',
+    services: 'Hotel a São Paulo 15–20/08, zona Jardins.',
+    agencyText: 'Cavallinodieci S.r.l. — Calliphora',
+    agencyAuthLabel: 'Autorizzo Cavallinodieci S.r.l.',
+    message: '',
     source: 'Fly page',
     language: 'it',
   },
@@ -196,3 +355,30 @@ const rowValueCell = {
 const bodyText = { fontSize: '14px', lineHeight: '22px', whiteSpace: 'pre-wrap' as const, margin: 0, color: '#0f172a' }
 const linkStyle = { color: '#1e40af', textDecoration: 'underline' }
 const footer = { fontSize: '11px', color: '#94a3b8', textAlign: 'center' as const, margin: '10px 0 0' }
+const dataTable = {
+  width: '100%',
+  borderCollapse: 'collapse' as const,
+  fontSize: '12px',
+  tableLayout: 'auto' as const,
+}
+const th = {
+  padding: '6px 8px',
+  fontSize: '11px',
+  color: '#ffffff',
+  backgroundColor: '#1e40af',
+  textAlign: 'left' as const,
+  textTransform: 'uppercase' as const,
+  letterSpacing: '0.04em',
+  fontWeight: 700,
+  border: '1px solid #1e3a8a',
+}
+const td = {
+  padding: '6px 8px',
+  fontSize: '12px',
+  color: '#0f172a',
+  verticalAlign: 'top' as const,
+  border: '1px solid #e2e8f0',
+  wordBreak: 'break-word' as const,
+}
+const trBase = { backgroundColor: '#ffffff' }
+const trAlt = { backgroundColor: '#f8fafc' }
