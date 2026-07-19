@@ -1112,10 +1112,6 @@ export default function Fly() {
       toast({ title: c.responsibilityRequired, variant: "destructive" });
       return;
     }
-    if (!serviceAuth) {
-      toast({ title: c.agencyAuthRequired, variant: "destructive" });
-      return;
-    }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
     const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
@@ -1125,7 +1121,6 @@ export default function Fly() {
     const passengerRows = buildPassengerRows();
     const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
     const servicesText = services.trim() ? `\n\n${c.servicesTitle}:\n${services.trim()}` : "";
-    const agencyBlock = `\n\n${c.agencyTitle}:\n${c.agencyText}\n\n✅ Autorizzazione / Authorization: ${c.agencyAuthLabel}`;
     try {
       // 1) Upload documents to private storage bucket, then sign URLs.
       const submissionId = crypto.randomUUID();
@@ -1236,9 +1231,7 @@ export default function Fly() {
               documents: documentRows,
               notes: notes.trim(),
               services: services.trim(),
-              agencyText: c.agencyText,
-              agencyAuthLabel: c.agencyAuthLabel,
-              message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}${notesText}${servicesText}${agencyBlock}`,
+              message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}${notesText}${servicesText}`,
               source: "Fly page",
               language: lang,
               submittedAt: new Date().toISOString(),
