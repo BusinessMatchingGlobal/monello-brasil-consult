@@ -22,6 +22,7 @@ import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useCanonical } from "@/lib/useCanonical";
 import { AirportCombobox } from "@/components/AirportCombobox";
+import { AirportMapDialog } from "@/components/AirportMapDialog";
 import { DateInputPicker } from "@/components/DateInputPicker";
 import { AIRPORTS } from "@/lib/airports";
 import { CountryCombobox } from "@/components/CountryCombobox";
@@ -183,6 +184,7 @@ type Copy = {
   removeLeg: string;
   origin: string;
   destination: string;
+  viewMap: string;
   date: string;
   pickDate: string;
   flexibility: string;
@@ -286,6 +288,7 @@ const copy: Record<Lang, Copy> = {
     removeLeg: "Rimuovi",
     origin: "APT Partenza",
     destination: "APT Destinazione",
+    viewMap: "Mostra sulla mappa",
     date: "Data",
     pickDate: "Scegli una data",
     flexibility: "Flessibilità",
@@ -386,6 +389,7 @@ const copy: Record<Lang, Copy> = {
     removeLeg: "Remove",
     origin: "Departure APT",
     destination: "Arrival APT",
+    viewMap: "View on map",
     date: "Date",
     pickDate: "Pick a date",
     flexibility: "Flexibility",
@@ -486,6 +490,7 @@ const copy: Record<Lang, Copy> = {
     removeLeg: "Remover",
     origin: "APT Partida",
     destination: "APT Destino",
+    viewMap: "Ver no mapa",
     date: "Data",
     pickDate: "Escolha uma data",
     flexibility: "Flexibilidade",
@@ -571,21 +576,31 @@ function LegEditor({
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
       <div className="space-y-1.5">
         <Label>{c.origin} *</Label>
-        <AirportCombobox
-          value={leg.origin}
-          onChange={(v) => onChange({ origin: v })}
-          placeholder={c.origin}
-          ariaLabel={c.origin}
-        />
+        <div className="flex items-center gap-2">
+          <div className="flex-1 min-w-0">
+            <AirportCombobox
+              value={leg.origin}
+              onChange={(v) => onChange({ origin: v })}
+              placeholder={c.origin}
+              ariaLabel={c.origin}
+            />
+          </div>
+          <AirportMapDialog code={leg.origin} label={c.viewMap} />
+        </div>
       </div>
       <div className="space-y-1.5">
         <Label>{c.destination} *</Label>
-        <AirportCombobox
-          value={leg.destination}
-          onChange={(v) => onChange({ destination: v })}
-          placeholder={c.destination}
-          ariaLabel={c.destination}
-        />
+        <div className="flex items-center gap-2">
+          <div className="flex-1 min-w-0">
+            <AirportCombobox
+              value={leg.destination}
+              onChange={(v) => onChange({ destination: v })}
+              placeholder={c.destination}
+              ariaLabel={c.destination}
+            />
+          </div>
+          <AirportMapDialog code={leg.destination} label={c.viewMap} />
+        </div>
       </div>
       <div className="space-y-1.5">
         <Label>{c.date} *</Label>
