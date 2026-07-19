@@ -282,12 +282,11 @@ export const template = {
     ],
     notes: 'Preferenza per volo diretto se disponibile.',
     services: 'Hotel a São Paulo 15–20/08, zona Jardins.',
-    agencyText: 'Cavallinodieci S.r.l. — Calliphora',
-    agencyAuthLabel: 'Autorizzo Cavallinodieci S.r.l.',
     message: '',
     source: 'Fly page',
     language: 'it',
   },
+
 } satisfies TemplateEntry
 
 const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif', color: '#0f172a' }
