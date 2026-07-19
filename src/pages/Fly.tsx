@@ -183,6 +183,7 @@ type Copy = {
   removeLeg: string;
   origin: string;
   destination: string;
+  viewMap: string;
   date: string;
   pickDate: string;
   flexibility: string;
