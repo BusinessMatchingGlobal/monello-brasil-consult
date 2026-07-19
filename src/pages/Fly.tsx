@@ -560,10 +560,12 @@ function LegEditor({
   leg,
   onChange,
   c,
+  minDate,
 }: {
   leg: Leg;
   onChange: (patch: Partial<Leg>) => void;
   c: Copy;
+  minDate?: Date;
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -593,7 +595,7 @@ function LegEditor({
           placeholder={c.pickDate}
           fromYear={new Date().getFullYear()}
           toYear={new Date().getFullYear() + 2}
-          minDate={new Date()}
+          minDate={minDate ?? new Date()}
         />
       </div>
       <div className="space-y-1.5">
