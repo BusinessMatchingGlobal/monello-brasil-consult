@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2, Upload, FileText, X, HelpCircle } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2, Upload, FileText, X, HelpCircle, Camera } from "lucide-react";
 import { format } from "date-fns";
 import { z } from "zod";
 import { useT, type Lang } from "@/lib/i18n";
@@ -240,6 +240,7 @@ type Copy = {
   docsWarning: string;
   chooseFile: string;
   chooseFiles: string;
+  takePhoto: string;
   remove: string;
   seeExample: string;
   exampleCaption: string;
@@ -343,6 +344,7 @@ const copy: Record<Lang, Copy> = {
     docsWarning: "⚠️ Documenti illeggibili, tagliati o incompleti equivalgono a documenti non inviati: in tal caso la verifica non è possibile e l'esattezza dei dati inseriti rimane di esclusiva responsabilità del passeggero.",
     chooseFile: "Scegli file",
     chooseFiles: "Scegli file (max 2)",
+    takePhoto: "Scatta foto",
     remove: "Rimuovi",
     seeExample: "Vedi esempio",
     exampleCaption: "Esempio di documento leggibile",
@@ -444,6 +446,7 @@ const copy: Record<Lang, Copy> = {
     docsWarning: "⚠️ Illegible, cropped or incomplete documents are equivalent to no documents at all: in that case verification is not possible and the accuracy of the data provided remains the sole responsibility of the passenger.",
     chooseFile: "Choose file",
     chooseFiles: "Choose files (max 2)",
+    takePhoto: "Take photo",
     remove: "Remove",
     seeExample: "See example",
     exampleCaption: "Example of a legible document",
@@ -545,6 +548,7 @@ const copy: Record<Lang, Copy> = {
     docsWarning: "⚠️ Documentos ilegíveis, cortados ou incompletos equivalem a documentos não enviados: nesse caso, a conferência não é possível e a exatidão dos dados informados permanece de responsabilidade exclusiva do passageiro.",
     chooseFile: "Escolher arquivo",
     chooseFiles: "Escolher arquivos (máx. 2)",
+    takePhoto: "Tirar foto",
     remove: "Remover",
     seeExample: "Ver exemplo",
     exampleCaption: "Exemplo de documento legível",
@@ -873,6 +877,7 @@ function DocumentUploader({
   c: Copy;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const cameraRef = useRef<HTMLInputElement>(null);
 
   function handleFiles(list: FileList | null) {
     if (!list) return;
@@ -924,15 +929,33 @@ function DocumentUploader({
           <Upload className="h-4 w-4 mr-1" />
           {multiple ? c.chooseFiles : c.chooseFile}
         </Button>
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          className="sm:hidden"
+          onClick={() => cameraRef.current?.click()}
+        >
+          <Camera className="h-4 w-4 mr-1" />
+          {c.takePhoto}
+        </Button>
         <input
           ref={inputRef}
           type="file"
           accept="image/jpeg,image/png,image/jpg,application/pdf"
-          capture="environment"
           multiple={multiple}
           className="hidden"
           onChange={(e) => handleFiles(e.target.files)}
         />
+        <input
+          ref={cameraRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          className="hidden"
+          onChange={(e) => handleFiles(e.target.files)}
+        />
+        <span className="text-xs text-muted-foreground">JPG · PNG · PDF</span>
       </div>
       {files.length > 0 && (
         <ul className="space-y-1">
