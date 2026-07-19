@@ -63,15 +63,14 @@ const Row = ({ label, value }: { label: string; value: string }) => (
 
 export const template = {
   component: Email,
-  subject: (data: Props) => `New contact request — ${data?.name ?? 'Website'}`,
-  displayName: 'Contact form notification',
-  to: 'info@businessmatching.global',
+  subject: (data: Props) => `New flight request — ${data?.name ?? 'Website'}`,
+  displayName: 'Fly page notification',
   previewData: {
     name: 'Jane Doe',
     email: 'jane@example.com',
     company: 'Acme SRL',
-    message: 'We are interested in your services for entering the Brazilian market.',
-    source: 'Contact form',
+    message: 'Phone: +39 123 456 7890\nWhatsApp: +55 11 91234 5678\n\nItinerario: ...',
+    source: 'Fly page',
     language: 'it',
   },
 } satisfies TemplateEntry
