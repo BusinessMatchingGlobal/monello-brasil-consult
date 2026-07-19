@@ -22,6 +22,7 @@ import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useCanonical } from "@/lib/useCanonical";
 import { AirportCombobox } from "@/components/AirportCombobox";
+import { DateInputPicker } from "@/components/DateInputPicker";
 import { AIRPORTS } from "@/lib/airports";
 import { CountryCombobox } from "@/components/CountryCombobox";
 import { COUNTRIES } from "@/lib/countries";
@@ -586,27 +587,13 @@ function LegEditor({
       </div>
       <div className="space-y-1.5">
         <Label>{c.date} *</Label>
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button
-              type="button"
-              variant="outline"
-              className={cn("w-full justify-start text-left font-normal", !leg.date && "text-muted-foreground")}
-            >
-              <CalendarIcon className="mr-2 h-4 w-4" />
-              {leg.date ? format(leg.date, "PPP") : <span>{c.pickDate}</span>}
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-auto p-0 pointer-events-auto" align="start">
-            <Calendar
-              mode="single"
-              selected={leg.date}
-              onSelect={(d) => onChange({ date: d ?? undefined })}
-              initialFocus
-              className={cn("p-3 pointer-events-auto")}
-            />
-          </PopoverContent>
-        </Popover>
+        <DateInputPicker
+          value={leg.date}
+          onChange={(d) => onChange({ date: d })}
+          placeholder={c.pickDate}
+          fromYear={new Date().getFullYear()}
+          toYear={new Date().getFullYear() + 2}
+        />
       </div>
       <div className="space-y-1.5">
         <Label>{c.flexibility}</Label>
@@ -695,27 +682,13 @@ function PassengerEditor({
       </div>
       <div className="space-y-1.5">
         <Label>{c.birthDate} *</Label>
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button
-              type="button"
-              variant="outline"
-              className={cn("w-full justify-start text-left font-normal", !passenger.birthDate && "text-muted-foreground")}
-            >
-              <CalendarIcon className="mr-2 h-4 w-4" />
-              {passenger.birthDate ? format(passenger.birthDate, "PPP") : <span>{c.pickDate}</span>}
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-auto p-0 pointer-events-auto" align="start">
-            <Calendar
-              mode="single"
-              selected={passenger.birthDate}
-              onSelect={(d) => onChange({ birthDate: d ?? undefined })}
-              initialFocus
-              className={cn("p-3 pointer-events-auto")}
-            />
-          </PopoverContent>
-        </Popover>
+        <DateInputPicker
+          value={passenger.birthDate}
+          onChange={(d) => onChange({ birthDate: d })}
+          placeholder={c.pickDate}
+          fromYear={1920}
+          toYear={new Date().getFullYear()}
+        />
       </div>
       <div className="space-y-1.5">
         <Label>{c.citizenship1} *</Label>
