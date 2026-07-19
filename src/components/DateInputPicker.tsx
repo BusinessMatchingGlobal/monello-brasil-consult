@@ -35,6 +35,21 @@ export function DateInputPicker({
   const tryParse = (raw: string) => {
     const s = raw.trim();
     if (!s) return { ok: true, date: undefined as Date | undefined };
+    // Digits-only shortcuts: ddmmyy or ddmmyyyy
+    if (/^\d{6}$/.test(s)) {
+      const dd = s.slice(0, 2);
+      const mm = s.slice(2, 4);
+      const yy = s.slice(4, 6);
+      const d = parse(`${dd}/${mm}/20${yy}`, "dd/MM/yyyy", new Date());
+      if (isValid(d)) return { ok: true, date: d };
+    }
+    if (/^\d{8}$/.test(s)) {
+      const dd = s.slice(0, 2);
+      const mm = s.slice(2, 4);
+      const yyyy = s.slice(4, 8);
+      const d = parse(`${dd}/${mm}/${yyyy}`, "dd/MM/yyyy", new Date());
+      if (isValid(d)) return { ok: true, date: d };
+    }
     const patterns = ["dd/MM/yyyy", "d/M/yyyy", "dd-MM-yyyy", "yyyy-MM-dd", "dd.MM.yyyy"];
     for (const p of patterns) {
       const d = parse(s, p, new Date());
