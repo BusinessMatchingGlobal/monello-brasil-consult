@@ -25,10 +25,20 @@ Deno.serve(async (req) => {
     )
     const { data, error } = await supabase.storage.from(BUCKET).createSignedUrls(safe, EXPIRES_IN)
     if (error) throw error
-    return new Response(
-      JSON.stringify({ urls: (data ?? []).map((d) => ({ path: d.path, url: d.signedUrl })) }),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } },
-    )
+    const urls: Array<{ path: string; url: string }> = []
+    for (let i = 0; i < (data ?? []).length; i++) {
+      const d = data![i]
+      // Supabase returns path without leading slash matching the input path.
+      const originalPath = safe[i]
+      if (d?.signedUrl) {
+        urls.push({ path: originalPath, url: d.signedUrl })
+      } else {
+        console.error('sign-fly-documents: missing signed URL', { path: originalPath, error: d?.error })
+      }
+    }
+    return new Response(JSON.stringify({ urls }), {
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
   } catch (err) {
     console.error('sign-fly-documents error', err)
     return new Response(JSON.stringify({ error: 'Failed to sign URLs' }), {
