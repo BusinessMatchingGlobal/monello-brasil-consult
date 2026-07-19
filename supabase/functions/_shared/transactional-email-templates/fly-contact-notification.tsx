@@ -44,9 +44,8 @@ interface Props {
   }>
   notes?: string
   services?: string
-  agencyText?: string
-  agencyAuthLabel?: string
 }
+
 
 const Email = ({
   name = '—',
@@ -64,9 +63,8 @@ const Email = ({
   documents,
   notes,
   services,
-  agencyText,
-  agencyAuthLabel,
 }: Props) => {
+
   const when = submittedAt || new Date().toISOString()
   const hasStructured =
     (itinerary && itinerary.length > 0) || (passengers && passengers.length > 0)
