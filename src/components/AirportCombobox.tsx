@@ -39,7 +39,7 @@ export function AirportCombobox({
     s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
   const formatLabel = (a: typeof AIRPORTS[number]) => {
-    if (a.isCity) return `${a.city} — qualsiasi aeroporto`;
+    if (a.isCity) return `Aeroporti Area ${a.city}`;
     if (a.city && a.uf) return `${a.city} (${a.uf}) — ${a.name}`;
     if (a.city && a.country) return `${a.city} (${a.country}) — ${a.name}`;
     return a.name;
@@ -105,11 +105,11 @@ export function AirportCombobox({
                     <span className="font-semibold w-12 shrink-0">{a.code}</span>
                     {a.isCity ? (
                       <span className="truncate">
-                        <span className="font-medium">{a.city}</span>{" "}
+                        <span className="font-medium">Aeroporti Area {a.city}</span>{" "}
                         <span className="text-[10px] uppercase tracking-wide bg-primary/10 text-primary rounded px-1 py-0.5 ml-1">
-                          Città
+                          Area
                         </span>{" "}
-                        <span className="text-muted-foreground">— qualsiasi aeroporto ({a.children?.join(", ")})</span>
+                        <span className="text-muted-foreground">({a.children?.join(", ")})</span>
                       </span>
                     ) : a.city && region ? (
                       <span className="truncate">
