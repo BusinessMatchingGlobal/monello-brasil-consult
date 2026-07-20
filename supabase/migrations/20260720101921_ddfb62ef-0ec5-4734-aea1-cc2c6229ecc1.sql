@@ -1,0 +1,1 @@
+CREATE POLICY "Admins can upload fly-documents" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id = 'fly-documents' AND public.has_role(auth.uid(), 'admin'));
