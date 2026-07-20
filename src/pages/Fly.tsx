@@ -1510,7 +1510,16 @@ export default function Fly() {
                             </Button>
                           )}
                         </div>
-                        <LegEditor leg={l} onChange={(p) => patchComplex(l.id, p)} c={c} />
+                        <LegEditor
+                          leg={l}
+                          onChange={(p) => patchComplex(l.id, p)}
+                          c={c}
+                          minDate={
+                            i > 0
+                              ? complexLegs[i - 1].date ?? new Date()
+                              : new Date()
+                          }
+                        />
                       </div>
                     ))}
                     <Button type="button" variant="outline" onClick={addComplexLeg} className="w-full">
