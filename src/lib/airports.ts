@@ -15,11 +15,11 @@ export type Airport = {
 
 export const AIRPORTS: Airport[] = [
   // Italy
-  { code: "FCO", name: "Roma Fiumicino", lat: 41.8003, lon: 12.2389 },
-  { code: "CIA", name: "Roma Ciampino", lat: 41.7994, lon: 12.5949 },
+  { code: "FCO", name: "Roma Fiumicino - Leonardo da Vinci", lat: 41.8003, lon: 12.2389 },
+  { code: "CIA", name: "Roma Ciampino - Giovan Battista Pastine", lat: 41.7994, lon: 12.5949 },
   { code: "MXP", name: "Milano Malpensa", lat: 45.6306, lon: 8.7281 },
-  { code: "LIN", name: "Milano Linate", lat: 45.4459, lon: 9.2767 },
-  { code: "BGY", name: "Milano Bergamo Orio al Serio", lat: 45.6739, lon: 9.7042 },
+  { code: "LIN", name: "Milano Linate - Enrico Forlanini", lat: 45.4459, lon: 9.2767 },
+  { code: "BGY", name: "Bergamo Orio al Serio - Il Caravaggio", lat: 45.6739, lon: 9.7042 },
   { code: "VCE", name: "Venezia Marco Polo", lat: 45.5053, lon: 12.3519 },
   { code: "TSF", name: "Treviso", lat: 45.6484, lon: 12.1944 },
   { code: "BLQ", name: "Bologna", lat: 44.5354, lon: 11.2887 },
@@ -29,7 +29,7 @@ export const AIRPORTS: Airport[] = [
   { code: "BRI", name: "Bari", lat: 41.1389, lon: 16.7606 },
   { code: "CTA", name: "Catania", lat: 37.4668, lon: 15.0664 },
   { code: "PMO", name: "Palermo", lat: 38.1759, lon: 13.091 },
-  { code: "TRN", name: "Torino", lat: 45.2008, lon: 7.6496 },
+  { code: "TRN", name: "Torino Caselle - Sandro Pertini", lat: 45.2008, lon: 7.6496 },
   { code: "VRN", name: "Verona", lat: 45.3957, lon: 10.8885 },
   { code: "CAG", name: "Cagliari", lat: 39.2515, lon: 9.0542 },
   { code: "OLB", name: "Olbia", lat: 40.8987, lon: 9.5176 },
