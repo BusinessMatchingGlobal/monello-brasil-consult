@@ -22,7 +22,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     date: "2026-07-23",
     title: {
       it: "PIX: il sistema di pagamenti istantanei del Brasile",
-      en: "PIX: Brazil's instant payment system",
+      en: "The First Tariff on a Method",
       pt: "PIX: o sistema de pagamentos instantâneos do Brasil",
     },
   },
