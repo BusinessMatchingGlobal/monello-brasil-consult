@@ -14,6 +14,17 @@ type Sub = {
   confirmed_at: string | null;
 };
 
+type AComment = {
+  id: string;
+  article_slug: string;
+  author_name: string;
+  author_email: string | null;
+  content: string;
+  approved: boolean;
+  created_at: string;
+  approved_at: string | null;
+};
+
 export default function Admin() {
   const [session, setSession] = useState<any>(null);
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
@@ -24,6 +35,7 @@ export default function Admin() {
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [info, setInfo] = useState<string | null>(null);
   const [subs, setSubs] = useState<Sub[]>([]);
+  const [comments, setComments] = useState<AComment[]>([]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -43,6 +55,10 @@ export default function Admin() {
       .select("id,email,first_name,last_name,language,status,created_at,confirmed_at")
       .order("created_at", { ascending: false })
       .then(({ data }) => setSubs((data as Sub[]) || []));
+    supabase.from("analysis_comments")
+      .select("id,article_slug,author_name,author_email,content,approved,created_at,approved_at")
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setComments((data as AComment[]) || []));
   }, [isAdmin]);
 
   const submit = async (e: React.FormEvent) => {
@@ -84,6 +100,29 @@ export default function Admin() {
     const { error } = await supabase.from("newsletter_subscribers").update({ status: next }).eq("id", s.id);
     if (error) { alert(error.message); return; }
     setSubs(prev => prev.map(x => x.id === s.id ? { ...x, status: next } : x));
+  };
+
+  const approveComment = async (c: AComment) => {
+    const { error } = await supabase.from("analysis_comments")
+      .update({ approved: true, approved_at: new Date().toISOString() })
+      .eq("id", c.id);
+    if (error) { alert(error.message); return; }
+    setComments(prev => prev.map(x => x.id === c.id ? { ...x, approved: true, approved_at: new Date().toISOString() } : x));
+  };
+
+  const unapproveComment = async (c: AComment) => {
+    const { error } = await supabase.from("analysis_comments")
+      .update({ approved: false, approved_at: null })
+      .eq("id", c.id);
+    if (error) { alert(error.message); return; }
+    setComments(prev => prev.map(x => x.id === c.id ? { ...x, approved: false, approved_at: null } : x));
+  };
+
+  const deleteComment = async (c: AComment) => {
+    if (!confirm(`Eliminare il commento di ${c.author_name}?`)) return;
+    const { error } = await supabase.from("analysis_comments").delete().eq("id", c.id);
+    if (error) { alert(error.message); return; }
+    setComments(prev => prev.filter(x => x.id !== c.id));
   };
 
   if (!session) {
@@ -169,6 +208,56 @@ export default function Admin() {
               {subs.length === 0 && <tr><td colSpan={7} className="p-6 text-center text-muted-foreground">Nessun iscritto</td></tr>}
             </tbody>
           </table>
+        </div>
+
+        <div className="pt-6">
+          <h2 className="text-2xl font-semibold mb-2">Commenti /analysis</h2>
+          <div className="flex gap-4 text-sm mb-3">
+            <span>Totali: <strong>{comments.length}</strong></span>
+            <span>In attesa: <strong>{comments.filter(c => !c.approved).length}</strong></span>
+            <span>Approvati: <strong>{comments.filter(c => c.approved).length}</strong></span>
+          </div>
+          <div className="overflow-x-auto border rounded-lg">
+            <table className="w-full text-sm">
+              <thead className="bg-muted">
+                <tr>
+                  <th className="text-left p-3">Articolo</th>
+                  <th className="text-left p-3">Autore</th>
+                  <th className="text-left p-3">Commento</th>
+                  <th className="text-left p-3">Stato</th>
+                  <th className="text-left p-3">Data</th>
+                  <th className="text-left p-3">Azioni</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comments.map(c => (
+                  <tr key={c.id} className="border-t align-top">
+                    <td className="p-3 font-mono text-xs">/{c.article_slug}</td>
+                    <td className="p-3">
+                      <div>{c.author_name}</div>
+                      {c.author_email && <div className="text-xs text-muted-foreground">{c.author_email}</div>}
+                    </td>
+                    <td className="p-3 max-w-md whitespace-pre-wrap">{c.content}</td>
+                    <td className="p-3">
+                      <span className={c.approved ? "text-green-600" : "text-amber-600"}>
+                        {c.approved ? "approvato" : "in attesa"}
+                      </span>
+                    </td>
+                    <td className="p-3 text-xs">{new Date(c.created_at).toLocaleString()}</td>
+                    <td className="p-3 space-x-3">
+                      {c.approved ? (
+                        <button onClick={() => unapproveComment(c)} className="text-xs underline hover:no-underline">Nascondi</button>
+                      ) : (
+                        <button onClick={() => approveComment(c)} className="text-xs underline hover:no-underline text-green-700">Approva</button>
+                      )}
+                      <button onClick={() => deleteComment(c)} className="text-xs underline hover:no-underline text-destructive">Elimina</button>
+                    </td>
+                  </tr>
+                ))}
+                {comments.length === 0 && <tr><td colSpan={6} className="p-6 text-center text-muted-foreground">Nessun commento</td></tr>}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
