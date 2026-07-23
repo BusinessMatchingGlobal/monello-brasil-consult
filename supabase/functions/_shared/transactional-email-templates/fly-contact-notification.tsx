@@ -263,6 +263,7 @@ export const template = {
   component: Email,
   subject: (data: Props) => `New flight request — ${data?.name ?? 'Website'}`,
   displayName: 'Fly page notification',
+  restricted: true,
   previewData: {
     name: 'Jane Doe',
     email: 'jane@example.com',
