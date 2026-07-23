@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { getArticleBySlug } from "@/lib/analysis";
+import { AnalysisFooter } from "@/components/AnalysisFooter";
 
 const content = {
   it: {
@@ -169,6 +170,7 @@ export default function Suja() {
             )}
           </div>
         </article>
+        <AnalysisFooter />
       </div>
     </main>
   );
