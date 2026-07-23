@@ -39,7 +39,7 @@ const content = {
   en: {
     back: "Back to analysis",
     body: [
-      { h: "Two Construction Sites, One Crime, Two Architectures" },
+      { h: "Same crime, two architectures" },
       { p: "Fifty-five years of unpaid domestic work. The settlement: a furnished apartment and roughly €8,500 in cash." },
       { p: "In July 2026, labor inspectors in Fortaleza freed a 62-year-old woman held by the same family across three generations — since 1971 — as an unpaid domestic worker. No salary, no holidays, no literacy, no contact with the outside world. Her mother had served the same family before her. The case surfaced the only way these cases ever surface in Brazil: an anonymous tip." },
       { p: "European media will read this the way European media always reads Brazil: as confirmation of a distant, tropical shame." },
@@ -67,6 +67,17 @@ const content = {
       { p: "Milan just demonstrated that the geography of forced-labor risk includes Lombardy. Brazil demonstrates, twice a year, what a transparency instrument for that risk looks like." },
       { p: "The lista suja — public, free, updated every six months — is the cheapest supply-chain screening instrument available for the Brazilian market. In fifteen years of corridor work, I have yet to meet a European importer who consulted it before signing a supply contract." },
       { p: "A U.S. government construction site in Milan ran on €2-an-hour labor for two years before anyone intervened. Brazil publishes a register of exactly this conduct, twice a year, at zero cost to consult. Which of the two systems would your compliance department rather work with — and why does Europe still not have one?" },
+      { h: "Sources" },
+      { p: "MTE/SIT, Balanço 2025 of actions to combat work in conditions analogous to slavery (28 January 2026)" },
+      { p: "MTE, update of the Cadastro de Empregadores (\"lista suja\"), 6 April 2026 — Interministerial Ordinance 18/2024" },
+      { p: "STF, ADPF 509 (2020) — constitutionality of the Cadastro" },
+      { p: "Milan Prosecutor's Office, urgent judicial control decree, Caddell Construction Co. LLC (26 May 2026); coverage: Il Sole 24 Ore, Il Fatto Quotidiano, Open, MilanoToday (May–July 2026)" },
+      { p: "Law 199/2016; art. 603-bis c.p.; art. 27-quinquies of the TUI (secondment); art. 34 of Legislative Decree 159/2011 (judicial administration)" },
+      { p: "Milan Court, judicial administrations of the fashion supply chain (Alviero Martini 2024; Armani Operations 2024; Manufactures Dior 2024; Valentino 2025; Loro Piana Jul. 2025, revocation Apr. 2026; Tod's); Prato Court, Piazza Italia (Feb. 2026) — coverage: Il Fatto Quotidiano, Il Post, Pambianconews, Sky TG24" },
+      { p: "InPACTO, Balanço do combate ao trabalho escravo 2025" },
+      { p: "Directive (EU) 2026/470 (Omnibus I), Official Journal, 26 February 2026" },
+      { p: "Código Penal, art. 149; Constituição Federal, art. 5º, XI; LC 150/2015" },
+      { p: "Important note: the Italian proceedings cited are ongoing or have been concluded with preventive measures; for the individuals under investigation, the presumption of innocence applies." },
     ],
   },
   pt: {
