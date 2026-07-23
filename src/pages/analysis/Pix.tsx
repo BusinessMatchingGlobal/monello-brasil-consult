@@ -90,9 +90,15 @@ export default function Pix() {
           </h1>
           <p className="text-xs text-foreground/50 mb-10 tabular-nums">{article?.date}</p>
           <div className="space-y-5 text-foreground/85 text-justify leading-relaxed">
-            {c.body.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
+            {c.body.map((block, i) =>
+              "h" in block ? (
+                <h2 key={i} className="text-xl md:text-2xl font-semibold text-foreground text-left mt-8 mb-2">
+                  {block.h}
+                </h2>
+              ) : (
+                <p key={i}>{block.p}</p>
+              )
+            )}
           </div>
         </article>
         <AnalysisComments slug="pix" />
