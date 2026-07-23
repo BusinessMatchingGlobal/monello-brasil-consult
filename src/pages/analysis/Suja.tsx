@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { getArticleBySlug } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
+import { useCanonical } from "@/lib/useCanonical";
 
 const content = {
   it: {
