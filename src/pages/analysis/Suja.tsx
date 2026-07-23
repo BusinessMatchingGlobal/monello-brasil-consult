@@ -122,7 +122,6 @@ const content = {
       { p: "Milão acaba de demonstrar que a geografia do risco de trabalho forçado inclui a Lombardia. O Brasil demonstra, duas vezes por ano, como funciona um instrumento de transparência para esse risco." },
       { p: "A lista suja — pública, gratuita, atualizada a cada seis meses — é o instrumento de triagem de cadeia de fornecimento mais barato disponível para o mercado brasileiro. Em quinze anos de trabalho no corredor Itália-Brasil, ainda não encontrei um importador europeu que a tenha consultado antes de assinar um contrato de fornecimento." },
       { p: "Uma obra do governo dos EUA em Milão rodou com mão de obra a 2 euros por hora durante dois anos, até que alguém interviesse. O Brasil publica, duas vezes por ano e com consulta gratuita, um registro exatamente dessa conduta. Com qual dos dois sistemas a sua área de compliance preferiria trabalhar — e por que a Europa ainda não tem um?" },
-      { p: "#CustoBrasil #TrabalhoEscravo #ListaSuja #CadeiaDeSuprimentos #DueDiligence #CSDDD #Compliance #Brasil #ESG #DireitosHumanos" },
       { h: "Fontes" },
       { p: "MTE/SIT, Balanço 2025 das ações de combate ao trabalho análogo à escravidão (28 de janeiro de 2026)" },
       { p: "MTE, Atualização do Cadastro de Empregadores (\"Lista Suja\"), 6 de abril de 2026 — Portaria Interministerial 18/2024" },
