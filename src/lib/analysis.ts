@@ -12,9 +12,9 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     slug: "suja",
     date: "2026-07-24",
     title: {
-      it: "Due cantieri, un crimine, due architetture",
-      en: "Two Construction Sites, One Crime, Two Architectures",
-      pt: "Dois canteiros, um crime, duas arquiteturas",
+      it: "Stesso crimine, due architetture",
+      en: "Same crime, two architectures",
+      pt: "Mesmo crime, duas arquiteturas",
     },
   },
   {
