@@ -46,6 +46,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://businessmatching.global/guides/doing-business-in-brazil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://businessmatching.global/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
