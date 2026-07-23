@@ -21,5 +21,8 @@ verify_jwt = false
 [functions.newsletter-confirm]
 verify_jwt = false
 
-[functions.sign-fly-documents]
+[functions.fly-session-init]
+verify_jwt = false
+
+[functions.send-fly-notification]
 verify_jwt = false
