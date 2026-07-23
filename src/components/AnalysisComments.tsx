@@ -17,7 +17,6 @@ type Comment = {
 
 const schema = z.object({
   author_name: z.string().trim().min(1).max(100),
-  author_email: z.string().trim().email().max(255).optional().or(z.literal("")),
   content: z.string().trim().min(1).max(2000),
 });
 
@@ -71,7 +70,6 @@ export function AnalysisComments({ slug }: { slug: string }) {
   const l = L[lang];
   const [comments, setComments] = useState<Comment[]>([]);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [content, setContent] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
@@ -86,7 +84,7 @@ export function AnalysisComments({ slug }: { slug: string }) {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const parsed = schema.safeParse({ author_name: name, author_email: email, content });
+    const parsed = schema.safeParse({ author_name: name, content });
     if (!parsed.success) {
       toast.error(l.invalid);
       return;
@@ -95,7 +93,6 @@ export function AnalysisComments({ slug }: { slug: string }) {
     const { error } = await supabase.from("analysis_comments").insert({
       article_slug: slug,
       author_name: parsed.data.author_name,
-      author_email: parsed.data.author_email || null,
       content: parsed.data.content,
       approved: false,
     });
@@ -106,7 +103,6 @@ export function AnalysisComments({ slug }: { slug: string }) {
     }
     toast.success(l.success);
     setName("");
-    setEmail("");
     setContent("");
   };
 
@@ -137,15 +133,9 @@ export function AnalysisComments({ slug }: { slug: string }) {
           <h3 className="text-lg font-semibold">{l.formTitle}</h3>
           <p className="text-xs text-foreground/75 mt-1">{l.note}</p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
+        <div>
             <Label htmlFor="ac-name">{l.name}</Label>
             <Input id="ac-name" value={name} onChange={(e) => setName(e.target.value)} maxLength={100} required />
-          </div>
-          <div>
-            <Label htmlFor="ac-email">{l.email}</Label>
-            <Input id="ac-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={255} />
-          </div>
         </div>
         <div>
           <Label htmlFor="ac-content">{l.message}</Label>
