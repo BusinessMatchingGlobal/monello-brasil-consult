@@ -81,7 +81,7 @@ export function AnalysisComments({ slug }: { slug: string }) {
       .select("id,author_name,content,created_at")
       .eq("article_slug", slug)
       .order("created_at", { ascending: false })
-      .then(({ data }) => setComments((data as Comment[]) || []));
+      .then(({ data }) => setComments((data as unknown as Comment[]) || []));
   }, [slug]);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
