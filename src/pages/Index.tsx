@@ -94,8 +94,10 @@ function Nav() {
           />
         </a>
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) =>
-            l.internal ? (
+          {links.map((l: any) =>
+            l.analysis ? (
+              <AnalysisNavMenu key="analysis-desktop" variant="desktop" />
+            ) : l.internal ? (
               <Link
                 key={l.href}
                 to={l.href}
@@ -139,8 +141,14 @@ function Nav() {
       {open && (
         <div className="md:hidden border-t border-border/60 bg-background">
           <div className="container py-4 flex flex-col gap-4">
-            {links.map((l) =>
-              l.internal ? (
+            {links.map((l: any) =>
+              l.analysis ? (
+                <AnalysisNavMenu
+                  key="analysis-mobile"
+                  variant="mobile"
+                  onNavigate={() => setOpen(false)}
+                />
+              ) : l.internal ? (
                 <Link
                   key={l.href}
                   to={l.href}
