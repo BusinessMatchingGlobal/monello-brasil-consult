@@ -1,5 +1,6 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
+import { verifyFlySessionToken } from '../_shared/fly-session.ts'
 
 const BUCKET = 'fly-documents'
 const MAX_FILES = 30
@@ -12,7 +13,7 @@ type Requested = { path: string; contentType?: string; size?: number }
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders })
   try {
-    const { submissionId, files } = await req.json()
+    const { submissionId, sessionToken, files } = await req.json()
     if (
       typeof submissionId !== 'string' ||
       !/^[0-9a-f-]{36}$/i.test(submissionId) ||
@@ -22,6 +23,16 @@ Deno.serve(async (req) => {
     ) {
       return new Response(JSON.stringify({ error: 'Invalid request' }), {
         status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+
+    // Bind uploads to a server-issued short-lived token so anonymous callers
+    // cannot invent submissionIds and use the private bucket as free hosting.
+    const ok = await verifyFlySessionToken(submissionId, typeof sessionToken === 'string' ? sessionToken : '')
+    if (!ok) {
+      return new Response(JSON.stringify({ error: 'Invalid or expired session token' }), {
+        status: 401,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       })
     }
