@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      analysis_comments: {
+        Row: {
+          approved: boolean
+          approved_at: string | null
+          article_slug: string
+          author_email: string | null
+          author_name: string
+          content: string
+          created_at: string
+          id: string
+        }
+        Insert: {
+          approved?: boolean
+          approved_at?: string | null
+          article_slug: string
+          author_email?: string | null
+          author_name: string
+          content: string
+          created_at?: string
+          id?: string
+        }
+        Update: {
+          approved?: boolean
+          approved_at?: string | null
+          article_slug?: string
+          author_email?: string | null
+          author_name?: string
+          content?: string
+          created_at?: string
+          id?: string
+        }
+        Relationships: []
+      }
       email_send_log: {
         Row: {
           created_at: string
