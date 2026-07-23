@@ -46,7 +46,7 @@ export default function Analysis() {
                 <span className="text-lg md:text-xl text-foreground group-hover:underline">
                   {a.title[lang]}
                 </span>
-                <time className="shrink-0 text-xs text-foreground/50 tabular-nums">
+                <time className="shrink-0 text-xs text-foreground/70 tabular-nums">
                   {a.date}
                 </time>
               </Link>

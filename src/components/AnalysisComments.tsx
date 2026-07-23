@@ -116,14 +116,14 @@ export function AnalysisComments({ slug }: { slug: string }) {
       <h2 className="text-2xl font-semibold mb-6">{l.heading}</h2>
 
       {comments.length === 0 ? (
-        <p className="text-sm text-foreground/60 mb-8">{l.empty}</p>
+        <p className="text-sm text-foreground/75 mb-8">{l.empty}</p>
       ) : (
         <ul className="space-y-5 mb-10">
           {comments.map((c) => (
             <li key={c.id} className="rounded-lg border border-border/60 bg-card/40 p-4">
               <div className="flex items-baseline justify-between gap-3 mb-1">
                 <span className="font-medium text-foreground">{c.author_name}</span>
-                <time className="text-xs text-foreground/50 tabular-nums">
+                <time className="text-xs text-foreground/70 tabular-nums">
                   {new Date(c.created_at).toLocaleDateString()}
                 </time>
               </div>
@@ -136,7 +136,7 @@ export function AnalysisComments({ slug }: { slug: string }) {
       <form onSubmit={onSubmit} className="rounded-lg border border-border/60 bg-card/40 p-5 space-y-4">
         <div>
           <h3 className="text-lg font-semibold">{l.formTitle}</h3>
-          <p className="text-xs text-foreground/60 mt-1">{l.note}</p>
+          <p className="text-xs text-foreground/75 mt-1">{l.note}</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
