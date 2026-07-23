@@ -13,7 +13,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     date: "2026-07-24",
     title: {
       it: "Stesso crimine, due architetture",
-      en: "Two Construction Sites, One Crime, Two Architectures",
+      en: "Same crime, two architectures",
       pt: "Mesmo crime, duas arquiteturas",
     },
   },
