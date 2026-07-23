@@ -78,6 +78,7 @@ const content = {
       { p: "Directive (EU) 2026/470 (Omnibus I), Official Journal, 26 February 2026" },
       { p: "Código Penal, art. 149; Constituição Federal, art. 5º, XI; LC 150/2015" },
       { p: "Important note: the Italian proceedings cited are ongoing or have been concluded with preventive measures; for the individuals under investigation, the presumption of innocence applies." },
+      { p: "Note: the Italian proceedings referred to above are either ongoing or have been resolved through preventive measures; all individuals under investigation are presumed innocent." },
     ],
   },
   pt: {
