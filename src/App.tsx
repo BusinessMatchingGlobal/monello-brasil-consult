@@ -14,6 +14,8 @@ import NewsEbook from "./pages/NewsEbook";
 import NewsletterConfirm from "./pages/NewsletterConfirm";
 import Admin from "./pages/Admin";
 import Fly from "./pages/Fly";
+import Analysis from "./pages/Analysis";
+import Pix from "./pages/analysis/Pix";
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
 import { useEffect } from "react";
@@ -42,6 +44,8 @@ const App = () => {
             <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/fly" element={<Fly />} />
+            <Route path="/analysis" element={<Analysis />} />
+            <Route path="/pix" element={<Pix />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent />
