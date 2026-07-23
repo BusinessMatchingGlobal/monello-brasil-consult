@@ -1188,10 +1188,20 @@ export default function Fly() {
     const notesText = notes.trim() ? `\n\n${c.notesTitle}:\n${notes.trim()}` : "";
     const servicesText = services.trim() ? `\n\n${c.servicesTitle}:\n${services.trim()}` : "";
     try {
-      // 1) Upload documents to private storage bucket, then sign URLs.
-      const submissionId = crypto.randomUUID();
-      const uploadedByPassenger: Array<{ passportUrl?: string; residenceUrls: string[] }> = [];
-      const pathsToSign: string[] = [];
+      // 1) Initialize a server-issued submission session. The token binds
+      // uploads and the final send-notification call to this specific form
+      // flow so anonymous callers cannot invent submissionIds to abuse
+      // private storage or the verified sender domain.
+      const { data: sessionData, error: sessionErr } = await supabase.functions.invoke(
+        "fly-session-init",
+        { body: {} },
+      );
+      if (sessionErr) throw sessionErr;
+      const submissionId = (sessionData as { submissionId?: string } | null)?.submissionId;
+      const sessionToken = (sessionData as { sessionToken?: string } | null)?.sessionToken;
+      if (!submissionId || !sessionToken) throw new Error("Failed to initialize session");
+
+      // 2) Upload documents to private storage bucket.
       const perPassengerPaths: Array<{ passportPath?: string; residencePaths: string[] }> = [];
 
       // Collect all files to upload first, then request signed upload URLs from
@@ -1206,7 +1216,6 @@ export default function Fly() {
           const path = `${submissionId}/p${i + 1}/passport-${Date.now()}.${ext}`;
           pending.push({ path, file: p.passportFile });
           entry.passportPath = path;
-          pathsToSign.push(path);
         }
         for (let j = 0; j < p.residenceFiles.length; j++) {
           const f = p.residenceFiles[j];
@@ -1214,7 +1223,6 @@ export default function Fly() {
           const path = `${submissionId}/p${i + 1}/residence-${j + 1}-${Date.now()}.${ext}`;
           pending.push({ path, file: f });
           entry.residencePaths.push(path);
-          pathsToSign.push(path);
         }
         perPassengerPaths.push(entry);
       }
@@ -1225,6 +1233,7 @@ export default function Fly() {
           {
             body: {
               submissionId,
+              sessionToken,
               files: pending.map((u) => ({
                 path: u.path,
                 contentType: u.file.type,
@@ -1248,43 +1257,21 @@ export default function Fly() {
         }
       }
 
-      // 2) Ask backend for signed URLs (30-day validity).
-      const pathToUrl = new Map<string, string>();
-      if (pathsToSign.length > 0) {
-        const { data: signed, error: signErr } = await supabase.functions.invoke(
-          "sign-fly-documents",
-          { body: { paths: pathsToSign } },
-        );
-        if (signErr) throw signErr;
-        const urls = (signed as { urls: Array<{ path: string; url: string }> } | null)?.urls ?? [];
-        for (const u of urls) pathToUrl.set(u.path, u.url);
-      }
-
-      for (const entry of perPassengerPaths) {
-        uploadedByPassenger.push({
-          passportUrl: entry.passportPath ? pathToUrl.get(entry.passportPath) : undefined,
-          residenceUrls: entry.residencePaths
-            .map((p) => pathToUrl.get(p))
-            .filter((u): u is string => !!u),
-        });
-      }
-
-      // 3) Build documents rows for the email.
-      const documentRows = uploadedByPassenger.map((u, i) => ({
-        n: i + 1,
-        passportUrl: u.passportUrl ?? "",
-        residenceUrls: u.residenceUrls,
-        ackNoDocs: !u.passportUrl && passengers[i].responsibilityAck,
+      // 3) Ask backend to sign document URLs and send both notification
+      // emails. Recipients are hardcoded server-side; the restricted
+      // fly-contact-notification template only accepts service_role callers.
+      const documentGroups = perPassengerPaths.map((entry, i) => ({
+        passportPath: entry.passportPath,
+        residencePaths: entry.residencePaths,
+        ackNoDocs: !entry.passportPath && passengers[i].responsibilityAck,
       }));
-
-      const recipients = ["info@businessmatching.global", "enstobbi@enstobbi.it"];
-      const baseIdempotencyKey = `fly-${parsed.data.email}-${Date.now()}`;
-      for (let i = 0; i < recipients.length; i++) {
-        await supabase.functions.invoke("send-transactional-email", {
+      const { error: notifyErr } = await supabase.functions.invoke(
+        "send-fly-notification",
+        {
           body: {
-            templateName: "fly-contact-notification",
-            recipientEmail: recipients[i],
-            idempotencyKey: `${baseIdempotencyKey}-${i}`,
+            submissionId,
+            sessionToken,
+            documentGroups,
             templateData: {
               name: parsed.data.organization,
               email: parsed.data.email,
@@ -1294,7 +1281,6 @@ export default function Fly() {
               tripLabel,
               itinerary: itineraryRows,
               passengers: passengerRows,
-              documents: documentRows,
               notes: notes.trim(),
               services: services.trim(),
               message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}${notesText}${servicesText}`,
@@ -1303,8 +1289,9 @@ export default function Fly() {
               submittedAt: new Date().toISOString(),
             },
           },
-        });
-      }
+        },
+      );
+      if (notifyErr) throw notifyErr;
       setSubmitted(true);
     } catch (err) {
       console.error("Fly page notification failed", err);

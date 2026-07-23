@@ -100,6 +100,26 @@ Deno.serve(async (req) => {
     )
   }
 
+  // Restricted templates (caller-controlled recipient AND caller-controlled
+  // links/content) are limited to service_role callers so anonymous visitors
+  // cannot use the verified sender domain for phishing/spam.
+  if (template.restricted) {
+    const authHeader = req.headers.get('Authorization') || ''
+    const jwt = authHeader.replace(/^Bearer\s+/i, '').trim()
+    let role = ''
+    try {
+      const payload = JSON.parse(atob(jwt.split('.')[1] || ''))
+      role = payload && typeof payload.role === 'string' ? payload.role : ''
+    } catch { /* ignore */ }
+    if (role !== 'service_role') {
+      console.warn('Blocked restricted template call', { templateName, role })
+      return new Response(
+        JSON.stringify({ error: 'Forbidden' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } },
+      )
+    }
+  }
+
   // Resolve effective recipient: template-level `to` takes precedence over
   // the caller-provided recipientEmail. This allows notification templates
   // to always send to a fixed address (e.g., site owner from env var).

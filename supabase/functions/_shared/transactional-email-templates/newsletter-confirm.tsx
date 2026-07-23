@@ -87,6 +87,7 @@ export const template = {
     return s.preview
   },
   displayName: 'Newsletter — double opt-in confirmation',
+  restricted: true,
   previewData: {
     firstName: 'Mario',
     confirmUrl: 'https://businessmatching.global/newsletter/confirm?token=preview',

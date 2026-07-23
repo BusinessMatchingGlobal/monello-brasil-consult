@@ -10,6 +10,13 @@ export interface TemplateEntry {
   displayName?: string
   previewData?: Record<string, any>
   to?: string
+  /**
+   * If true, this template can only be sent when the caller of
+   * `send-transactional-email` presents a service_role JWT. Use for templates
+   * whose recipient or link content is caller-controlled and could otherwise
+   * be abused to send branded phishing to arbitrary addresses.
+   */
+  restricted?: boolean
 }
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
