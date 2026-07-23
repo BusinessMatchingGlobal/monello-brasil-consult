@@ -2,11 +2,27 @@ import { useEffect } from "react";
 
 const SITE = "https://businessmatching.global";
 
-export function useCanonical(path: string) {
+type SEO = {
+  title?: string;
+  description?: string;
+};
+
+function upsertMeta(selector: string, attr: "name" | "property", key: string, content: string) {
+  let el = document.head.querySelector<HTMLMetaElement>(selector);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
+
+export function useCanonical(path: string, seo?: SEO) {
   useEffect(() => {
     const url = SITE + path;
 
-    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    // Canonical
+    let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!link) {
       link = document.createElement("link");
       link.rel = "canonical";
@@ -14,12 +30,18 @@ export function useCanonical(path: string) {
     }
     link.href = url;
 
-    let og = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
-    if (!og) {
-      og = document.createElement("meta");
-      og.setAttribute("property", "og:url");
-      document.head.appendChild(og);
+    // og:url — always self-referential
+    upsertMeta('meta[property="og:url"]', "property", "og:url", url);
+
+    if (seo?.title) {
+      document.title = seo.title;
+      upsertMeta('meta[property="og:title"]', "property", "og:title", seo.title);
+      upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", seo.title);
     }
-    og.content = url;
-  }, [path]);
+    if (seo?.description) {
+      upsertMeta('meta[name="description"]', "name", "description", seo.description);
+      upsertMeta('meta[property="og:description"]', "property", "og:description", seo.description);
+      upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", seo.description);
+    }
+  }, [path, seo?.title, seo?.description]);
 }
