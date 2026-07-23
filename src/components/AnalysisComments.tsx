@@ -77,10 +77,9 @@ export function AnalysisComments({ slug }: { slug: string }) {
 
   useEffect(() => {
     supabase
-      .from("analysis_comments")
+      .from("analysis_comments_public" as any)
       .select("id,author_name,content,created_at")
       .eq("article_slug", slug)
-      .eq("approved", true)
       .order("created_at", { ascending: false })
       .then(({ data }) => setComments((data as Comment[]) || []));
   }, [slug]);
