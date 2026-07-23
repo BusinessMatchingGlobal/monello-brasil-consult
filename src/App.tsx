@@ -16,6 +16,7 @@ import Admin from "./pages/Admin";
 import Fly from "./pages/Fly";
 import Analysis from "./pages/Analysis";
 import Pix from "./pages/analysis/Pix";
+import Suja from "./pages/analysis/Suja";
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
 import { useEffect } from "react";
@@ -46,6 +47,7 @@ const App = () => {
             <Route path="/fly" element={<Fly />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/pix" element={<Pix />} />
+            <Route path="/suja" element={<Suja />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent />
