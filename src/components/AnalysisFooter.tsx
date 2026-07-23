@@ -13,6 +13,7 @@ export function AnalysisFooter() {
   const { t, lang } = useT();
   return (
     <footer className="mt-16 border-t border-border/60 pt-8 pb-4 text-xs text-foreground/60 leading-relaxed">
+      <p className="text-foreground/70 leading-relaxed mb-8">{COPY[lang]}</p>
       <p className="text-center text-sm font-medium text-foreground mb-4">{t.footer.memberOf}</p>
       <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-6">
         <a href="https://www.italiabrasil.com.br" target="_blank" rel="noopener noreferrer">
@@ -25,10 +26,9 @@ export function AnalysisFooter() {
           <img src={exportStrategistLogo.url} alt="Associazione Export Strategist" className="h-10 md:h-12 w-auto object-contain" />
         </a>
       </div>
-      <p className="text-foreground/70 leading-relaxed">
+      <p className="text-foreground/55 leading-relaxed">
         {t.footer.legalName}: ENZO ALDO STOBBIONE LTDA · CNPJ: 67.589.228/0001-30 · {t.footer.address}: Avenida Getúlio Vargas, 671, Sala 500, CEP 30.112-021, Savassi, Belo Horizonte/MG · CNAE 6399-2/00 · {t.footer.capital}: R$ 1.000,00
       </p>
-      <p className="mt-3 text-foreground/55 leading-relaxed">{COPY[lang]}</p>
     </footer>
   );
 }
