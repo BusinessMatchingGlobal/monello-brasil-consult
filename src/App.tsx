@@ -49,6 +49,7 @@ const App = () => {
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/pix" element={<Pix />} />
             <Route path="/suja" element={<Suja />} />
+            <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent />
