@@ -177,8 +177,14 @@ function triggerDownload() {
 }
 
 export default function NewsEbook() {
-  useCanonical("/news");
   const { lang } = useT();
+  const seo =
+    lang === "it"
+      ? { title: "Ebook — Esportare in Brasile | Business Matching Global", description: "Scarica gratis l'ebook 'Esportare in Brasile' e iscriviti alla newsletter #CustoBrasil." }
+      : lang === "pt"
+      ? { title: "Ebook — Exportando para o Brasil | Business Matching Global", description: "Baixe gratuitamente o ebook 'Exportando para o Brasil' e assine a newsletter #CustoBrasil." }
+      : { title: "Ebook — Exporting to Brazil | Business Matching Global", description: "Download the free 'Exporting to Brazil' ebook and join the #CustoBrasil newsletter." };
+  useCanonical("/news", seo);
   const c = copy[lang];
 
   const [firstName, setFirstName] = useState("");

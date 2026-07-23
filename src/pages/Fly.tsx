@@ -990,8 +990,11 @@ function DocumentUploader({
 }
 
 export default function Fly() {
-  useCanonical("/fly");
   const { lang } = useT();
+  useCanonical("/fly", {
+    title: lang === "it" ? "Richiesta voli — Business Matching Global" : lang === "pt" ? "Solicitação de voos — Business Matching Global" : "Flight request — Business Matching Global",
+    description: lang === "it" ? "Modulo per richiesta voli e itinerari Italia–Brasile." : lang === "pt" ? "Formulário de solicitação de voos e itinerários Itália–Brasil." : "Request form for flights and Italy–Brazil itineraries.",
+  });
   const c = copy[lang];
 
   const [organization, setOrganization] = useState("");

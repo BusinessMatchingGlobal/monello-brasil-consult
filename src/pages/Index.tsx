@@ -911,7 +911,11 @@ function FooterInner() {
 }
 
 export default function Index() {
-  useCanonical("/");
+  useCanonical("/", {
+    title: "Business Matching Global — Brazil Market Intelligence & Custo Brasil",
+    description:
+      "Consulenza per investitori europei in Brasile: ricerche di mercato, verifica fornitori, riduzione del Custo Brasil e ingresso strategico.",
+  });
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />

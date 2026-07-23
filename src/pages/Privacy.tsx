@@ -241,8 +241,11 @@ const content: Record<"en" | "it" | "pt", Content> = {
 };
 
 export default function Privacy() {
-  useCanonical("/privacy");
   const { lang } = useT();
+  useCanonical("/privacy", {
+    title: lang === "it" ? "Privacy — Business Matching Global" : lang === "pt" ? "Privacidade — Business Matching Global" : "Privacy — Business Matching Global",
+    description: "GDPR / LGPD privacy notice.",
+  });
   const c = content[lang];
   return (
     <div className="min-h-screen bg-background text-foreground">
