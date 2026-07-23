@@ -235,7 +235,30 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      analysis_comments_public: {
+        Row: {
+          article_slug: string | null
+          author_name: string | null
+          content: string | null
+          created_at: string | null
+          id: string | null
+        }
+        Insert: {
+          article_slug?: string | null
+          author_name?: string | null
+          content?: string | null
+          created_at?: string | null
+          id?: string | null
+        }
+        Update: {
+          article_slug?: string | null
+          author_name?: string | null
+          content?: string | null
+          created_at?: string | null
+          id?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       delete_email: {
