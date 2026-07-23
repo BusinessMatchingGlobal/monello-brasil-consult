@@ -342,7 +342,7 @@ export const translations = {
     },
   },
   pt: {
-    nav: { home: "Home", services: "Serviços", how: "Como funciona", method: "Nosso método", about: "Quem somos", news: "Ebook", contact: "Contato" },
+    nav: { home: "Home", services: "Serviços", how: "Como funciona", method: "Nosso método", about: "Quem somos", news: "Ebook", analysis: "Análises", analysisAll: "Todos os artigos →", contact: "Contato" },
     hero: {
       title: "Inteligência de negócios confiável sobre o Brasil — sem achismos.",
       sub: "Ajudamos empresas e investidores a tomar decisões sólidas e bem fundamentadas ao fazer negócios no Brasil, incluindo exportação, investimento e desenvolvimento de parcerias comerciais.\n\nNossos serviços incluem inteligência de negócios, due diligence de potenciais fornecedores e clientes, e análise de informações regulatórias, tributárias e operacionais essenciais, tais como procedimentos de importação, exportação e desembaraço aduaneiro, requisitos e licenças locais, incentivos regionais e condições de acesso ao mercado.\n\nPor meio de serviços personalizados, elaboramos relatórios claros, práticos e prontos para uso, desenvolvidos para apoiar decisões comerciais, estratégicas e operacionais.",
