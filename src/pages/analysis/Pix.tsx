@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { getArticleBySlug } from "@/lib/analysis";
 import { AnalysisComments } from "@/components/AnalysisComments";
+import { AnalysisFooter } from "@/components/AnalysisFooter";
 
 const content = {
   it: {
@@ -58,6 +59,7 @@ export default function Pix() {
           </div>
         </article>
         <AnalysisComments slug="pix" />
+        <AnalysisFooter />
       </div>
     </main>
   );

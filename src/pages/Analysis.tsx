@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { getSortedArticles } from "@/lib/analysis";
+import { AnalysisFooter } from "@/components/AnalysisFooter";
 
 export default function Analysis() {
   const { t, lang } = useT();
@@ -47,6 +48,7 @@ export default function Analysis() {
             </li>
           ))}
         </ul>
+        <AnalysisFooter />
       </div>
     </main>
   );
