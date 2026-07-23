@@ -14,7 +14,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     title: {
       it: "Stesso crimine, due architetture",
       en: "Two Construction Sites, One Crime, Two Architectures",
-      pt: "Dois canteiros, um crime, duas arquiteturas",
+      pt: "Mesmo crime, duas arquiteturas",
     },
   },
   {
