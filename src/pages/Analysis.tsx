@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { getSortedArticles } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
+import { useCanonical } from "@/lib/useCanonical";
 
 export default function Analysis() {
   const { t, lang } = useT();
@@ -15,6 +16,10 @@ export default function Analysis() {
       : lang === "pt"
       ? "Análises e insights sobre o Brasil: regulação, mercado e oportunidades."
       : "Insights and analysis on Brazil: regulation, market, opportunities.";
+  useCanonical("/analysis", {
+    title: `${heading} — Business Matching Global`,
+    description: intro,
+  });
   const back =
     lang === "it" ? "Torna alla home" : lang === "pt" ? "Voltar ao início" : "Back to home";
 

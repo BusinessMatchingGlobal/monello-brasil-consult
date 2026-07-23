@@ -10,7 +10,10 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as strin
 type State = "checking" | "ready" | "already" | "invalid" | "done" | "error";
 
 export default function Unsubscribe() {
-  useCanonical("/unsubscribe");
+  useCanonical("/unsubscribe", {
+    title: "Unsubscribe — Business Matching Global",
+    description: "Manage your subscription preferences.",
+  });
   const [params] = useSearchParams();
   const token = params.get("token") ?? "";
   const [state, setState] = useState<State>("checking");

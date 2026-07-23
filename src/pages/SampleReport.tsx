@@ -175,8 +175,14 @@ function triggerDownload() {
 }
 
 export default function SampleReport() {
-  useCanonical("/sample-report");
   const { lang } = useT();
+  const seo =
+    lang === "it"
+      ? { title: "Report di esempio — Business Matching Global", description: "Richiedi un dossier di esempio: ricerca di mercato e verifica fornitori in Brasile." }
+      : lang === "pt"
+      ? { title: "Relatório de exemplo — Business Matching Global", description: "Solicite um dossiê de exemplo: pesquisa de mercado e verificação de fornecedores no Brasil." }
+      : { title: "Sample report — Business Matching Global", description: "Request a sample dossier: Brazil market research and supplier verification." };
+  useCanonical("/sample-report", seo);
   const c = copy[lang];
 
   const [firstName, setFirstName] = useState("");

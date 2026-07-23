@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import { useT } from "@/lib/i18n";
 import { NEWSLETTER_FALLBACK_KEY } from "@/lib/consent";
 import { NewsletterInlineForm } from "@/components/NewsletterInlineForm";
+import { useCanonical } from "@/lib/useCanonical";
 
 const TARGET = "https://www.linkedin.com/company/109746306/admin/page-posts/published/";
 
 export default function CustoBrasil() {
   const { t } = useT();
   const [isNewsletter, setIsNewsletter] = useState(false);
+  useCanonical("/custo-brasil", {
+    title: "#CustoBrasil — Newsletter | Business Matching Global",
+    description: "Iscriviti alla newsletter #CustoBrasil: analisi e aggiornamenti su costi, regolamentazione e opportunità di ingresso in Brasile.",
+  });
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
