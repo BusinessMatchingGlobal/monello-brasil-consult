@@ -174,7 +174,7 @@ export const translations = {
     },
   },
   it: {
-    nav: { home: "Home", services: "Servizi", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", news: "Ebook", contact: "Contatti" },
+    nav: { home: "Home", services: "Servizi", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", news: "Ebook", analysis: "Analisi", analysisAll: "Tutti gli articoli →", contact: "Contatti" },
     hero: {
       title: "Business intelligence affidabile sul Brasile — senza tirare a indovinare.",
       sub: "Aiutiamo le aziende e gli investitori a prendere decisioni sicure e informate per operare in Brasile, esportare, investire o creare partnership commerciali.\n\nOffriamo servizi di business intelligence, verifica dei potenziali fornitori e clienti e analisi delle principali informazioni normative, fiscali e operative, quali import/export, procedure doganali, requisiti locali, autorizzazioni, incentivi territoriali e condizioni di accesso al mercato.\n\nAttraverso servizi su misura, realizziamo report chiari, pratici e pronti all'uso, pensati per supportare decisioni commerciali, strategiche e operative.",
