@@ -1,6 +1,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Menu, X, Mail } from "lucide-react";
+import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { Button } from "@/components/ui/button";

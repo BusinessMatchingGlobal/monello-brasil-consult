@@ -31,6 +31,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { openConsentBanner } from "@/lib/consent";
 import { useCanonical } from "@/lib/useCanonical";
+import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
 
 const EMAIL = "info@businessmatching.global";
 
