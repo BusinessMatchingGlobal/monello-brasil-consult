@@ -1,6 +1,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Menu, X, Mail } from "lucide-react";
+import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { Button } from "@/components/ui/button";
@@ -59,6 +60,7 @@ function Nav() {
     { href: "/#about", label: t.nav.method },
     { href: "/About_us", label: t.nav.about, internal: true },
     { href: "/news", label: t.nav.news, internal: true },
+    { href: "__analysis__", label: t.nav.analysis, analysis: true } as any,
     { href: "https://www.linkedin.com/company/109746306/admin/page-posts/published/", label: "#Custo Brasil", external: true },
   ];
 
@@ -77,8 +79,10 @@ function Nav() {
           />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) =>
-            l.internal ? (
+          {links.map((l: any) =>
+            l.analysis ? (
+              <AnalysisNavMenu key="analysis-desktop" variant="desktop" />
+            ) : l.internal ? (
               <Link
                 key={l.href}
                 to={l.href}
@@ -122,8 +126,14 @@ function Nav() {
       {open && (
         <div className="md:hidden border-t border-border/60 bg-background">
           <div className="container py-4 flex flex-col gap-4">
-            {links.map((l) =>
-              l.internal ? (
+            {links.map((l: any) =>
+              l.analysis ? (
+                <AnalysisNavMenu
+                  key="analysis-mobile"
+                  variant="mobile"
+                  onNavigate={() => setOpen(false)}
+                />
+              ) : l.internal ? (
                 <Link
                   key={l.href}
                   to={l.href}
