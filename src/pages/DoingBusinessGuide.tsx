@@ -4,18 +4,52 @@ import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
+import { useEffect } from "react";
 
 export default function DoingBusinessGuide() {
-  const { lang } = useT();
-
   useCanonical("/guides/doing-business-in-brazil", {
     title: "Doing Business in Brazil: A Practical Guide for European Companies | Business Matching Global",
     description: "A practical guide to doing business in Brazil for European companies: EU-Mercosur, Custo Brasil, import models, and market entry — plus a free ebook.",
   });
 
-  const c = {
-    back: lang === "it" ? "Torna alla home" : lang === "pt" ? "Voltar para a home" : "Back to home",
-  };
+  useEffect(() => {
+    // og:type = article
+    let ogType = document.head.querySelector<HTMLMetaElement>('meta[property="og:type"]');
+    const prevType = ogType?.getAttribute("content") ?? null;
+    if (!ogType) {
+      ogType = document.createElement("meta");
+      ogType.setAttribute("property", "og:type");
+      document.head.appendChild(ogType);
+    }
+    ogType.setAttribute("content", "article");
+
+    // JSON-LD Article
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    ld.setAttribute("data-page", "doing-business-guide");
+    ld.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "Doing Business in Brazil: A Practical Guide for European Companies",
+      description:
+        "A practical guide to doing business in Brazil for European companies: EU-Mercosur, Custo Brasil, import models, and market entry — plus a free ebook.",
+      inLanguage: "en",
+      mainEntityOfPage: "https://businessmatching.global/guides/doing-business-in-brazil",
+      url: "https://businessmatching.global/guides/doing-business-in-brazil",
+      author: { "@type": "Organization", name: "Business Matching Global" },
+      publisher: {
+        "@type": "Organization",
+        name: "Business Matching Global",
+        url: "https://businessmatching.global",
+      },
+    });
+    document.head.appendChild(ld);
+
+    return () => {
+      if (prevType !== null) ogType?.setAttribute("content", prevType);
+      ld.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -23,7 +57,7 @@ export default function DoingBusinessGuide() {
         <div className="container mx-auto px-4 py-5 flex items-center justify-between">
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4" />
-            {c.back}
+            Back to home
           </Link>
           <Link to="/" aria-label="Business Matching Global">
             <img src={logoBMG.url} alt="Business Matching Global" className="h-8 md:h-10 w-auto" />
