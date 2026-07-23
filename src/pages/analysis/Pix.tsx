@@ -144,6 +144,16 @@ export default function Pix() {
   const { lang } = useT();
   const article = getArticleBySlug("pix");
   const c = content[lang];
+  const desc =
+    lang === "it"
+      ? "Il primo dazio USA su un metodo di pagamento: cosa dice l'inchiesta USTR sul Pix brasiliano e cosa significa per l'Europa."
+      : lang === "pt"
+      ? "A primeira tarifa dos EUA sobre um método de pagamento: o que diz a investigação da USTR sobre o Pix e o que significa para a Europa."
+      : "The first US tariff on a payment method: what the USTR Section 301 report says about Pix and what it means for Europe.";
+  useCanonical("/pix", {
+    title: `${article?.title[lang] ?? "Pix"} — Business Matching Global`,
+    description: desc,
+  });
 
   return (
     <main className="min-h-screen bg-background">

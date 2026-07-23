@@ -143,6 +143,16 @@ export default function Suja() {
   const { lang } = useT();
   const article = getArticleBySlug("suja");
   const c = content[lang];
+  const desc =
+    lang === "it"
+      ? "Stesso crimine, due architetture: la lista suja brasiliana e l'amministrazione giudiziaria italiana a confronto sul lavoro forzato."
+      : lang === "pt"
+      ? "Mesmo crime, duas arquiteturas: a lista suja brasileira e a administração judicial italiana no combate ao trabalho forçado."
+      : "Same crime, two architectures: Brazil's lista suja and Italy's judicial administration in the fight against forced labor.";
+  useCanonical("/suja", {
+    title: `${article?.title[lang] ?? "Suja"} — Business Matching Global`,
+    description: desc,
+  });
 
   return (
     <main className="min-h-screen bg-background">
