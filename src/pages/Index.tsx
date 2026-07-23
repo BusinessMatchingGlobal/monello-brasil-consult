@@ -302,7 +302,7 @@ function Services() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight max-w-2xl text-background">
             {t.services.title}
           </h2>
-          <span className="text-xs tracking-wider uppercase text-background/50">
+          <span className="text-xs tracking-wider uppercase text-background/75">
             01 — 03
           </span>
         </div>
@@ -312,7 +312,7 @@ function Services() {
               key={card.name}
               className="group p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:border-primary/60 transition-colors flex flex-col"
             >
-              <span className="text-xs tracking-wider uppercase text-background/40 mb-6">
+              <span className="text-xs tracking-wider uppercase text-background/70 mb-6">
                 0{i + 1}
               </span>
               <h3 className="font-display text-2xl mb-3 text-background">{card.name}</h3>
@@ -326,7 +326,7 @@ function Services() {
                 ))}
               </ul>
               <div className="pt-5 border-t border-background/10 flex items-center justify-between">
-                <span className="text-sm text-background/60">
+                <span className="text-sm text-background/80">
                   {t.services.from} <span className="text-background font-medium">{card.price}</span>
                 </span>
                 <a
@@ -715,7 +715,7 @@ function HomeNewsletter() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
           <div>
             <h3 className="font-display text-xl md:text-2xl text-background">{c.title}</h3>
-            <p className="text-sm text-background/60 mt-1">{c.sub}</p>
+            <p className="text-sm text-background/80 mt-1">{c.sub}</p>
           </div>
         </div>
         {sent ? (
@@ -729,7 +729,7 @@ function HomeNewsletter() {
                 placeholder={c.first}
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="bg-background/[0.04] border-background/15 text-background placeholder:text-background/40 h-11"
+                className="bg-background/[0.04] border-background/15 text-background placeholder:text-background/70 h-11"
               />
               <Input
                 required
@@ -737,7 +737,7 @@ function HomeNewsletter() {
                 placeholder={c.last}
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="bg-background/[0.04] border-background/15 text-background placeholder:text-background/40 h-11"
+                className="bg-background/[0.04] border-background/15 text-background placeholder:text-background/70 h-11"
               />
               <Input
                 required
@@ -746,13 +746,13 @@ function HomeNewsletter() {
                 placeholder={c.email}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-background/[0.04] border-background/15 text-background placeholder:text-background/40 h-11"
+                className="bg-background/[0.04] border-background/15 text-background placeholder:text-background/70 h-11"
               />
               <Button type="submit" disabled={submitting} className="rounded-full h-11 px-6 whitespace-nowrap">
                 {submitting ? "…" : c.cta} <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
-            <label className="flex items-start gap-2 text-xs text-background/60 leading-relaxed cursor-pointer">
+            <label className="flex items-start gap-2 text-xs text-background/80 leading-relaxed cursor-pointer">
               <input
                 type="checkbox"
                 checked={consent}

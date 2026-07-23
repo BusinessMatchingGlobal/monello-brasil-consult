@@ -12,7 +12,7 @@ const COPY = {
 export function AnalysisFooter() {
   const { t, lang } = useT();
   return (
-    <footer className="mt-16 border-t border-border/60 pt-8 pb-4 text-xs text-foreground/60 leading-relaxed">
+    <footer className="mt-16 border-t border-border/60 pt-8 pb-4 text-xs text-foreground/75 leading-relaxed">
       <p className="text-foreground/70 leading-relaxed mb-8">{COPY[lang]}</p>
       <p className="text-center text-sm font-medium text-foreground mb-4">{t.footer.memberOf}</p>
       <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-6">
