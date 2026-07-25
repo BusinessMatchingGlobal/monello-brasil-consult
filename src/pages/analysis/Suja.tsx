@@ -183,6 +183,7 @@ export default function Suja() {
             )}
           </div>
         </article>
+        <ShareBlock title={article?.title[lang] ?? "Suja"} />
         <AnalysisFooter />
       </div>
     </main>
