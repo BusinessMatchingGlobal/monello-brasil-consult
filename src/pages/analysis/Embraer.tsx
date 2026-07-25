@@ -5,6 +5,7 @@ import { getArticleBySlug } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
 import { ShareBlock } from "@/components/ShareBlock";
+import { useEffect } from "react";
 
 type Block = { h: string } | { p: string };
 
@@ -56,7 +57,7 @@ const BACK = {
 } as const;
 
 export default function Embraer() {
-  const { lang } = useT();
+  const { lang, setLang } = useT();
   const article = getArticleBySlug("Embraer");
   const desc =
     "Embraer 2026: how a Brazilian company built a 76% share of the 70–150 seat segment, a US$34.5B backlog, and a method that keeps clearing US tariff walls.";
@@ -65,6 +66,14 @@ export default function Embraer() {
     description: desc,
     type: "article",
   });
+
+  useEffect(() => {
+    const previous = lang;
+    if (lang !== "en") setLang("en");
+    return () => {
+      if (previous !== "en") setLang(previous);
+    };
+  }, [lang, setLang]);
 
   return (
     <main className="min-h-screen bg-background">
