@@ -903,7 +903,7 @@ function FooterInner() {
           </div>
         <p>{t.footer.rights}</p>
         <p className="mt-2 text-muted-foreground/70 leading-relaxed">
-          {t.footer.legalName}: ENZO ALDO STOBBIONE LTDA · CNPJ: 67.589.228/0001-30 · {t.footer.address}: Avenida Getúlio Vargas, 671, Sala 500, CEP 30.112-021, Savassi, Belo Horizonte/MG · CNAE 6399-2/00 · {t.footer.capital}: R$ 1.000,00
+          {t.footer.legalName}: ENZO ALDO STOBBIONE LTDA · CNPJ: 67.589.228/0001-30 · {t.footer.address}: Avenida Getúlio Vargas, 671, Sala 500, CEP 30.112-021, Savassi, Belo Horizonte/MG
         </p>
       </div>
     </footer>
