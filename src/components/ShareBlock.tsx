@@ -5,7 +5,7 @@ import { useT } from "@/lib/i18n";
 
 const COPY = {
   it: { invite: "Utile per un collega? Condividilo.", copy: "Copia link", copied: "Link copiato" },
-  en: { invite: "Useful for a colleague? Share it.", copy: "Copy link", copied: "Link copied" },
+  en: { invite: "Is this helpful to a colleague? Share it.", copy: "Copy link", copied: "Link copied" },
   pt: { invite: "Útil para um colega? Compartilhe.", copy: "Copiar link", copied: "Link copiado" },
 } as const;
 
