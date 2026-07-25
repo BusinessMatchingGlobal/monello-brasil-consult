@@ -4,6 +4,7 @@ import { useT } from "@/lib/i18n";
 import { getArticleBySlug } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
+import { ShareBlock } from "@/components/ShareBlock";
 
 type Block = { h: string } | { p: string };
 
@@ -62,6 +63,7 @@ export default function Embraer() {
   useCanonical("/Embraer", {
     title: `${article?.title[lang] ?? "Embraer"} — Business Matching Global`,
     description: desc,
+    type: "article",
   });
 
   return (
@@ -90,6 +92,7 @@ export default function Embraer() {
               )
             )}
           </div>
+          <ShareBlock title={article?.title[lang] ?? "Embraer"} />
         </article>
         <AnalysisFooter />
       </div>

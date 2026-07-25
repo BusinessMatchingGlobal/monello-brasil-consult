@@ -4,6 +4,7 @@ import { useT } from "@/lib/i18n";
 import { getArticleBySlug } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
+import { ShareBlock } from "@/components/ShareBlock";
 
 const content = {
   it: {
@@ -152,6 +153,7 @@ export default function Suja() {
   useCanonical("/suja", {
     title: `${article?.title[lang] ?? "Suja"} — Business Matching Global`,
     description: desc,
+    type: "article",
   });
 
   return (
@@ -181,6 +183,7 @@ export default function Suja() {
             )}
           </div>
         </article>
+        <ShareBlock title={article?.title[lang] ?? "Suja"} />
         <AnalysisFooter />
       </div>
     </main>

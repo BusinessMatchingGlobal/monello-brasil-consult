@@ -5,6 +5,7 @@ import { getArticleBySlug } from "@/lib/analysis";
 
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
+import { ShareBlock } from "@/components/ShareBlock";
 
 type BodyBlock = { h: string } | { p: string };
 
@@ -153,6 +154,7 @@ export default function Pix() {
   useCanonical("/pix", {
     title: `${article?.title[lang] ?? "Pix"} — Business Matching Global`,
     description: desc,
+    type: "article",
   });
 
   return (
@@ -182,7 +184,7 @@ export default function Pix() {
             )}
           </div>
         </article>
-        
+        <ShareBlock title={article?.title[lang] ?? "Pix"} />
         <AnalysisFooter />
       </div>
     </main>
