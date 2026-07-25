@@ -17,6 +17,7 @@ import Fly from "./pages/Fly";
 import Analysis from "./pages/Analysis";
 import Pix from "./pages/analysis/Pix";
 import Suja from "./pages/analysis/Suja";
+import Embraer from "./pages/analysis/Embraer";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
@@ -49,6 +50,8 @@ const App = () => {
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/pix" element={<Pix />} />
             <Route path="/suja" element={<Suja />} />
+            <Route path="/Embraer" element={<Embraer />} />
+            <Route path="/embraer" element={<Embraer />} />
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
