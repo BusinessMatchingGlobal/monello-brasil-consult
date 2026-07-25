@@ -3,6 +3,7 @@ import { ArrowLeft, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
+import { ShareBlock } from "@/components/ShareBlock";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 import { useEffect } from "react";
 
@@ -10,6 +11,7 @@ export default function DoingBusinessGuide() {
   useCanonical("/guides/doing-business-in-brazil", {
     title: "Doing Business in Brazil: A Practical Guide for European Companies | Business Matching Global",
     description: "A practical guide to doing business in Brazil for European companies: EU-Mercosur, Custo Brasil, import models, and market entry — plus a free ebook.",
+    type: "article",
   });
 
   useEffect(() => {
@@ -201,6 +203,7 @@ export default function DoingBusinessGuide() {
           <p className="text-sm text-muted-foreground mt-10">
             Reproduction, in whole or in part, is authorized only with attribution to Business Matching Global.
           </p>
+          <ShareBlock title="Doing Business in Brazil: A Practical Guide for European Companies" />
         </article>
       </main>
     </div>
