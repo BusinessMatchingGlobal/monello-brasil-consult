@@ -18,7 +18,9 @@ import Analysis from "./pages/Analysis";
 import Pix from "./pages/analysis/Pix";
 import Suja from "./pages/analysis/Suja";
 import Embraer from "./pages/analysis/Embraer";
+import EmbraerIT from "./pages/analysis/Embraer_IT";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
+
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
 import { useEffect } from "react";
@@ -52,6 +54,9 @@ const App = () => {
             <Route path="/suja" element={<Suja />} />
             <Route path="/Embraer" element={<Embraer />} />
             <Route path="/embraer" element={<Embraer />} />
+            <Route path="/Embraer_IT" element={<EmbraerIT />} />
+            <Route path="/embraer_it" element={<EmbraerIT />} />
+
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
