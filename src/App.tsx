@@ -18,7 +18,9 @@ import Analysis from "./pages/Analysis";
 import Pix from "./pages/analysis/Pix";
 import Suja from "./pages/analysis/Suja";
 import Embraer from "./pages/analysis/Embraer";
+import EmbraerIT from "./pages/analysis/Embraer_IT";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
+
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
 import { useEffect } from "react";
