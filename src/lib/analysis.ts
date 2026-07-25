@@ -9,6 +9,15 @@ export type AnalysisArticle = {
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
+    slug: "Embraer",
+    date: "2026-07-25",
+    title: {
+      it: "Embraer 2026: il monopolio, il paradosso e il metodo",
+      en: "Embraer 2026: The Monopoly, the Paradox, and the Method",
+      pt: "Embraer 2026: o monopólio, o paradoxo e o método",
+    },
+  },
+  {
     slug: "suja",
     date: "2026-07-24",
     title: {
