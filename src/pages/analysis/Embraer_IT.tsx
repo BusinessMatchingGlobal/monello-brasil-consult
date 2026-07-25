@@ -73,9 +73,12 @@ export default function EmbraerIT() {
 
   useEffect(() => {
     const previous = lang;
-    setLang("it");
-    return () => setLang(previous);
-  }, [setLang]);
+    if (lang !== "it") setLang("it");
+    return () => {
+      if (previous !== "it") setLang(previous);
+    };
+  }, [lang, setLang]);
+
 
   return (
     <main className="min-h-screen bg-background">
