@@ -54,6 +54,9 @@ const App = () => {
             <Route path="/suja" element={<Suja />} />
             <Route path="/Embraer" element={<Embraer />} />
             <Route path="/embraer" element={<Embraer />} />
+            <Route path="/Embraer_IT" element={<EmbraerIT />} />
+            <Route path="/embraer_it" element={<EmbraerIT />} />
+
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
