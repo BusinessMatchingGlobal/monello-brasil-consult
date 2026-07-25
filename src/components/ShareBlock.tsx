@@ -16,7 +16,11 @@ export function ShareBlock({ title }: Props) {
   const c = COPY[lang];
   const [copied, setCopied] = useState(false);
 
-  const url = typeof window !== "undefined" ? window.location.href : "";
+  const CANONICAL_HOST = "https://businessmatching.global";
+  const url =
+    typeof window !== "undefined"
+      ? `${CANONICAL_HOST}${window.location.pathname}${window.location.search}${window.location.hash}`
+      : CANONICAL_HOST;
   const encodedUrl = encodeURIComponent(url);
   const waText = encodeURIComponent(`${title} — ${url}`);
   const linkedin = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
