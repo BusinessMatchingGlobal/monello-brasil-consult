@@ -9,6 +9,15 @@ export type AnalysisArticle = {
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
+    slug: "amaro",
+    date: "2026-07-26",
+    title: {
+      it: "The Commander Who Could Price What Accountants Couldn't See",
+      en: "The Commander Who Could Price What Accountants Couldn't See",
+      pt: "The Commander Who Could Price What Accountants Couldn't See",
+    },
+  },
+  {
     slug: "Embraer",
     date: "2026-07-25",
     title: {
