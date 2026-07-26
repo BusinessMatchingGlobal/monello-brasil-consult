@@ -133,7 +133,8 @@ export function getLocalizedArticles(lang: Lang, max = 6): AnalysisArticle[] {
       groupArticles.find((a) => a.slug === `${getGroupSlug(a)}${suffix}`) ??
       groupArticles.find((a) => !a.slug.includes("_")) ??
       groupArticles[0];
-    result.push(localized);
+    // Expose the shared (group) URL so every language shares one direct link.
+    result.push({ ...localized, slug: getGroupSlug(localized) });
   }
   return result.sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, max);
 }
