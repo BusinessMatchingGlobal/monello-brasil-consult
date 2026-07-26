@@ -25,6 +25,7 @@ import AmaroIT from "./pages/analysis/Amaro_IT";
 import AmaroBR from "./pages/analysis/Amaro_BR";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import AiJus from "./pages/analysis/AiJus";
+import AiJusBR from "./pages/analysis/AiJus_BR";
 
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
@@ -70,6 +71,8 @@ const App = () => {
             <Route path="/amaro_br" element={<AmaroBR />} />
             <Route path="/aiJus" element={<AiJus />} />
             <Route path="/aijus" element={<AiJus />} />
+            <Route path="/AiJus_BR" element={<AiJusBR />} />
+            <Route path="/aijus_br" element={<AiJusBR />} />
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
