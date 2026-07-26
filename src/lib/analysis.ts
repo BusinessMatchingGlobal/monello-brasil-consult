@@ -10,6 +10,16 @@ export type AnalysisArticle = {
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
+    slug: "aiJus",
+    group: "aiJus",
+    date: "2026-07-26",
+    title: {
+      it: "Il testo bianco su fondo bianco: come il Brasile è diventato il laboratorio mondiale della frode processuale nell'era dell'IA",
+      en: "Il testo bianco su fondo bianco: come il Brasile è diventato il laboratorio mondiale della frode processuale nell'era dell'IA",
+      pt: "Il testo bianco su fondo bianco: come il Brasile è diventato il laboratorio mondiale della frode processuale nell'era dell'IA",
+    },
+  },
+  {
     slug: "amaro",
     group: "amaro",
     date: "2026-07-26",
