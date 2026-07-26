@@ -15,8 +15,18 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     date: "2026-07-26",
     title: {
       it: "Il testo bianco su fondo bianco: come il Brasile è diventato il laboratorio mondiale della frode processuale nell'era dell'IA",
-      en: "Il testo bianco su fondo bianco: come il Brasile è diventato il laboratorio mondiale della frode processuale nell'era dell'IA",
-      pt: "Il testo bianco su fondo bianco: come il Brasile è diventato il laboratorio mondiale della frode processuale nell'era dell'IA",
+      en: "White text on white background: how Brazil became the world's laboratory for procedural fraud in the age of AI",
+      pt: "O texto branco sobre fundo branco: como o Brasil virou o laboratório mundial da fraude processual na era da IA",
+    },
+  },
+  {
+    slug: "aiJus_br",
+    group: "aiJus",
+    date: "2026-07-26",
+    title: {
+      it: "O texto branco sobre fundo branco: como o Brasil virou o laboratório mundial da fraude processual na era da IA",
+      en: "O texto branco sobre fundo branco: como o Brasil virou o laboratório mundial da fraude processual na era da IA",
+      pt: "O texto branco sobre fundo branco: como o Brasil virou o laboratório mundial da fraude processual na era da IA",
     },
   },
   {
