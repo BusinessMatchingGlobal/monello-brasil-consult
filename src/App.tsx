@@ -27,6 +27,7 @@ import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
+import { AiJusLocalized, AmaroLocalized, EmbraerLocalized } from "./pages/analysis/LocalizedArticle";
 
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
@@ -59,19 +60,24 @@ const App = () => {
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/pix" element={<Pix />} />
             <Route path="/suja" element={<Suja />} />
-            <Route path="/Embraer" element={<Embraer />} />
-            <Route path="/embraer" element={<Embraer />} />
+            <Route path="/Embraer" element={<EmbraerLocalized />} />
+            <Route path="/embraer" element={<EmbraerLocalized />} />
+            <Route path="/Embraer_EN" element={<Embraer />} />
+            <Route path="/embraer_en" element={<Embraer />} />
             <Route path="/Embraer_IT" element={<EmbraerIT />} />
             <Route path="/embraer_it" element={<EmbraerIT />} />
             <Route path="/Embraer_BR" element={<EmbraerBR />} />
             <Route path="/embraer_br" element={<EmbraerBR />} />
-            <Route path="/amaro" element={<Amaro />} />
+            <Route path="/amaro" element={<AmaroLocalized />} />
+            <Route path="/Amaro" element={<AmaroLocalized />} />
+            <Route path="/amaro_en" element={<Amaro />} />
             <Route path="/Amaro_IT" element={<AmaroIT />} />
             <Route path="/amaro_it" element={<AmaroIT />} />
             <Route path="/Amaro_BR" element={<AmaroBR />} />
             <Route path="/amaro_br" element={<AmaroBR />} />
-            <Route path="/aiJus" element={<AiJus />} />
-            <Route path="/aijus" element={<AiJus />} />
+            <Route path="/aiJus" element={<AiJusLocalized />} />
+            <Route path="/aijus" element={<AiJusLocalized />} />
+            <Route path="/aijus_en" element={<AiJus />} />
             <Route path="/AiJus_IT" element={<AiJusIT />} />
             <Route path="/aijus_it" element={<AiJusIT />} />
             <Route path="/AiJus_BR" element={<AiJusBR />} />
