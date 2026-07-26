@@ -27,6 +27,15 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     },
   },
   {
+    slug: "amaro_br",
+    date: "2026-07-26",
+    title: {
+      it: "O Comandante que sabia precificar o que os contadores não enxergavam",
+      en: "O Comandante que sabia precificar o que os contadores não enxergavam",
+      pt: "O Comandante que sabia precificar o que os contadores não enxergavam",
+    },
+  },
+  {
     slug: "Embraer",
     date: "2026-07-25",
     title: {
