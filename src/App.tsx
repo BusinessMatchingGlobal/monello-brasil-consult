@@ -20,6 +20,7 @@ import Suja from "./pages/analysis/Suja";
 import Embraer from "./pages/analysis/Embraer";
 import EmbraerIT from "./pages/analysis/Embraer_IT";
 import EmbraerBR from "./pages/analysis/Embraer_BR";
+import Amaro from "./pages/analysis/Amaro";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 
 import { LanguageProvider } from "./lib/i18n";
@@ -59,6 +60,7 @@ const App = () => {
             <Route path="/embraer_it" element={<EmbraerIT />} />
             <Route path="/Embraer_BR" element={<EmbraerBR />} />
             <Route path="/embraer_br" element={<EmbraerBR />} />
+            <Route path="/amaro" element={<Amaro />} />
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
