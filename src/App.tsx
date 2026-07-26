@@ -21,6 +21,7 @@ import Embraer from "./pages/analysis/Embraer";
 import EmbraerIT from "./pages/analysis/Embraer_IT";
 import EmbraerBR from "./pages/analysis/Embraer_BR";
 import Amaro from "./pages/analysis/Amaro";
+import AmaroIT from "./pages/analysis/Amaro_IT";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 
 import { LanguageProvider } from "./lib/i18n";
@@ -61,6 +62,8 @@ const App = () => {
             <Route path="/Embraer_BR" element={<EmbraerBR />} />
             <Route path="/embraer_br" element={<EmbraerBR />} />
             <Route path="/amaro" element={<Amaro />} />
+            <Route path="/Amaro_IT" element={<AmaroIT />} />
+            <Route path="/amaro_it" element={<AmaroIT />} />
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
