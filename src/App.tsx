@@ -25,6 +25,7 @@ import AmaroIT from "./pages/analysis/Amaro_IT";
 import AmaroBR from "./pages/analysis/Amaro_BR";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import AiJus from "./pages/analysis/AiJus";
+import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
 
 import { LanguageProvider } from "./lib/i18n";
@@ -71,6 +72,8 @@ const App = () => {
             <Route path="/amaro_br" element={<AmaroBR />} />
             <Route path="/aiJus" element={<AiJus />} />
             <Route path="/aijus" element={<AiJus />} />
+            <Route path="/AiJus_IT" element={<AiJusIT />} />
+            <Route path="/aijus_it" element={<AiJusIT />} />
             <Route path="/AiJus_BR" element={<AiJusBR />} />
             <Route path="/aijus_br" element={<AiJusBR />} />
 
