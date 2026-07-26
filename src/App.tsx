@@ -21,6 +21,7 @@ import Embraer from "./pages/analysis/Embraer";
 import EmbraerIT from "./pages/analysis/Embraer_IT";
 import EmbraerBR from "./pages/analysis/Embraer_BR";
 import Amaro from "./pages/analysis/Amaro";
+import AmaroIT from "./pages/analysis/Amaro_IT";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 
 import { LanguageProvider } from "./lib/i18n";
