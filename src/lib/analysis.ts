@@ -4,12 +4,14 @@ export type AnalysisArticle = {
   slug: string; // route path without leading slash, e.g. "pix"
   date: string; // ISO date, used for "most recent first"
   title: Record<Lang, string>;
+  group?: string; // variants of the same article share the same group slug
 };
 
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
     slug: "amaro",
+    group: "amaro",
     date: "2026-07-26",
     title: {
       it: "The Commander Who Could Price What Accountants Couldn't See",
@@ -19,6 +21,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   },
   {
     slug: "amaro_it",
+    group: "amaro",
     date: "2026-07-26",
     title: {
       it: "Il Comandante che sapeva dare un prezzo a ciò che i contabili non vedevano",
@@ -28,6 +31,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   },
   {
     slug: "amaro_br",
+    group: "amaro",
     date: "2026-07-26",
     title: {
       it: "O Comandante que sabia precificar o que os contadores não enxergavam",
@@ -37,6 +41,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   },
   {
     slug: "Embraer",
+    group: "Embraer",
     date: "2026-07-25",
     title: {
       it: "Embraer 2026: il monopolio, il paradosso e il metodo",
@@ -46,6 +51,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   },
   {
     slug: "suja",
+    group: "suja",
     date: "2026-07-24",
     title: {
       it: "Stesso crimine, due architetture",
@@ -55,6 +61,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   },
   {
     slug: "pix",
+    group: "pix",
     date: "2026-07-23",
     title: {
       it: "Il primo dazio su un metodo",
@@ -63,6 +70,10 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     },
   },
 ];
+
+function getGroupSlug(article: AnalysisArticle): string {
+  return article.group ?? article.slug;
+}
 
 export function getSortedArticles(): AnalysisArticle[] {
   return [...ANALYSIS_ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -74,4 +85,25 @@ export function getRecentArticles(max = 6): AnalysisArticle[] {
 
 export function getArticleBySlug(slug: string): AnalysisArticle | undefined {
   return ANALYSIS_ARTICLES.find((a) => a.slug === slug);
+}
+
+// Returns one article per group, picking the language variant that matches the
+// requested language when available, falling back to the base (no-suffix) variant.
+export function getLocalizedArticles(lang: Lang, max = 6): AnalysisArticle[] {
+  const suffix = lang === "it" ? "_it" : lang === "pt" ? "_br" : "";
+  const grouped = new Map<string, AnalysisArticle[]>();
+  for (const article of getSortedArticles()) {
+    const group = getGroupSlug(article);
+    if (!grouped.has(group)) grouped.set(group, []);
+    grouped.get(group)!.push(article);
+  }
+  const result: AnalysisArticle[] = [];
+  for (const groupArticles of grouped.values()) {
+    const localized =
+      groupArticles.find((a) => a.slug === `${getGroupSlug(a)}${suffix}`) ??
+      groupArticles.find((a) => !a.slug.includes("_")) ??
+      groupArticles[0];
+    result.push(localized);
+  }
+  return result.sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, max);
 }
