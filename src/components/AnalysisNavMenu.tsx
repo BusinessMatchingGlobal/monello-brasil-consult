@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { useT } from "@/lib/i18n";
-import { getRecentArticles } from "@/lib/analysis";
+import { getLocalizedArticles } from "@/lib/analysis";
 
 type Props = {
   variant?: "desktop" | "mobile";
@@ -13,7 +13,7 @@ export function AnalysisNavMenu({ variant = "desktop", onNavigate }: Props) {
   const { t, lang } = useT();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const articles = getRecentArticles(6);
+  const articles = getLocalizedArticles(lang, 6);
 
   useEffect(() => {
     if (variant !== "desktop") return;

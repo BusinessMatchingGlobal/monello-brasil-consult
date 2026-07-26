@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
-import { getSortedArticles } from "@/lib/analysis";
+import { getLocalizedArticles } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
 
 export default function Analysis() {
   const { t, lang } = useT();
-  const articles = getSortedArticles();
+  const articles = getLocalizedArticles(lang);
   const heading =
     lang === "it" ? "Analisi" : lang === "pt" ? "Análises" : "Analysis";
   const intro =
