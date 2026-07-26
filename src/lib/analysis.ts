@@ -18,6 +18,15 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     },
   },
   {
+    slug: "amaro_it",
+    date: "2026-07-26",
+    title: {
+      it: "Il Comandante che sapeva dare un prezzo a ciò che i contabili non vedevano",
+      en: "Il Comandante che sapeva dare un prezzo a ciò che i contabili non vedevano",
+      pt: "Il Comandante che sapeva dare un prezzo a ciò che i contabili non vedevano",
+    },
+  },
+  {
     slug: "Embraer",
     date: "2026-07-25",
     title: {
