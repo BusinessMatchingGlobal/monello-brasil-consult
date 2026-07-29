@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useT, type Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { LangSwitcher } from "@/components/LangSwitcher";
+import { BeforeYouProceed } from "@/components/BeforeYouProceed";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 
 type Block = { type: "h2"; text: string } | { type: "p"; text: string; italic?: boolean };
@@ -108,9 +109,7 @@ export default function BusinessTravel({ force }: { force?: Lang } = {}) {
           </Button>
         </div>
 
-        <p className="mt-10 pt-6 border-t border-border text-sm text-muted-foreground text-justify">
-          I servizi di organizzazione e intermediazione di viaggi e la biglietteria aerea sono erogati da CAVALLINODIECI S.r.l., in possesso delle autorizzazioni previste dalla normativa vigente.
-        </p>
+        <BeforeYouProceed lang="it" className="mt-10" />
       </main>
     </div>
   );
