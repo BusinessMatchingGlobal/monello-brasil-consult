@@ -5,6 +5,7 @@ import { getArticleBySlug } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
 import { ShareBlock } from "@/components/ShareBlock";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 const content = {
   it: {

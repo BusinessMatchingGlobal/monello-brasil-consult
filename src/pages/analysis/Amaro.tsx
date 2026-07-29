@@ -6,6 +6,7 @@ import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
 import { ShareBlock } from "@/components/ShareBlock";
 import { useEffect } from "react";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 type Block = { h: string } | { p: string };
 

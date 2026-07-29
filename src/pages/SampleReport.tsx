@@ -12,6 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 import dossierAsset from "@/assets/dossier.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
 import { NewsletterPopup } from "@/components/NewsletterPopup";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 const OWNER_EMAIL = "info@businessmatching.global";
 const PDF_URL = dossierAsset.url;

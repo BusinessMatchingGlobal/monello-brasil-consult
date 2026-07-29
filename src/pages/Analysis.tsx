@@ -4,6 +4,7 @@ import { useT } from "@/lib/i18n";
 import { getLocalizedArticles } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 export default function Analysis() {
   const { t, lang } = useT();

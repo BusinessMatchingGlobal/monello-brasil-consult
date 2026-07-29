@@ -32,6 +32,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { openConsentBanner } from "@/lib/consent";
 import { useCanonical } from "@/lib/useCanonical";
 import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 const EMAIL = "info@businessmatching.global";
 

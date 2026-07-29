@@ -6,6 +6,7 @@ import { useCanonical } from "@/lib/useCanonical";
 import { ShareBlock } from "@/components/ShareBlock";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 import { useEffect } from "react";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 export default function DoingBusinessGuide() {
   useCanonical("/guides/doing-business-in-brazil", {
