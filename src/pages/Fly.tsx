@@ -474,6 +474,8 @@ const copy: Record<Lang, Copy> = {
     agencyText: "The information in this request will be forwarded to:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT)\nVAT IT01416950051\n\noperating as a travel agency under the brand Calliphora.\nLicense no. 2/08 issued by the Municipality of Asti on 8 July 2008 · REA no. AT-113765\nOrdinary member of Fondo Vacanze Felici S.c.a.r.l. — registration no. 1890 · Civil liability policy Revo OX00006698",
     agencyAuthLabel: "I authorize Cavallinodieci S.r.l. to use the data provided to prepare a quote and, upon confirmation, to deliver the requested services.",
     agencyAuthRequired: "You must authorize the agency to quote and provide the services in order to submit the request.",
+    selectPlaceholder: "Select",
+    sameWhatsapp: "Same number as WhatsApp",
   },
   pt: {
     back: "Voltar para a home",
