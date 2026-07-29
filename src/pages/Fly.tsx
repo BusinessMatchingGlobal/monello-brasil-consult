@@ -262,6 +262,8 @@ type Copy = {
   agencyAuthLabel: string;
   agencyAuthRequired: string;
   supportNote: string;
+  selectPlaceholder: string;
+  sameWhatsapp: string;
 };
 
 const copy: Record<Lang, Copy> = {
