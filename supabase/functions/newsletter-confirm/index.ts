@@ -68,6 +68,7 @@ Deno.serve(async (req) => {
   // Notify owner (do not block on failure)
   try {
     await supabase.functions.invoke('send-transactional-email', {
+      headers: { Authorization: `Bearer ${serviceKey}` },
       body: {
         templateName: 'newsletter-owner-notification',
         idempotencyKey: `newsletter-owner-${sub.id}`,
@@ -89,6 +90,7 @@ Deno.serve(async (req) => {
   // Follow-up to the subscriber: confirmation + travel desk reminder
   try {
     await supabase.functions.invoke('send-transactional-email', {
+      headers: { Authorization: `Bearer ${serviceKey}` },
       body: {
         templateName: 'newsletter-travel-desk',
         recipientEmail: sub.email,
