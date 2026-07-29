@@ -82,6 +82,11 @@
   </url>
 
   <url>
+    <loc>https://businessmatching.global/BT</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://businessmatching.global/fly</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
