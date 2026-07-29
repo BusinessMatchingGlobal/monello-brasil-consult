@@ -12,6 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 import ebookAsset from "@/assets/ebook-exporting-to-brazil.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
 import { LangSwitcher } from "@/components/LangSwitcher";
+import { GuidesMenu } from "@/components/GuidesMenu";
 
 const PDF_URL = ebookAsset.url;
 const PDF_FILENAME = "Exporting_to_Brazil_EU_Manual_BMG_v9.pdf";
@@ -267,6 +268,7 @@ export default function NewsEbook() {
       </header>
 
       <main className="container mx-auto px-4 py-12 md:py-16">
+        <GuidesMenu />
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
             <span className="inline-block text-xs uppercase tracking-widest text-primary font-semibold mb-3">
