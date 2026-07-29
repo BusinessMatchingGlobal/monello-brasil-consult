@@ -1675,10 +1675,10 @@ function useForcedLang(target: "en" | "pt") {
 
 export function FlyEN() {
   useForcedLang("en");
-  return <Fly />;
+  return <Navigate to="/fly" replace />;
 }
 
 export function FlyBR() {
   useForcedLang("pt");
-  return <Fly />;
+  return <Navigate to="/fly" replace />;
 }
