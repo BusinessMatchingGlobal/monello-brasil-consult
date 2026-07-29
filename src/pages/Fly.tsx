@@ -1024,6 +1024,12 @@ export default function Fly() {
   const [whatsappPrefix, setWhatsappPrefix] = useState(defaultPrefix);
   const [whatsappNumber, setWhatsappNumber] = useState("");
   const [sameWhatsapp, setSameWhatsapp] = useState(true);
+  // Keep the dial-code default aligned with the page language (+55 on PT).
+  useEffect(() => {
+    setPhonePrefix((prev) => (phoneNumber ? prev : defaultPrefix));
+    setWhatsappPrefix((prev) => (whatsappNumber ? prev : defaultPrefix));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultPrefix]);
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
