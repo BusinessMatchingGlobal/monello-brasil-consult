@@ -9,13 +9,14 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import ebookAsset from "@/assets/ebook-exporting-to-brazil.pdf.asset.json";
+import guideAsset from "@/assets/guida-macchinari-brasile.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
 import { LangSwitcher } from "@/components/LangSwitcher";
 import { GuidesMenu } from "@/components/GuidesMenu";
 
-const PDF_URL = ebookAsset.url;
-const PDF_FILENAME = "Exporting_to_Brazil_EU_Manual_BMG_v9.pdf";
+const PDF_URL = guideAsset.url;
+const PDF_FILENAME = "Vendere_macchinari_in_Brasile_BMG.pdf";
+const SOURCE = "SACE guide page (/sace)";
 
 const schema = z.object({
   firstName: z.string().trim().min(1).max(80),
@@ -57,114 +58,114 @@ type Copy = {
 const copy: Record<Lang, Copy> = {
   it: {
     back: "Torna alla home",
-    eyebrow: "Ebook gratuito",
-    title: "Newsletter & Ebook — Esportare in Brasile",
-    sub: "Scarica gratuitamente il nostro manuale \"Exporting to Brazil — EU Manual\": una guida pratica per le imprese europee che vogliono affacciarsi sul mercato brasiliano. Compila il form per ricevere l'ebook e, se vuoi, iscriviti anche alla nostra newsletter #CustoBrasil.",
+    eyebrow: "Guida gratuita",
+    title: "Vendere macchinari in Brasile — SACE, SIMEST ed ex-tarifário",
+    sub: "Guida operativa per la PMI italiana dei beni strumentali: finanziare la vendita con gli strumenti pubblici italiani di credito all'esportazione e abbattere il dazio brasiliano con l'ex-tarifário. Compila il form per scaricare la guida e, se vuoi, iscriviti alla newsletter #CustoBrasil.",
     bullets: [
-      "Panoramica del mercato brasiliano per le imprese UE",
-      "Procedure di import/export e requisiti doganali",
-      "Aspetti fiscali, normativi e logistici principali",
-      "Errori comuni da evitare e consigli operativi",
+      "Credito fornitore e acquirente con SACE e SIMEST",
+      "Ex-tarifário: come azzerare il dazio sui beni di capitale",
+      "Regimi doganali speciali: drawback, Recof, admissão temporária",
+      "Cosa cambia con l'accordo UE-Mercosur e la Resolução Gecex 852/2026",
     ],
     meta: [
       { label: "Formato", value: "PDF" },
-      { label: "Lingua", value: "Inglese" },
-      { label: "Contenuto", value: "Manuale operativo" },
+      { label: "Lingua", value: "Italiano" },
+      { label: "Edizione", value: "1.0 · Luglio 2026" },
     ],
-    formTitle: "Compila per scaricare l'ebook",
+    formTitle: "Compila per scaricare la guida",
     firstName: "Nome",
     lastName: "Cognome",
     email: "Email professionale",
     company: "Azienda (facoltativo)",
     consentLabel: "Ho letto l'",
     consentLink: "informativa privacy",
-    consentSuffix: "e acconsento al trattamento dei miei dati per ricevere l'ebook e un eventuale follow-up.",
-    consentRequired: "Devi accettare l'informativa privacy per scaricare l'ebook.",
+    consentSuffix: "e acconsento al trattamento dei miei dati per ricevere la guida e un eventuale follow-up.",
+    consentRequired: "Devi accettare l'informativa privacy per scaricare la guida.",
     newsletterLabel: "Iscrivimi anche alla newsletter #CustoBrasil",
     newsletterHint: "Riceverai un'email di conferma per completare l'iscrizione (double opt-in).",
-    submit: "Scarica l'ebook",
+    submit: "Scarica la guida",
     invalid: "Controlla i campi: nome, cognome ed email sono obbligatori.",
     successTitle: "Grazie! Il download è pronto.",
     successBody: "Se il download non parte automaticamente, usa il pulsante qui sotto.",
-    newsletterSuccess: "Ti abbiamo inviato un'email: se vuoi confermare l'iscrizione alla newsletter, clicca sul link \"Conferma iscrizione\" che trovi nel messaggio. Se non la trovi, controlla anche nella cartella SPAM o Posta indesiderata.",
+    newsletterSuccess: "Ti abbiamo inviato un'email: per confermare l'iscrizione alla newsletter clicca sul link \"Conferma iscrizione\". Se non la trovi, controlla anche SPAM o Posta indesiderata.",
     newsletterError: "Il download è pronto, ma l'invio dell'email newsletter non è riuscito. Riprova tra poco.",
     download: "Scarica il PDF",
     again: "Scarica per un'altra persona",
-    fileLabel: "Exporting to Brazil — EU Manual",
+    fileLabel: "Vendere macchinari in Brasile",
   },
   en: {
     back: "Back to home",
-    eyebrow: "Free ebook",
-    title: "Newsletter & Ebook — Exporting to Brazil",
-    sub: "Download our free manual \"Exporting to Brazil — EU Manual\": a practical guide for European companies approaching the Brazilian market. Fill in the form to receive the ebook and, if you wish, also subscribe to our #CustoBrasil newsletter.",
+    eyebrow: "Free guide",
+    title: "Selling machinery in Brazil — SACE, SIMEST and ex-tarifário",
+    sub: "An operational guide for Italian capital-goods SMEs: financing the sale with Italian export-credit tools and cutting the Brazilian import duty with the ex-tarifário regime. Fill in the form to download the guide and, if you wish, subscribe to the #CustoBrasil newsletter. (The guide is written in Italian.)",
     bullets: [
-      "Overview of the Brazilian market for EU companies",
-      "Import/export procedures and customs requirements",
-      "Key tax, regulatory and logistics aspects",
-      "Common mistakes to avoid and practical tips",
+      "Supplier and buyer credit with SACE and SIMEST",
+      "Ex-tarifário: how to zero the duty on capital goods",
+      "Special customs regimes: drawback, Recof, temporary admission",
+      "What changes with EU-Mercosur and Resolução Gecex 852/2026",
     ],
     meta: [
       { label: "Format", value: "PDF" },
-      { label: "Language", value: "English" },
-      { label: "Content", value: "Operational manual" },
+      { label: "Language", value: "Italian" },
+      { label: "Edition", value: "1.0 · July 2026" },
     ],
-    formTitle: "Fill in to download the ebook",
+    formTitle: "Fill in to download the guide",
     firstName: "First name",
     lastName: "Last name",
     email: "Work email",
     company: "Company (optional)",
     consentLabel: "I have read the",
     consentLink: "privacy notice",
-    consentSuffix: "and I consent to the processing of my data to receive the ebook and a possible follow-up.",
-    consentRequired: "You must accept the privacy notice to download the ebook.",
+    consentSuffix: "and I consent to the processing of my data to receive the guide and a possible follow-up.",
+    consentRequired: "You must accept the privacy notice to download the guide.",
     newsletterLabel: "Also subscribe me to the #CustoBrasil newsletter",
     newsletterHint: "You'll receive a confirmation email to complete the subscription (double opt-in).",
-    submit: "Download the ebook",
+    submit: "Download the guide",
     invalid: "Please check the fields: first name, last name and email are required.",
     successTitle: "Thanks! Your download is ready.",
     successBody: "If the download does not start automatically, use the button below.",
-    newsletterSuccess: "We've sent you an email: to confirm your newsletter subscription, click the \"Confirm subscription\" link inside the message. If you don't see it, please check your SPAM or junk folder.",
+    newsletterSuccess: "We've sent you an email: to confirm your newsletter subscription, click the \"Confirm subscription\" link inside the message. If you don't see it, please check your SPAM folder.",
     newsletterError: "Your download is ready, but the newsletter email could not be sent. Please try again shortly.",
     download: "Download the PDF",
     again: "Download for another person",
-    fileLabel: "Exporting to Brazil — EU Manual",
+    fileLabel: "Selling machinery in Brazil",
   },
   pt: {
     back: "Voltar para a home",
-    eyebrow: "Ebook gratuito",
-    title: "Newsletter & Ebook — Exportando para o Brasil",
-    sub: "Baixe gratuitamente nosso manual \"Exporting to Brazil — EU Manual\": um guia prático para empresas europeias que desejam entrar no mercado brasileiro. Preencha o formulário para receber o ebook e, se quiser, inscreva-se também na nossa newsletter #CustoBrasil.",
+    eyebrow: "Guia gratuito",
+    title: "Vender máquinas no Brasil — SACE, SIMEST e ex-tarifário",
+    sub: "Guia operacional para a PME italiana de bens de capital: financiar a venda com os instrumentos públicos italianos de crédito à exportação e reduzir o imposto de importação com o ex-tarifário. Preencha o formulário para baixar o guia e, se quiser, assine a newsletter #CustoBrasil. (O guia está em italiano.)",
     bullets: [
-      "Panorama do mercado brasileiro para empresas da UE",
-      "Procedimentos de importação/exportação e requisitos alfandegários",
-      "Principais aspectos fiscais, regulatórios e logísticos",
-      "Erros comuns a evitar e dicas práticas",
+      "Crédito fornecedor e comprador com SACE e SIMEST",
+      "Ex-tarifário: como zerar o imposto sobre bens de capital",
+      "Regimes aduaneiros especiais: drawback, Recof, admissão temporária",
+      "O que muda com o acordo UE-Mercosul e a Resolução Gecex 852/2026",
     ],
     meta: [
       { label: "Formato", value: "PDF" },
-      { label: "Idioma", value: "Inglês" },
-      { label: "Conteúdo", value: "Manual operacional" },
+      { label: "Idioma", value: "Italiano" },
+      { label: "Edição", value: "1.0 · Julho 2026" },
     ],
-    formTitle: "Preencha para baixar o ebook",
+    formTitle: "Preencha para baixar o guia",
     firstName: "Nome",
     lastName: "Sobrenome",
     email: "E-mail profissional",
     company: "Empresa (opcional)",
     consentLabel: "Li o",
     consentLink: "aviso de privacidade",
-    consentSuffix: "e concordo com o tratamento dos meus dados para receber o ebook e um possível follow-up.",
-    consentRequired: "Você precisa aceitar o aviso de privacidade para baixar o ebook.",
+    consentSuffix: "e concordo com o tratamento dos meus dados para receber o guia e um possível follow-up.",
+    consentRequired: "Você precisa aceitar o aviso de privacidade para baixar o guia.",
     newsletterLabel: "Inscreva-me também na newsletter #CustoBrasil",
     newsletterHint: "Você receberá um e-mail de confirmação para concluir a inscrição (double opt-in).",
-    submit: "Baixar o ebook",
+    submit: "Baixar o guia",
     invalid: "Verifique os campos: nome, sobrenome e e-mail são obrigatórios.",
     successTitle: "Obrigado! Seu download está pronto.",
     successBody: "Se o download não começar automaticamente, use o botão abaixo.",
-    newsletterSuccess: "Enviamos um e-mail: para confirmar sua inscrição na newsletter, clique no link \"Confirmar inscrição\" dentro da mensagem. Se não encontrar, verifique também a pasta de SPAM ou lixo eletrônico.",
+    newsletterSuccess: "Enviamos um e-mail: para confirmar sua inscrição na newsletter, clique no link \"Confirmar inscrição\". Se não encontrar, verifique também a pasta de SPAM.",
     newsletterError: "O download está pronto, mas não foi possível enviar o e-mail da newsletter. Tente novamente em instantes.",
     download: "Baixar o PDF",
     again: "Baixar para outra pessoa",
-    fileLabel: "Exporting to Brazil — EU Manual",
+    fileLabel: "Vender máquinas no Brasil",
   },
 };
 
@@ -178,15 +179,15 @@ function triggerDownload() {
   a.remove();
 }
 
-export default function NewsEbook() {
+export default function SaceGuide() {
   const { lang } = useT();
   const seo =
     lang === "it"
-      ? { title: "Ebook — Esportare in Brasile | Business Matching Global", description: "Scarica gratis l'ebook 'Esportare in Brasile' e iscriviti alla newsletter #CustoBrasil." }
+      ? { title: "Vendere macchinari in Brasile — SACE e ex-tarifário | BMG", description: "Guida gratuita per la PMI italiana: finanziare l'export con SACE e SIMEST e azzerare il dazio con l'ex-tarifário." }
       : lang === "pt"
-      ? { title: "Ebook — Exportando para o Brasil | Business Matching Global", description: "Baixe gratuitamente o ebook 'Exportando para o Brasil' e assine a newsletter #CustoBrasil." }
-      : { title: "Ebook — Exporting to Brazil | Business Matching Global", description: "Download the free 'Exporting to Brazil' ebook and join the #CustoBrasil newsletter." };
-  useCanonical("/news", seo);
+      ? { title: "Vender máquinas no Brasil — SACE e ex-tarifário | BMG", description: "Guia gratuito: crédito à exportação italiano (SACE, SIMEST) e redução do imposto com ex-tarifário." }
+      : { title: "Selling machinery in Brazil — SACE and ex-tarifário | BMG", description: "Free guide: Italian export credit (SACE, SIMEST) and cutting Brazilian import duty with ex-tarifário." };
+  useCanonical("/sace", seo);
   const c = copy[lang];
 
   const [firstName, setFirstName] = useState("");
@@ -209,25 +210,6 @@ export default function NewsEbook() {
       toast({ title: c.invalid, variant: "destructive" });
       return;
     }
-    try {
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-notification",
-          idempotencyKey: `ebook-${parsed.data.email}-${Date.now()}`,
-          templateData: {
-            name: `${parsed.data.firstName} ${parsed.data.lastName}`,
-            email: parsed.data.email,
-            company: parsed.data.company ?? "—",
-            message: "Requested the 'Exporting to Brazil — EU Manual' ebook download.",
-            source: "Newsletter & Ebook page",
-            language: lang,
-            submittedAt: new Date().toISOString(),
-          },
-        },
-      });
-    } catch (err) {
-      console.error("Ebook notification failed", err);
-    }
     if (wantsNewsletter) {
       try {
         const { error } = await supabase.functions.invoke("newsletter-subscribe", {
@@ -237,7 +219,7 @@ export default function NewsEbook() {
             lastName: parsed.data.lastName,
             company: parsed.data.company ?? null,
             language: lang,
-            source: "Newsletter & Ebook page",
+            source: SOURCE,
             consent: true,
           },
         });
@@ -271,9 +253,7 @@ export default function NewsEbook() {
         <GuidesMenu />
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
-            <span className="inline-block text-xs uppercase tracking-widest text-primary font-semibold mb-3">
-              {c.eyebrow}
-            </span>
+            <span className="inline-block text-xs uppercase tracking-widest text-primary font-semibold mb-3">{c.eyebrow}</span>
             <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">{c.title}</h1>
             <p className="text-muted-foreground text-lg mb-6">{c.sub}</p>
 
@@ -307,21 +287,21 @@ export default function NewsEbook() {
                 <h2 className="text-xl font-semibold mb-2">{c.formTitle}</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label htmlFor="firstName">{c.firstName} *</Label>
-                    <Input id="firstName" required maxLength={80} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    <Label htmlFor="saceFirstName">{c.firstName} *</Label>
+                    <Input id="saceFirstName" required maxLength={80} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="lastName">{c.lastName} *</Label>
-                    <Input id="lastName" required maxLength={80} value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                    <Label htmlFor="saceLastName">{c.lastName} *</Label>
+                    <Input id="saceLastName" required maxLength={80} value={lastName} onChange={(e) => setLastName(e.target.value)} />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="email">{c.email} *</Label>
-                  <Input id="email" type="email" required maxLength={255} value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <Label htmlFor="saceEmail">{c.email} *</Label>
+                  <Input id="saceEmail" type="email" required maxLength={255} value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="company">{c.company}</Label>
-                  <Input id="company" maxLength={120} value={company} onChange={(e) => setCompany(e.target.value)} />
+                  <Label htmlFor="saceCompany">{c.company}</Label>
+                  <Input id="saceCompany" maxLength={120} value={company} onChange={(e) => setCompany(e.target.value)} />
                 </div>
                 <label className="flex items-start gap-3 text-sm text-muted-foreground pt-2">
                   <Checkbox checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-0.5" />

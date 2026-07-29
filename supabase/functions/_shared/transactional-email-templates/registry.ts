@@ -3,6 +3,7 @@ import { template as contactNotification } from './contact-notification.tsx'
 import { template as flyContactNotification } from './fly-contact-notification.tsx'
 import { template as newsletterConfirm } from './newsletter-confirm.tsx'
 import { template as newsletterOwnerNotification } from './newsletter-owner-notification.tsx'
+import { template as newsletterTravelDesk } from './newsletter-travel-desk.tsx'
 
 export interface TemplateEntry {
   component: ComponentType<any>
@@ -24,4 +25,5 @@ export const TEMPLATES: Record<string, TemplateEntry> = {
   'fly-contact-notification': flyContactNotification,
   'newsletter-confirm': newsletterConfirm,
   'newsletter-owner-notification': newsletterOwnerNotification,
+  'newsletter-travel-desk': newsletterTravelDesk,
 }

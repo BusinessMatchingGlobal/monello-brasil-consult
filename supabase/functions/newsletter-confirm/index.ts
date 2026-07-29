@@ -86,5 +86,22 @@ Deno.serve(async (req) => {
     console.warn('owner notification failed', e)
   }
 
+  // Follow-up to the subscriber: confirmation + travel desk reminder
+  try {
+    await supabase.functions.invoke('send-transactional-email', {
+      body: {
+        templateName: 'newsletter-travel-desk',
+        recipientEmail: sub.email,
+        idempotencyKey: `newsletter-travel-desk-${sub.id}`,
+        templateData: {
+          firstName: sub.first_name ?? '',
+          language: ['it', 'en', 'pt'].includes(sub.language ?? '') ? sub.language : 'it',
+        },
+      },
+    })
+  } catch (e) {
+    console.warn('travel desk follow-up failed', e)
+  }
+
   return json(200, { ok: true, email: sub.email })
 })
