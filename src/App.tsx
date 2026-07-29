@@ -17,6 +17,7 @@ import Fly, { FlyEN, FlyBR } from "./pages/Fly";
 import BusinessTravel from "./pages/BusinessTravel";
 import BusinessTravelEN from "./pages/BusinessTravelEN";
 import BusinessTravelBR from "./pages/BusinessTravelBR";
+import BusinessTravelLocalized from "./pages/BusinessTravelLocalized";
 import Analysis from "./pages/Analysis";
 import Pix from "./pages/analysis/Pix";
 import Suja from "./pages/analysis/Suja";
@@ -59,12 +60,14 @@ const App = () => {
             <Route path="/news" element={<NewsEbook />} />
             <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/BT" element={<BusinessTravel />} />
-            <Route path="/bt" element={<BusinessTravel />} />
-            <Route path="/BT_en" element={<BusinessTravelEN />} />
-            <Route path="/bt_en" element={<BusinessTravelEN />} />
-            <Route path="/BT_br" element={<BusinessTravelBR />} />
-            <Route path="/bt_br" element={<BusinessTravelBR />} />
+            <Route path="/BT" element={<BusinessTravelLocalized />} />
+            <Route path="/bt" element={<BusinessTravelLocalized />} />
+            <Route path="/BT_it" element={<BusinessTravel force="it" />} />
+            <Route path="/bt_it" element={<BusinessTravel force="it" />} />
+            <Route path="/BT_en" element={<BusinessTravelEN force="en" />} />
+            <Route path="/bt_en" element={<BusinessTravelEN force="en" />} />
+            <Route path="/BT_br" element={<BusinessTravelBR force="pt" />} />
+            <Route path="/bt_br" element={<BusinessTravelBR force="pt" />} />
             <Route path="/fly" element={<Fly />} />
             <Route path="/fly_en" element={<FlyEN />} />
             <Route path="/fly_br" element={<FlyBR />} />
