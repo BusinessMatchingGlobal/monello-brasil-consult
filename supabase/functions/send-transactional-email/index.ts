@@ -115,14 +115,7 @@ Deno.serve(async (req) => {
     const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || ''
     const isServiceCaller = role === 'service_role' || (!!jwt && !!serviceKey && jwt === serviceKey)
     if (!isServiceCaller) {
-      console.warn('Blocked restricted template call', {
-        templateName,
-        role,
-        jwtLen: jwt.length,
-        keyLen: serviceKey.length,
-        jwtPrefix: jwt.slice(0, 6),
-        keyPrefix: serviceKey.slice(0, 6),
-      })
+      console.warn('Blocked restricted template call', { templateName, role })
       return new Response(
         JSON.stringify({ error: 'Forbidden' }),
         { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } },
