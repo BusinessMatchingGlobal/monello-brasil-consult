@@ -11,6 +11,7 @@ import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
 import CustoBrasil from "./pages/CustoBrasil";
 import NewsEbook from "./pages/NewsEbook";
+import SaceGuide from "./pages/SaceGuide";
 import NewsletterConfirm from "./pages/NewsletterConfirm";
 import Admin from "./pages/Admin";
 import Fly, { FlyEN, FlyBR } from "./pages/Fly";
@@ -58,6 +59,8 @@ const App = () => {
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="/custo-brasil" element={<CustoBrasil />} />
             <Route path="/news" element={<NewsEbook />} />
+            <Route path="/sace" element={<SaceGuide />} />
+            <Route path="/SACE" element={<SaceGuide />} />
             <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/BT" element={<BusinessTravelLocalized />} />
