@@ -14,6 +14,7 @@ import NewsEbook from "./pages/NewsEbook";
 import NewsletterConfirm from "./pages/NewsletterConfirm";
 import Admin from "./pages/Admin";
 import Fly, { FlyEN, FlyBR } from "./pages/Fly";
+import BusinessTravel from "./pages/BusinessTravel";
 import Analysis from "./pages/Analysis";
 import Pix from "./pages/analysis/Pix";
 import Suja from "./pages/analysis/Suja";
@@ -56,6 +57,8 @@ const App = () => {
             <Route path="/news" element={<NewsEbook />} />
             <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/BT" element={<BusinessTravel />} />
+            <Route path="/bt" element={<BusinessTravel />} />
             <Route path="/fly" element={<Fly />} />
             <Route path="/fly_en" element={<FlyEN />} />
             <Route path="/fly_br" element={<FlyBR />} />
