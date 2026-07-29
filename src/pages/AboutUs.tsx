@@ -11,7 +11,6 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
-import { LangSwitcher } from "@/components/LangSwitcher";
 
 const EMAIL = "info@businessmatching.global";
 
