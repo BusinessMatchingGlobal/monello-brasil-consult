@@ -153,8 +153,10 @@ function passengerToText(p: Passenger, c: Copy) {
   const cit2 = p.citizenship2 ? countryLabel(p.citizenship2) : "—";
   const permit =
     p.residencePermit === "yes" ? c.permitYes :
-    p.residencePermit === "no" ? c.permitNo : c.permitNone;
-  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.citizenship1}: ${cit1} | ${c.citizenship2}: ${cit2} | ${c.residencePermit}: ${permit} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${p.weight}kg`;
+    p.residencePermit === "no" ? c.permitNo :
+    p.residencePermit === "none" ? c.permitNone : "—";
+  const weight = p.weight ? `${p.weight}kg` : "—";
+  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.citizenship1}: ${cit1} | ${c.citizenship2}: ${cit2} | ${c.residencePermit}: ${permit} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${weight}`;
 }
 
 type Copy = {
