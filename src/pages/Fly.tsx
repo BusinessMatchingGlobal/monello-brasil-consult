@@ -763,10 +763,9 @@ function PassengerEditor({
           onValueChange={(v) => onChange({ residencePermit: v as "none" | "yes" | "no" })}
         >
           <SelectTrigger>
-            <SelectValue />
+            <SelectValue placeholder={c.selectPlaceholder} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="none">{c.permitNone}</SelectItem>
             <SelectItem value="yes">{c.permitYes}</SelectItem>
             <SelectItem value="no">{c.permitNo}</SelectItem>
           </SelectContent>
@@ -804,7 +803,7 @@ function PassengerEditor({
         <Label>{c.weight}</Label>
         <Select value={passenger.weight} onValueChange={(v) => onChange({ weight: v as "15" | "23" | "32" })}>
           <SelectTrigger>
-            <SelectValue />
+            <SelectValue placeholder={c.selectPlaceholder} />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="15">15 kg</SelectItem>
@@ -1018,10 +1017,13 @@ export default function Fly() {
 
   const [organization, setOrganization] = useState("");
   const [email, setEmail] = useState("");
-  const [phonePrefix, setPhonePrefix] = useState("+39");
+  const prefixes = prefixesFor(lang);
+  const defaultPrefix = lang === "pt" ? "+55" : "+39";
+  const [phonePrefix, setPhonePrefix] = useState(defaultPrefix);
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [whatsappPrefix, setWhatsappPrefix] = useState("+39");
+  const [whatsappPrefix, setWhatsappPrefix] = useState(defaultPrefix);
   const [whatsappNumber, setWhatsappNumber] = useState("");
+  const [sameWhatsapp, setSameWhatsapp] = useState(true);
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -1152,7 +1154,8 @@ export default function Fly() {
         p.travelClass === "Premium" ? c.classPremium : c.classBusiness;
       const permit =
         p.residencePermit === "yes" ? c.permitYes :
-        p.residencePermit === "no" ? c.permitNo : c.permitNone;
+        p.residencePermit === "no" ? c.permitNo :
+        p.residencePermit === "none" ? c.permitNone : "—";
       return {
         n: i + 1,
         lastName: p.lastName || "—",
@@ -1163,7 +1166,7 @@ export default function Fly() {
         permit,
         travelClass: cls,
         bags: String(p.bags),
-        weight: `${p.weight} kg`,
+        weight: p.weight ? `${p.weight} kg` : "—",
       };
     });
   }
@@ -1178,7 +1181,7 @@ export default function Fly() {
       organization,
       email,
       phoneNumber,
-      whatsappNumber,
+      whatsappNumber: sameWhatsapp ? phoneNumber : whatsappNumber,
       consent,
     });
     if (!parsed.success) {
@@ -1199,7 +1202,9 @@ export default function Fly() {
     }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
-    const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
+    const fullWhatsapp = sameWhatsapp
+      ? `${phonePrefix} ${phoneNumber}`
+      : `${whatsappPrefix} ${whatsappNumber}`;
     const tripLabel =
       tripType === "roundtrip" ? c.tripRoundtrip : tripType === "oneway" ? c.tripOneway : c.tripComplex;
     const itineraryRows = buildItineraryRows();
@@ -1379,7 +1384,7 @@ export default function Fly() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        {PREFIXES.map((p) => (
+                        {prefixes.map((p) => (
                           <SelectItem key={p.value} value={p.value}>
                             {p.label}
                           </SelectItem>
@@ -1411,7 +1416,7 @@ export default function Fly() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        {PREFIXES.map((p) => (
+                        {prefixes.map((p) => (
                           <SelectItem key={p.value} value={p.value}>
                             {p.label}
                           </SelectItem>
