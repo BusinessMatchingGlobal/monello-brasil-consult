@@ -1407,6 +1407,12 @@ export default function Fly() {
                 </div>
               </div>
 
+              <label className="flex items-center gap-3 text-sm text-muted-foreground">
+                <Checkbox checked={sameWhatsapp} onCheckedChange={(v) => setSameWhatsapp(v === true)} />
+                <span>{c.sameWhatsapp}</span>
+              </label>
+
+              {!sameWhatsapp && (
               <div className="space-y-1.5">
                 <Label>{c.whatsapp} *</Label>
                 <div className="flex gap-3">
@@ -1438,6 +1444,7 @@ export default function Fly() {
                   />
                 </div>
               </div>
+              )}
 
               <label className="flex items-start gap-3 text-sm text-muted-foreground pt-1">
                 <Checkbox checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-0.5" />
