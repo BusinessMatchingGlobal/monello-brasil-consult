@@ -11,6 +11,7 @@ import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import ebookAsset from "@/assets/ebook-exporting-to-brazil.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 const PDF_URL = ebookAsset.url;
 const PDF_FILENAME = "Exporting_to_Brazil_EU_Manual_BMG_v9.pdf";
@@ -258,7 +259,10 @@ export default function NewsEbook() {
             <ArrowLeft className="h-4 w-4" />
             {c.back}
           </Link>
-          <span className="text-sm font-medium">Business Matching Global</span>
+          <div className="flex items-center gap-3">
+            <LangSwitcher />
+            <span className="text-sm font-medium">Business Matching Global</span>
+          </div>
         </div>
       </header>
 
