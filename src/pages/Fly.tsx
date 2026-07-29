@@ -254,6 +254,7 @@ type Copy = {
   agencyText: string;
   agencyAuthLabel: string;
   agencyAuthRequired: string;
+  supportNote: string;
 };
 
 const copy: Record<Lang, Copy> = {
@@ -273,6 +274,7 @@ const copy: Record<Lang, Copy> = {
     consentSuffix: "e acconsento al trattamento dei miei dati per essere ricontattato.",
     consentRequired: "Devi accettare l'informativa privacy per inviare la richiesta.",
     submit: "Invia richiesta",
+    supportNote: "In caso di problemi nell'utilizzo della presente pagina, scrivere a",
     invalid: "Controlla i campi: tutti sono obbligatori e l'email deve essere valida.",
     required: "Tutti i campi sono obbligatori.",
     successTitle: "Grazie! La richiesta è stata inviata.",
@@ -375,6 +377,7 @@ const copy: Record<Lang, Copy> = {
     consentSuffix: "and I consent to the processing of my data to be contacted.",
     consentRequired: "You must accept the privacy notice to send the request.",
     submit: "Send request",
+    supportNote: "If you have any trouble using this page, please write to",
     invalid: "Please check the fields: all are required and the email must be valid.",
     required: "All fields are required.",
     successTitle: "Thank you! Your request has been sent.",
@@ -477,6 +480,7 @@ const copy: Record<Lang, Copy> = {
     consentSuffix: "e concordo com o tratamento dos meus dados para ser contatado.",
     consentRequired: "Você precisa aceitar o aviso de privacidade para enviar a solicitação.",
     submit: "Enviar solicitação",
+    supportNote: "Em caso de problemas ao utilizar esta página, escreva para",
     invalid: "Verifique os campos: todos são obrigatórios e o e-mail deve ser válido.",
     required: "Todos os campos são obrigatórios.",
     successTitle: "Obrigado! Sua solicitação foi enviada.",
@@ -1611,8 +1615,31 @@ export default function Fly() {
               </Link>
             </div>
           )}
+          <p className="mt-10 pt-6 border-t border-border text-sm text-muted-foreground text-center">
+            {c.supportNote}{" "}
+            <a href="mailto:fly@businessmatching.global" className="text-primary underline">
+              fly@businessmatching.global
+            </a>
+          </p>
         </div>
       </main>
     </div>
   );
+}
+
+function useForcedLang(target: "en" | "pt") {
+  const { lang, setLang } = useT();
+  useEffect(() => {
+    if (lang !== target) setLang(target);
+  }, [lang, setLang, target]);
+}
+
+export function FlyEN() {
+  useForcedLang("en");
+  return <Fly />;
+}
+
+export function FlyBR() {
+  useForcedLang("pt");
+  return <Fly />;
 }
