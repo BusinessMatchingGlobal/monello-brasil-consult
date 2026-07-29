@@ -61,9 +61,12 @@ export default function DoingBusinessGuide() {
             <ArrowLeft className="h-4 w-4" />
             Back to home
           </Link>
-          <Link to="/" aria-label="Business Matching Global">
-            <img src={logoBMG.url} alt="Business Matching Global" className="h-8 md:h-10 w-auto" />
-          </Link>
+          <div className="flex items-center gap-3">
+            <LangSwitcher />
+            <Link to="/" aria-label="Business Matching Global">
+              <img src={logoBMG.url} alt="Business Matching Global" className="h-8 md:h-10 w-auto" />
+            </Link>
+          </div>
         </div>
       </header>
 

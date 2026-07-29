@@ -241,7 +241,10 @@ export default function SampleReport() {
             <ArrowLeft className="h-4 w-4" />
             {c.back}
           </Link>
-          <span className="text-sm font-medium">Business Matching Global</span>
+          <div className="flex items-center gap-3">
+            <LangSwitcher />
+            <span className="text-sm font-medium">Business Matching Global</span>
+          </div>
         </div>
       </header>
 
