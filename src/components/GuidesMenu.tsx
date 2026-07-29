@@ -8,6 +8,7 @@ const labels: Record<Lang, { title: string; items: { to: string; name: string; n
     items: [
       { to: "/news", name: "Exporting to Brazil — EU Manual", note: "Accordo UE-Mercosur · in inglese" },
       { to: "/sace", name: "Vendere macchinari in Brasile", note: "SACE, SIMEST ed ex-tarifário · in italiano" },
+      { to: "/pharma", name: "Brazil's Health Market", note: "Farmaceutico, dispositivi e supply chain · in inglese" },
     ],
   },
   en: {
@@ -15,6 +16,7 @@ const labels: Record<Lang, { title: string; items: { to: string; name: string; n
     items: [
       { to: "/news", name: "Exporting to Brazil — EU Manual", note: "EU-Mercosur agreement · in English" },
       { to: "/sace", name: "Selling machinery in Brazil", note: "SACE, SIMEST and ex-tarifário · in Italian" },
+      { to: "/pharma", name: "Brazil's Health Market", note: "Pharma, devices and supply chain · in English" },
     ],
   },
   pt: {
@@ -22,6 +24,7 @@ const labels: Record<Lang, { title: string; items: { to: string; name: string; n
     items: [
       { to: "/news", name: "Exporting to Brazil — EU Manual", note: "Acordo UE-Mercosul · em inglês" },
       { to: "/sace", name: "Vender máquinas no Brasil", note: "SACE, SIMEST e ex-tarifário · em italiano" },
+      { to: "/pharma", name: "Brazil's Health Market", note: "Farmacêutico, dispositivos e supply chain · em inglês" },
     ],
   },
 };
@@ -33,7 +36,7 @@ export function GuidesMenu() {
   return (
     <nav aria-label={c.title} className="mb-10">
       <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-3">{c.title}</p>
-      <div className="grid sm:grid-cols-2 gap-3">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {c.items.map((item) => {
           const active = pathname.toLowerCase() === item.to;
           return (
