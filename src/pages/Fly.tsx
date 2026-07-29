@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { BeforeYouProceed } from "@/components/BeforeYouProceed";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2, Upload, FileText, X, HelpCircle, Camera } from "lucide-react";
 import { format } from "date-fns";
@@ -1635,6 +1636,8 @@ export default function Fly() {
                   rows={5}
                 />
               </div>
+
+              <BeforeYouProceed lang={lang} />
 
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
                 <Send className="mr-2 h-4 w-4" />
