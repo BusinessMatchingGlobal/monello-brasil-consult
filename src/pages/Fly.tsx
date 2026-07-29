@@ -112,10 +112,10 @@ type Passenger = {
   birthDate: Date | undefined;
   citizenship1: string;
   citizenship2: string;
-  residencePermit: "none" | "yes" | "no";
+  residencePermit: "" | "none" | "yes" | "no";
   travelClass: TravelClass;
   bags: number;
-  weight: "15" | "23" | "32";
+  weight: "" | "15" | "23" | "32";
   passportFile: File | null;
   residenceFiles: File[];
   responsibilityAck: boolean;
@@ -129,10 +129,10 @@ function newPassenger(): Passenger {
     birthDate: undefined,
     citizenship1: "",
     citizenship2: "",
-    residencePermit: "none",
+    residencePermit: "",
     travelClass: "Economy",
     bags: 0,
-    weight: "23",
+    weight: "",
     passportFile: null,
     residenceFiles: [],
     responsibilityAck: false,
