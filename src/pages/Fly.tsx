@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { BeforeYouProceed } from "@/components/BeforeYouProceed";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2, Upload, FileText, X, HelpCircle, Camera } from "lucide-react";
 import { format } from "date-fns";
 import { z } from "zod";
@@ -1675,10 +1675,10 @@ function useForcedLang(target: "en" | "pt") {
 
 export function FlyEN() {
   useForcedLang("en");
-  return <Fly />;
+  return <Navigate to="/fly" replace />;
 }
 
 export function FlyBR() {
   useForcedLang("pt");
-  return <Fly />;
+  return <Navigate to="/fly" replace />;
 }

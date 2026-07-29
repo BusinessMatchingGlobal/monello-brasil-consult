@@ -107,7 +107,7 @@ export default function BusinessTravelEN({ force }: { force?: Lang } = {}) {
 
         <div className="mt-12 text-center">
           <Button asChild size="lg" className="rounded-full">
-            <Link to="/fly_en">
+            <Link to="/fly">
               Request a quote
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
