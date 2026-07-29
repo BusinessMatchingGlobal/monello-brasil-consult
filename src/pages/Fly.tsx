@@ -369,6 +369,8 @@ const copy: Record<Lang, Copy> = {
     agencyText: "Le informazioni di questa richiesta saranno inoltrate a:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT)\nP.IVA IT01416950051\n\nche opera come agenzia di viaggi con il marchio Calliphora.\nLicenza n. 2/08 rilasciata dal Comune di Asti in data 8 luglio 2008 · Numero REA AT-113765\nSocio ordinario del Fondo Vacanze Felici S.c.a.r.l. — iscrizione n. 1890 · Polizza responsabilità civile Revo OX00006698",
     agencyAuthLabel: "Autorizzo Cavallinodieci S.r.l. a utilizzare i dati inseriti per preventivare e, alla conferma, a erogare i servizi richiesti.",
     agencyAuthRequired: "Devi autorizzare l'agenzia a preventivare ed erogare i servizi per inviare la richiesta.",
+    selectPlaceholder: "Seleziona",
+    sameWhatsapp: "È lo stesso numero WhatsApp",
   },
   en: {
     back: "Back to home",
