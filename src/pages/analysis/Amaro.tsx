@@ -66,13 +66,16 @@ export default function Amaro() {
   return (
     <main className="min-h-screen bg-background">
       <div className="container max-w-3xl py-16 md:py-24">
+        <div className="flex items-center justify-between gap-4 mb-8">
         <Link
           to="/analysis"
-          className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground mb-8"
+          className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
           {BACK[lang]}
         </Link>
+          <LangSwitcher to="/amaro" />
+        </div>
         <article className="prose-invert">
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
             {article?.title[lang]}
