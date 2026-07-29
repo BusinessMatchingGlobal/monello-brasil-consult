@@ -104,6 +104,7 @@ Deno.serve(async (req) => {
   const confirmUrl = `${APP_ORIGIN}/newsletter/confirm?token=${token}`
 
   const { error: sendError } = await supabase.functions.invoke('send-transactional-email', {
+    headers: { Authorization: `Bearer ${serviceKey}` },
     body: {
       templateName: 'newsletter-confirm',
       recipientEmail: email,
