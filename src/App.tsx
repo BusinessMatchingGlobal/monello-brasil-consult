@@ -13,7 +13,7 @@ import CustoBrasil from "./pages/CustoBrasil";
 import NewsEbook from "./pages/NewsEbook";
 import NewsletterConfirm from "./pages/NewsletterConfirm";
 import Admin from "./pages/Admin";
-import Fly from "./pages/Fly";
+import Fly, { FlyEN, FlyBR } from "./pages/Fly";
 import Analysis from "./pages/Analysis";
 import Pix from "./pages/analysis/Pix";
 import Suja from "./pages/analysis/Suja";
@@ -57,6 +57,8 @@ const App = () => {
             <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/fly" element={<Fly />} />
+            <Route path="/fly_en" element={<FlyEN />} />
+            <Route path="/fly_br" element={<FlyBR />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/pix" element={<Pix />} />
             <Route path="/suja" element={<Suja />} />
