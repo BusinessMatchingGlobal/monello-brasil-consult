@@ -36,7 +36,7 @@ export function GuidesMenu() {
   return (
     <nav aria-label={c.title} className="mb-10">
       <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-3">{c.title}</p>
-      <div className="grid sm:grid-cols-2 gap-3">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {c.items.map((item) => {
           const active = pathname.toLowerCase() === item.to;
           return (
