@@ -16,6 +16,7 @@ import Admin from "./pages/Admin";
 import Fly, { FlyEN, FlyBR } from "./pages/Fly";
 import BusinessTravel from "./pages/BusinessTravel";
 import BusinessTravelEN from "./pages/BusinessTravelEN";
+import BusinessTravelBR from "./pages/BusinessTravelBR";
 import Analysis from "./pages/Analysis";
 import Pix from "./pages/analysis/Pix";
 import Suja from "./pages/analysis/Suja";
@@ -62,6 +63,8 @@ const App = () => {
             <Route path="/bt" element={<BusinessTravel />} />
             <Route path="/BT_en" element={<BusinessTravelEN />} />
             <Route path="/bt_en" element={<BusinessTravelEN />} />
+            <Route path="/BT_br" element={<BusinessTravelBR />} />
+            <Route path="/bt_br" element={<BusinessTravelBR />} />
             <Route path="/fly" element={<Fly />} />
             <Route path="/fly_en" element={<FlyEN />} />
             <Route path="/fly_br" element={<FlyBR />} />
