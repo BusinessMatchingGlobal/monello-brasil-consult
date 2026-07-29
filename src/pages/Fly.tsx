@@ -35,20 +35,24 @@ import { LangSwitcher } from "@/components/LangSwitcher";
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/jpg", "application/pdf"];
 
-const PREFIXES = [
-  { value: "+39", label: "+39 Italia" },
-  { value: "+55", label: "+55 Brasil" },
-  { value: "+351", label: "+351 Portugal" },
-  { value: "+44", label: "+44 United Kingdom" },
-  { value: "+49", label: "+49 Germany" },
-  { value: "+33", label: "+33 France" },
-  { value: "+34", label: "+34 Spain" },
-  { value: "+41", label: "+41 Switzerland" },
-  { value: "+31", label: "+31 Netherlands" },
-  { value: "+1", label: "+1 USA / Canada" },
-  { value: "+61", label: "+61 Australia" },
-  { value: "+86", label: "+86 China" },
+const PREFIX_DEFS: Array<{ value: string; it: string; en: string; pt: string }> = [
+  { value: "+39", it: "Italia", en: "Italy", pt: "Itália" },
+  { value: "+55", it: "Brasile", en: "Brazil", pt: "Brasil" },
+  { value: "+351", it: "Portogallo", en: "Portugal", pt: "Portugal" },
+  { value: "+44", it: "Regno Unito", en: "United Kingdom", pt: "Reino Unido" },
+  { value: "+49", it: "Germania", en: "Germany", pt: "Alemanha" },
+  { value: "+33", it: "Francia", en: "France", pt: "França" },
+  { value: "+34", it: "Spagna", en: "Spain", pt: "Espanha" },
+  { value: "+41", it: "Svizzera", en: "Switzerland", pt: "Suíça" },
+  { value: "+31", it: "Paesi Bassi", en: "Netherlands", pt: "Países Baixos" },
+  { value: "+1", it: "USA / Canada", en: "USA / Canada", pt: "EUA / Canadá" },
+  { value: "+61", it: "Australia", en: "Australia", pt: "Austrália" },
+  { value: "+86", it: "Cina", en: "China", pt: "China" },
 ];
+
+function prefixesFor(lang: Lang) {
+  return PREFIX_DEFS.map((p) => ({ value: p.value, label: `${p.value} ${p[lang]}` }));
+}
 
 const numberSchema = z.string().trim().min(5).max(20);
 
@@ -108,10 +112,10 @@ type Passenger = {
   birthDate: Date | undefined;
   citizenship1: string;
   citizenship2: string;
-  residencePermit: "none" | "yes" | "no";
+  residencePermit: "" | "none" | "yes" | "no";
   travelClass: TravelClass;
   bags: number;
-  weight: "15" | "23" | "32";
+  weight: "" | "15" | "23" | "32";
   passportFile: File | null;
   residenceFiles: File[];
   responsibilityAck: boolean;
@@ -125,10 +129,10 @@ function newPassenger(): Passenger {
     birthDate: undefined,
     citizenship1: "",
     citizenship2: "",
-    residencePermit: "none",
+    residencePermit: "",
     travelClass: "Economy",
     bags: 0,
-    weight: "23",
+    weight: "",
     passportFile: null,
     residenceFiles: [],
     responsibilityAck: false,
@@ -149,8 +153,10 @@ function passengerToText(p: Passenger, c: Copy) {
   const cit2 = p.citizenship2 ? countryLabel(p.citizenship2) : "—";
   const permit =
     p.residencePermit === "yes" ? c.permitYes :
-    p.residencePermit === "no" ? c.permitNo : c.permitNone;
-  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.citizenship1}: ${cit1} | ${c.citizenship2}: ${cit2} | ${c.residencePermit}: ${permit} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${p.weight}kg`;
+    p.residencePermit === "no" ? c.permitNo :
+    p.residencePermit === "none" ? c.permitNone : "—";
+  const weight = p.weight ? `${p.weight}kg` : "—";
+  return `${p.lastName} ${p.firstName} | ${c.birthDate}: ${dob} | ${c.citizenship1}: ${cit1} | ${c.citizenship2}: ${cit2} | ${c.residencePermit}: ${permit} | ${c.class}: ${cls} | ${c.bags}: ${p.bags} | ${c.weight}: ${weight}`;
 }
 
 type Copy = {
@@ -256,6 +262,8 @@ type Copy = {
   agencyAuthLabel: string;
   agencyAuthRequired: string;
   supportNote: string;
+  selectPlaceholder: string;
+  sameWhatsapp: string;
 };
 
 const copy: Record<Lang, Copy> = {
@@ -313,7 +321,7 @@ const copy: Record<Lang, Copy> = {
     birthDate: "Data di nascita",
     class: "Classe",
     classEconomy: "Economy",
-    classPremium: "Premium",
+    classPremium: "Premium Economy",
     classBusiness: "Business",
     bags: "Bagagli in stiva",
     weight: "Peso bagaglio",
@@ -361,6 +369,8 @@ const copy: Record<Lang, Copy> = {
     agencyText: "Le informazioni di questa richiesta saranno inoltrate a:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT)\nP.IVA IT01416950051\n\nche opera come agenzia di viaggi con il marchio Calliphora.\nLicenza n. 2/08 rilasciata dal Comune di Asti in data 8 luglio 2008 · Numero REA AT-113765\nSocio ordinario del Fondo Vacanze Felici S.c.a.r.l. — iscrizione n. 1890 · Polizza responsabilità civile Revo OX00006698",
     agencyAuthLabel: "Autorizzo Cavallinodieci S.r.l. a utilizzare i dati inseriti per preventivare e, alla conferma, a erogare i servizi richiesti.",
     agencyAuthRequired: "Devi autorizzare l'agenzia a preventivare ed erogare i servizi per inviare la richiesta.",
+    selectPlaceholder: "Seleziona",
+    sameWhatsapp: "È lo stesso numero WhatsApp",
   },
   en: {
     back: "Back to home",
@@ -416,7 +426,7 @@ const copy: Record<Lang, Copy> = {
     birthDate: "Date of birth",
     class: "Class",
     classEconomy: "Economy",
-    classPremium: "Premium",
+    classPremium: "Premium Economy",
     classBusiness: "Business",
     bags: "Checked bags",
     weight: "Bag weight",
@@ -464,6 +474,8 @@ const copy: Record<Lang, Copy> = {
     agencyText: "The information in this request will be forwarded to:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT)\nVAT IT01416950051\n\noperating as a travel agency under the brand Calliphora.\nLicense no. 2/08 issued by the Municipality of Asti on 8 July 2008 · REA no. AT-113765\nOrdinary member of Fondo Vacanze Felici S.c.a.r.l. — registration no. 1890 · Civil liability policy Revo OX00006698",
     agencyAuthLabel: "I authorize Cavallinodieci S.r.l. to use the data provided to prepare a quote and, upon confirmation, to deliver the requested services.",
     agencyAuthRequired: "You must authorize the agency to quote and provide the services in order to submit the request.",
+    selectPlaceholder: "Select",
+    sameWhatsapp: "Same number as WhatsApp",
   },
   pt: {
     back: "Voltar para a home",
@@ -472,7 +484,7 @@ const copy: Record<Lang, Copy> = {
     sub: "Deixe seus dados e entraremos em contato o mais breve possível.",
     organization: "Organização / Pessoa de Contato",
     email: "E-mail",
-    phone: "Telemóvel",
+    phone: "Celular",
     whatsapp: "WhatsApp",
     prefix: "Prefixo",
     number: "Número",
@@ -490,14 +502,14 @@ const copy: Record<Lang, Copy> = {
     itinerarySub: "Selecione o tipo de viagem e preencha os trechos solicitados.",
     tripRoundtrip: "Ida e Volta",
     tripOneway: "Somente Ida",
-    tripComplex: "Itinerário complexo",
+    tripComplex: "Múltiplos trechos",
     outbound: "Ida",
     return: "Volta",
     leg: "Trecho",
     addLeg: "Adicionar trecho",
     removeLeg: "Remover",
-    origin: "APT Partida",
-    destination: "APT Destino",
+    origin: "Aeroporto de origem",
+    destination: "Aeroporto de destino",
     viewMap: "Ver no mapa",
     date: "Data",
     pickDate: "Escolha uma data",
@@ -510,7 +522,7 @@ const copy: Record<Lang, Copy> = {
     itineraryIncomplete: "Complete o itinerário de voos: aeroportos e datas são obrigatórios.",
     passengerTitle: "Passageiros",
     passengerSub: "Insira os dados dos passageiros para a solicitação de voo.",
-    passengerAttention: "Prestar máxima atenção ao preencher NOME e SOBRENOME: devem corresponder exatamente ao que consta no passaporte utilizado para a viagem.",
+    passengerAttention: "Confira com atenção NOME e SOBRENOME: devem corresponder exatamente ao que consta no passaporte que será utilizado na viagem.",
     passenger: "Passageiro",
     addPassenger: "Adicionar passageiro",
     removePassenger: "Remover",
@@ -519,7 +531,7 @@ const copy: Record<Lang, Copy> = {
     birthDate: "Data de nascimento",
     class: "Classe",
     classEconomy: "Econômica",
-    classPremium: "Premium",
+    classPremium: "Premium Economy",
     classBusiness: "Executiva",
     bags: "Bagagem despachada",
     weight: "Peso da bagagem",
@@ -539,10 +551,10 @@ const copy: Record<Lang, Copy> = {
     servicesTitle: "Outros serviços solicitados",
     servicesIntro: "Podemos oferecer, com tarifas negociadas com nossos fornecedores: hotéis, transfers privados ou compartilhados, aluguel de carro, atrações e passeios, e seguro viagem. Se tiver preferências, indique a região/nome do hotel, as datas e — se tiver — o melhor preço que encontrou: buscaremos apresentar nossa melhor oferta.",
     servicesPlaceholder: "Ex.: Hotel 4* na região da Savassi (BH), check-in 12/03 – check-out 16/03, melhor preço encontrado R$ 600/noite. Transfer aeroporto–hotel para 2 pessoas. Aluguel de carro SUV por 3 dias. Seguro viagem.",
-    passengerAttentionLead: "Preste máxima atenção ao preencher NOME e SOBRENOME: devem corresponder ",
+    passengerAttentionLead: "Confira com atenção NOME e SOBRENOME: devem corresponder ",
     passengerAttentionMid1: "",
     passengerAttentionEmph: "exatamente",
-    passengerAttentionMid2: " ao que consta no passaporte que será utilizado na viagem. A tarifa é emitida com esses dados — um erro de uma única letra pode exigir a reemissão do bilhete, e a tarifa original pode não estar mais disponível.",
+    passengerAttentionMid2: " ao que consta no passaporte que será utilizado na viagem. O bilhete é emitido com esses dados — um erro de uma única letra pode exigir a reemissão, e a tarifa original pode não estar mais disponível.",
     passengerAttentionTail: "",
     docsTitle: "Anexar cópia dos documentos (opcional, mas fortemente recomendado)",
     docsIntro: "Anexe passaporte e/ou documento de residência (RNE/CRNM). Não é obrigatório — mas é a forma mais simples de proteger a sua tarifa: nossa equipe confere nome, número e validade antes da emissão.",
@@ -566,6 +578,8 @@ const copy: Record<Lang, Copy> = {
     agencyTitle: "Agência indicada",
     agencyText: "As informações desta solicitação serão encaminhadas para:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT)\nNIF IT01416950051\n\nque opera como agência de viagens com a marca Calliphora.\nLicença n.º 2/08 emitida pela Comuna de Asti em 8 de julho de 2008 · Número REA AT-113765\nSócio ordinário do Fondo Vacanze Felici S.c.a.r.l. — inscrição n.º 1890 · Apólice de responsabilidade civil Revo OX00006698",
     agencyAuthLabel: "Autorizo a Cavallinodieci S.r.l. a usar os dados informados para elaborar um orçamento e, após a confirmação, a prestar os serviços solicitados.",
+    selectPlaceholder: "Selecione",
+    sameWhatsapp: "É o mesmo número do WhatsApp",
     agencyAuthRequired: "Você precisa autorizar a agência a orçar e prestar os serviços para enviar a solicitação.",
   },
 };
@@ -749,10 +763,9 @@ function PassengerEditor({
           onValueChange={(v) => onChange({ residencePermit: v as "none" | "yes" | "no" })}
         >
           <SelectTrigger>
-            <SelectValue />
+            <SelectValue placeholder={c.selectPlaceholder} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="none">{c.permitNone}</SelectItem>
             <SelectItem value="yes">{c.permitYes}</SelectItem>
             <SelectItem value="no">{c.permitNo}</SelectItem>
           </SelectContent>
@@ -790,7 +803,7 @@ function PassengerEditor({
         <Label>{c.weight}</Label>
         <Select value={passenger.weight} onValueChange={(v) => onChange({ weight: v as "15" | "23" | "32" })}>
           <SelectTrigger>
-            <SelectValue />
+            <SelectValue placeholder={c.selectPlaceholder} />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="15">15 kg</SelectItem>
@@ -1004,10 +1017,19 @@ export default function Fly() {
 
   const [organization, setOrganization] = useState("");
   const [email, setEmail] = useState("");
-  const [phonePrefix, setPhonePrefix] = useState("+39");
+  const prefixes = prefixesFor(lang);
+  const defaultPrefix = lang === "pt" ? "+55" : "+39";
+  const [phonePrefix, setPhonePrefix] = useState(defaultPrefix);
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [whatsappPrefix, setWhatsappPrefix] = useState("+39");
+  const [whatsappPrefix, setWhatsappPrefix] = useState(defaultPrefix);
   const [whatsappNumber, setWhatsappNumber] = useState("");
+  const [sameWhatsapp, setSameWhatsapp] = useState(true);
+  // Keep the dial-code default aligned with the page language (+55 on PT).
+  useEffect(() => {
+    setPhonePrefix((prev) => (phoneNumber ? prev : defaultPrefix));
+    setWhatsappPrefix((prev) => (whatsappNumber ? prev : defaultPrefix));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultPrefix]);
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -1138,7 +1160,8 @@ export default function Fly() {
         p.travelClass === "Premium" ? c.classPremium : c.classBusiness;
       const permit =
         p.residencePermit === "yes" ? c.permitYes :
-        p.residencePermit === "no" ? c.permitNo : c.permitNone;
+        p.residencePermit === "no" ? c.permitNo :
+        p.residencePermit === "none" ? c.permitNone : "—";
       return {
         n: i + 1,
         lastName: p.lastName || "—",
@@ -1149,7 +1172,7 @@ export default function Fly() {
         permit,
         travelClass: cls,
         bags: String(p.bags),
-        weight: `${p.weight} kg`,
+        weight: p.weight ? `${p.weight} kg` : "—",
       };
     });
   }
@@ -1164,7 +1187,7 @@ export default function Fly() {
       organization,
       email,
       phoneNumber,
-      whatsappNumber,
+      whatsappNumber: sameWhatsapp ? phoneNumber : whatsappNumber,
       consent,
     });
     if (!parsed.success) {
@@ -1185,7 +1208,9 @@ export default function Fly() {
     }
     setLoading(true);
     const fullPhone = `${phonePrefix} ${phoneNumber}`;
-    const fullWhatsapp = `${whatsappPrefix} ${whatsappNumber}`;
+    const fullWhatsapp = sameWhatsapp
+      ? `${phonePrefix} ${phoneNumber}`
+      : `${whatsappPrefix} ${whatsappNumber}`;
     const tripLabel =
       tripType === "roundtrip" ? c.tripRoundtrip : tripType === "oneway" ? c.tripOneway : c.tripComplex;
     const itineraryRows = buildItineraryRows();
@@ -1365,7 +1390,7 @@ export default function Fly() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        {PREFIXES.map((p) => (
+                        {prefixes.map((p) => (
                           <SelectItem key={p.value} value={p.value}>
                             {p.label}
                           </SelectItem>
@@ -1388,6 +1413,12 @@ export default function Fly() {
                 </div>
               </div>
 
+              <label className="flex items-center gap-3 text-sm text-muted-foreground">
+                <Checkbox checked={sameWhatsapp} onCheckedChange={(v) => setSameWhatsapp(v === true)} />
+                <span>{c.sameWhatsapp}</span>
+              </label>
+
+              {!sameWhatsapp && (
               <div className="space-y-1.5">
                 <Label>{c.whatsapp} *</Label>
                 <div className="flex gap-3">
@@ -1397,7 +1428,7 @@ export default function Fly() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        {PREFIXES.map((p) => (
+                        {prefixes.map((p) => (
                           <SelectItem key={p.value} value={p.value}>
                             {p.label}
                           </SelectItem>
@@ -1419,6 +1450,7 @@ export default function Fly() {
                   />
                 </div>
               </div>
+              )}
 
               <label className="flex items-start gap-3 text-sm text-muted-foreground pt-1">
                 <Checkbox checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-0.5" />
