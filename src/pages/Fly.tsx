@@ -35,20 +35,24 @@ import { LangSwitcher } from "@/components/LangSwitcher";
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/jpg", "application/pdf"];
 
-const PREFIXES = [
-  { value: "+39", label: "+39 Italia" },
-  { value: "+55", label: "+55 Brasil" },
-  { value: "+351", label: "+351 Portugal" },
-  { value: "+44", label: "+44 United Kingdom" },
-  { value: "+49", label: "+49 Germany" },
-  { value: "+33", label: "+33 France" },
-  { value: "+34", label: "+34 Spain" },
-  { value: "+41", label: "+41 Switzerland" },
-  { value: "+31", label: "+31 Netherlands" },
-  { value: "+1", label: "+1 USA / Canada" },
-  { value: "+61", label: "+61 Australia" },
-  { value: "+86", label: "+86 China" },
+const PREFIX_DEFS: Array<{ value: string; it: string; en: string; pt: string }> = [
+  { value: "+39", it: "Italia", en: "Italy", pt: "Itália" },
+  { value: "+55", it: "Brasile", en: "Brazil", pt: "Brasil" },
+  { value: "+351", it: "Portogallo", en: "Portugal", pt: "Portugal" },
+  { value: "+44", it: "Regno Unito", en: "United Kingdom", pt: "Reino Unido" },
+  { value: "+49", it: "Germania", en: "Germany", pt: "Alemanha" },
+  { value: "+33", it: "Francia", en: "France", pt: "França" },
+  { value: "+34", it: "Spagna", en: "Spain", pt: "Espanha" },
+  { value: "+41", it: "Svizzera", en: "Switzerland", pt: "Suíça" },
+  { value: "+31", it: "Paesi Bassi", en: "Netherlands", pt: "Países Baixos" },
+  { value: "+1", it: "USA / Canada", en: "USA / Canada", pt: "EUA / Canadá" },
+  { value: "+61", it: "Australia", en: "Australia", pt: "Austrália" },
+  { value: "+86", it: "Cina", en: "China", pt: "China" },
 ];
+
+function prefixesFor(lang: Lang) {
+  return PREFIX_DEFS.map((p) => ({ value: p.value, label: `${p.value} ${p[lang]}` }));
+}
 
 const numberSchema = z.string().trim().min(5).max(20);
 
