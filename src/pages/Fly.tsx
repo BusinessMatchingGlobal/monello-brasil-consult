@@ -30,6 +30,7 @@ import { COUNTRIES } from "@/lib/countries";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import rneExample from "@/assets/rne-example.png.asset.json";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/jpg", "application/pdf"];
@@ -1313,7 +1314,10 @@ export default function Fly() {
             <ArrowLeft className="h-4 w-4" />
             {c.back}
           </Link>
-          <span className="text-sm font-medium">Business Matching Global</span>
+          <div className="flex items-center gap-3">
+            <LangSwitcher to="/fly" />
+            <span className="text-sm font-medium">Business Matching Global</span>
+          </div>
         </div>
       </header>
 

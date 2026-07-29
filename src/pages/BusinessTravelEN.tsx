@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useT } from "@/lib/i18n";
+import { useT, type Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
+import { LangSwitcher } from "@/components/LangSwitcher";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 
 type Block = { type: "h2"; text: string } | { type: "p"; text: string; italic?: boolean };
@@ -53,7 +54,7 @@ const blocks: Block[] = [
   { type: "p", text: "The information we ask for may look like a lot. It is exactly what we need — and nothing more — to get the right solution to you on the first proposal: what you want, but also what you are entitled to, based on citizenship, residence and documents. It is the first step towards a genuinely frictionless trip." },
 ];
 
-export default function BusinessTravelEN() {
+export default function BusinessTravelEN({ force }: { force?: Lang } = {}) {
   const { lang, setLang } = useT();
   useCanonical("/BT_en", {
     title: "Business Travel & Travel Management — Business Matching Global",
@@ -63,8 +64,8 @@ export default function BusinessTravelEN() {
     window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
-    if (lang !== "en") setLang("en");
-  }, [lang, setLang]);
+    if (force && lang !== force) setLang(force);
+  }, [force, lang, setLang]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -73,9 +74,12 @@ export default function BusinessTravelEN() {
           <Link to="/" className="flex items-center" aria-label="Business Matching Global">
             <img src={logoBMG.url} alt="Business Matching Global" className="h-10 w-auto" />
           </Link>
-          <Link to="/" className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1">
-            <ArrowLeft className="h-4 w-4" /> Home
-          </Link>
+          <div className="flex items-center gap-3">
+            <LangSwitcher to="/BT" />
+            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1">
+              <ArrowLeft className="h-4 w-4" /> Home
+            </Link>
+          </div>
         </div>
       </header>
 

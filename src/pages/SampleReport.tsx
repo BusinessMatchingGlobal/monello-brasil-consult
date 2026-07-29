@@ -12,6 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 import dossierAsset from "@/assets/dossier.pdf.asset.json";
 import { useCanonical } from "@/lib/useCanonical";
 import { NewsletterPopup } from "@/components/NewsletterPopup";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 const OWNER_EMAIL = "info@businessmatching.global";
 const PDF_URL = dossierAsset.url;
@@ -241,7 +242,10 @@ export default function SampleReport() {
             <ArrowLeft className="h-4 w-4" />
             {c.back}
           </Link>
-          <span className="text-sm font-medium">Business Matching Global</span>
+          <div className="flex items-center gap-3">
+            <LangSwitcher />
+            <span className="text-sm font-medium">Business Matching Global</span>
+          </div>
         </div>
       </header>
 

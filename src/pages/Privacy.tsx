@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { openConsentBanner } from "@/lib/consent";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 const CONTROLLER_EMAIL = "info@businessmatching.global";
 const COMPANY = "ENZO ALDO STOBBIONE LTDA (Business Matching Global)";
@@ -250,12 +251,15 @@ export default function Privacy() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="container max-w-3xl py-16 md:py-24">
+        <div className="flex items-center justify-between gap-4 mb-10">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           <ArrowLeft className="h-4 w-4" /> {c.back}
         </Link>
+          <LangSwitcher />
+        </div>
         <h1 className="font-display text-4xl md:text-5xl tracking-tight mb-3">{c.title}</h1>
         <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8">{c.updated}</p>
         <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-12">{c.intro}</p>
