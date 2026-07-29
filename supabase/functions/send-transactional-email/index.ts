@@ -111,7 +111,10 @@ Deno.serve(async (req) => {
       const payload = JSON.parse(atob(jwt.split('.')[1] || ''))
       role = payload && typeof payload.role === 'string' ? payload.role : ''
     } catch { /* ignore */ }
-    if (role !== 'service_role') {
+    // Non-JWT secret keys (sb_secret_...) can't be decoded: compare directly.
+    const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || ''
+    const isServiceCaller = role === 'service_role' || (!!jwt && !!serviceKey && jwt === serviceKey)
+    if (!isServiceCaller) {
       console.warn('Blocked restricted template call', { templateName, role })
       return new Response(
         JSON.stringify({ error: 'Forbidden' }),
