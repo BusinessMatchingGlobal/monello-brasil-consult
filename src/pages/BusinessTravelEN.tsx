@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useT, type Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { LangSwitcher } from "@/components/LangSwitcher";
+import { BeforeYouProceed } from "@/components/BeforeYouProceed";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 
 type Block = { type: "h2"; text: string } | { type: "p"; text: string; italic?: boolean };
@@ -113,9 +114,7 @@ export default function BusinessTravelEN({ force }: { force?: Lang } = {}) {
           </Button>
         </div>
 
-        <p className="mt-10 pt-6 border-t border-border text-sm text-muted-foreground text-justify">
-          Travel organisation, travel intermediation and air ticketing services are provided by CAVALLINODIECI S.r.l., holder of all licences required under applicable law.
-        </p>
+        <BeforeYouProceed lang="en" className="mt-10" />
       </main>
     </div>
   );
