@@ -112,7 +112,7 @@ export default function BusinessTravelBR({ force }: { force?: Lang } = {}) {
 
         <div className="mt-12 text-center">
           <Button asChild size="lg" className="rounded-full">
-            <Link to="/fly_br">
+            <Link to="/fly">
               Solicitar cotação
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
