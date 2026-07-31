@@ -126,3 +126,53 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 }
+
+/* ------------------------------------------------------------------
+   Calliphora Travel theme — scoped tokens for /voli and /formfly.
+   These pages mirror calliphora.travel's identity (paper, navy, amber)
+   and are not part of the Business Matching Global brand surface.
+------------------------------------------------------------------ */
+@layer base {
+  .theme-calliphora {
+    --background: 45 40% 99%;
+    --foreground: 230 14% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 14% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 14% 12%;
+
+    --primary: 231 26% 25%;
+    --primary-foreground: 45 40% 98%;
+
+    --secondary: 40 30% 95%;
+    --secondary-foreground: 231 26% 25%;
+
+    --muted: 228 16% 95%;
+    --muted-foreground: 230 9% 45%;
+
+    --accent: 14 82% 54%;
+    --accent-foreground: 230 20% 12%;
+
+    --amber: 24 88% 60%;
+    --amber-foreground: 230 20% 12%;
+
+    --border: 228 14% 88%;
+    --input: 228 14% 88%;
+    --ring: 231 26% 25%;
+
+    --radius: 1rem;
+
+    font-family: Figtree, ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .theme-calliphora h1,
+  .theme-calliphora h2,
+  .theme-calliphora h3,
+  .theme-calliphora h4 {
+    font-family: Outfit, ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
