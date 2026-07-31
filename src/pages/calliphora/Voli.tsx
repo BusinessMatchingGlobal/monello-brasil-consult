@@ -137,6 +137,47 @@ const blocksEn: Block[] = [
   { type: "p", text: "The information requested may seem like a lot. In fact, it is exactly what we need — and nothing more — to build the best solution with our very first proposal: what you want, but also what you can obtain based on citizenship, residency and documents. It's the first step towards making your trip as frictionless as possible." },
 ];
 
+const blocksPt: Block[] = [
+  { type: "h2", text: "Serviço de Bilheteria Aérea" },
+  { type: "p", text: "Não vendemos uma passagem para voar de A a B: oferecemos uma experiência de viagem sem atritos — antes, durante e depois. Essa é a nossa filosofia desde 2004, ano em que nasceu a marca Calliphora — no início sob outra razão social e, desde 2008, sob a atual CAVALLINODIECI S.r.l. — e, desde então, atuamos na organização e intermediação de viagens e na bilheteria aérea com todas as autorizações legais exigidas.", italic: true },
+  { type: "p", text: "Somos um balcão único, que acompanha você do primeiro pedido até a volta para casa: bilheteria aérea, hospedagem, aluguel de carro, transfers, seguros de viagem." },
+
+  { type: "h2", text: "Tarifas negociadas e confidenciais" },
+  { type: "p", text: "Vinte anos de relacionamento com as companhias aéreas se traduzem em algo muito concreto: o acesso a tarifas negociadas e confidenciais. O nome já diz tudo: por definição, elas não podem ser publicadas. Você não as encontra nas OTAs — as Online Travel Agencies, os grandes portais de reserva onde se comparam preços —, não as encontra nos IBTs, os Internet Booking Tools com que muitas empresas reservam por conta própria, e não as encontra nem mesmo nos sites das companhias aéreas." },
+  { type: "p", text: "A vantagem mais imediata é o preço, muitas vezes bem competitivo em relação às tarifas públicas. Mas não é a única: as tarifas VFR (Visiting Friends and Relatives), por exemplo, além de um preço mais baixo, costumam oferecer franquia de bagagem mais generosa e regras de alteração mais flexíveis." },
+
+  { type: "h2", text: "Não vendemos uma passagem. Construímos uma viagem sem atritos." },
+  { type: "p", text: "Nosso trabalho não termina com a emissão: começa antes e só se encerra quando você está de volta em casa." },
+  { type: "p", text: "Antes da partida, antecipamos tudo o que pode comprometer a tranquilidade da viagem: documentos e requisitos de entrada, tempos mínimos de conexão, conexões arriscadas, regras de bagagem, seguros adequados ao seu roteiro." },
+  { type: "p", text: "Durante a viagem, gerenciamos os imprevistos de forma proativa — cancelamentos, overbooking, reacomodações: o que no jargão do setor se chama IROPS, irregular operations — para reduzir ao mínimo o seu transtorno. Não esperamos você nos ligar do aeroporto." },
+
+  { type: "h2", text: "Nem todos os aviões tratam você da mesma forma" },
+  { type: "p", text: "Você pode voar de classe executiva, na poltrona mais confortável do mercado, e mesmo assim desembarcar no destino se sentindo um trapo. Muitas vezes a culpa não é da poltrona. É da fuselagem." },
+  { type: "p", text: "Um avião com fuselagem de alumínio não pode ser pressurizado além de certo limite: a cabine voa a uma altitude equivalente de cerca de 2.400 metros, com umidade que, nos voos de longa distância, cai com frequência abaixo de 10% — mais seco que muitos desertos. O resultado: menos oxigênio no sangue, desidratação, dor de cabeça, jet lag mais longo." },
+  { type: "p", text: "Uma fuselagem de material composto — é o caso do Boeing 787 e do Airbus A350 — suporta pressões maiores e não sofre com corrosão. O resultado: cabine equivalente a cerca de 1.800 metros, umidade que pode chegar a 15–20%, menos ruído, melhor filtragem do ar e sistemas que atenuam as turbulências antes que você as sinta. No mesmo voo de dez horas, a diferença no desembarque é palpável." },
+  { type: "p", text: "A questão é que essa variável não aparece em nenhum buscador e não entra em nenhuma comparação de preços. Na mesma rota, no mesmo dia, na mesma classe de serviço e com a mesma tarifa, você pode encontrar máquinas completamente diferentes dependendo do número do voo." },
+  { type: "p", text: "Nós sabemos orientar você também nisso: o tipo de aeronave efetivamente operado, a configuração da cabine, a posição da poltrona, o horário de partida e a estrutura das conexões em relação ao seu fuso horário e aos seus compromissos na chegada." },
+  { type: "p", text: "Porque a viagem não termina quando você pousa. Termina quando você está em condições de fazer aquilo para que viajou.", italic: true },
+
+  { type: "h2", text: "O valor do dinheiro que você gasta" },
+  { type: "p", text: "Desde já. Abrimos para você o acesso a tarifas competitivas com muitas companhias e para muitos destinos no mundo." },
+  { type: "p", text: "Se você voa muito. Quando companhias e rotas recorrentes aparecem nos seus deslocamentos, negociamos para você acordos dedicados, com base nos seus fluxos reais." },
+  { type: "p", text: "Se você é uma PME sem grandes volumes. Cuidamos da sua adesão aos programas corporativos das companhias aéreas: programas que geram um crédito a cada voo, reutilizável na compra de outras passagens. A participação não exclui o acúmulo de pontos nos programas de fidelidade individuais: os dois trilhos correm em paralelo." },
+  { type: "p", text: "Nos programas de fidelidade. Também aqui estamos ao seu lado — para acumular mais rápido onde for possível e transformar os pontos em viagens-prêmio que possam de fato ser reservadas, que é a parte em que a maioria dos viajantes desiste." },
+
+  { type: "h2", text: "Mesmo quando você não viaja a trabalho" },
+  { type: "p", text: "O mesmo empenho e a mesma experiência valem para as viagens de lazer. E não só no voo: dispomos de tarifas negociadas e confidenciais também com hotéis e locadoras de veículos, e sabemos identificar os seguros com a melhor relação entre custo e proteção efetiva para a sua próxima viagem." },
+
+  { type: "h2", text: "O operador humano permanece no centro" },
+  { type: "p", text: "No centro do serviço há uma pessoa. Sempre." },
+  { type: "p", text: "Estamos colocando ao lado dos nossos operadores o IVA — Intelligent Vacation Assistant, que você pode ver em ação no vídeo desta página: não um substituto, mas uma espécie de exoesqueleto que amplifica as capacidades de quem cuida do seu atendimento. Human in the loop: a tecnologia trabalha nos bastidores; a responsabilidade e o relacionamento continuam com quem responde a você." },
+
+  { type: "h2", text: "Experimente, sem compromisso" },
+  { type: "p", text: "Preencha o formulário abaixo para colocar o serviço à prova: nenhum vínculo da sua parte." },
+  { type: "p", text: "As informações solicitadas podem parecer muitas. Na verdade, são exatamente as que precisamos — e nada mais — para construir a melhor solução já na primeira proposta: o que você deseja, mas também aquilo a que você tem direito com base em cidadania, residência e documentos. É o primeiro passo para tornar a sua viagem o mais frictionless possível." },
+];
+
+
 const footer: Record<UILang, { line1: string; line2: string }> = {
   es: {
     line1: "Calliphora Travel — marca de Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Italia",
