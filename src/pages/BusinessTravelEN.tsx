@@ -10,7 +10,7 @@ import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asse
 
 type Block = { type: "h2"; text: string } | { type: "p"; text: string; italic?: boolean };
 
-const blocks: Block[] = [
+export const blocks: Block[] = [
   { type: "h2", text: "There is no such thing as the price of a flight to Brazil" },
   { type: "p", text: "There are at least four. Same seat, same aircraft, same day. The only thing that changes is the door you come in through." },
   { type: "p", text: "There is the published fare, the one you see on the airline's website. There are negotiated and confidential fares, which by definition are not published anywhere. There are corporate contracts, reserved for those who move serious volume. And there are the programs airlines dedicate to small and medium enterprises — no minimum volume required, and almost no SME knows they exist." },

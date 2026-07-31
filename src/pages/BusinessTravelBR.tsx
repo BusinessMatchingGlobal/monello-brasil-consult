@@ -10,7 +10,7 @@ import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asse
 
 type Block = { type: "h2"; text: string } | { type: "p"; text: string; italic?: boolean };
 
-const blocks: Block[] = [
+export const blocks: Block[] = [
   { type: "h2", text: "Não existe o preço de um voo entre o Brasil e a Europa" },
   { type: "p", text: "Existem pelo menos quatro. Mesma poltrona, mesmo avião, mesmo dia. O que muda é a porta pela qual você entra." },
   { type: "p", text: "Existe a tarifa pública, aquela que você vê no site da companhia. Existem as tarifas negociadas e confidenciais, que por definição não são publicadas em lugar nenhum. Existem os contratos corporativos, reservados a quem tem grande volume. E existem os programas que as companhias dedicam às pequenas e médias empresas — sem volume mínimo, e quase nenhuma PME sabe que existem." },
