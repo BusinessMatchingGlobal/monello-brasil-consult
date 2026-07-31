@@ -235,8 +235,8 @@ export default function Voli() {
         <BeforeYouProceed lang={lang} className="mt-10" />
 
         <footer className="mt-12 border-t border-border pt-6 text-sm text-muted-foreground text-center space-y-1">
-          <p>Calliphora Travel — marca de Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Italia</p>
-          <p>IVA IT01416950051 · Licencia n.º 2/08 (Municipio de Asti) · REA AT-113765</p>
+          <p>{footer[lang].line1}</p>
+          <p>{footer[lang].line2}</p>
         </footer>
       </main>
     </div>
