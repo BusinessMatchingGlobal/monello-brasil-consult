@@ -49,21 +49,21 @@ const DATA: Record<AnyLang, { heading: string; items: Item[] }> = {
   en: {
     heading: "Before you proceed",
     items: [
-      { title: "Who issues the tickets.", body: ["All tickets are issued by a travel agency duly licensed in Italy, owned by CAVALLINODIECI S.r.l., trading as Calliphora Travel since 2004."] },
-      { title: "Submitting the form commits you to nothing.", body: ["It is a request for a quotation, not a booking."] },
-      { title: "Quotations expire.", body: ["We reply as quickly as we can. Every offer states the date by which it can be confirmed: after that date it lapses and is no longer guaranteed, because fares and availability change constantly."] },
+      { title: "Who issues the tickets.", body: ["All tickets are issued by a travel agency duly authorized in Italy, owned by CAVALLINODIECI S.r.l., operating under the Calliphora brand since 2004."] },
+      { title: "Filling in the form commits you to nothing.", body: ["It's a request for a quote, not a booking."] },
+      { title: "The quote has an expiry date.", body: ["We reply as quickly as possible. The offer will state the date by which it can be confirmed: beyond that deadline it lapses and is no longer guaranteed, because fares and availability change constantly."] },
       { title: "Payment.", body: [
-        "The total amount is in euro and must be paid by bank transfer, in full and in a single payment, to the agency's SEPA account.",
-        "We cannot accept credit cards, and instalments are not available. This is not a commercial preference: on these fares the airlines require immediate payment in full from the agency, and the agency is bound to apply the same terms to its own clients. It is the flip side of fares that are published nowhere.",
-        "Any transfer charges are borne by the client — the amount credited must match the amount quoted.",
+        "The total amount in euros must be paid by bank transfer, in a single instalment, to the agency's SEPA account.",
+        "We do not accept credit cards, and payment in instalments is not available. This is not a commercial choice: on these fares, the airlines require the agency to pay immediately and in full, and the agency is bound to apply the same conditions to its own clients. It's the flip side of fares that are published nowhere.",
+        "Any transfer fees are borne by the client: the amount credited must match the amount stated in the offer.",
       ] },
-      { title: "If you are paying from Brazil.", body: [
-        "The amount stays in euro, but you can know exactly what that means in reais before confirming anything. On international exchange and remittance platforms you enter the euro figure and the system shows the total in reais with everything already included: the rate applied, the platform's fees and IOF. It is the final amount leaving your account, not an estimate — so you can assess our offer in local currency, as a closed figure, before committing to it.",
-        "One option that usually offers better terms than traditional banking channels is Remessa Online (account opening takes a few steps): once the calculation is done, you pay by Pix or TED and the euro amount is credited to the agency's account.",
-        "This is a practical suggestion only. Your relationship with the platform is entirely your own, and we recommend comparing terms before deciding.",
+      { title: "If you're paying from Brazil.", body: [
+        "The amount stays in euros, but you can know exactly what it means in reais before confirming anything. On international currency-exchange and remittance platforms, you enter the figure in euros and the system shows the total in reais, all-inclusive: the exchange rate applied, the platform's fees and the IOF tax. It's the final amount that leaves your account, not an estimate — so you can assess our proposal in your national currency, as a fixed figure, before committing.",
+        "A solution that generally offers better conditions than traditional banking channels is Remessa Online (account opening takes just a few steps): once you've run the calculation, you pay via Pix or TED and the euro amount is credited to the agency's account.",
+        "This is only a practical suggestion. Your relationship with the platform is entirely your own, and we recommend comparing conditions before choosing.",
       ] },
-      { title: "Ticketing.", body: ["Tickets are issued once funds have cleared, and are sent by email. A SEPA transfer normally credits the same day or the next business day; paying from Brazil through a remittance platform, the credit is almost immediate once the Pix or TED has gone through. Once you have confirmed the offer, send payment promptly and allow for weekends and public holidays."] },
-      { title: "In-trip support, always included in the price.", body: ["From ticketing to your return you are supported by email and WhatsApp, at no extra cost. Support is proactive: in the event of cancellation, delay or rerouting we act, without waiting for you to write to us from the airport."] },
+      { title: "Issuance.", body: ["The ticket is issued after the funds have actually been credited, and sent by email. A SEPA transfer normally clears the same day or the next business day; when paying from Brazil through a remittance platform, the credit arrives almost immediately after the Pix or TED. Once you confirm the offer, arrange payment right away, keeping weekends and public holidays in mind."] },
+      { title: "In-trip assistance, always included in the price.", body: ["From issuance to your return, you are supported via email and WhatsApp, at no extra cost. It's proactive assistance: in the event of cancellations, delays or rebooking, we act first — we don't wait for you to write to us from the airport."] },
     ],
   },
   es: {
