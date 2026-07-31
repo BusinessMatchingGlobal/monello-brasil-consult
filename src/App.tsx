@@ -38,6 +38,7 @@ import Voli from "./pages/calliphora/Voli";
 
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
+import { CalliphoraDomainRouting } from "./components/CalliphoraDomainRouting";
 import { useEffect } from "react";
 import { initConsent } from "./lib/consent";
 
@@ -52,6 +53,7 @@ const App = () => {
       <Sonner />
       <LanguageProvider>
         <BrowserRouter>
+          <CalliphoraDomainRouting />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/privacy" element={<Privacy />} />
