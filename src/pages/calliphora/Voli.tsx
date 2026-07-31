@@ -192,8 +192,8 @@ const footer: Record<UILang, { line1: string; line2: string }> = {
     line2: "VAT IT01416950051 · Licence no. 2/08 (Municipality of Asti) · REA AT-113765",
   },
   pt: {
-    line1: "Calliphora Travel — marca de Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Itália",
-    line2: "NIF IT01416950051 · Licença n.º 2/08 (Município de Asti) · REA AT-113765",
+    line1: "Calliphora Travel — marca da Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Itália · CNPJ não aplicável — empresa italiana",
+    line2: "VAT IT01416950051 · Licença n.º 2/08 (Município de Asti) · REA AT-113765",
   },
 };
 
@@ -201,7 +201,7 @@ const ui: Record<UILang, { h1: string; cta: string }> = {
   es: { h1: "Vuelos y gestión de viajes", cta: "Solicitar cotización" },
   it: { h1: "Servizio di Biglietteria Aerea", cta: "Richiedi un preventivo" },
   en: { h1: "Air Ticketing Service", cta: "Request a quote" },
-  pt: { h1: "Business Travel & Travel Management", cta: "Solicitar um orçamento" },
+  pt: { h1: "Serviço de Bilheteria Aérea", cta: "Solicitar uma cotação" },
 };
 
 const blocksByLang: Record<UILang, Block[]> = {
