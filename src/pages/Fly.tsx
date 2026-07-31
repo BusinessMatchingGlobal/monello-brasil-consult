@@ -32,6 +32,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import rneExample from "@/assets/rne-example.png.asset.json";
 import { LangSwitcher } from "@/components/LangSwitcher";
+import { UILangSwitcher } from "@/components/UILangSwitcher";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 export const CALLIPHORA_LOGO =
