@@ -32,6 +32,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import rneExample from "@/assets/rne-example.png.asset.json";
 import { LangSwitcher } from "@/components/LangSwitcher";
+import { UILangSwitcher } from "@/components/UILangSwitcher";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 export const CALLIPHORA_LOGO =
@@ -1132,8 +1133,9 @@ export default function Fly({
   brand = "bmg",
 }: { forceLang?: UILang; brand?: "bmg" | "calliphora" } = {}) {
   const { lang: siteLang } = useT();
-  const lang: UILang = forceLang ?? siteLang;
   const isCalliphora = brand === "calliphora";
+  const [langOverride, setLangOverride] = useState<UILang | null>(null);
+  const lang: UILang = langOverride ?? forceLang ?? siteLang;
   useCanonical(isCalliphora ? "/formfly" : "/fly", {
     title: isCalliphora
       ? "Solicitud de vuelos — Calliphora Travel"
@@ -1473,12 +1475,15 @@ export default function Fly({
           </Link>
           <div className="flex items-center gap-3">
             {isCalliphora ? (
-              <img
-                src={CALLIPHORA_LOGO}
-                alt="Calliphora Travel"
-                className="h-9 w-auto"
-                loading="lazy"
-              />
+              <>
+                <UILangSwitcher value={lang} onChange={setLangOverride} />
+                <img
+                  src={CALLIPHORA_LOGO}
+                  alt="Calliphora Travel"
+                  className="h-9 w-auto"
+                  loading="lazy"
+                />
+              </>
             ) : (
               <>
                 <LangSwitcher to="/fly" />

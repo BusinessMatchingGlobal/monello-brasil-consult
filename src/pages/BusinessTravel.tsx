@@ -10,7 +10,7 @@ import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asse
 
 type Block = { type: "h2"; text: string } | { type: "p"; text: string; italic?: boolean };
 
-const blocks: Block[] = [
+export const blocks: Block[] = [
   { type: "p", text: "Un viaggio non comincia al gate. Comincia da chi ve lo prepara.", italic: true },
   { type: "p", text: "Il servizio travel di Business Matching Global nasce dalla partnership con CAVALLINODIECI S.r.l., società del nostro gruppo che opera nell'organizzazione e nell'intermediazione di viaggi e nella biglietteria aerea dal 2004 — dal 2008 con l'attuale ragione sociale — con le regolari autorizzazioni di legge." },
   { type: "p", text: "Da questa collaborazione nasce un desk unico, che vi segue dalla prima richiesta al ritorno a casa: biglietteria aerea, sistemazioni alberghiere, noleggio auto, trasferimenti, coperture assicurative." },
