@@ -4,11 +4,16 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCanonical } from "@/lib/useCanonical";
 import { BeforeYouProceed } from "@/components/BeforeYouProceed";
-import { CALLIPHORA_LOGO } from "@/pages/Fly";
+import { CALLIPHORA_LOGO, type UILang } from "@/pages/Fly";
+import { UILangSwitcher } from "@/components/UILangSwitcher";
+import { useState } from "react";
+import { blocks as blocksIt } from "@/pages/BusinessTravel";
+import { blocks as blocksEn } from "@/pages/BusinessTravelEN";
+import { blocks as blocksPt } from "@/pages/BusinessTravelBR";
 
 type Block = { type: "h2"; text: string } | { type: "p"; text: string; italic?: boolean };
 
-const blocks: Block[] = [
+const blocksEs: Block[] = [
   { type: "h2", text: "El precio de un vuelo no existe" },
   { type: "p", text: "Existen al menos cuatro. El mismo asiento, el mismo avión, el mismo día. Lo único que cambia es la puerta por la que se entra." },
   { type: "p", text: "Está la tarifa publicada, la que se ve en el sitio de la aerolínea. Están las tarifas negociadas y confidenciales, que por definición no se publican en ninguna parte. Están los contratos corporativos, reservados a quien mueve volúmenes serios. Y están los programas que las aerolíneas dedican a las pequeñas y medianas empresas — sin volumen mínimo, y que casi ninguna pyme sabe que existen." },
@@ -53,6 +58,20 @@ const blocks: Block[] = [
   { type: "p", text: "La información que pedimos puede parecer mucha. Es exactamente la que necesitamos — y nada más — para acercarle la solución correcta en la primera propuesta: lo que usted quiere, pero también aquello a lo que tiene derecho según nacionalidad, residencia y documentos. Es el primer paso hacia un viaje realmente sin fricciones." },
 ];
 
+const ui: Record<UILang, { h1: string; cta: string }> = {
+  es: { h1: "Vuelos y gestión de viajes", cta: "Solicitar cotización" },
+  it: { h1: "Business Travel & Travel Management", cta: "Richiedi un preventivo" },
+  en: { h1: "Business Travel & Travel Management", cta: "Request a quote" },
+  pt: { h1: "Business Travel & Travel Management", cta: "Solicitar um orçamento" },
+};
+
+const blocksByLang: Record<UILang, Block[]> = {
+  es: blocksEs,
+  it: blocksIt as Block[],
+  en: blocksEn as Block[],
+  pt: blocksPt as Block[],
+};
+
 export default function Voli() {
   useCanonical("/voli", {
     title: "Vuelos y gestión de viajes — Calliphora Travel",
@@ -62,6 +81,9 @@ export default function Voli() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const [lang, setLang] = useState<UILang>("es");
+  const t = ui[lang];
+  const blocks = blocksByLang[lang];
 
   return (
     <div className="theme-calliphora min-h-screen bg-background text-foreground">
@@ -70,12 +92,15 @@ export default function Voli() {
           <a href="https://www.calliphora.travel" className="flex items-center" aria-label="Calliphora Travel">
             <img src={CALLIPHORA_LOGO} alt="Calliphora Travel" className="h-10 w-auto" />
           </a>
+          <div className="flex items-center gap-3">
+          <UILangSwitcher value={lang} onChange={setLang} />
           <Button asChild size="sm" className="rounded-full">
             <Link to="/formfly">
-              Solicitar cotización
+              {t.cta}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
+          </div>
         </div>
       </header>
 
@@ -83,7 +108,7 @@ export default function Voli() {
         <span className="inline-block text-xs uppercase tracking-widest text-accent font-semibold mb-3">
           Calliphora Travel
         </span>
-        <h1 className="text-4xl md:text-5xl leading-tight mb-6">Vuelos y gestión de viajes</h1>
+        <h1 className="text-4xl md:text-5xl leading-tight mb-6">{t.h1}</h1>
         <article className="space-y-6">
           {blocks.map((b, i) =>
             b.type === "h2" ? (
@@ -104,13 +129,13 @@ export default function Voli() {
         <div className="mt-12 text-center">
           <Button asChild size="lg" className="rounded-full">
             <Link to="/formfly">
-              Solicitar cotización
+              {t.cta}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>
 
-        <BeforeYouProceed lang="es" className="mt-10" />
+        <BeforeYouProceed lang={lang} className="mt-10" />
 
         <footer className="mt-12 border-t border-border pt-6 text-sm text-muted-foreground text-center space-y-1">
           <p>Calliphora Travel — marca de Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Italia</p>
