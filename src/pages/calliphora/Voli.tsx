@@ -176,7 +176,7 @@ const blocksPt: Block[] = [
 const footer: Record<UILang, { line1: string; line2: string }> = {
   es: {
     line1: "Calliphora Travel — marca de Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Italia",
-    line2: "IVA IT01416950051 · Licencia n.º 2/08 (Municipio de Asti) · REA AT-113765",
+    line2: "IVA (VAT) IT01416950051 · Licencia n.º 2/08 (Municipio de Asti) · REA AT-113765",
   },
   it: {
     line1: "Calliphora Travel — marchio di Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Italia",
@@ -193,7 +193,7 @@ const footer: Record<UILang, { line1: string; line2: string }> = {
 };
 
 const ui: Record<UILang, { h1: string; cta: string }> = {
-  es: { h1: "Vuelos y gestión de viajes", cta: "Solicitar cotización" },
+  es: { h1: "Servicio de Emisión de Pasajes Aéreos", cta: "Solicitar cotización" },
   it: { h1: "Servizio di Biglietteria Aerea", cta: "Richiedi un preventivo" },
   en: { h1: "Air Ticketing Service", cta: "Request a quote" },
   pt: { h1: "Serviço de Bilheteria Aérea", cta: "Solicitar uma cotação" },
