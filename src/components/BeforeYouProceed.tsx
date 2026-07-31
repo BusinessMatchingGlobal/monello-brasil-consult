@@ -68,20 +68,21 @@ const DATA: Record<AnyLang, { heading: string; items: Item[] }> = {
   es: {
     heading: "Antes de continuar",
     items: [
-      { title: "Quién emite los boletos.", body: ["Todos los boletos son emitidos por una agencia de viajes debidamente habilitada en Italia, propiedad de CAVALLINODIECI S.r.l., que opera con la marca Calliphora Travel desde 2004."] },
+      { title: "Quién emite los pasajes.", body: ["Todos los pasajes son emitidos por una agencia de viajes debidamente autorizada en Italia, propiedad de CAVALLINODIECI S.r.l., que opera con la marca Calliphora desde 2004."] },
       { title: "Completar el formulario no lo compromete a nada.", body: ["Es una solicitud de cotización, no una reserva."] },
-      { title: "La cotización tiene fecha de vencimiento.", body: ["Respondemos en el menor tiempo posible. La oferta indicará la fecha límite para confirmarla: vencido ese plazo caduca y deja de estar garantizada, porque las tarifas y la disponibilidad cambian constantemente."] },
+      { title: "La cotización tiene vencimiento.", body: ["Le respondemos en el menor tiempo posible. La propuesta indicará la fecha hasta la cual puede confirmarse: pasado ese plazo, caduca y ya no está garantizada, porque tarifas y disponibilidad cambian todo el tiempo."] },
       { title: "Pago.", body: [
-        "El importe total es en euros y se abona por transferencia, en un único pago, a la cuenta SEPA de la agencia.",
-        "No aceptamos tarjetas de crédito ni pago en cuotas. No es una decisión comercial: en estas tarifas las aerolíneas exigen a la agencia el pago inmediato y total, y la agencia debe aplicar las mismas condiciones a sus clientes. Es la contracara de tarifas que no están publicadas en ningún lado.",
-        "Los eventuales gastos de transferencia corren por cuenta del cliente — el importe acreditado debe coincidir con el de la oferta.",
+        "El importe total, en euros, debe abonarse por transferencia bancaria, en un solo pago, a la cuenta SEPA de la agencia.",
+        "No aceptamos tarjetas de crédito y no hay pago en cuotas. No es una decisión comercial: en estas tarifas, las aerolíneas exigen a la agencia el pago inmediato y completo, y la agencia está obligada a aplicar las mismas condiciones a sus propios clientes. Es la contracara de tarifas que no están publicadas en ningún lado.",
+        "Los eventuales costos de transferencia corren por cuenta del cliente: el importe acreditado debe corresponder al indicado en la propuesta.",
       ] },
       { title: "Si paga desde Sudamérica.", body: [
-        "El importe se mantiene en euros, pero usted puede saber exactamente cuánto representa en su moneda local antes de confirmar nada. En las plataformas de cambio y remesa internacional se ingresa la cifra en euros y el sistema muestra el total en moneda local con todo incluido: tipo de cambio aplicado, comisiones de la plataforma e impuestos. Es el importe final que sale de su cuenta, no una estimación.",
-        "Es sólo una sugerencia práctica: la relación con la plataforma es exclusivamente suya, y recomendamos comparar condiciones antes de decidir.",
+        "El importe queda en euros, pero usted puede saber exactamente cuánto significa en su moneda antes de confirmar nada. En las plataformas de cambio y transferencias internacionales, ingresa la cifra en euros y el sistema le muestra el total en moneda local con todo incluido: el tipo de cambio aplicado, las comisiones de la plataforma y los impuestos locales sobre operaciones de cambio. Es el importe final que sale de su cuenta, no una estimación — así evalúa nuestra propuesta en su moneda, como cifra cerrada, antes de comprometerse.",
+        "Estas plataformas suelen ofrecer condiciones mejores que los canales bancarios tradicionales: hecho el cálculo, usted paga por el medio local habilitado y el importe en euros se acredita en la cuenta de la agencia.",
+        "Es solo una sugerencia práctica. La relación con la plataforma es exclusivamente suya, y le recomendamos comparar condiciones antes de elegir.",
       ] },
-      { title: "Emisión.", body: ["El boleto se emite una vez acreditados efectivamente los fondos y se envía por correo electrónico. Una transferencia SEPA suele acreditarse el mismo día o el día hábil siguiente. Confirmada la oferta, realice el pago cuanto antes, teniendo en cuenta fines de semana y feriados."] },
-      { title: "Asistencia durante el viaje, siempre incluida en el precio.", body: ["Desde la emisión hasta el regreso lo acompañamos por correo y WhatsApp, sin costo adicional. Es una asistencia proactiva: ante cancelaciones, demoras o reprogramaciones actuamos nosotros, sin esperar a que nos escriba desde el aeropuerto."] },
+      { title: "Emisión.", body: ["El pasaje se emite después de la acreditación efectiva de los fondos y se envía por correo electrónico. Una transferencia SEPA se acredita normalmente en el día o al día hábil siguiente; pagando desde Sudamérica a través de una plataforma de transferencias, la acreditación es casi inmediata. Una vez confirmada la propuesta, disponga el pago de inmediato, teniendo en cuenta fines de semana y feriados."] },
+      { title: "Asistencia en viaje, siempre incluida en el precio.", body: ["Desde la emisión hasta el regreso, usted es acompañado por correo electrónico y WhatsApp, sin costos adicionales. Es una asistencia proactiva: ante cancelaciones, demoras o reprotecciones, actuamos nosotros primero — no esperamos a que nos escriba desde el aeropuerto."] },
     ],
   },
 };
