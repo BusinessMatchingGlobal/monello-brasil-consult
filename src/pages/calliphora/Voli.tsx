@@ -7,7 +7,7 @@ import { BeforeYouProceed } from "@/components/BeforeYouProceed";
 import { CALLIPHORA_LOGO, type UILang } from "@/pages/Fly";
 import { UILangSwitcher } from "@/components/UILangSwitcher";
 import { useState } from "react";
-import { blocks as blocksPt } from "@/pages/BusinessTravelBR";
+
 
 type Block = { type: "h2"; text: string } | { type: "p"; text: string; italic?: boolean };
 
