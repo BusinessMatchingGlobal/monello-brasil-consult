@@ -137,10 +137,29 @@ const blocksEn: Block[] = [
   { type: "p", text: "The information requested may seem like a lot. In fact, it is exactly what we need — and nothing more — to build the best solution with our very first proposal: what you want, but also what you can obtain based on citizenship, residency and documents. It's the first step towards making your trip as frictionless as possible." },
 ];
 
+const footer: Record<UILang, { line1: string; line2: string }> = {
+  es: {
+    line1: "Calliphora Travel — marca de Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Italia",
+    line2: "IVA IT01416950051 · Licencia n.º 2/08 (Municipio de Asti) · REA AT-113765",
+  },
+  it: {
+    line1: "Calliphora Travel — marchio di Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Italia",
+    line2: "P.IVA IT01416950051 · Licenza n. 2/08 (Comune di Asti) · REA AT-113765",
+  },
+  en: {
+    line1: "Calliphora Travel — a brand of Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Italy",
+    line2: "VAT IT01416950051 · Licence no. 2/08 (Municipality of Asti) · REA AT-113765",
+  },
+  pt: {
+    line1: "Calliphora Travel — marca de Cavallinodieci S.r.l. · Via del Cavallino 10, 14100 Asti (AT), Itália",
+    line2: "NIF IT01416950051 · Licença n.º 2/08 (Município de Asti) · REA AT-113765",
+  },
+};
+
 const ui: Record<UILang, { h1: string; cta: string }> = {
   es: { h1: "Vuelos y gestión de viajes", cta: "Solicitar cotización" },
-  it: { h1: "Business Travel & Travel Management", cta: "Richiedi un preventivo" },
-  en: { h1: "Business Travel & Travel Management", cta: "Request a quote" },
+  it: { h1: "Servizio di Biglietteria Aerea", cta: "Richiedi un preventivo" },
+  en: { h1: "Air Ticketing Service", cta: "Request a quote" },
   pt: { h1: "Business Travel & Travel Management", cta: "Solicitar um orçamento" },
 };
 
