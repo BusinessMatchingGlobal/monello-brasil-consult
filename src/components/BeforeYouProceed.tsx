@@ -85,6 +85,7 @@ const DATA: Record<AnyLang, { heading: string; items: Item[] }> = {
       { title: "Asistencia en viaje, siempre incluida en el precio.", body: ["Desde la emisión hasta el regreso, usted es acompañado por correo electrónico y WhatsApp, sin costos adicionales. Es una asistencia proactiva: ante cancelaciones, demoras o reprotecciones, actuamos nosotros primero — no esperamos a que nos escriba desde el aeropuerto."] },
     ],
   },
+};
 
 export function BeforeYouProceed({ lang, className = "" }: { lang: AnyLang; className?: string }) {
   const c = DATA[lang] ?? DATA.en;
