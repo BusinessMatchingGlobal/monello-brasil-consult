@@ -28,22 +28,21 @@ const DATA: Record<AnyLang, { heading: string; items: Item[] }> = {
   pt: {
     heading: "Antes de prosseguir",
     items: [
-      { title: "Quem emite os bilhetes.", body: ["Todos os bilhetes são emitidos por uma agência de viagens devidamente autorizada na Itália, de propriedade da CAVALLINODIECI S.r.l., que atua com a marca Calliphora Travel desde 2004."] },
-      { title: "Preencher o formulário não gera nenhum compromisso.", body: ["É um pedido de cotação, não uma reserva."] },
-      { title: "A cotação tem prazo de validade.", body: ["Respondemos no menor tempo possível. A oferta indicará a data limite para confirmação: passado esse prazo ela caduca e deixa de ser garantida, porque tarifas e disponibilidade mudam o tempo todo."] },
+      { title: "Quem emite as passagens.", body: ["Todas as passagens são emitidas por uma agência de viagens devidamente autorizada na Itália, de propriedade da CAVALLINODIECI S.r.l., que atua com a marca Calliphora Travel desde 2004."] },
+      { title: "Preencher o formulário não obriga você a nada.", body: ["É um pedido de cotação, não uma reserva."] },
+      { title: "A cotação tem prazo de validade.", body: ["Respondemos no menor tempo possível. A proposta indicará a data até a qual pode ser confirmada: depois desse prazo, ela caduca e não é mais garantida, porque tarifas e disponibilidade mudam o tempo todo."] },
       { title: "Pagamento.", body: [
-        "O valor total é em euros e deve ser pago por transferência, de uma só vez, na conta SEPA da agência.",
-        "Não aceitamos cartão de crédito e não há parcelamento. Não é uma escolha comercial: nessas tarifas as companhias exigem da agência o pagamento à vista e integral, e a agência precisa aplicar as mesmas condições ao cliente. É a contrapartida de tarifas que não estão publicadas em lugar nenhum.",
-        "Eventuais tarifas de transferência são por conta do cliente — o valor creditado precisa corresponder ao da oferta.",
+        "O valor total, em euros, deve ser pago por transferência bancária, em parcela única, na conta SEPA da agência.",
+        "Não aceitamos cartão de crédito e não há parcelamento. Não é uma escolha comercial: nessas tarifas, as companhias exigem da agência o pagamento imediato e integral, e a agência é obrigada a aplicar as mesmas condições aos próprios clientes. É o outro lado da moeda de tarifas que não são publicadas em lugar nenhum.",
+        "Eventuais custos de transferência ficam por conta do cliente: o valor creditado deve corresponder ao indicado na proposta.",
       ] },
-      { title: "Como pagar a partir do Brasil.", body: [
-        "O valor é sempre em euros — mas você sabe exatamente quanto isso representa em reais antes de confirmar qualquer coisa.",
-        "Nas plataformas de câmbio e remessa internacional, você informa o valor em euros e o sistema mostra o total em reais já com tudo incluído: taxa de câmbio aplicada, tarifas da plataforma e IOF. É o valor final que sai da sua conta, não uma estimativa. Você avalia a nossa proposta em moeda nacional, com número fechado, antes de assumir qualquer compromisso — e sem surpresa depois.",
-        "Uma opção que costuma apresentar condições melhores que as bancárias tradicionais é a Remessa Online (abertura de conta em poucos passos): feito o cálculo, você paga via Pix ou TED e o valor em euros é creditado na conta da agência.",
-        "Trata-se apenas de uma sugestão prática. A relação com a plataforma é exclusivamente sua, e recomendamos comparar as condições antes de decidir.",
+      { title: "Se você paga do Brasil.", body: [
+        "O valor permanece em euros, mas você pode saber exatamente quanto ele significa em reais antes de confirmar qualquer coisa. Nas plataformas de câmbio e remessa internacional, você insere o valor em euros e o sistema mostra o total em reais com tudo incluído: taxa de câmbio aplicada, tarifas da plataforma e IOF. É o valor final que sai da sua conta, não uma estimativa — assim você avalia a nossa proposta em moeda nacional, em número fechado, antes de se comprometer.",
+        "Uma solução que costuma oferecer condições melhores que os canais bancários tradicionais é a Remessa Online (abertura de conta em poucos passos): feito o cálculo, você paga via Pix ou TED e o valor em euros é creditado na conta da agência.",
+        "É apenas uma sugestão prática. A relação com a plataforma é exclusivamente sua, e recomendamos comparar as condições antes de escolher.",
       ] },
-      { title: "Emissão.", body: ["O bilhete é emitido após a compensação efetiva do valor, e enviado por e-mail. Pela Remessa Online, feito o Pix ou o TED, o crédito em euros na conta da agência costuma ser praticamente imediato. Por transferência bancária tradicional o prazo é maior. Fins de semana e feriados, no Brasil ou na Itália, alongam o processo: com a oferta confirmada, faça o pagamento o quanto antes."] },
-      { title: "Assistência durante a viagem, sempre incluída no preço.", body: ["Da emissão até a volta, você é acompanhado por e-mail e WhatsApp, sem custo adicional. É uma assistência ativa: em caso de cancelamento, atraso ou reacomodação, nós agimos — sem esperar que você escreva do aeroporto."] },
+      { title: "Emissão.", body: ["A passagem é emitida após o crédito efetivo dos valores e enviada por e-mail. Uma transferência SEPA normalmente é creditada no mesmo dia ou no dia útil seguinte; pagando do Brasil por plataforma de remessa, após o Pix ou o TED o crédito é quase imediato. Uma vez confirmada a proposta, providencie o pagamento imediatamente, levando em conta fins de semana e feriados."] },
+      { title: "Assistência em viagem, sempre incluída no preço.", body: ["Da emissão ao retorno, você é acompanhado por e-mail e WhatsApp, sem custos adicionais. É uma assistência proativa: em caso de cancelamentos, atrasos ou reacomodações, nós agimos primeiro — não esperamos você nos escrever do aeroporto."] },
     ],
   },
   en: {
