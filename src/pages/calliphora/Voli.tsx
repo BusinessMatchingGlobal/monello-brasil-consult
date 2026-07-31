@@ -148,7 +148,6 @@ export default function Voli() {
         <span className="inline-block text-xs uppercase tracking-widest text-accent font-semibold mb-3">
           Calliphora Travel
         </span>
-        <h1 className="text-4xl md:text-5xl leading-tight mb-6">{t.h1}</h1>
         <article className="space-y-6">
           {blocks.map((b, i) =>
             b.type === "h2" ? (
