@@ -34,24 +34,38 @@ import rneExample from "@/assets/rne-example.png.asset.json";
 import { LangSwitcher } from "@/components/LangSwitcher";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+export const CALLIPHORA_LOGO =
+  "https://www.calliphora.travel/__l5e/assets-v1/375292bb-f82b-471c-ab34-531b6102b97e/calliphora-logo.png";
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/jpg", "application/pdf"];
 
-const PREFIX_DEFS: Array<{ value: string; it: string; en: string; pt: string }> = [
-  { value: "+39", it: "Italia", en: "Italy", pt: "Itália" },
-  { value: "+55", it: "Brasile", en: "Brazil", pt: "Brasil" },
-  { value: "+351", it: "Portogallo", en: "Portugal", pt: "Portugal" },
-  { value: "+44", it: "Regno Unito", en: "United Kingdom", pt: "Reino Unido" },
-  { value: "+49", it: "Germania", en: "Germany", pt: "Alemanha" },
-  { value: "+33", it: "Francia", en: "France", pt: "França" },
-  { value: "+34", it: "Spagna", en: "Spain", pt: "Espanha" },
-  { value: "+41", it: "Svizzera", en: "Switzerland", pt: "Suíça" },
-  { value: "+31", it: "Paesi Bassi", en: "Netherlands", pt: "Países Baixos" },
-  { value: "+1", it: "USA / Canada", en: "USA / Canada", pt: "EUA / Canadá" },
-  { value: "+61", it: "Australia", en: "Australia", pt: "Austrália" },
-  { value: "+86", it: "Cina", en: "China", pt: "China" },
+export type UILang = Lang | "es";
+
+const PREFIX_DEFS: Array<{ value: string; it: string; en: string; pt: string; es: string }> = [
+  { value: "+39", it: "Italia", en: "Italy", pt: "Itália", es: "Italia" },
+  { value: "+55", it: "Brasile", en: "Brazil", pt: "Brasil", es: "Brasil" },
+  { value: "+54", it: "Argentina", en: "Argentina", pt: "Argentina", es: "Argentina" },
+  { value: "+56", it: "Cile", en: "Chile", pt: "Chile", es: "Chile" },
+  { value: "+57", it: "Colombia", en: "Colombia", pt: "Colômbia", es: "Colombia" },
+  { value: "+51", it: "Perù", en: "Peru", pt: "Peru", es: "Perú" },
+  { value: "+598", it: "Uruguay", en: "Uruguay", pt: "Uruguai", es: "Uruguay" },
+  { value: "+595", it: "Paraguay", en: "Paraguay", pt: "Paraguai", es: "Paraguay" },
+  { value: "+591", it: "Bolivia", en: "Bolivia", pt: "Bolívia", es: "Bolivia" },
+  { value: "+593", it: "Ecuador", en: "Ecuador", pt: "Equador", es: "Ecuador" },
+  { value: "+58", it: "Venezuela", en: "Venezuela", pt: "Venezuela", es: "Venezuela" },
+  { value: "+52", it: "Messico", en: "Mexico", pt: "México", es: "México" },
+  { value: "+351", it: "Portogallo", en: "Portugal", pt: "Portugal", es: "Portugal" },
+  { value: "+44", it: "Regno Unito", en: "United Kingdom", pt: "Reino Unido", es: "Reino Unido" },
+  { value: "+49", it: "Germania", en: "Germany", pt: "Alemanha", es: "Alemania" },
+  { value: "+33", it: "Francia", en: "France", pt: "França", es: "Francia" },
+  { value: "+34", it: "Spagna", en: "Spain", pt: "Espanha", es: "España" },
+  { value: "+41", it: "Svizzera", en: "Switzerland", pt: "Suíça", es: "Suiza" },
+  { value: "+31", it: "Paesi Bassi", en: "Netherlands", pt: "Países Baixos", es: "Países Bajos" },
+  { value: "+1", it: "USA / Canada", en: "USA / Canada", pt: "EUA / Canadá", es: "EE. UU. / Canadá" },
+  { value: "+61", it: "Australia", en: "Australia", pt: "Austrália", es: "Australia" },
+  { value: "+86", it: "Cina", en: "China", pt: "China", es: "China" },
 ];
 
-function prefixesFor(lang: Lang) {
+function prefixesFor(lang: UILang) {
   return PREFIX_DEFS.map((p) => ({ value: p.value, label: `${p.value} ${p[lang]}` }));
 }
 
@@ -267,7 +281,7 @@ type Copy = {
   sameWhatsapp: string;
 };
 
-const copy: Record<Lang, Copy> = {
+const copy: Record<UILang, Copy> = {
   it: {
     back: "Torna alla home",
     eyebrow: "Contatto rapido",
@@ -582,6 +596,111 @@ const copy: Record<Lang, Copy> = {
     selectPlaceholder: "Selecione",
     sameWhatsapp: "É o mesmo número do WhatsApp",
     agencyAuthRequired: "Você precisa autorizar a agência a orçar e prestar os serviços para enviar a solicitação.",
+  },
+  es: {
+    back: "Volver",
+    eyebrow: "Contacto rápido",
+    title: "Solicitud de cotización de vuelos",
+    sub: "Déjenos sus datos y le responderemos a la brevedad.",
+    organization: "Organización / Persona de contacto",
+    email: "Correo electrónico",
+    phone: "Celular",
+    whatsapp: "WhatsApp",
+    prefix: "Prefijo",
+    number: "Número",
+    consentLabel: "He leído el ",
+    consentLink: "aviso de privacidad",
+    consentSuffix: "y consiento el tratamiento de mis datos para ser contactado.",
+    consentRequired: "Debe aceptar el aviso de privacidad para enviar la solicitud.",
+    submit: "Enviar solicitud",
+    supportNote: "Si tiene inconvenientes al utilizar esta página, escríbanos a",
+    invalid: "Revise los campos: todos son obligatorios y el correo debe ser válido.",
+    required: "Todos los campos son obligatorios.",
+    successTitle: "¡Gracias! Su solicitud fue enviada.",
+    successBody: "Le responderemos a la brevedad. Si no recibe respuesta, revise también la carpeta de SPAM.",
+    itineraryTitle: "Itinerario de vuelos",
+    itinerarySub: "Seleccione el tipo de viaje y complete los tramos solicitados.",
+    tripRoundtrip: "Ida y vuelta",
+    tripOneway: "Sólo ida",
+    tripComplex: "Itinerario múltiple",
+    outbound: "Ida",
+    return: "Vuelta",
+    leg: "Tramo",
+    addLeg: "Agregar tramo",
+    removeLeg: "Quitar",
+    origin: "Aeropuerto de salida",
+    destination: "Aeropuerto de destino",
+    viewMap: "Ver en el mapa",
+    date: "Fecha",
+    pickDate: "Elija una fecha",
+    flexibility: "Flexibilidad",
+    fixedDate: "Fecha fija",
+    flexibleDate: "Flexible",
+    daysBefore: "Días antes",
+    daysAfter: "Días después",
+    days: "días",
+    itineraryIncomplete: "Complete el itinerario de vuelos: los aeropuertos y las fechas son obligatorios.",
+    passengerTitle: "Pasajeros",
+    passengerSub: "Ingrese los datos de los pasajeros para la solicitud de vuelo.",
+    passengerAttention: "Preste especial atención al cargar NOMBRE y APELLIDO: deben coincidir exactamente con lo que figura en el pasaporte que se utilizará para el viaje.",
+    passenger: "Pasajero",
+    addPassenger: "Agregar pasajero",
+    removePassenger: "Quitar",
+    lastName: "Apellido",
+    firstName: "Nombre",
+    birthDate: "Fecha de nacimiento",
+    class: "Clase",
+    classEconomy: "Económica",
+    classPremium: "Premium Economy",
+    classBusiness: "Ejecutiva",
+    bags: "Equipaje en bodega",
+    weight: "Peso del equipaje",
+    passengerIncomplete: "Complete los datos de todos los pasajeros: apellido, nombre, fecha de nacimiento y nacionalidad/pasaporte son obligatorios.",
+    citizenship1: "Nacionalidad / Pasaporte",
+    citizenship2: "Segunda nacionalidad / Pasaporte",
+    citizenshipPlaceholder: "Seleccione el país",
+    citizenshipSearch: "Buscar país…",
+    citizenshipEmpty: "Sin resultados",
+    citizenshipNone: "— Ninguna —",
+    residencePermit: "Residencia en el país de destino",
+    permitNone: "Ninguna",
+    permitYes: "Sí",
+    permitNo: "No",
+    notesTitle: "Información adicional",
+    notesPlaceholder: "Indique cualquier información adicional que considere útil (necesidades especiales, preferencias de horario, pedidos especiales, etc.).",
+    servicesTitle: "Otros servicios solicitados",
+    servicesIntro: "También podemos ofrecer, con tarifas negociadas con nuestros proveedores: hoteles, traslados privados o compartidos, alquiler de autos, atracciones y excursiones, y seguro de viaje. Si tiene preferencias, indique zona/nombre del hotel, fechas y — si lo tiene — el mejor precio que haya encontrado: intentaremos presentarle nuestra mejor oferta.",
+    servicesPlaceholder: "Ej.: Hotel 4* zona Savassi (BH), check-in 12/03 – check-out 16/03, mejor precio encontrado USD 120/noche. Traslado aeropuerto–hotel para 2 personas. Alquiler de auto SUV por 3 días. Seguro de viaje.",
+    passengerAttentionLead: "Preste especial atención al cargar NOMBRE y APELLIDO: deben coincidir ",
+    passengerAttentionMid1: "",
+    passengerAttentionEmph: "exactamente",
+    passengerAttentionMid2: " con lo que figura en el pasaporte que se utilizará para el viaje. El boleto se emite con estos datos — un error de una sola letra puede obligar a reemitirlo, y la tarifa original podría ya no estar disponible.",
+    passengerAttentionTail: "",
+    docsTitle: "Adjuntar copia de los documentos (opcional, pero muy recomendable)",
+    docsIntro: "Adjunte el pasaporte y/o el documento de residencia (por ejemplo RNE/CRNM en Brasil, DNI o equivalente). No es obligatorio — pero es la forma más simple de proteger su tarifa: nuestro equipo verifica nombre, número y validez antes de emitir.",
+    passportLabel: "Pasaporte — página de identificación",
+    passportHelp: "Foto o escaneo donde se vean claramente nombre y apellido, número del documento, fecha de emisión y fecha de vencimiento. La imagen debe estar nítida, completa y sin reflejos.",
+    residenceLabel: "Documento de residencia o identidad (ej.: CRNM/RNE, DNI, permiso de residencia) — frente y dorso",
+    residenceHelp: "Ambos lados, legibles.",
+    docsWarning: "⚠️ Los documentos ilegibles, cortados o incompletos equivalen a documentos no enviados: en ese caso la verificación no es posible y la exactitud de los datos ingresados queda bajo exclusiva responsabilidad del pasajero.",
+    chooseFile: "Elegir archivo",
+    chooseFiles: "Elegir archivos (máx. 2)",
+    takePhoto: "Tomar foto",
+    remove: "Quitar",
+    seeExample: "Ver ejemplo",
+    exampleCaption: "Ejemplo de documento legible",
+    fileTooLarge: "Archivo demasiado grande (máx. 10 MB).",
+    fileTypeInvalid: "Formato no válido. Se aceptan: jpg, png, pdf.",
+    tooManyFiles: "Máximo 2 archivos para el documento de residencia.",
+    uploadFailed: "No se pudo subir el archivo. Intente nuevamente.",
+    responsibilityAck: "Elijo no enviar los documentos. Confirmo que los datos ingresados coinciden exactamente con los documentos que se utilizarán para el viaje y soy consciente de que los eventuales costos de reemisión o impedimentos de embarque derivados de discrepancias serán de mi exclusiva responsabilidad.",
+    responsibilityRequired: "Para cada pasajero sin copia de pasaporte cargada, debe confirmar la declaración de responsabilidad.",
+    agencyTitle: "Agencia responsable",
+    agencyText: "La información de esta solicitud será enviada a:\n\nCavallinodieci S.r.l.\nVia del Cavallino 10\n14100 Asti (AT), Italia\nIVA IT01416950051\n\nque opera como agencia de viajes con la marca Calliphora.\nLicencia n.º 2/08 emitida por el Municipio de Asti el 8 de julio de 2008 · Número REA AT-113765\nSocio ordinario del Fondo Vacanze Felici S.c.a.r.l. — inscripción n.º 1890 · Póliza de responsabilidad civil Revo OX00006698",
+    agencyAuthLabel: "Autorizo a Cavallinodieci S.r.l. a utilizar los datos ingresados para cotizar y, con la confirmación, a prestar los servicios solicitados.",
+    agencyAuthRequired: "Debe autorizar a la agencia a cotizar y prestar los servicios para enviar la solicitud.",
+    selectPlaceholder: "Seleccione",
+    sameWhatsapp: "Es el mismo número de WhatsApp",
   },
 };
 
@@ -1008,18 +1127,27 @@ function DocumentUploader({
   );
 }
 
-export default function Fly() {
-  const { lang } = useT();
-  useCanonical("/fly", {
-    title: lang === "it" ? "Richiesta voli — Business Matching Global" : lang === "pt" ? "Solicitação de voos — Business Matching Global" : "Flight request — Business Matching Global",
-    description: lang === "it" ? "Modulo per richiesta voli e itinerari Italia–Brasile." : lang === "pt" ? "Formulário de solicitação de voos e itinerários Itália–Brasil." : "Request form for flights and Italy–Brazil itineraries.",
+export default function Fly({
+  forceLang,
+  brand = "bmg",
+}: { forceLang?: UILang; brand?: "bmg" | "calliphora" } = {}) {
+  const { lang: siteLang } = useT();
+  const lang: UILang = forceLang ?? siteLang;
+  const isCalliphora = brand === "calliphora";
+  useCanonical(isCalliphora ? "/formfly" : "/fly", {
+    title: isCalliphora
+      ? "Solicitud de vuelos — Calliphora Travel"
+      : lang === "it" ? "Richiesta voli — Business Matching Global" : lang === "pt" ? "Solicitação de voos — Business Matching Global" : "Flight request — Business Matching Global",
+    description: isCalliphora
+      ? "Formulario de solicitud de vuelos, itinerarios y servicios de viaje con tarifas negociadas."
+      : lang === "it" ? "Modulo per richiesta voli e itinerari Italia–Brasile." : lang === "pt" ? "Formulário de solicitação de voos e itinerários Itália–Brasil." : "Request form for flights and Italy–Brazil itineraries.",
   });
   const c = copy[lang];
 
   const [organization, setOrganization] = useState("");
   const [email, setEmail] = useState("");
   const prefixes = prefixesFor(lang);
-  const defaultPrefix = lang === "pt" ? "+55" : "+39";
+  const defaultPrefix = lang === "pt" ? "+55" : lang === "es" ? "+54" : "+39";
   const [phonePrefix, setPhonePrefix] = useState(defaultPrefix);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [whatsappPrefix, setWhatsappPrefix] = useState(defaultPrefix);
@@ -1315,7 +1443,7 @@ export default function Fly() {
               notes: notes.trim(),
               services: services.trim(),
               message: `Phone: ${fullPhone}\nWhatsApp: ${fullWhatsapp}${notesText}${servicesText}`,
-              source: "Fly page",
+              source: isCalliphora ? "Calliphora /formfly (ES)" : "Fly page",
               language: lang,
               submittedAt: new Date().toISOString(),
             },
@@ -1333,16 +1461,30 @@ export default function Fly() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className={cn("min-h-screen bg-background text-foreground", isCalliphora && "theme-calliphora")}>
       <header className="border-b border-border">
         <div className="container mx-auto px-4 py-5 flex items-center justify-between">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+          <Link
+            to={isCalliphora ? "/voli" : "/"}
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+          >
             <ArrowLeft className="h-4 w-4" />
             {c.back}
           </Link>
           <div className="flex items-center gap-3">
-            <LangSwitcher to="/fly" />
-            <span className="text-sm font-medium">Business Matching Global</span>
+            {isCalliphora ? (
+              <img
+                src={CALLIPHORA_LOGO}
+                alt="Calliphora Travel"
+                className="h-9 w-auto"
+                loading="lazy"
+              />
+            ) : (
+              <>
+                <LangSwitcher to="/fly" />
+                <span className="text-sm font-medium">Business Matching Global</span>
+              </>
+            )}
           </div>
         </div>
       </header>

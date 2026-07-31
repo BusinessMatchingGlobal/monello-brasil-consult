@@ -1,8 +1,10 @@
 import type { Lang } from "@/lib/i18n";
 
+type AnyLang = Lang | "es";
+
 type Item = { title: string; body: string[] };
 
-const DATA: Record<Lang, { heading: string; items: Item[] }> = {
+const DATA: Record<AnyLang, { heading: string; items: Item[] }> = {
   it: {
     heading: "Prima di procedere",
     items: [
@@ -64,9 +66,28 @@ const DATA: Record<Lang, { heading: string; items: Item[] }> = {
       { title: "In-trip support, always included in the price.", body: ["From ticketing to your return you are supported by email and WhatsApp, at no extra cost. Support is proactive: in the event of cancellation, delay or rerouting we act, without waiting for you to write to us from the airport."] },
     ],
   },
+  es: {
+    heading: "Antes de continuar",
+    items: [
+      { title: "Quién emite los boletos.", body: ["Todos los boletos son emitidos por una agencia de viajes debidamente habilitada en Italia, propiedad de CAVALLINODIECI S.r.l., que opera con la marca Calliphora Travel desde 2004."] },
+      { title: "Completar el formulario no lo compromete a nada.", body: ["Es una solicitud de cotización, no una reserva."] },
+      { title: "La cotización tiene fecha de vencimiento.", body: ["Respondemos en el menor tiempo posible. La oferta indicará la fecha límite para confirmarla: vencido ese plazo caduca y deja de estar garantizada, porque las tarifas y la disponibilidad cambian constantemente."] },
+      { title: "Pago.", body: [
+        "El importe total es en euros y se abona por transferencia, en un único pago, a la cuenta SEPA de la agencia.",
+        "No aceptamos tarjetas de crédito ni pago en cuotas. No es una decisión comercial: en estas tarifas las aerolíneas exigen a la agencia el pago inmediato y total, y la agencia debe aplicar las mismas condiciones a sus clientes. Es la contracara de tarifas que no están publicadas en ningún lado.",
+        "Los eventuales gastos de transferencia corren por cuenta del cliente — el importe acreditado debe coincidir con el de la oferta.",
+      ] },
+      { title: "Si paga desde Sudamérica.", body: [
+        "El importe se mantiene en euros, pero usted puede saber exactamente cuánto representa en su moneda local antes de confirmar nada. En las plataformas de cambio y remesa internacional se ingresa la cifra en euros y el sistema muestra el total en moneda local con todo incluido: tipo de cambio aplicado, comisiones de la plataforma e impuestos. Es el importe final que sale de su cuenta, no una estimación.",
+        "Es sólo una sugerencia práctica: la relación con la plataforma es exclusivamente suya, y recomendamos comparar condiciones antes de decidir.",
+      ] },
+      { title: "Emisión.", body: ["El boleto se emite una vez acreditados efectivamente los fondos y se envía por correo electrónico. Una transferencia SEPA suele acreditarse el mismo día o el día hábil siguiente. Confirmada la oferta, realice el pago cuanto antes, teniendo en cuenta fines de semana y feriados."] },
+      { title: "Asistencia durante el viaje, siempre incluida en el precio.", body: ["Desde la emisión hasta el regreso lo acompañamos por correo y WhatsApp, sin costo adicional. Es una asistencia proactiva: ante cancelaciones, demoras o reprogramaciones actuamos nosotros, sin esperar a que nos escriba desde el aeropuerto."] },
+    ],
+  },
 };
 
-export function BeforeYouProceed({ lang, className = "" }: { lang: Lang; className?: string }) {
+export function BeforeYouProceed({ lang, className = "" }: { lang: AnyLang; className?: string }) {
   const c = DATA[lang] ?? DATA.en;
   return (
     <section className={`rounded-xl border border-border bg-muted/40 p-5 md:p-6 ${className}`}>

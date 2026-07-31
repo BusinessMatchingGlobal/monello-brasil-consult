@@ -34,6 +34,7 @@ import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
 import { AiJusLocalized, AmaroLocalized, EmbraerLocalized } from "./pages/analysis/LocalizedArticle";
+import Voli from "./pages/calliphora/Voli";
 
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
@@ -77,6 +78,9 @@ const App = () => {
             <Route path="/fly" element={<Fly />} />
             <Route path="/fly_en" element={<FlyEN />} />
             <Route path="/fly_br" element={<FlyBR />} />
+            {/* Calliphora Travel (Spanish, South America) */}
+            <Route path="/voli" element={<Voli />} />
+            <Route path="/formfly" element={<Fly forceLang="es" brand="calliphora" />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/pix" element={<Pix />} />
             <Route path="/suja" element={<Suja />} />
