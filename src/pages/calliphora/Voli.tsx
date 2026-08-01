@@ -229,7 +229,7 @@ export default function Voli() {
           <div className="flex items-center gap-3">
           <UILangSwitcher value={lang} onChange={setLang} />
           <Button asChild size="sm" className="rounded-full">
-            <Link to="/formfly">
+            <Link to={`/formfly?lang=${lang}`}>
               {t.cta}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
@@ -261,7 +261,7 @@ export default function Voli() {
 
         <div className="mt-12 text-center">
           <Button asChild size="lg" className="rounded-full">
-            <Link to="/formfly">
+            <Link to={`/formfly?lang=${lang}`}>
               {t.cta}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
