@@ -8,6 +8,8 @@ import AmaroBR from "./Amaro_BR";
 import EmbraerEN from "./Embraer";
 import EmbraerIT from "./Embraer_IT";
 import EmbraerBR from "./Embraer_BR";
+import LorenzettiEN from "./Lorenzetti";
+import LorenzettiIT from "./Lorenzetti_IT";
 
 // Renders the language variant matching the current site language
 // (auto-detected from the browser on first visit), on a single shared URL.
@@ -30,4 +32,10 @@ export function EmbraerLocalized() {
   if (lang === "it") return <EmbraerIT />;
   if (lang === "pt") return <EmbraerBR />;
   return <EmbraerEN />;
+}
+
+export function LorenzettiLocalized() {
+  const { lang } = useT();
+  if (lang === "it") return <LorenzettiIT />;
+  return <LorenzettiEN />;
 }
