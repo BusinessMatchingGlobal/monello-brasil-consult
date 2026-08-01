@@ -4,12 +4,18 @@ import ogDefault from "@/assets/og-default.jpg.asset.json";
 export const SITE = "https://businessmatching.global";
 export const CALLIPHORA_SITE = "https://www.calliphora.flights";
 const CALLIPHORA_PATHS = ["/voli", "/formfly"];
+export const CALLIPHORA_FAVICON = "/calliphora-favicon.png";
+export const DEFAULT_FAVICON = "/favicon.png";
 
 /** Calliphora-branded pages canonicalize to calliphora.flights, everything else to BMG. */
-function siteForPath(path: string) {
+export function siteForPath(path: string) {
   return CALLIPHORA_PATHS.includes(path.toLowerCase()) ? CALLIPHORA_SITE : SITE;
 }
+export function isCalliphoraPath(path: string) {
+  return CALLIPHORA_PATHS.includes(path.toLowerCase());
+}
 export const DEFAULT_OG_IMAGE = SITE + ogDefault.url;
+
 
 type SEO = {
   title?: string;
