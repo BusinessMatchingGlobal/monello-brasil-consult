@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { BeforeYouProceed } from "@/components/BeforeYouProceed";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { ArrowLeft, Send, CheckCircle2, CalendarIcon, Plus, Trash2, Upload, FileText, X, HelpCircle, Camera } from "lucide-react";
 import { format } from "date-fns";
 import { z } from "zod";
@@ -1134,7 +1134,10 @@ export default function Fly({
 }: { forceLang?: UILang; brand?: "bmg" | "calliphora" } = {}) {
   const { lang: siteLang } = useT();
   const isCalliphora = brand === "calliphora";
-  const [langOverride, setLangOverride] = useState<UILang | null>(null);
+  const [searchParams] = useSearchParams();
+  const qp = searchParams.get("lang");
+  const qpLang: UILang | null = qp === "it" || qp === "en" || qp === "pt" || qp === "es" ? qp : null;
+  const [langOverride, setLangOverride] = useState<UILang | null>(qpLang);
   const lang: UILang = langOverride ?? forceLang ?? siteLang;
   useCanonical(isCalliphora ? "/formfly" : "/fly", {
     title: isCalliphora
