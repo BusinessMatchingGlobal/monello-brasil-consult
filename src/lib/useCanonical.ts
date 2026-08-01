@@ -34,10 +34,31 @@ function upsertMeta(selector: string, attr: "name" | "property", key: string, co
   el.setAttribute("content", content);
 }
 
+function upsertLinkIcon(selector: string, relValue: string, href: string, type: string) {
+  let el = document.head.querySelector<HTMLLinkElement>(selector);
+  if (!el) {
+    el = document.createElement("link");
+    el.rel = relValue;
+    el.type = type;
+    document.head.appendChild(el);
+  }
+  el.href = href;
+}
+
+function updateFavicon(path: string) {
+  const iconHref = isCalliphoraPath(path) ? CALLIPHORA_FAVICON : DEFAULT_FAVICON;
+  upsertLinkIcon('link[rel="icon"]', "icon", iconHref, "image/png");
+  // Browsers also request /favicon.ico by default; if a static one exists, keep it.
+  // Only override the explicit icon link so it matches the brand.
+}
+
 export function useCanonical(path: string, seo?: SEO) {
   useEffect(() => {
     const base = siteForPath(path);
     const url = base + path;
+
+    // Favicon brand switch
+    updateFavicon(path);
 
     // Canonical
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
