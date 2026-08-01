@@ -268,7 +268,7 @@ export default function Voli() {
           </Button>
         </div>
 
-        <BeforeYouProceed lang={lang} className="mt-10" />
+        <BeforeYouProceed lang={lang} variant="calliphora" className="mt-10" />
 
         <footer className="mt-12 border-t border-border pt-6 text-sm text-muted-foreground text-center space-y-1">
           <p>{footer[lang].line1}</p>
