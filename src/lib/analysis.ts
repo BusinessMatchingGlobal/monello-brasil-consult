@@ -20,6 +20,16 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     },
   },
   {
+    slug: "lorenzetti_it",
+    group: "lorenzetti",
+    date: "2026-08-01",
+    title: {
+      it: "La doccia che decide come si lava il Brasile",
+      en: "La doccia che decide come si lava il Brasile",
+      pt: "La doccia che decide come si lava il Brasile",
+    },
+  },
+  {
     slug: "aiJus",
     group: "aiJus",
     date: "2026-07-26",
