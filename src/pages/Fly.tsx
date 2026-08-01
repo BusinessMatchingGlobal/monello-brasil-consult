@@ -1806,8 +1806,11 @@ export default function Fly({
           )}
           <p className="mt-10 pt-6 border-t border-border text-sm text-muted-foreground text-center">
             {c.supportNote}{" "}
-            <a href="mailto:fly@businessmatching.global" className="text-primary underline">
-              fly@businessmatching.global
+            <a
+              href={`mailto:${isCalliphora ? "webmaster@calliphoratravel.it" : "fly@businessmatching.global"}`}
+              className="text-primary underline"
+            >
+              {isCalliphora ? "webmaster@calliphoratravel.it" : "fly@businessmatching.global"}
             </a>
           </p>
         </div>
