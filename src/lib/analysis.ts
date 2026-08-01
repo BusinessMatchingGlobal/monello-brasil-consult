@@ -30,6 +30,16 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     },
   },
   {
+    slug: "lorenzetti_br",
+    group: "lorenzetti",
+    date: "2026-08-01",
+    title: {
+      it: "O chuveiro que decide como o Brasil se lava",
+      en: "O chuveiro que decide como o Brasil se lava",
+      pt: "O chuveiro que decide como o Brasil se lava",
+    },
+  },
+  {
     slug: "aiJus",
     group: "aiJus",
     date: "2026-07-26",
