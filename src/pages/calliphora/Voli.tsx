@@ -54,23 +54,23 @@ const blocksIt: Block[] = [
 
 const blocksEs: Block[] = [
   { type: "h2", text: "Servicio de Emisión de Pasajes Aéreos" },
-  { type: "p", text: "No le vendemos un pasaje para volar de A a B: le ofrecemos una experiencia de viaje sin fricciones — antes, durante y después. Esta es nuestra filosofía desde 2004, año en que nació la marca Calliphora — al principio bajo otra razón social y, desde 2008, bajo la actual CAVALLINODIECI S.r.l. — y, desde entonces, operamos en la organización e intermediación de viajes y en la emisión de pasajes aéreos con todas las autorizaciones legales exigidas.", italic: true },
+  { type: "p", text: "No le vendemos un pasaje para volar del punto A al punto B: le ofrecemos una experiencia de viaje sin fricciones — antes, durante y después. Esta es nuestra filosofía desde 2004, año en que nació la marca Calliphora — al principio bajo otra razón social y, desde 2008, bajo la actual CAVALLINODIECI S.r.l. — y, desde entonces, operamos en la organización e intermediación de viajes y en la emisión de pasajes aéreos con todas las autorizaciones legales exigidas.", italic: true },
   { type: "p", text: "Somos una ventanilla única, que lo acompaña desde la primera solicitud hasta el regreso a casa: pasajes aéreos, alojamiento, alquiler de autos, traslados, seguros de viaje." },
 
   { type: "h2", text: "Tarifas negociadas y confidenciales" },
-  { type: "p", text: "Veinte años de relación con las aerolíneas se traducen en algo muy concreto: el acceso a tarifas negociadas y confidenciales. El nombre lo dice todo: por definición, no pueden publicarse. No las encuentra en las OTA — las Online Travel Agencies, los grandes portales de reserva donde se comparan precios —, no las encuentra en los IBT, los Internet Booking Tools con los que muchas empresas reservan por su cuenta, y tampoco las encuentra en los sitios web de las propias aerolíneas." },
-  { type: "p", text: "La ventaja más inmediata es el precio, muchas veces muy competitivo frente a las tarifas públicas. Pero no es la única: las tarifas VFR (Visiting Friends and Relatives), por ejemplo, además de un precio más bajo, suelen ofrecer una franquicia de equipaje más generosa y reglas de cambio más flexibles." },
+  { type: "p", text: "Más de veinte años de relación con las aerolíneas se traducen en algo muy concreto: el acceso a tarifas negociadas y confidenciales. El nombre lo dice todo: por definición, no pueden publicarse. No las encuentra en las OTA — las Online Travel Agencies, los grandes portales de reserva donde se comparan precios —, no las encuentra en los IBT, los Internet Booking Tools con los que muchas empresas reservan por su cuenta, y tampoco las encuentra en los sitios web de las propias aerolíneas." },
+  { type: "p", text: "La ventaja más inmediata es el precio, muchas veces muy competitivo frente a las tarifas públicas. Pero no es la única: las tarifas VFR (Visiting Friends and Relatives), por ejemplo, además de un precio más bajo, suelen ofrecer una franquicia de equipaje más generosa y reglas de cambio de fecha más flexibles." },
 
   { type: "h2", text: "No le vendemos un pasaje. Le construimos un viaje sin fricciones." },
   { type: "p", text: "Nuestro trabajo no termina con la emisión: empieza antes y se cierra recién cuando usted está de vuelta en casa." },
-  { type: "p", text: "Antes de la partida, anticipamos todo lo que puede comprometer la tranquilidad del viaje: documentos y requisitos de ingreso, tiempos mínimos de conexión, conexiones frágiles, reglas de equipaje, seguros adecuados a su itinerario." },
+  { type: "p", text: "Antes de la partida, anticipamos todo lo que puede comprometer la tranquilidad del viaje: documentos y requisitos de ingreso, tiempos mínimos de conexión, conexiones riesgosas, reglas de equipaje, seguros adecuados a su itinerario." },
   { type: "p", text: "Durante el viaje, gestionamos los imprevistos de manera proactiva — cancelaciones, sobreventa, reprotecciones: lo que en la jerga del sector se llama IROPS, irregular operations — para reducir al mínimo las molestias. No esperamos a que nos llame desde el aeropuerto." },
 
   { type: "h2", text: "No todos los aviones lo tratan igual" },
-  { type: "p", text: "Usted puede volar en clase ejecutiva, en el asiento más cómodo del mercado, y aun así bajar en destino sintiéndose un trapo. Muchas veces la culpa no es del asiento. Es del fuselaje." },
+  { type: "p", text: "Usted puede volar en clase ejecutiva, en el asiento más cómodo del mercado, y aun así bajar en destino hecho un trapo. Muchas veces la culpa no es del asiento. Es del fuselaje." },
   { type: "p", text: "Un avión con fuselaje de aluminio no puede presurizarse más allá de cierto límite: la cabina vuela a una altitud equivalente de unos 2.400 metros, con una humedad que en los vuelos de larga distancia baja con frecuencia del 10% — más seco que muchos desiertos. El resultado: menos oxígeno en la sangre, deshidratación, dolor de cabeza, un jet lag más largo." },
   { type: "p", text: "Un fuselaje de material compuesto — es el caso del Boeing 787 y del Airbus A350 — soporta presiones mayores y no sufre corrosión. El resultado: una cabina equivalente a unos 1.800 metros, humedad que puede llegar al 15–20%, menos ruido, mejor filtrado del aire y sistemas que atenúan las turbulencias antes de que usted las sienta. En el mismo vuelo de diez horas, la diferencia al desembarcar es palpable." },
-  { type: "p", text: "La cuestión es que esta variable no aparece en ningún buscador y no entra en ninguna comparación de precios. En la misma ruta, el mismo día, en la misma clase de servicio y con la misma tarifa, puede encontrar máquinas completamente distintas según el número de vuelo." },
+  { type: "p", text: "La cuestión es que esta variable no aparece en ningún buscador y no entra en ninguna comparación de precios. En la misma ruta, el mismo día, en la misma clase de servicio y con la misma tarifa, puede encontrar aeronaves completamente distintas según el número de vuelo." },
   { type: "p", text: "Nosotros sabemos asesorarlo también en esto: el tipo de aeronave efectivamente operado, la configuración de la cabina, la posición del asiento, el horario de salida y la estructura de las conexiones en relación con su huso horario y sus compromisos a la llegada." },
   { type: "p", text: "Porque el viaje no termina cuando usted aterriza. Termina cuando está en condiciones de hacer aquello para lo que viajó.", italic: true },
 
@@ -78,18 +78,18 @@ const blocksEs: Block[] = [
   { type: "p", text: "Desde el primer día. Le abrimos el acceso a tarifas competitivas con muchas aerolíneas y hacia muchos destinos del mundo." },
   { type: "p", text: "Si vuela mucho. Cuando en sus desplazamientos aparecen aerolíneas y rutas recurrentes, negociamos para usted acuerdos dedicados, sobre la base de sus flujos reales." },
   { type: "p", text: "Si es una pyme sin grandes volúmenes. Gestionamos su adhesión a los programas corporativos de las aerolíneas: programas que generan un crédito con cada vuelo, reutilizable en la compra de otros pasajes. La participación no excluye la acumulación de puntos en los programas de viajero frecuente individuales: las dos vías corren en paralelo." },
-  { type: "p", text: "En los programas de viajero frecuente. También aquí lo acompañamos — para acumular más rápido donde sea posible y transformar los puntos en viajes de premio que realmente se puedan reservar, que es la parte en la que la mayoría de los viajeros se rinde." },
+  { type: "p", text: "En los programas de viajero frecuente. También aquí lo acompañamos — para acumular más rápido donde sea posible y transformar los puntos en pasajes de premio que realmente se puedan reservar, que es la parte en la que la mayoría de los viajeros se rinde." },
 
   { type: "h2", text: "También cuando no viaja por trabajo" },
   { type: "p", text: "El mismo compromiso y la misma experiencia valen para los viajes de placer. Y no solo en el vuelo: disponemos de tarifas negociadas y confidenciales también con hoteles y empresas de alquiler de autos, y sabemos identificar los seguros con la mejor relación entre costo y protección efectiva para su próximo viaje." },
 
   { type: "h2", text: "El operador humano sigue en el centro" },
   { type: "p", text: "En el centro del servicio hay una persona. Siempre." },
-  { type: "p", text: "Estamos incorporando junto a nuestros operadores a IVA — Intelligent Vacation Assistant, que puede ver en acción en el video de esta página: no un sustituto, sino una especie de exoesqueleto que amplifica las capacidades de quien atiende su caso. Human in the loop: la tecnología trabaja tras bambalinas; la responsabilidad y la relación siguen siendo de quien le responde." },
+  { type: "p", text: "Estamos incorporando junto a nuestros operadores a nuestro asistente inteligente IVA — Intelligent Vacation Assistant (sí, como el impuesto, pero este trabaja para usted) —, que puede ver en acción en el video de esta página: no un sustituto, sino una especie de exoesqueleto que amplifica las capacidades de quien atiende su caso. Human in the loop: la tecnología trabaja tras bambalinas; la responsabilidad y la relación siguen siendo de quien le responde." },
 
   { type: "h2", text: "Pruébenos, sin compromiso" },
   { type: "p", text: "Complete el formulario de abajo para poner el servicio a prueba: ninguna obligación de su parte." },
-  { type: "p", text: "La información solicitada puede parecer mucha. En realidad, es exactamente la que necesitamos — y nada más — para construir la mejor solución ya en la primera propuesta: qué desea, pero también qué puede obtener según su ciudadanía, residencia y documentos. Es el primer paso para hacer que su viaje sea lo más frictionless posible." },
+  { type: "p", text: "La información solicitada puede parecer mucha. En realidad, es exactamente la que necesitamos — y nada más — para construir la mejor solución ya en la primera propuesta: qué desea, pero también qué puede obtener según su ciudadanía, residencia y documentos. Es el primer paso para hacer que su viaje sea lo más libre de fricciones posible." },
 ];
 
 const blocksEn: Block[] = [
