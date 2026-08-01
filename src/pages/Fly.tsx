@@ -470,7 +470,7 @@ const copy: Record<UILang, Copy> = {
     docsTitle: "Attach a copy of the documents (optional, but strongly recommended)",
     docsIntro: "Attach your passport and/or a residence permit, national ID card or equivalent document (for Brazil, e.g. RNE/CRNM). Not mandatory — but it is the simplest way to protect your fare: our team verifies name, number and validity before issuing.",
     passportLabel: "Passport — ID page",
-    passportHelp: "Photo or scan clearly showing first and last name, document number, issue date and expiry date. The image must be sharp, complete and free of glare.",
+    passportHelp: "Photo or scan clearly showing first and last name, document number, issue date and expiration date. The image must be sharp, complete and free of glare.",
     residenceLabel: "Residence permit, national ID card or equivalent (for Brazil, e.g. CRNM/RNE) — front and back",
     residenceHelp: "Both sides, legible.",
     docsWarning: "⚠️ Illegible, cropped or incomplete documents are equivalent to no documents at all: in that case verification is not possible and the accuracy of the data provided remains the sole responsibility of the passenger.",
