@@ -30,7 +30,7 @@ const DATA: Record<AnyLang, { heading: string; items: Item[] }> = {
     items: [
       { title: "Quem emite as passagens.", body: ["Todas as passagens são emitidas por uma agência de viagens devidamente autorizada na Itália, de propriedade da CAVALLINODIECI S.r.l., que atua com a marca Calliphora Travel desde 2004."] },
       { title: "Preencher o formulário não obriga você a nada.", body: ["É um pedido de cotação, não uma reserva."] },
-      { title: "A cotação tem prazo de validade.", body: ["Respondemos no menor tempo possível. A proposta indicará a data até a qual pode ser confirmada: depois desse prazo, ela caduca e não é mais garantida, porque tarifas e disponibilidade mudam o tempo todo."] },
+      { title: "A cotação tem prazo de validade.", body: ["Respondemos no menor tempo possível. A proposta indicará a data até a qual pode ser confirmada: depois desse prazo, ela expira e não é mais garantida, porque tarifas e disponibilidade mudam o tempo todo."] },
       { title: "Pagamento.", body: [
         "O valor total, em euros, deve ser pago por transferência bancária, em parcela única, na conta SEPA da agência.",
         "Não aceitamos cartão de crédito e não há parcelamento. Não é uma escolha comercial: nessas tarifas, as companhias exigem da agência o pagamento imediato e integral, e a agência é obrigada a aplicar as mesmas condições aos próprios clientes. É o outro lado da moeda de tarifas que não são publicadas em lugar nenhum.",
