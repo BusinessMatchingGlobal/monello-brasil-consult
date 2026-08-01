@@ -37,6 +37,7 @@ import { AiJusLocalized, AmaroLocalized, EmbraerLocalized, LorenzettiLocalized }
 import Voli from "./pages/calliphora/Voli";
 import Lorenzetti from "./pages/analysis/Lorenzetti";
 import LorenzettiIT from "./pages/analysis/Lorenzetti_IT";
+import LorenzettiBR from "./pages/analysis/Lorenzetti_BR";
 
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
@@ -93,6 +94,8 @@ const App = () => {
             <Route path="/lorenzetti_en" element={<Lorenzetti />} />
             <Route path="/lorenzetti_it" element={<LorenzettiIT />} />
             <Route path="/Lorenzetti_IT" element={<LorenzettiIT />} />
+            <Route path="/lorenzetti_br" element={<LorenzettiBR />} />
+            <Route path="/Lorenzetti_BR" element={<LorenzettiBR />} />
             <Route path="/Embraer" element={<EmbraerLocalized />} />
             <Route path="/embraer" element={<EmbraerLocalized />} />
             <Route path="/Embraer_EN" element={<Embraer />} />
