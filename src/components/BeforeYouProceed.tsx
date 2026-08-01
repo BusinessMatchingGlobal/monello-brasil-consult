@@ -86,8 +86,32 @@ const DATA: Record<AnyLang, { heading: string; items: Item[] }> = {
   },
 };
 
-export function BeforeYouProceed({ lang, className = "" }: { lang: AnyLang; className?: string }) {
-  const c = DATA[lang] ?? DATA.en;
+const EN_OUTSIDE_EUROPE: Item = {
+  title: "If you're paying from outside Europe.",
+  body: [
+    "The amount remains in euros, but you can know exactly what it represents in your local currency before confirming anything. On international currency-exchange and remittance platforms, you enter the amount in euros and the system shows the total in local currency with everything included: the exchange rate applied, the platform's fees, and taxes. It's the final amount that leaves your account, not an estimate.",
+    "This is just a practical suggestion: your relationship with the platform is entirely your own, and we recommend comparing conditions before deciding.",
+  ],
+};
+
+export function BeforeYouProceed({
+  lang,
+  className = "",
+  variant,
+}: {
+  lang: AnyLang;
+  className?: string;
+  variant?: "calliphora";
+}) {
+  let c = DATA[lang] ?? DATA.en;
+  if (variant === "calliphora" && (DATA[lang] ?? DATA.en) === DATA.en) {
+    c = {
+      ...DATA.en,
+      items: DATA.en.items.map((it) =>
+        it.title.startsWith("If you're paying from Brazil") ? EN_OUTSIDE_EUROPE : it,
+      ),
+    };
+  }
   return (
     <section className={`rounded-xl border border-border bg-muted/40 p-5 md:p-6 ${className}`}>
       <h3 className="font-display text-xl md:text-2xl mb-4 text-foreground">{c.heading}</h3>
