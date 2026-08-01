@@ -4,12 +4,18 @@ import ogDefault from "@/assets/og-default.jpg.asset.json";
 export const SITE = "https://businessmatching.global";
 export const CALLIPHORA_SITE = "https://www.calliphora.flights";
 const CALLIPHORA_PATHS = ["/voli", "/formfly"];
+export const CALLIPHORA_FAVICON = "/calliphora-favicon.png";
+export const DEFAULT_FAVICON = "/favicon.png";
 
 /** Calliphora-branded pages canonicalize to calliphora.flights, everything else to BMG. */
-function siteForPath(path: string) {
+export function siteForPath(path: string) {
   return CALLIPHORA_PATHS.includes(path.toLowerCase()) ? CALLIPHORA_SITE : SITE;
 }
+export function isCalliphoraPath(path: string) {
+  return CALLIPHORA_PATHS.includes(path.toLowerCase());
+}
 export const DEFAULT_OG_IMAGE = SITE + ogDefault.url;
+
 
 type SEO = {
   title?: string;
@@ -28,10 +34,31 @@ function upsertMeta(selector: string, attr: "name" | "property", key: string, co
   el.setAttribute("content", content);
 }
 
+function upsertLinkIcon(selector: string, relValue: string, href: string, type: string) {
+  let el = document.head.querySelector<HTMLLinkElement>(selector);
+  if (!el) {
+    el = document.createElement("link");
+    el.rel = relValue;
+    el.type = type;
+    document.head.appendChild(el);
+  }
+  el.href = href;
+}
+
+function updateFavicon(path: string) {
+  const iconHref = isCalliphoraPath(path) ? CALLIPHORA_FAVICON : DEFAULT_FAVICON;
+  upsertLinkIcon('link[rel="icon"]', "icon", iconHref, "image/png");
+  // Browsers also request /favicon.ico by default; if a static one exists, keep it.
+  // Only override the explicit icon link so it matches the brand.
+}
+
 export function useCanonical(path: string, seo?: SEO) {
   useEffect(() => {
     const base = siteForPath(path);
     const url = base + path;
+
+    // Favicon brand switch
+    updateFavicon(path);
 
     // Canonical
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
