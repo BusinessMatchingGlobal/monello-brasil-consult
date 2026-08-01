@@ -93,43 +93,43 @@ const blocksEs: Block[] = [
 ];
 
 const blocksEn: Block[] = [
-  { type: "h2", text: "Air Ticketing Service" },
-  { type: "p", text: "We don't sell you a ticket to fly from A to B: we offer a frictionless travel experience — before, during and after your trip. This has been our philosophy since 2004, the year the Calliphora brand was born — under a different corporate name at first, and since 2008 under the current CAVALLINODIECI S.r.l. — and ever since, we have operated in travel organization and intermediation and in air ticketing with all the required legal authorizations.", italic: true },
-  { type: "p", text: "We are a single desk that follows you from your first request to your return home: air ticketing, hotel accommodation, car rental, transfers, insurance coverage." },
+  { type: "h2", text: "Flight Ticketing Service" },
+  { type: "p", text: "We don't sell you a ticket to fly from point A to point B: we offer a friction-free travel experience — before, during, and after. This has been our philosophy since 2004, the year the Calliphora brand was born — initially under a different company name and, since 2008, under the current CAVALLINODIECI S.r.l. — and ever since, we have been organizing and arranging travel and issuing airline tickets with all legally required authorizations.", italic: true },
+  { type: "p", text: "We are a single point of contact, with you from your first request until you're back home: flight tickets, accommodation, car rental, transfers, travel insurance." },
 
   { type: "h2", text: "Negotiated, confidential fares" },
-  { type: "p", text: "Twenty years of relationships with carriers translate into something very concrete: access to negotiated, confidential fares. The name says it all: by definition, they cannot be published. You won't find them on OTAs — the Online Travel Agencies, the big booking portals where prices are compared — you won't find them on IBTs, the Internet Booking Tools many companies use to book on their own, and you won't find them on the airlines' own websites either." },
-  { type: "p", text: "The most immediate advantage is the price, often highly competitive compared with published fares. But it's not the only one: VFR fares (Visiting Friends and Relatives), for instance, typically combine a lower price with a more generous baggage allowance and more flexible change rules." },
+  { type: "p", text: "More than twenty years of relationships with the airlines translate into something very concrete: access to negotiated, confidential fares. The name says it all: by definition, they cannot be published. You won't find them on OTAs — Online Travel Agencies, the large booking portals where prices are compared —, you won't find them on IBTs, the Internet Booking Tools many companies use to book on their own, and you won't find them even on the airlines' own websites." },
+  { type: "p", text: "The most immediate advantage is price, often highly competitive against published fares. But it's not the only one: VFR fares (Visiting Friends and Relatives), for example, typically combine a lower price with a more generous baggage allowance and more flexible rebooking rules." },
 
-  { type: "h2", text: "We don't sell you a ticket. We build you a frictionless journey." },
-  { type: "p", text: "Our work doesn't end with ticket issuance: it starts earlier and closes only when you're back home." },
-  { type: "p", text: "Before departure, we anticipate everything that could compromise the peace of mind of your trip: documents and entry requirements, minimum connection times, fragile connections, baggage rules, insurance coverage suited to your itinerary." },
-  { type: "p", text: "During the trip, we proactively manage disruptions — cancellations, overbooking, rebooking: what the industry calls IROPS, irregular operations — to keep your inconvenience to a minimum. We don't wait for you to call us from the airport." },
+  { type: "h2", text: "We don't sell you a ticket. We build you a friction-free journey." },
+  { type: "p", text: "Our work doesn't end with issuance: it starts earlier and only ends when you're back home." },
+  { type: "p", text: "Before departure, we anticipate everything that could compromise a smooth trip: documents and entry requirements, minimum connection times, risky connections, baggage rules, insurance suited to your itinerary." },
+  { type: "p", text: "During the trip, we manage disruptions proactively — cancellations, overbooking, rebookings: what industry jargon calls IROPS, irregular operations — to keep your inconvenience to a minimum. We don't wait for you to call us from the airport." },
 
-  { type: "h2", text: "Not all aircraft treat you the same way" },
-  { type: "p", text: "You can fly Business class, in the most comfortable seat on the market, and still arrive at your destination feeling like a wreck. Often it's not the seat's fault. It's the fuselage." },
-  { type: "p", text: "An aircraft with an aluminium fuselage cannot be pressurized beyond a certain limit: the cabin flies at an equivalent altitude of about 2,400 metres, with humidity that on long-haul routes often drops below 10% — drier than many deserts. The result: less oxygen in your blood, dehydration, headaches, longer jet lag." },
-  { type: "p", text: "A composite fuselage — as on the Boeing 787 and Airbus A350 — withstands higher pressures and doesn't fear corrosion. The result: a cabin equivalent to about 1,800 metres, humidity of up to 15–20%, lower noise, better air filtration, and systems that dampen turbulence before you feel it. On the same ten-hour flight, the difference when you disembark is tangible." },
-  { type: "p", text: "The point is that this variable doesn't appear in any search engine and never enters any price comparison. On the same route, on the same day, in the same class of service and at the same fare, you can find completely different machines depending on the flight number." },
-  { type: "p", text: "We can advise you on this too: the aircraft type actually operated, cabin configuration, seat position, departure time, and the structure of your connections relative to your time zone and your commitments on arrival." },
-  { type: "p", text: "Because the journey doesn't end when you land. It ends when you're able to do what you travelled for.", italic: true },
+  { type: "h2", text: "Not all aircraft treat you the same" },
+  { type: "p", text: "You can fly business class, in the most comfortable seat on the market, and still land feeling like a wreck. Often it's not the seat's fault. It's the fuselage." },
+  { type: "p", text: "An aircraft with an aluminum fuselage cannot be pressurized beyond a certain limit: the cabin flies at an equivalent altitude of about 2,400 meters (roughly 8,000 feet), with humidity that, on long-haul flights, frequently drops below 10% — drier than many deserts. The result: less oxygen in your blood, dehydration, headaches, longer jet lag." },
+  { type: "p", text: "A composite fuselage — as on the Boeing 787 and the Airbus A350 — withstands higher pressures and doesn't suffer from corrosion. The result: a cabin equivalent to about 1,800 meters (roughly 6,000 feet), humidity that can reach 15–20%, less noise, better air filtration, and systems that dampen turbulence before you feel it. On the same ten-hour flight, the difference on arrival is palpable." },
+  { type: "p", text: "The catch is that this variable doesn't appear in any search engine and never enters a price comparison. On the same route, on the same day, in the same class of service and at the same fare, you can find completely different aircraft depending on the flight number." },
+  { type: "p", text: "We can advise you on this too: the aircraft type actually operated, the cabin configuration, the seat position, the departure time, and the structure of your connections relative to your time zone and your commitments on arrival." },
+  { type: "p", text: "Because the journey doesn't end when you land. It ends when you're in condition to do what you traveled for.", italic: true },
 
   { type: "h2", text: "The value of the money you spend" },
-  { type: "p", text: "From day one. We open access to competitive fares with many carriers and to many destinations worldwide." },
-  { type: "p", text: "If you fly a lot. When recurring airlines and routes emerge in your travel patterns, we negotiate dedicated agreements for you, based on your actual flows." },
-  { type: "p", text: "If you're an SME without large volumes. We manage your enrolment in the airlines' corporate programmes: schemes that earn a credit on every flight, which you can reuse to purchase further tickets. Participation doesn't exclude earning points on individual frequent-flyer accounts: the two tracks run in parallel." },
-  { type: "p", text: "On frequent-flyer programmes. We support you here as well — helping you accrue faster where possible and turn points into award trips that are actually bookable, which is where most travellers give up." },
+  { type: "p", text: "From day one. We open up access to competitive fares with many airlines and to destinations all over the world." },
+  { type: "p", text: "If you fly a lot. When recurring airlines and routes appear in your travel patterns, we negotiate dedicated agreements for you, based on your actual flows." },
+  { type: "p", text: "If you're an SME without large volumes. We handle your enrollment in the airlines' corporate programs: programs that generate a credit with every flight, reusable toward the purchase of other tickets. Participation doesn't exclude earning points in individual frequent-flyer programs: the two tracks run in parallel." },
+  { type: "p", text: "In frequent-flyer programs. Here too we're at your side — to earn faster wherever possible and to turn points into award tickets that can actually be booked, which is where most travelers give up." },
 
-  { type: "h2", text: "Even when you're not travelling for business" },
-  { type: "p", text: "The same commitment and the same experience apply to leisure travel. And not just on the flight: we also hold negotiated, confidential rates with hotels and car rental companies, and we know how to identify the insurance coverage with the best ratio of cost to actual protection for your next trip." },
+  { type: "h2", text: "Even when you're not traveling for work" },
+  { type: "p", text: "The same dedication and the same experience apply to leisure travel. And not only in the air: we also hold negotiated, confidential rates with hotels and car rental companies, and we know how to identify the insurance with the best balance between cost and actual protection for your next trip." },
 
-  { type: "h2", text: "The human operator stays at the centre" },
-  { type: "p", text: "At the centre of the service there is a person. Always." },
-  { type: "p", text: "Alongside our operators, we are introducing IVA — the Intelligent Vacation Assistant, which you can see at work in the video on this page: not a replacement, but a kind of exoskeleton that amplifies the capabilities of the person handling your file. Human in the loop: the technology works behind the scenes; the responsibility and the relationship remain with the person who answers you." },
+  { type: "h2", text: "The human operator stays at the center" },
+  { type: "p", text: "At the center of the service there is a person. Always." },
+  { type: "p", text: "We are placing alongside our operators IVA — the Intelligent Vacation Assistant, which you can see in action in the video on this page: not a substitute, but a kind of exoskeleton that amplifies the capabilities of the people handling your case. Human in the loop: the technology works behind the scenes; responsibility and the relationship stay with the person who answers you." },
 
-  { type: "h2", text: "Try us, with no commitment" },
-  { type: "p", text: "Fill in the form below to put the service to the test: no obligation on your part." },
-  { type: "p", text: "The information requested may seem like a lot. In fact, it is exactly what we need — and nothing more — to build the best solution with our very first proposal: what you want, but also what you can obtain based on citizenship, residency and documents. It's the first step towards making your trip as frictionless as possible." },
+  { type: "h2", text: "Try us, with no obligation" },
+  { type: "p", text: "Fill in the form below to put the service to the test: no commitment on your part." },
+  { type: "p", text: "The information requested may seem like a lot. In fact, it's exactly what we need — and nothing more — to build the best solution in our very first proposal: what you want, but also what you're entitled to based on your citizenship, residence, and documents. It's the first step toward making your trip as friction-free as possible." },
 ];
 
 const blocksPt: Block[] = [
@@ -195,7 +195,7 @@ const footer: Record<UILang, { line1: string; line2: string }> = {
 const ui: Record<UILang, { h1: string; cta: string }> = {
   es: { h1: "Servicio de Emisión de Pasajes Aéreos", cta: "Solicitar cotización" },
   it: { h1: "Servizio di Biglietteria Aerea", cta: "Richiedi un preventivo" },
-  en: { h1: "Air Ticketing Service", cta: "Request a quote" },
+  en: { h1: "Flight Ticketing Service", cta: "Request a quote" },
   pt: { h1: "Serviço de Bilheteria Aérea", cta: "Solicitar uma cotação" },
 };
 
