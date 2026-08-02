@@ -10,6 +10,16 @@ export type AnalysisArticle = {
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
+    slug: "ceuta",
+    group: "ceuta",
+    date: "2026-08-02",
+    title: {
+      it: "Voting with Their Feet",
+      en: "Voting with Their Feet",
+      pt: "Voting with Their Feet",
+    },
+  },
+  {
     slug: "lorenzetti",
     group: "lorenzetti",
     date: "2026-08-01",
