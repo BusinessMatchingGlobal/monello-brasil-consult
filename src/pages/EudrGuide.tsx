@@ -16,7 +16,7 @@ import { GuidesMenu } from "@/components/GuidesMenu";
 
 const PDF_URL = guideAsset.url;
 const PDF_FILENAME = "EUDR_Guia_Pequeno_Produtor_BMG.pdf";
-const SOURCE = "EUDR guide page (/eudr)";
+const SOURCE = "EUDR guide (/eudr) — #CustoEuropa";
 
 const schema = z.object({
   firstName: z.string().trim().min(1).max(80),
@@ -60,7 +60,7 @@ const copy: Record<Lang, Copy> = {
     back: "Torna alla home",
     eyebrow: "Guida gratuita",
     title: "EUDR — Guida per il piccolo produttore",
-    sub: "Il regolamento europeo anti-deforestazione (EUDR) spiegato al piccolo produttore brasiliano: cosa serve, come si documenta l'origine e come restare nella filiera che esporta verso l'Unione Europea. Compila il form per scaricare la guida e, se vuoi, iscriviti alla newsletter #CustoBrasil.",
+    sub: "Il regolamento europeo anti-deforestazione (EUDR) spiegato al piccolo produttore brasiliano: cosa serve, come si documenta l'origine e come restare nella filiera che esporta verso l'Unione Europea. Compila il form per scaricare la guida e, se vuoi, iscriviti alla newsletter #CustoEuropa.",
     bullets: [
       "Cosa chiede davvero l'EUDR al piccolo produttore",
       "Geolocalizzazione e tracciabilità dell'appezzamento",
@@ -81,7 +81,7 @@ const copy: Record<Lang, Copy> = {
     consentLink: "informativa privacy",
     consentSuffix: "e acconsento al trattamento dei miei dati per ricevere la guida e un eventuale follow-up.",
     consentRequired: "Devi accettare l'informativa privacy per scaricare la guida.",
-    newsletterLabel: "Iscrivimi anche alla newsletter #CustoBrasil",
+    newsletterLabel: "Iscrivimi anche alla newsletter #CustoEuropa",
     newsletterHint: "Riceverai un'email di conferma per completare l'iscrizione (double opt-in).",
     submit: "Scarica la guida",
     invalid: "Controlla i campi: nome, cognome ed email sono obbligatori.",
@@ -97,7 +97,7 @@ const copy: Record<Lang, Copy> = {
     back: "Back to home",
     eyebrow: "Free guide",
     title: "EUDR — A guide for the smallholder producer",
-    sub: "The EU Deforestation Regulation (EUDR) explained for the Brazilian smallholder: what is required, how to document origin, and how to stay in the supply chain that exports to the European Union. Fill in the form to download the guide and, if you wish, subscribe to the #CustoBrasil newsletter. (The guide is written in Brazilian Portuguese.)",
+    sub: "The EU Deforestation Regulation (EUDR) explained for the Brazilian smallholder: what is required, how to document origin, and how to stay in the supply chain that exports to the European Union. Fill in the form to download the guide and, if you wish, subscribe to the #CustoEuropa newsletter. (The guide is written in Brazilian Portuguese.)",
     bullets: [
       "What the EUDR actually requires from a smallholder",
       "Plot geolocation and traceability",
@@ -118,7 +118,7 @@ const copy: Record<Lang, Copy> = {
     consentLink: "privacy notice",
     consentSuffix: "and I consent to the processing of my data to receive the guide and a possible follow-up.",
     consentRequired: "You must accept the privacy notice to download the guide.",
-    newsletterLabel: "Also subscribe me to the #CustoBrasil newsletter",
+    newsletterLabel: "Also subscribe me to the #CustoEuropa newsletter",
     newsletterHint: "You'll receive a confirmation email to complete the subscription (double opt-in).",
     submit: "Download the guide",
     invalid: "Please check the fields: first name, last name and email are required.",
@@ -134,7 +134,7 @@ const copy: Record<Lang, Copy> = {
     back: "Voltar para a home",
     eyebrow: "Guia gratuito",
     title: "EUDR — Guia do Pequeno Produtor",
-    sub: "O regulamento europeu antidesmatamento (EUDR) explicado para o pequeno produtor brasileiro: o que é exigido, como comprovar a origem e como permanecer na cadeia que exporta para a União Europeia. Preencha o formulário para baixar o guia e, se quiser, assine a newsletter #CustoBrasil.",
+    sub: "O regulamento europeu antidesmatamento (EUDR) explicado para o pequeno produtor brasileiro: o que é exigido, como comprovar a origem e como permanecer na cadeia que exporta para a União Europeia. Preencha o formulário para baixar o guia e, se quiser, assine a newsletter #CustoEuropa.",
     bullets: [
       "O que a EUDR realmente exige do pequeno produtor",
       "Geolocalização e rastreabilidade do talhão",
@@ -155,7 +155,7 @@ const copy: Record<Lang, Copy> = {
     consentLink: "aviso de privacidade",
     consentSuffix: "e concordo com o tratamento dos meus dados para receber o guia e um possível follow-up.",
     consentRequired: "Você precisa aceitar o aviso de privacidade para baixar o guia.",
-    newsletterLabel: "Inscreva-me também na newsletter #CustoBrasil",
+    newsletterLabel: "Inscreva-me também na newsletter #CustoEuropa",
     newsletterHint: "Você receberá um e-mail de confirmação para concluir a inscrição (double opt-in).",
     submit: "Baixar o guia",
     invalid: "Verifique os campos: nome, sobrenome e e-mail são obrigatórios.",
@@ -221,6 +221,7 @@ export default function EudrGuide() {
             language: lang,
             source: SOURCE,
             consent: true,
+            newsletterName: "#CustoEuropa",
           },
         });
         if (error) throw error;
