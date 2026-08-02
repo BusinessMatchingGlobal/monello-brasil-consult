@@ -33,6 +33,7 @@ Deno.serve(async (req) => {
   const email = String(payload?.email ?? '').trim().toLowerCase().slice(0, 255)
   const language = ['it', 'en', 'pt'].includes(payload?.language) ? payload.language : 'it'
   const source = String(payload?.source ?? 'Newsletter popup').slice(0, 120)
+  const newsletterName = String(payload?.newsletterName ?? '#CustoBrasil').slice(0, 40)
   const consent = payload?.consent === true
 
   if (!firstName || !lastName) return json(400, { error: 'missing_name' })
@@ -113,6 +114,7 @@ Deno.serve(async (req) => {
         firstName,
         confirmUrl,
         language,
+        newsletterName,
       },
     },
   })

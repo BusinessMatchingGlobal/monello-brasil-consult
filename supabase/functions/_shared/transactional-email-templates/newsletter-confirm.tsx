@@ -17,37 +17,38 @@ interface Props {
   firstName?: string
   confirmUrl?: string
   language?: 'it' | 'en' | 'pt'
+  newsletterName?: string
 }
 
 const strings = {
   it: {
-    preview: 'Conferma la tua iscrizione alla newsletter #CustoBrasil',
+    preview: (nl: string) => `Conferma la tua iscrizione alla newsletter ${nl}`,
     heading: 'Conferma la tua iscrizione',
     hi: (n: string) => (n ? `Ciao ${n},` : 'Ciao,'),
-    intro:
-      'grazie per esserti iscritto alla newsletter #CustoBrasil di Business Matching Global. Per completare la registrazione e ricevere gli aggiornamenti, conferma il tuo indirizzo email cliccando sul pulsante qui sotto.',
+    intro: (nl: string) =>
+      `grazie per esserti iscritto alla newsletter ${nl} di Business Matching Global. Per completare la registrazione e ricevere gli aggiornamenti, conferma il tuo indirizzo email cliccando sul pulsante qui sotto.`,
     cta: 'Conferma iscrizione',
     fallback: 'Se il pulsante non funziona, copia e incolla questo link nel browser:',
     ignore: 'Se non hai richiesto questa iscrizione, ignora semplicemente questa email.',
     signature: 'Business Matching Global',
   },
   en: {
-    preview: 'Confirm your subscription to the #CustoBrasil newsletter',
+    preview: (nl: string) => `Confirm your subscription to the ${nl} newsletter`,
     heading: 'Confirm your subscription',
     hi: (n: string) => (n ? `Hi ${n},` : 'Hi,'),
-    intro:
-      'thank you for subscribing to the #CustoBrasil newsletter by Business Matching Global. To complete your registration and receive updates, please confirm your email address by clicking the button below.',
+    intro: (nl: string) =>
+      `thank you for subscribing to the ${nl} newsletter by Business Matching Global. To complete your registration and receive updates, please confirm your email address by clicking the button below.`,
     cta: 'Confirm subscription',
     fallback: 'If the button does not work, copy and paste this link into your browser:',
     ignore: 'If you did not request this subscription, simply ignore this email.',
     signature: 'Business Matching Global',
   },
   pt: {
-    preview: 'Confirme sua inscrição na newsletter #CustoBrasil',
+    preview: (nl: string) => `Confirme sua inscrição na newsletter ${nl}`,
     heading: 'Confirme sua inscrição',
     hi: (n: string) => (n ? `Olá ${n},` : 'Olá,'),
-    intro:
-      'obrigado por se inscrever na newsletter #CustoBrasil da Business Matching Global. Para completar seu cadastro e receber atualizações, confirme seu endereço de e-mail clicando no botão abaixo.',
+    intro: (nl: string) =>
+      `obrigado por se inscrever na newsletter ${nl} da Business Matching Global. Para completar seu cadastro e receber atualizações, confirme seu endereço de e-mail clicando no botão abaixo.`,
     cta: 'Confirmar inscrição',
     fallback: 'Se o botão não funcionar, copie e cole este link no navegador:',
     ignore: 'Se você não solicitou esta inscrição, basta ignorar este e-mail.',
@@ -55,17 +56,17 @@ const strings = {
   },
 }
 
-const Email = ({ firstName = '', confirmUrl = '#', language = 'it' }: Props) => {
+const Email = ({ firstName = '', confirmUrl = '#', language = 'it', newsletterName = '#CustoBrasil' }: Props) => {
   const s = strings[language] ?? strings.it
   return (
     <Html lang={language} dir="ltr">
       <Head />
-      <Preview>{s.preview}</Preview>
+      <Preview>{s.preview(newsletterName)}</Preview>
       <Body style={main}>
         <Container style={container}>
           <Heading style={h1}>{s.heading}</Heading>
           <Text style={body}>{s.hi(firstName)}</Text>
-          <Text style={body}>{s.intro}</Text>
+          <Text style={body}>{s.intro(newsletterName)}</Text>
           <Button href={confirmUrl} style={button}>{s.cta}</Button>
           <Text style={muted}>{s.fallback}</Text>
           <Text style={linkText}>
@@ -84,7 +85,7 @@ export const template = {
   component: Email,
   subject: (data: Props) => {
     const s = strings[(data?.language as 'it' | 'en' | 'pt') ?? 'it'] ?? strings.it
-    return s.preview
+    return s.preview(data?.newsletterName ?? '#CustoBrasil')
   },
   displayName: 'Newsletter — double opt-in confirmation',
   restricted: true,
