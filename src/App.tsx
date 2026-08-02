@@ -42,6 +42,8 @@ import CeutaIT from "./pages/analysis/Ceuta_IT";
 import LorenzettiIT from "./pages/analysis/Lorenzetti_IT";
 import LorenzettiBR from "./pages/analysis/Lorenzetti_BR";
 import Economist from "./pages/analysis/Economist";
+import EconomistIT from "./pages/analysis/Economist_IT";
+
 
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
@@ -103,6 +105,8 @@ const App = () => {
             <Route path="/Ceuta_IT" element={<CeutaIT />} />
             <Route path="/economist" element={<EconomistLocalized />} />
             <Route path="/Economist" element={<EconomistLocalized />} />
+            <Route path="/economist_it" element={<EconomistIT />} />
+            <Route path="/Economist_IT" element={<EconomistIT />} />
             <Route path="/Lorenzetti" element={<LorenzettiLocalized />} />
             <Route path="/lorenzetti_en" element={<Lorenzetti />} />
             <Route path="/lorenzetti_it" element={<LorenzettiIT />} />
