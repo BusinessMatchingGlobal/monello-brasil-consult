@@ -30,6 +30,16 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     },
   },
   {
+    slug: "economist_br",
+    group: "economist",
+    date: "2026-08-02",
+    title: {
+      it: "Dez vezes na bolsa, e ainda sem atacar: a lição da Embraer sobre o capital da restrição",
+      en: "Dez vezes na bolsa, e ainda sem atacar: a lição da Embraer sobre o capital da restrição",
+      pt: "Dez vezes na bolsa, e ainda sem atacar: a lição da Embraer sobre o capital da restrição",
+    },
+  },
+  {
     slug: "ceuta",
     group: "ceuta",
     date: "2026-08-02",
