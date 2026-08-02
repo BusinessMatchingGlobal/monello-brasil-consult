@@ -20,6 +20,16 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     },
   },
   {
+    slug: "economist_it",
+    group: "economist",
+    date: "2026-08-02",
+    title: {
+      it: "Dieci volte in borsa, e ancora nessun attacco: la lezione Embraer sul capitale del vincolo",
+      en: "Dieci volte in borsa, e ancora nessun attacco: la lezione Embraer sul capitale del vincolo",
+      pt: "Dieci volte in borsa, e ancora nessun attacco: la lezione Embraer sul capitale del vincolo",
+    },
+  },
+  {
     slug: "ceuta",
     group: "ceuta",
     date: "2026-08-02",
