@@ -47,7 +47,7 @@ const body: Block[] = [
   { p: "I have written before about firms crossing the Ponte da Amizade into Paraguay, voting with their feet against the Custo Brasil while official narratives insisted everything was fine. The Ceuta crisis is the same phenomenon at human scale, with three flows delivering three verdicts: Brazilian companies against their cost structure, Moroccan citizens against their two-speed miracle, Italian descendants toward a homeland that stopped answering." },
   { p: "In every case, power responded to the feet with rhetoric instead of reform. And in every case, the flows were right." },
   { p: "Facts and figures are drawn from public sources: the Schengen Borders Code and Spain's 1991 Accession Act, Frontex entry statistics 2021–2026, statements by the European Commission and the Spanish government (July–August 2026), OECD and World Bank data on Morocco, and the text of the Italian popular initiative deposited at the Chamber of Deputies on 30 June 2026." },
-  { p: "Business Matching Global — market intelligence and business orchestration, Italy–Brazil corridor. We read flows, not press releases." },
+  { p: "Business Matching Global — market intelligence and business orchestration, Europe–Brazil corridor. Our work rests on rigorous fact- and data-checking, because — as the maxim attributed to W. Edwards Deming, the statistician who taught quality to Japanese industry, has it — without data, you're just another person with an opinion. We'd rather be just another person with the data." },
 ];
 
 export default function Ceuta() {
