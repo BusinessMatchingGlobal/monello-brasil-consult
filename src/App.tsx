@@ -13,6 +13,7 @@ import CustoBrasil from "./pages/CustoBrasil";
 import NewsEbook from "./pages/NewsEbook";
 import SaceGuide from "./pages/SaceGuide";
 import PharmaGuide from "./pages/PharmaGuide";
+import EudrGuide from "./pages/EudrGuide";
 import NewsletterConfirm from "./pages/NewsletterConfirm";
 import Admin from "./pages/Admin";
 import Fly, { FlyEN, FlyBR } from "./pages/Fly";
@@ -78,6 +79,8 @@ const App = () => {
             <Route path="/SACE" element={<SaceGuide />} />
             <Route path="/pharma" element={<PharmaGuide />} />
             <Route path="/Pharma" element={<PharmaGuide />} />
+            <Route path="/eudr" element={<EudrGuide />} />
+            <Route path="/EUDR" element={<EudrGuide />} />
             <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/BT" element={<BusinessTravelLocalized />} />

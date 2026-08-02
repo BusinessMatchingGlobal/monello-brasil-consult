@@ -9,6 +9,7 @@ const labels: Record<Lang, { title: string; items: { to: string; name: string; n
       { to: "/news", name: "Exporting to Brazil — EU Manual", note: "Accordo UE-Mercosur · in inglese" },
       { to: "/sace", name: "Vendere macchinari in Brasile", note: "SACE, SIMEST ed ex-tarifário · in italiano" },
       { to: "/pharma", name: "Brazil's Health Market", note: "Farmaceutico, dispositivi e supply chain · in inglese" },
+      { to: "/eudr", name: "EUDR — Guia do Pequeno Produtor", note: "Deforestazione, tracciabilità e filiera UE · in portoghese" },
     ],
   },
   en: {
@@ -17,6 +18,7 @@ const labels: Record<Lang, { title: string; items: { to: string; name: string; n
       { to: "/news", name: "Exporting to Brazil — EU Manual", note: "EU-Mercosur agreement · in English" },
       { to: "/sace", name: "Selling machinery in Brazil", note: "SACE, SIMEST and ex-tarifário · in Italian" },
       { to: "/pharma", name: "Brazil's Health Market", note: "Pharma, devices and supply chain · in English" },
+      { to: "/eudr", name: "EUDR — Guia do Pequeno Produtor", note: "Deforestation, traceability and EU supply chain · in Portuguese" },
     ],
   },
   pt: {
@@ -25,6 +27,7 @@ const labels: Record<Lang, { title: string; items: { to: string; name: string; n
       { to: "/news", name: "Exporting to Brazil — EU Manual", note: "Acordo UE-Mercosul · em inglês" },
       { to: "/sace", name: "Vender máquinas no Brasil", note: "SACE, SIMEST e ex-tarifário · em italiano" },
       { to: "/pharma", name: "Brazil's Health Market", note: "Farmacêutico, dispositivos e supply chain · em inglês" },
+      { to: "/eudr", name: "EUDR — Guia do Pequeno Produtor", note: "Desmatamento, rastreabilidade e cadeia UE · em português" },
     ],
   },
 };
