@@ -33,7 +33,7 @@ import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
-import { AiJusLocalized, AmaroLocalized, CeutaLocalized, EmbraerLocalized, LorenzettiLocalized } from "./pages/analysis/LocalizedArticle";
+import { AiJusLocalized, AmaroLocalized, CeutaLocalized, EconomistLocalized, EmbraerLocalized, LorenzettiLocalized } from "./pages/analysis/LocalizedArticle";
 import Voli from "./pages/calliphora/Voli";
 import Lorenzetti from "./pages/analysis/Lorenzetti";
 import Ceuta from "./pages/analysis/Ceuta";
@@ -41,6 +41,7 @@ import CeutaBR from "./pages/analysis/Ceuta_BR";
 import CeutaIT from "./pages/analysis/Ceuta_IT";
 import LorenzettiIT from "./pages/analysis/Lorenzetti_IT";
 import LorenzettiBR from "./pages/analysis/Lorenzetti_BR";
+import Economist from "./pages/analysis/Economist";
 
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
@@ -100,6 +101,8 @@ const App = () => {
             <Route path="/Ceuta_BR" element={<CeutaBR />} />
             <Route path="/ceuta_it" element={<CeutaIT />} />
             <Route path="/Ceuta_IT" element={<CeutaIT />} />
+            <Route path="/economist" element={<EconomistLocalized />} />
+            <Route path="/Economist" element={<EconomistLocalized />} />
             <Route path="/Lorenzetti" element={<LorenzettiLocalized />} />
             <Route path="/lorenzetti_en" element={<Lorenzetti />} />
             <Route path="/lorenzetti_it" element={<LorenzettiIT />} />
