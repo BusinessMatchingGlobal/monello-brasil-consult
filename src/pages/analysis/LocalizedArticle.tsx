@@ -14,6 +14,7 @@ import LorenzettiBR from "./Lorenzetti_BR";
 import CeutaEN from "./Ceuta";
 import CeutaBR from "./Ceuta_BR";
 import CeutaIT from "./Ceuta_IT";
+import EconomistEN from "./Economist";
 
 // Renders the language variant matching the current site language
 // (auto-detected from the browser on first visit), on a single shared URL.

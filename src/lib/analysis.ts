@@ -10,6 +10,16 @@ export type AnalysisArticle = {
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
+    slug: "economist",
+    group: "economist",
+    date: "2026-08-02",
+    title: {
+      it: "Ten-Fold, and Still Not Attacking: The Embraer Lesson in Constraint Capital",
+      en: "Ten-Fold, and Still Not Attacking: The Embraer Lesson in Constraint Capital",
+      pt: "Ten-Fold, and Still Not Attacking: The Embraer Lesson in Constraint Capital",
+    },
+  },
+  {
     slug: "ceuta",
     group: "ceuta",
     date: "2026-08-02",
