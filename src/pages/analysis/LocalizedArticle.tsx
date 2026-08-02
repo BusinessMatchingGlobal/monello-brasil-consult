@@ -11,6 +11,8 @@ import EmbraerBR from "./Embraer_BR";
 import LorenzettiEN from "./Lorenzetti";
 import LorenzettiIT from "./Lorenzetti_IT";
 import LorenzettiBR from "./Lorenzetti_BR";
+import CeutaEN from "./Ceuta";
+import CeutaBR from "./Ceuta_BR";
 
 // Renders the language variant matching the current site language
 // (auto-detected from the browser on first visit), on a single shared URL.
@@ -40,4 +42,10 @@ export function LorenzettiLocalized() {
   if (lang === "it") return <LorenzettiIT />;
   if (lang === "pt") return <LorenzettiBR />;
   return <LorenzettiEN />;
+}
+
+export function CeutaLocalized() {
+  const { lang } = useT();
+  if (lang === "pt") return <CeutaBR />;
+  return <CeutaEN />;
 }
