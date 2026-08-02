@@ -43,6 +43,8 @@ import LorenzettiIT from "./pages/analysis/Lorenzetti_IT";
 import LorenzettiBR from "./pages/analysis/Lorenzetti_BR";
 import Economist from "./pages/analysis/Economist";
 import EconomistIT from "./pages/analysis/Economist_IT";
+import EconomistBR from "./pages/analysis/Economist_BR";
+
 
 
 import { LanguageProvider } from "./lib/i18n";
@@ -107,6 +109,8 @@ const App = () => {
             <Route path="/Economist" element={<EconomistLocalized />} />
             <Route path="/economist_it" element={<EconomistIT />} />
             <Route path="/Economist_IT" element={<EconomistIT />} />
+            <Route path="/economist_br" element={<EconomistBR />} />
+            <Route path="/Economist_BR" element={<EconomistBR />} />
             <Route path="/Lorenzetti" element={<LorenzettiLocalized />} />
             <Route path="/lorenzetti_en" element={<Lorenzetti />} />
             <Route path="/lorenzetti_it" element={<LorenzettiIT />} />
