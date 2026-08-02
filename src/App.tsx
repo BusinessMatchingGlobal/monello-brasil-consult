@@ -43,6 +43,8 @@ import LorenzettiIT from "./pages/analysis/Lorenzetti_IT";
 import LorenzettiBR from "./pages/analysis/Lorenzetti_BR";
 import Economist from "./pages/analysis/Economist";
 import EconomistIT from "./pages/analysis/Economist_IT";
+import EconomistBR from "./pages/analysis/Economist_BR";
+
 
 
 import { LanguageProvider } from "./lib/i18n";
