@@ -38,6 +38,7 @@ import Voli from "./pages/calliphora/Voli";
 import Lorenzetti from "./pages/analysis/Lorenzetti";
 import Ceuta from "./pages/analysis/Ceuta";
 import CeutaBR from "./pages/analysis/Ceuta_BR";
+import CeutaIT from "./pages/analysis/Ceuta_IT";
 import LorenzettiIT from "./pages/analysis/Lorenzetti_IT";
 import LorenzettiBR from "./pages/analysis/Lorenzetti_BR";
 
@@ -97,6 +98,8 @@ const App = () => {
             <Route path="/ceuta_en" element={<Ceuta />} />
             <Route path="/ceuta_br" element={<CeutaBR />} />
             <Route path="/Ceuta_BR" element={<CeutaBR />} />
+            <Route path="/ceuta_it" element={<CeutaIT />} />
+            <Route path="/Ceuta_IT" element={<CeutaIT />} />
             <Route path="/Lorenzetti" element={<LorenzettiLocalized />} />
             <Route path="/lorenzetti_en" element={<Lorenzetti />} />
             <Route path="/lorenzetti_it" element={<LorenzettiIT />} />
