@@ -52,3 +52,10 @@ export function CeutaLocalized() {
   if (lang === "pt") return <CeutaBR />;
   return <CeutaEN />;
 }
+
+export function EconomistLocalized() {
+  const { lang } = useT();
+  if (lang === "it") return <EconomistEN />;
+  if (lang === "pt") return <EconomistEN />;
+  return <EconomistEN />;
+}

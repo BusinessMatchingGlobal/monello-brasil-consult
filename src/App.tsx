@@ -101,6 +101,8 @@ const App = () => {
             <Route path="/Ceuta_BR" element={<CeutaBR />} />
             <Route path="/ceuta_it" element={<CeutaIT />} />
             <Route path="/Ceuta_IT" element={<CeutaIT />} />
+            <Route path="/economist" element={<EconomistLocalized />} />
+            <Route path="/Economist" element={<EconomistLocalized />} />
             <Route path="/Lorenzetti" element={<LorenzettiLocalized />} />
             <Route path="/lorenzetti_en" element={<Lorenzetti />} />
             <Route path="/lorenzetti_it" element={<LorenzettiIT />} />
