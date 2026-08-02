@@ -36,6 +36,7 @@ import AiJusBR from "./pages/analysis/AiJus_BR";
 import { AiJusLocalized, AmaroLocalized, EmbraerLocalized, LorenzettiLocalized } from "./pages/analysis/LocalizedArticle";
 import Voli from "./pages/calliphora/Voli";
 import Lorenzetti from "./pages/analysis/Lorenzetti";
+import Ceuta from "./pages/analysis/Ceuta";
 import LorenzettiIT from "./pages/analysis/Lorenzetti_IT";
 import LorenzettiBR from "./pages/analysis/Lorenzetti_BR";
 
@@ -90,6 +91,8 @@ const App = () => {
             <Route path="/pix" element={<Pix />} />
             <Route path="/suja" element={<Suja />} />
             <Route path="/lorenzetti" element={<LorenzettiLocalized />} />
+            <Route path="/ceuta" element={<Ceuta />} />
+            <Route path="/Ceuta" element={<Ceuta />} />
             <Route path="/Lorenzetti" element={<LorenzettiLocalized />} />
             <Route path="/lorenzetti_en" element={<Lorenzetti />} />
             <Route path="/lorenzetti_it" element={<LorenzettiIT />} />
