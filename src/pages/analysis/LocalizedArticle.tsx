@@ -15,6 +15,7 @@ import CeutaEN from "./Ceuta";
 import CeutaBR from "./Ceuta_BR";
 import CeutaIT from "./Ceuta_IT";
 import EconomistEN from "./Economist";
+import EconomistIT from "./Economist_IT";
 
 // Renders the language variant matching the current site language
 // (auto-detected from the browser on first visit), on a single shared URL.
@@ -55,7 +56,7 @@ export function CeutaLocalized() {
 
 export function EconomistLocalized() {
   const { lang } = useT();
-  if (lang === "it") return <EconomistEN />;
+  if (lang === "it") return <EconomistIT />;
   if (lang === "pt") return <EconomistEN />;
   return <EconomistEN />;
 }
