@@ -15,8 +15,8 @@ import { LangSwitcher } from "@/components/LangSwitcher";
 import { GuidesMenu } from "@/components/GuidesMenu";
 
 const PDF_URL = guideAsset.url;
-const PDF_FILENAME = "Vendere_macchinari_in_Brasile_BMG.pdf";
-const SOURCE = "SACE guide page (/sace)";
+const PDF_FILENAME = "EUDR_Guia_Pequeno_Produtor_BMG.pdf";
+const SOURCE = "EUDR guide page (/eudr)";
 
 const schema = z.object({
   firstName: z.string().trim().min(1).max(80),
@@ -59,18 +59,18 @@ const copy: Record<Lang, Copy> = {
   it: {
     back: "Torna alla home",
     eyebrow: "Guida gratuita",
-    title: "Vendere macchinari in Brasile — SACE, SIMEST ed ex-tarifário",
-    sub: "Guida operativa per la PMI italiana dei beni strumentali: finanziare la vendita con gli strumenti pubblici italiani di credito all'esportazione e abbattere il dazio brasiliano con l'ex-tarifário. Compila il form per scaricare la guida e, se vuoi, iscriviti alla newsletter #CustoBrasil.",
+    title: "EUDR — Guida per il piccolo produttore",
+    sub: "Il regolamento europeo anti-deforestazione (EUDR) spiegato al piccolo produttore brasiliano: cosa serve, come si documenta l'origine e come restare nella filiera che esporta verso l'Unione Europea. Compila il form per scaricare la guida e, se vuoi, iscriviti alla newsletter #CustoBrasil.",
     bullets: [
-      "Credito fornitore e acquirente con SACE e SIMEST",
-      "Ex-tarifário: come azzerare il dazio sui beni di capitale",
-      "Regimi doganali speciali: drawback, Recof, admissão temporária",
-      "Cosa cambia con l'accordo UE-Mercosur e la Resolução Gecex 852/2026",
+      "Cosa chiede davvero l'EUDR al piccolo produttore",
+      "Geolocalizzazione e tracciabilità dell'appezzamento",
+      "Due diligence: documenti, dichiarazioni e responsabilità lungo la filiera",
+      "Scadenze e passi pratici per non uscire dal mercato UE",
     ],
     meta: [
       { label: "Formato", value: "PDF" },
-      { label: "Lingua", value: "Italiano" },
-      { label: "Edizione", value: "1.0 · Luglio 2026" },
+      { label: "Lingua", value: "Portoghese (BR)" },
+      { label: "Edizione", value: "1.0 · 2026" },
     ],
     formTitle: "Compila per scaricare la guida",
     firstName: "Nome",
@@ -91,23 +91,23 @@ const copy: Record<Lang, Copy> = {
     newsletterError: "Il download è pronto, ma l'invio dell'email newsletter non è riuscito. Riprova tra poco.",
     download: "Scarica il PDF",
     again: "Scarica per un'altra persona",
-    fileLabel: "Vendere macchinari in Brasile",
+    fileLabel: "EUDR — Guia do Pequeno Produtor",
   },
   en: {
     back: "Back to home",
     eyebrow: "Free guide",
-    title: "Selling machinery in Brazil — SACE, SIMEST and ex-tarifário",
-    sub: "An operational guide for Italian capital-goods SMEs: financing the sale with Italian export-credit tools and cutting the Brazilian import duty with the ex-tarifário regime. Fill in the form to download the guide and, if you wish, subscribe to the #CustoBrasil newsletter. (The guide is written in Italian.)",
+    title: "EUDR — A guide for the smallholder producer",
+    sub: "The EU Deforestation Regulation (EUDR) explained for the Brazilian smallholder: what is required, how to document origin, and how to stay in the supply chain that exports to the European Union. Fill in the form to download the guide and, if you wish, subscribe to the #CustoBrasil newsletter. (The guide is written in Brazilian Portuguese.)",
     bullets: [
-      "Supplier and buyer credit with SACE and SIMEST",
-      "Ex-tarifário: how to zero the duty on capital goods",
-      "Special customs regimes: drawback, Recof, temporary admission",
-      "What changes with EU-Mercosur and Resolução Gecex 852/2026",
+      "What the EUDR actually requires from a smallholder",
+      "Plot geolocation and traceability",
+      "Due diligence: documents, declarations and chain responsibility",
+      "Deadlines and practical steps to stay in the EU market",
     ],
     meta: [
       { label: "Format", value: "PDF" },
-      { label: "Language", value: "Italian" },
-      { label: "Edition", value: "1.0 · July 2026" },
+      { label: "Language", value: "Portuguese (BR)" },
+      { label: "Edition", value: "1.0 · 2026" },
     ],
     formTitle: "Fill in to download the guide",
     firstName: "First name",
@@ -128,23 +128,23 @@ const copy: Record<Lang, Copy> = {
     newsletterError: "Your download is ready, but the newsletter email could not be sent. Please try again shortly.",
     download: "Download the PDF",
     again: "Download for another person",
-    fileLabel: "Selling machinery in Brazil",
+    fileLabel: "EUDR — Guia do Pequeno Produtor",
   },
   pt: {
     back: "Voltar para a home",
     eyebrow: "Guia gratuito",
-    title: "Vender máquinas no Brasil — SACE, SIMEST e ex-tarifário",
-    sub: "Guia operacional para a PME italiana de bens de capital: financiar a venda com os instrumentos públicos italianos de crédito à exportação e reduzir o imposto de importação com o ex-tarifário. Preencha o formulário para baixar o guia e, se quiser, assine a newsletter #CustoBrasil. (O guia está em italiano.)",
+    title: "EUDR — Guia do Pequeno Produtor",
+    sub: "O regulamento europeu antidesmatamento (EUDR) explicado para o pequeno produtor brasileiro: o que é exigido, como comprovar a origem e como permanecer na cadeia que exporta para a União Europeia. Preencha o formulário para baixar o guia e, se quiser, assine a newsletter #CustoBrasil.",
     bullets: [
-      "Crédito fornecedor e comprador com SACE e SIMEST",
-      "Ex-tarifário: como zerar o imposto sobre bens de capital",
-      "Regimes aduaneiros especiais: drawback, Recof, admissão temporária",
-      "O que muda com o acordo UE-Mercosul e a Resolução Gecex 852/2026",
+      "O que a EUDR realmente exige do pequeno produtor",
+      "Geolocalização e rastreabilidade do talhão",
+      "Due diligence: documentos, declarações e responsabilidade na cadeia",
+      "Prazos e passos práticos para não perder o mercado da UE",
     ],
     meta: [
       { label: "Formato", value: "PDF" },
-      { label: "Idioma", value: "Italiano" },
-      { label: "Edição", value: "1.0 · Julho 2026" },
+      { label: "Idioma", value: "Português (BR)" },
+      { label: "Edição", value: "1.0 · 2026" },
     ],
     formTitle: "Preencha para baixar o guia",
     firstName: "Nome",
@@ -165,7 +165,7 @@ const copy: Record<Lang, Copy> = {
     newsletterError: "O download está pronto, mas não foi possível enviar o e-mail da newsletter. Tente novamente em instantes.",
     download: "Baixar o PDF",
     again: "Baixar para outra pessoa",
-    fileLabel: "Vender máquinas no Brasil",
+    fileLabel: "EUDR — Guia do Pequeno Produtor",
   },
 };
 
@@ -179,15 +179,15 @@ function triggerDownload() {
   a.remove();
 }
 
-export default function SaceGuide() {
+export default function EudrGuide() {
   const { lang } = useT();
   const seo =
     lang === "it"
-      ? { title: "Vendere macchinari in Brasile — SACE e ex-tarifário | BMG", description: "Guida gratuita per la PMI italiana: finanziare l'export con SACE e SIMEST e azzerare il dazio con l'ex-tarifário." }
+      ? { title: "EUDR — Guida per il piccolo produttore | BMG", description: "Guida gratuita all'EUDR: tracciabilità, geolocalizzazione e due diligence per restare nella filiera che esporta in UE." }
       : lang === "pt"
-      ? { title: "Vender máquinas no Brasil — SACE e ex-tarifário | BMG", description: "Guia gratuito: crédito à exportação italiano (SACE, SIMEST) e redução do imposto com ex-tarifário." }
-      : { title: "Selling machinery in Brazil — SACE and ex-tarifário | BMG", description: "Free guide: Italian export credit (SACE, SIMEST) and cutting Brazilian import duty with ex-tarifário." };
-  useCanonical("/sace", seo);
+      ? { title: "EUDR — Guia do Pequeno Produtor | BMG", description: "Guia gratuito sobre a EUDR: rastreabilidade, geolocalização e due diligence para continuar exportando para a UE." }
+      : { title: "EUDR — Guide for smallholder producers | BMG", description: "Free EUDR guide: traceability, plot geolocation and due diligence to stay in the EU supply chain." };
+  useCanonical("/eudr", seo);
   const c = copy[lang];
 
   const [firstName, setFirstName] = useState("");
@@ -287,21 +287,21 @@ export default function SaceGuide() {
                 <h2 className="text-xl font-semibold mb-2">{c.formTitle}</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label htmlFor="saceFirstName">{c.firstName} *</Label>
-                    <Input id="saceFirstName" required maxLength={80} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    <Label htmlFor="eudrFirstName">{c.firstName} *</Label>
+                    <Input id="eudrFirstName" required maxLength={80} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="saceLastName">{c.lastName} *</Label>
-                    <Input id="saceLastName" required maxLength={80} value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                    <Label htmlFor="eudrLastName">{c.lastName} *</Label>
+                    <Input id="eudrLastName" required maxLength={80} value={lastName} onChange={(e) => setLastName(e.target.value)} />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="saceEmail">{c.email} *</Label>
-                  <Input id="saceEmail" type="email" required maxLength={255} value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <Label htmlFor="eudrEmail">{c.email} *</Label>
+                  <Input id="eudrEmail" type="email" required maxLength={255} value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="saceCompany">{c.company}</Label>
-                  <Input id="saceCompany" maxLength={120} value={company} onChange={(e) => setCompany(e.target.value)} />
+                  <Label htmlFor="eudrCompany">{c.company}</Label>
+                  <Input id="eudrCompany" maxLength={120} value={company} onChange={(e) => setCompany(e.target.value)} />
                 </div>
                 <label className="flex items-start gap-3 text-sm text-muted-foreground pt-2">
                   <Checkbox checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-0.5" />
