@@ -42,6 +42,8 @@ import CeutaIT from "./pages/analysis/Ceuta_IT";
 import LorenzettiIT from "./pages/analysis/Lorenzetti_IT";
 import LorenzettiBR from "./pages/analysis/Lorenzetti_BR";
 import Economist from "./pages/analysis/Economist";
+import EconomistIT from "./pages/analysis/Economist_IT";
+
 
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
