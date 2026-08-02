@@ -20,6 +20,16 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     },
   },
   {
+    slug: "ceuta_br",
+    group: "ceuta",
+    date: "2026-08-02",
+    title: {
+      it: "Votando com os pés",
+      en: "Votando com os pés",
+      pt: "Votando com os pés",
+    },
+  },
+  {
     slug: "lorenzetti",
     group: "lorenzetti",
     date: "2026-08-01",
