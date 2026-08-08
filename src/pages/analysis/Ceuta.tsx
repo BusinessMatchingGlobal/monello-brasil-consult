@@ -100,6 +100,7 @@ export default function Ceuta() {
         </div>
         <article className="prose-invert">
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4">{TITLE}</h1>
+          <p className="text-xs text-foreground/70 mb-10">#CustoBrasil — Business Matching Global · published 2 August 2026, rewritten and updated 8 August 2026</p>
           <div className="space-y-5 text-foreground/85 text-justify leading-relaxed">
             {body.map((block, i) =>
               "h" in block ? (
