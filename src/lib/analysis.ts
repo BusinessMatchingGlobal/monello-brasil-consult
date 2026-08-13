@@ -3,6 +3,7 @@ import type { Lang } from "./i18n";
 export type AnalysisArticle = {
   slug: string; // route path without leading slash, e.g. "pix"
   date: string; // ISO date, used for "most recent first"
+  updated?: string; // ISO date of the latest rewrite/update, when applicable
   title: Record<Lang, string>;
   group?: string; // variants of the same article share the same group slug
 };
@@ -43,6 +44,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     slug: "ceuta",
     group: "ceuta",
     date: "2026-08-02",
+    updated: "2026-08-08",
     title: {
       it: "Voting with Their Feet",
       en: "Voting with Their Feet",
@@ -53,6 +55,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     slug: "ceuta_br",
     group: "ceuta",
     date: "2026-08-02",
+    updated: "2026-08-08",
     title: {
       it: "Votando com os pés",
       en: "Votando com os pés",
@@ -63,6 +66,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     slug: "ceuta_it",
     group: "ceuta",
     date: "2026-08-02",
+    updated: "2026-08-08",
     title: {
       it: "Votare con i piedi",
       en: "Votare con i piedi",
@@ -183,6 +187,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     slug: "pix",
     group: "pix",
     date: "2026-07-23",
+    updated: "2026-08-01",
     title: {
       it: "Il primo dazio su un metodo",
       en: "The First Tariff on a Method",
@@ -227,4 +232,11 @@ export function getLocalizedArticles(lang: Lang, max = 6): AnalysisArticle[] {
     result.push({ ...localized, slug: getGroupSlug(localized) });
   }
   return result.sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, max);
+}
+
+// Localized "updated" label + date, or the publication date.
+export function formatArticleDate(article: AnalysisArticle, lang: Lang): string {
+  if (!article.updated) return article.date;
+  const label = lang === "it" ? "aggiornato" : lang === "pt" ? "atualizado" : "updated";
+  return `${label} ${article.updated}`;
 }
