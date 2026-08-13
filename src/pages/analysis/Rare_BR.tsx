@@ -1,0 +1,148 @@
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
+import { useT } from "@/lib/i18n";
+import { getArticleBySlug } from "@/lib/analysis";
+import { AnalysisFooter } from "@/components/AnalysisFooter";
+import { useCanonical } from "@/lib/useCanonical";
+import { ShareBlock } from "@/components/ShareBlock";
+import { LangSwitcher } from "@/components/LangSwitcher";
+
+type Block = { h: string } | { p: string };
+
+const TITLE = "Terras raras no Brasil: a geologia está resolvida. Todo o resto está em disputa.";
+
+const BACK = {
+  it: "Torna alle analisi",
+  en: "Back to analysis",
+  pt: "Voltar às análises",
+} as const;
+
+const body: Block[] = [
+  { p: `Há um número que deveria tirar o sono de qualquer pessoa que trabalhe com indústria, defesa ou transição energética: hoje, 100% das terras raras pesadas que alimentam os ímãs, os motores elétricos e os sistemas de defesa avançados da Europa vêm, direta ou indiretamente, da China. Não 60%, não 80%. A totalidade.` },
+  { p: `Pequim controla cerca de 60% da mineração global e a esmagadora maioria da capacidade de separação e refino. Mesmo quando o minério é extraído em outro lugar, o gargalo tecnológico permanece nas mãos de um único ator — que já demonstrou repetidamente saber usar restrições à exportação como alavanca geopolítica.` },
+  { p: `Nesse cenário, o Brasil detém as segundas maiores reservas declaradas do mundo — cerca de 21 milhões de toneladas — e o estado de Minas Gerais abriga o que podem ser os depósitos não desenvolvidos mais estratégicos fora da China. A União Europeia percebeu: o Comissário para Parcerias Internacionais Jozef Síkela esteve no Brasil em junho de 2026 no âmbito da estratégia Global Gateway, e Bruxelas apontou projetos brasileiros de minerais críticos — incluindo o projeto de terras raras Colossus, em Poços de Caldas — como prioritários nos termos do Critical Raw Materials Act (CRMA).` },
+  { p: `Até aqui, tudo otimista. Mas quem apresenta Minas Gerais como uma jurisdição livre de riscos não está contando a história toda. A geologia é extraordinária. As licenças, os tribunais, o Congresso e as comunidades são outra questão inteiramente distinta — e, para um investidor europeu, compreender essa segunda metade é o que separa uma tese de uma manchete.` },
+  { p: `Este é o quadro completo, em agosto de 2026.` },
+  { h: `1. Por que essa geologia é genuinamente diferente` },
+  { p: `A vantagem brasileira não é o volume. É o tipo de depósito.` },
+  { p: `O planalto vulcânico de Poços de Caldas — uma caldeira alcalina de cerca de 750 km² no sul de Minas — abriga formações maciças de argilas iônicas (ionic adsorption clays, IAC): geologicamente, quase um “copia e cola” dos depósitos do sul da China, em Jiangxi e Guangdong, que por décadas forneceram praticamente todas as terras raras pesadas do mundo. Duas desenvolvedoras listadas na Austrália dominam o distrito:` },
+  { p: `Viridis Mining & Minerals — Projeto Colossus: 228,6 km² de direitos minerários, recurso de 493 Mt com teor médio de ~2.508 ppm de TREO e uma cesta de terras raras magnéticas (NdPr, Dy, Tb) várias vezes mais rica do que os teores tipicamente operados na China. VPL antes de impostos estimado em torno de US$ 1,4 bilhão; cartas de apoio de agências de crédito à exportação, incluindo Export Development Canada, Bpifrance e Export Finance Australia; uma joint venture downstream paritária (“Viridion”) com a Ionic Rare Earths, pré-qualificada para um programa de financiamento BNDES/FINEP de R$ 5 bilhões.` },
+  { p: `Meteoric Resources — Projeto Caldeira: 77 licenças em 193 km², recurso de escala provincial acima de 1 bilhão de toneladas, amplamente descrito como o depósito de argilas iônicas de mais alto teor conhecido no mundo. Um MoU de offtake com a Ucore Rare Metals destinará 3.000 t/ano de carbonato misto de terras raras ao Louisiana Strategic Metals Complex, nos EUA — instalação apoiada pelo Departamento de Defesa americano. O Caldeira é também o único projeto de mineração incluído na primeira fase da Plataforma de Investimento para a Transformação Ecológica do Brasil (BIP), apresentada no G20.` },
+  { p: `Em comparação com a rocha dura, os depósitos de argila iônica oferecem três vantagens estruturais: lavra “free-dig” com escavadeiras convencionais (sem perfuração, sem explosivos, CAPEX e OPEX drasticamente menores); lixiviação à temperatura ambiente com sais de baixo custo, em vez de ustulação em alta temperatura com ácidos concentrados; e ausência de barragens de rejeitos — as argilas exauridas são quimicamente inertes e podem retornar às cavas, permitindo reabilitação progressiva.` },
+  { p: `No papel, é o caminho mais eficiente em capital e de menor risco ESG hoje existente para um suprimento ocidental de terras raras pesadas. No papel.` },
+  { h: `2. A batalha das licenças: o que realmente aconteceu em Poços de Caldas` },
+  { p: `Eis a parte que raramente chega às apresentações para investidores.` },
+  { p: `Em novembro de 2025, o Ministério Público Federal (MPF) enviou recomendações urgentes aos órgãos ambientais de Minas Gerais (FEAM e o conselho estadual de política ambiental, Copam) exigindo a retirada de pauta dos processos de licença prévia tanto do Colossus quanto do Caldeira. As objeções do MPF não eram detalhes processuais. Incluíam:` },
+  { p: `Uma liminar judicial supostamente descumprida, que proibia a concessão de novos direitos minerários na região — o MPF apontou possível ilegalidade em simplesmente prosseguir;` },
+  { p: `Ausência de consulta livre, prévia e informada às comunidades indígenas e quilombolas afetadas pelo Projeto Caldeira — exigência vinculante da Convenção 169 da OIT, cuja omissão, na leitura do MPF, impede o avanço do licenciamento;` },
+  { p: `Sobreposição com área protegida: parte do Caldeira incide na APA Santuário Ecológico da Pedra Branca, em Caldas, onde a lei municipal proíbe a mineração — e o conselho gestor da APA já havia rejeitado o pedido;` },
+  { p: `Licenciamento fragmentado: avaliar cada projeto isoladamente, argumentou o MPF, não captura os impactos cumulativos e sinérgicos de múltiplas minas sobre um planalto sensível, de aquíferos interconectados e Mata Atlântica; o órgão exigiu uma Avaliação Ambiental Estratégica ou Integrada para todo o distrito;` },
+  { p: `Um vício de governança: o Copam e sua Câmara de Atividades Minerárias operavam com mandatos vencidos e composição não renovada desde maio de 2025, comprometendo a paridade exigida entre Estado e sociedade civil.` },
+  { p: `Os projetos foram retirados da pauta de novembro — e então, em 19 de dezembro de 2025, um dia depois de o MPF enviar novas recomendações, a câmara de mineração do Copam aprovou as duas licenças prévias (LPs) mesmo assim, em uma sessão virtual de sete horas com mais de cinquenta manifestantes da sociedade civil inscritos para falar. O Colossus passou por unanimidade; o Caldeira, com onze votos favoráveis.` },
+  { p: `As aprovações não encerraram o conflito. Apenas o deslocaram:` },
+  { p: `Em março de 2026, a comissão especial sobre terras raras da Câmara Municipal de Poços de Caldas começou a analisar um laudo pericial encaminhado pelo Judiciário mineiro — inclusive em conexão com possível extração irregular de minerais;` },
+  { p: `Em maio de 2026, ocorreu em Poços de Caldas a Marcha contra a Mineração de Terras Raras, seguida de audiência pública na Assembleia Legislativa;` },
+  { p: `A oposição local não é marginal: inclui mais de 900 produtores rurais (café, leite, uva, rosas), operadores de turismo ligados à economia das águas termais, vereadores dos dois municípios e ONGs que apontam que algumas cavas planejadas ficam a poucas centenas de metros de um hospital, de um aeroporto e de bairros residenciais, sobre zona de recarga de aquífero com dezenas de nascentes.` },
+  { p: `A lição para o investidor: as licenças prévias existem, mas são licenças contestadas, obtidas sob objeção explícita do MPF que invoca uma liminar judicial. O passo da LP para a licença de instalação (LI) — o documento que efetivamente autoriza a construção e destrava a concessão de lavra — é onde todas essas questões não resolvidas convergem. Quem modela cronogramas deve tratar a cadeia de licenças como risco litigioso vivo, não como formalidade administrativa.` },
+  { h: `3. A sombra nuclear` },
+  { p: `Há uma razão histórica precisa para essa região lutar com tanta força.` },
+  { p: `Poços de Caldas e a vizinha Caldas abrigam a primeira mina de urânio do Brasil, operada pela estatal INB até 1995. O sítio deixou cerca de 15 milhões de metros cúbicos de rocha exposta geradora de drenagem ácida e aproximadamente 12.000 toneladas de resíduo altamente radioativo conhecido como “Torta II” — herança do processamento da monazita, armazenada em tambores e silos em degradação, numa instalação nunca totalmente descomissionada. Algumas das novas cavas de argila iônica estão previstas a cerca de dois quilômetros do perímetro da INB. O temor local — de que o tráfego pesado de caminhões, as vibrações superficiais e a alteração dos fluxos subterrâneos possam comprometer frágeis estruturas de contenção — aqui não é abstração. É memória vivida.` },
+  { p: `A resposta regulatória, até agora, na verdade favoreceu as desenvolvedoras: com base em dezenas de milhares de amostras de sondagem, as autoridades nucleares constataram teores de urânio e tório nas argilas mineralizadas muito abaixo do limiar de isenção radiológica, isentando formalmente os projetos dos protocolos de contenção de grau nuclear. E o dossiê é gerido ativamente: em junho de 2026, a nova Autoridade Nacional de Segurança Nuclear (ANSN) inspecionou as plantas piloto da Meteoric e da Viridis no planalto, coletando amostras para verificar a classificação das instalações. Terras raras podem estar associadas a urânio e tório, e cada jazida precisa ser analisada individualmente — mas, até aqui, a ciência tem dado razão à tese das argilas iônicas.` },
+  { p: `A Meteoric, por sua vez, aceitou um protocolo municipal vinculante com 46 condicionantes de salvaguarda ambiental — incluindo o desvio de 30 km nas rotas de caminhões para contornar integralmente o perímetro da INB, e obrigações de aterramento progressivo (backfilling) que limitam quantas cavas podem estar abertas simultaneamente. Esse é o custo da licença social neste distrito. Coloquem no modelo.` },
+  { h: `4. O duelo legislativo: quem vai de fato governar os minerais críticos brasileiros?` },
+  { p: `Enquanto a batalha das licenças se trava no nível estadual, o Congresso disputa o próprio livro de regras — e é isso, mais do que a geologia, que determinará o que o capital estrangeiro poderá ou não fazer.` },
+  { p: `O texto mais avançado: PL 2.780/2024. Aprovado pela Câmara dos Deputados em maio de 2026 e agora no Senado, o projeto cria a Política Nacional de Minerais Críticos e Estratégicos: conselho federal, cadastro de projetos, critérios para atualizar a lista de minerais (risco de abastecimento, dependência externa, transição energética, defesa, relevância econômica). No plano financeiro, prevê um fundo garantidor de R$ 2 bilhões e até R$ 5 bilhões em créditos tributários federais entre 2030 e 2034, além de leilões de áreas da ANM e pesquisa por até dez anos. A contrapartida: as empresas recolheriam, por seis anos, 0,2% da receita operacional bruta para o fundo e 0,3% para pesquisa e inovação — somados à CFEM de 2% e aos tributos da atividade. Juristas que acompanham o tema elogiam o fundo garantidor (projetos minerários iniciantes no Brasil são notoriamente difíceis de financiar), ressalvando que o texto ainda precisa de ajustes em pontos sensíveis. Suas inovações institucionais de maior alcance — mineração de baixo carbono, mineração urbana, rastreabilidade da produção — transcendem os minerais críticos.` },
+  { p: `O rival: PL 4.443/2025. Na Comissão de Infraestrutura do Senado, este projeto concorrente cria outra arquitetura de política, define minerais prioritários e prevê “zonas de transformação mineral”. Os textos se sobrepõem; o Senado terá de reuni-los ou escolher um. Órgãos com funções duplicadas significariam custos maiores e decisões contraditórias — exatamente o oposto do que os investidores precisam.` },
+  { p: `A questão central de governança — como formulou Loyanna Menezes, CEO do Abi-Ackel Advogados e líder da área regulatória da banca, em entrevista recente à LexLegal — é delimitar as competências entre o novo CIMCE (Conselho Nacional para a Industrialização de Minerais Críticos e Estratégicos) e a ANM: o Conselho deve formular a estratégia e definir prioridades, enquanto a Agência deve preservar a instrução técnica, a execução regulatória e a fiscalização. Sua receita para o marco como um todo: previsibilidade regulatória combinada com incentivos condicionados à industrialização, e soberania protegida por critérios objetivos de triagem de operações estratégicas — sem restrições genéricas ao capital estrangeiro.` },
+  { p: `Esse último ponto importa, porque restrições genéricas são exatamente o que propõe uma terceira corrente legislativa. Projetos da ala intervencionista do partido governista pretendem recolocar o Estado no comando exclusivo dos minerais críticos — uma das propostas chegaria a vedar que empresas sob controle estrangeiro explorem, lavrem, beneficiem ou vendam esses minerais. E um projeto apresentado em 2026 mira este distrito nominalmente: declararia o planalto vulcânico do sul de Minas e de São Paulo — o maciço alcalino de Poços de Caldas, definido por coordenadas — Reserva Nacional, suspendendo autorizações de pesquisa, concessões de lavra, licenças ambientais e leilões na área até que condições especiais fixadas pelo Executivo federal sejam atendidas.` },
+  { p: `Analistas consideram improvável que as cláusulas nacionalistas extremas passem num Congresso de perfil centrista. Mas “improvável” não é “impossível”, e a mera existência de um projeto que congelaria o exato polígono onde estão Colossus e Caldeira é um fator de risco que merece lugar em qualquer memorando de comitê de investimentos — e uma razão para estruturar-se por veículos locais com ring-fencing cuidadoso.` },
+  { h: `5. O que o capital estrangeiro precisa entender do sistema brasileiro` },
+  { p: `Algumas características estruturais do direito minerário brasileiro que todo conselho europeu deveria internalizar antes de redigir term sheets:` },
+  { p: `A jazida pertence à União, ponto final. A propriedade da superfície é juridicamente separada do subsolo. Investidores estrangeiros participam por sociedade constituída no Brasil; a transferência do direito minerário depende de aprovação pública; faixa de fronteira, terras indígenas e substâncias do setor nuclear seguem regimes especiais. O capital compra participação num projeto — nunca a jazida.` },
+  { p: `A cadeia de licenças é sequencial e independente. Autorização de pesquisa da ANM → relatório final de pesquisa → concessão de lavra (com plano de aproveitamento e plano de fechamento) — e, separadamente, a cadeia ambiental: licença prévia (LP) → licença de instalação (LI) → licença de operação (LO). O título minerário não libera a mina; licenças ambientais, uso de água e supressão de vegetação exigem aprovações próprias. A demora do órgão público jamais gera autorização automática. Projetos classificados como estratégicos podem receber análise prioritária pela licença ambiental especial — que acelera a tramitação, mas não elimina estudo, consulta nem condicionantes.` },
+  { p: `A pilha de royalties. As terras raras estão sujeitas à CFEM de 2% sobre a receita bruta; quando a lavra ocorre em terreno privado — quase sempre, nesses distritos agrícolas — o proprietário da superfície tem direito, por lei, a uma participação adicional equivalente a 50% da CFEM recolhida ao Estado. Somem-se os previstos 0,2% + 0,3% do PL 2.780/2024, a tributação societária ordinária e as retenções sobre dividendos remetidos ao exterior, e o ônus sobre a receita torna-se insumo central de qualquer modelo de fluxo de caixa.` },
+  { p: `Povos indígenas e comunidades tradicionais têm proteção própria. O artigo 231 da Constituição exige autorização do Congresso, consulta às comunidades afetadas e participação no resultado da lavra em terras indígenas; uma licença administrativa comum não abre essas áreas. Para além das terras formalmente demarcadas, impactos sobre comunidades tradicionais podem exigir consulta livre, prévia e informada — exatamente o terreno em que o MPF questionou o Caldeira. Erros aqui suspendem obras e comprometem o financiamento.` },
+  { p: `A diligência de títulos não perdoa. Matrícula, servidões, indenizações, participação do proprietário na lavra e restrições territoriais precisam ser verificadas; a superfície pode ser privada, pública ou ocupada por comunidades. Neste distrito, isso não é cláusula de estilo — é onde projetos já tropeçaram.` },
+  { h: `6. Downstream: onde se concentram a disputa — e o valor` },
+  { p: `Extrair o carbonato misto de terras raras é só metade do caminho. O beneficiamento retira impurezas e concentra os elementos aproveitáveis; depois vêm as etapas realmente difíceis — separação química, produção de óxidos e metais, fabricação de componentes, entre eles os ímãs permanentes que vão para veículos elétricos, turbinas e eletrônicos. É nesse trecho da cadeia que se concentram a tecnologia, os empregos qualificados e a maior parte do valor comercial. Um país que exporta apenas concentrado continua dependente do processamento realizado no exterior — e um minerador que vende MREC recebe tipicamente cerca de 70% do valor nominal dos óxidos contidos, com frete e encargos de refino implicitamente deduzidos.` },
+  { p: `O Brasil sabe disso, e age em três níveis:` },
+  { p: `Condicionalidade do poder público. Brasília tem sido explícita: incentivos devem estar vinculados à industrialização em solo brasileiro — crédito subsidiado e benefícios fiscais atrelados a pesquisa, rastreabilidade da produção, desenvolvimento tecnológico e metas verificáveis. Esse é o critério decisivo sendo escrito no novo marco legal: sem contrapartidas, os incentivos aumentariam a extração sem ampliar a capacidade industrial brasileira.` },
+  { p: `MagBras. Em Lagoa Santa, Minas Gerais, a iniciativa desenvolve tecnologia nacional para a fabricação de ímãs permanentes de terras raras — o caso de referência sobre como direcionar incentivos públicos, e um sinal de onde o Estado quer que a cadeia aterrisse.` },
+  { p: `Viridion. A joint venture Viridis–Ionic constrói capacidade de separação, refino e reciclagem em Poços de Caldas, pré-qualificada para o programa BNDES/FINEP de R$ 5 bilhões — concebida para produzir um produto pré-refinado destinado às “gigafábricas de metais” ocidentais, como o complexo da Ucore na Louisiana.` },
+  { p: `Para empresas europeias de engenharia química, fabricantes de equipamentos e instituições de pesquisa, este é o ponto de entrada. O Brasil não pede à Europa apenas capital; pede a única coisa que a China não venderá: o know-how de separação. A sobreposição entre o que Brasília exige e o que a indústria europeia pode oferecer é o argumento mais forte a favor do corredor.` },
+  { h: `7. O que isso significa para os atores europeus` },
+  { p: `Amarrando os fios, a oportunidade europeia hoje se apresenta assim — com a lente de risco acoplada:` },
+  { p: `1. Financiamento e respaldo político — reais, porém incipientes. O engajamento do Global Gateway e a priorização no CRMA são genuínos e recentes. Mas, até o momento, as discussões de financiamento europeias permanecem em larga medida no plano das intenções, sem grandes compromissos formalizados. As agências de crédito à exportação (EDC, Bpifrance, EFA) estão à frente de Bruxelas. Os pioneiros moldarão as condições; carregarão também o risco da cadeia de licenças descrito acima.` },
+  { p: `2. Offtake — o ativo escasso é o MREC alinhado ao Ocidente. A Viridis escolheu explicitamente negociar apenas com compradores ocidentais; o carbonato da Meteoric já está parcialmente comprometido com uma refinaria americana apoiada pela defesa. A indústria europeia — automotiva, eólica, de defesa — compete pelos volumes restantes com contrapartes americanas que se movem mais rápido e pagam prêmios de política pública. Esperar a concessão da LI para negociar significa negociar do fim da fila.` },
+  { p: `3. Transferência de tecnologia — a porta mais larga, e a menos disputada. A direção regulatória é inequívoca: incentivos condicionados à industrialização, triagem objetiva em vez de restrições genéricas, conteúdo nacional na cadeia de processamento. Um fornecedor europeu de tecnologia de separação, instrumentação analítica ou know-how de ímãs entra nesse mercado empurrando uma porta aberta — e, ao contrário do investidor puramente financeiro, fica em grande parte protegido do risco de cauda nacionalista, porque é precisamente o que toda versão do marco legal quer em maior quantidade.` },
+  { p: `4. Estruturar-se para a política. Veículos de direito brasileiro, sócios locais, diligência cuidadosa de títulos, conformidade com a Convenção 169 da OIT incorporada desde o primeiro dia, e protocolos com as comunidades tratados como custo do negócio, não como emboscada. O precedente da Meteoric — 46 condicionantes, 30 km de rotas desviadas — é o modelo realista.` },
+  { h: `Em síntese` },
+  { p: `Minas Gerais ainda oferece uma das proposições mais assimétricas dos minerais críticos globais: geologia de classe mundial em argilas iônicas, perfil ESG estruturalmente superior na etapa de extração, dinheiro de agências de crédito à exportação já na mesa e uma União Europeia que finalmente apareceu em pessoa.` },
+  { p: `Mas a versão honesta da tese tem três cláusulas, não uma. A geologia está resolvida. As licenças foram concedidas, mas são contestadas — pelo Ministério Público Federal, pelos tribunais, por duas câmaras municipais e por novecentos produtores rurais com memória longa sobre o que a indústria nuclear deixou para trás. E o livro de regras está sendo reescrito em tempo real, num Senado que pondera dois marcos sobrepostos enquanto uma corrente nacionalista propõe congelar por decreto exatamente este planalto.` },
+  { p: `Para quem toma decisões de investimento ou de política pública, a pergunta já não é se o Brasil se tornará um pilar da cadeia atlântica de terras raras. É quem a governará, sob quais condições, e quem estará na sala quando essas condições forem escritas. Neste momento, essa sala ainda está sendo mobiliada. É essa — não a argila — a verdadeira janela.` },
+  { h: `Nota para o leitor não especialista: o que são, afinal, as terras raras` },
+  { p: `Dezessete elementos, um nome enganoso. As terras raras (REEs) são um grupo de 17 metais quimicamente semelhantes — os quinze lantanídeos mais o escândio e o ítrio. O nome é um acidente histórico: raras elas não são. O cério é mais abundante na crosta terrestre do que o cobre; mesmo as terras raras mais escassas são mais comuns que o ouro. O que é genuinamente raro é encontrá-las concentradas o suficiente para uma lavra econômica e — sobretudo — separá-las umas das outras. Como seus átomos são quase idênticos em tamanho e carga, ocorrem misturadas nos mesmos minerais e resistem aos métodos usuais de separação química. A “raridade” nunca esteve no subsolo; sempre esteve na química.` },
+  { p: `A família tem dois ramos — e eles não são iguais. As terras raras “leves” (lantânio, cério, neodímio, praseodímio) são relativamente abundantes e lavradas em vários países. As “pesadas” (disprósio, térbio e outras) são muito mais escassas em concentrações aproveitáveis, valem muito mais e, historicamente, vieram quase inteiramente dos depósitos de argilas iônicas do sul da China — e é exatamente por isso que as argilas geologicamente análogas de Poços de Caldas importam tanto.` },
+  { p: `Para que servem. As terras raras são as viabilizadoras invisíveis da tecnologia moderna. Seu uso mais estratégico são os ímãs permanentes (neodímio-ferro-boro, endurecidos com disprósio e térbio para altas temperaturas): os ímãs mais potentes conhecidos, insubstituíveis nos motores de veículos elétricos, nos geradores eólicos, em drones, robótica, discos rígidos e componentes de smartphones. Além dos ímãs, as terras raras estão nos atuadores de caças, em sistemas de guiamento de mísseis, radares e sonares, catalisadores automotivos e de refino, polimento de vidro, lasers, imagem médica e nos fósforos que iluminam as telas. Um único veículo elétrico pode conter um quilo ou mais de ímãs de terras raras; um F-35 contém mais de 400 kg de materiais de terras raras. Não existe transição energética, indústria de defesa moderna ou economia digital sem elas — e, para a maioria dessas aplicações, não há substituto comercialmente viável.` },
+  { p: `Por que a extração é um problema. A mineração convencional de terras raras tem uma das pegadas ambientais mais pesadas da indústria mineral, por três razões. Primeira, a radioatividade: na maioria dos depósitos de rocha dura, as terras raras convivem com urânio e tório, de modo que lavra e beneficiamento geram resíduos radioativos que precisam ser contidos por décadas — o legado da “Torta II” em Poços de Caldas é exatamente esse problema, herdado do processamento da monazita. Segunda, a química agressiva: “quebrar” o minério normalmente exige ustulação em alta temperatura com ácido sulfúrico ou clorídrico concentrado, produzindo gases tóxicos e volumes enormes de efluentes ácidos e salinos; o distrito de Baotou, na China, é cercado por lagoas de rejeitos que se tornaram a imagem clássica do custo dessa indústria. Terceira, a intensidade da separação: transformar o concentrado misto em óxidos individuais puros exige centenas de estágios sequenciais de extração por solvente, cada um consumindo reagentes e gerando efluentes. Na mineração histórica das argilas iônicas chinesas, surgiu um quarto problema: a lixiviação in situ, com sulfato de amônio injetado diretamente nas encostas, contaminou lençóis freáticos e provocou deslizamentos em municípios inteiros antes de ser restringida.` },
+  { p: `É nesse contexto que os projetos brasileiros de argilas iônicas fazem sua afirmação central: argilas superficiais com radioatividade desprezível, lixiviadas em tanques à temperatura ambiente com sais recicláveis, sem ustulação ácida, sem barragens de rejeitos e com aterramento progressivo das cavas. Se a afirmação se sustentar em escala industrial, será o caminho de produção primária de terras raras mais limpo já operado. Se ela se sustenta de fato — sob o escrutínio regulatório brasileiro, sobre aquíferos, ao lado de um passivo nuclear — é, como este artigo argumentou, exatamente o que está em jogo na batalha das licenças em Poços de Caldas.` },
+  { p: `Os números de projeto citados derivam de divulgações das empresas e de estudos em nível de pré-viabilidade, sujeitos a revisão. As referências legislativas refletem o estado das tramitações conforme divulgado publicamente em agosto de 2026. Este texto tem finalidade informativa e não constitui aconselhamento financeiro, de investimento ou jurídico.` },
+];
+
+export default function RareBR() {
+  const { lang, setLang } = useT();
+  const article = getArticleBySlug("rare_br");
+  const desc =
+    "O Brasil detém as segundas maiores reservas de terras raras do mundo, mas as licenças em Poços de Caldas são contestadas e o marco legal está sendo reescrito. O quadro completo de agosto de 2026 para investidores europeus.";
+  useCanonical("/rare_br", {
+    title: "Terras raras no Brasil: a geologia está resolvida. Todo o resto está em disputa.",
+    description: desc,
+    type: "article",
+  });
+
+  useEffect(() => {
+    const previous = lang;
+    if (lang !== "pt") setLang("pt");
+    return () => {
+      if (previous !== "pt") setLang(previous);
+    };
+  }, [lang, setLang]);
+
+  return (
+    <main className="min-h-screen bg-background">
+      <div className="container max-w-3xl py-16 md:py-24">
+        <div className="flex items-center justify-between gap-4 mb-8">
+          <Link
+            to="/analysis"
+            className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            {BACK[lang]}
+          </Link>
+          <LangSwitcher to="/rare_br" />
+        </div>
+        <article className="prose-invert">
+          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
+            {TITLE}
+          </h1>
+          <p className="text-xs text-foreground/70 mb-2">#CustoBrasil — Business Matching Global</p>
+          <p className="text-xs text-foreground/70 mb-10 tabular-nums">{article?.date}</p>
+          <div className="space-y-5 text-foreground/85 text-justify leading-relaxed">
+            {body.map((block, i) =>
+              "h" in block ? (
+                <h2 key={i} className="text-xl md:text-2xl font-semibold text-foreground text-left mt-8 mb-2">
+                  {block.h}
+                </h2>
+              ) : (
+                <p key={i}>{block.p}</p>
+              )
+            )}
+          </div>
+          <ShareBlock title={TITLE} />
+        </article>
+        <AnalysisFooter />
+      </div>
+    </main>
+  );
+}

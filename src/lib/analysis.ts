@@ -17,9 +17,20 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     title: {
       it: "Rare Earths in Brazil: The Geology Is Settled. Everything Else Is Being Fought Over.",
       en: "Rare Earths in Brazil: The Geology Is Settled. Everything Else Is Being Fought Over.",
-      pt: "Rare Earths in Brazil: The Geology Is Settled. Everything Else Is Being Fought Over.",
+      pt: "Terras raras no Brasil: a geologia está resolvida. Todo o resto está em disputa.",
     },
   },
+  {
+    slug: "rare_br",
+    group: "rare",
+    date: "2026-08-13",
+    title: {
+      it: "Terras raras no Brasil: a geologia está resolvida. Todo o resto está em disputa.",
+      en: "Terras raras no Brasil: a geologia está resolvida. Todo o resto está em disputa.",
+      pt: "Terras raras no Brasil: a geologia está resolvida. Todo o resto está em disputa.",
+    },
+  },
+
   {
     slug: "lima",
     group: "lima",
