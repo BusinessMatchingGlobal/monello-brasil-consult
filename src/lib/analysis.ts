@@ -17,7 +17,17 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     title: {
       it: "The Backdoor to Brazil",
       en: "The Backdoor to Brazil",
-      pt: "The Backdoor to Brazil",
+      pt: "A porta dos fundos do Brasil",
+    },
+  },
+  {
+    slug: "asuncion_br",
+    group: "asuncion",
+    date: "2026-08-13",
+    title: {
+      it: "A porta dos fundos do Brasil",
+      en: "A porta dos fundos do Brasil",
+      pt: "A porta dos fundos do Brasil",
     },
   },
   {
