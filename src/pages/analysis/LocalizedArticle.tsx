@@ -5,6 +5,7 @@ import AiJusBR from "./AiJus_BR";
 import AmaroEN from "./Amaro";
 import AmaroIT from "./Amaro_IT";
 import AmaroBR from "./Amaro_BR";
+import Asuncion from "./Asuncion";
 import EmbraerEN from "./Embraer";
 import EmbraerIT from "./Embraer_IT";
 import EmbraerBR from "./Embraer_BR";
@@ -83,6 +84,10 @@ export function RareLocalized() {
   if (lang === "it") return <RareIT />;
   if (lang === "pt") return <RareBR />;
   return <RareEN />;
+}
+
+export function AsuncionLocalized() {
+  return <Asuncion />;
 }
 
 export function AmapaLocalized() {

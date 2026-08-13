@@ -34,7 +34,7 @@ import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
-import { AiJusLocalized, AmaroLocalized, CeutaLocalized, EconomistLocalized, EmbraerLocalized, LimaLocalized, LorenzettiLocalized, RareLocalized, AmapaLocalized } from "./pages/analysis/LocalizedArticle";
+import { AiJusLocalized, AmaroLocalized, AsuncionLocalized, CeutaLocalized, EconomistLocalized, EmbraerLocalized, LimaLocalized, LorenzettiLocalized, RareLocalized, AmapaLocalized } from "./pages/analysis/LocalizedArticle";
 import Voli from "./pages/calliphora/Voli";
 import Lorenzetti from "./pages/analysis/Lorenzetti";
 import Ceuta from "./pages/analysis/Ceuta";
@@ -54,6 +54,7 @@ import LimaBR from "./pages/analysis/Lima_BR";
 import Amapa from "./pages/analysis/Amapa";
 import AmapaBR from "./pages/analysis/Amapa_BR";
 import AmapaIT from "./pages/analysis/Amapa_IT";
+import Asuncion from "./pages/analysis/Asuncion";
 
 
 import { LanguageProvider } from "./lib/i18n";
@@ -171,6 +172,8 @@ const App = () => {
             <Route path="/Amapa_BR" element={<AmapaBR />} />
             <Route path="/amapa_it" element={<AmapaIT />} />
             <Route path="/Amapa_IT" element={<AmapaIT />} />
+            <Route path="/asuncion" element={<AsuncionLocalized />} />
+            <Route path="/Asuncion" element={<AsuncionLocalized />} />
 
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
