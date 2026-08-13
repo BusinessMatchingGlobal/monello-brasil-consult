@@ -34,7 +34,7 @@ import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
-import { AiJusLocalized, AmaroLocalized, CeutaLocalized, EconomistLocalized, EmbraerLocalized, LorenzettiLocalized } from "./pages/analysis/LocalizedArticle";
+import { AiJusLocalized, AmaroLocalized, CeutaLocalized, EconomistLocalized, EmbraerLocalized, LimaLocalized, LorenzettiLocalized } from "./pages/analysis/LocalizedArticle";
 import Voli from "./pages/calliphora/Voli";
 import Lorenzetti from "./pages/analysis/Lorenzetti";
 import Ceuta from "./pages/analysis/Ceuta";
@@ -45,6 +45,9 @@ import LorenzettiBR from "./pages/analysis/Lorenzetti_BR";
 import Economist from "./pages/analysis/Economist";
 import EconomistIT from "./pages/analysis/Economist_IT";
 import EconomistBR from "./pages/analysis/Economist_BR";
+import Lima from "./pages/analysis/Lima";
+import LimaIT from "./pages/analysis/Lima_IT";
+import LimaBR from "./pages/analysis/Lima_BR";
 
 
 
@@ -142,6 +145,13 @@ const App = () => {
             <Route path="/aijus_it" element={<AiJusIT />} />
             <Route path="/AiJus_BR" element={<AiJusBR />} />
             <Route path="/aijus_br" element={<AiJusBR />} />
+            <Route path="/lima" element={<LimaLocalized />} />
+            <Route path="/Lima" element={<LimaLocalized />} />
+            <Route path="/lima_en" element={<Lima />} />
+            <Route path="/lima_it" element={<LimaIT />} />
+            <Route path="/Lima_IT" element={<LimaIT />} />
+            <Route path="/lima_br" element={<LimaBR />} />
+            <Route path="/Lima_BR" element={<LimaBR />} />
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />

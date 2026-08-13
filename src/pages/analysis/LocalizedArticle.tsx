@@ -8,6 +8,9 @@ import AmaroBR from "./Amaro_BR";
 import EmbraerEN from "./Embraer";
 import EmbraerIT from "./Embraer_IT";
 import EmbraerBR from "./Embraer_BR";
+import LimaEN from "./Lima";
+import LimaIT from "./Lima_IT";
+import LimaBR from "./Lima_BR";
 import LorenzettiEN from "./Lorenzetti";
 import LorenzettiIT from "./Lorenzetti_IT";
 import LorenzettiBR from "./Lorenzetti_BR";
@@ -46,6 +49,13 @@ export function LorenzettiLocalized() {
   if (lang === "it") return <LorenzettiIT />;
   if (lang === "pt") return <LorenzettiBR />;
   return <LorenzettiEN />;
+}
+
+export function LimaLocalized() {
+  const { lang } = useT();
+  if (lang === "it") return <LimaIT />;
+  if (lang === "pt") return <LimaBR />;
+  return <LimaEN />;
 }
 
 export function CeutaLocalized() {
