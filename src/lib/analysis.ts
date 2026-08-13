@@ -30,6 +30,17 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
       pt: "Terras raras no Brasil: a geologia está resolvida. Todo o resto está em disputa.",
     },
   },
+  {
+    slug: "rare_it",
+    group: "rare",
+    date: "2026-08-13",
+    title: {
+      it: "Terre rare in Brasile: la geologia è assodata. Tutto il resto è conteso.",
+      en: "Terre rare in Brasile: la geologia è assodata. Tutto il resto è conteso.",
+      pt: "Terre rare in Brasile: la geologia è assodata. Tutto il resto è conteso.",
+    },
+  },
+
 
   {
     slug: "lima",
