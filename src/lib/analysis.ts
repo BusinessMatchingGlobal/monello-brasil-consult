@@ -11,6 +11,16 @@ export type AnalysisArticle = {
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
+    slug: "rare",
+    group: "rare",
+    date: "2026-08-13",
+    title: {
+      it: "Rare Earths in Brazil: The Geology Is Settled. Everything Else Is Being Fought Over.",
+      en: "Rare Earths in Brazil: The Geology Is Settled. Everything Else Is Being Fought Over.",
+      pt: "Rare Earths in Brazil: The Geology Is Settled. Everything Else Is Being Fought Over.",
+    },
+  },
+  {
     slug: "lima",
     group: "lima",
     date: "2026-08-13",
