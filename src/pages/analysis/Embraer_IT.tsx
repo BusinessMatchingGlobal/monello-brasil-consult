@@ -78,7 +78,8 @@ export default function EmbraerIT() {
     return () => {
       if (previous !== "it") setLang(previous);
     };
-  }, [lang, setLang]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   return (

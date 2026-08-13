@@ -57,7 +57,8 @@ export default function Economist() {
     return () => {
       if (previous !== "en") setLang(previous);
     };
-  }, [lang, setLang]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <main className="min-h-screen bg-background">

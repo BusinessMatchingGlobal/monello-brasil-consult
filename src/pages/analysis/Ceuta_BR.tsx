@@ -102,7 +102,8 @@ export default function CeutaBR() {
     return () => {
       if (previous !== "pt") setLang(previous);
     };
-  }, [lang, setLang]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <main className="min-h-screen bg-background">
