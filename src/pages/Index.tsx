@@ -629,7 +629,7 @@ function HomeNewsletter() {
   const c = {
     it: {
       title: "Iscriviti alla newsletter #CustoBrasil",
-      sub: "Aggiornamenti e approfondimenti sul Brasile. Nessuno spam, cancellazione in un clic.",
+      sub: "Aggiornamenti, analisi e approfondimenti sul Brasile e oltre. Niente spam. Puoi annullare l'iscrizione in qualsiasi momento con un solo clic.",
       first: "Nome",
       last: "Cognome",
       email: "La tua email",
@@ -643,7 +643,7 @@ function HomeNewsletter() {
     },
     en: {
       title: "Subscribe to the #CustoBrasil newsletter",
-      sub: "Updates and insights on Brazil. No spam, one-click unsubscribe.",
+      sub: "Updates and insights on Brazil and beyond. No spam, unsubscribe anytime with one click.",
       first: "First name",
       last: "Last name",
       email: "Your email",
@@ -657,7 +657,7 @@ function HomeNewsletter() {
     },
     pt: {
       title: "Inscreva-se na newsletter #CustoBrasil",
-      sub: "Atualizações e análises sobre o Brasil. Sem spam, cancelamento em um clique.",
+      sub: "Atualizações e insights sobre o Brasil e outros mercados. Sem spam e com cancelamento da inscrição em apenas um clique.",
       first: "Nome",
       last: "Sobrenome",
       email: "Seu e-mail",

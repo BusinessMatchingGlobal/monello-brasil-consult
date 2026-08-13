@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n";
-import { getLocalizedArticles } from "@/lib/analysis";
+import { getLocalizedArticles, formatArticleDate } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
 import { LangSwitcher } from "@/components/LangSwitcher";
@@ -51,7 +51,7 @@ export default function Analysis() {
                   {a.title[lang]}
                 </span>
                 <time className="shrink-0 text-xs text-foreground/70 tabular-nums">
-                  {a.date}
+                  {formatArticleDate(a, lang)}
                 </time>
               </Link>
             </li>
