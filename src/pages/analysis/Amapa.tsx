@@ -64,11 +64,7 @@ export default function Amapa() {
   });
 
   useEffect(() => {
-    const previous = lang;
-    if (lang !== "en") setLang("en");
-    return () => {
-      if (previous !== "en") setLang(previous);
-    };
+    setLang("en");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

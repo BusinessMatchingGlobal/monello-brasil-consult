@@ -17,7 +17,17 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     title: {
       it: "L'isola che non lo è",
       en: "The Island That Isn't",
-      pt: "A ilha que não é",
+      pt: "A ilha que não é ilha",
+    },
+  },
+  {
+    slug: "amapa_br",
+    group: "amapa",
+    date: "2026-08-13",
+    title: {
+      it: "L'isola che non lo è",
+      en: "The Island That Isn't",
+      pt: "A ilha que não é ilha",
     },
   },
   {
