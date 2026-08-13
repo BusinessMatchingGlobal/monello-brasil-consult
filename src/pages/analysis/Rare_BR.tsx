@@ -113,7 +113,7 @@ export default function RareBR() {
             <ArrowLeft className="h-4 w-4" />
             {BACK["pt"]}
           </Link>
-          <LangSwitcher to="/rare_br" />
+          <LangSwitcher to="/rare" />
         </div>
         <article className="prose-invert">
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4">

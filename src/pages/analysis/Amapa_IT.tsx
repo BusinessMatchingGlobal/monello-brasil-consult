@@ -73,7 +73,7 @@ export default function AmapaIT() {
             <ArrowLeft className="h-4 w-4" />
             {BACK["it"]}
           </Link>
-          <LangSwitcher to="/amapa_it" />
+          <LangSwitcher to="/amapa" />
         </div>
         <article className="prose-invert">
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
