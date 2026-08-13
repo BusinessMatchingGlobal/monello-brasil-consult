@@ -17,7 +17,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     title: {
       it: "The Backdoor to Brazil",
       en: "The Backdoor to Brazil",
-      pt: "The Backdoor to Brazil",
+      pt: "A porta dos fundos do Brasil",
     },
   },
   {
