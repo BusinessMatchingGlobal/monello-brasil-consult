@@ -42,7 +42,7 @@ const BACK = {
 } as const;
 
 export default function AiJusBR() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("aiJus_br");
   const desc =
     "Prompt injection em petições judiciais: o Brasil é o primeiro país a sancionar comandos ocultos dirigidos à IA dos tribunais. Casos, normas e lições para a Europa.";
@@ -52,14 +52,6 @@ export default function AiJusBR() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "pt") setLang("pt");
-    return () => {
-      if (previous !== "pt") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -70,7 +62,7 @@ export default function AiJusBR() {
           className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
-          {BACK[lang]}
+          {BACK["pt"]}
         </Link>
           <LangSwitcher to="/aiJus" />
         </div>

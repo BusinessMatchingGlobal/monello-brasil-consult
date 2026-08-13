@@ -58,7 +58,7 @@ const BACK = {
 } as const;
 
 export default function Embraer() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("Embraer");
   const desc =
     "Embraer 2026: how a Brazilian company built a 76% share of the 70–150 seat segment, a US$34.5B backlog, and a method that keeps clearing US tariff walls.";
@@ -68,14 +68,6 @@ export default function Embraer() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "en") setLang("en");
-    return () => {
-      if (previous !== "en") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -86,7 +78,7 @@ export default function Embraer() {
           className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
-          {BACK[lang]}
+          {BACK["en"]}
         </Link>
           <LangSwitcher to="/Embraer" />
         </div>

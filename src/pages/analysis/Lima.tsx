@@ -51,7 +51,7 @@ const body: Block[] = [
 ];
 
 export default function Lima() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("lima");
   const desc =
     "Every year 150,000 people fly between Milan and Lima, yet no airline flies the route. Why Emirates' fifth-freedom option is a contest for a rent Italy vacated in 2008.";
@@ -61,14 +61,6 @@ export default function Lima() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "en") setLang("en");
-    return () => {
-      if (previous !== "en") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -79,7 +71,7 @@ export default function Lima() {
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            {BACK[lang]}
+            {BACK["en"]}
           </Link>
           <LangSwitcher to="/lima" />
         </div>

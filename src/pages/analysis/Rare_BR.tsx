@@ -91,7 +91,7 @@ const body: Block[] = [
 ];
 
 export default function RareBR() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("rare_br");
   const desc =
     "O Brasil detém as segundas maiores reservas de terras raras do mundo, mas as licenças em Poços de Caldas são contestadas e o marco legal está sendo reescrito. O quadro completo de agosto de 2026 para investidores europeus.";
@@ -101,14 +101,6 @@ export default function RareBR() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "pt") setLang("pt");
-    return () => {
-      if (previous !== "pt") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -119,7 +111,7 @@ export default function RareBR() {
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            {BACK[lang]}
+            {BACK["pt"]}
           </Link>
           <LangSwitcher to="/rare_br" />
         </div>

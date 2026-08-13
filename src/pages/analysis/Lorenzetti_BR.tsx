@@ -49,7 +49,7 @@ const body: Block[] = [
 ];
 
 export default function LorenzettiBR() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("lorenzetti_br");
   const desc =
     "Como uma família de imigrantes italianos projetou o chuveiro elétrico brasileiro — e por que o aparelho, a lavadora que lava frio e o tanquinho revelam a lógica infraestrutural do Custo Brasil.";
@@ -59,14 +59,6 @@ export default function LorenzettiBR() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "pt") setLang("pt");
-    return () => {
-      if (previous !== "pt") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">

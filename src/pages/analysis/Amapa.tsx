@@ -53,7 +53,7 @@ const body: Block[] = [
 ];
 
 export default function Amapa() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("amapa");
   const desc =
     "Amapá is Brazil's only land border with the European Union. A visa waiver and a frontier oil well are about to reprice the country's most isolated state.";
@@ -63,10 +63,6 @@ export default function Amapa() {
     type: "article",
   });
 
-  useEffect(() => {
-    setLang("en");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -77,7 +73,7 @@ export default function Amapa() {
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            {BACK[lang]}
+            {BACK["en"]}
           </Link>
           <LangSwitcher to="/amapa" />
         </div>

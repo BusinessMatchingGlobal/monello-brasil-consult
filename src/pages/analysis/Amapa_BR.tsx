@@ -53,7 +53,7 @@ const body: Block[] = [
 ];
 
 export default function AmapaBR() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("amapa_br");
   const desc =
     "Amapá é a única fronteira terrestre do Brasil com a União Europeia. A queda do visto francês e o poço Morpho estão prestes a reprecificar o estado mais isolado do país.";
@@ -63,10 +63,6 @@ export default function AmapaBR() {
     type: "article",
   });
 
-  useEffect(() => {
-    setLang("pt");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -77,7 +73,7 @@ export default function AmapaBR() {
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            {BACK[lang]}
+            {BACK["pt"]}
           </Link>
           <LangSwitcher to="/amapa_br" />
         </div>

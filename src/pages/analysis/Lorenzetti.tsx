@@ -53,7 +53,7 @@ const body: Block[] = [
 ];
 
 export default function Lorenzetti() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("lorenzetti");
   const desc =
     "How an Italian immigrant family engineered Brazil's electric shower — and why the appliance, the cold-wash machine and the tanquinho reveal the infrastructure logic behind the Custo Brasil.";
@@ -63,14 +63,6 @@ export default function Lorenzetti() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "en") setLang("en");
-    return () => {
-      if (previous !== "en") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -81,7 +73,7 @@ export default function Lorenzetti() {
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            {BACK[lang]}
+            {BACK["en"]}
           </Link>
           <LangSwitcher to="/lorenzetti" />
         </div>

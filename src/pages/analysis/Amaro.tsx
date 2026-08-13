@@ -46,7 +46,7 @@ const BACK = {
 } as const;
 
 export default function Amaro() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("amaro");
   const desc =
     "Rolim Adolfo Amaro, founder of TAM, the red carpet, and the seven commandments: how a commander born in a straw house priced the costs accountants never see.";
@@ -56,14 +56,6 @@ export default function Amaro() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "en") setLang("en");
-    return () => {
-      if (previous !== "en") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -74,7 +66,7 @@ export default function Amaro() {
           className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
-          {BACK[lang]}
+          {BACK["en"]}
         </Link>
           <LangSwitcher to="/amaro" />
         </div>
