@@ -21,6 +21,16 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     },
   },
   {
+    slug: "asuncion_br",
+    group: "asuncion",
+    date: "2026-08-13",
+    title: {
+      it: "A porta dos fundos do Brasil",
+      en: "A porta dos fundos do Brasil",
+      pt: "A porta dos fundos do Brasil",
+    },
+  },
+  {
     slug: "amapa",
     group: "amapa",
     date: "2026-08-13",
