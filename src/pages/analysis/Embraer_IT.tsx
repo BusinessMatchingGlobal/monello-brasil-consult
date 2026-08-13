@@ -62,7 +62,7 @@ const body: Block[] = [
 ];
 
 export default function EmbraerIT() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("Embraer");
   const desc =
     "Embraer 2026: come un'azienda brasiliana ha conquistato il 76% del segmento 70–150 posti, un portafoglio ordini di 34,5 miliardi di dollari e un metodo che continua a superare i muri tariffari americani.";
@@ -72,14 +72,6 @@ export default function EmbraerIT() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "it") setLang("it");
-    return () => {
-      if (previous !== "it") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
 
   return (

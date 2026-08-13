@@ -41,7 +41,7 @@ const body: Block[] = [
 ];
 
 export default function EconomistBR() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("economist_br");
   const desc =
     "A Embraer cresceu dez vezes na bolsa, com carteira de pedidos de US$ 34,5 bilhões, e a The Economist manda 'esquecer Airbus e Boeing'. Por que o CEO ainda se recusa a atacar o duopólio — e o que isso diz sobre a disciplina de capital brasileira.";
@@ -51,14 +51,6 @@ export default function EconomistBR() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "pt") setLang("pt");
-    return () => {
-      if (previous !== "pt") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -69,7 +61,7 @@ export default function EconomistBR() {
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            {BACK[lang]}
+            {BACK["pt"]}
           </Link>
           <LangSwitcher to="/economist" />
         </div>

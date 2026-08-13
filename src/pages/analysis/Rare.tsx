@@ -91,7 +91,7 @@ const body: Block[] = [
 ];
 
 export default function Rare() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("rare");
   const desc =
     "Brazil holds the world's second-largest rare earth reserves, but the licences at Poços de Caldas are contested and the rulebook is being rewritten. The full August 2026 picture for European investors.";
@@ -101,14 +101,6 @@ export default function Rare() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "en") setLang("en");
-    return () => {
-      if (previous !== "en") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -119,7 +111,7 @@ export default function Rare() {
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            {BACK[lang]}
+            {BACK["en"]}
           </Link>
           <LangSwitcher to="/rare" />
         </div>

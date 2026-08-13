@@ -41,7 +41,7 @@ const body: Block[] = [
 ];
 
 export default function EconomistIT() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("economist_it");
   const desc =
     "Embraer cresciuta di dieci volte, backlog a 34,5 miliardi di dollari, e The Economist dice 'dimenticate Airbus e Boeing'. Perché l'AD ancora rifiuta di attaccare il duopolio — e cosa dice della disciplina del capitale brasiliana.";
@@ -51,14 +51,6 @@ export default function EconomistIT() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "it") setLang("it");
-    return () => {
-      if (previous !== "it") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -69,7 +61,7 @@ export default function EconomistIT() {
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            {BACK[lang]}
+            {BACK["it"]}
           </Link>
           <LangSwitcher to="/economist" />
         </div>

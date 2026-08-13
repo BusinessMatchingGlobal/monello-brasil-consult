@@ -52,7 +52,7 @@ const body: Block[] = [
 
 
 export default function LimaBR() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("lima_br");
   const desc =
     "Todo ano 150 mil pessoas voam entre Milão e Lima, e nenhuma companhia serve a rota. Por que a opção fifth-freedom da Emirates é uma disputa por uma renda que a Itália deixou vaga em 2008.";
@@ -62,14 +62,6 @@ export default function LimaBR() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "pt") setLang("pt");
-    return () => {
-      if (previous !== "pt") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">

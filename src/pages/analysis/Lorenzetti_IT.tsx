@@ -49,7 +49,7 @@ const body: Block[] = [
 ];
 
 export default function LorenzettiIT() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("lorenzetti_it");
   const desc =
     "Come una famiglia di immigrati italiani ha progettato la doccia elettrica brasiliana — e perché quell'apparecchio, la lavatrice a freddo e il tanquinho rivelano la logica infrastrutturale del Custo Brasil.";
@@ -59,14 +59,6 @@ export default function LorenzettiIT() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "it") setLang("it");
-    return () => {
-      if (previous !== "it") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">

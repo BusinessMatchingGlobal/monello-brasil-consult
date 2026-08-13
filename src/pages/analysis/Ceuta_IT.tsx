@@ -86,7 +86,7 @@ const body: Block[] = [
 ];
 
 export default function CeutaIT() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("ceuta_it");
   const desc =
     "Cosa dice davvero la crisi di Ceuta: lo status speciale fuori Schengen, i dati Frontex, il Marocco a due velocità e i flussi che verificano ciò che i comunicati negano.";
@@ -96,14 +96,6 @@ export default function CeutaIT() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "it") setLang("it");
-    return () => {
-      if (previous !== "it") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">

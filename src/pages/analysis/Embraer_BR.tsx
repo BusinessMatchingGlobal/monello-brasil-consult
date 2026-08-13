@@ -62,7 +62,7 @@ const body: Block[] = [
 ];
 
 export default function EmbraerBR() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("Embraer");
   const desc =
     "Embraer 2026: como uma empresa brasileira conquistou 76% do segmento de 70–150 assentos, uma carteira de pedidos de US$ 34,5 bilhões e um método que continua superando os muros tarifários americanos.";
@@ -72,14 +72,6 @@ export default function EmbraerBR() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "pt") setLang("pt");
-    return () => {
-      if (previous !== "pt") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">

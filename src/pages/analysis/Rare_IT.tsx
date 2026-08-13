@@ -91,7 +91,7 @@ const body: Block[] = [
 ];
 
 export default function RareIT() {
-  const { lang, setLang } = useT();
+  const { lang } = useT();
   const article = getArticleBySlug("rare_it");
   const desc =
     "Il Brasile detiene le seconde riserve di terre rare al mondo, ma le licenze a Poços de Caldas sono contestate e il quadro normativo è in riscrittura. Il quadro completo di agosto 2026 per investitori europei.";
@@ -101,14 +101,6 @@ export default function RareIT() {
     type: "article",
   });
 
-  useEffect(() => {
-    const previous = lang;
-    if (lang !== "it") setLang("it");
-    return () => {
-      if (previous !== "it") setLang(previous);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className="min-h-screen bg-background">
@@ -119,7 +111,7 @@ export default function RareIT() {
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            {BACK[lang]}
+            {BACK["it"]}
           </Link>
           <LangSwitcher to="/rare_it" />
         </div>
