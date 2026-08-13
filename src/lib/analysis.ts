@@ -11,6 +11,16 @@ export type AnalysisArticle = {
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
+    slug: "amapa",
+    group: "amapa",
+    date: "2026-08-13",
+    title: {
+      it: "L'isola che non lo è",
+      en: "The Island That Isn't",
+      pt: "A ilha que não é",
+    },
+  },
+  {
     slug: "rare",
     group: "rare",
     date: "2026-08-13",
