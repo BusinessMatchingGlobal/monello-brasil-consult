@@ -124,13 +124,6 @@ All colors MUST be HSL.
 
   html {
     scroll-behavior: smooth;
-    overscroll-behavior-y: none;
-    scrollbar-gutter: stable;
-  }
-
-  body {
-    overscroll-behavior-y: none;
-    overflow-x: hidden;
   }
 }
 
