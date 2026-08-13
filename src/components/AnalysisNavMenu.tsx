@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { useT } from "@/lib/i18n";
-import { getLocalizedArticles } from "@/lib/analysis";
+import { getLocalizedArticles, formatArticleDate } from "@/lib/analysis";
 
 type Props = {
   variant?: "desktop" | "mobile";
@@ -43,9 +43,12 @@ export function AnalysisNavMenu({ variant = "desktop", onNavigate }: Props) {
                 key={a.slug}
                 to={`/${a.slug}`}
                 onClick={onNavigate}
-                className="text-sm py-1 text-foreground/80"
+                className="flex items-baseline justify-between gap-3 text-sm py-1 text-foreground/80"
               >
-                {a.title[lang]}
+                <span>{a.title[lang]}</span>
+                <span className="shrink-0 text-[11px] text-foreground/60 tabular-nums">
+                  {formatArticleDate(a, lang)}
+                </span>
               </Link>
             ))}
             <Link
@@ -85,10 +88,13 @@ export function AnalysisNavMenu({ variant = "desktop", onNavigate }: Props) {
               key={a.slug}
               to={`/${a.slug}`}
               onClick={() => setOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-foreground/85 hover:bg-foreground/5 hover:text-foreground"
+              className="flex items-baseline justify-between gap-3 px-3 py-2 rounded-lg text-sm text-foreground/85 hover:bg-foreground/5 hover:text-foreground"
               role="menuitem"
             >
-              {a.title[lang]}
+              <span>{a.title[lang]}</span>
+              <span className="shrink-0 text-[11px] text-foreground/60 tabular-nums">
+                {formatArticleDate(a, lang)}
+              </span>
             </Link>
           ))}
           <div className="my-1 border-t border-border/60" />

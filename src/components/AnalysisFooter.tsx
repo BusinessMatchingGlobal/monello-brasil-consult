@@ -2,6 +2,7 @@ import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italcam-minas-gerais.png.asset.json";
 import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
 import { useT } from "@/lib/i18n";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const COPY = {
   it: "© 2026 Business Matching Global — ENZO ALDO STOBBIONE LTDA. Tutti i diritti riservati. È autorizzata la riproduzione parziale citando la fonte con link a businessmatching.global. Per la riproduzione integrale: info@businessmatching.global",
@@ -12,7 +13,9 @@ const COPY = {
 export function AnalysisFooter() {
   const { t, lang } = useT();
   return (
-    <footer className="mt-16 border-t border-border/60 pt-8 pb-4 text-xs text-foreground/75 leading-relaxed">
+    <>
+    <NewsletterSignup source="Analysis article footer" />
+    <footer className="mt-12 border-t border-border/60 pt-8 pb-4 text-xs text-foreground/75 leading-relaxed">
       <p className="text-foreground/70 leading-relaxed mb-8">{COPY[lang]}</p>
       <p className="text-center text-sm font-medium text-foreground mb-4">{t.footer.memberOf}</p>
       <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-6">
@@ -30,5 +33,6 @@ export function AnalysisFooter() {
         {t.footer.legalName}: ENZO ALDO STOBBIONE LTDA · CNPJ: 67.589.228/0001-30 · {t.footer.address}: Avenida Getúlio Vargas, 671, Sala 500, CEP 30.112-021, Savassi, Belo Horizonte/MG
       </p>
     </footer>
+    </>
   );
 }
