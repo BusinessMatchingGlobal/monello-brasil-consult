@@ -52,6 +52,7 @@ import RareIT from "./pages/analysis/Rare_IT";
 import LimaIT from "./pages/analysis/Lima_IT";
 import LimaBR from "./pages/analysis/Lima_BR";
 import Amapa from "./pages/analysis/Amapa";
+import AmapaBR from "./pages/analysis/Amapa_BR";
 
 
 import { LanguageProvider } from "./lib/i18n";
@@ -163,6 +164,8 @@ const App = () => {
             <Route path="/Rare_IT" element={<RareIT />} />
             <Route path="/amapa" element={<Amapa />} />
             <Route path="/Amapa" element={<Amapa />} />
+            <Route path="/amapa_br" element={<AmapaBR />} />
+            <Route path="/Amapa_BR" element={<AmapaBR />} />
 
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
