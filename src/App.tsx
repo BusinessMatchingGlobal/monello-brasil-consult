@@ -47,8 +47,10 @@ import EconomistIT from "./pages/analysis/Economist_IT";
 import EconomistBR from "./pages/analysis/Economist_BR";
 import Lima from "./pages/analysis/Lima";
 import Rare from "./pages/analysis/Rare";
+import RareBR from "./pages/analysis/Rare_BR";
 import LimaIT from "./pages/analysis/Lima_IT";
 import LimaBR from "./pages/analysis/Lima_BR";
+
 
 
 
@@ -155,6 +157,9 @@ const App = () => {
             <Route path="/Lima_BR" element={<LimaBR />} />
             <Route path="/rare" element={<Rare />} />
             <Route path="/Rare" element={<Rare />} />
+            <Route path="/rare_br" element={<RareBR />} />
+            <Route path="/Rare_BR" element={<RareBR />} />
+
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
