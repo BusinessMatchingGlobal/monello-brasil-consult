@@ -11,6 +11,36 @@ export type AnalysisArticle = {
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
+    slug: "lima",
+    group: "lima",
+    date: "2026-08-13",
+    title: {
+      it: "La rotta che esiste già",
+      en: "The Route That Already Exists",
+      pt: "A rota que já existe",
+    },
+  },
+  {
+    slug: "lima_it",
+    group: "lima",
+    date: "2026-08-13",
+    title: {
+      it: "La rotta che esiste già",
+      en: "La rotta che esiste già",
+      pt: "La rotta che esiste già",
+    },
+  },
+  {
+    slug: "lima_br",
+    group: "lima",
+    date: "2026-08-13",
+    title: {
+      it: "A rota que já existe",
+      en: "A rota que já existe",
+      pt: "A rota que já existe",
+    },
+  },
+  {
     slug: "economist",
     group: "economist",
     date: "2026-08-02",
