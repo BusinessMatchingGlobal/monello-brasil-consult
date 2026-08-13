@@ -55,6 +55,7 @@ import Amapa from "./pages/analysis/Amapa";
 import AmapaBR from "./pages/analysis/Amapa_BR";
 import AmapaIT from "./pages/analysis/Amapa_IT";
 import Asuncion from "./pages/analysis/Asuncion";
+import AsuncionIT from "./pages/analysis/Asuncion_IT";
 import AsuncionBR from "./pages/analysis/Asuncion_BR";
 
 
@@ -175,6 +176,8 @@ const App = () => {
             <Route path="/Amapa_IT" element={<AmapaIT />} />
             <Route path="/asuncion" element={<AsuncionLocalized />} />
             <Route path="/Asuncion" element={<AsuncionLocalized />} />
+            <Route path="/asuncion_it" element={<AsuncionIT />} />
+            <Route path="/Asuncion_IT" element={<AsuncionIT />} />
             <Route path="/asuncion_br" element={<AsuncionBR />} />
             <Route path="/Asuncion_BR" element={<AsuncionBR />} />
 

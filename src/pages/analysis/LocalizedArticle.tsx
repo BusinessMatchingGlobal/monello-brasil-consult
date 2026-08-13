@@ -6,6 +6,7 @@ import AmaroEN from "./Amaro";
 import AmaroIT from "./Amaro_IT";
 import AmaroBR from "./Amaro_BR";
 import Asuncion from "./Asuncion";
+import AsuncionIT from "./Asuncion_IT";
 import AsuncionBR from "./Asuncion_BR";
 import EmbraerEN from "./Embraer";
 import EmbraerIT from "./Embraer_IT";
@@ -89,6 +90,7 @@ export function RareLocalized() {
 
 export function AsuncionLocalized() {
   const { lang } = useT();
+  if (lang === "it") return <AsuncionIT />;
   if (lang === "pt") return <AsuncionBR />;
   return <Asuncion />;
 }
