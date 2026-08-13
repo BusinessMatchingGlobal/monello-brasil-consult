@@ -167,6 +167,8 @@ const App = () => {
             <Route path="/Amapa" element={<Amapa />} />
             <Route path="/amapa_br" element={<AmapaBR />} />
             <Route path="/Amapa_BR" element={<AmapaBR />} />
+            <Route path="/amapa_it" element={<AmapaIT />} />
+            <Route path="/Amapa_IT" element={<AmapaIT />} />
 
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
