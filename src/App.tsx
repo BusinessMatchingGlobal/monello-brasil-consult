@@ -34,7 +34,7 @@ import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
-import { AiJusLocalized, AmaroLocalized, CeutaLocalized, EconomistLocalized, EmbraerLocalized, LimaLocalized, LorenzettiLocalized } from "./pages/analysis/LocalizedArticle";
+import { AiJusLocalized, AmaroLocalized, CeutaLocalized, EconomistLocalized, EmbraerLocalized, LimaLocalized, LorenzettiLocalized, RareLocalized, AmapaLocalized } from "./pages/analysis/LocalizedArticle";
 import Voli from "./pages/calliphora/Voli";
 import Lorenzetti from "./pages/analysis/Lorenzetti";
 import Ceuta from "./pages/analysis/Ceuta";
@@ -157,14 +157,16 @@ const App = () => {
             <Route path="/Lima_IT" element={<LimaIT />} />
             <Route path="/lima_br" element={<LimaBR />} />
             <Route path="/Lima_BR" element={<LimaBR />} />
-            <Route path="/rare" element={<Rare />} />
-            <Route path="/Rare" element={<Rare />} />
+            <Route path="/rare" element={<RareLocalized />} />
+            <Route path="/Rare" element={<RareLocalized />} />
+            <Route path="/rare_en" element={<Rare />} />
             <Route path="/rare_br" element={<RareBR />} />
             <Route path="/Rare_BR" element={<RareBR />} />
             <Route path="/rare_it" element={<RareIT />} />
             <Route path="/Rare_IT" element={<RareIT />} />
-            <Route path="/amapa" element={<Amapa />} />
-            <Route path="/Amapa" element={<Amapa />} />
+            <Route path="/amapa" element={<AmapaLocalized />} />
+            <Route path="/Amapa" element={<AmapaLocalized />} />
+            <Route path="/amapa_en" element={<Amapa />} />
             <Route path="/amapa_br" element={<AmapaBR />} />
             <Route path="/Amapa_BR" element={<AmapaBR />} />
             <Route path="/amapa_it" element={<AmapaIT />} />

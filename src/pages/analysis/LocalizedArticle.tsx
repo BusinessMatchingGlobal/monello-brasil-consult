@@ -20,6 +20,12 @@ import CeutaIT from "./Ceuta_IT";
 import EconomistEN from "./Economist";
 import EconomistIT from "./Economist_IT";
 import EconomistBR from "./Economist_BR";
+import RareEN from "./Rare";
+import RareIT from "./Rare_IT";
+import RareBR from "./Rare_BR";
+import AmapaEN from "./Amapa";
+import AmapaIT from "./Amapa_IT";
+import AmapaBR from "./Amapa_BR";
 
 // Renders the language variant matching the current site language
 // (auto-detected from the browser on first visit), on a single shared URL.
@@ -70,4 +76,18 @@ export function EconomistLocalized() {
   if (lang === "it") return <EconomistIT />;
   if (lang === "pt") return <EconomistBR />;
   return <EconomistEN />;
+}
+
+export function RareLocalized() {
+  const { lang } = useT();
+  if (lang === "it") return <RareIT />;
+  if (lang === "pt") return <RareBR />;
+  return <RareEN />;
+}
+
+export function AmapaLocalized() {
+  const { lang } = useT();
+  if (lang === "it") return <AmapaIT />;
+  if (lang === "pt") return <AmapaBR />;
+  return <AmapaEN />;
 }
