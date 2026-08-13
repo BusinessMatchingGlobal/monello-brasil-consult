@@ -53,6 +53,7 @@ import LimaIT from "./pages/analysis/Lima_IT";
 import LimaBR from "./pages/analysis/Lima_BR";
 import Amapa from "./pages/analysis/Amapa";
 import AmapaBR from "./pages/analysis/Amapa_BR";
+import AmapaIT from "./pages/analysis/Amapa_IT";
 
 
 import { LanguageProvider } from "./lib/i18n";
