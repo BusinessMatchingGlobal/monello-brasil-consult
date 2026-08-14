@@ -14,6 +14,13 @@ const SIGNED_URL_TTL_SECONDS = 7 * 24 * 60 * 60 // 7 days
 const RECIPIENTS = ['info@businessmatching.global', 'enstobbi@enstobbi.it']
 const MAX_PATHS = 60
 
+const N8N_WEBHOOK_URL = Deno.env.get('N8N_FLY_WEBHOOK_URL')
+const N8N_WEBHOOK_SECRET = Deno.env.get('N8N_FLY_WEBHOOK_SECRET')
+// When a webhook URL is configured, default to sending only to n8n.
+// Set FLY_WEBHOOK_ONLY=false to also keep the email notification.
+const WEBHOOK_ONLY = Deno.env.get('FLY_WEBHOOK_ONLY') !== 'false'
+
+
 function isSafePath(submissionId: string, p: unknown): p is string {
   return typeof p === 'string'
     && p.length > 0
