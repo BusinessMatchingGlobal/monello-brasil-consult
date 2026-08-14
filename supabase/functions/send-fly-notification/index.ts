@@ -128,41 +128,80 @@ Deno.serve(async (req) => {
   const fullTemplateData = { ...templateData, documents }
   const baseIdempotencyKey = `fly-${submissionId}`
 
-  // Call send-transactional-email with service_role so the restricted
-  // fly-contact-notification template is allowed to run.
-  const sendResults: Array<{ recipient: string; ok: boolean; error?: string }> = []
-  for (let i = 0; i < RECIPIENTS.length; i++) {
-    const recipient = RECIPIENTS[i]
+  // Forward the submission to n8n when configured. The signed document URLs
+  // are included in the payload so the receiving workflow can access them.
+  let webhookResult: { ok: boolean; status?: number; error?: string } | undefined
+  if (N8N_WEBHOOK_URL) {
     try {
-      const res = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
+      const webhookHeaders: Record<string, string> = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'business-matching-global-edge/1.0',
+      }
+      if (N8N_WEBHOOK_SECRET) {
+        webhookHeaders['Authorization'] = `Bearer ${N8N_WEBHOOK_SECRET}`
+      }
+      const res = await fetch(N8N_WEBHOOK_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${serviceKey}`,
-          apikey: serviceKey,
-        },
+        headers: webhookHeaders,
         body: JSON.stringify({
-          templateName: 'fly-contact-notification',
-          recipientEmail: recipient,
-          idempotencyKey: `${baseIdempotencyKey}-${i}`,
+          submissionId,
+          submittedAt: new Date().toISOString(),
           templateData: fullTemplateData,
         }),
       })
       if (!res.ok) {
         const text = await res.text().catch(() => '')
-        console.error('send-transactional-email failed', { status: res.status, text })
-        sendResults.push({ recipient, ok: false, error: `status_${res.status}` })
+        console.error('n8n webhook failed', { status: res.status, text })
+        webhookResult = { ok: false, status: res.status, error: `status_${res.status}` }
       } else {
-        sendResults.push({ recipient, ok: true })
+        webhookResult = { ok: true, status: res.status }
       }
     } catch (err) {
-      console.error('send-transactional-email invoke error', err)
-      sendResults.push({ recipient, ok: false, error: 'network' })
+      console.error('n8n webhook invoke error', err)
+      webhookResult = { ok: false, error: 'network' }
     }
   }
 
-  const allOk = sendResults.every((r) => r.ok)
-  return new Response(JSON.stringify({ ok: allOk, results: sendResults }), {
+  // Call send-transactional-email with service_role so the restricted
+  // fly-contact-notification template is allowed to run. Email is skipped by
+  // default when an n8n webhook is configured; set FLY_WEBHOOK_ONLY=false to
+  // keep both channels.
+  const sendResults: Array<{ recipient: string; ok: boolean; error?: string }> = []
+  const shouldEmail = !N8N_WEBHOOK_URL || !WEBHOOK_ONLY
+  if (shouldEmail) {
+    for (let i = 0; i < RECIPIENTS.length; i++) {
+      const recipient = RECIPIENTS[i]
+      try {
+        const res = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${serviceKey}`,
+            apikey: serviceKey,
+          },
+          body: JSON.stringify({
+            templateName: 'fly-contact-notification',
+            recipientEmail: recipient,
+            idempotencyKey: `${baseIdempotencyKey}-${i}`,
+            templateData: fullTemplateData,
+          }),
+        })
+        if (!res.ok) {
+          const text = await res.text().catch(() => '')
+          console.error('send-transactional-email failed', { status: res.status, text })
+          sendResults.push({ recipient, ok: false, error: `status_${res.status}` })
+        } else {
+          sendResults.push({ recipient, ok: true })
+        }
+      } catch (err) {
+        console.error('send-transactional-email invoke error', err)
+        sendResults.push({ recipient, ok: false, error: 'network' })
+      }
+    }
+  }
+
+  const allOk = (webhookResult ? webhookResult.ok : true) && (shouldEmail ? sendResults.every((r) => r.ok) : true)
+  return new Response(JSON.stringify({ ok: allOk, webhook: webhookResult, results: sendResults }), {
     status: allOk ? 200 : 502,
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },
   })
