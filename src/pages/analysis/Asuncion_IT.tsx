@@ -6,7 +6,6 @@ import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
 import { ShareBlock } from "@/components/ShareBlock";
 import { LangSwitcher } from "@/components/LangSwitcher";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 type Block = { h: string } | { p: string };
 
@@ -100,7 +99,6 @@ export default function AsuncionIT() {
           </div>
           <ShareBlock title={TITLE} />
         </article>
-        <NewsletterSignup />
         <AnalysisFooter />
       </div>
     </main>
