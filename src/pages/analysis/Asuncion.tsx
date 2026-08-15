@@ -100,7 +100,6 @@ export default function Asuncion() {
           </div>
           <ShareBlock title={TITLE} />
         </article>
-        <NewsletterSignup />
         <AnalysisFooter />
       </div>
     </main>
