@@ -34,6 +34,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     slug: "asuncion_it",
     group: "asuncion",
     date: "2026-08-13",
+    updated: "2026-08-15",
     title: {
       it: "La backdoor del Brasile",
       en: "La backdoor del Brasile",
