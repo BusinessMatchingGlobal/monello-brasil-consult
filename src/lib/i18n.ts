@@ -430,11 +430,11 @@ export const translations = {
       intro: "Verificamos empresas, analisamos mercados e identificamos potenciais clientes, fornecedores e parceiros no Brasil, na Europa e em outros mercados.",
       items: [
         { name: "Business Intelligence", desc: "Empresas, concorrentes, mercados, riscos e oportunidades." },
-        { name: "Buyer & Supplier Search", desc: "Pesquisa direcionada de clientes, distribuidores, importadores e fornecedores." },
+        { name: "Buyer & Supplier Search", desc: "Busca direcionada de clientes, distribuidores, importadores e fornecedores." },
         { name: "Import / Export Intelligence", desc: "Requisitos, procedimentos, barreiras e aspectos operacionais." },
-        { name: "Business Matching", desc: "Pesquisa, contato e introdução a potenciais parceiros comerciais." },
+        { name: "Business Matching", desc: "Identificação, contato e apresentação a potenciais parceiros comerciais." },
       ],
-      cta: "DESCUBRA COMO PODEMOS AJUDAR",
+      cta: "VEJA COMO PODEMOS AJUDAR",
     },
     how: {
       title: "Simples, rápido, claro.",
