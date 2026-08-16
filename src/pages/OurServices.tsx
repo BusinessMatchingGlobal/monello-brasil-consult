@@ -389,6 +389,7 @@ function InfoBar() {
 export default function OurServices() {
   const { lang } = useT();
   const [requested, setRequested] = useState<string | null>(null);
+  const { intro: servicesIntro } = getServicesCatalog(lang);
   useCanonical("/Our_Services", {
     title:
       lang === "it"
