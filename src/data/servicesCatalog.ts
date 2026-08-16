@@ -466,3 +466,12 @@ export const servicesNotes = {
     "Prezzi espressi in EUR. Pagamento senza spese via SEPA. In alternativa: BRL (Pix/TED) al PTAX de venda del Banco Central do Brasil; USD (ACH), GBP (Faster Payments), AUD, NZD e CAD (trasferimento domestico) al tasso di riferimento BCE — in tutti i casi, tasso del giorno lavorativo precedente l'emissione della fattura.",
   ],
 };
+
+import { servicesIntroPT, serviceGroupsPT, servicesNotesPT } from "./servicesCatalog.pt";
+
+export function getServicesCatalog(lang: string) {
+  if (lang === "pt") {
+    return { intro: servicesIntroPT, groups: serviceGroupsPT, notes: servicesNotesPT };
+  }
+  return { intro: servicesIntro, groups: serviceGroups, notes: servicesNotes };
+}

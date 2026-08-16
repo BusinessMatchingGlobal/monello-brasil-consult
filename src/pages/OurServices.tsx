@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { ServiceRequestDialog } from "@/components/ServiceRequestDialog";
-import { serviceGroups, servicesIntro, servicesNotes, type ServiceItem } from "@/data/servicesCatalog";
+import { getServicesCatalog, type ServiceItem } from "@/data/servicesCatalog";
 import type { FormEvent } from "react";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 
@@ -176,6 +176,8 @@ function Nav() {
 
 function ServiceCard({ item, onRequest }: { item: ServiceItem; onRequest: (n: string) => void }) {
   const [open, setOpen] = useState(false);
+  const { lang } = useT();
+  const { intro: servicesIntro } = getServicesCatalog(lang);
   return (
     <div className="p-6 md:p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:border-primary/60 transition-colors flex flex-col">
       <h3 className="font-display text-xl md:text-2xl text-background">{item.name}</h3>
@@ -223,6 +225,8 @@ function ServiceCard({ item, onRequest }: { item: ServiceItem; onRequest: (n: st
 }
 
 function Services({ onRequest }: { onRequest: (n: string) => void }) {
+  const { lang } = useT();
+  const { groups: serviceGroups } = getServicesCatalog(lang);
   return (
     <section className="py-16 md:py-24 bg-foreground text-background">
       <div className="container max-w-6xl space-y-16">
@@ -248,6 +252,8 @@ function Services({ onRequest }: { onRequest: (n: string) => void }) {
 }
 
 function Notes() {
+  const { lang } = useT();
+  const { notes: servicesNotes } = getServicesCatalog(lang);
   return (
     <section className="py-14 md:py-20 border-t border-border/60">
       <div className="container max-w-4xl">
