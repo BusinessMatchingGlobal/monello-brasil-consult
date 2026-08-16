@@ -9,6 +9,7 @@ import Privacy from "./pages/Privacy";
 import SampleReport from "./pages/SampleReport";
 import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
+import OurServices from "./pages/OurServices";
 import CustoBrasil from "./pages/CustoBrasil";
 import NewsEbook from "./pages/NewsEbook";
 import SaceGuide from "./pages/SaceGuide";
@@ -84,6 +85,8 @@ const App = () => {
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             <Route path="/About_us" element={<AboutUs />} />
             <Route path="/about_us" element={<AboutUs />} />
+            <Route path="/Our_Services" element={<OurServices />} />
+            <Route path="/our_services" element={<OurServices />} />
             <Route path="/custo-brasil" element={<CustoBrasil />} />
             <Route path="/news" element={<NewsEbook />} />
             <Route path="/sace" element={<SaceGuide />} />
