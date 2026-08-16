@@ -68,6 +68,18 @@ export const translations = {
         },
       ],
     },
+    homeServices: {
+      title: "How can we help you?",
+      subtitle: "From first data to first contact.",
+      intro: "We verify companies, analyze markets and identify potential clients, suppliers and partners in Brazil, Europe and other markets.",
+      items: [
+        { name: "Business Intelligence", desc: "Companies, competitors, markets, risks and opportunities." },
+        { name: "Buyer & Supplier Search", desc: "Targeted research of clients, distributors, importers and suppliers." },
+        { name: "Import / Export Intelligence", desc: "Requirements, procedures, barriers and operational aspects." },
+        { name: "Business Matching", desc: "Research, contact and introduction to potential commercial partners." },
+      ],
+      cta: "DISCOVER HOW WE CAN HELP",
+    },
     how: {
       title: "Simple, fast, clear.",
       steps: [
@@ -234,6 +246,18 @@ export const translations = {
         },
       ],
     },
+    homeServices: {
+      title: "Come possiamo aiutarti?",
+      subtitle: "Dal primo dato al primo contatto.",
+      intro: "Verifichiamo aziende, analizziamo mercati e individuiamo potenziali clienti, fornitori e partner in Brasile, Europa e altri mercati.",
+      items: [
+        { name: "Business Intelligence", desc: "Aziende, concorrenti, mercati, rischi e opportunità." },
+        { name: "Buyer & Supplier Search", desc: "Ricerca mirata di clienti, distributori, importatori e fornitori." },
+        { name: "Import / Export Intelligence", desc: "Requisiti, procedure, barriere e aspetti operativi." },
+        { name: "Business Matching", desc: "Ricerca, contatto e introduzione a potenziali partner commerciali." },
+      ],
+      cta: "SCOPRI COME POSSIAMO AIUTARTI",
+    },
     how: {
       title: "Semplice, veloce, chiaro.",
       steps: [
@@ -399,6 +423,18 @@ export const translations = {
           price: "€600",
         },
       ],
+    },
+    homeServices: {
+      title: "Como podemos ajudar?",
+      subtitle: "Do primeiro dado ao primeiro contato.",
+      intro: "Verificamos empresas, analisamos mercados e identificamos potenciais clientes, fornecedores e parceiros no Brasil, na Europa e em outros mercados.",
+      items: [
+        { name: "Business Intelligence", desc: "Empresas, concorrentes, mercados, riscos e oportunidades." },
+        { name: "Buyer & Supplier Search", desc: "Pesquisa direcionada de clientes, distribuidores, importadores e fornecedores." },
+        { name: "Import / Export Intelligence", desc: "Requisitos, procedimentos, barreiras e aspectos operacionais." },
+        { name: "Business Matching", desc: "Pesquisa, contato e introdução a potenciais parceiros comerciais." },
+      ],
+      cta: "DESCUBRA COMO PODEMOS AJUDAR",
     },
     how: {
       title: "Simples, rápido, claro.",
