@@ -70,15 +70,15 @@ export const translations = {
     },
     homeServices: {
       title: "How can we help you?",
-      subtitle: "From first data to first contact.",
-      intro: "We verify companies, analyze markets and identify potential clients, suppliers and partners in Brazil, Europe and other markets.",
+      subtitle: "From the first data point to the first contact.",
+      intro: "We verify companies, analyze markets, and identify potential customers, suppliers, and partners in Brazil, Europe, and other markets.",
       items: [
-        { name: "Business Intelligence", desc: "Companies, competitors, markets, risks and opportunities." },
-        { name: "Buyer & Supplier Search", desc: "Targeted research of clients, distributors, importers and suppliers." },
-        { name: "Import / Export Intelligence", desc: "Requirements, procedures, barriers and operational aspects." },
-        { name: "Business Matching", desc: "Research, contact and introduction to potential commercial partners." },
+        { name: "Business Intelligence", desc: "Companies, competitors, markets, risks, and opportunities." },
+        { name: "Buyer & Supplier Search", desc: "Targeted search for customers, distributors, importers, and suppliers." },
+        { name: "Import / Export Intelligence", desc: "Requirements, procedures, barriers, and operational insights." },
+        { name: "Business Matching", desc: "Identification, contact, and introduction to potential business partners." },
       ],
-      cta: "DISCOVER HOW WE CAN HELP",
+      cta: "SEE HOW WE CAN HELP",
     },
     how: {
       title: "Simple, fast, clear.",
