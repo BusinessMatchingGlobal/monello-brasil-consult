@@ -47,7 +47,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     slug: "amapa",
     group: "amapa",
     date: "2026-08-13",
-    updated: "2026-08-15",
+    updated: "2026-08-16",
     title: {
       it: "L'isola che non è un'isola",
       en: "The Island That Isn't",
@@ -58,7 +58,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     slug: "amapa_br",
     group: "amapa",
     date: "2026-08-13",
-    updated: "2026-08-15",
+    updated: "2026-08-16",
     title: {
       it: "L'isola che non è un'isola",
       en: "The Island That Isn't",
@@ -69,7 +69,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     slug: "amapa_it",
     group: "amapa",
     date: "2026-08-13",
-    updated: "2026-08-15",
+    updated: "2026-08-16",
     title: {
       it: "L'isola che non è un'isola",
       en: "The Island That Isn't",
