@@ -299,65 +299,40 @@ function Services() {
   return (
     <section id="services" className="py-20 md:py-28 bg-foreground text-background">
       <div className="container max-w-6xl">
-        <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
+        <div className="flex items-end justify-between flex-wrap gap-6 mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight max-w-2xl text-background">
-            {t.services.title}
+            {t.homeServices.title}
           </h2>
           <span className="text-xs tracking-wider uppercase text-background/75">
             01 — 03
           </span>
         </div>
-        <div className="grid md:grid-cols-3 gap-5">
-          {t.services.cards.map((card, i) => (
+        <p className="text-lg md:text-xl text-background/80 mb-2 leading-relaxed">
+          {t.homeServices.subtitle}
+        </p>
+        <p className="text-base text-background/70 mb-14 leading-relaxed max-w-3xl">
+          {t.homeServices.intro}
+        </p>
+        <div className="grid md:grid-cols-2 gap-5">
+          {t.homeServices.items.map((item, i) => (
             <div
-              key={card.name}
-              className="group p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:border-primary/60 transition-colors flex flex-col"
+              key={item.name}
+              className="group p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:border-primary/60 transition-colors"
             >
-              <span className="text-xs tracking-wider uppercase text-background/70 mb-6">
+              <span className="text-xs tracking-wider uppercase text-background/70 mb-6 block">
                 0{i + 1}
               </span>
-              <h3 className="font-display text-2xl mb-3 text-background">{card.name}</h3>
-              <p className="text-background/70 mb-6 leading-relaxed">{card.promise}</p>
-              <ul className="space-y-2.5 mb-8 flex-1">
-                {card.items.map((item) => (
-                  <li key={item} className="flex gap-2.5 text-sm text-background/85">
-                    <Check className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-5 border-t border-background/10 flex items-center justify-between">
-                <span className="text-sm text-background/80">
-                  {t.services.from} <span className="text-background font-medium">{card.price}</span>
-                </span>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-1 text-sm text-primary hover:text-amber transition-colors"
-                >
-                  {t.services.request} <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
+              <h3 className="font-display text-2xl mb-3 text-background">{item.name}</h3>
+              <p className="text-background/70 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
-        <div className="mt-14">
-          {(() => {
-            const parts = t.services.custom.split("\n\n");
-            const title = parts[0];
-            const body = parts.slice(1);
-            return (
-              <>
-                <h3 className="text-2xl md:text-3xl font-display text-background text-left mb-6">
-                  {title}
-                </h3>
-                <div className="text-background/65 italic space-y-4 text-justify">
-                  {body.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-              </>
-            );
-          })()}
+        <div className="mt-14 flex justify-center">
+          <Button asChild size="lg" className="rounded-full bg-background text-foreground hover:bg-background/90">
+            <Link to="/Our_Services">
+              {t.homeServices.cta} <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
