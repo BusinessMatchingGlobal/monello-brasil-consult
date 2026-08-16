@@ -468,10 +468,14 @@ export const servicesNotes = {
 };
 
 import { servicesIntroPT, serviceGroupsPT, servicesNotesPT } from "./servicesCatalog.pt";
+import { servicesIntroEN, serviceGroupsEN, servicesNotesEN } from "./servicesCatalog.en";
 
 export function getServicesCatalog(lang: string) {
   if (lang === "pt") {
     return { intro: servicesIntroPT, groups: serviceGroupsPT, notes: servicesNotesPT };
+  }
+  if (lang === "en") {
+    return { intro: servicesIntroEN, groups: serviceGroupsEN, notes: servicesNotesEN };
   }
   return { intro: servicesIntro, groups: serviceGroups, notes: servicesNotes };
 }
