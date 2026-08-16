@@ -303,9 +303,6 @@ function Services() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight max-w-2xl text-background">
             {t.homeServices.title}
           </h2>
-          <span className="text-xs tracking-wider uppercase text-background/75">
-            01 — 03
-          </span>
         </div>
         <p className="text-lg md:text-xl text-background/80 mb-2 leading-relaxed">
           {t.homeServices.subtitle}
@@ -314,14 +311,11 @@ function Services() {
           {t.homeServices.intro}
         </p>
         <div className="grid md:grid-cols-2 gap-5">
-          {t.homeServices.items.map((item, i) => (
+          {t.homeServices.items.map((item) => (
             <div
               key={item.name}
               className="group p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:border-primary/60 transition-colors"
             >
-              <span className="text-xs tracking-wider uppercase text-background/70 mb-6 block">
-                0{i + 1}
-              </span>
               <h3 className="font-display text-2xl mb-3 text-background">{item.name}</h3>
               <p className="text-background/70 leading-relaxed">{item.desc}</p>
             </div>
