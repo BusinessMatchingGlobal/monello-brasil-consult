@@ -456,14 +456,16 @@ export const serviceGroups: ServiceGroup[] = [
 ];
 
 export const servicesNotes = {
-  title: "Note",
+  title: "NOTE",
   items: [
-    'I prezzi indicati sono "a partire da" e indicativi: la quotazione definitiva viene confermata dopo un breve briefing gratuito sul caso specifico.',
-    "Per i servizi con componente a risultato, le condizioni sono definite per iscritto prima dell'avvio dell'attività.",
-    "Il numero di controparti individuate dipende dal mercato: in settori di nicchia possono essere poche, ma tutte rilevanti. Selezioniamo, non riempiamo liste.",
-    "Non vendiamo database generici: le aziende vengono selezionate in funzione del prodotto, del mercato target e del profilo commerciale del cliente. Le ricerche combinano fonti pubbliche, database, strumenti di business intelligence e verifica umana.",
-    "I servizi di verifica e due diligence hanno natura informativa e di business intelligence e si basano sulle fonti accessibili per il caso specifico. Non costituiscono due diligence legale, fiscale, contabile o finanziaria professionale. Quando necessario, BMG può coordinare approfondimenti con professionisti qualificati locali.",
-    "Prezzi espressi in EUR. Pagamento senza spese via SEPA. In alternativa: BRL (Pix/TED) al PTAX de venda del Banco Central do Brasil; USD (ACH), GBP (Faster Payments), AUD, NZD e CAD (trasferimento domestico) al tasso di riferimento BCE — in tutti i casi, tasso del giorno lavorativo precedente l'emissione della fattura.",
+    'Prezzi. I prezzi indicati sono importi minimi di partenza ("a partire da"). La quotazione definitiva viene formulata in un preventivo specifico e senza impegno, che il cliente è libero di accettare o meno.',
+    "Tempi. I tempi di lavorazione indicati sono orientativi. Le tempistiche effettive e le scadenze di consegna vengono definite nel preventivo di dettaglio e, come il prezzo, diventano vincolanti solo con l'accettazione.",
+    'Servizi con componente a risultato. Le condizioni — incluso che cosa si intende esattamente per "risultato" — vengono stabilite in dettaglio in fase di preventivo e formalizzate per iscritto prima dell\'avvio dell\'attività.',
+    "Qualità, non quantità. Il numero di controparti individuate dipende dal mercato: nei settori di nicchia possono essere poche, ma tutte rilevanti. Selezioniamo e analizziamo le reali possibilità di matching: per questo non promettiamo mai un numero minimo di contatti, ma esclusivamente i contatti selezionati con le maggiori probabilità di successo.",
+    "Nessun database generico. Le aziende vengono selezionate in funzione del prodotto, del mercato target e del profilo commerciale del cliente. Le ricerche combinano fonti pubbliche, database e strumenti di business intelligence, sempre sottoposti a verifica umana.",
+    "Natura dei servizi di verifica e due diligence. Hanno natura informativa e di business intelligence e si basano sulle fonti accessibili per il caso specifico. Sono condotti con rigore su dati affidabili e verificati; non possono tuttavia coprire circostanze non prevedibili né conoscibili con l'ordinaria diligenza, e non costituiscono due diligence legale, fiscale, contabile o finanziaria professionale.",
+    "Rete di professionisti. Quando necessario, BMG può coordinare approfondimenti con professionisti qualificati di fiducia del proprio network.",
+    "Valute e pagamenti. Tutti i prezzi sono espressi in EUR. Il pagamento può essere effettuato senza spese via SEPA oppure, sempre senza costi aggiuntivi, in BRL (Pix/TED) al PTAX de venda del Banco Central do Brasil, o in USD (ACH), GBP (Faster Payments), AUD, NZD e CAD (trasferimento domestico) al tasso di riferimento BCE — in tutti i casi al tasso del giorno lavorativo precedente l'emissione della fattura.",
   ],
 };
 
