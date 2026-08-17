@@ -30,6 +30,7 @@ import AmapaEN from "./Amapa";
 import AmapaIT from "./Amapa_IT";
 import AmapaBR from "./Amapa_BR";
 import BahiaEN from "./Bahia";
+import BahiaIT from "./Bahia_IT";
 
 // Renders the language variant matching the current site language
 // (auto-detected from the browser on first visit), on a single shared URL.
@@ -105,7 +106,7 @@ export function AmapaLocalized() {
 
 export function BahiaLocalized() {
   const { lang } = useT();
-  if (lang === "it") return <BahiaEN />;
+  if (lang === "it") return <BahiaIT />;
   if (lang === "pt") return <BahiaEN />;
   return <BahiaEN />;
 }
