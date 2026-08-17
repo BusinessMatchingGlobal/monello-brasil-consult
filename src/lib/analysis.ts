@@ -17,7 +17,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     title: {
       it: "Lo sconto che era un bilancio",
       en: "The Discount That Was a Balance Sheet",
-      pt: "The Discount That Was a Balance Sheet",
+      pt: "O desconto que era um balanço",
     },
   },
   {
@@ -27,7 +27,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     title: {
       it: "Lo sconto che era un bilancio",
       en: "The Discount That Was a Balance Sheet",
-      pt: "The Discount That Was a Balance Sheet",
+      pt: "O desconto que era um balanço",
     },
   },
   {
@@ -37,7 +37,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     title: {
       it: "Lo sconto che era un bilancio",
       en: "The Discount That Was a Balance Sheet",
-      pt: "The Discount That Was a Balance Sheet",
+      pt: "O desconto que era um balanço",
     },
   },
   {
