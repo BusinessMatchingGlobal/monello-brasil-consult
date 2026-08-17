@@ -102,3 +102,10 @@ export function AmapaLocalized() {
   if (lang === "pt") return <AmapaBR />;
   return <AmapaEN />;
 }
+
+export function BahiaLocalized() {
+  const { lang } = useT();
+  if (lang === "it") return <BahiaEN />;
+  if (lang === "pt") return <BahiaEN />;
+  return <BahiaEN />;
+}
