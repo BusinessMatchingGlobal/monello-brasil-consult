@@ -35,6 +35,8 @@ import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
+import Amapa, { AmapaBR, AmapaIT } from "./pages/analysis/Amapa";
+import Bahia, { BahiaLocalized } from "./pages/analysis/Bahia";
 import { AiJusLocalized, AmaroLocalized, AsuncionLocalized, CeutaLocalized, EconomistLocalized, EmbraerLocalized, LimaLocalized, LorenzettiLocalized, RareLocalized, AmapaLocalized } from "./pages/analysis/LocalizedArticle";
 import Voli from "./pages/calliphora/Voli";
 import Lorenzetti from "./pages/analysis/Lorenzetti";
@@ -183,6 +185,10 @@ const App = () => {
             <Route path="/Asuncion_IT" element={<AsuncionIT />} />
             <Route path="/asuncion_br" element={<AsuncionBR />} />
             <Route path="/Asuncion_BR" element={<AsuncionBR />} />
+            <Route path="/bahia" element={<BahiaLocalized />} />
+            <Route path="/Bahia" element={<BahiaLocalized />} />
+            <Route path="/bahia_en" element={<Bahia />} />
+            <Route path="/Bahia_EN" element={<Bahia />} />
 
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
