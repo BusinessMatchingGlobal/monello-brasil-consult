@@ -11,6 +11,36 @@ export type AnalysisArticle = {
 // Most recent first (sorted by date desc at read time).
 export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   {
+    slug: "bahia",
+    group: "bahia",
+    date: "2026-08-17",
+    title: {
+      it: "The Discount That Was a Balance Sheet",
+      en: "The Discount That Was a Balance Sheet",
+      pt: "The Discount That Was a Balance Sheet",
+    },
+  },
+  {
+    slug: "bahia_br",
+    group: "bahia",
+    date: "2026-08-17",
+    title: {
+      it: "The Discount That Was a Balance Sheet",
+      en: "The Discount That Was a Balance Sheet",
+      pt: "The Discount That Was a Balance Sheet",
+    },
+  },
+  {
+    slug: "bahia_it",
+    group: "bahia",
+    date: "2026-08-17",
+    title: {
+      it: "The Discount That Was a Balance Sheet",
+      en: "The Discount That Was a Balance Sheet",
+      pt: "The Discount That Was a Balance Sheet",
+    },
+  },
+  {
     slug: "asuncion",
     group: "asuncion",
     date: "2026-08-13",
