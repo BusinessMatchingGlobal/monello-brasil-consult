@@ -15,7 +15,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     group: "bahia",
     date: "2026-08-17",
     title: {
-      it: "The Discount That Was a Balance Sheet",
+      it: "Lo sconto che era un bilancio",
       en: "The Discount That Was a Balance Sheet",
       pt: "The Discount That Was a Balance Sheet",
     },
@@ -25,7 +25,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     group: "bahia",
     date: "2026-08-17",
     title: {
-      it: "The Discount That Was a Balance Sheet",
+      it: "Lo sconto che era un bilancio",
       en: "The Discount That Was a Balance Sheet",
       pt: "The Discount That Was a Balance Sheet",
     },
@@ -35,7 +35,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
     group: "bahia",
     date: "2026-08-17",
     title: {
-      it: "The Discount That Was a Balance Sheet",
+      it: "Lo sconto che era un bilancio",
       en: "The Discount That Was a Balance Sheet",
       pt: "The Discount That Was a Balance Sheet",
     },
