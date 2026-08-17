@@ -29,6 +29,7 @@ import RareBR from "./Rare_BR";
 import AmapaEN from "./Amapa";
 import AmapaIT from "./Amapa_IT";
 import AmapaBR from "./Amapa_BR";
+import BahiaEN from "./Bahia";
 
 // Renders the language variant matching the current site language
 // (auto-detected from the browser on first visit), on a single shared URL.
