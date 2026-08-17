@@ -442,13 +442,15 @@ export const serviceGroupsEN: ServiceGroup[] = [
 ];
 
 export const servicesNotesEN = {
-  title: "Notes",
+  title: "NOTES",
   items: [
-    'Prices are "starting at" and indicative: the final quote is confirmed after a short free briefing on your specific case.',
-    "For services with a performance-based component, terms are defined in writing before work begins.",
-    "The number of counterparts identified depends on the market: in niche industries there may be few — but all relevant. We select. We don't pad lists.",
-    "We don't sell generic databases: companies are selected based on your product, target market, and commercial profile. Our research combines public sources, databases, business intelligence tools, and human verification.",
-    "Verification and due diligence services are informational and business-intelligence in nature, based on the sources accessible for each specific case. They do not constitute professional legal, tax, accounting, or financial due diligence. Where needed, BMG can coordinate deeper reviews with qualified local professionals.",
-    "Prices in EUR. Fee-free payment via SEPA. Alternatively: BRL (Pix/TED) at the Banco Central do Brasil PTAX selling rate; USD (ACH), GBP (Faster Payments), AUD, NZD, and CAD (domestic transfer) at the ECB reference rate — in all cases, the rate of the business day before the invoice date.",
+    'Pricing. Prices shown are minimum starting amounts ("starting at"). The final quote is provided in a specific, no-obligation proposal, which the client is free to accept or decline.',
+    "Timelines. Delivery times shown are indicative. Actual turnaround and delivery deadlines are set out in the detailed proposal and, like the price, become binding only upon acceptance.",
+    'Performance-based services. Terms — including exactly what counts as a "result" — are defined in detail at the proposal stage and formalized in writing before work begins.',
+    "Quality over quantity. The number of counterparts identified depends on the market: in niche industries there may be few, but all relevant. We select and assess real matching potential: that's why we never promise a minimum number of contacts — only the selected contacts with the highest likelihood of success.",
+    "No generic databases. Companies are selected based on your product, target market, and commercial profile. Our research combines public sources, databases, and business intelligence tools, always subject to human verification.",
+    "Nature of verification and due diligence services. They are informational and business-intelligence in nature, based on the sources accessible for each specific case. They are conducted rigorously on reliable, verified data; however, they cannot cover circumstances that are not foreseeable or knowable through ordinary diligence, and they do not constitute professional legal, tax, accounting, or financial due diligence.",
+    "Professional network. Where needed, BMG can coordinate deeper reviews with trusted, qualified professionals from its network.",
+    "Currencies and payments. All prices are in EUR. Payment can be made fee-free via SEPA or, also at no extra cost, in BRL (Pix/TED) at the Banco Central do Brasil PTAX selling rate, or in USD (ACH), GBP (Faster Payments), AUD, NZD, and CAD (domestic transfer) at the ECB reference rate — in all cases, at the rate of the business day before the invoice date.",
   ],
 };
