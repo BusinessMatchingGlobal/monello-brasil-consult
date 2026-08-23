@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="google-site-verification" content="FZfZw0Avtu5u43MIpNZfcGyJPQOvpw68cueBANvGVJc" />
+    
     <meta name="google-site-verification" content="c2xmo53DfshnVjID_sh_RcAwpyLCJcQe7LawXVeMDcU" />
     <meta name="openai-domain-verification" content="dv-Wof7qT9UvthXAryWeIQlung9" />
 
@@ -29,7 +29,7 @@
     <!-- SEO Meta Tags -->
     <title>Business Matching Global — Brazil Market Intelligence</title>
     <meta name="description" content="Market research, supplier verification and import/export intelligence on Brazil — clear, actionable reports for international companies." />
-    <meta name="keywords" content="Brazil business intelligence, supplier verification Brazil, Brazil market research, import export Brazil, due diligence Brazil, Italy Brazil business" />
+    
     <meta name="author" content="Business Matching Global" />
     <!-- Per-route canonical is set at runtime; see src/lib/useCanonical.ts -->
     
@@ -55,60 +55,66 @@
     <meta name="twitter:description" content="Market research, supplier verification and import/export intelligence on Brazil." />
     <meta name="twitter:image" content="https://businessmatching.global/og-image.jpg" />
     
-    <!-- Structured Data - Organization -->
+    <!-- Structured Data - Organization & ProfessionalService -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Businessmatching.global",
-      "description": "Expert consulting firm specializing in Brazilian market entry, Custo Brasil reduction, ESG strategy and digital transformation for foreign companies investing in Brazil",
-      "url": "https://businessmatching.global",
-      "logo": "https://businessmatching.global/favicon.png",
-      "email": "enstobbi@enstobbi.it",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Avenida Getúlio Vargas, 671",
-        "addressLocality": "Belo Horizonte",
-        "addressRegion": "MG",
-        "postalCode": "30112-021",
-        "addressCountry": "BR"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Brazil"
-      },
-      "serviceType": [
-        "Business Consulting",
-        "Market Entry Strategy",
-        "Compliance Consulting",
-        "ESG Consulting",
-        "Digital Transformation"
-      ],
-      "knowsAbout": [
-        "Brazilian Market",
-        "Custo Brasil",
-        "Latin America Business",
-        "ESG Strategy",
-        "Soft-landing Services"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Business Matching Global",
+          "legalName": "ENZO ALDO STOBBIONE LTDA",
+          "taxID": "67.589.228/0001-30",
+          "url": "https://businessmatching.global",
+          "logo": "https://businessmatching.global/favicon.png",
+          "email": "enstobbi@enstobbi.it",
+          "telephone": "+55 31 3400-1031",
+          "sameAs": "https://www.linkedin.com/company/businessmatchingglobal",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avenida Getúlio Vargas, 671 - Sala 500",
+            "addressLocality": "Belo Horizonte",
+            "addressRegion": "MG",
+            "addressNeighborhood": "Savassi",
+            "postalCode": "30112-021",
+            "addressCountry": "BR"
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "Brazil" },
+            { "@type": "Country", "name": "Italy" },
+            { "@type": "Place", "name": "European Union" }
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Business Matching Global",
+          "description": "Expert consulting firm specializing in Brazilian market entry, Custo Brasil reduction, ESG strategy and digital transformation for foreign companies investing in Brazil",
+          "url": "https://businessmatching.global",
+          "logo": "https://businessmatching.global/favicon.png",
+          "email": "enstobbi@enstobbi.it",
+          "telephone": "+55 31 3400-1031",
+          "provider": { "@id": "https://businessmatching.global/#organization" },
+          "areaServed": [
+            { "@type": "Country", "name": "Brazil" },
+            { "@type": "Country", "name": "Italy" },
+            { "@type": "Place", "name": "European Union" }
+          ],
+          "serviceType": [
+            "Business Consulting",
+            "Market Entry Strategy",
+            "Compliance Consulting",
+            "ESG Consulting",
+            "Digital Transformation"
+          ],
+          "knowsAbout": [
+            "Brazilian Market",
+            "Custo Brasil",
+            "Latin America Business",
+            "ESG Strategy",
+            "Soft-landing Services"
+          ]
+        }
       ]
-    }
-    </script>
-    
-    <!-- Structured Data - Services -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Brazil Market Entry Consulting",
-      "provider": {
-        "@type": "Organization",
-        "name": "Businessmatching.global"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Brazil"
-      },
-      "description": "Complete tailor-made services for companies entering the Brazilian market - from startups to large corporates. We handle all burdens, leaving you only the rewards of success."
     }
     </script>
 
