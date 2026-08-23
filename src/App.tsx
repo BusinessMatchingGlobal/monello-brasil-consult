@@ -11,6 +11,7 @@ import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
 import OurServices from "./pages/OurServices";
 import BusinessMatchingService from "./pages/servizi/BusinessMatching";
+import BusinessMatchingServiceBR from "./pages/servicos/BusinessMatching";
 import CustoBrasil from "./pages/CustoBrasil";
 import NewsEbook from "./pages/NewsEbook";
 import SaceGuide from "./pages/SaceGuide";
@@ -92,6 +93,7 @@ const App = () => {
             <Route path="/Our_Services" element={<OurServices />} />
             <Route path="/our_services" element={<OurServices />} />
             <Route path="/servizi/business-matching" element={<BusinessMatchingService />} />
+            <Route path="/servicos/business-matching" element={<BusinessMatchingServiceBR />} />
             <Route path="/custo-brasil" element={<CustoBrasil />} />
             <Route path="/news" element={<NewsEbook />} />
             <Route path="/sace" element={<SaceGuide />} />
