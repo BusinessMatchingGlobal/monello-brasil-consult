@@ -53,7 +53,7 @@ export const blocks: Block[] = [
 export default function BusinessTravel({ force }: { force?: Lang } = {}) {
   const { lang, setLang } = useT();
   useCanonical("/BT", {
-    title: "Business Travel & Travel Management — Business Matching Global",
+    title: "Business Travel & Travel Management | Business Matching Global",
     description: "Desk travel dedicato: biglietteria aerea con tariffe negoziate e confidenziali, hotel, noleggio auto, trasferimenti e coperture assicurative.",
   });
   useEffect(() => {

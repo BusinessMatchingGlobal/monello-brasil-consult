@@ -47,7 +47,7 @@ export default function AiJus() {
   const desc =
     "Procedural prompt injection in Brazilian courts: the world's first sanctioned case of hidden AI commands in judicial filings. What Europe can learn from Brazil's live experiment.";
   useCanonical("/aiJus", {
-    title: `${article?.title[lang] ?? "AI and justice"} — Business Matching Global`,
+    title: `${article?.title[lang] ?? "AI and justice"} | Business Matching Global`,
     description: desc,
     type: "article",
   });

@@ -54,7 +54,7 @@ export default function LorenzettiIT() {
   const desc =
     "Come una famiglia di immigrati italiani ha progettato la doccia elettrica brasiliana — e perché quell'apparecchio, la lavatrice a freddo e il tanquinho rivelano la logica infrastrutturale del Custo Brasil.";
   useCanonical("/lorenzetti", {
-    title: `${TITLE} — Business Matching Global`,
+    title: `${TITLE} | Business Matching Global`,
     description: desc,
     type: "article",
   });

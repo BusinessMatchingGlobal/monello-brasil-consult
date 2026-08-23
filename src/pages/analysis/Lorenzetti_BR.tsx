@@ -54,7 +54,7 @@ export default function LorenzettiBR() {
   const desc =
     "Como uma família de imigrantes italianos projetou o chuveiro elétrico brasileiro — e por que o aparelho, a lavadora que lava frio e o tanquinho revelam a lógica infraestrutural do Custo Brasil.";
   useCanonical("/lorenzetti", {
-    title: `${TITLE} — Business Matching Global`,
+    title: `${TITLE} | Business Matching Global`,
     description: desc,
     type: "article",
   });

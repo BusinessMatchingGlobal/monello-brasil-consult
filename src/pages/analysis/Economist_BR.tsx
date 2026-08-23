@@ -46,7 +46,7 @@ export default function EconomistBR() {
   const desc =
     "A Embraer cresceu dez vezes na bolsa, com carteira de pedidos de US$ 34,5 bilhões, e a The Economist manda 'esquecer Airbus e Boeing'. Por que o CEO ainda se recusa a atacar o duopólio — e o que isso diz sobre a disciplina de capital brasileira.";
   useCanonical("/economist", {
-    title: `${TITLE} — Business Matching Global`,
+    title: `${TITLE} | Business Matching Global`,
     description: desc,
     type: "article",
   });

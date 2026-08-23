@@ -51,7 +51,7 @@ export default function Amaro() {
   const desc =
     "Rolim Adolfo Amaro, founder of TAM, the red carpet, and the seven commandments: how a commander born in a straw house priced the costs accountants never see.";
   useCanonical("/amaro", {
-    title: `${article?.title[lang] ?? "Amaro"} — Business Matching Global`,
+    title: `${article?.title[lang] ?? "Amaro"} | Business Matching Global`,
     description: desc,
     type: "article",
   });

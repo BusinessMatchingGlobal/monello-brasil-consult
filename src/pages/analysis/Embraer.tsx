@@ -63,7 +63,7 @@ export default function Embraer() {
   const desc =
     "Embraer 2026: how a Brazilian company built a 76% share of the 70–150 seat segment, a US$34.5B backlog, and a method that keeps clearing US tariff walls.";
   useCanonical("/Embraer", {
-    title: `${article?.title[lang] ?? "Embraer"} — Business Matching Global`,
+    title: `${article?.title[lang] ?? "Embraer"} | Business Matching Global`,
     description: desc,
     type: "article",
   });

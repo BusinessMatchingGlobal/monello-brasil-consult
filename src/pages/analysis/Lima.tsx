@@ -56,7 +56,7 @@ export default function Lima() {
   const desc =
     "Every year 150,000 people fly between Milan and Lima, yet no airline flies the route. Why Emirates' fifth-freedom option is a contest for a rent Italy vacated in 2008.";
   useCanonical("/lima", {
-    title: `${TITLE} — Business Matching Global`,
+    title: `${TITLE} | Business Matching Global`,
     description: desc,
     type: "article",
   });

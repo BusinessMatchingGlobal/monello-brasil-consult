@@ -46,7 +46,7 @@ export default function EconomistIT() {
   const desc =
     "Embraer cresciuta di dieci volte, backlog a 34,5 miliardi di dollari, e The Economist dice 'dimenticate Airbus e Boeing'. Perché l'AD ancora rifiuta di attaccare il duopolio — e cosa dice della disciplina del capitale brasiliana.";
   useCanonical("/economist", {
-    title: `${TITLE} — Business Matching Global`,
+    title: `${TITLE} | Business Matching Global`,
     description: desc,
     type: "article",
   });

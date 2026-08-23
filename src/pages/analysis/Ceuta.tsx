@@ -96,7 +96,7 @@ export default function Ceuta() {
   const desc =
     "What the Ceuta crisis actually tells us: Schengen's special status, Frontex data, Morocco's two-speed economy and the migration flows that verify what press releases deny.";
   useCanonical("/ceuta", {
-    title: `${TITLE} — Business Matching Global`,
+    title: `${TITLE} | Business Matching Global`,
     description: desc,
     type: "article",
   });

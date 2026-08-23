@@ -51,7 +51,7 @@ export default function AmaroIT() {
   const desc =
     "Rolim Adolfo Amaro, fondatore della TAM, il tappeto rosso e i sette comandamenti: come un comandante nato in una casa di paglia diede un prezzo ai costi che i contabili non vedono.";
   useCanonical("/Amaro_IT", {
-    title: `${article?.title[lang] ?? "Amaro"} — Business Matching Global`,
+    title: `${article?.title[lang] ?? "Amaro"} | Business Matching Global`,
     description: desc,
     type: "article",
   });

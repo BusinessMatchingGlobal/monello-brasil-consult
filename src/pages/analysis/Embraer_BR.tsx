@@ -67,7 +67,7 @@ export default function EmbraerBR() {
   const desc =
     "Embraer 2026: como uma empresa brasileira conquistou 76% do segmento de 70–150 assentos, uma carteira de pedidos de US$ 34,5 bilhões e um método que continua superando os muros tarifários americanos.";
   useCanonical("/Embraer_BR", {
-    title: `${article?.title.pt ?? "Embraer"} — Business Matching Global`,
+    title: `${article?.title.pt ?? "Embraer"} | Business Matching Global`,
     description: desc,
     type: "article",
   });

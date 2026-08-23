@@ -91,7 +91,7 @@ export default function CeutaIT() {
   const desc =
     "Cosa dice davvero la crisi di Ceuta: lo status speciale fuori Schengen, i dati Frontex, il Marocco a due velocità e i flussi che verificano ciò che i comunicati negano.";
   useCanonical("/ceuta", {
-    title: `${TITLE} — Business Matching Global`,
+    title: `${TITLE} | Business Matching Global`,
     description: desc,
     type: "article",
   });

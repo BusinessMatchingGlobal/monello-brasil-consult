@@ -57,7 +57,7 @@ export default function LimaBR() {
   const desc =
     "Todo ano 150 mil pessoas voam entre Milão e Lima, e nenhuma companhia serve a rota. Por que a opção fifth-freedom da Emirates é uma disputa por uma renda que a Itália deixou vaga em 2008.";
   useCanonical("/lima_br", {
-    title: `${TITLE} — Business Matching Global`,
+    title: `${TITLE} | Business Matching Global`,
     description: desc,
     type: "article",
   });

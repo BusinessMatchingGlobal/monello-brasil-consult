@@ -33,7 +33,7 @@ export default function Analysis() {
       ? "Análises e insights sobre o Brasil: regulação, mercado e oportunidades."
       : "Insights and analysis on Brazil: regulation, market, opportunities.";
   useCanonical("/analysis", {
-    title: `${heading} — Business Matching Global`,
+    title: `${heading} | Business Matching Global`,
     description: intro,
   });
   const back =

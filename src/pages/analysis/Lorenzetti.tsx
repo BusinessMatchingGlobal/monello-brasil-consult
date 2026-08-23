@@ -58,7 +58,7 @@ export default function Lorenzetti() {
   const desc =
     "How an Italian immigrant family engineered Brazil's electric shower — and why the appliance, the cold-wash machine and the tanquinho reveal the infrastructure logic behind the Custo Brasil.";
   useCanonical("/lorenzetti", {
-    title: `${article?.title[lang] ?? "The Shower That Decides How Brazil Washes"} — Business Matching Global`,
+    title: `${article?.title[lang] ?? "The Shower That Decides How Brazil Washes"} | Business Matching Global`,
     description: desc,
     type: "article",
   });
