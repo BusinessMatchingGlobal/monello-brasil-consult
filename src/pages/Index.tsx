@@ -222,6 +222,9 @@ function Hero() {
         <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-justify">
           {t.hero.sub}
         </p>
+        <p className="mt-4 text-sm md:text-base text-foreground/80 max-w-3xl">
+          {t.hero.areas}
+        </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Button asChild size="lg" className="rounded-full h-12 px-6">
             <a href="#contact">
@@ -354,7 +357,7 @@ function HowItWorks() {
     <section id="how" className="py-20 md:py-28">
       <div className="container max-w-6xl">
         <h2 className="text-3xl md:text-4xl lg:text-5xl mb-14 max-w-2xl">{t.how.title}</h2>
-        <div className="grid md:grid-cols-4 gap-8 md:gap-6">
+        <div className="grid md:grid-cols-5 gap-8 md:gap-6">
           {t.how.steps.map(([title, body], i) => (
             <div key={title} className="relative">
               <div className="text-amber font-display text-5xl mb-4">
@@ -368,6 +371,9 @@ function HowItWorks() {
             </div>
           ))}
         </div>
+        <p className="mt-14 border-l-2 border-amber pl-6 font-display text-xl md:text-2xl max-w-3xl">
+          {t.how.note}
+        </p>
       </div>
     </section>
   );
@@ -927,20 +933,20 @@ export default function Index() {
   const homeSeo =
     lang === "it"
       ? {
-          title: "Business Matching Global — Business intelligence affidabile sul Brasile",
+          title: "Dal primo dato al primo contatto in Brasile | Business Matching Global",
           description:
-            "Aiutiamo le imprese italiane a valutare il mercato brasiliano, verificare le controparti e trovare i partner giusti.",
+            "Aiutiamo imprese e investitori a capire il mercato brasiliano, verificare le controparti e trasformare un'opportunità in un rapporto commerciale.",
         }
       : lang === "pt"
       ? {
-          title: "Business Matching Global — Inteligência de mercado sobre a Europa",
+          title: "Da inteligência de mercado às conversas certas na Europa | BMG",
           description:
-            "Ajudamos empresas brasileiras a avaliar mercados europeus, verificar contrapartes e encontrar os parceiros certos.",
+            "Ajudamos empresas brasileiras a avaliar mercados europeus, verificar contrapartes e transformar uma oportunidade em relação comercial.",
         }
       : {
-          title: "Business Matching Global — From the first data point to the first contact in Brazil",
+          title: "From the first data point to the first contact in Brazil | BMG",
           description:
-            "We help international companies assess the Brazilian market, verify counterparts and identify the right partners.",
+            "We help international companies assess the Brazilian market, verify counterparts and turn an opportunity into a commercial relationship.",
         };
   useCanonical("/", homeSeo);
   return (
