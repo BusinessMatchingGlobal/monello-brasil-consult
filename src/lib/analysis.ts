@@ -5,6 +5,7 @@ export type AnalysisArticle = {
   date: string; // ISO date, used for "most recent first"
   updated?: string; // ISO date of the latest rewrite/update, when applicable
   title: Record<Lang, string>;
+  image?: string; // absolute or site-relative cover image used for og:image
   group?: string; // variants of the same article share the same group slug
 };
 
@@ -354,7 +355,7 @@ export const ANALYSIS_ARTICLES: AnalysisArticle[] = [
   },
 ];
 
-function getGroupSlug(article: AnalysisArticle): string {
+export function getGroupSlug(article: AnalysisArticle): string {
   return article.group ?? article.slug;
 }
 
@@ -397,4 +398,19 @@ export function formatArticleDate(article: AnalysisArticle, lang: Lang): string 
   if (!article.updated) return article.date;
   const label = lang === "it" ? "aggiornato" : lang === "pt" ? "atualizado" : "updated";
   return `${label} ${article.updated}`;
+}
+
+// All unique article URLs (one per group), used by the sitemap generator.
+export function getArticleGroupSlugs(): string[] {
+  return Array.from(new Set(ANALYSIS_ARTICLES.map(getGroupSlug)));
+}
+
+// Resolves an article from a route path such as "/bahia" or "/Amaro_IT".
+export function getArticleByPath(path: string): AnalysisArticle | undefined {
+  const slug = path.replace(/^\//, "").toLowerCase();
+  if (!slug) return undefined;
+  return (
+    ANALYSIS_ARTICLES.find((a) => a.slug.toLowerCase() === slug) ??
+    ANALYSIS_ARTICLES.find((a) => getGroupSlug(a).toLowerCase() === slug)
+  );
 }

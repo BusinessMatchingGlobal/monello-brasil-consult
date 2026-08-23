@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import ogDefault from "@/assets/og-default.jpg.asset.json";
+import { getArticleByPath } from "@/lib/analysis";
+import { useT } from "@/lib/i18n";
 
 export const SITE = "https://businessmatching.global";
 export const CALLIPHORA_SITE = "https://www.calliphora.flights";
@@ -24,6 +26,7 @@ type SEO = {
   type?: "website" | "article";
   alternates?: Array<{ hreflang: string; href: string }>;
 };
+
 
 function upsertMeta(selector: string, attr: "name" | "property", key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(selector);
@@ -66,10 +69,29 @@ function updateAlternates(base: string, alternates?: Array<{ hreflang: string; h
   }
 }
 
+const ARTICLE_JSONLD_ID = "article-jsonld";
+
+function setArticleJsonLd(data: Record<string, unknown> | null) {
+  let el = document.getElementById(ARTICLE_JSONLD_ID) as HTMLScriptElement | null;
+  if (!data) {
+    el?.remove();
+    return;
+  }
+  if (!el) {
+    el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = ARTICLE_JSONLD_ID;
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(data);
+}
+
 export function useCanonical(path: string, seo?: SEO) {
+  const { lang } = useT();
   useEffect(() => {
     const base = siteForPath(path);
     const url = base + path;
+    const article = getArticleByPath(path);
 
     // Favicon brand switch
     updateFavicon(path);
@@ -94,10 +116,12 @@ export function useCanonical(path: string, seo?: SEO) {
       "og:site_name",
       base === CALLIPHORA_SITE ? "Calliphora Travel" : "Business Matching Global",
     );
-    upsertMeta('meta[property="og:type"]', "property", "og:type", seo?.type ?? "website");
+    const ogType = seo?.type ?? (article ? "article" : "website");
+    upsertMeta('meta[property="og:type"]', "property", "og:type", ogType);
     upsertMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
 
-    const rawImg = seo?.image ?? DEFAULT_OG_IMAGE;
+    // og:image — article cover when available, otherwise the site default
+    const rawImg = seo?.image ?? article?.image ?? DEFAULT_OG_IMAGE;
     const absImg = rawImg.startsWith("http") ? rawImg : base + (rawImg.startsWith("/") ? rawImg : "/" + rawImg);
     upsertMeta('meta[property="og:image"]', "property", "og:image", absImg);
     upsertMeta('meta[name="twitter:image"]', "name", "twitter:image", absImg);
@@ -112,8 +136,31 @@ export function useCanonical(path: string, seo?: SEO) {
       upsertMeta('meta[property="og:description"]', "property", "og:description", seo.description);
       upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", seo.description);
     }
+
+    // Article JSON-LD, referencing the Organization declared in index.html
+    if (article) {
+      const orgRef = { "@id": `${SITE}/#organization` };
+      setArticleJsonLd({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: seo?.title?.replace(/\s*\|\s*Business Matching Global\s*$/, "") ?? article.title[lang],
+        description: seo?.description,
+        image: [absImg],
+        datePublished: article.date,
+        dateModified: article.updated ?? article.date,
+        inLanguage: lang === "it" ? "it-IT" : lang === "pt" ? "pt-BR" : "en",
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        author: orgRef,
+        publisher: orgRef,
+      });
+    } else {
+      setArticleJsonLd(null);
+    }
+
     return () => {
       updateAlternates(base);
+      setArticleJsonLd(null);
     };
-  }, [path, seo?.title, seo?.description, seo?.image, seo?.type, seo?.alternates]);
+  }, [path, lang, seo?.title, seo?.description, seo?.image, seo?.type, seo?.alternates]);
 }
+
