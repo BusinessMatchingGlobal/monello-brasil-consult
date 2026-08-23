@@ -112,5 +112,8 @@ export function useCanonical(path: string, seo?: SEO) {
       upsertMeta('meta[property="og:description"]', "property", "og:description", seo.description);
       upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", seo.description);
     }
-  }, [path, seo?.title, seo?.description, seo?.image, seo?.type]);
+    return () => {
+      updateAlternates(base);
+    };
+  }, [path, seo?.title, seo?.description, seo?.image, seo?.type, seo?.alternates]);
 }
