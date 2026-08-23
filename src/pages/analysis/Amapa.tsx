@@ -62,7 +62,11 @@ const body: Block[] = [
 export default function Amapa() {
   const { lang } = useT();
   const article = getArticleBySlug("amapa");
-  useCanonical(`/amapa`);
+  useCanonical("/amapa", {
+    title: `${TITLE} | Business Matching Global`,
+    description: "Brazil's only land border with the European Union runs through its most isolated state. Two dates this summer just changed what that means — an Amapá structural read.",
+    type: "article",
+  });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
