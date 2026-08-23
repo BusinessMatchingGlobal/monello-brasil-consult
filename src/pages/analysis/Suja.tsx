@@ -152,7 +152,7 @@ export default function Suja() {
       ? "Mesmo crime, duas arquiteturas: a lista suja brasileira e a administração judicial italiana no combate ao trabalho forçado."
       : "Same crime, two architectures: Brazil's lista suja and Italy's judicial administration in the fight against forced labor.";
   useCanonical("/suja", {
-    title: `${article?.title[lang] ?? "Suja"} — Business Matching Global`,
+    title: `${article?.title[lang] ?? "Suja"} | Business Matching Global`,
     description: desc,
     type: "article",
   });

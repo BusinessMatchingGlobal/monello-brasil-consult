@@ -51,7 +51,7 @@ export default function AmaroBR() {
   const desc =
     "Rolim Adolfo Amaro, fundador da TAM, o tapete vermelho e os sete mandamentos: como um comandante nascido numa casa de palha precificou os custos que os contadores nunca enxergam.";
   useCanonical("/Amaro_BR", {
-    title: `${article?.title[lang] ?? "Amaro"} — Business Matching Global`,
+    title: `${article?.title[lang] ?? "Amaro"} | Business Matching Global`,
     description: desc,
     type: "article",
   });

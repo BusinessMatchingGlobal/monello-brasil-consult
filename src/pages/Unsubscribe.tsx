@@ -11,7 +11,7 @@ type State = "checking" | "ready" | "already" | "invalid" | "done" | "error";
 
 export default function Unsubscribe() {
   useCanonical("/unsubscribe", {
-    title: "Unsubscribe — Business Matching Global",
+    title: "Unsubscribe | Business Matching Global",
     description: "Manage your subscription preferences.",
   });
   const [params] = useSearchParams();

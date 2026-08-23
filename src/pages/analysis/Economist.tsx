@@ -46,7 +46,7 @@ export default function Economist() {
   const desc =
     "Embraer is up ten-fold, its backlog is at $34.5bn, and The Economist says 'Forget Airbus and Boeing'. Why the CEO still refuses to attack the duopoly — and what that says about Brazilian capital discipline.";
   useCanonical("/economist", {
-    title: `${TITLE} — Business Matching Global`,
+    title: `${TITLE} | Business Matching Global`,
     description: desc,
     type: "article",
   });

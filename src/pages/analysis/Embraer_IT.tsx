@@ -67,7 +67,7 @@ export default function EmbraerIT() {
   const desc =
     "Embraer 2026: come un'azienda brasiliana ha conquistato il 76% del segmento 70–150 posti, un portafoglio ordini di 34,5 miliardi di dollari e un metodo che continua a superare i muri tariffari americani.";
   useCanonical("/Embraer_IT", {
-    title: `${article?.title.it ?? "Embraer"} — Business Matching Global`,
+    title: `${article?.title.it ?? "Embraer"} | Business Matching Global`,
     description: desc,
     type: "article",
   });

@@ -78,7 +78,11 @@ const body: Block[] = [
 export default function BahiaIT() {
   const { lang } = useT();
   const article = getArticleBySlug("bahia_it");
-  useCanonical(`/bahia_it`);
+  useCanonical("/bahia", {
+    title: `${TITLE} | Business Matching Global`,
+    description: "Con la domanda di recuperação judicial già pubblica e il titolo giù di oltre il 30%, il più grande rivenditore di elettrodomestici del Brasile ha prorogato la sua campagna sconti. Non era una svista: era il piano.",
+    type: "article",
+  });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

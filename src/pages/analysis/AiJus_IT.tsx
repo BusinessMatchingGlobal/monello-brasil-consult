@@ -47,7 +47,7 @@ export default function AiJusIT() {
   const desc =
     "Prompt injection nelle petizioni giudiziarie: il Brasile è il primo Paese a sanzionare comandi occulti rivolti all'IA dei tribunali. Casi, norme e lezioni per l'Europa.";
   useCanonical("/AiJus_IT", {
-    title: `${article?.title[lang] ?? "AI e giustizia"} — Business Matching Global`,
+    title: `${article?.title[lang] ?? "AI e giustizia"} | Business Matching Global`,
     description: desc,
     type: "article",
   });

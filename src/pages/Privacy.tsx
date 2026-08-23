@@ -244,7 +244,7 @@ const content: Record<"en" | "it" | "pt", Content> = {
 export default function Privacy() {
   const { lang } = useT();
   useCanonical("/privacy", {
-    title: lang === "it" ? "Privacy — Business Matching Global" : lang === "pt" ? "Privacidade — Business Matching Global" : "Privacy — Business Matching Global",
+    title: lang === "it" ? "Privacy | Business Matching Global" : lang === "pt" ? "Privacidade | Business Matching Global" : "Privacy | Business Matching Global",
     description: "GDPR / LGPD privacy notice.",
   });
   const c = content[lang];

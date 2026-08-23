@@ -78,7 +78,11 @@ const body: Block[] = [
 export default function Bahia() {
   const { lang } = useT();
   const article = getArticleBySlug("bahia");
-  useCanonical(`/bahia`);
+  useCanonical("/bahia", {
+    title: `${TITLE} | Business Matching Global`,
+    description: "With a judicial recovery filing already public and its shares down over 30%, Brazil's largest appliance retailer extended its discount campaign. Not an oversight — the plan.",
+    type: "article",
+  });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

@@ -484,10 +484,10 @@ export default function AboutUs() {
   const { lang } = useT();
   const seo =
     lang === "it"
-      ? { title: "Chi siamo — Business Matching Global", description: "Il nostro metodo per aiutare aziende europee a entrare in Brasile riducendo il Custo Brasil." }
+      ? { title: "Chi siamo | Business Matching Global", description: "Il nostro metodo per aiutare aziende europee a entrare in Brasile riducendo il Custo Brasil." }
       : lang === "pt"
-      ? { title: "Quem somos — Business Matching Global", description: "Nosso método para ajudar empresas europeias a entrar no Brasil reduzindo o Custo Brasil." }
-      : { title: "About us — Business Matching Global", description: "Our method to help European companies enter Brazil while cutting the Custo Brasil." };
+      ? { title: "Quem somos | Business Matching Global", description: "Nosso método para ajudar empresas europeias a entrar no Brasil reduzindo o Custo Brasil." }
+      : { title: "About us | Business Matching Global", description: "Our method to help European companies enter Brazil while cutting the Custo Brasil." };
   useCanonical("/About_us", seo);
   useEffect(() => {
     window.scrollTo(0, 0);

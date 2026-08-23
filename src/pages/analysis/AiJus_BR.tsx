@@ -47,7 +47,7 @@ export default function AiJusBR() {
   const desc =
     "Prompt injection em petições judiciais: o Brasil é o primeiro país a sancionar comandos ocultos dirigidos à IA dos tribunais. Casos, normas e lições para a Europa.";
   useCanonical("/AiJus_BR", {
-    title: `${article?.title[lang] ?? "IA e justiça"} — Business Matching Global`,
+    title: `${article?.title[lang] ?? "IA e justiça"} | Business Matching Global`,
     description: desc,
     type: "article",
   });
