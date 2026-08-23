@@ -53,6 +53,19 @@ function updateFavicon(path: string) {
   // Only override the explicit icon link so it matches the brand.
 }
 
+function updateAlternates(base: string, alternates?: Array<{ hreflang: string; href: string }>) {
+  document.head.querySelectorAll<HTMLLinkElement>('link[rel="alternate"][data-hreflang]').forEach((el) => el.remove());
+  if (!alternates?.length) return;
+  for (const alt of alternates) {
+    const link = document.createElement("link");
+    link.rel = "alternate";
+    link.hreflang = alt.hreflang;
+    link.href = alt.href.startsWith("http") ? alt.href : base + alt.href;
+    link.setAttribute("data-hreflang", "1");
+    document.head.appendChild(link);
+  }
+}
+
 export function useCanonical(path: string, seo?: SEO) {
   useEffect(() => {
     const base = siteForPath(path);
@@ -60,6 +73,9 @@ export function useCanonical(path: string, seo?: SEO) {
 
     // Favicon brand switch
     updateFavicon(path);
+
+    // Hreflang alternates
+    updateAlternates(base, seo?.alternates);
 
     // Canonical
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
