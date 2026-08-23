@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useCanonical, SITE } from "@/lib/useCanonical";
 import { Nav, InfoBar } from "@/pages/OurServices";
 
-const PATH = "/servizi/business-matching";
+const PATH = "/services/business-matching";
 
 const ALTERNATES = [
   { hreflang: "it", href: "/servizi/business-matching" },
@@ -16,66 +16,66 @@ const ALTERNATES = [
 
 const steps: Array<[string, string]> = [
   [
-    "Definiamo il profilo",
-    "Prima di cercare stabiliamo insieme chi stiamo cercando: settore, dimensione, area geografica, canale, volumi, capacità tecnica. Un profilo preciso vale più di una ricerca ampia.",
+    "We define the profile",
+    "Before searching, we agree on who we're looking for: sector, size, region, channel, volumes, technical capability. A precise profile is worth more than a wide search.",
   ],
   [
-    "Mappiamo il mercato",
-    "Costruiamo l'universo delle aziende che corrispondono al profilo, incrociando fonti pubbliche, banche dati professionali, registri camerali, associazioni di categoria e conoscenza diretta del mercato.",
+    "We map the market",
+    "We build the universe of companies matching that profile, combining public records, professional databases, company registries, trade associations and direct market knowledge.",
   ],
   [
-    "Selezioniamo e verifichiamo",
-    "Riduciamo la mappatura a una rosa ristretta. Per ciascuna azienda verifichiamo esistenza e regolarità, attività effettiva, dimensione, posizionamento e — dove possibile — chi decide davvero.",
+    "We select and verify",
+    "We narrow the map down to a shortlist. For each company we check that it exists and is in good standing, that it actually trades in the sector, its size and positioning, and — where possible — who really decides.",
   ],
   [
-    "Contattiamo",
-    "Su tuo mandato prendiamo contatto in lingua locale, presentiamo la tua proposta e qualifichiamo l'interesse reale. Chi non risponde o non è interessato non ti viene consegnato come «lead».",
+    "We approach",
+    "On your mandate we make contact in the local language, present your proposition and qualify genuine interest. Companies that don't reply, or aren't interested, are not handed to you as \"leads\".",
   ],
   [
-    "Introduciamo",
-    "Ti mettiamo in contatto diretto con chi ha manifestato un interesse concreto, e ti prepariamo alla conversazione: chi hai davanti, come lavora, cosa aspettarti.",
+    "We introduce",
+    "We put you directly in touch with those who have shown concrete interest, and prepare you for the conversation: who you're dealing with, how they operate, what to expect.",
   ],
 ];
 
 const deliverables = [
-  "La rosa selezionata, con scheda per ogni azienda: attività, dimensione, posizionamento, elementi verificati e perché rientra nel profilo.",
-  "L'esito del contatto, azienda per azienda: chi ha risposto, chi ha manifestato interesse, chi ha declinato e per quale motivo. Anche i rifiuti sono informazione utile — dicono qualcosa sul mercato.",
-  "Le introduzioni, con il contesto necessario per arrivare preparato alla prima conversazione.",
+  "The shortlist, with a profile for each company: activity, size, positioning, what we verified, and why it fits.",
+  "The outcome of every approach, company by company: who replied, who showed interest, who declined and on what grounds. Refusals are information too — they tell you something about the market.",
+  "The introductions, with the context you need to walk into the first conversation prepared.",
 ];
 
 const notDoing = [
-  "Non vendiamo database né elenchi preconfezionati.",
-  "Non presentiamo come «contatto qualificato» un'azienda che non ha risposto.",
-  "Non promettiamo un numero di incontri prima di aver visto il mercato.",
-  "Non lavoriamo per due clienti concorrenti sullo stesso profilo nello stesso periodo.",
+  "We don't sell databases or off-the-shelf lists.",
+  "We don't present a company that never replied as a \"qualified contact\".",
+  "We don't promise a number of meetings before we've seen the market.",
+  "We don't work for two competing clients on the same profile in the same period.",
 ];
 
 const formats: Array<[string, string]> = [
-  ["Mappatura e selezione", "quando hai già una struttura commerciale e ti serve solo sapere con chi parlare."],
-  ["Mappatura, selezione e contatto", "il percorso completo, dalla ricerca all'introduzione."],
-  ["Presidio continuativo", "quando il mercato va seguito nel tempo e non esplorato una volta sola."],
+  ["Mapping and selection", "when you already have a sales structure and simply need to know who to talk to."],
+  ["Mapping, selection and approach", "the full path, from research to introduction."],
+  ["Ongoing market presence", "when the market needs following over time rather than exploring once."],
 ];
 
 const faqs: Array<[string, string]> = [
   [
-    "In quanto tempo?",
-    "Dipende dall'ampiezza del profilo e dal settore. Una mappatura con selezione richiede in genere alcune settimane; la fase di contatto dipende dai tempi di risposta del mercato, che in Brasile ad agosto e a gennaio sono più lenti.",
+    "How long does it take?",
+    "It depends on the breadth of the profile and the sector. Mapping and selection typically takes a few weeks; the approach phase depends on how fast the market replies — in Brazil, January and July to August are noticeably slower.",
   ],
   [
-    "In che lingua contattate le aziende?",
-    "In portoghese in Brasile, nella lingua locale in Europa. La corrispondenza ti viene riportata tradotta.",
+    "What language do you approach companies in?",
+    "Portuguese in Brazil, the local language in Europe. Correspondence is reported back to you translated.",
   ],
   [
-    "Lavorate anche nella direzione opposta?",
-    "Sì. Cerchiamo partner europei per aziende brasiliane con la stessa metodologia.",
+    "Do you work in the other direction too?",
+    "Yes. We find European partners for Brazilian companies using the same method.",
   ],
   [
-    "Cosa succede se il mercato non risponde?",
-    "Te lo diciamo, con i dati alla mano. Un mercato che non risponde è un'informazione che vale il costo della ricerca: ti evita di costruirci sopra una strategia.",
+    "What if the market doesn't respond?",
+    "We tell you, with the evidence. A market that doesn't respond is worth the cost of the research: it stops you building a strategy on top of it.",
   ],
   [
-    "La mia richiesta è riservata?",
-    "Sì. Il tuo nome viene comunicato alle controparti solo quando lo autorizzi, e la fase iniziale può essere condotta senza rivelare l'identità del committente.",
+    "Is my enquiry confidential?",
+    "Yes. Your name reaches counterparts only when you authorise it, and the early stage can be run without disclosing who the client is.",
   ],
 ];
 
@@ -86,17 +86,17 @@ function useStructuredData() {
       "@graph": [
         {
           "@type": "Service",
-          name: "Business Matching Brasile–Europa",
-          serviceType: "Business matching e ricerca partner commerciali",
+          name: "Business Matching Brazil–Europe",
+          serviceType: "Business matching and commercial partner search",
           url: SITE + PATH,
           provider: { "@id": SITE + "/#organization" },
           areaServed: [
-            { "@type": "Country", name: "Brasile" },
-            { "@type": "Country", name: "Italia" },
-            { "@type": "AdministrativeArea", name: "Unione Europea" },
+            { "@type": "Country", name: "Brazil" },
+            { "@type": "Country", name: "Italy" },
+            { "@type": "AdministrativeArea", name: "European Union" },
           ],
           description:
-            "Identifichiamo, verifichiamo e contattiamo potenziali clienti, distributori, fornitori e partner tra Europa e Brasile.",
+            "We identify, verify and approach potential buyers, distributors, suppliers and industrial partners between Europe and Brazil.",
         },
         {
           "@type": "FAQPage",
@@ -110,7 +110,7 @@ function useStructuredData() {
     };
     const el = document.createElement("script");
     el.type = "application/ld+json";
-    el.id = "ld-business-matching";
+    el.id = "ld-business-matching-en";
     el.textContent = JSON.stringify(graph);
     document.head.appendChild(el);
     return () => {
@@ -119,11 +119,11 @@ function useStructuredData() {
   }, []);
 }
 
-export default function BusinessMatching() {
+export default function BusinessMatchingEN() {
   useCanonical(PATH, {
-    title: "Business Matching Brasile–Europa | Ricerca e contatto partner commerciali",
+    title: "Business Matching Brazil–Europe | Partner Search & Qualified Introductions",
     description:
-      "Identifichiamo, verifichiamo e contattiamo potenziali clienti, distributori, fornitori e partner tra Europa e Brasile. Non vendiamo liste: apriamo conversazioni.",
+      "We identify, verify and approach potential buyers, distributors, suppliers and industrial partners between Europe and Brazil. We don't sell lists — we open conversations.",
     alternates: ALTERNATES,
   });
   useStructuredData();
@@ -139,54 +139,54 @@ export default function BusinessMatching() {
               Business Matching
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-              Un contatto non è una lista. È una conversazione che comincia.
+              A contact isn't a list. It's a conversation that starts.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed text-justify">
-              Identifichiamo, verifichiamo e contattiamo per tuo conto i potenziali clienti, distributori,
-              importatori, fornitori o partner industriali giusti — in Brasile o in Europa.
+              We identify, verify and approach — on your behalf — the right buyers, distributors,
+              importers, suppliers or industrial partners in Brazil or in Europe.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
                 <a href="/#contact">
-                  Parliamone <ArrowRight className="ml-1 h-4 w-4" />
+                  Let's talk <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full">
                 <Link to="/sample-report">
-                  <Download className="mr-1 h-4 w-4" /> Scarica un esempio di report (PDF)
+                  <Download className="mr-1 h-4 w-4" /> Download a sample report (PDF)
                 </Link>
               </Button>
             </div>
           </div>
         </section>
 
-        {/* Il problema con le liste */}
+        {/* The trouble with lists */}
         <section className="py-14 md:py-20 border-t border-border/60">
           <div className="container max-w-3xl">
-            <h2 className="font-display text-2xl md:text-3xl mb-6">Il problema con le liste</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-6">The trouble with lists</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed text-justify">
               <p>
-                Chiunque può comprare un elenco di aziende. I database esistono, costano poco e restituiscono
-                centinaia di nomi in pochi minuti.
+                Anyone can buy a list of companies. The databases are there, they cost very little, and they
+                return hundreds of names in minutes.
               </p>
               <p>
-                Poi cominciano i problemi. Metà di quelle aziende non è più attiva nel settore indicato. Un terzo
-                non ha la dimensione o la struttura per lavorare con te. Alcune sono concorrenti del tuo futuro
-                partner. E nessuna sa chi sei, perché nessuno le ha ancora contattate.
+                Then the trouble starts. Half of those companies no longer operate in the sector they're filed
+                under. A third lack the size or the structure to work with you. Some are competitors of your
+                future partner. And none of them knows who you are, because nobody has approached them yet.
               </p>
               <p>
-                Un elenco non è un'opportunità commerciale: è materiale grezzo che qualcuno deve ancora lavorare.
-                Di solito quel qualcuno finisci per essere tu, in una lingua che non parli e su un mercato che non
-                conosci.
+                A list isn't a commercial opportunity. It's raw material that somebody still has to work through
+                — and that somebody usually ends up being you, in a language you don't speak, on a market you
+                don't know.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Come lavoriamo */}
+        {/* How we work */}
         <section className="py-16 md:py-24 bg-foreground text-background">
           <div className="container max-w-5xl">
-            <h2 className="font-display text-2xl md:text-3xl text-background mb-10">Come lavoriamo</h2>
+            <h2 className="font-display text-2xl md:text-3xl text-background mb-10">How we work</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {steps.map(([title, body], i) => (
                 <div
@@ -202,10 +202,10 @@ export default function BusinessMatching() {
           </div>
         </section>
 
-        {/* Cosa ricevi */}
+        {/* What you receive */}
         <section className="py-14 md:py-20">
           <div className="container max-w-3xl">
-            <h2 className="font-display text-2xl md:text-3xl mb-6">Cosa ricevi</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-6">What you receive</h2>
             <ul className="space-y-4">
               {deliverables.map((d) => (
                 <li key={d} className="flex gap-3 text-muted-foreground leading-relaxed text-justify">
@@ -217,31 +217,31 @@ export default function BusinessMatching() {
           </div>
         </section>
 
-        {/* Come misuriamo */}
+        {/* How we measure the work */}
         <section className="py-14 md:py-20 border-t border-border/60">
           <div className="container max-w-3xl">
-            <h2 className="font-display text-2xl md:text-3xl mb-6">Come misuriamo il lavoro</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-6">How we measure the work</h2>
             <p className="text-lg text-foreground/90 mb-5">
-              Non contiamo i nomi consegnati. Contiamo le conversazioni che si aprono.
+              We don't count names delivered. We count conversations opened.
             </p>
             <div className="space-y-4 text-muted-foreground leading-relaxed text-justify">
               <p>
-                Una mappatura può restituire quaranta aziende e produrne quattro con cui vale la pena parlare.
-                Un'altra ne restituisce dodici e ne produce sei. Il numero non è il risultato: il risultato è
-                quante di quelle porte si aprono davvero.
+                One mapping exercise may return forty companies and produce four worth talking to. Another
+                returns twelve and produces six. The number isn't the result — the result is how many of those
+                doors actually open.
               </p>
               <p>
-                Per questo non promettiamo quantità in anticipo. Ti diciamo quante aziende abbiamo considerato,
-                quante hanno superato la verifica e quante hanno risposto.
+                That's why we don't promise volumes upfront. We tell you how many companies we considered, how
+                many passed verification, and how many responded.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Cosa non facciamo */}
+        {/* What we don't do */}
         <section className="py-14 md:py-20 border-t border-border/60">
           <div className="container max-w-3xl">
-            <h2 className="font-display text-2xl md:text-3xl mb-6">Cosa non facciamo</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-6">What we don't do</h2>
             <ul className="space-y-4">
               {notDoing.map((n) => (
                 <li key={n} className="flex gap-3 text-muted-foreground leading-relaxed">
@@ -253,10 +253,10 @@ export default function BusinessMatching() {
           </div>
         </section>
 
-        {/* Formati */}
+        {/* Engagement formats */}
         <section className="py-14 md:py-20 border-t border-border/60">
           <div className="container max-w-4xl">
-            <h2 className="font-display text-2xl md:text-3xl mb-8">Formati</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-8">Engagement formats</h2>
             <div className="grid md:grid-cols-3 gap-5">
               {formats.map(([title, desc]) => (
                 <div key={title} className="p-6 rounded-2xl border border-border/70">
@@ -266,13 +266,13 @@ export default function BusinessMatching() {
               ))}
             </div>
             <p className="mt-8 text-sm text-muted-foreground leading-relaxed text-justify">
-              Ogni progetto è preventivato sul perimetro concordato. Sono possibili formule con componente legata
-              al risultato, da definire caso per caso.
+              Every project is quoted on the agreed scope. Arrangements with a performance-linked component are
+              possible, defined case by case.
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="rounded-full">
                 <a href="/#contact">
-                  Richiedi un preventivo <ArrowRight className="ml-1 h-4 w-4" />
+                  Request a quote <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
             </div>
@@ -282,7 +282,7 @@ export default function BusinessMatching() {
         {/* FAQ */}
         <section className="py-14 md:py-20 border-t border-border/60">
           <div className="container max-w-3xl">
-            <h2 className="font-display text-2xl md:text-3xl mb-8">Domande frequenti</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-8">Frequently asked questions</h2>
             <dl className="space-y-6">
               {faqs.map(([q, a]) => (
                 <div key={q}>
@@ -294,15 +294,15 @@ export default function BusinessMatching() {
           </div>
         </section>
 
-        {/* Collegamenti interni */}
+        {/* Internal links */}
         <section className="py-12 border-t border-border/60">
           <div className="container max-w-3xl text-sm text-muted-foreground leading-relaxed">
             <p>
-              Devi ancora capire se il mercato esiste? Parti dalla{" "}
+              Still working out whether the market exists? Start with{" "}
               <Link to="/Our_Services" className="underline hover:text-foreground">
                 Business Intelligence
               </Link>
-              . Hai già trovato il partner e devi capire come far arrivare la merce? Vedi{" "}
+              . Already found the partner and need to move the goods? See{" "}
               <Link to="/Our_Services" className="underline hover:text-foreground">
                 Import/Export Intelligence
               </Link>
@@ -311,18 +311,18 @@ export default function BusinessMatching() {
           </div>
         </section>
 
-        {/* Chiusura */}
+        {/* Closing */}
         <section className="py-16 md:py-24 bg-foreground text-background">
           <div className="container max-w-3xl text-center">
             <h2 className="font-display text-3xl md:text-4xl text-background mb-5">
-              Il mercato non si apre da solo.
+              Markets don't open on their own.
             </h2>
             <p className="text-background/70 leading-relaxed mb-8">
-              Raccontaci cosa stai cercando e ti diremo con franchezza se possiamo trovartelo.
+              Tell us what you're looking for, and we'll tell you frankly whether we can find it.
             </p>
             <Button asChild size="lg" className="rounded-full">
               <a href="/#contact">
-                Parliamone <ArrowRight className="ml-1 h-4 w-4" />
+                Let's talk <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>
           </div>
