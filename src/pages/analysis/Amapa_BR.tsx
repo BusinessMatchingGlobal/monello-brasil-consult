@@ -63,7 +63,11 @@ const body: Block[] = [
 export default function AmapaBR() {
   const { lang } = useT();
   const article = getArticleBySlug("amapa");
-  useCanonical(`/amapa-br`);
+  useCanonical("/amapa", {
+    title: `${TITLE} | Business Matching Global`,
+    description: "A única fronteira terrestre do Brasil com a União Europeia passa pelo seu estado mais isolado. Duas datas deste ano acabaram de mudar o que isso significa.",
+    type: "article",
+  });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

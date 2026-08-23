@@ -79,7 +79,11 @@ const body: Block[] = [
 export default function BahiaBR() {
   const { lang } = useT();
   const article = getArticleBySlug("bahia_br");
-  useCanonical(`/bahia_br`);
+  useCanonical("/bahia", {
+    title: `${TITLE} | Business Matching Global`,
+    description: "Com o pedido de recuperação judicial já público e a ação caindo mais de 30%, a maior varejista de eletrodomésticos do Brasil prorrogou sua campanha de descontos. Não foi descuido: era o plano.",
+    type: "article",
+  });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
