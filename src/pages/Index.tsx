@@ -298,7 +298,9 @@ function Problem() {
 }
 
 function Services() {
-  const { t } = useT();
+  const { t, lang } = useT();
+  const matchingPath =
+    lang === "it" ? "/servizi/business-matching" : lang === "pt" ? "/servicos/business-matching" : "/services/business-matching";
   return (
     <section id="services" className="py-20 md:py-28 bg-foreground text-background">
       <div className="container max-w-6xl">
@@ -324,7 +326,7 @@ function Services() {
               </>
             );
             return item.name === "Business Matching" ? (
-              <Link key={item.name} to="/servizi/business-matching" className={`${cardClass} block`}>
+              <Link key={item.name} to={matchingPath} className={`${cardClass} block`}>
                 {inner}
               </Link>
             ) : (
