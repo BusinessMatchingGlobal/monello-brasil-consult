@@ -10,7 +10,8 @@ export const translations = {
     nav: { home: "Home", servicesLink: "How can we help you?", services: "Services", how: "How it works", method: "Our method", about: "Who we are", travel: "Business Travel", news: "Ebook", analysis: "Analysis", analysisAll: "All articles →", contact: "Contact" },
     hero: {
       title: "From the first data point to the first contact in Brazil.",
-      sub: "We help international companies assess the Brazilian market, verify counterparts and identify the right partners.",
+      sub: "We help international companies assess the Brazilian market, verify counterparts and turn an opportunity into a commercial relationship.",
+      areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Request a report",
       cta2: "See services",
       linkedin: "Follow Business Matching Global on LinkedIn for insights, reports and updates on Brazil.",
@@ -84,11 +85,13 @@ export const translations = {
     how: {
       title: "Simple, fast, clear.",
       steps: [
-        ["Get in touch with us and tell us what you need and what your goals are.", "We will contact you to clarify any questions, better understand your needs, and optimize our work so we can help you get straight to the point: achieving your objective in the clearest, most efficient, and most focused way possible."],
-        ["Research and dossier preparation", "After understanding your objectives and needs, we begin the research and preparation of the dossier, selecting the information relevant to your case.\n\nEach piece of content is verified, organized and integrated with the necessary clarifications, with care, attention and maximum efficiency."],
-        ["Report delivery", "You receive a clear, written and structured report, ready to use.\n\nThe information is organized in a simple, orderly and practical way, helping you understand the overall picture and make informed, confident decisions."],
-        ["Final consultation", "If you wish, we can review the report together in a dedicated call.\n\nWe go through the results, clarify any questions and help you turn the information collected into practical insights for your decisions."],
+        ["Understand", "Get in touch with us and tell us what you need and what your goals are.\n\nWe will contact you to clarify any questions, better understand your needs, and optimize our work so we can help you get straight to the point."],
+        ["Investigate", "After understanding your objectives and needs, we begin the research and preparation of the dossier, selecting the information relevant to your case.\n\nEach piece of content is verified, organized and integrated with the necessary clarifications."],
+        ["Verify", "You receive a clear, written and structured report, ready to use, with an optional dedicated call.\n\nWe go through the results, clarify any questions and help you turn the information into practical insights."],
+        ["Connect", "We identify and contact the selected buyers, distributors, suppliers or partners.\n\nWe handle the first approach, qualify the interest and introduce you to the counterparts that are genuinely relevant."],
+        ["Develop", "We support you through market access, negotiation and the first commercial operation.\n\nFrom follow-up to practical requirements, we stay alongside you until the relationship starts producing results."],
       ],
+      note: "Our work should not end with a report. When needed, we help turn the analysis into real contacts.",
     },
     about: {
       title: "A bridge between the European Union and Brazil for reliable, clear and practical information.",
@@ -187,8 +190,9 @@ export const translations = {
   it: {
     nav: { home: "Home", servicesLink: "Come possiamo aiutarti?", services: "Servizi", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", travel: "Business Travel", news: "Ebook", analysis: "Analisi", analysisAll: "Tutti gli articoli →", contact: "Contatti" },
     hero: {
-      title: "Business intelligence affidabile sul Brasile — senza improvvisazioni.",
-      sub: "Aiutiamo le imprese italiane a valutare il mercato brasiliano, verificare le controparti e trovare i partner giusti.",
+      title: "Dal primo dato al primo contatto in Brasile.",
+      sub: "Aiutiamo imprese e investitori a capire il mercato brasiliano, verificare le controparti giuste e trasformare un'opportunità in un rapporto commerciale.",
+      areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Richiedi un report",
       cta2: "Scopri i servizi",
       linkedin: "Seguici su LinkedIn per approfondimenti e aggiornamenti sul Brasile →",
@@ -262,11 +266,13 @@ export const translations = {
     how: {
       title: "Semplice, veloce, chiaro.",
       steps: [
-        ["Entra in contatto con noi e spiegaci di cosa hai bisogno e quali sono i tuoi obiettivi.", "Ti ricontatteremo per chiarire ogni eventuale dubbio, comprendere meglio le tue esigenze e ottimizzare il nostro lavoro, così da aiutarti ad andare direttamente al punto: raggiungere il tuo obiettivo nel modo più chiaro, efficiente e mirato possibile."],
-        ["Ricerca e redazione del dossier", "Dopo aver compreso obiettivi ed esigenze, avviamo la ricerca e la redazione del dossier, selezionando le informazioni rilevanti per il tuo caso.\n\nOgni contenuto viene verificato, organizzato e integrato con i chiarimenti necessari, con cura, attenzione e massima efficienza."],
-        ["Consegna del report", "Ricevi un report chiaro, scritto e strutturato, pronto all'uso.\n\nLe informazioni vengono organizzate in modo semplice, ordinato e operativo, per aiutarti a comprendere il quadro e prendere decisioni consapevoli e sicure."],
-        ["Confronto finale", "Se lo desideri, possiamo analizzare insieme il report in una call dedicata.\n\nApprofondiamo i risultati, chiariamo eventuali dubbi e ti aiutiamo a trasformare le informazioni raccolte in indicazioni pratiche per le tue decisioni."],
+        ["Capire", "Entra in contatto con noi e spiegaci di cosa hai bisogno e quali sono i tuoi obiettivi.\n\nTi ricontatteremo per chiarire ogni eventuale dubbio, comprendere meglio le tue esigenze e andare direttamente al punto."],
+        ["Indagare", "Dopo aver compreso obiettivi ed esigenze, avviamo la ricerca e la redazione del dossier, selezionando le informazioni rilevanti per il tuo caso.\n\nOgni contenuto viene verificato, organizzato e integrato con i chiarimenti necessari."],
+        ["Verificare", "Ricevi un report chiaro, scritto e strutturato, pronto all'uso, con call dedicata opzionale.\n\nApprofondiamo i risultati, chiariamo eventuali dubbi e trasformiamo le informazioni in indicazioni pratiche."],
+        ["Connettere", "Identifichiamo e contattiamo i compratori, distributori, fornitori o partner selezionati.\n\nGestiamo il primo approccio, qualifichiamo l'interesse e ti presentiamo le controparti realmente rilevanti."],
+        ["Sviluppare", "Ti accompagniamo nell'accesso al mercato, nella trattativa e nella prima operazione commerciale.\n\nDal follow-up agli adempimenti pratici, restiamo al tuo fianco finché il rapporto inizia a produrre risultati."],
       ],
+      note: "Il nostro lavoro non deve finire con un report. Quando serve, aiutiamo a trasformare l'analisi in contatti reali.",
     },
     about: {
       title: "Un ponte tra Unione Europea e Brasile per informazioni affidabili, chiare e operative.",
@@ -365,8 +371,9 @@ export const translations = {
   pt: {
     nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", how: "Como funciona", method: "Nosso método", about: "Quem somos", travel: "Business Travel", news: "Ebook", analysis: "Análises", analysisAll: "Todos os artigos →", contact: "Contato" },
     hero: {
-      title: "Inteligência de mercado sobre a Europa — sem improviso.",
-      sub: "Ajudamos empresas brasileiras a avaliar mercados europeus, verificar contrapartes e encontrar os parceiros certos.",
+      title: "Da inteligência de mercado às conversas certas na Europa.",
+      sub: "Ajudamos empresas brasileiras a avaliar mercados europeus, verificar contrapartes e transformar uma oportunidade em relação comercial.",
+      areas: "Business Intelligence · Busca de Compradores e Fornecedores · Import/Export · Business Matching",
       cta1: "Solicite um relatório",
       cta2: "Ver serviços",
       linkedin: "Acompanhe a Business Matching Global no LinkedIn para acessar análises, relatórios e atualizações sobre o Brasil.",
@@ -440,11 +447,13 @@ export const translations = {
     how: {
       title: "Simples, rápido, claro.",
       steps: [
-        ["Entre em contato conosco e explique o que você precisa e quais são os seus objetivos.", "Nós entraremos em contato para esclarecer eventuais dúvidas, entender melhor as suas necessidades e otimizar nosso trabalho, ajudando você a ir direto ao ponto: alcançar o seu objetivo da forma mais clara, eficiente e direcionada possível."],
-        ["Pesquisa e elaboração do dossiê", "Após compreender seus objetivos e necessidades, iniciamos a pesquisa e a elaboração do dossiê, selecionando as informações relevantes para o seu caso.\n\nCada conteúdo é verificado, organizado e integrado com os esclarecimentos necessários, com cuidado, atenção e máxima eficiência."],
-        ["Entrega do relatório", "Você recebe um relatório claro, escrito e estruturado, pronto para uso.\n\nAs informações são organizadas de forma simples, ordenada e prática, ajudando você a compreender o cenário e tomar decisões conscientes e seguras."],
-        ["Conversa final", "Se desejar, podemos analisar o relatório juntos em uma call dedicada.\n\nAprofundamos os resultados, esclarecemos eventuais dúvidas e ajudamos você a transformar as informações coletadas em orientações práticas para suas decisões."],
+        ["Entender", "Entre em contato conosco e explique o que você precisa e quais são os seus objetivos.\n\nNós entraremos em contato para esclarecer dúvidas, entender melhor suas necessidades e ir direto ao ponto."],
+        ["Investigar", "Após compreender seus objetivos e necessidades, iniciamos a pesquisa e a elaboração do dossiê, selecionando as informações relevantes para o seu caso.\n\nCada conteúdo é verificado, organizado e integrado com os esclarecimentos necessários."],
+        ["Verificar", "Você recebe um relatório claro, escrito e estruturado, pronto para uso, com call dedicada opcional.\n\nAprofundamos os resultados, esclarecemos dúvidas e transformamos as informações em orientações práticas."],
+        ["Conectar", "Identificamos e contatamos os compradores, distribuidores, fornecedores ou parceiros europeus selecionados.\n\nCuidamos da primeira abordagem, qualificamos o interesse e apresentamos as contrapartes realmente relevantes."],
+        ["Desenvolver", "Acompanhamos você no acesso ao mercado europeu, na negociação e na primeira operação comercial.\n\nDo follow-up às exigências práticas, seguimos ao seu lado até a relação começar a gerar resultados."],
       ],
+      note: "Nosso trabalho não deve terminar com um relatório. Quando necessário, ajudamos a transformar a análise em contatos reais.",
     },
     about: {
       title: "Uma ponte entre a União Europeia e o Brasil para informações confiáveis, claras e operacionais.",
