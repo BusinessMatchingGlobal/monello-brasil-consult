@@ -9,8 +9,8 @@ export const translations = {
   en: {
     nav: { home: "Home", servicesLink: "How can we help you?", services: "Services", how: "How it works", method: "Our method", about: "Who we are", travel: "Business Travel", news: "Ebook", analysis: "Analysis", analysisAll: "All articles →", contact: "Contact" },
     hero: {
-      title: "Reliable business intelligence on Brazil — without the guesswork.",
-      sub: "We help companies and investors make sound and informed decisions when doing business in Brazil, including exporting, investing, and forming commercial partnerships.\n\nOur services include business intelligence, due diligence on potential suppliers and customers, and analysis of key regulatory, tax, and operational information, such as import/export and customs procedures, local requirements and permits, regional incentives, and market access conditions.\n\nThrough tailored services, we produce clear, practical, and ready-to-use reports designed to support commercial, strategic, and operational decisions.",
+      title: "From the first data point to the first contact in Brazil.",
+      sub: "We help international companies assess the Brazilian market, verify counterparts and identify the right partners.",
       cta1: "Request a report",
       cta2: "See services",
       linkedin: "Follow Business Matching Global on LinkedIn for insights, reports and updates on Brazil.",
@@ -187,8 +187,8 @@ export const translations = {
   it: {
     nav: { home: "Home", servicesLink: "Come possiamo aiutarti?", services: "Servizi", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", travel: "Business Travel", news: "Ebook", analysis: "Analisi", analysisAll: "Tutti gli articoli →", contact: "Contatti" },
     hero: {
-      title: "Business intelligence affidabile sul Brasile — senza tirare a indovinare.",
-      sub: "Aiutiamo le aziende e gli investitori a prendere decisioni sicure e informate per operare in Brasile, esportare, investire o creare partnership commerciali.\n\nOffriamo servizi di business intelligence, verifica dei potenziali fornitori e clienti e analisi delle principali informazioni normative, fiscali e operative, quali import/export, procedure doganali, requisiti locali, autorizzazioni, incentivi territoriali e condizioni di accesso al mercato.\n\nAttraverso servizi su misura, realizziamo report chiari, pratici e pronti all'uso, pensati per supportare decisioni commerciali, strategiche e operative.",
+      title: "Business intelligence affidabile sul Brasile — senza improvvisazioni.",
+      sub: "Aiutiamo le imprese italiane a valutare il mercato brasiliano, verificare le controparti e trovare i partner giusti.",
       cta1: "Richiedi un report",
       cta2: "Scopri i servizi",
       linkedin: "Seguici su LinkedIn per approfondimenti e aggiornamenti sul Brasile →",
@@ -365,8 +365,8 @@ export const translations = {
   pt: {
     nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", how: "Como funciona", method: "Nosso método", about: "Quem somos", travel: "Business Travel", news: "Ebook", analysis: "Análises", analysisAll: "Todos os artigos →", contact: "Contato" },
     hero: {
-      title: "Inteligência de negócios confiável sobre o Brasil — sem achismos.",
-      sub: "Ajudamos empresas e investidores a tomar decisões sólidas e bem fundamentadas ao fazer negócios no Brasil, incluindo exportação, investimento e desenvolvimento de parcerias comerciais.\n\nNossos serviços incluem inteligência de negócios, due diligence de potenciais fornecedores e clientes, e análise de informações regulatórias, tributárias e operacionais essenciais, tais como procedimentos de importação, exportação e desembaraço aduaneiro, requisitos e licenças locais, incentivos regionais e condições de acesso ao mercado.\n\nPor meio de serviços personalizados, elaboramos relatórios claros, práticos e prontos para uso, desenvolvidos para apoiar decisões comerciais, estratégicas e operacionais.",
+      title: "Inteligência de mercado sobre a Europa — sem improviso.",
+      sub: "Ajudamos empresas brasileiras a avaliar mercados europeus, verificar contrapartes e encontrar os parceiros certos.",
       cta1: "Solicite um relatório",
       cta2: "Ver serviços",
       linkedin: "Acompanhe a Business Matching Global no LinkedIn para acessar análises, relatórios e atualizações sobre o Brasil.",

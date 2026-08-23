@@ -923,11 +923,26 @@ function FooterInner() {
 }
 
 export default function Index() {
-  useCanonical("/", {
-    title: "Business Matching Global — Brazil Market Intelligence & Custo Brasil",
-    description:
-      "Consulenza per investitori europei in Brasile: ricerche di mercato, verifica fornitori, riduzione del Custo Brasil e ingresso strategico.",
-  });
+  const { lang } = useT();
+  const homeSeo =
+    lang === "it"
+      ? {
+          title: "Business Matching Global — Business intelligence affidabile sul Brasile",
+          description:
+            "Aiutiamo le imprese italiane a valutare il mercato brasiliano, verificare le controparti e trovare i partner giusti.",
+        }
+      : lang === "pt"
+      ? {
+          title: "Business Matching Global — Inteligência de mercado sobre a Europa",
+          description:
+            "Ajudamos empresas brasileiras a avaliar mercados europeus, verificar contrapartes e encontrar os parceiros certos.",
+        }
+      : {
+          title: "Business Matching Global — From the first data point to the first contact in Brazil",
+          description:
+            "We help international companies assess the Brazilian market, verify counterparts and identify the right partners.",
+        };
+  useCanonical("/", homeSeo);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
