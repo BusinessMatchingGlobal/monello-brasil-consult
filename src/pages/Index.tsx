@@ -26,6 +26,9 @@ import {
   X,
   Mail,
   Linkedin,
+  Instagram,
+  Facebook,
+  Youtube,
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -848,13 +851,40 @@ function FooterInner() {
             {EMAIL}
           </a>
           <a
-            href="https://www.linkedin.com/company/109746306/admin/dashboard/"
+            href="https://www.linkedin.com/company/businessmatchingglobal"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <Linkedin className="h-4 w-4" />
+          </a>
+          <a
+            href="https://www.instagram.com/business_matching_global/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Instagram className="h-4 w-4" />
+          </a>
+          <a
+            href="https://www.facebook.com/businessmatchingglobal"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Facebook className="h-4 w-4" />
+          </a>
+          <a
+            href="https://www.youtube.com/@Business_Matching_Global"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Youtube className="h-4 w-4" />
           </a>
         </div>
       </div>
