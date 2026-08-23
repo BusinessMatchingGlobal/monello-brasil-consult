@@ -314,15 +314,25 @@ function Services() {
           {t.homeServices.intro}
         </p>
         <div className="grid md:grid-cols-2 gap-5">
-          {t.homeServices.items.map((item) => (
-            <div
-              key={item.name}
-              className="group p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:border-primary/60 transition-colors"
-            >
-              <h3 className="font-display text-2xl mb-3 text-background">{item.name}</h3>
-              <p className="text-background/70 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
+          {t.homeServices.items.map((item) => {
+            const cardClass =
+              "group p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:border-primary/60 transition-colors";
+            const inner = (
+              <>
+                <h3 className="font-display text-2xl mb-3 text-background">{item.name}</h3>
+                <p className="text-background/70 leading-relaxed">{item.desc}</p>
+              </>
+            );
+            return item.name === "Business Matching" ? (
+              <Link key={item.name} to="/servizi/business-matching" className={`${cardClass} block`}>
+                {inner}
+              </Link>
+            ) : (
+              <div key={item.name} className={cardClass}>
+                {inner}
+              </div>
+            );
+          })}
         </div>
         <div className="mt-14 flex justify-center">
           <Button asChild size="lg" className="rounded-full bg-background text-foreground hover:bg-background/90">

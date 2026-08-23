@@ -37,7 +37,7 @@ function LangSwitcher() {
   );
 }
 
-function Nav() {
+export function Nav() {
   const { t } = useT();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -366,7 +366,7 @@ function ContactSection() {
   );
 }
 
-function InfoBar() {
+export function InfoBar() {
   return (
     <footer className="py-8 border-t border-border/60">
       <div className="container text-xs text-muted-foreground text-center leading-relaxed space-y-2">
