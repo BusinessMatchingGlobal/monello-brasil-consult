@@ -7,6 +7,13 @@ import { Nav, InfoBar } from "@/pages/OurServices";
 
 const PATH = "/servizi/business-matching";
 
+const ALTERNATES = [
+  { hreflang: "it", href: "/servizi/business-matching" },
+  { hreflang: "en", href: "/services/business-matching" },
+  { hreflang: "pt", href: "/servicos/business-matching" },
+  { hreflang: "x-default", href: "/services/business-matching" },
+];
+
 const steps: Array<[string, string]> = [
   [
     "Definiamo il profilo",
@@ -117,6 +124,7 @@ export default function BusinessMatching() {
     title: "Business Matching Brasile–Europa | Ricerca e contatto partner commerciali",
     description:
       "Identifichiamo, verifichiamo e contattiamo potenziali clienti, distributori, fornitori e partner tra Europa e Brasile. Non vendiamo liste: apriamo conversazioni.",
+    alternates: ALTERNATES,
   });
   useStructuredData();
 
