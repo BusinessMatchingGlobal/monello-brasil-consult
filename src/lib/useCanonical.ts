@@ -22,6 +22,7 @@ type SEO = {
   description?: string;
   image?: string; // absolute or site-relative URL
   type?: "website" | "article";
+  alternates?: Array<{ hreflang: string; href: string }>;
 };
 
 function upsertMeta(selector: string, attr: "name" | "property", key: string, content: string) {
