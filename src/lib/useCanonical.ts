@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import ogDefault from "@/assets/og-default.jpg.asset.json";
+import { getArticleByPath } from "@/lib/analysis";
+import { useT } from "@/lib/i18n";
 
 export const SITE = "https://businessmatching.global";
 export const CALLIPHORA_SITE = "https://www.calliphora.flights";
@@ -24,6 +26,7 @@ type SEO = {
   type?: "website" | "article";
   alternates?: Array<{ hreflang: string; href: string }>;
 };
+
 
 function upsertMeta(selector: string, attr: "name" | "property", key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(selector);
