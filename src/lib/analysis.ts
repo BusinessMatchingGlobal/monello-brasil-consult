@@ -1,4 +1,4 @@
-import type { Lang } from "./i18n";
+import type { Lang } from "./lang";
 
 export type AnalysisArticle = {
   slug: string; // route path without leading slash, e.g. "pix"
