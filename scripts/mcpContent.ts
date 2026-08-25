@@ -16,6 +16,8 @@ export type ArticleContent = {
   updated?: string;
   url: string;
   text: string;
+  authors?: string[];
+  credit?: string;
 };
 
 function unescapeLiteral(raw: string): string {
@@ -104,6 +106,8 @@ export function buildArticleContent(): ArticleContent[] {
         updated: meta.updated,
         url: `${SITE}/${slug}`,
         text,
+        authors: meta.authors,
+        credit: meta.credit,
       });
     }
   }

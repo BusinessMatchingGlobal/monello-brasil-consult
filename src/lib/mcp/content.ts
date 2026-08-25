@@ -19,7 +19,25 @@ export type ArticleContent = {
   text: string;
   source?: string;
   pages?: number;
+  /** Author / co-authors of the document. Falls back to the BMG byline. */
+  authors?: string[];
+  /** Partner, institution or external source to credit alongside BMG. */
+  credit?: string;
 };
+
+export const DEFAULT_BYLINE = "Business Matching Global";
+
+/**
+ * Full attribution line for a document: authors (co-authors included),
+ * publisher, date and canonical URL. MCP clients must reproduce it verbatim.
+ */
+export function citation(article: ArticleContent): string {
+  const authors = article.authors?.length ? article.authors.join(", ") : DEFAULT_BYLINE;
+  const publisher = article.authors?.length ? ` — ${DEFAULT_BYLINE}` : "";
+  const credit = article.credit ? ` · Source/partner: ${article.credit}` : "";
+  const date = article.updated ?? article.date;
+  return `${authors}${publisher}, "${article.title}"${date ? `, ${date}` : ""}${credit} — ${article.url}`;
+}
 
 export const SITE_URL = "https://businessmatching.global";
 
