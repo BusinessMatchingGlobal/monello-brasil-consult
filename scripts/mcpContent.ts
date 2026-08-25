@@ -125,14 +125,65 @@ export function mcpContentPlugin(): Plugin {
   const write = () => {
     const dir = path.resolve(process.cwd(), "public/mcp");
     fs.mkdirSync(dir, { recursive: true });
-    const target = path.join(dir, "articles.json");
-    const json = `${JSON.stringify({ generatedAt: null, articles: buildArticleContent() }, null, 0)}\n`;
-    const current = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
-    if (current !== json) fs.writeFileSync(target, json);
+    const write1 = (file: string, payload: unknown) => {
+      const target = path.join(dir, file);
+      const json = `${JSON.stringify(payload, null, 0)}\n`;
+      const current = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+      if (current !== json) fs.writeFileSync(target, json);
+    };
+    write1("articles.json", { generatedAt: null, articles: buildArticleContent() });
+    write1("services.json", { generatedAt: null, services: buildServiceContent() });
   };
   return {
     name: "bmg-mcp-content",
     buildStart: write,
     configureServer: write,
   };
+}
+
+/* ------------------------------------------------------------------ */
+/* Services catalogue as retrievable documents                         */
+/* ------------------------------------------------------------------ */
+
+import { servicesIntro, serviceGroups } from "../src/data/servicesCatalog";
+import { servicesIntroEN, serviceGroupsEN } from "../src/data/servicesCatalog.en";
+import { servicesIntroPT, serviceGroupsPT } from "../src/data/servicesCatalog.pt";
+
+const SERVICE_CATALOGS: Record<Lang, { intro: typeof servicesIntro; groups: typeof serviceGroups }> = {
+  it: { intro: servicesIntro, groups: serviceGroups },
+  en: { intro: servicesIntroEN as typeof servicesIntro, groups: serviceGroupsEN },
+  pt: { intro: servicesIntroPT as typeof servicesIntro, groups: serviceGroupsPT },
+};
+
+export function buildServiceContent(): ArticleContent[] {
+  const today = new Date().toISOString().slice(0, 10);
+  return (Object.keys(SERVICE_CATALOGS) as Lang[]).map((lang) => {
+    const { intro, groups } = SERVICE_CATALOGS[lang];
+    const parts: string[] = [`## ${intro.title}`, intro.intro, intro.markets];
+    for (const group of groups) {
+      parts.push(`\n## ${group.num} — ${group.label}`);
+      if (group.note) parts.push(group.note);
+      for (const item of group.items) {
+        parts.push(
+          [
+            `### ${item.name} — ${item.price}`,
+            item.tagline,
+            item.bullets.map((b) => `- ${b}`).join("\n"),
+            item.audience?.length ? `${intro.forWhom} ${item.audience.join("; ")}` : "",
+            item.examples ?? "",
+          ]
+            .filter(Boolean)
+            .join("\n"),
+        );
+      }
+    }
+    return {
+      slug: "services",
+      lang,
+      title: intro.title,
+      date: today,
+      url: `${SITE}/Our_Services`,
+      text: parts.join("\n\n").trim(),
+    };
+  });
 }
