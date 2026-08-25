@@ -75,7 +75,8 @@ def main() -> None:
         meta_path = os.path.join(ROOT, "src/assets", guide["asset"])
         with open(meta_path) as fh:
             asset = json.load(fh)
-        raw = urllib.request.urlopen(SITE + asset["url"]).read()
+        req = urllib.request.Request(SITE + asset["url"], headers={"User-Agent": "BMG-content-extractor"})
+        raw = urllib.request.urlopen(req).read()
         reader = PdfReader(io.BytesIO(raw))
         text = clean("\n".join((page.extract_text() or "") for page in reader.pages))
         docs.append(
