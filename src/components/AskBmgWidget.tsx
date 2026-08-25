@@ -11,6 +11,7 @@ type Turn = {
   content: string;
   sources?: Source[];
   covered?: boolean;
+  question?: string;
 };
 
 const copy = {
@@ -34,6 +35,17 @@ const copy = {
     close: "Close chat",
     send: "Send question",
     service: "Ask BMG — assistant follow-up",
+    topicTitle:
+      "Would you like BMG to cover this topic? Leave your email and we'll notify you when the analysis is published.",
+    topicEmail: "Your email",
+    topicConsent:
+      "I agree to be contacted about this topic and to receive the BMG newsletter",
+    topicPrivacy: "Privacy Policy",
+    topicSubmit: "Request this topic",
+    topicThanks:
+      "Thank you — we have registered your request. Check your inbox to confirm the newsletter subscription.",
+    topicConsentRequired: "Please tick the consent box to continue.",
+    topicInvalidEmail: "Please enter a valid email address.",
   },
   it: {
     launcher: "Ask BMG",
@@ -54,6 +66,17 @@ const copy = {
     close: "Chiudi la chat",
     send: "Invia domanda",
     service: "Ask BMG — approfondimento assistente",
+    topicTitle:
+      "Vuoi che BMG tratti questo tema? Lascia la tua email e ti avvisiamo quando pubblichiamo l'analisi.",
+    topicEmail: "La tua email",
+    topicConsent:
+      "Acconsento a essere contattato su questo tema e a ricevere la newsletter BMG",
+    topicPrivacy: "Privacy Policy",
+    topicSubmit: "Richiedi questo tema",
+    topicThanks:
+      "Grazie — abbiamo registrato la richiesta. Controlla la casella email per confermare l'iscrizione alla newsletter.",
+    topicConsentRequired: "Seleziona il consenso per proseguire.",
+    topicInvalidEmail: "Inserisci un indirizzo email valido.",
   },
   pt: {
     launcher: "Ask BMG",
@@ -74,8 +97,93 @@ const copy = {
     close: "Fechar o chat",
     send: "Enviar pergunta",
     service: "Ask BMG — acompanhamento do assistente",
+    topicTitle:
+      "Quer que a BMG trate deste tema? Deixe o seu e-mail e avisamos quando a análise for publicada.",
+    topicEmail: "Seu e-mail",
+    topicConsent:
+      "Concordo em ser contactado sobre este tema e em receber a newsletter da BMG",
+    topicPrivacy: "Política de Privacidade",
+    topicSubmit: "Solicitar este tema",
+    topicThanks:
+      "Obrigado — registamos o seu pedido. Verifique o e-mail para confirmar a inscrição na newsletter.",
+    topicConsentRequired: "Marque o consentimento para continuar.",
+    topicInvalidEmail: "Informe um e-mail válido.",
   },
 } as const;
+
+type TopicCopy = (typeof copy)["en"];
+
+function TopicRequestForm({ c, question, lang }: { c: TopicCopy; question: string; lang: string }) {
+  const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [state, setState] = useState<"idle" | "sending" | "done">("idle");
+  const [err, setErr] = useState<string | null>(null);
+
+  if (state === "done") {
+    return <p className="mt-3 rounded-lg bg-background/60 px-3 py-2 text-xs text-foreground">{c.topicThanks}</p>;
+  }
+
+  const submit = async (e: FormEvent) => {
+    e.preventDefault();
+    setErr(null);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
+      setErr(c.topicInvalidEmail);
+      return;
+    }
+    if (!consent) {
+      setErr(c.topicConsentRequired);
+      return;
+    }
+    setState("sending");
+    try {
+      const { data, error } = await supabase.functions.invoke("ask-bmg-topic-request", {
+        body: { question, email: email.trim(), language: lang, consent: true },
+      });
+      if (error || (data as { error?: string } | null)?.error) throw error ?? new Error("failed");
+      setState("done");
+    } catch (e2) {
+      console.error("Topic request failed", e2);
+      setState("idle");
+      setErr(c.error);
+    }
+  };
+
+  return (
+    <form onSubmit={submit} className="mt-3 space-y-2 border-t border-border/60 pt-2">
+      <p className="text-xs text-muted-foreground">{c.topicTitle}</p>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder={c.topicEmail}
+        aria-label={c.topicEmail}
+        className="w-full rounded-md border border-border bg-background px-3 py-1.5 text-xs text-foreground outline-none focus:ring-2 focus:ring-ring"
+      />
+      <label className="flex items-start gap-2 text-xs text-muted-foreground">
+        <input
+          type="checkbox"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          className="mt-0.5"
+        />
+        <span>
+          {c.topicConsent} —{" "}
+          <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline">
+            {c.topicPrivacy}
+          </a>
+        </span>
+      </label>
+      {err && <p className="text-xs text-destructive">{err}</p>}
+      <button
+        type="submit"
+        disabled={state === "sending"}
+        className="rounded-full bg-primary px-3 py-1.5 text-xs text-primary-foreground disabled:opacity-50 hover:opacity-90 transition-opacity"
+      >
+        {c.topicSubmit}
+      </button>
+    </form>
+  );
+}
 
 export function AskBmgWidget() {
   const { lang } = useT();
@@ -120,6 +228,7 @@ export function AskBmgWidget() {
           content: String(data?.answer ?? ""),
           sources: Array.isArray(data?.sources) ? data.sources : [],
           covered: Boolean(data?.covered),
+          question: q,
         },
       ]);
     } catch (err) {
@@ -217,6 +326,9 @@ export function AskBmgWidget() {
                       </a>
                     ))}
                   </div>
+                )}
+                {t.role === "assistant" && !t.covered && t.question && (
+                  <TopicRequestForm c={c as TopicCopy} question={t.question} lang={lang} />
                 )}
                 {t.role === "assistant" && t.covered && (
                   <button
