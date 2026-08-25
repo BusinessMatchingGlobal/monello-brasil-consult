@@ -205,7 +205,9 @@ const App = () => {
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <AskBmgWidget />
           <CookieConsent />
+
         </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>
