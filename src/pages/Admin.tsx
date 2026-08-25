@@ -41,6 +41,32 @@ type Lead = {
   created_at: string;
 };
 
+type AQuestion = {
+  id: string;
+  question: string;
+  language: string | null;
+  slugs: string[];
+  covered: boolean;
+  created_at: string;
+};
+
+type TopicReq = {
+  id: string;
+  question: string;
+  email: string;
+  language: string | null;
+  consent: boolean;
+  newsletter_subscribed: boolean;
+  created_at: string;
+};
+
+const STOP = new Set([
+  "the","and","for","are","que","com","como","para","nao","dos","das","uma","por","mais","che",
+  "con","per","del","della","dei","delle","sono","gli","alla","alle","degli","nel","nella","una",
+  "what","how","does","which","why","who","when","from","with","this","that","have","has","was",
+  "about","into","cosa","quali","quale","quando","perche","porque","quais","sobre","posso","can",
+]);
+
 export default function Admin() {
   const [session, setSession] = useState<any>(null);
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
@@ -53,6 +79,10 @@ export default function Admin() {
   const [subs, setSubs] = useState<Sub[]>([]);
   const [comments, setComments] = useState<AComment[]>([]);
   const [leads, setLeads] = useState<Lead[]>([]);
+  const [questions, setQuestions] = useState<AQuestion[]>([]);
+  const [topics, setTopics] = useState<TopicReq[]>([]);
+  const [qFilter, setQFilter] = useState<"all" | "covered" | "uncovered" | "email">("all");
+  const [qSort, setQSort] = useState<"date" | "language">("date");
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -80,6 +110,14 @@ export default function Admin() {
       .select("id,company_name,contact_name,email,country,sector,goal,service,message,language,source,status,created_at")
       .order("created_at", { ascending: false })
       .then(({ data }) => setLeads((data as Lead[]) || []));
+    supabase.from("assistant_questions")
+      .select("id,question,language,slugs,covered,created_at")
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setQuestions((data as AQuestion[]) || []));
+    supabase.from("topic_requests")
+      .select("id,question,email,language,consent,newsletter_subscribed,created_at")
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setTopics((data as TopicReq[]) || []));
   }, [isAdmin]);
 
   const submit = async (e: React.FormEvent) => {
