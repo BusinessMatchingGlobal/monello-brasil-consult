@@ -7,7 +7,7 @@
 export type Lang = "it" | "en" | "pt";
 
 export type ArticleContent = {
-  kind?: "analysis" | "guide";
+  kind?: "analysis" | "guide" | "service";
   slug: string;
   lang: Lang;
   title: string;
@@ -48,13 +48,15 @@ async function fetchJson<T>(path: string): Promise<T | null> {
 /** Everything BMG has published: analyses + ebooks/guides/dossiers. */
 export async function loadDocuments(): Promise<ArticleContent[]> {
   if (cache && Date.now() - cache.at < TTL_MS) return cache.documents;
-  const [a, g] = await Promise.all([
+  const [a, g, s] = await Promise.all([
     fetchJson<{ articles?: ArticleContent[] }>("/mcp/articles.json"),
     fetchJson<{ guides?: ArticleContent[] }>("/mcp/guides.json"),
+    fetchJson<{ services?: ArticleContent[] }>("/mcp/services.json"),
   ]);
   const documents: ArticleContent[] = [
     ...((a?.articles ?? []).map((x) => ({ ...x, kind: x.kind ?? ("analysis" as const) }))),
     ...((g?.guides ?? []).map((x) => ({ ...x, kind: "guide" as const }))),
+    ...((s?.services ?? []).map((x) => ({ ...x, kind: "service" as const }))),
   ];
   cache = { at: Date.now(), documents };
   return documents;
@@ -100,7 +102,22 @@ export function scoreArticle(article: ArticleContent, query: string): number {
     // shorter but more on-topic documents.
     if (matches > 0) score += (3 + Math.min(matches, 5)) * weight;
   }
+  if (article.kind === "service" && isServiceQuery(query)) score += 40;
   return score;
+}
+
+/** Detects questions about what BMG offers / prices / how to hire it. */
+const SERVICE_INTENT = [
+  "servizi","servizio","offrite","offrono","costa","costo","prezzo","prezzi","tariffe",
+  "consulenza","preventivo","aiutarmi","aiutate","service","services","offer","offers",
+  "price","pricing","cost","quote","hire","help me","packages","servico","servicos",
+  "servicos","preco","precos","custa","orcamento","ajudar","contratar","ask brazil",
+  "ask europe","due diligence","business matching",
+];
+
+export function isServiceQuery(query: string): boolean {
+  const q = normalize(query);
+  return SERVICE_INTENT.some((k) => q.includes(k));
 }
 
 export type Coverage = "covered" | "partial" | "not_covered";
@@ -111,6 +128,7 @@ export function classifyCoverage(
   topScore: number,
 ): Coverage {
   if (!article || topScore <= 0) return "not_covered";
+  if (article.kind === "service" && isServiceQuery(query)) return "covered";
   const terms = Array.from(new Set(normalize(query).split(/\s+/).filter((t) => t.length > 3)));
   if (!terms.length) return topScore >= 8 ? "partial" : "not_covered";
   const haystack = `${normalize(article.title)} ${normalize(article.text)}`;
