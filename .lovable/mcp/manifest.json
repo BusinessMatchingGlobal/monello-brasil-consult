@@ -245,6 +245,192 @@
           "properties": {}
         },
         "outputSchema": null
+      },
+      {
+        "name": "qualify_company",
+        "title": "Qualify a company and suggest the right BMG service",
+        "description": "Collect the profile of a company interested in the Brazil–Europe corridor (sector, country, objective, stage, timing) and return a structured qualification plus the Business Matching Global service that fits best, with its starting price. Read-only: it does not create a lead — call request_consultation for that.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "company_name": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Company name, if known."
+            },
+            "country": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Country where the company is based."
+            },
+            "sector": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Sector / products or services."
+            },
+            "objective": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "What the company wants to achieve (export to Brazil, find buyers, verify a partner, import, market study...)."
+            },
+            "stage": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Current stage: exploring, already exporting, has a counterpart to verify, etc."
+            },
+            "timing": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Timeframe or urgency, if known."
+            },
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "it",
+                    "en",
+                    "pt"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Answer language (default en)."
+            }
+          },
+          "required": [
+            "company_name",
+            "country",
+            "sector",
+            "objective",
+            "stage",
+            "timing",
+            "language"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "request_consultation",
+        "title": "Send a consultation request to Business Matching Global",
+        "description": "Create a contact request for Business Matching Global on behalf of a company. Only call it after the user has explicitly asked to be contacted and has provided a real email address. Returns a confirmation; BMG replies by email.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "Email address BMG should reply to (required, provided by the user)."
+            },
+            "contact_name": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Name of the person to contact."
+            },
+            "company_name": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Company name."
+            },
+            "country": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Country where the company is based."
+            },
+            "sector": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Sector / products or services."
+            },
+            "goal": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "What the company wants to achieve."
+            },
+            "service": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Service of interest, e.g. the one suggested by qualify_company."
+            },
+            "message": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Free-text message or context for BMG."
+            },
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "it",
+                    "en",
+                    "pt",
+                    "es"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Preferred reply language."
+            }
+          },
+          "required": [
+            "email",
+            "contact_name",
+            "company_name",
+            "country",
+            "sector",
+            "goal",
+            "service",
+            "message",
+            "language"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
       }
     ]
   }

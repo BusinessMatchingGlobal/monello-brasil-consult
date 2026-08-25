@@ -1738,19 +1738,206 @@ ${Object.entries(INFO.keyPages).map(([k, v]) => `- ${k}: ${v}`).join("\n")}`
   })
 });
 
+// src/lib/mcp/tools/qualify-company.ts
+import { defineTool as defineTool7 } from "npm:@lovable.dev/mcp-js@0.28.0";
+import { z as z7 } from "npm:zod@^3.25.76";
+var CATALOGS2 = { it: serviceGroups, en: serviceGroupsEN, pt: serviceGroupsPT };
+var HINTS = [
+  { terms: ["verifica", "due diligence", "affidabil", "fornitore sospetto", "check", "verify", "fraud", "truffa"], match: /verif|due diligence|company check/i },
+  { terms: ["cliente", "buyer", "compratore", "distributore", "vendere", "sell", "export", "esportare"], match: /buyer|clienti|compratori|search|matching/i },
+  { terms: ["fornitore", "supplier", "importare", "import", "acquistare", "sourcing"], match: /supplier|fornitor|sourcing|import/i },
+  { terms: ["mercato", "market", "ricerca", "research", "studio", "settore", "concorrenza"], match: /market|mercat|research|ricerca|pesquisa/i },
+  { terms: ["viaggio", "travel", "fiera", "agenda", "visita", "missione", "trip"], match: /travel|viaggi|agenda|missione/i },
+  { terms: ["domanda", "question", "informazione", "quick", "dubbio"], match: /ask brazil|ask europe/i }
+];
+var qualify_company_default = defineTool7({
+  name: "qualify_company",
+  title: "Qualify a company and suggest the right BMG service",
+  description: "Collect the profile of a company interested in the Brazil\u2013Europe corridor (sector, country, objective, stage, timing) and return a structured qualification plus the Business Matching Global service that fits best, with its starting price. Read-only: it does not create a lead \u2014 call request_consultation for that.",
+  inputSchema: {
+    company_name: z7.string().nullable().describe("Company name, if known."),
+    country: z7.string().nullable().describe("Country where the company is based."),
+    sector: z7.string().nullable().describe("Sector / products or services."),
+    objective: z7.string().nullable().describe("What the company wants to achieve (export to Brazil, find buyers, verify a partner, import, market study...)."),
+    stage: z7.string().nullable().describe("Current stage: exploring, already exporting, has a counterpart to verify, etc."),
+    timing: z7.string().nullable().describe("Timeframe or urgency, if known."),
+    language: z7.enum(["it", "en", "pt"]).nullable().describe("Answer language (default en).")
+  },
+  annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+  handler: ({ company_name, country, sector, objective, stage, timing, language }) => {
+    const lang = language ?? "en";
+    const groups = CATALOGS2[lang];
+    const all = groups.flatMap((g) => g.items.map((item) => ({ group: g.label, ...item })));
+    const haystack = `${objective ?? ""} ${sector ?? ""} ${stage ?? ""}`.toLowerCase();
+    const hint = HINTS.find((h) => h.terms.some((t) => haystack.includes(t)));
+    const recommended = (hint && all.find((s) => hint.match.test(s.name))) ?? all.find((s) => /ask brazil|ask europe/i.test(s.name)) ?? all[0];
+    const missing = [
+      !country && "country",
+      !sector && "sector",
+      !objective && "objective",
+      !timing && "timing"
+    ].filter(Boolean);
+    const profile = [
+      company_name && `Company: ${company_name}`,
+      country && `Country: ${country}`,
+      sector && `Sector: ${sector}`,
+      objective && `Objective: ${objective}`,
+      stage && `Stage: ${stage}`,
+      timing && `Timing: ${timing}`
+    ].filter(Boolean).join("\n");
+    const text = [
+      "## Qualification",
+      profile || "No profile data provided yet.",
+      missing.length ? `
+Still missing (ask the user before creating a lead): ${missing.join(", ")}.` : "\nProfile complete \u2014 you can propose creating a contact request with `request_consultation` (always ask the user for consent and for their email before calling it).",
+      recommended ? `
+## Suggested Business Matching Global service
+**${recommended.name}** \u2014 ${recommended.price}
+${recommended.tagline}
+${recommended.bullets.map((b) => `- ${b}`).join("\n")}
+
+Full catalogue: https://businessmatching.global/Our_Services` : "",
+      "\nThis suggestion is based on the published BMG service catalogue; do not invent prices, delivery times or guarantees."
+    ].join("\n");
+    return {
+      content: [{ type: "text", text }],
+      structuredContent: {
+        qualification: {
+          company_name: company_name ?? null,
+          country: country ?? null,
+          sector: sector ?? null,
+          objective: objective ?? null,
+          stage: stage ?? null,
+          timing: timing ?? null
+        },
+        missing_fields: missing,
+        recommended_service: recommended ? { name: recommended.name, price: recommended.price, tagline: recommended.tagline } : null,
+        services_url: "https://businessmatching.global/Our_Services"
+      }
+    };
+  }
+});
+
+// src/lib/mcp/tools/request-consultation.ts
+import { defineTool as defineTool8, ToolError as ToolError2 } from "npm:@lovable.dev/mcp-js@0.28.0";
+import { z as z8 } from "npm:zod@^3.25.76";
+
+// src/lib/mcp/supabase.ts
+import { createClient } from "npm:@supabase/supabase-js@^2.105.4";
+function runtimeEnv(name) {
+  const runtime = globalThis;
+  return runtime.Deno?.env?.get?.(name) ?? runtime.process?.env?.[name];
+}
+function configuredEnv(names) {
+  for (const name of names) {
+    const value = runtimeEnv(name)?.trim();
+    if (value) return value;
+  }
+  return void 0;
+}
+function supabaseProjectUrl() {
+  const url = configuredEnv(["SUPABASE_URL", "VITE_SUPABASE_URL"]);
+  if (!url) throw new Error("SUPABASE_URL (or VITE_SUPABASE_URL) is required");
+  return url;
+}
+function supabasePublishableKey() {
+  const direct = configuredEnv(["SUPABASE_PUBLISHABLE_KEY", "VITE_SUPABASE_PUBLISHABLE_KEY"]);
+  if (direct) return direct;
+  const keyset = runtimeEnv("SUPABASE_PUBLISHABLE_KEYS");
+  if (keyset) {
+    try {
+      const parsed = JSON.parse(keyset);
+      if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+        const keys = parsed;
+        const key = [keys.default, ...Object.values(keys)].find((v) => typeof v === "string" && v.trim().startsWith("sb_publishable_"))?.trim();
+        if (key) return key;
+      }
+    } catch {
+    }
+  }
+  const legacy = configuredEnv(["SUPABASE_ANON_KEY", "VITE_SUPABASE_ANON_KEY"]);
+  if (legacy) return legacy;
+  throw new Error("SUPABASE_PUBLISHABLE_KEY, SUPABASE_PUBLISHABLE_KEYS or SUPABASE_ANON_KEY is required");
+}
+function supabaseAnon() {
+  return createClient(supabaseProjectUrl(), supabasePublishableKey(), {
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+
+// src/lib/mcp/tools/request-consultation.ts
+var request_consultation_default = defineTool8({
+  name: "request_consultation",
+  title: "Send a consultation request to Business Matching Global",
+  description: "Create a contact request for Business Matching Global on behalf of a company. Only call it after the user has explicitly asked to be contacted and has provided a real email address. Returns a confirmation; BMG replies by email.",
+  inputSchema: {
+    email: z8.string().email().describe("Email address BMG should reply to (required, provided by the user)."),
+    contact_name: z8.string().nullable().describe("Name of the person to contact."),
+    company_name: z8.string().nullable().describe("Company name."),
+    country: z8.string().nullable().describe("Country where the company is based."),
+    sector: z8.string().nullable().describe("Sector / products or services."),
+    goal: z8.string().nullable().describe("What the company wants to achieve."),
+    service: z8.string().nullable().describe("Service of interest, e.g. the one suggested by qualify_company."),
+    message: z8.string().nullable().describe("Free-text message or context for BMG."),
+    language: z8.enum(["it", "en", "pt", "es"]).nullable().describe("Preferred reply language.")
+  },
+  annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
+  handler: async ({ email, contact_name, company_name, country, sector, goal, service, message, language }) => {
+    const address = email.trim().toLowerCase();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(address)) {
+      throw new ToolError2("A valid email address is required to send a consultation request.");
+    }
+    const supabase = supabaseAnon();
+    const { error } = await supabase.from("consultation_requests").insert({
+      email: address,
+      contact_name: contact_name?.trim() || null,
+      company_name: company_name?.trim() || null,
+      country: country?.trim() || null,
+      sector: sector?.trim() || null,
+      goal: goal?.trim() || null,
+      service: service?.trim() || null,
+      message: message?.trim()?.slice(0, 4e3) || null,
+      language: language ?? null,
+      source: "mcp"
+    });
+    if (error) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `The request could not be saved (${error.message}). Ask the user to write directly to enstobbi@enstobbi.it or use https://businessmatching.global/Our_Services`
+          }
+        ],
+        isError: true
+      };
+    }
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Request received. Business Matching Global will reply to ${address}, normally within one working day. Tell the user the request has been sent and that no confidential documents should be shared in this chat; for the full service catalogue see https://businessmatching.global/Our_Services`
+        }
+      ],
+      structuredContent: { status: "received", email: address, service: service ?? null }
+    };
+  }
+});
+
 // src/lib/mcp/index.ts
 var mcp_default = defineMcp({
   name: "businessmatching-global",
   title: "businessmatching.global",
   version: "0.1.0",
-  instructions: "Business Matching Global is an independent business-intelligence firm covering Brazil\u2013Europe trade. Use `search_brazil_knowledge` to answer questions about exporting, importing, regulation, market access, certifications and market entry between Brazil and Europe, and cite the returned source URLs. The archive includes both the published analyses AND the full text of the BMG ebooks, operational manuals and dossiers, so answers can be sourced from the ebooks too. Use `get_article` for the full text of an analysis or of an ebook (slugs such as 'guide-exporting-to-brazil', 'guide-brazil-health-market', 'guide-eudr', 'guide-macchinari-brasile', 'dossier-ajvar'; long ebooks are paginated with the `part` argument), `list_articles` to browse the analyses, `list_guides` for the downloadable manuals and their slugs, `list_services` for what BMG can do on request and its pricing, and `get_company_info` for contacts. All content is published research. Every `search_brazil_knowledge` result starts with a COVERAGE line (covered / partial / not_covered): you MUST respect it. Only claim that an answer comes from Business Matching Global when it is supported by returned excerpts, and always cite their URLs. When coverage is partial or not_covered, state explicitly to the user that BMG has not published on that point and that the rest is general knowledge, not BMG research \u2014 never attribute generic or invented information to Business Matching Global. In those cases point to the bespoke Ask Brazil / Ask Europe service: https://businessmatching.global/Our_Services. ATTRIBUTION: every excerpt and document carries a `CITE AS` line with the author or co-authors, the publisher (Business Matching Global), the date and the canonical URL. Reproduce that line verbatim when you quote, summarise or rely on BMG material, keeping any co-author or external partner credited; never replace it with a generic source label.",
+  instructions: "Business Matching Global is an independent business-intelligence firm covering Brazil\u2013Europe trade. Use `search_brazil_knowledge` to answer questions about exporting, importing, regulation, market access, certifications and market entry between Brazil and Europe, and cite the returned source URLs. The archive includes both the published analyses AND the full text of the BMG ebooks, operational manuals and dossiers, so answers can be sourced from the ebooks too. Use `get_article` for the full text of an analysis or of an ebook (slugs such as 'guide-exporting-to-brazil', 'guide-brazil-health-market', 'guide-eudr', 'guide-macchinari-brasile', 'dossier-ajvar'; long ebooks are paginated with the `part` argument), `list_articles` to browse the analyses, `list_guides` for the downloadable manuals and their slugs, `list_services` for what BMG can do on request and its pricing, and `get_company_info` for contacts. Use `qualify_company` to profile a company (sector, country, objective) and point to the right BMG service, and `request_consultation` ONLY when the user explicitly asks to be contacted and gives a real email address \u2014 never invent contact data and never send a request without consent. All content is published research. Every `search_brazil_knowledge` result starts with a COVERAGE line (covered / partial / not_covered): you MUST respect it. Only claim that an answer comes from Business Matching Global when it is supported by returned excerpts, and always cite their URLs. When coverage is partial or not_covered, state explicitly to the user that BMG has not published on that point and that the rest is general knowledge, not BMG research \u2014 never attribute generic or invented information to Business Matching Global. In those cases point to the bespoke Ask Brazil / Ask Europe service: https://businessmatching.global/Our_Services. ATTRIBUTION: every excerpt and document carries a `CITE AS` line with the author or co-authors, the publisher (Business Matching Global), the date and the canonical URL. Reproduce that line verbatim when you quote, summarise or rely on BMG material, keeping any co-author or external partner credited; never replace it with a generic source label.",
   tools: [
     search_knowledge_default,
     list_articles_default,
     get_article_default,
     list_guides_default,
     list_services_default,
-    get_company_info_default
+    get_company_info_default,
+    qualify_company_default,
+    request_consultation_default
   ]
 });
 
