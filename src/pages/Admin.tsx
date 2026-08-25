@@ -383,7 +383,8 @@ export default function Admin() {
             </table>
           </div>
         </div>
-      </div>
+
+
 
         <div className="pt-6">
           <h2 className="text-2xl font-semibold mb-2">Domande — Ask BMG</h2>
