@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "sdk_version": "0.28.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "businessmatching-global",
+      "version": "0.1.0",
+      "title": "businessmatching.global"
+    },
+    "tools": [
+      {
+        "name": "search_brazil_knowledge",
+        "title": "Search Brazil/Europe knowledge base",
+        "description": "Search the Business Matching Global research archive (published #CustoEuropa analyses on Brazil–Europe trade, regulation, import/export, market access) and return the most relevant excerpts with source URLs. Use this to answer questions about doing business, exporting or importing between Brazil and Europe.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The question or keywords to search for."
+            },
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "it",
+                    "en",
+                    "pt"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Preferred content language: it, en or pt. Null searches all languages."
+            },
+            "limit": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "Maximum number of results (default 5)."
+            }
+          },
+          "required": [
+            "query",
+            "language",
+            "limit"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_articles",
+        "title": "List published analyses",
+        "description": "List the published Business Matching Global analyses (#CustoEuropa) with title, date, language and URL, most recent first.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "it",
+                    "en",
+                    "pt"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by language: it, en or pt. Null returns all languages."
+            },
+            "limit": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "Maximum number of articles (default 20)."
+            }
+          },
+          "required": [
+            "language",
+            "limit"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_article",
+        "title": "Read a published analysis",
+        "description": "Return the full text of one published Business Matching Global analysis, by slug (e.g. 'pix', 'bahia', 'amapa') and language.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "description": "Article slug, as returned by list_articles or search_brazil_knowledge."
+            },
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "it",
+                    "en",
+                    "pt"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Language of the version to read. Null picks the first available."
+            }
+          },
+          "required": [
+            "slug",
+            "language"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_guides",
+        "title": "List BMG guides and reports",
+        "description": "List the practical guides, ebooks and sample reports published by Business Matching Global (exporting to Brazil, EU–Mercosur/SACE, pharma/ANVISA, EUDR, doing business in Brazil), with topics and download URLs.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Optional keyword to filter guides by topic."
+            }
+          },
+          "required": [
+            "topic"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_services",
+        "title": "List Business Matching Global services",
+        "description": "List the services Business Matching Global offers (market research, company verification, buyer/supplier search, business matching, import/export support, business travel), with what each includes, who it is for and the starting price.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "it",
+                    "en",
+                    "pt"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Catalogue language (default en)."
+            },
+            "query": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Optional keyword to filter services by name or description."
+            }
+          },
+          "required": [
+            "language",
+            "query"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_company_info",
+        "title": "Business Matching Global — company & contacts",
+        "description": "Return who Business Matching Global is, what it does, the markets it covers, contact details and the main pages of the website (services, analyses, guides, business travel).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
