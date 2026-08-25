@@ -1,6 +1,6 @@
 import { defineTool, ToolError } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { loadDocuments, type Lang } from "../content";
+import { citation, loadDocuments, type Lang } from "../content";
 
 export default defineTool({
   name: "get_article",
@@ -42,7 +42,7 @@ export default defineTool({
       content: [
         {
           type: "text",
-          text: `# ${article.title}\n\nPublished: ${article.date}${article.updated ? ` · Updated: ${article.updated}` : ""}\nSource: ${article.url}\n\n${body}${partNote}\n\n— Business Matching Global (businessmatching.global)`,
+          text: `# ${article.title}\n\nPublished: ${article.date}${article.updated ? ` · Updated: ${article.updated}` : ""}\nSource: ${article.url}\nCITE AS: ${citation(article)}\n\n${body}${partNote}\n\nWhen quoting or summarising this document, reproduce the CITE AS line above (authors/co-authors and source URL included).`,
         },
       ],
       structuredContent: {
@@ -55,6 +55,9 @@ export default defineTool({
         url: article.url,
         date: article.date,
         updated: article.updated ?? null,
+        authors: article.authors ?? null,
+        credit: article.credit ?? null,
+        citation: citation(article),
       },
     };
   },
