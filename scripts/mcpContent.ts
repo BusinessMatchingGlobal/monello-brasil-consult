@@ -29,10 +29,10 @@ function unescapeLiteral(raw: string): string {
 /** Extracts the `{ h: "..." }` / `{ p: "..." }` blocks from an article source file. */
 function extractBlocks(source: string): string[] {
   const out: string[] = [];
-  const re = /\{\s*(h|p):\s*"((?:[^"\\]|\\.)*)"\s*\}/g;
+  const re = /\{\s*(h|p):\s*(?:"((?:[^"\\]|\\.)*)"|`((?:[^`\\]|\\.)*)`)\s*\}/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(source))) {
-    const text = unescapeLiteral(m[2]).trim();
+    const text = unescapeLiteral(m[2] ?? m[3] ?? "").trim();
     if (!text) continue;
     out.push(m[1] === "h" ? `\n## ${text}\n` : text);
   }
