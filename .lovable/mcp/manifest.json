@@ -15,7 +15,7 @@
       {
         "name": "search_brazil_knowledge",
         "title": "Search Brazil/Europe knowledge base",
-        "description": "Search the Business Matching Global research archive (published #CustoEuropa analyses on Brazil–Europe trade, regulation, import/export, market access) and return the most relevant excerpts with source URLs. Use this to answer questions about doing business, exporting or importing between Brazil and Europe.",
+        "description": "Search the Business Matching Global research archive — published #CustoEuropa analyses AND the full text of the BMG ebooks, operational manuals and dossiers (Exporting to Brazil, Brazil health/pharma market, EUDR, machinery & SACE/SIMEST, Ajvar dossier) — on Brazil–Europe trade, regulation, import/export and market access. Returns the most relevant excerpts with source URLs.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -109,8 +109,8 @@
       },
       {
         "name": "get_article",
-        "title": "Read a published analysis",
-        "description": "Return the full text of one published Business Matching Global analysis, by slug (e.g. 'pix', 'bahia', 'amapa') and language.",
+        "title": "Read a published analysis or ebook",
+        "description": "Return the full text of one published Business Matching Global document — an analysis (e.g. 'pix', 'bahia', 'amapa') or an ebook/guide/dossier (e.g. 'guide-exporting-to-brazil', 'guide-brazil-health-market', 'guide-eudr', 'guide-macchinari-brasile', 'dossier-ajvar'). Long ebooks are returned in parts.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -138,11 +138,19 @@
                 }
               ],
               "description": "Language of the version to read. Null picks the first available."
+            },
+            "part": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "For long ebooks: 1-based part to read (each part is ~18000 characters). Null = part 1."
             }
           },
           "required": [
             "slug",
-            "language"
+            "language",
+            "part"
           ],
           "additionalProperties": false,
           "$schema": "http://json-schema.org/draft-07/schema#"

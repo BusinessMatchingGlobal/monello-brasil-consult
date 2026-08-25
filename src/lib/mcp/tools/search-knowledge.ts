@@ -1,12 +1,12 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { classifyCoverage, excerpt, loadArticles, scoreArticle, type Lang } from "../content";
+import { classifyCoverage, excerpt, loadDocuments, scoreArticle, type Lang } from "../content";
 
 export default defineTool({
   name: "search_brazil_knowledge",
   title: "Search Brazil/Europe knowledge base",
   description:
-    "Search the Business Matching Global research archive (published #CustoEuropa analyses on Brazil–Europe trade, regulation, import/export, market access) and return the most relevant excerpts with source URLs. Use this to answer questions about doing business, exporting or importing between Brazil and Europe.",
+    "Search the Business Matching Global research archive — published #CustoEuropa analyses AND the full text of the BMG ebooks, operational manuals and dossiers (Exporting to Brazil, Brazil health/pharma market, EUDR, machinery & SACE/SIMEST, Ajvar dossier) — on Brazil–Europe trade, regulation, import/export and market access. Returns the most relevant excerpts with source URLs.",
   inputSchema: {
     query: z.string().describe("The question or keywords to search for."),
     language: z
@@ -17,7 +17,7 @@ export default defineTool({
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async ({ query, language, limit }) => {
-    const articles = await loadArticles();
+    const articles = await loadDocuments();
     const lang = (language ?? null) as Lang | null;
     const pool = lang ? articles.filter((a) => a.lang === lang) : articles;
     const max = Math.min(Math.max(limit ?? 5, 1), 10);
@@ -51,7 +51,7 @@ export default defineTool({
     const text = ranked
       .map(
         ({ article }) =>
-          `### ${article.title} (${article.lang}, ${article.updated ?? article.date})\n${article.url}\n\n${excerpt(article, query)}`,
+          `### ${article.title} (${article.kind === "guide" ? "BMG ebook/guide" : "analysis"}, ${article.lang}, ${article.updated ?? article.date})\n${article.url}\n\n${excerpt(article, query)}`,
       )
       .join("\n\n---\n\n");
 
@@ -61,6 +61,7 @@ export default defineTool({
         coverage,
         results: ranked.map(({ article, score }) => ({
           slug: article.slug,
+          kind: article.kind ?? "analysis",
           lang: article.lang,
           title: article.title,
           url: article.url,
