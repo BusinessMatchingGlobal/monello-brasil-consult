@@ -47,6 +47,57 @@ export type Database = {
         }
         Relationships: []
       }
+      consultation_requests: {
+        Row: {
+          company_name: string | null
+          contact_name: string | null
+          country: string | null
+          created_at: string
+          email: string | null
+          goal: string | null
+          id: string
+          language: string | null
+          message: string | null
+          qualification: Json | null
+          sector: string | null
+          service: string | null
+          source: string
+          status: string
+        }
+        Insert: {
+          company_name?: string | null
+          contact_name?: string | null
+          country?: string | null
+          created_at?: string
+          email?: string | null
+          goal?: string | null
+          id?: string
+          language?: string | null
+          message?: string | null
+          qualification?: Json | null
+          sector?: string | null
+          service?: string | null
+          source?: string
+          status?: string
+        }
+        Update: {
+          company_name?: string | null
+          contact_name?: string | null
+          country?: string | null
+          created_at?: string
+          email?: string | null
+          goal?: string | null
+          id?: string
+          language?: string | null
+          message?: string | null
+          qualification?: Json | null
+          sector?: string | null
+          service?: string | null
+          source?: string
+          status?: string
+        }
+        Relationships: []
+      }
       email_send_log: {
         Row: {
           created_at: string
