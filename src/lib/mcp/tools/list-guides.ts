@@ -4,24 +4,28 @@ import { z } from "zod";
 const GUIDES = [
   {
     title: "Exporting to Brazil — EU operator manual",
+    slug: "guide-exporting-to-brazil",
     topics: ["customs", "import duties", "certifications", "distribution", "Custo Brasil"],
     url: "https://businessmatching.global/news",
     note: "Free download after registration.",
   },
   {
-    title: "EU–Mercosur & SACE guide",
+    title: "Vendere macchinari in Brasile — SACE, SIMEST, ex-tarifário (IT)",
+    slug: "guide-macchinari-brasile",
     topics: ["EU-Mercosur agreement", "export finance", "insurance", "tariff schedules"],
     url: "https://businessmatching.global/sace",
     note: "Free download after registration.",
   },
   {
     title: "Pharma & health market in Brazil",
+    slug: "guide-brazil-health-market",
     topics: ["ANVISA", "registration", "health market", "distribution"],
     url: "https://businessmatching.global/pharma",
     note: "Free download after registration.",
   },
   {
-    title: "EUDR — deforestation regulation guide",
+    title: "EUDR — deforestation regulation guide (PT)",
+    slug: "guide-eudr",
     topics: ["EUDR", "traceability", "coffee", "smallholders", "due diligence"],
     url: "https://businessmatching.global/eudr",
     note: "Free download after registration.",
@@ -33,7 +37,8 @@ const GUIDES = [
     note: "Open guide.",
   },
   {
-    title: "Sample dossier (example report)",
+    title: "Ajvar dossier (example report)",
+    slug: "dossier-ajvar",
     topics: ["report format", "methodology", "example output"],
     url: "https://businessmatching.global/sample-report",
     note: "Example of the depth and format of BMG reports.",
@@ -44,7 +49,7 @@ export default defineTool({
   name: "list_guides",
   title: "List BMG guides and reports",
   description:
-    "List the practical guides, ebooks and sample reports published by Business Matching Global (exporting to Brazil, EU–Mercosur/SACE, pharma/ANVISA, EUDR, doing business in Brazil), with topics and download URLs.",
+    "List the practical guides, ebooks and sample reports published by Business Matching Global (exporting to Brazil, machinery & SACE/SIMEST, pharma/ANVISA, EUDR, doing business in Brazil), with topics, download URLs and — where available — the slug to read the full text with get_article.",
   inputSchema: {
     topic: z.string().nullable().describe("Optional keyword to filter guides by topic."),
   },
@@ -57,7 +62,12 @@ export default defineTool({
         )
       : GUIDES;
     const text = list.length
-      ? list.map((g) => `- ${g.title} — ${g.topics.join(", ")} — ${g.url} (${g.note})`).join("\n")
+      ? list
+          .map(
+            (g) =>
+              `- ${g.title} — ${g.topics.join(", ")} — ${g.url} (${g.note})${"slug" in g && g.slug ? ` — full text: get_article(slug: "${g.slug}")` : ""}`,
+          )
+          .join("\n")
       : "No guide matches that topic. Full list: https://businessmatching.global/news";
     return { content: [{ type: "text", text }], structuredContent: { guides: list } };
   },

@@ -8,6 +8,8 @@
 export type Lang = "it" | "en" | "pt";
 
 export type ArticleContent = {
+  /** "analysis" = published #CustoEuropa article, "guide" = BMG ebook/manual/dossier. */
+  kind?: "analysis" | "guide";
   slug: string;
   lang: Lang;
   title: string;
@@ -15,11 +17,14 @@ export type ArticleContent = {
   updated?: string;
   url: string;
   text: string;
+  source?: string;
+  pages?: number;
 };
 
 export const SITE_URL = "https://businessmatching.global";
 
 let cache: { at: number; articles: ArticleContent[] } | null = null;
+let guidesCache: { at: number; guides: ArticleContent[] } | null = null;
 const TTL_MS = 10 * 60 * 1000;
 
 export async function loadArticles(): Promise<ArticleContent[]> {
@@ -32,6 +37,39 @@ export async function loadArticles(): Promise<ArticleContent[]> {
   const articles = Array.isArray(data.articles) ? data.articles : [];
   cache = { at: Date.now(), articles };
   return articles;
+}
+
+/**
+ * Text of the BMG ebooks / manuals / dossiers, extracted from the published
+ * PDFs into `public/mcp/guides.json` (see scripts/extract-guides.py).
+ */
+export async function loadGuides(): Promise<ArticleContent[]> {
+  if (guidesCache && Date.now() - guidesCache.at < TTL_MS) return guidesCache.guides;
+  try {
+    const res = await fetch(`${SITE_URL}/mcp/guides.json`, {
+      headers: { Accept: "application/json" },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = (await res.json()) as { guides?: ArticleContent[] };
+    const guides = (Array.isArray(data.guides) ? data.guides : []).map((g) => ({
+      ...g,
+      kind: "guide" as const,
+    }));
+    guidesCache = { at: Date.now(), guides };
+    return guides;
+  } catch {
+    guidesCache = { at: Date.now(), guides: [] };
+    return [];
+  }
+}
+
+/** Everything BMG has published: analyses + ebooks/guides/dossiers. */
+export async function loadDocuments(): Promise<ArticleContent[]> {
+  const [articles, guides] = await Promise.all([loadArticles(), loadGuides()]);
+  return [
+    ...articles.map((a) => ({ ...a, kind: a.kind ?? ("analysis" as const) })),
+    ...guides,
+  ];
 }
 
 export function normalize(value: string): string {
