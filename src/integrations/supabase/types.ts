@@ -47,6 +47,51 @@ export type Database = {
         }
         Relationships: []
       }
+      assistant_questions: {
+        Row: {
+          covered: boolean
+          created_at: string
+          id: string
+          language: string | null
+          question: string
+          slugs: string[]
+        }
+        Insert: {
+          covered?: boolean
+          created_at?: string
+          id?: string
+          language?: string | null
+          question: string
+          slugs?: string[]
+        }
+        Update: {
+          covered?: boolean
+          created_at?: string
+          id?: string
+          language?: string | null
+          question?: string
+          slugs?: string[]
+        }
+        Relationships: []
+      }
+      assistant_rate_limits: {
+        Row: {
+          count: number
+          day: string
+          ip_hash: string
+        }
+        Insert: {
+          count?: number
+          day?: string
+          ip_hash: string
+        }
+        Update: {
+          count?: number
+          day?: string
+          ip_hash?: string
+        }
+        Relationships: []
+      }
       consultation_requests: {
         Row: {
           company_name: string | null
@@ -312,6 +357,10 @@ export type Database = {
       }
     }
     Functions: {
+      assistant_bump_rate_limit: {
+        Args: { _ip_hash: string; _limit: number }
+        Returns: number
+      }
       delete_email: {
         Args: { message_id: number; queue_name: string }
         Returns: boolean
