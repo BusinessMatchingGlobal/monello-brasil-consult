@@ -26,3 +26,5 @@ verify_jwt = false
 
 [functions.send-fly-notification]
 verify_jwt = false
+[functions.ask-bmg]
+verify_jwt = false
