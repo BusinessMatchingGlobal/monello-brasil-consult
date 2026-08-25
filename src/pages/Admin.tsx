@@ -213,6 +213,31 @@ export default function Admin() {
     );
   }
 
+  const emailByQuestion = new Map(topics.map(t => [t.question.trim().toLowerCase(), t.email]));
+  const visibleQuestions = questions
+    .filter(q =>
+      qFilter === "all" ? true
+      : qFilter === "covered" ? q.covered
+      : qFilter === "uncovered" ? !q.covered
+      : emailByQuestion.has(q.question.trim().toLowerCase()))
+    .sort((a, b) =>
+      qSort === "language"
+        ? (a.language || "").localeCompare(b.language || "")
+        : a.created_at < b.created_at ? 1 : -1);
+
+  const since30 = Date.now() - 30 * 24 * 60 * 60 * 1000;
+  const keywordCounts = new Map<string, number>();
+  questions
+    .filter(q => !q.covered && new Date(q.created_at).getTime() >= since30)
+    .forEach(q => {
+      new Set(
+        q.question.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-z0-9\s]/g, " ").split(/\s+/)
+          .filter(w => w.length > 3 && !STOP.has(w)),
+      ).forEach(w => keywordCounts.set(w, (keywordCounts.get(w) || 0) + 1));
+    });
+  const topKeywords = Array.from(keywordCounts.entries()).sort((a, b) => b[1] - a[1]).slice(0, 12);
+
   const confirmed = subs.filter(s => s.status === "confirmed").length;
   const pending = subs.filter(s => s.status === "pending").length;
   const optedOut = subs.filter(s => s.status === "opted_out").length;
@@ -354,6 +379,92 @@ export default function Admin() {
                   </tr>
                 ))}
                 {leads.length === 0 && <tr><td colSpan={7} className="p-6 text-center text-muted-foreground">Nessuna richiesta</td></tr>}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+        <div className="pt-6">
+          <h2 className="text-2xl font-semibold mb-2">Domande — Ask BMG</h2>
+          <div className="flex flex-wrap gap-4 text-sm mb-3">
+            <span>Totali: <strong>{questions.length}</strong></span>
+            <span>Coperte: <strong>{questions.filter(q => q.covered).length}</strong></span>
+            <span>Non coperte: <strong>{questions.filter(q => !q.covered).length}</strong></span>
+            <span>Richieste tema con email: <strong>{topics.length}</strong></span>
+          </div>
+          <div className="flex flex-wrap gap-2 text-xs mb-3">
+            {(["all","covered","uncovered","email"] as const).map(f => (
+              <button key={f} onClick={() => setQFilter(f)}
+                className={`px-3 py-1 rounded-full border ${qFilter === f ? "bg-primary text-primary-foreground" : "hover:bg-muted"}`}>
+                {f === "all" ? "Tutte" : f === "covered" ? "Coperte" : f === "uncovered" ? "Non coperte" : "Con email"}
+              </button>
+            ))}
+            <button onClick={() => setQSort(qSort === "date" ? "language" : "date")} className="px-3 py-1 rounded-full border hover:bg-muted">
+              Ordina: {qSort === "date" ? "data" : "lingua"}
+            </button>
+          </div>
+          {topKeywords.length > 0 && (
+            <div className="mb-3 text-xs text-muted-foreground">
+              Parole chiave più frequenti (non coperte, ultimi 30 giorni):{" "}
+              {topKeywords.map(([w, n]) => `${w} (${n})`).join(" · ")}
+            </div>
+          )}
+          <div className="overflow-x-auto border rounded-lg">
+            <table className="w-full text-sm">
+              <thead className="bg-muted">
+                <tr>
+                  <th className="text-left p-3">Domanda</th>
+                  <th className="text-left p-3">Lingua</th>
+                  <th className="text-left p-3">Copertura</th>
+                  <th className="text-left p-3">Fonti</th>
+                  <th className="text-left p-3">Email</th>
+                  <th className="text-left p-3">Data</th>
+                </tr>
+              </thead>
+              <tbody>
+                {visibleQuestions.map(q => (
+                  <tr key={q.id} className="border-t align-top">
+                    <td className="p-3 max-w-md">{q.question}</td>
+                    <td className="p-3 uppercase text-xs">{q.language || "—"}</td>
+                    <td className="p-3">
+                      <span className={q.covered ? "text-green-600" : "text-amber-600"}>
+                        {q.covered ? "coperta" : "non coperta"}
+                      </span>
+                    </td>
+                    <td className="p-3 font-mono text-xs">{(q.slugs || []).join(", ") || "—"}</td>
+                    <td className="p-3 text-xs">{emailByQuestion.get(q.question.trim().toLowerCase()) || "—"}</td>
+                    <td className="p-3 text-xs">{new Date(q.created_at).toLocaleString()}</td>
+                  </tr>
+                ))}
+                {visibleQuestions.length === 0 && <tr><td colSpan={6} className="p-6 text-center text-muted-foreground">Nessuna domanda</td></tr>}
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className="text-lg font-semibold mt-6 mb-2">Richieste di nuovi temi</h3>
+          <div className="overflow-x-auto border rounded-lg">
+            <table className="w-full text-sm">
+              <thead className="bg-muted">
+                <tr>
+                  <th className="text-left p-3">Tema richiesto</th>
+                  <th className="text-left p-3">Email</th>
+                  <th className="text-left p-3">Lingua</th>
+                  <th className="text-left p-3">Newsletter</th>
+                  <th className="text-left p-3">Data</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topics.map(t => (
+                  <tr key={t.id} className="border-t align-top">
+                    <td className="p-3 max-w-md">{t.question}</td>
+                    <td className="p-3 text-xs">{t.email}</td>
+                    <td className="p-3 uppercase text-xs">{t.language || "—"}</td>
+                    <td className="p-3 text-xs">{t.newsletter_subscribed ? "sì" : "no"}</td>
+                    <td className="p-3 text-xs">{new Date(t.created_at).toLocaleString()}</td>
+                  </tr>
+                ))}
+                {topics.length === 0 && <tr><td colSpan={5} className="p-6 text-center text-muted-foreground">Nessuna richiesta</td></tr>}
               </tbody>
             </table>
           </div>
