@@ -25,6 +25,22 @@ type AComment = {
   approved_at: string | null;
 };
 
+type Lead = {
+  id: string;
+  company_name: string | null;
+  contact_name: string | null;
+  email: string | null;
+  country: string | null;
+  sector: string | null;
+  goal: string | null;
+  service: string | null;
+  message: string | null;
+  language: string | null;
+  source: string;
+  status: string;
+  created_at: string;
+};
+
 export default function Admin() {
   const [session, setSession] = useState<any>(null);
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
@@ -36,6 +52,7 @@ export default function Admin() {
   const [info, setInfo] = useState<string | null>(null);
   const [subs, setSubs] = useState<Sub[]>([]);
   const [comments, setComments] = useState<AComment[]>([]);
+  const [leads, setLeads] = useState<Lead[]>([]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -59,6 +76,10 @@ export default function Admin() {
       .select("id,article_slug,author_name,author_email,content,approved,created_at,approved_at")
       .order("created_at", { ascending: false })
       .then(({ data }) => setComments((data as AComment[]) || []));
+    supabase.from("consultation_requests")
+      .select("id,company_name,contact_name,email,country,sector,goal,service,message,language,source,status,created_at")
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setLeads((data as Lead[]) || []));
   }, [isAdmin]);
 
   const submit = async (e: React.FormEvent) => {
@@ -255,6 +276,46 @@ export default function Admin() {
                   </tr>
                 ))}
                 {comments.length === 0 && <tr><td colSpan={6} className="p-6 text-center text-muted-foreground">Nessun commento</td></tr>}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="pt-6">
+          <h2 className="text-2xl font-semibold mb-2">Richieste di consulenza (MCP / ChatGPT)</h2>
+          <div className="flex gap-4 text-sm mb-3">
+            <span>Totali: <strong>{leads.length}</strong></span>
+            <span>Nuove: <strong>{leads.filter(l => l.status === "new").length}</strong></span>
+          </div>
+          <div className="overflow-x-auto border rounded-lg">
+            <table className="w-full text-sm">
+              <thead className="bg-muted">
+                <tr>
+                  <th className="text-left p-3">Contatto</th>
+                  <th className="text-left p-3">Azienda</th>
+                  <th className="text-left p-3">Paese / Settore</th>
+                  <th className="text-left p-3">Obiettivo / Servizio</th>
+                  <th className="text-left p-3">Messaggio</th>
+                  <th className="text-left p-3">Origine</th>
+                  <th className="text-left p-3">Data</th>
+                </tr>
+              </thead>
+              <tbody>
+                {leads.map(l => (
+                  <tr key={l.id} className="border-t align-top">
+                    <td className="p-3">
+                      <div>{l.contact_name || "—"}</div>
+                      {l.email && <div className="text-xs text-muted-foreground">{l.email}</div>}
+                    </td>
+                    <td className="p-3">{l.company_name || "—"}</td>
+                    <td className="p-3">{[l.country, l.sector].filter(Boolean).join(" · ") || "—"}</td>
+                    <td className="p-3">{[l.goal, l.service].filter(Boolean).join(" · ") || "—"}</td>
+                    <td className="p-3 max-w-md whitespace-pre-wrap">{l.message || "—"}</td>
+                    <td className="p-3 text-xs uppercase">{l.source}{l.language ? ` · ${l.language}` : ""}</td>
+                    <td className="p-3 text-xs">{new Date(l.created_at).toLocaleString()}</td>
+                  </tr>
+                ))}
+                {leads.length === 0 && <tr><td colSpan={7} className="p-6 text-center text-muted-foreground">Nessuna richiesta</td></tr>}
               </tbody>
             </table>
           </div>
