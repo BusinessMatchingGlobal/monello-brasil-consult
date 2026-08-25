@@ -1,4 +1,5 @@
 import type { ComponentType } from 'npm:react@18.3.1'
+import { template as assistantWeeklyDigest } from './assistant-weekly-digest.tsx'
 import { template as contactNotification } from './contact-notification.tsx'
 import { template as flyContactNotification } from './fly-contact-notification.tsx'
 import { template as newsletterConfirm } from './newsletter-confirm.tsx'
@@ -21,6 +22,7 @@ export interface TemplateEntry {
 }
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
+  'assistant-weekly-digest': assistantWeeklyDigest,
   'contact-notification': contactNotification,
   'fly-contact-notification': flyContactNotification,
   'newsletter-confirm': newsletterConfirm,
