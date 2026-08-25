@@ -28,3 +28,7 @@ verify_jwt = false
 verify_jwt = false
 [functions.ask-bmg]
 verify_jwt = false
+[functions.ask-bmg-topic-request]
+verify_jwt = false
+[functions.assistant-weekly-digest]
+verify_jwt = true
