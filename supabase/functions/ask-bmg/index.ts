@@ -15,15 +15,14 @@ const corsHeaders = {
 };
 
 const MAX_QUESTION = 500;
-const DAILY_LIMIT = 10;
 const DOC_CHARS = 6000;
 
 const SYSTEM_PROMPT = `You are Ask BMG, the assistant of Business Matching Global (businessmatching.global), an independent business-intelligence firm covering Brazil–Europe trade. Answer ONLY from the provided BMG content. The BMG service catalogue (Our_Services) is part of that content: when the user asks what BMG does, which service fits their need, or about prices, describe the relevant services with their starting price and link https://businessmatching.global/Our_Services. Reply in the language the user writes in (any language). Cite the title and URL of every document you use. If the provided content does not cover the question, say clearly that BMG has not published on that point, do NOT answer from general knowledge, and point the user to the bespoke Ask Brazil / Ask Europe service at https://businessmatching.global/Our_Services. Never invent facts, numbers or services. Keep answers under 250 words.`;
 
-const RATE_MSG: Record<string, string> = {
-  it: "Hai raggiunto il limite di 10 domande al giorno. Riprova domani oppure scrivici tramite la pagina dei servizi: https://businessmatching.global/Our_Services",
-  en: "You have reached the limit of 10 questions per day. Please try again tomorrow, or contact us via our services page: https://businessmatching.global/Our_Services",
-  pt: "Você atingiu o limite de 10 perguntas por dia. Tente novamente amanhã ou fale conosco na página de serviços: https://businessmatching.global/Our_Services",
+const TEMPORARY_LIMIT_MSG: Record<string, string> = {
+  it: "Il servizio AI è temporaneamente occupato. Riprova tra qualche istante.",
+  en: "The AI service is temporarily busy. Please try again in a moment.",
+  pt: "O serviço de IA está temporariamente ocupado. Tente novamente em instantes.",
 };
 
 const TOO_LONG: Record<string, string> = {
@@ -37,11 +36,6 @@ function json(status: number, body: unknown) {
     status,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
-}
-
-async function sha256(value: string): Promise<string> {
-  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
-  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
 function detectLanguage(text: string): string {
@@ -101,20 +95,6 @@ Deno.serve(async (req) => {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 
-  // Rate limit: 10 questions per IP per day.
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    req.headers.get("cf-connecting-ip") ||
-    "unknown";
-  const ipHash = await sha256(`bmg-assistant:${ip}`);
-  const { data: count, error: rlError } = await supabase.rpc("assistant_bump_rate_limit", {
-    _ip_hash: ipHash,
-    _limit: DAILY_LIMIT,
-  });
-  if (!rlError && typeof count === "number" && count > DAILY_LIMIT) {
-    return json(429, { error: "rate_limited", message: RATE_MSG[uiLanguage] ?? RATE_MSG.en });
-  }
-
   const language = detectLanguage(question);
 
   let documents: ArticleContent[] = [];
@@ -170,7 +150,10 @@ Deno.serve(async (req) => {
       body: JSON.stringify({ model: "google/gemini-3.7-flash", messages }),
     });
     if (res.status === 429) {
-      return json(429, { error: "rate_limited", message: RATE_MSG[uiLanguage] ?? RATE_MSG.en });
+      return json(429, {
+        error: "temporarily_unavailable",
+        message: TEMPORARY_LIMIT_MSG[uiLanguage] ?? TEMPORARY_LIMIT_MSG.en,
+      });
     }
     if (res.status === 402) {
       return json(402, { error: "payment_required" });
