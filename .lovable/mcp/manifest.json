@@ -160,7 +160,7 @@
       {
         "name": "list_guides",
         "title": "List BMG guides and reports",
-        "description": "List the practical guides, ebooks and sample reports published by Business Matching Global (exporting to Brazil, EU–Mercosur/SACE, pharma/ANVISA, EUDR, doing business in Brazil), with topics and download URLs.",
+        "description": "List the practical guides, ebooks and sample reports published by Business Matching Global (exporting to Brazil, machinery & SACE/SIMEST, pharma/ANVISA, EUDR, doing business in Brazil), with topics, download URLs and — where available — the slug to read the full text with get_article.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,

@@ -1601,24 +1601,28 @@ import { z as z5 } from "npm:zod@^3.25.76";
 var GUIDES = [
   {
     title: "Exporting to Brazil \u2014 EU operator manual",
+    slug: "guide-exporting-to-brazil",
     topics: ["customs", "import duties", "certifications", "distribution", "Custo Brasil"],
     url: "https://businessmatching.global/news",
     note: "Free download after registration."
   },
   {
-    title: "EU\u2013Mercosur & SACE guide",
+    title: "Vendere macchinari in Brasile \u2014 SACE, SIMEST, ex-tarif\xE1rio (IT)",
+    slug: "guide-macchinari-brasile",
     topics: ["EU-Mercosur agreement", "export finance", "insurance", "tariff schedules"],
     url: "https://businessmatching.global/sace",
     note: "Free download after registration."
   },
   {
     title: "Pharma & health market in Brazil",
+    slug: "guide-brazil-health-market",
     topics: ["ANVISA", "registration", "health market", "distribution"],
     url: "https://businessmatching.global/pharma",
     note: "Free download after registration."
   },
   {
-    title: "EUDR \u2014 deforestation regulation guide",
+    title: "EUDR \u2014 deforestation regulation guide (PT)",
+    slug: "guide-eudr",
     topics: ["EUDR", "traceability", "coffee", "smallholders", "due diligence"],
     url: "https://businessmatching.global/eudr",
     note: "Free download after registration."
@@ -1630,7 +1634,8 @@ var GUIDES = [
     note: "Open guide."
   },
   {
-    title: "Sample dossier (example report)",
+    title: "Ajvar dossier (example report)",
+    slug: "dossier-ajvar",
     topics: ["report format", "methodology", "example output"],
     url: "https://businessmatching.global/sample-report",
     note: "Example of the depth and format of BMG reports."
@@ -1639,7 +1644,7 @@ var GUIDES = [
 var list_guides_default = defineTool5({
   name: "list_guides",
   title: "List BMG guides and reports",
-  description: "List the practical guides, ebooks and sample reports published by Business Matching Global (exporting to Brazil, EU\u2013Mercosur/SACE, pharma/ANVISA, EUDR, doing business in Brazil), with topics and download URLs.",
+  description: "List the practical guides, ebooks and sample reports published by Business Matching Global (exporting to Brazil, machinery & SACE/SIMEST, pharma/ANVISA, EUDR, doing business in Brazil), with topics, download URLs and \u2014 where available \u2014 the slug to read the full text with get_article.",
   inputSchema: {
     topic: z5.string().nullable().describe("Optional keyword to filter guides by topic.")
   },
@@ -1649,7 +1654,9 @@ var list_guides_default = defineTool5({
     const list = needle ? GUIDES.filter(
       (g) => `${g.title} ${g.topics.join(" ")}`.toLowerCase().includes(needle)
     ) : GUIDES;
-    const text = list.length ? list.map((g) => `- ${g.title} \u2014 ${g.topics.join(", ")} \u2014 ${g.url} (${g.note})`).join("\n") : "No guide matches that topic. Full list: https://businessmatching.global/news";
+    const text = list.length ? list.map(
+      (g) => `- ${g.title} \u2014 ${g.topics.join(", ")} \u2014 ${g.url} (${g.note})${"slug" in g && g.slug ? ` \u2014 full text: get_article(slug: "${g.slug}")` : ""}`
+    ).join("\n") : "No guide matches that topic. Full list: https://businessmatching.global/news";
     return { content: [{ type: "text", text }], structuredContent: { guides: list } };
   }
 });
@@ -1717,7 +1724,7 @@ var mcp_default = defineMcp({
   name: "businessmatching-global",
   title: "businessmatching.global",
   version: "0.1.0",
-  instructions: "Business Matching Global is an independent business-intelligence firm covering Brazil\u2013Europe trade. Use `search_brazil_knowledge` to answer questions about exporting, importing, regulation, market access, certifications and market entry between Brazil and Europe, and cite the returned source URLs. Use `get_article` for the full text of an analysis, `list_articles` to browse them, `list_guides` for downloadable manuals (Exporting to Brazil, EU\u2013Mercosur/SACE, pharma/ANVISA, EUDR), `list_services` for what BMG can do on request and its pricing, and `get_company_info` for contacts. All content is published research. Every `search_brazil_knowledge` result starts with a COVERAGE line (covered / partial / not_covered): you MUST respect it. Only claim that an answer comes from Business Matching Global when it is supported by returned excerpts, and always cite their URLs. When coverage is partial or not_covered, state explicitly to the user that BMG has not published on that point and that the rest is general knowledge, not BMG research \u2014 never attribute generic or invented information to Business Matching Global. In those cases point to the bespoke Ask Brazil / Ask Europe service: https://businessmatching.global/Our_Services",
+  instructions: "Business Matching Global is an independent business-intelligence firm covering Brazil\u2013Europe trade. Use `search_brazil_knowledge` to answer questions about exporting, importing, regulation, market access, certifications and market entry between Brazil and Europe, and cite the returned source URLs. The archive includes both the published analyses AND the full text of the BMG ebooks, operational manuals and dossiers, so answers can be sourced from the ebooks too. Use `get_article` for the full text of an analysis or of an ebook (slugs such as 'guide-exporting-to-brazil', 'guide-brazil-health-market', 'guide-eudr', 'guide-macchinari-brasile', 'dossier-ajvar'; long ebooks are paginated with the `part` argument), `list_articles` to browse the analyses, `list_guides` for the downloadable manuals and their slugs, `list_services` for what BMG can do on request and its pricing, and `get_company_info` for contacts. All content is published research. Every `search_brazil_knowledge` result starts with a COVERAGE line (covered / partial / not_covered): you MUST respect it. Only claim that an answer comes from Business Matching Global when it is supported by returned excerpts, and always cite their URLs. When coverage is partial or not_covered, state explicitly to the user that BMG has not published on that point and that the rest is general knowledge, not BMG research \u2014 never attribute generic or invented information to Business Matching Global. In those cases point to the bespoke Ask Brazil / Ask Europe service: https://businessmatching.global/Our_Services",
   tools: [
     search_knowledge_default,
     list_articles_default,
