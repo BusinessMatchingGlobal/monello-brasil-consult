@@ -68,6 +68,8 @@ import AsuncionBR from "./pages/analysis/Asuncion_BR";
 
 import { LanguageProvider } from "./lib/i18n";
 import { CookieConsent } from "./components/CookieConsent";
+import { AskBmgWidget } from "./components/AskBmgWidget";
+
 import { CalliphoraDomainRouting } from "./components/CalliphoraDomainRouting";
 import { useEffect } from "react";
 import { initConsent } from "./lib/consent";
@@ -205,7 +207,9 @@ const App = () => {
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <AskBmgWidget />
           <CookieConsent />
+
         </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>
