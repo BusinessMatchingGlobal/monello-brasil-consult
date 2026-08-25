@@ -71,12 +71,16 @@ export function scoreArticle(article: ArticleContent, query: string): number {
   const terms = normalize(query).split(/\s+/).filter((t) => t.length > 2);
   if (!terms.length) return 0;
   const title = normalize(article.title);
+  const slug = normalize(article.slug);
   const text = normalize(article.text);
   let score = 0;
   for (const term of terms) {
+    if (slug.includes(term)) score += 8;
     if (title.includes(term)) score += 5;
     const matches = text.split(term).length - 1;
-    score += Math.min(matches, 10);
+    // Presence matters more than raw frequency, so long ebooks do not swamp
+    // shorter but more on-topic documents.
+    if (matches > 0) score += 3 + Math.min(matches, 5);
   }
   return score;
 }
