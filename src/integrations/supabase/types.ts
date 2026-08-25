@@ -308,6 +308,36 @@ export type Database = {
         }
         Relationships: []
       }
+      topic_requests: {
+        Row: {
+          consent: boolean
+          created_at: string
+          email: string
+          id: string
+          language: string | null
+          newsletter_subscribed: boolean
+          question: string
+        }
+        Insert: {
+          consent?: boolean
+          created_at?: string
+          email: string
+          id?: string
+          language?: string | null
+          newsletter_subscribed?: boolean
+          question: string
+        }
+        Update: {
+          consent?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          language?: string | null
+          newsletter_subscribed?: boolean
+          question?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
