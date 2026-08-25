@@ -25,15 +25,16 @@ export type ArticleContent = {
   credit?: string;
 };
 
-export const DEFAULT_BYLINE = "Business Matching Global";
+export const DEFAULT_AUTHOR = "Enzo Aldo Stobbione";
+export const PUBLISHER = "Business Matching Global";
 
 /**
  * Full attribution line for a document: authors (co-authors included),
  * publisher, date and canonical URL. MCP clients must reproduce it verbatim.
  */
 export function citation(article: ArticleContent): string {
-  const authors = article.authors?.length ? article.authors.join(", ") : DEFAULT_BYLINE;
-  const publisher = article.authors?.length ? ` — ${DEFAULT_BYLINE}` : "";
+  const authors = article.authors?.length ? article.authors.join(", ") : DEFAULT_AUTHOR;
+  const publisher = ` — ${PUBLISHER}`;
   const credit = article.credit ? ` · Source/partner: ${article.credit}` : "";
   const date = article.updated ?? article.date;
   return `${authors}${publisher}, "${article.title}"${date ? `, ${date}` : ""}${credit} — ${article.url}`;

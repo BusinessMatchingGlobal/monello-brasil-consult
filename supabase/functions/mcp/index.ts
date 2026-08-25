@@ -10,10 +10,11 @@ import { defineTool } from "npm:@lovable.dev/mcp-js@0.28.0";
 import { z } from "npm:zod@^3.25.76";
 
 // src/lib/mcp/content.ts
-var DEFAULT_BYLINE = "Business Matching Global";
+var DEFAULT_AUTHOR = "Enzo Aldo Stobbione";
+var PUBLISHER = "Business Matching Global";
 function citation(article) {
-  const authors = article.authors?.length ? article.authors.join(", ") : DEFAULT_BYLINE;
-  const publisher = article.authors?.length ? ` \u2014 ${DEFAULT_BYLINE}` : "";
+  const authors = article.authors?.length ? article.authors.join(", ") : DEFAULT_AUTHOR;
+  const publisher = ` \u2014 ${PUBLISHER}`;
   const credit = article.credit ? ` \xB7 Source/partner: ${article.credit}` : "";
   const date = article.updated ?? article.date;
   return `${authors}${publisher}, "${article.title}"${date ? `, ${date}` : ""}${credit} \u2014 ${article.url}`;
