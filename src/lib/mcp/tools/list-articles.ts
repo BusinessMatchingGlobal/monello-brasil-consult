@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { loadArticles, type Lang } from "../content";
+import { citation, loadArticles, type Lang } from "../content";
 
 export default defineTool({
   name: "list_articles",
@@ -23,18 +23,21 @@ export default defineTool({
       Math.min(Math.max(limit ?? 20, 1), 100),
     );
     const text = list
-      .map((a) => `- [${a.lang}] ${a.title} — ${a.updated ?? a.date} — ${a.url}`)
+      .map((a) => `- [${a.lang}] ${citation(a)}`)
       .join("\n");
     return {
       content: [{ type: "text", text: text || "No articles published yet." }],
       structuredContent: {
-        articles: list.map(({ slug, lang: l, title, date, updated, url }) => ({
+        articles: list.map((a) => ({ ...a, citation: citation(a) })).map(({ slug, lang: l, title, date, updated, url, citation: cite, authors, credit }) => ({
           slug,
           lang: l,
           title,
           date,
           updated: updated ?? null,
           url,
+          authors: authors ?? null,
+          credit: credit ?? null,
+          citation: cite,
         })),
       },
     };

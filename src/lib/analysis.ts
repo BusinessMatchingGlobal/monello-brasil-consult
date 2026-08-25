@@ -6,6 +6,10 @@ export type AnalysisArticle = {
   updated?: string; // ISO date of the latest rewrite/update, when applicable
   title: Record<Lang, string>;
   image?: string; // absolute or site-relative cover image used for og:image
+  /** Author / co-authors of the piece. Omit when it is the default BMG byline. */
+  authors?: string[];
+  /** External source or partner to credit alongside BMG (e.g. a co-published study). */
+  credit?: string;
   group?: string; // variants of the same article share the same group slug
 };
 
