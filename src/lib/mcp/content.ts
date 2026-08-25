@@ -69,3 +69,28 @@ export function excerpt(article: ArticleContent, query: string, size = 500): str
   const start = Math.max(0, index - Math.floor(size / 3));
   return `${start > 0 ? "…" : ""}${article.text.slice(start, start + size)}…`;
 }
+
+export type Coverage = "covered" | "partial" | "not_covered";
+
+/**
+ * How well the published BMG archive actually covers a query.
+ * Used to make the MCP answer state explicitly whether the content comes from
+ * BMG published research or would be a generic, non-BMG answer.
+ */
+export function classifyCoverage(
+  article: ArticleContent | undefined,
+  query: string,
+  topScore: number,
+): Coverage {
+  if (!article || topScore <= 0) return "not_covered";
+  const terms = Array.from(
+    new Set(normalize(query).split(/\s+/).filter((t) => t.length > 3)),
+  );
+  if (!terms.length) return topScore >= 8 ? "partial" : "not_covered";
+  const haystack = `${normalize(article.title)} ${normalize(article.text)}`;
+  const hits = terms.filter((t) => haystack.includes(t)).length;
+  const ratio = hits / terms.length;
+  if (ratio >= 0.6 && topScore >= 8) return "covered";
+  if (ratio >= 0.3 || topScore >= 6) return "partial";
+  return "not_covered";
+}
