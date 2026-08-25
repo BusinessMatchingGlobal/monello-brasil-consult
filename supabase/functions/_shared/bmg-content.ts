@@ -67,20 +67,38 @@ export function normalize(value: string): string {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
+/** Very common words in EN/IT/PT that carry no retrieval signal. */
+const STOPWORDS = new Set([
+  "the","and","for","are","que","com","como","para","nao","dos","das","uma","por","mais",
+  "che","con","per","del","della","dei","delle","sono","gli","alla","alle","degli","nel",
+  "nella","sul","sui","sugli","una","uno","suo","sua","what","how","does","which","why",
+  "who","when","from","with","this","that","have","has","was","were","about","into","cosa",
+  "quali","quale","quando","perche","porque","quais","sobre","seus","suas","mio","tua",
+]);
+
 export function scoreArticle(article: ArticleContent, query: string): number {
-  const terms = normalize(query).split(/\s+/).filter((t) => t.length > 2);
+  const terms = Array.from(
+    new Set(
+      normalize(query)
+        .replace(/[^a-z0-9\s]/g, " ")
+        .split(/\s+/)
+        .filter((t) => t.length > 2 && !STOPWORDS.has(t)),
+    ),
+  );
   if (!terms.length) return 0;
   const title = normalize(article.title);
   const slug = normalize(article.slug);
   const text = normalize(article.text);
   let score = 0;
   for (const term of terms) {
-    if (slug.includes(term)) score += 8;
-    if (title.includes(term)) score += 5;
+    // Longer terms are rarer and more discriminating.
+    const weight = term.length >= 6 ? 2 : 1;
+    if (slug.includes(term)) score += 10 * weight;
+    if (title.includes(term)) score += 5 * weight;
     const matches = text.split(term).length - 1;
     // Presence matters more than raw frequency, so long ebooks do not swamp
     // shorter but more on-topic documents.
-    if (matches > 0) score += 3 + Math.min(matches, 5);
+    if (matches > 0) score += (3 + Math.min(matches, 5)) * weight;
   }
   return score;
 }
