@@ -8,7 +8,7 @@ const EMAIL = "info@businessmatching.global";
 
 type Block = { type: "h2" | "p" | "li"; text: string; italic?: boolean };
 
-const blocks: Block[] = [
+const blocksIt: Block[] = [
   { type: "p", text: "Che cosa deve attraversare l'Atlantico: il prodotto finito, i componenti, il metodo, il marchio, una licenza — o nulla?" },
   { type: "p", text: "È la domanda da cui partiamo, e quasi nessuno la fa prima di aver già deciso la risposta. In alcuni casi, invece di esportare direttamente, conviene produrre su licenza in loco." },
 
@@ -92,22 +92,113 @@ const blocks: Block[] = [
   { type: "p", text: "I pareri legali e fiscali sono resi da professionisti abilitati nei rispettivi ordinamenti, selezionati da noi per il caso specifico e abituati a lavorare tra Brasile ed Europa; rispondono direttamente al cliente. Noi teniamo insieme il disegno." },
 ];
 
+const blocksEn: Block[] = [
+  { type: "p", text: "What should cross the Atlantic: the finished product, the components, the method, the brand, a licence — or nothing?" },
+  { type: "p", text: "This is the question we start with, and almost nobody asks it before the answer has already been decided. In some cases, instead of exporting directly, it pays to manufacture under licence locally." },
+
+  { type: "h2", text: "An air fryer" },
+  { type: "p", text: "Philips brought the air fryer to Brazil and patented the technology behind it: the hot-air flow, the star-shaped basket floor. It created the category from scratch." },
+  { type: "p", text: "In Brazil, airfryer now means any oil-free fryer, as if it were a word in the dictionary. Nobody associates it with its inventor anymore. A patent protects one route to a result, not the result itself — and when there are many routes, the advantage lasts only as long as it takes to find another one. Philips created a market and ended up playing in it like everyone else." },
+  { type: "p", text: "This is not a story about theft. It is a story about choosing the wrong thing to protect." },
+  { type: "p", text: "A patent does not protect an idea or a result: it protects the invention as claimed, described line by line in the filed text. Everything outside those lines is open ground. Some elements, however, can be protected even without a patent — as trade secrets, know-how or confidential information — provided effective protective measures are in place." },
+
+  { type: "h2", text: "Two different businesses" },
+  { type: "p", text: "Exporting a product means betting on tariffs, exchange rates, logistics and customs times: variables you do not control, and that can change with a single decree." },
+  { type: "p", text: "Transferring the method — authorising a local company to manufacture using your technology, for a fee — means betting on one thing only: your ability to stay ahead." },
+  { type: "p", text: "Licence: a contract in which one company authorises another to manufacture or use its technology in a defined territory, for a defined period. Royalty: the recurring fee, usually a percentage of sales. Entry fee: the amount paid up front, before production begins." },
+  { type: "p", text: "For many European SMEs, Brazil is the textbook case: tariffs and logistics costs price the finished product out of the market, while the same product made locally would be competitive. And it holds identically in reverse: a Brazilian method that would never reach Europe as goods." },
+
+  { type: "h2", text: "Why Brazil, and not \"Latin America\"" },
+  { type: "p", text: "\"Latin America\" is not a market; it is a geographic category. Whoever treats it as a single bloc ends up spending across five countries what would have been enough to enter one properly." },
+  { type: "p", text: "The proportions, in absolute terms. Brazil alone accounts for roughly half of South America's gross domestic product. But the figure that matters to a seller is not average wealth: it is how many people can afford your product — and there, Brazilian inequality, usually cited as a problem, becomes arithmetic in your favour. Even on a conservative estimate, the high-spending segment runs to tens of millions of people: more than the entire population of Chile, and several times that of Paraguay and Uruguay combined. The São Paulo metropolitan area alone exceeds twenty million inhabitants. A niche segment in Brazil is bigger than a whole market elsewhere — with one language, one currency, one customs regime." },
+  { type: "p", text: "Brazil is not a homogeneous market: it is an archipelago of markets. Twenty-six states plus the Federal District, each with its own tax on the circulation of goods, its own rates and its own preferential regimes for those who import or set up on its territory. The consequence surprises almost every European: landing the same goods in one port rather than another, or setting up in one state rather than the neighbouring one, changes the tax burden — sometimes decisively for the margin. The states compete with one another to attract imports and plants, and that competition is still open — for now. Brazil's tax reform progressively replaces the state taxes with a single consumption tax, shifting revenue to the state of destination: the transition completes in the early 2030s, and with it the case for choosing your point of entry on tax grounds is set to shrink. Whoever structures their presence while the window is open locks in an advantage; whoever arrives later will find a flatter field." },
+  { type: "p", text: "And the choice is never purely fiscal. The country is the size of a continent and internal logistics are expensive: clearing customs where it is fiscally convenient but two thousand kilometres from your target market means handing back in transport what you saved in taxes, with added time and risk. The same goes for where you produce. The right decision is the balance point between the two calculations, worked out case by case: where your customers are, how much the product weighs relative to its value, and which state currently has the most favourable regime for your product category." },
+  { type: "p", text: "The difficulty is the reason to go, not to stay away. Tariffs, tax complexity, mandatory certifications, costly internal logistics: all true. But a barrier works in both directions. Where entry is easy, everyone is already there, and having arrived is worth nothing. In Brazil, the same difficulty that keeps you out today keeps out tomorrow whoever would come after you." },
+  { type: "p", text: "It is the only market in the region where transferring the method makes full sense, because it takes an industrial base capable of manufacturing under licence. Mexico has one, but it is built around the United States: you produce there to re-export north, not to serve the domestic market. It is a different logic, and confusing the two means designing the wrong project." },
+  { type: "p", text: "The other countries count as a base, not as a market. Paraguay, Uruguay and Argentina offer maquila regimes, free zones and lower industrial costs — and they sit inside Mercosur, so goods produced there can reach Brazil without the common external tariff, in compliance with the rules of origin and the related documentation, subject to the exceptions provided. Not five markets instead of one: a cost base serving the only market that counts." },
+  { type: "p", text: "The rules change while you are still deciding. A market is not just demand and competition: it is a set of rules, and in Brazil they change more often than in Europe. A live example, current as of August 2026: the tax reform created the Imposto Seletivo — what Brazilians call the imposto do pecado, the \"sin tax\" — while deferring the rates to a later law. Under the complementary law already approved it takes effect on 1 January 2027 and, under the ninety-day rule, the text setting the rates should be published by early October 2026 — a deadline so tight that setting them by emergency decree rather than ordinary law is under discussion. It covers specific categories — tobacco, alcoholic drinks, sugary drinks, vehicles, extracted minerals, betting — and if your product is not on that list, it does not touch you. But tomorrow it will be another rule: a certification that becomes mandatory, a labelling requirement, a state incentive that opens or closes. Almost all of them can be seen coming months in advance — provided someone is watching from the right side of the corridor. Whoever is already inside has time to adapt, and often gains from it: the cost of compliance is the same for everyone, but weighs far more on those still outside." },
+  { type: "p", text: "Certifications are a moat, not just a cost. INMETRO, ANVISA, MAPA or ANATEL registrations, depending on the product: months of work and certain expense. That is why many give up — and exactly why it is worth doing: once obtained, they force every future competitor down the same path while you are already on the shelf. With one caveat, which is the keystone applied to this case: do not let the distributor hold exclusive control over registrations, authorisations or regulatory dossiers essential to the continuity of the operation. Direct ownership by the foreign company is not always possible — it depends on the product, the competent authority and who is legally responsible for manufacturing, importing and distributing. Where it is not, the contract must govern access to the documents, the right of transfer, cooperation in migrating them and the consequences of termination. Whoever holds the registration holds access to the market — and replacing a distributor should remain your decision, not a negotiation." },
+  { type: "p", text: "When the answer is not Brazil — and we say so gladly: small volumes destined to stay small; service or digital products, where Chile and Uruguay are far simpler; supplying the North American market, where Mexico wins without discussion." },
+
+  { type: "h2", text: "The question that comes before the contract" },
+  { type: "p", text: "Does the method live inside the object, or inside people?" },
+  { type: "p", text: "If it lives inside the object — an appliance, a mould, a simple formulation — any serious partner will take it apart and rebuild it within months. There, the licence protects nothing: what you are selling is time-to-market and a brand. So take the money up front: high entry fee, modest royalties, short term." },
+  { type: "p", text: "If it lives inside people and inside a continuing relationship — agronomy, quality control, process protocols, calibration, technical training — the transfer holds. It holds because every year there is a new version the licensee could not produce alone." },
+
+  { type: "h2", text: "A kerosene refrigerator" },
+  { type: "p", text: "In 1947, an imported kerosene-powered refrigerator was brought in for repair to a workshop in Brusque, Santa Catarina. At the time, refrigerators in Brazil were imported goods found only in very wealthy homes. The two mechanics took it apart piece by piece, studied every component and decided to build one of their own. They made thirty-one of them in that shed; in 1950 the workshop became a factory in Joinville and took the name Consul. The first model cooled by absorption, running on kerosene — the right technology for a country where the electricity grid still did not reach most houses. Out of that came a domestic compressor industry, a merger with Brastemp, and eventually one of the world's leading refrigeration hubs." },
+  { type: "p", text: "It is the exact reverse of the air fryer. There, the manufacturer was present and protected the wrong thing; here it was not present at all — it sold an imported, expensive appliance designed for another country. Nobody copied it out of bad faith. It was rebuilt because nobody was answering the real problem, which was not making things cold, but making things cold where there is no power." },
+  { type: "p", text: "Hence the rule: local adaptation happens either way. The only variable is whether it happens with you or without you. A company that arrives with a translated catalogue and a euro price list leaves the adaptation work to someone else — and that someone else, afterwards, no longer needs it." },
+
+  { type: "h2", text: "The keystone" },
+  { type: "p", text: "In an arch, the keystone is the central stone: remove it and everything collapses, however perfect the other stones are." },
+  { type: "p", text: "In a licence, it is the piece you do not hand over. Not just any piece held back, but the one whose absence stops production or degrades the result in a way the end customer notices. The proprietary seed behind an agronomic method transferred in full. The starter culture behind a dairy process taught in full. Calibration parameters, control software, certification, the brand." },
+  { type: "p", text: "Three conditions identify it, and all three must hold:" },
+  { type: "li", text: "Without it, the product does not come out — or comes out visibly worse." },
+  { type: "li", text: "It cannot be replicated locally at reasonable cost. If the licensee can build it in-house with two engineers and six months, it is not a keystone: it is a delay." },
+  { type: "li", text: "They can buy it from you at a fair price. This is the condition almost everyone gets wrong. Overprice it and you are funding the search for a substitute yourself. A keystone is defended by staying convenient, not by squeezing." },
+  { type: "p", text: "And every keystone has a half-life. There is no permanent one — only the one that buys you the years you need to build the next." },
+  { type: "p", text: "There is also a recent, tax-driven reason to keep the method alive: Brazil's new transfer pricing rules recognise the right to a royalty only where the licensor can show it actively develops, maintains and protects what it has licensed. Whoever transfers everything and stops innovating does not just lose bargaining power — they put at risk the deductibility of the fee on the other side of the table." },
+
+  { type: "h2", text: "The formalities Brazil does not let you skip" },
+  { type: "p", text: "Industrial property protection is territorial. A European patent or trademark simply does not exist in Brazil: it has to be filed with the Brazilian INPI, and the trademark should be filed before conversations begin. The most common loss is not a copied product — it is a partner registering your brand in their own name." },
+  { type: "p", text: "Recordal with INPI should be assessed against the contract and the effects you want. Until a few years ago it was the mandatory step for remitting royalties abroad and deducting them; the 2021 foreign exchange reform and the 2023 transfer pricing rules changed the landscape, and today remittance essentially depends on proof of payment of the tax due. It remains relevant for legal certainty and, in certain cases, for effects against third parties. This is exactly the kind of point where the right answer depends on the specific structure and must be verified with the professionals engaged. In particular, the tax deductibility of royalties and technology payments after the 2021 and 2023 legislative changes requires a specific analysis of the contract, the nature of the payment and the applicable tax regime: the position is not uniform across all cases." },
+  { type: "p", text: "Cross-border payments carry their own tax cost: withholding taxes, the CIDE levy on remittances and other effects that vary with the nature of the contract, the parties involved and the structure of the fee. They belong in the business case before the percentage is negotiated, not after." },
+  { type: "p", text: "In the text: defined field of use and territory, guaranteed minimums, audit rights over sales figures, ownership of improvements developed locally, confidentiality and a know-how non-use obligation surviving termination, liquidated damages. And arbitration, which in international contracts generally offers more procedural predictability than ordinary litigation — but seat, institution, language, applicable law, urgent measures and enforcement strategy must be chosen case by case: an award rendered abroad, to be enforced in Brazil, goes through recognition by the Superior Tribunal de Justiça." },
+
+  { type: "h2", text: "Why you rarely hear this" },
+  { type: "p", text: "It is not a technical secret. Licensing is textbook material, and large companies have practised it for decades. What is missing is anyone bringing it to the small and medium company: the ecosystem built around it — chambers of commerce, public funding calls, vouchers, trade fairs, internationalisation grants — was created to move goods out, and measures its own success in goods moved out. None of those actors has a reason to tell an entrepreneur that perhaps the product should not enter as a product at all." },
+  { type: "p", text: "And the reverse holds too, and we say it gladly: transferring the method is not always the right answer. Three things must hold at once — a counterparty that genuinely exists and knows how to manufacture; a volume that justifies local production; a method alive enough to feed the relationship year after year. In a niche of a few hundred units a year, licensing makes no sense and exporting does. When that is the case, we say so beforehand, not afterwards." },
+
+  { type: "h2", text: "Three objections, stated plainly" },
+  { type: "p", text: "\"We need someone inside the company who knows the product.\" True — and that someone is not us. But you already know your product better than anyone: the information you are missing is not in your plant, it is on the other side of the corridor. The two presences do not compete; they add up." },
+  { type: "p", text: "\"A proven method works in any market.\" A working method, yes; knowledge of a market, no. Anyone covering thirty countries with the same procedure will hand you a tidy procedure built on data you could buy yourself. We cover one corridor, and we live inside it. The question worth asking of anyone who offers — including us: how many times have you physically been in that market in the last twelve months, in which language do you speak with counterparties, which local associations are you a member of." },
+  { type: "p", text: "\"We need someone who brings deals, not analysis.\" Fair. But whoever is paid to make exports happen will rarely conclude that the market is wrong for you. We can, and sometimes we do. The first thing we deliver is a verdict — proceed, investigate further, drop it — and it costs a few hundred euros precisely to save you the tens of thousands that would follow." },
+
+  { type: "h2", text: "How we work" },
+  { type: "p", text: "We work between Europe and Brazil, and we understand both the needs of European and international companies, professionals and clients, and the complex regulatory, administrative, tax and cultural reality of the Brazilian market. Our expertise comes from an international path combining law, international trade, EU project management, entrepreneurship and practical knowledge of both markets." },
+  { type: "p", text: "Our goal is to help you understand the context you want to operate in, reducing the impact of the so-called Custo Brasil: bureaucracy, regulatory complexity, information asymmetries, interpretive difficulties and operational risks that slow down or complicate decisions. Our work is independent, confidential and aimed at giving you reliable, curated, genuinely useful information for informed decisions. No noise, no filler: just the answers you need, when you need them." },
+  { type: "p", text: "We do not simply tell you that you need a lawyer. We assemble and coordinate the team — law firms in Brazil and in Europe, an industrial property agent, a tax adviser, technical experts where required — and we hold the architecture of the deal together from the first day to the final signature." },
+  { type: "p", text: "That is the difference that counts: whoever holds the full architecture knows what to ask, of whom, and in what order. An excellent legal opinion on a badly framed question costs the same and protects you from nothing." },
+  { type: "p", text: "In practice:" },
+  { type: "li", text: "we design the architecture of the deal — what is transferred, in how many stages, what stays out and why;" },
+  { type: "li", text: "we vet the counterparty before the table opens: ownership structure, track record, litigation, real industrial capacity, and what they can already do alone;" },
+  { type: "li", text: "we identify the credible keystone in your specific case, and how many years it can hold;" },
+  { type: "li", text: "we translate strategy into precise instructions for the professionals engaged, and review their work against the commercial objective, not only against the statute;" },
+  { type: "li", text: "we keep the pace across time zones, languages, offices and authorities." },
+  { type: "p", text: "Each step has a stated outcome, a delivery time and a document that stays in your hands: the first is a verdict — proceed, investigate further, drop it — with the reasons in writing. No later phase starts before the previous one has been delivered and discussed." },
+  { type: "p", text: "What selecting actually means. Brazil has roughly 1.3 million practising lawyers: one for every 164 inhabitants, the highest ratio in the world. That is not a quality problem, it is a choice problem — and it applies equally to accountants, tax advisers, industrial property agents and technical experts. Bar registration says a professional may practise; it does not say they have ever seen a technology transfer contract, an INPI recordal, or a European counterparty across the table. We select on demonstrated competence in the specific matter — deals closed, cases handled, the ability to work across two languages and two legal systems — not on the formal credential. Anyone who does not know the country cannot apply that filter, because they do not know which questions to ask." },
+  { type: "p", text: "Already have an export manager? All the better: we are not after their seat, we are their counterpart on the other side of the corridor. We speak the same language — targets, margins, lead times — but we know the market from the inside: who is actually there, how manufacturing works locally, what the authorities require, which distributor stopped paying suppliers last year." },
+  { type: "p", text: "Our job is to put current, independent data and assessments in their hands. Independent in a concrete sense: on our analysis services the fee is fixed and does not depend on the outcome, so we have no reason to hand back a rosier picture than the real one. Where we also offer commercial representation, with a variable component on sales, that is a separate engagement: we do not combine it with analysis on the same deal, and if the two ever meet, we say so first." },
+  { type: "p", text: "Anyone running exports works better when the information behind their decisions is verified and recent — and worse when it is second-hand or two years old. It is usually a small investment against what it protects: one check made in time costs a fraction of a container stuck in customs, a badly chosen distributor, or a trademark registered by somebody else." },
+  { type: "p", text: "We do not publish client names or identifiable cases. Anyone who asks us to vet their counterparties expects the same discretion — and gets it." },
+  { type: "p", text: "We treat every conversation as confidential from the first message, whether or not a document has been signed. If you prefer it formalised, the mutual agreement is ready and we sign it before going into substance." },
+  { type: "p", text: "Legal and tax opinions are issued by professionals qualified to practise in their respective jurisdictions, selected by us for the specific case and used to working between Brazil and Europe; they answer directly to the client. We hold the design together." },
+];
+
 export default function Method() {
+  const { lang } = useT();
+  const isEn = lang === "en";
   useCanonical("/method", {
-    title: "Trasferire il metodo, non solo il prodotto | Business Matching Global",
-    description:
-      "Licenza, royalty e trasferimento di tecnologia verso il Brasile: quando conviene produrre in loco invece di esportare, e come proteggere la chiave di volta.",
+    title: isEn
+      ? "Transfer the method, not just the product | Business Matching Global"
+      : "Trasferire il metodo, non solo il prodotto | Business Matching Global",
+    description: isEn
+      ? "Licence, royalties and technology transfer to Brazil: when it pays to manufacture locally instead of exporting, and how to protect the keystone."
+      : "Licenza, royalty e trasferimento di tecnologia verso il Brasile: quando conviene produrre in loco invece di esportare, e come proteggere la chiave di volta.",
   });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const blocks = isEn ? blocksEn : blocksIt;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <div className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
         <h1 className="font-display text-4xl md:text-5xl leading-tight mb-8">
-          Trasferire il metodo, non solo il prodotto
+          {isEn ? "Transfer the method, not just the product" : "Trasferire il metodo, non solo il prodotto"}
         </h1>
         <article className="space-y-6">
           {blocks.map((b, i) =>
@@ -131,15 +222,16 @@ export default function Method() {
         </article>
 
         <div className="mt-14 pt-10 border-t border-border">
-          <h2 className="font-display text-2xl md:text-3xl mb-3">→ Parliamone</h2>
+          <h2 className="font-display text-2xl md:text-3xl mb-3">{isEn ? "→ Let's talk" : "→ Parliamone"}</h2>
           <p className="text-base md:text-lg text-muted-foreground">
-            Scrivici a{" "}
+            {isEn ? "Write to us at " : "Scrivici a "}
             <a href={`mailto:${EMAIL}`} className="text-primary underline hover:text-primary/80 inline-flex items-center gap-1">
               <Mail className="h-4 w-4" /> {EMAIL}
             </a>{" "}
-            oppure usa il modulo qui sotto.
+            {isEn ? "or use the form below." : "oppure usa il modulo qui sotto."}
           </p>
         </div>
+
         <ContactForm />
       </div>
     </div>
