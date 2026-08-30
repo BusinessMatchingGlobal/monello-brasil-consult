@@ -316,14 +316,17 @@ export default function Method() {
         </article>
 
         <div className="mt-14 pt-10 border-t border-border">
-          <h2 className="font-display text-2xl md:text-3xl mb-3">{isEn ? "→ Let's talk" : "→ Parliamone"}</h2>
+          <h2 className="font-display text-2xl md:text-3xl mb-3">
+            {isEn ? "→ Let's talk" : isPt ? "→ Vamos conversar" : "→ Parliamone"}
+          </h2>
           <p className="text-base md:text-lg text-muted-foreground">
-            {isEn ? "Write to us at " : "Scrivici a "}
+            {isEn ? "Write to us at " : isPt ? "Escreva para " : "Scrivici a "}
             <a href={`mailto:${EMAIL}`} className="text-primary underline hover:text-primary/80 inline-flex items-center gap-1">
               <Mail className="h-4 w-4" /> {EMAIL}
             </a>{" "}
-            {isEn ? "or use the form below." : "oppure usa il modulo qui sotto."}
+            {isEn ? "or use the form below." : isPt ? "ou use o formulário abaixo." : "oppure usa il modulo qui sotto."}
           </p>
+
         </div>
 
         <ContactForm />
