@@ -41,7 +41,7 @@ function LangSwitcher() {
   );
 }
 
-function Nav() {
+export function Nav() {
   const { t } = useT();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -59,6 +59,7 @@ function Nav() {
     { href: "/#how", label: t.nav.how },
     { href: "/#about", label: t.nav.method },
     { href: "/About_us", label: t.nav.about, internal: true },
+    { href: "/ethics", label: t.nav.ethics, internal: true },
     { href: "/BT", label: t.nav.travel, internal: true },
     { href: "/news", label: t.nav.news, internal: true },
     { href: "__analysis__", label: t.nav.analysis, analysis: true } as any,
