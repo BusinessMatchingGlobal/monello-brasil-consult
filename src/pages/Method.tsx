@@ -176,30 +176,124 @@ const blocksEn: Block[] = [
   { type: "p", text: "Legal and tax opinions are issued by professionals qualified to practise in their respective jurisdictions, selected by us for the specific case and used to working between Brazil and Europe; they answer directly to the client. We hold the design together." },
 ];
 
+const blocksPt: Block[] = [
+  { type: "p", text: "O que deve atravessar o Atlântico: o produto acabado, os componentes, o método, a marca, uma licença — ou nada?" },
+  { type: "p", text: "É a pergunta de que partimos, e quase ninguém a formula antes de já ter decidido a resposta. Em alguns casos, em vez de exportar diretamente, compensa produzir sob licença no destino." },
+
+  { type: "h2", text: "Uma fritadeira sem óleo" },
+  { type: "p", text: "A Philips trouxe a airfryer para o Brasil e patenteou a tecnologia: o fluxo de ar quente, o fundo do cesto em formato de estrela. Criou a categoria do zero." },
+  { type: "p", text: "No Brasil, airfryer hoje é como se chama qualquer fritadeira sem óleo, como se fosse uma palavra do dicionário. Ninguém mais a associa a quem a inventou. Uma patente protege um caminho para chegar a um resultado, não o resultado em si — e, quando os caminhos são muitos, a vantagem dura apenas o tempo de encontrar outro. A Philips criou um mercado e acabou competindo dentro dele como todos os outros." },
+  { type: "p", text: "Não é uma história de roubo. É uma história de escolhas erradas sobre o que proteger." },
+  { type: "p", text: "Uma patente não protege uma ideia nem um resultado: protege a invenção tal como reivindicada, descrita linha por linha no texto depositado. Tudo o que fica fora dessas linhas é terreno livre. Alguns elementos, porém, podem ser protegidos mesmo sem patente — como segredo industrial, know-how ou informação confidencial — desde que adotadas medidas efetivas de proteção." },
+
+  { type: "h2", text: "Dois ofícios diferentes" },
+  { type: "p", text: "Exportar um produto é apostar em tarifas, câmbio, logística e prazos aduaneiros: variáveis que vocês não controlam e que mudam com um decreto." },
+  { type: "p", text: "Transferir o método — autorizar uma empresa local a fabricar com a sua tecnologia, mediante remuneração — é apostar em uma coisa só: a sua capacidade de continuar à frente." },
+  { type: "p", text: "Licença: contrato pelo qual uma empresa autoriza outra a fabricar ou usar sua tecnologia em território e prazo definidos. Royalty: a remuneração periódica, em geral um percentual sobre as vendas. Taxa de entrada (entry fee): o valor pago no início, antes de a produção começar." },
+  { type: "p", text: "Para muitas PMEs europeias, o Brasil é o caso clássico: tarifa e custo logístico tiram o produto acabado do mercado, enquanto o mesmo produto fabricado localmente seria competitivo. E vale, idêntico, no sentido inverso: um método brasileiro que jamais chegaria à Europa como mercadoria." },
+
+  { type: "h2", text: "Por que o Brasil, e não \"a América Latina\"" },
+  { type: "p", text: "\"América Latina\" não é um mercado, é uma categoria geográfica. Quem a trata como bloco único acaba gastando em cinco países o que bastaria para entrar bem em um." },
+  { type: "p", text: "As proporções, em valor absoluto. O Brasil concentra sozinho cerca de metade do PIB sul-americano. Mas o dado que importa a quem vende não é a riqueza média: é quantas pessoas podem comprar o seu produto — e aí a desigualdade brasileira, em geral citada como problema, vira aritmética a seu favor. Mesmo com uma estimativa conservadora da faixa de alto poder de compra, fala-se de dezenas de milhões de pessoas: mais do que a população inteira do Chile, e várias vezes a soma de Paraguai e Uruguai. Só a região metropolitana de São Paulo passa de vinte milhões de habitantes. Um nicho no Brasil é maior do que um mercado inteiro em outro lugar — com um idioma só, uma moeda só, um único regime aduaneiro." },
+  { type: "p", text: "O Brasil não é um mercado homogêneo: é um arquipélago de mercados. Vinte e seis estados mais o Distrito Federal, cada um com seu imposto sobre a circulação de mercadorias, suas alíquotas e seus regimes de incentivo para quem importa ou se instala em seu território. Daí decorre algo que surpreende quase todos os europeus: fazer a mesma mercadoria chegar a um porto em vez de outro, ou instalar-se em um estado em vez do vizinho, muda a carga tributária — às vezes de forma decisiva para a margem. Os estados competem entre si para atrair importações e plantas industriais, e essa competição ainda está aberta — por enquanto. A reforma tributária substitui progressivamente os impostos estaduais por um imposto único sobre o consumo, deslocando a arrecadação para o estado de destino: a transição se completa no início da década de 2030, e com ela a vantagem de escolher o ponto de entrada por critério fiscal tende a diminuir. Quem estrutura sua presença enquanto a janela está aberta consolida uma vantagem; quem chega depois encontra um campo mais plano." },
+  { type: "p", text: "E a escolha nunca é apenas fiscal. O país tem o tamanho de um continente e a logística interna custa caro: desembaraçar onde há vantagem fiscal, mas a dois mil quilômetros do seu mercado-alvo, significa devolver em transporte o que se economizou em impostos, com prazos e riscos adicionais. O mesmo vale para o local de produção. A decisão certa é o ponto de equilíbrio entre as duas contas, calculado caso a caso: onde estão os seus clientes, quanto o produto pesa em relação ao seu valor, qual estado oferece hoje o regime mais favorável para a sua categoria de produto." },
+  { type: "p", text: "A dificuldade é o motivo para vir, não para evitar. Tarifas, complexidade tributária, certificações obrigatórias, logística interna cara: tudo verdade. Mas barreira funciona nos dois sentidos. Onde entrar é fácil, já está todo mundo, e ter chegado não vale nada. No Brasil, a mesma dificuldade que hoje deixa vocês de fora amanhã deixa de fora quem viria depois." },
+  { type: "p", text: "É o único mercado da região onde a transferência de método faz pleno sentido, porque exige uma base industrial capaz de fabricar sob licença. O México tem uma, mas construída em torno dos Estados Unidos: produz-se lá para reexportar ao norte, não para servir o mercado interno. É outra lógica, e confundi-las significa errar o projeto." },
+  { type: "p", text: "Os demais países contam como base, não como mercado. Paraguai, Uruguai e Argentina oferecem regimes de maquila, zonas francas e custos industriais menores — e estão dentro do Mercosul, de modo que a mercadoria produzida lá pode chegar ao Brasil sem a tarifa externa comum, respeitadas as regras de origem e as respectivas exigências documentais, ressalvadas as exceções previstas. Não cinco mercados em vez de um: uma base de custo que serve ao único mercado que pesa." },
+  { type: "p", text: "As regras mudam enquanto vocês decidem. Um mercado não é só demanda e concorrência: é um conjunto de regras, e no Brasil elas mudam com mais frequência do que na Europa. Um exemplo em curso, atualizado em agosto de 2026: a reforma tributária instituiu o Imposto Seletivo — o chamado imposto do pecado — deixando para lei posterior a definição das alíquotas. Pela lei complementar já aprovada, entra em vigor em 1º de janeiro de 2027 e, pelo princípio da noventena, o texto das alíquotas deveria ser publicado até o início de outubro de 2026 — prazo tão apertado que se discute fixá-las por medida de urgência em vez de lei ordinária. Alcança categorias específicas — fumígenos, bebidas alcoólicas, bebidas açucaradas, veículos, bens minerais extraídos, apostas — e, se o seu produto não está nessa lista, não o atinge. Mas amanhã será outra norma: uma certificação que se torna obrigatória, uma regra de rotulagem, um incentivo estadual que abre ou fecha. Quase todas se enxergam com meses de antecedência — desde que alguém esteja olhando do lado certo do corredor. Quem já está dentro tem tempo de se adaptar, e muitas vezes ganha com isso: o custo de se adequar é igual para todos, mas pesa muito mais em quem ainda precisa entrar." },
+  { type: "p", text: "As certificações são um fosso, não apenas um custo. Registros no INMETRO, na ANVISA, no MAPA ou na ANATEL, conforme o produto: meses de trabalho e despesa certa. É por isso que muitos desistem — e é exatamente por isso que vale a pena: uma vez obtidos, obrigam todo concorrente futuro ao mesmo caminho enquanto vocês já estão na prateleira. Com uma ressalva, que é a pedra angular aplicada a este caso: evitem que o distribuidor controle com exclusividade registros, autorizações ou dossiês regulatórios indispensáveis à continuidade da operação. A titularidade direta pela empresa estrangeira nem sempre é possível — depende do produto, da autoridade competente e de quem responde legalmente pela fabricação, importação e distribuição. Onde não for, o contrato deve disciplinar o acesso aos documentos, o direito de transferência, a colaboração na migração e as consequências da rescisão. Quem detém o registro detém o acesso ao mercado — e trocar de distribuidor deve continuar sendo uma decisão de vocês, não uma negociação." },
+  { type: "p", text: "Quando a resposta não é o Brasil — e dizemos com gosto: volumes pequenos que assim vão permanecer; produtos de serviço ou digitais, em que Chile e Uruguai são bem mais simples; o objetivo de abastecer o mercado norte-americano, em que o México ganha sem discussão." },
+
+  { type: "h2", text: "A pergunta que vem antes do contrato" },
+  { type: "p", text: "O método está dentro do objeto ou dentro das pessoas?" },
+  { type: "p", text: "Se está dentro do objeto — um eletrodoméstico, um molde, uma formulação simples — qualquer parceiro sério o desmonta e o reconstrói em poucos meses. Nesse caso a licença não protege: o que vocês vendem é tempo de mercado e marca. Então o dinheiro se pega na frente: taxa de entrada alta, royalties modestos, prazo curto." },
+  { type: "p", text: "Se está dentro das pessoas e de uma relação contínua — agronomia, controle de qualidade, protocolos de processo, calibração, formação técnica — a transferência se sustenta. Sustenta-se porque todo ano existe uma versão nova que o licenciado, sozinho, não saberia produzir." },
+
+  { type: "h2", text: "Uma geladeira a querosene" },
+  { type: "p", text: "Em 1947, chegou para conserto, numa oficina de Brusque, em Santa Catarina, uma geladeira importada movida a querosene. Naquela época, no Brasil, geladeira só existia importada e ficava na casa de gente muito rica. Os dois mecânicos desmontaram tudo, estudaram cada peça e decidiram construir a sua própria. Fizeram trinta e uma naquele galpão; em 1950 a oficina virou fábrica em Joinville e recebeu o nome Consul. O primeiro modelo refrigerava por absorção, movido a querosene — a tecnologia certa para um país onde a rede elétrica ainda não chegava à maioria das casas. Dali nasceram uma indústria nacional de compressores, a união com a Brastemp e, por fim, um dos maiores polos de refrigeração do mundo." },
+  { type: "p", text: "É o exato avesso da fritadeira. Lá, o fabricante estava presente e protegeu a coisa errada; aqui, não estava presente de forma alguma: vendia um aparelho importado, caro, projetado para outro país. Ninguém copiou por má-fé. O aparelho foi reconstruído porque ninguém estava respondendo ao problema real, que não era fazer frio, e sim fazer frio onde não há energia elétrica." },
+  { type: "p", text: "Daí a regra: a adaptação local acontece de qualquer jeito. A única variável é se acontece com vocês ou sem vocês. Quem chega com um catálogo traduzido e uma tabela de preços em euro deixa o trabalho de adaptação para outros — e esses outros, depois, não precisam mais dele." },
+
+  { type: "h2", text: "A pedra angular" },
+  { type: "p", text: "No arco, a pedra angular é a pedra central: retire-a e tudo desaba, por mais perfeitas que sejam as outras." },
+  { type: "p", text: "Numa licença, é a peça que vocês não entregam. Não uma peça qualquer guardada para si, mas aquela cuja ausência para a produção ou piora o resultado de modo perceptível ao cliente final. A semente exclusiva por trás de um método agronômico transferido por inteiro. A cultura starter por trás de um processo de laticínio ensinado todo. Os parâmetros de calibração, o software de controle, a certificação, a marca." },
+  { type: "p", text: "Reconhece-se por três condições, que precisam valer juntas:" },
+  { type: "li", text: "Sem ela, o produto não sai — ou sai pior de forma perceptível." },
+  { type: "li", text: "Não é replicável localmente a custo razoável. Se o licenciado a constrói em casa com dois técnicos e seis meses, não é pedra angular: é atraso." },
+  { type: "li", text: "Ele consegue comprá-la por um preço justo. É a condição que quase todos erram. Cobrando demais, é você quem financia a busca pelo substituto. A pedra angular se defende continuando conveniente, não apertando." },
+  { type: "p", text: "E sempre tem meia-vida. Não existe a definitiva: existe a que compra os anos necessários para construir a próxima." },
+  { type: "p", text: "Há também uma razão fiscal recente para manter o método vivo: as novas regras brasileiras de preços de transferência reconhecem o direito ao royalty apenas a quem demonstra desenvolver, manter e proteger ativamente o que licenciou. Quem transfere tudo e para de inovar não perde só o poder de negociação — coloca em risco a dedutibilidade da remuneração do outro lado da mesa." },
+
+  { type: "h2", text: "As formalidades que o Brasil não deixa pular" },
+  { type: "p", text: "A proteção industrial é territorial. Uma patente ou marca europeia, no Brasil, simplesmente não existe: precisa ser depositada no INPI, e a marca deve ser depositada antes de abrir as conversas. O risco mais comum não é a cópia do produto — é o parceiro registrar a marca em nome próprio." },
+  { type: "p", text: "A averbação ou o registro no INPI devem ser avaliados conforme o contrato e os efeitos pretendidos. Até poucos anos atrás era o passo obrigatório para remeter royalties ao exterior e deduzi-los; a reforma cambial de 2021 e as regras de preços de transferência de 2023 mudaram o panorama, e hoje a remessa depende essencialmente da comprovação do pagamento do imposto devido. Continua relevante, porém, para a segurança jurídica e, em determinadas hipóteses, para produzir efeitos perante terceiros. É exatamente o tipo de questão em que a resposta certa depende da estrutura concreta e deve ser verificada com os profissionais contratados. Em particular, a dedutibilidade fiscal de royalties e pagamentos por tecnologia, após as alterações legislativas de 2021 e 2023, exige análise específica do contrato, da natureza do pagamento e do regime tributário aplicável: a posição não é uniforme em todos os casos." },
+  { type: "p", text: "Os pagamentos transfronteiriços têm custo fiscal próprio: retenções na fonte, CIDE sobre remessas e outros efeitos que variam conforme a natureza do contrato, as partes envolvidas e a estrutura da remuneração. Entram na conta antes de negociar o percentual, não depois." },
+  { type: "p", text: "No texto: campo de uso e território delimitados, mínimos garantidos, direito de auditoria sobre os números de venda, titularidade das melhorias desenvolvidas localmente, confidencialidade e vedação de uso do know-how que sobrevivem ao fim do contrato, cláusula penal. E a arbitragem, que nos contratos internacionais em geral oferece mais previsibilidade processual do que o contencioso ordinário — mas sede, instituição, idioma, lei aplicável, medidas de urgência e estratégia de execução devem ser escolhidos caso a caso: uma sentença arbitral proferida no exterior, para ser executada no Brasil, passa pela homologação do Superior Tribunal de Justiça." },
+
+  { type: "h2", text: "Por que vocês raramente ouvem isso" },
+  { type: "p", text: "Não é um segredo técnico. Licenciamento é matéria de manual, e as grandes empresas o praticam há décadas. O que falta é quem leve isso à pequena e média empresa: o ecossistema construído em volta dela — câmaras de comércio, editais, vouchers, feiras, apoios à internacionalização — nasceu para fazer mercadoria sair e mede o próprio resultado em mercadoria saída. Nenhum desses atores tem motivo para dizer ao empresário que talvez o produto dele não deva entrar como produto." },
+  { type: "p", text: "E vale também o inverso, que dizemos com gosto: transferir método nem sempre é a resposta certa. São necessárias três coisas juntas — uma contraparte industrial que exista de fato e saiba fabricar; um volume que justifique a produção local; um método vivo o bastante para alimentar a relação ano após ano. Num nicho de poucas centenas de peças por ano, a licença não faz sentido e a exportação faz. Quando é assim, dizemos antes, não depois." },
+
+  { type: "h2", text: "Três objeções, ditas abertamente" },
+  { type: "p", text: "\"É preciso alguém dentro da empresa, que conheça o produto.\" Verdade — e esse alguém não somos nós. Mas o produto vocês já conhecem melhor do que qualquer um: a informação que falta não está no galpão de vocês, está do outro lado do corredor. As duas presenças não competem, se somam." },
+  { type: "p", text: "\"Um método consolidado funciona em qualquer mercado.\" Um método de trabalho sim; o conhecimento de um mercado não. Quem cobre trinta países com o mesmo procedimento devolve um procedimento organizado, construído sobre dados que vocês poderiam comprar sozinhos. Nós cobrimos um corredor só, e moramos dentro dele. A pergunta a fazer a qualquer um que se ofereça — inclusive a nós: quantas vezes esteve fisicamente naquele mercado nos últimos doze meses, em que idioma fala com as contrapartes, de quais associações locais é membro." },
+  { type: "p", text: "\"Precisamos de quem traga negociações, não análises.\" Legítimo. Mas quem é remunerado para fazer a exportação acontecer dificilmente concluirá que aquele mercado não serve para vocês. Nós podemos, e às vezes acontece. O primeiro trabalho que entregamos é um veredito — seguir, aprofundar, desistir — e custa poucas centenas de euros justamente para poupar as dezenas de milhares que viriam depois." },
+
+  { type: "h2", text: "Como trabalhamos" },
+  { type: "p", text: "Atuamos entre a Europa e o Brasil e compreendemos tanto as necessidades de empresas, profissionais e clientes europeus e internacionais quanto a complexa realidade normativa, administrativa, tributária e cultural do mercado brasileiro. Nossa competência nasce de uma trajetória internacional que une direito, comércio internacional, elaboração de projetos europeus, atividade empresarial e conhecimento prático dos dois mercados." },
+  { type: "p", text: "Nosso objetivo é ajudar vocês a compreender melhor o contexto em que querem atuar, reduzindo o impacto do chamado Custo Brasil: burocracia, complexidade regulatória, assimetrias de informação, dificuldades de interpretação e riscos operacionais que atrasam ou complicam as decisões. Nosso trabalho é independente, confidencial e voltado a fornecer informações confiáveis, selecionadas e realmente úteis para decidir com base em dados. Sem ruído, sem enrolação: só as respostas necessárias, na hora certa." },
+  { type: "p", text: "Não nos limitamos a dizer que é preciso um advogado. Montamos e coordenamos o time — escritório de advocacia no Brasil e na Europa, agente da propriedade industrial, tributarista, perito técnico quando necessário — e sustentamos a arquitetura da operação do primeiro dia à última assinatura." },
+  { type: "p", text: "É a diferença que realmente pesa: quem tem a arquitetura completa na cabeça sabe o que perguntar, a quem e em que ordem. Um parecer jurídico excelente sobre uma pergunta mal formulada custa o mesmo e não protege de nada." },
+  { type: "p", text: "Na prática:" },
+  { type: "li", text: "desenhamos a arquitetura da operação — o que se transfere, em quantas etapas, o que fica de fora e por quê;" },
+  { type: "li", text: "verificamos a contraparte antes de a mesa se abrir: estrutura societária, histórico, litígios, capacidade industrial real e o que ela já sabe fazer sozinha;" },
+  { type: "li", text: "identificamos a pedra angular crível no caso concreto, e por quantos anos ela se sustenta;" },
+  { type: "li", text: "traduzimos a estratégia em instruções precisas para os profissionais contratados, e relemos o trabalho deles à luz do objetivo comercial, não apenas da norma;" },
+  { type: "li", text: "mantemos o ritmo entre fusos, idiomas, escritórios e autoridades diferentes." },
+  { type: "p", text: "Cada etapa tem um resultado declarado, um prazo de entrega e um documento que fica nas mãos de vocês: o primeiro é um veredito — seguir, aprofundar, desistir — com as razões por escrito. Nenhuma fase seguinte começa antes de a anterior ter sido entregue e discutida." },
+  { type: "p", text: "O que significa selecionar. No Brasil atuam cerca de 1,3 milhão de advogados: um para cada 164 habitantes, a maior proporção do mundo. Não é um problema de qualidade, é um problema de escolha — e vale igualmente para contadores, tributaristas, agentes da propriedade industrial e peritos técnicos. A inscrição na Ordem diz que o profissional pode exercer; não diz que já tenha visto um contrato de transferência de tecnologia, uma averbação no INPI ou uma contraparte europeia do outro lado da mesa. Selecionamos pela competência demonstrada na matéria específica — operações concluídas, casos conduzidos, capacidade de trabalhar entre dois idiomas e dois ordenamentos — e não pelo requisito formal. Quem não conhece o país não consegue aplicar esse filtro, porque nem sabe quais perguntas fazer." },
+  { type: "p", text: "E se vocês já têm um gerente de exportação? Melhor ainda: não tomamos o lugar dele, somos a contraparte do outro lado do corredor. Falamos a mesma língua — metas comerciais, margens, prazos de entrega — mas conhecemos o mercado por dentro: quem realmente está lá, como se fabrica localmente, o que as autoridades exigem, qual distribuidor deixou de pagar fornecedores no ano passado." },
+  { type: "p", text: "Nosso trabalho é colocar na mão dele dados e avaliações atualizados e independentes. Independentes em sentido concreto: nos serviços de análise a remuneração é fixa e não depende do resultado, portanto não temos motivo algum para devolver um quadro mais animador do que o real. Onde também oferecemos representação comercial, com parcela variável sobre as vendas, trata-se de um serviço distinto: não o combinamos com a análise na mesma operação, e se as duas coisas se cruzarem, avisamos antes." },
+  { type: "p", text: "Quem cuida de exportação trabalha melhor quando as informações em que se apoia são verificadas e recentes — e pior quando são de segunda mão ou de dois anos atrás. Costuma ser um investimento pequeno diante do que protege: uma verificação feita a tempo custa uma fração de um contêiner parado na alfândega, de um distribuidor mal escolhido ou de uma marca registrada por outra pessoa." },
+  { type: "p", text: "Não publicamos nomes de clientes nem casos identificáveis. Quem nos pede para verificar suas contrapartes espera a mesma discrição — e a recebe." },
+  { type: "p", text: "Tratamos toda conversa como sigilosa desde a primeira mensagem, havendo ou não documento assinado. Se preferirem formalizar, o acordo bilateral está pronto e o assinamos antes de entrar no mérito." },
+  { type: "p", text: "Os pareceres jurídicos e tributários são emitidos por profissionais habilitados em seus respectivos ordenamentos, selecionados por nós para o caso concreto e acostumados a trabalhar entre Brasil e Europa; respondem diretamente ao cliente. Nós sustentamos o desenho." },
+];
+
 export default function Method() {
   const { lang } = useT();
   const isEn = lang === "en";
+  const isPt = lang === "pt";
   useCanonical("/method", {
     title: isEn
       ? "Transfer the method, not just the product | Business Matching Global"
-      : "Trasferire il metodo, non solo il prodotto | Business Matching Global",
+      : isPt
+        ? "Transferir o método, não apenas o produto | Business Matching Global"
+        : "Trasferire il metodo, non solo il prodotto | Business Matching Global",
     description: isEn
       ? "Licence, royalties and technology transfer to Brazil: when it pays to manufacture locally instead of exporting, and how to protect the keystone."
-      : "Licenza, royalty e trasferimento di tecnologia verso il Brasile: quando conviene produrre in loco invece di esportare, e come proteggere la chiave di volta.",
+      : isPt
+        ? "Licença, royalties e transferência de tecnologia para o Brasil: quando compensa produzir localmente em vez de exportar, e como proteger a pedra angular."
+        : "Licenza, royalty e trasferimento di tecnologia verso il Brasile: quando conviene produrre in loco invece di esportare, e come proteggere la chiave di volta.",
   });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const blocks = isEn ? blocksEn : blocksIt;
+  const blocks = isEn ? blocksEn : isPt ? blocksPt : blocksIt;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <div className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
         <h1 className="font-display text-4xl md:text-5xl leading-tight mb-8">
-          {isEn ? "Transfer the method, not just the product" : "Trasferire il metodo, non solo il prodotto"}
+          {isEn
+            ? "Transfer the method, not just the product"
+            : isPt
+              ? "Transferir o método, não apenas o produto"
+              : "Trasferire il metodo, non solo il prodotto"}
         </h1>
+
         <article className="space-y-6">
           {blocks.map((b, i) =>
             b.type === "h2" ? (
@@ -222,14 +316,17 @@ export default function Method() {
         </article>
 
         <div className="mt-14 pt-10 border-t border-border">
-          <h2 className="font-display text-2xl md:text-3xl mb-3">{isEn ? "→ Let's talk" : "→ Parliamone"}</h2>
+          <h2 className="font-display text-2xl md:text-3xl mb-3">
+            {isEn ? "→ Let's talk" : isPt ? "→ Vamos conversar" : "→ Parliamone"}
+          </h2>
           <p className="text-base md:text-lg text-muted-foreground">
-            {isEn ? "Write to us at " : "Scrivici a "}
+            {isEn ? "Write to us at " : isPt ? "Escreva para " : "Scrivici a "}
             <a href={`mailto:${EMAIL}`} className="text-primary underline hover:text-primary/80 inline-flex items-center gap-1">
               <Mail className="h-4 w-4" /> {EMAIL}
             </a>{" "}
-            {isEn ? "or use the form below." : "oppure usa il modulo qui sotto."}
+            {isEn ? "or use the form below." : isPt ? "ou use o formulário abaixo." : "oppure usa il modulo qui sotto."}
           </p>
+
         </div>
 
         <ContactForm />
