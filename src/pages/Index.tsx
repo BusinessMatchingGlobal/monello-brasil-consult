@@ -959,7 +959,6 @@ export default function Index() {
         <Services />
         <HowItWorks />
         <Contact />
-        <Contact />
         <HomeNewsletter />
       </main>
       <Footer />
