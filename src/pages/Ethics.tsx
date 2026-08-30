@@ -10,7 +10,7 @@ type Block =
 
 const EMAIL = "info@businessmatching.global";
 
-const blocks: Block[] = [
+const blocksIt: Block[] = [
   { type: "h2", text: "La fiducia come principio di lavoro" },
   { type: "p", text: "Business Matching Global (di seguito \"BMG\") mette in relazione imprese, investitori, istituzioni e professionisti appartenenti a mercati e culture differenti." },
   { type: "p", text: "La fiducia è il presupposto di ogni relazione che contribuiamo a creare. Per questo operiamo secondo principi di legalità, indipendenza, competenza, riservatezza e trasparenza." },
@@ -148,6 +148,144 @@ const blocks: Block[] = [
   { type: "p", text: "Business Matching Global — Dal primo insight al primo affare.", italic: true },
 ];
 
+const blocksEn: Block[] = [
+  { type: "h2", text: "Trust as a working principle" },
+  { type: "p", text: "Business Matching Global (hereinafter \"BMG\") connects companies, investors, institutions and professionals across different markets and cultures." },
+  { type: "p", text: "Trust is the precondition of every relationship we help to build. For this reason we work according to the principles of legality, independence, competence, confidentiality and transparency." },
+  { type: "p", text: "This Code is more than a statement of values. It is a working instrument: it guides our decisions, it sets out what clients and partners can expect from BMG, and it establishes the criteria by which we assess assignments, contacts and opportunities." },
+  { type: "p", text: "The Code draws on international best practice in professional consulting, responsible trade, anti-corruption and business conduct." },
+
+  { type: "h2", text: "The voluntary nature of this Code" },
+  { type: "p", text: "BMG adopts this Code voluntarily. No regulation requires us to do so. It is a deliberate choice, consistent with the nature of our work, in which the quality of a professional relationship rests on trust rather than on formal obligation." },
+  { type: "p", text: "Adoption is voluntary; application is not. Once adopted, these principles govern how we work and become the standard against which we accept to be judged." },
+
+  { type: "h2", text: "1. Scope" },
+  { type: "p", text: "This Code applies to anyone acting in the name of or on behalf of BMG, including directors, employees, consultants, representatives and partners involved in carrying out an assignment." },
+  { type: "p", text: "When we select suppliers, consultants or local partners, we also assess their professional reliability and whether their conduct is compatible with the principles set out here. Work subcontracted as part of an assignment is agreed with the client in advance, and those who carry it out on our behalf are bound by the same principles." },
+  { type: "p", text: "No commercial opportunity justifies departing from the principles of legality, integrity and respect for people." },
+
+  { type: "h2", text: "2. Competence and professional responsibility" },
+  { type: "p", text: "We accept only those assignments for which we have the necessary competence and resources. We are open and truthful about our qualifications, our experience and the limits of what we can offer." },
+  { type: "p", text: "Where a project calls for specialist legal, tax, customs, financial, regulatory or technical knowledge, we say so and, where appropriate, help bring in qualified professionals." },
+  { type: "p", text: "We keep our knowledge of markets, regulations and international trade practice up to date." },
+  { type: "p", text: "We are accountable for the work we do. Where we identify a material error in the information or assessments we have provided, we undertake to disclose and correct it promptly." },
+
+  { type: "h2", text: "3. Clarity of assignments and realistic expectations" },
+  { type: "p", text: "Before beginning any work, we agree with the client:" },
+  { type: "ul", items: [
+    "the objectives of the assignment;",
+    "what the work includes and excludes;",
+    "the results that can reasonably be expected;",
+    "timelines and the responsibilities of each party;",
+    "fees, commissions and any success fees.",
+  ]},
+  { type: "p", text: "We keep the client informed as the assignment progresses, including about difficulties and about anything that may change its prospects." },
+  { type: "p", text: "We do not promise outcomes that depend on third-party decisions, public authorisations, market conditions or negotiations between independent parties. We refrain from encouraging unrealistic expectations, even where doing so would make an assignment easier to win." },
+  { type: "p", text: "What we commit to is competence, information, method and professional relationships. We do not guarantee that a contract will be signed or that a transaction will succeed commercially." },
+
+  { type: "h2", text: "4. Quality of information" },
+  { type: "p", text: "We rely on sources we consider trustworthy and apply a level of verification proportionate to the nature of the assignment." },
+  { type: "p", text: "We distinguish clearly between:" },
+  { type: "ul", items: [
+    "confirmed information;",
+    "data from public sources or third parties;",
+    "professional assessments;",
+    "assumptions and projections;",
+    "information requiring further verification.",
+  ]},
+  { type: "p", text: "We do not adjust data, credentials, references or commercial prospects to make an opportunity look more attractive." },
+  { type: "p", text: "We present information in context, flagging any limitations, uncertainties or factors that could change the client's assessment." },
+
+  { type: "h2", text: "5. Responsible business matching" },
+  { type: "p", text: "An introduction is worth something only when it is relevant, placed in context and presented transparently." },
+  { type: "p", text: "BMG undertakes to:" },
+  { type: "ul", items: [
+    "identify counterparties consistent with the objectives of the assignment;",
+    "verify, as far as reasonably possible, the identity, role and relevance of the contacts we introduce;",
+    "always state on whose behalf we are acting and under what mandate, without claiming an assignment we do not hold;",
+    "never present an interest as confirmed when it has not actually been expressed;",
+    "avoid creating false expectations about a counterparty's intentions or decision-making authority;",
+    "respect the wishes and the confidentiality of the people involved;",
+    "avoid deceptive or intrusive approaches, and any method of contact contrary to applicable law.",
+  ]},
+  { type: "p", text: "When we present an opportunity to third parties, we do not disclose the identity of the party we represent without their authorisation: the preliminary presentation is made anonymously, and the identity is disclosed only against a commitment to confidentiality." },
+  { type: "p", text: "We do not use personal or institutional relationships to apply undue pressure. Our role is to enable knowledge, dialogue and mutual assessment, leaving the parties entirely free in their decisions." },
+
+  { type: "h2", text: "6. Due diligence and selection of counterparties" },
+  { type: "p", text: "Before introducing a counterparty we may carry out preliminary, proportionate checks on identity, activity, reputation and the internal consistency of the opportunity presented." },
+  { type: "p", text: "Such checks do not replace full legal, tax, financial, technical, regulatory or reputational due diligence." },
+  { type: "p", text: "Each party remains responsible for the verifications required before signing contracts, making investments, transferring funds or entering into any other binding commitment." },
+  { type: "p", text: "We do not knowingly facilitate relationships with parties involved in fraud, corruption, money laundering, human rights abuses, evasion of international sanctions or other unlawful activity." },
+  { type: "p", text: "Where material factors emerge that could compromise the legality or the soundness of a transaction, we reserve the right to suspend our work, request further verification or withdraw from the assignment." },
+
+  { type: "h2", text: "7. Independence and conflicts of interest" },
+  { type: "p", text: "We act with objectivity and independence of judgement." },
+  { type: "p", text: "We disclose any personal, professional or financial interest that could influence — or could reasonably appear to influence — our impartiality." },
+  { type: "p", text: "We do not act for opposing parties in the same transaction." },
+  { type: "p", text: "We do not accept undisclosed compensation, hidden commissions or personal benefits from counterparties, intermediaries or suppliers." },
+  { type: "p", text: "Where BMG is to be remunerated by more than one party involved in the same transaction, this must be disclosed in advance and accepted by the parties concerned." },
+  { type: "p", text: "Where a conflict arises during an assignment, we either remove its cause, or disclose it and obtain the parties' written agreement to continue, or withdraw from the assignment." },
+  { type: "p", text: "We do not take personal advantage of privileged information obtained in the course of an assignment, nor do we allow others to do so. We do not approach a client's staff with other professional opportunities without the client's consent." },
+
+  { type: "h2", text: "8. Anti-corruption" },
+  { type: "p", text: "BMG does not tolerate corruption, unlawful payments, bribery, extortion or the improper exchange of favours in any form. We are guided by the principles established in international conventions and OECD recommendations on the subject." },
+  { type: "p", text: "Offering, promising, requesting or accepting money, gifts, commissions, benefits or other advantages in order to improperly influence a commercial, professional or institutional decision is prohibited." },
+  { type: "p", text: "This applies equally to dealings with public bodies and to relationships between private companies." },
+  { type: "p", text: "Gifts and courtesies are acceptable only where they are lawful, occasional, transparent, of modest value and incapable of creating any obligation or influence." },
+  { type: "p", text: "The same principles must be observed by agents, consultants and partners acting on our behalf. A breach may lead to immediate suspension or termination of the relationship." },
+
+  { type: "h2", text: "9. Confidentiality, data and intellectual property" },
+  { type: "p", text: "We protect confidential information received from clients, partners and counterparties, and use it solely for the purposes agreed." },
+  { type: "p", text: "Confidentiality applies from the very first contact, even in the absence of a formal agreement and even where the contact does not lead to an assignment. It applies to information from any source and continues after the professional relationship has ended." },
+  { type: "p", text: "We do not disclose, without authorisation:" },
+  { type: "ul", items: [
+    "corporate strategies and documents;",
+    "financial or commercial information;",
+    "non-public names and contact details;",
+    "contractual terms;",
+    "analyses, research and confidential materials;",
+    "personal or professional information obtained in the course of an assignment.",
+  ]},
+  { type: "p", text: "We do not use information received in confidence for editorial, publishing or public analysis purposes." },
+  { type: "p", text: "Personal data is processed according to principles of lawfulness, necessity, proportionality and security." },
+  { type: "p", text: "We respect copyright, trademarks, patents, know-how and every other form of intellectual property. We do not use third-party content, or present it as BMG's own, without holding the rights to do so or without properly attributing its source." },
+  { type: "p", text: "We regard industrial know-how — processes, formulations, parameters, technical solutions — as a company's most exposed asset. We neither describe it nor make it available to third parties in the preliminary stages of a transaction, and we recommend that any transfer of technical expertise take place only once the contractual and corporate structure has been defined and signed." },
+
+  { type: "h2", text: "10. Responsible use of artificial intelligence" },
+  { type: "p", text: "BMG may use digital tools and artificial intelligence systems to support research, organisation, analysis and content production." },
+  { type: "p", text: "Their use must respect the principles of confidentiality, data protection, accuracy and human oversight." },
+  { type: "p", text: "We do not treat content generated by an artificial intelligence system as reliable by default. Material information is subject to professional judgement and, where necessary, verified against independent sources." },
+  { type: "p", text: "We do not enter clients' confidential information into unauthorised tools or tools lacking adequate safeguards." },
+  { type: "p", text: "Artificial intelligence can support our work. It does not replace professional judgement, personal responsibility or human verification." },
+
+  { type: "h2", text: "11. Respect for people and responsible trade" },
+  { type: "p", text: "We foster relationships based on dignity, on listening and on respect for cultural differences." },
+  { type: "p", text: "We do not tolerate discrimination on grounds of nationality, ethnic origin, gender, personal identity, sexual orientation, religion, age, disability, social condition or political opinion." },
+  { type: "p", text: "We do not support activities involving forced labour, child labour, exploitation, unsafe working conditions or breaches of fundamental rights." },
+  { type: "p", text: "Where relevant, we take into account the environmental and social effects of the opportunities we help to develop. We favour projects capable of generating lasting economic value, transfer of skills, innovation, qualified employment and responsible development of the territories concerned." },
+  { type: "p", text: "We make no unsubstantiated environmental or social claims and reject greenwashing in every form." },
+
+  { type: "h2", text: "12. Accurate and transparent communication" },
+  { type: "p", text: "BMG's communications must be accurate, clearly identifiable as ours, and respectful." },
+  { type: "p", text: "We do not circulate misleading information, inauthentic testimonials or statements liable to damage unfairly the reputation of individuals or organisations." },
+  { type: "p", text: "Public use of names, trademarks, logos, case studies or references to clients and partners requires their prior authorisation." },
+  { type: "p", text: "Our editorial output and market analysis must clearly separate informational content from promotional or commercial activity. Our analytical work is technical and independent: we do not carry out advocacy before public bodies and we do not take partisan positions in the political debate of the countries where we operate." },
+
+  { type: "h2", text: "13. Questions and reports" },
+  { type: "p", text: "Clients, partners, collaborators and other interested parties may seek clarification on this Code, or report conduct they consider incompatible with its principles, by writing to:" },
+  { type: "p", text: EMAIL },
+  { type: "p", text: "Reports made in good faith are examined seriously, impartially and in confidence." },
+  { type: "p", text: "BMG does not tolerate retaliation against anyone who, in good faith, reports a possible breach." },
+
+  { type: "h2", text: "14. Application and review" },
+  { type: "p", text: "Compliance with this Code is an essential part of how BMG works." },
+  { type: "p", text: "In the event of a breach, we may take measures proportionate to its seriousness, including requiring corrective action, suspending the work or terminating the professional relationship." },
+  { type: "p", text: "This Code is a voluntary commitment. It complements, but does not replace, the obligations arising from contracts, mandates, confidentiality agreements and applicable law, which prevail in all cases." },
+  { type: "p", text: "The Code is reviewed periodically to keep it consistent with the evolution of our activities, the technologies we use and the applicable regulations." },
+  { type: "p", text: "Version effective from August 2026.", italic: true },
+  { type: "p", text: "Business Matching Global — From the first insight to the first deal.", italic: true },
+];
+
 export default function Ethics() {
   const { lang } = useT();
   const seo =
@@ -157,6 +295,8 @@ export default function Ethics() {
       ? { title: "Código de Ética | Business Matching Global", description: "Código de Ética e Conduta Profissional da BMG: legalidade, independência, confidencialidade e transparência (texto em italiano)." }
       : { title: "Codice Etico | Business Matching Global", description: "Codice Etico e di Condotta Professionale di BMG: legalità, indipendenza, competenza, riservatezza e trasparenza." };
   useCanonical("/ethics", seo);
+  const blocks = lang === "en" ? blocksEn : blocksIt;
+  const pageTitle = lang === "en" ? "Code of Ethics and Professional Conduct" : "Codice Etico e di Condotta Professionale";
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -166,7 +306,7 @@ export default function Ethics() {
       <Nav />
       <div className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
         <h1 className="font-display text-4xl md:text-5xl leading-tight mb-6">
-          Codice Etico e di Condotta Professionale
+          {pageTitle}
         </h1>
         <article className="space-y-6">
           {blocks.map((b, i) =>
