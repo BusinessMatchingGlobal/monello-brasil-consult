@@ -263,27 +263,37 @@ const blocksPt: Block[] = [
 export default function Method() {
   const { lang } = useT();
   const isEn = lang === "en";
+  const isPt = lang === "pt";
   useCanonical("/method", {
     title: isEn
       ? "Transfer the method, not just the product | Business Matching Global"
-      : "Trasferire il metodo, non solo il prodotto | Business Matching Global",
+      : isPt
+        ? "Transferir o método, não apenas o produto | Business Matching Global"
+        : "Trasferire il metodo, non solo il prodotto | Business Matching Global",
     description: isEn
       ? "Licence, royalties and technology transfer to Brazil: when it pays to manufacture locally instead of exporting, and how to protect the keystone."
-      : "Licenza, royalty e trasferimento di tecnologia verso il Brasile: quando conviene produrre in loco invece di esportare, e come proteggere la chiave di volta.",
+      : isPt
+        ? "Licença, royalties e transferência de tecnologia para o Brasil: quando compensa produzir localmente em vez de exportar, e como proteger a pedra angular."
+        : "Licenza, royalty e trasferimento di tecnologia verso il Brasile: quando conviene produrre in loco invece di esportare, e come proteggere la chiave di volta.",
   });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const blocks = isEn ? blocksEn : blocksIt;
+  const blocks = isEn ? blocksEn : isPt ? blocksPt : blocksIt;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <div className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
         <h1 className="font-display text-4xl md:text-5xl leading-tight mb-8">
-          {isEn ? "Transfer the method, not just the product" : "Trasferire il metodo, non solo il prodotto"}
+          {isEn
+            ? "Transfer the method, not just the product"
+            : isPt
+              ? "Transferir o método, não apenas o produto"
+              : "Trasferire il metodo, non solo il prodotto"}
         </h1>
+
         <article className="space-y-6">
           {blocks.map((b, i) =>
             b.type === "h2" ? (
