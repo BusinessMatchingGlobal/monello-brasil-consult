@@ -10,6 +10,7 @@ import SampleReport from "./pages/SampleReport";
 import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
 import OurServices from "./pages/OurServices";
+import Ethics from "./pages/Ethics";
 import BusinessMatchingService from "./pages/servizi/BusinessMatching";
 import BusinessMatchingServiceBR from "./pages/servicos/BusinessMatching";
 import BusinessMatchingServiceEN from "./pages/services/BusinessMatching";
@@ -93,6 +94,8 @@ const App = () => {
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             <Route path="/About_us" element={<AboutUs />} />
             <Route path="/about_us" element={<AboutUs />} />
+            <Route path="/ethics" element={<Ethics />} />
+            <Route path="/Ethics" element={<Ethics />} />
             <Route path="/Our_Services" element={<OurServices />} />
             <Route path="/our_services" element={<OurServices />} />
             <Route path="/servizi/business-matching" element={<BusinessMatchingService />} />
