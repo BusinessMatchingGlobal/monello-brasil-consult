@@ -8,7 +8,7 @@ const EMAIL = "info@businessmatching.global";
 
 type Block = { type: "h2" | "p" | "li"; text: string; italic?: boolean };
 
-const blocks: Block[] = [
+const blocksIt: Block[] = [
   { type: "p", text: "Che cosa deve attraversare l'Atlantico: il prodotto finito, i componenti, il metodo, il marchio, una licenza — o nulla?" },
   { type: "p", text: "È la domanda da cui partiamo, e quasi nessuno la fa prima di aver già deciso la risposta. In alcuni casi, invece di esportare direttamente, conviene produrre su licenza in loco." },
 
