@@ -179,7 +179,7 @@ export function Nav() {
   );
 }
 
-function ContactForm() {
+export function ContactForm() {
   const { t } = useT();
   const [submitting, setSubmitting] = useState(false);
 
