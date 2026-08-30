@@ -286,17 +286,155 @@ const blocksEn: Block[] = [
   { type: "p", text: "Business Matching Global — From the first insight to the first deal.", italic: true },
 ];
 
+const blocksPt: Block[] = [
+  { type: "h2", text: "A confiança como princípio de trabalho" },
+  { type: "p", text: "A Business Matching Global (doravante \"BMG\") conecta empresas, investidores, instituições e profissionais de mercados e culturas diferentes." },
+  { type: "p", text: "A confiança é o pressuposto de toda relação que ajudamos a construir. Por isso, atuamos segundo os princípios de legalidade, independência, competência, confidencialidade e transparência." },
+  { type: "p", text: "Este Código não é apenas uma declaração de valores. É um instrumento de trabalho: orienta nossas decisões, define o comportamento que clientes e parceiros podem esperar da BMG e estabelece os critérios pelos quais avaliamos mandatos, contatos e oportunidades." },
+  { type: "p", text: "O Código inspira-se nas melhores práticas internacionais em consultoria profissional, comércio responsável, prevenção da corrupção e conduta empresarial." },
+
+  { type: "h2", text: "Natureza voluntária deste Código" },
+  { type: "p", text: "A BMG adota este Código de forma voluntária. Nenhuma norma nos obriga a isso: trata-se de uma escolha autônoma, coerente com a natureza do nosso trabalho, no qual a qualidade de uma relação profissional depende mais da confiança do que de uma obrigação formal." },
+  { type: "p", text: "Voluntária é a adoção, não a aplicação. Uma vez assumidos, esses princípios regem a nossa atuação e constituem o critério pelo qual aceitamos ser avaliados." },
+
+  { type: "h2", text: "1. Âmbito de aplicação" },
+  { type: "p", text: "Este Código aplica-se a todos que atuem em nome ou por conta da BMG, incluindo administradores, colaboradores, consultores, representantes e parceiros envolvidos na execução de um mandato." },
+  { type: "p", text: "Ao selecionar fornecedores, consultores ou parceiros locais, avaliamos também sua confiabilidade profissional e a compatibilidade de sua conduta com os princípios aqui estabelecidos. As atividades delegadas a terceiros no âmbito de um mandato são previamente acordadas com o cliente, e quem as executa em nosso nome está sujeito aos mesmos princípios." },
+  { type: "p", text: "Nenhuma oportunidade comercial justifica exceção aos princípios de legalidade, integridade e respeito às pessoas." },
+
+  { type: "h2", text: "2. Competência e responsabilidade profissional" },
+  { type: "p", text: "Aceitamos exclusivamente mandatos para os quais dispomos da competência e dos recursos necessários. Somos francos quanto às nossas qualificações, à nossa experiência e aos limites do que podemos oferecer." },
+  { type: "p", text: "Quando um projeto exige conhecimentos jurídicos, tributários, aduaneiros, financeiros, regulatórios ou técnicos especializados, informamos o cliente e, se necessário, favorecemos o envolvimento de profissionais qualificados." },
+  { type: "p", text: "Mantemos atualizado nosso conhecimento sobre mercados, regulamentação e práticas do comércio internacional." },
+  { type: "p", text: "Somos responsáveis pelo trabalho que realizamos. Se identificarmos um erro relevante nas informações ou avaliações fornecidas, comprometemo-nos a comunicá-lo e corrigi-lo tempestivamente." },
+
+  { type: "h2", text: "3. Clareza dos mandatos e expectativas realistas" },
+  { type: "p", text: "Antes de iniciar qualquer atividade, definimos com o cliente:" },
+  { type: "ul", items: [
+    "os objetivos do mandato;",
+    "as atividades incluídas e excluídas;",
+    "os resultados razoavelmente esperados;",
+    "os prazos e as responsabilidades das partes;",
+    "os honorários, as comissões e eventuais taxas de êxito.",
+  ]},
+  { type: "p", text: "Mantemos o cliente informado sobre o andamento do mandato, inclusive sobre dificuldades e sobre elementos que possam alterar suas perspectivas." },
+  { type: "p", text: "Não prometemos resultados que dependam de decisões de terceiros, de autorizações públicas, de condições de mercado ou de negociações entre partes independentes. Abstemo-nos de alimentar expectativas irreais, mesmo quando isso facilitaria a obtenção de um mandato." },
+  { type: "p", text: "Nosso compromisso consiste em disponibilizar competência, informação, método e relacionamentos profissionais. Não garantimos a celebração de um contrato nem o êxito comercial de uma operação." },
+
+  { type: "h2", text: "4. Qualidade das informações" },
+  { type: "p", text: "Utilizamos fontes que consideramos confiáveis e adotamos um nível de verificação proporcional à natureza do mandato." },
+  { type: "p", text: "Distinguimos claramente entre:" },
+  { type: "ul", items: [
+    "informações confirmadas;",
+    "dados provenientes de fontes públicas ou de terceiros;",
+    "avaliações profissionais;",
+    "hipóteses e projeções;",
+    "informações que exigem verificação adicional.",
+  ]},
+  { type: "p", text: "Não alteramos dados, qualificações, referências ou perspectivas comerciais para tornar uma oportunidade mais atraente." },
+  { type: "p", text: "As informações são apresentadas em seu contexto, com indicação de eventuais limites, incertezas ou elementos capazes de alterar a avaliação do cliente." },
+
+  { type: "h2", text: "5. Business matching responsável" },
+  { type: "p", text: "Um contato profissional só tem valor quando é pertinente, contextualizado e apresentado com transparência." },
+  { type: "p", text: "A BMG compromete-se a:" },
+  { type: "ul", items: [
+    "identificar interlocutores coerentes com os objetivos do mandato;",
+    "verificar, na medida do razoavelmente possível, a identidade, a função e a pertinência dos contatos;",
+    "declarar sempre em nome de quem estamos atuando e com qual mandato, sem nos atribuirmos incumbências que não recebemos;",
+    "não apresentar como confirmado um interesse que não tenha sido efetivamente manifestado;",
+    "não criar falsas expectativas sobre as intenções ou a capacidade decisória de uma contraparte;",
+    "respeitar a vontade e a confidencialidade das pessoas envolvidas;",
+    "evitar formas de contato enganosas, invasivas ou contrárias à legislação aplicável.",
+  ]},
+  { type: "p", text: "Ao apresentar uma oportunidade a terceiros, não revelamos a identidade da parte representada sem sua autorização: a apresentação preliminar é feita de forma anônima, e a identidade só é revelada mediante compromisso de confidencialidade." },
+  { type: "p", text: "Não utilizamos relações pessoais ou institucionais para exercer pressão indevida. Nosso papel é facilitar o conhecimento, o diálogo e a avaliação recíproca, deixando às partes plena autonomia em suas decisões." },
+
+  { type: "h2", text: "6. Due diligence e seleção das contrapartes" },
+  { type: "p", text: "Antes de apresentar uma contraparte, podemos realizar verificações preliminares e proporcionais sobre identidade, atividade, reputação e coerência da oportunidade proposta." },
+  { type: "p", text: "Essas verificações não substituem uma due diligence jurídica, tributária, financeira, técnica, regulatória ou reputacional completa." },
+  { type: "p", text: "Cada parte permanece responsável pelas verificações necessárias antes de assinar contratos, realizar investimentos, transferir valores ou assumir outros compromissos vinculantes." },
+  { type: "p", text: "Não favorecemos conscientemente relações com pessoas ou empresas envolvidas em fraude, corrupção, lavagem de dinheiro, violação de direitos humanos, evasão de sanções internacionais ou outras atividades ilícitas." },
+  { type: "p", text: "Quando surgirem elementos relevantes capazes de comprometer a legalidade ou a confiabilidade de uma operação, reservamo-nos o direito de suspender as atividades, solicitar verificações adicionais ou renunciar ao mandato." },
+
+  { type: "h2", text: "7. Independência e conflitos de interesse" },
+  { type: "p", text: "Atuamos com objetividade e independência de julgamento." },
+  { type: "p", text: "Comunicamos qualquer interesse pessoal, profissional ou econômico que possa influenciar — ou aparentar influenciar — nossa imparcialidade." },
+  { type: "p", text: "Não representamos simultaneamente partes opostas na mesma operação." },
+  { type: "p", text: "Não aceitamos remunerações ocultas, comissões não declaradas ou vantagens pessoais de contrapartes, intermediários ou fornecedores." },
+  { type: "p", text: "Eventual remuneração da BMG por mais de uma parte envolvida na mesma operação deve ser previamente comunicada e aceita pelos interessados." },
+  { type: "p", text: "Quando um conflito surge no curso de um mandato, conforme as circunstâncias, removemos sua causa, ou o declaramos às partes obtendo por escrito a concordância em prosseguir, ou renunciamos ao mandato." },
+  { type: "p", text: "Não obtemos vantagem pessoal de informações privilegiadas adquiridas no curso de um mandato, nem permitimos que terceiros o façam. Não oferecemos aos colaboradores de um cliente outras oportunidades profissionais sem o consentimento dele." },
+
+  { type: "h2", text: "8. Prevenção da corrupção" },
+  { type: "p", text: "A BMG não tolera qualquer forma de corrupção, pagamento ilícito, concussão, extorsão ou troca indevida de favores. Inspiramo-nos nos princípios estabelecidos na matéria pelas convenções internacionais e pelas recomendações da OCDE." },
+  { type: "p", text: "É vedado oferecer, prometer, solicitar ou aceitar dinheiro, presentes, comissões, benefícios ou outras vantagens com a finalidade de influenciar indevidamente uma decisão comercial, profissional ou institucional." },
+  { type: "p", text: "Este princípio aplica-se tanto às relações com entes públicos quanto às relações entre empresas privadas." },
+  { type: "p", text: "Brindes e gestos de cortesia são admitidos exclusivamente quando lícitos, ocasionais, transparentes, de valor modesto e incapazes de gerar obrigações ou condicionamentos." },
+  { type: "p", text: "Os mesmos princípios devem ser observados por agentes, consultores e parceiros que atuem em nosso nome. A violação pode acarretar a suspensão ou o encerramento imediato da colaboração." },
+
+  { type: "h2", text: "9. Confidencialidade, dados e propriedade intelectual" },
+  { type: "p", text: "Protegemos as informações confidenciais recebidas de clientes, parceiros e contrapartes e as utilizamos exclusivamente para as finalidades acordadas." },
+  { type: "p", text: "A confidencialidade aplica-se desde o primeiro contato, mesmo na ausência de acordo formal e mesmo quando o contato não resulta em mandato. Vale em relação a qualquer fonte e permanece após o encerramento da relação profissional." },
+  { type: "p", text: "Não divulgamos, sem autorização:" },
+  { type: "ul", items: [
+    "estratégias e documentos empresariais;",
+    "informações econômicas ou comerciais;",
+    "nomes e dados de contato não públicos;",
+    "condições contratuais;",
+    "análises, pesquisas e materiais confidenciais;",
+    "informações pessoais ou profissionais obtidas durante um mandato.",
+  ]},
+  { type: "p", text: "Não utilizamos informações recebidas em caráter confidencial para fins editoriais, de divulgação ou de análise pública." },
+  { type: "p", text: "O tratamento de dados pessoais observa os critérios de legalidade, necessidade, proporcionalidade e segurança, em conformidade com a legislação aplicável, incluindo a Lei Geral de Proteção de Dados (LGPD) e o Regulamento Geral sobre a Proteção de Dados (GDPR), conforme o caso." },
+  { type: "p", text: "Respeitamos direitos autorais, marcas, patentes, know-how e qualquer outra forma de propriedade intelectual. Não utilizamos nem atribuímos à BMG conteúdos de terceiros sem deter o respectivo direito ou sem indicar corretamente sua origem." },
+  { type: "p", text: "Consideramos o know-how industrial — processos, formulações, parâmetros, soluções técnicas — o bem mais exposto de uma empresa. Não o descrevemos nem o disponibilizamos a terceiros nas fases preliminares de uma operação, e recomendamos que toda transferência de competências técnicas ocorra somente após a definição e a assinatura da estrutura contratual e societária." },
+
+  { type: "h2", text: "10. Uso responsável da inteligência artificial" },
+  { type: "p", text: "A BMG pode utilizar ferramentas digitais e sistemas de inteligência artificial para apoiar atividades de pesquisa, organização, análise e produção de conteúdo." },
+  { type: "p", text: "Seu uso deve respeitar os princípios de confidencialidade, proteção de dados, precisão e controle humano." },
+  { type: "p", text: "Não consideramos automaticamente confiável um conteúdo gerado por sistema de inteligência artificial. As informações relevantes são submetidas a avaliação profissional e, quando necessário, verificadas por fontes independentes." },
+  { type: "p", text: "Não inserimos informações confidenciais de clientes em ferramentas não autorizadas ou desprovidas de garantias adequadas." },
+  { type: "p", text: "A inteligência artificial pode apoiar nosso trabalho, mas não substitui o julgamento profissional, a responsabilidade pessoal ou a verificação humana." },
+
+  { type: "h2", text: "11. Respeito às pessoas e comércio responsável" },
+  { type: "p", text: "Promovemos relações fundadas na dignidade, na escuta e no respeito às diferenças culturais." },
+  { type: "p", text: "Não toleramos discriminação por nacionalidade, origem étnica, gênero, identidade pessoal, orientação sexual, religião, idade, deficiência, condição social ou opinião política." },
+  { type: "p", text: "Não apoiamos atividades que envolvam trabalho forçado, trabalho infantil, exploração, condições de trabalho perigosas ou violação de direitos fundamentais." },
+  { type: "p", text: "Consideramos, quando pertinentes, os efeitos ambientais e sociais das oportunidades que ajudamos a desenvolver. Favorecemos projetos capazes de gerar valor econômico duradouro, transferência de competências, inovação, emprego qualificado e desenvolvimento responsável dos territórios." },
+  { type: "p", text: "Não utilizamos afirmações ambientais ou sociais não comprovadas e rejeitamos toda forma de greenwashing." },
+
+  { type: "h2", text: "12. Comunicação correta e transparente" },
+  { type: "p", text: "As comunicações da BMG devem ser precisas, identificáveis e respeitosas." },
+  { type: "p", text: "Não divulgamos informações enganosas, depoimentos não autênticos ou declarações capazes de prejudicar injustamente a reputação de pessoas ou organizações." },
+  { type: "p", text: "O uso público de nomes, marcas, logotipos, casos empresariais ou referências a clientes e parceiros exige autorização prévia dos interessados." },
+  { type: "p", text: "As comunicações editoriais e as análises de mercado devem distinguir claramente o conteúdo informativo das atividades promocionais ou comerciais. Nossa atividade de análise é técnica e independente: não exercemos representação de interesses perante entes públicos e não assumimos posições partidárias no debate político dos países em que atuamos." },
+
+  { type: "h2", text: "13. Comunicações e pedidos de esclarecimento" },
+  { type: "p", text: "Clientes, parceiros, colaboradores e demais interessados podem solicitar esclarecimentos sobre este Código ou relatar condutas consideradas incompatíveis com seus princípios escrevendo para:" },
+  { type: "p", text: EMAIL },
+  { type: "p", text: "As comunicações feitas de boa-fé são examinadas com seriedade, imparcialidade e confidencialidade." },
+  { type: "p", text: "A BMG não admite retaliação contra quem, de boa-fé, relate uma possível violação." },
+
+  { type: "h2", text: "14. Aplicação e atualização" },
+  { type: "p", text: "O cumprimento deste Código constitui parte essencial do modo de atuar da BMG." },
+  { type: "p", text: "Em caso de violação, podemos adotar medidas proporcionais à gravidade da conduta, incluindo a solicitação de correção, a suspensão da atividade ou o encerramento da relação profissional." },
+  { type: "p", text: "Este Código tem natureza de compromisso voluntário e complementa, sem substituí-las, as obrigações decorrentes de contratos, mandatos, acordos de confidencialidade e da legislação aplicável, que prevalecem em qualquer caso." },
+  { type: "p", text: "O Código é revisado periodicamente para mantê-lo coerente com a evolução de nossas atividades, das tecnologias utilizadas e da legislação aplicável." },
+  { type: "p", text: "Versão em vigor desde agosto de 2026.", italic: true },
+  { type: "p", text: "Business Matching Global — Do primeiro insight ao primeiro negócio.", italic: true },
+];
+
 export default function Ethics() {
   const { lang } = useT();
   const seo =
     lang === "en"
       ? { title: "Code of Ethics | Business Matching Global", description: "BMG's voluntary Code of Ethics and Professional Conduct: legality, independence, confidentiality and transparency (Italian text)." }
       : lang === "pt"
-      ? { title: "Código de Ética | Business Matching Global", description: "Código de Ética e Conduta Profissional da BMG: legalidade, independência, confidencialidade e transparência (texto em italiano)." }
+      ? { title: "Código de Ética | Business Matching Global", description: "Código de Ética e Conduta Profissional da BMG: legalidade, independência, confidencialidade e transparência ." }
       : { title: "Codice Etico | Business Matching Global", description: "Codice Etico e di Condotta Professionale di BMG: legalità, indipendenza, competenza, riservatezza e trasparenza." };
   useCanonical("/ethics", seo);
-  const blocks = lang === "en" ? blocksEn : blocksIt;
-  const pageTitle = lang === "en" ? "Code of Ethics and Professional Conduct" : "Codice Etico e di Condotta Professionale";
+  const blocks = lang === "en" ? blocksEn : lang === "pt" ? blocksPt : blocksIt;
+  const pageTitle = lang === "en" ? "Code of Ethics and Professional Conduct" : lang === "pt" ? "Código de Ética e Conduta Profissional" : "Codice Etico e di Condotta Professionale";
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
