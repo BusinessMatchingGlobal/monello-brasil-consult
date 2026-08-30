@@ -57,7 +57,7 @@ export function Nav() {
     { href: "/", label: t.nav.home, internal: true },
     { href: "/Our_Services", label: t.nav.servicesLink, internal: true },
     { href: "/#how", label: t.nav.how },
-    { href: "/#about", label: t.nav.method },
+    { href: "/method", label: t.nav.method, internal: true },
     { href: "/About_us", label: t.nav.about, internal: true },
     { href: "/ethics", label: t.nav.ethics, internal: true },
     { href: "/BT", label: t.nav.travel, internal: true },
@@ -179,7 +179,7 @@ export function Nav() {
   );
 }
 
-function ContactForm() {
+export function ContactForm() {
   const { t } = useT();
   const [submitting, setSubmitting] = useState(false);
 
