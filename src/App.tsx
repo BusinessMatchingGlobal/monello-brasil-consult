@@ -11,6 +11,7 @@ import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
 import OurServices from "./pages/OurServices";
 import Ethics from "./pages/Ethics";
+import Method from "./pages/Method";
 import BusinessMatchingService from "./pages/servizi/BusinessMatching";
 import BusinessMatchingServiceBR from "./pages/servicos/BusinessMatching";
 import BusinessMatchingServiceEN from "./pages/services/BusinessMatching";
@@ -96,6 +97,8 @@ const App = () => {
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="/ethics" element={<Ethics />} />
             <Route path="/Ethics" element={<Ethics />} />
+            <Route path="/method" element={<Method />} />
+            <Route path="/Method" element={<Method />} />
             <Route path="/Our_Services" element={<OurServices />} />
             <Route path="/our_services" element={<OurServices />} />
             <Route path="/servizi/business-matching" element={<BusinessMatchingService />} />
