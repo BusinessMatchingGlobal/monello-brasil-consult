@@ -177,21 +177,28 @@ const blocksEn: Block[] = [
 ];
 
 export default function Method() {
+  const { lang } = useT();
+  const isEn = lang === "en";
   useCanonical("/method", {
-    title: "Trasferire il metodo, non solo il prodotto | Business Matching Global",
-    description:
-      "Licenza, royalty e trasferimento di tecnologia verso il Brasile: quando conviene produrre in loco invece di esportare, e come proteggere la chiave di volta.",
+    title: isEn
+      ? "Transfer the method, not just the product | Business Matching Global"
+      : "Trasferire il metodo, non solo il prodotto | Business Matching Global",
+    description: isEn
+      ? "Licence, royalties and technology transfer to Brazil: when it pays to manufacture locally instead of exporting, and how to protect the keystone."
+      : "Licenza, royalty e trasferimento di tecnologia verso il Brasile: quando conviene produrre in loco invece di esportare, e come proteggere la chiave di volta.",
   });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const blocks = isEn ? blocksEn : blocksIt;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <div className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
         <h1 className="font-display text-4xl md:text-5xl leading-tight mb-8">
-          Trasferire il metodo, non solo il prodotto
+          {isEn ? "Transfer the method, not just the product" : "Trasferire il metodo, non solo il prodotto"}
         </h1>
         <article className="space-y-6">
           {blocks.map((b, i) =>
@@ -215,15 +222,16 @@ export default function Method() {
         </article>
 
         <div className="mt-14 pt-10 border-t border-border">
-          <h2 className="font-display text-2xl md:text-3xl mb-3">→ Parliamone</h2>
+          <h2 className="font-display text-2xl md:text-3xl mb-3">{isEn ? "→ Let's talk" : "→ Parliamone"}</h2>
           <p className="text-base md:text-lg text-muted-foreground">
-            Scrivici a{" "}
+            {isEn ? "Write to us at " : "Scrivici a "}
             <a href={`mailto:${EMAIL}`} className="text-primary underline hover:text-primary/80 inline-flex items-center gap-1">
               <Mail className="h-4 w-4" /> {EMAIL}
             </a>{" "}
-            oppure usa il modulo qui sotto.
+            {isEn ? "or use the form below." : "oppure usa il modulo qui sotto."}
           </p>
         </div>
+
         <ContactForm />
       </div>
     </div>
