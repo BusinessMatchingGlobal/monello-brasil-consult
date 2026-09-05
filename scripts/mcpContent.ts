@@ -343,10 +343,10 @@ const STEP_BY_STEP_TITLE: Record<Lang, string> = {
   it: "Il metodo, passo per passo — Come lavoriamo",
   pt: "O método, passo a passo — Como trabalhamos",
 };
-const METHOD_ARTICLE_TITLE: Record<Lang, string> = {
-  en: "Our method",
-  it: "Il nostro metodo",
-  pt: "Nosso método",
+const TRANSFER_METHOD_TITLE: Record<Lang, string> = {
+  en: "Transfer the method, not just the product",
+  it: "Trasferire il metodo, non solo il prodotto",
+  pt: "Transferir o método, não só o produto",
 };
 
 function partnerText(source: string, index: number): string {
@@ -405,15 +405,7 @@ export function buildMethodContent(): ArticleContent[] {
         text,
       });
     }
-    const stepByStep = [
-      howStepsText(i18n, i),
-      methodBlocksText(method, i)
-        ? `## ${METHOD_ARTICLE_TITLE[lang]}\n\n${methodBlocksText(method, i)}`
-        : "",
-    ]
-      .filter(Boolean)
-      .join("\n\n")
-      .trim();
+    const stepByStep = howStepsText(i18n, i);
     if (stepByStep) {
       docs.push({
         slug: "method-step-by-step",
@@ -422,6 +414,17 @@ export function buildMethodContent(): ArticleContent[] {
         date: today,
         url: `${SITE}/How_we_work`,
         text: stepByStep,
+      });
+    }
+    const essay = methodBlocksText(method, i);
+    if (essay) {
+      docs.push({
+        slug: "transfer-the-method",
+        lang,
+        title: TRANSFER_METHOD_TITLE[lang],
+        date: today,
+        url: `${SITE}/Transfer_the_method`,
+        text: essay,
       });
     }
     const partnerBody = partnerText(partner, i);
