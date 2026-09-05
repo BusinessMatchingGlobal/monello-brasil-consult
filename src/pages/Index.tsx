@@ -75,6 +75,8 @@ function Nav() {
   const links: Array<{ href: string; label: string; internal?: boolean; external?: boolean }> = [
     { href: "#top", label: t.nav.home },
     { href: "/Our_Services", label: t.nav.servicesLink, internal: true },
+    { href: "/How_we_work", label: t.nav.howWeWork, internal: true },
+    { href: "/Partner_Program", label: t.nav.partnerProgram, internal: true },
     { href: "#how", label: t.nav.how },
     { href: "/method", label: t.nav.method, internal: true },
     { href: "/About_us", label: t.nav.about, internal: true },
@@ -777,6 +779,12 @@ function FooterInner() {
         <div className="flex items-center gap-5 text-sm">
           <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.footer.privacy}
+          </Link>
+          <Link to="/How_we_work" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.howWeWork}
+          </Link>
+          <Link to="/Partner_Program" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.partnerProgram}
           </Link>
           {lang === "en" && (
             <a
