@@ -78,6 +78,7 @@ import { AskBmgWidget } from "./components/AskBmgWidget";
 import { CalliphoraDomainRouting } from "./components/CalliphoraDomainRouting";
 import { useEffect } from "react";
 import { initConsent } from "./lib/consent";
+import { initAutoTracking } from "./lib/analytics";
 
 const queryClient = new QueryClient();
 
