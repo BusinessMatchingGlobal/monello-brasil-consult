@@ -52,9 +52,12 @@ export function Nav() {
   const links: Array<{ href: string; label: string; internal?: boolean; external?: boolean }> = [
     { href: "/", label: t.nav.home, internal: true },
     { href: "/Our_Services", label: t.nav.servicesLink, internal: true },
+    { href: "/How_we_work", label: t.nav.howWeWork, internal: true },
+    { href: "/Partner_Program", label: t.nav.partnerProgram, internal: true },
     { href: "/#how", label: t.nav.how },
-    { href: "/#about", label: t.nav.method },
+    { href: "/method", label: t.nav.method, internal: true },
     { href: "/About_us", label: t.nav.about, internal: true },
+    { href: "/ethics", label: t.nav.ethics, internal: true },
     { href: "/BT", label: t.nav.travel, internal: true },
     { href: "/news", label: t.nav.news, internal: true },
     { href: "__analysis__", label: t.nav.analysis, analysis: true } as any,
