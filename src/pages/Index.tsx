@@ -780,6 +780,12 @@ function FooterInner() {
           <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.footer.privacy}
           </Link>
+          <Link to="/How_we_work" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.howWeWork}
+          </Link>
+          <Link to="/Partner_Program" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.partnerProgram}
+          </Link>
           {lang === "en" && (
             <a
               href="https://www.iubenda.com/privacy-policy/22477622"
