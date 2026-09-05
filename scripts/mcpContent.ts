@@ -285,9 +285,20 @@ function howWeWorkText(source: string, index: number): string {
   return parts.join("\n\n").trim();
 }
 
+/** Returns the chunk starting at the nth occurrence of `marker`, ending at the next one. */
+function nthChunk(source: string, marker: string, index: number): string {
+  let pos = -1;
+  for (let i = 0; i <= index; i++) {
+    pos = source.indexOf(marker, pos + 1);
+    if (pos < 0) return "";
+  }
+  const next = source.indexOf(marker, pos + 1);
+  return source.slice(pos, next > 0 ? next : source.length);
+}
+
 /** Extracts the "how" steps (title, step pairs, note) for one language from src/lib/i18n.ts. */
 function howStepsText(source: string, index: number): string {
-  const chunk = chunkBetween(source, HOW_MARKERS, index);
+  const chunk = nthChunk(source, HOW_MARKER, index);
   if (!chunk) return "";
   const end = chunk.indexOf("note:");
   const body = end > 0 ? chunk.slice(0, end) : chunk;
