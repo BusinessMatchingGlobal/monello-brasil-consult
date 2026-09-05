@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useT } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { Nav, ContactForm } from "./AboutUs";
-import { MethodArticle, methodTitle } from "./Method";
+
 
 type MethodBlockData = {
   title: string;
