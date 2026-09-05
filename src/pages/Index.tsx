@@ -960,6 +960,7 @@ export default function Index() {
         <HowItWorks />
         <Contact />
         <HomeNewsletter />
+        <PullQuote />
       </main>
       <Footer />
     </div>
