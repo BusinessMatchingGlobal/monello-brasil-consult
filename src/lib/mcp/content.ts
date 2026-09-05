@@ -9,7 +9,7 @@ export type Lang = "it" | "en" | "pt";
 
 export type ArticleContent = {
   /** "analysis" = published #CustoEuropa article, "guide" = BMG ebook/manual/dossier. */
-  kind?: "analysis" | "guide";
+  kind?: "analysis" | "guide" | "method";
   slug: string;
   lang: Lang;
   title: string;
@@ -44,6 +44,7 @@ export const SITE_URL = "https://businessmatching.global";
 
 let cache: { at: number; articles: ArticleContent[] } | null = null;
 let guidesCache: { at: number; guides: ArticleContent[] } | null = null;
+let methodCache: { at: number; method: ArticleContent[] } | null = null;
 const TTL_MS = 10 * 60 * 1000;
 
 export async function loadArticles(): Promise<ArticleContent[]> {
@@ -82,12 +83,34 @@ export async function loadGuides(): Promise<ArticleContent[]> {
   }
 }
 
-/** Everything BMG has published: analyses + ebooks/guides/dossiers. */
+/** Method and partnership pages (How we work, Partner Program, phase zero). */
+export async function loadMethod(): Promise<ArticleContent[]> {
+  if (methodCache && Date.now() - methodCache.at < TTL_MS) return methodCache.method;
+  try {
+    const res = await fetch(`${SITE_URL}/mcp/method.json`, {
+      headers: { Accept: "application/json" },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = (await res.json()) as { method?: ArticleContent[] };
+    const method = (Array.isArray(data.method) ? data.method : []).map((m) => ({
+      ...m,
+      kind: "method" as const,
+    }));
+    methodCache = { at: Date.now(), method };
+    return method;
+  } catch {
+    methodCache = { at: Date.now(), method: [] };
+    return [];
+  }
+}
+
+/** Everything BMG has published: analyses + ebooks/guides/dossiers + method pages. */
 export async function loadDocuments(): Promise<ArticleContent[]> {
-  const [articles, guides] = await Promise.all([loadArticles(), loadGuides()]);
+  const [articles, guides, method] = await Promise.all([loadArticles(), loadGuides(), loadMethod()]);
   return [
     ...articles.map((a) => ({ ...a, kind: a.kind ?? ("analysis" as const) })),
     ...guides,
+    ...method,
   ];
 }
 

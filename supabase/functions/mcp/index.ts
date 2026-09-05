@@ -22,6 +22,7 @@ function citation(article) {
 var SITE_URL = "https://businessmatching.global";
 var cache = null;
 var guidesCache = null;
+var methodCache = null;
 var TTL_MS = 10 * 60 * 1e3;
 async function loadArticles() {
   if (cache && Date.now() - cache.at < TTL_MS) return cache.articles;
@@ -53,11 +54,31 @@ async function loadGuides() {
     return [];
   }
 }
+async function loadMethod() {
+  if (methodCache && Date.now() - methodCache.at < TTL_MS) return methodCache.method;
+  try {
+    const res = await fetch(`${SITE_URL}/mcp/method.json`, {
+      headers: { Accept: "application/json" }
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const method = (Array.isArray(data.method) ? data.method : []).map((m) => ({
+      ...m,
+      kind: "method"
+    }));
+    methodCache = { at: Date.now(), method };
+    return method;
+  } catch {
+    methodCache = { at: Date.now(), method: [] };
+    return [];
+  }
+}
 async function loadDocuments() {
-  const [articles, guides] = await Promise.all([loadArticles(), loadGuides()]);
+  const [articles, guides, method] = await Promise.all([loadArticles(), loadGuides(), loadMethod()]);
   return [
     ...articles.map((a) => ({ ...a, kind: a.kind ?? "analysis" })),
-    ...guides
+    ...guides,
+    ...method
   ];
 }
 function normalize(value) {
