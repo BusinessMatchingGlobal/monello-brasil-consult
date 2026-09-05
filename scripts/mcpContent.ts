@@ -242,6 +242,7 @@ function arrayStrings(chunk: string, key: string): string[] {
 
 const HOW_WE_WORK_MARKERS = ["const blocksEn", "const blocksIt", "const blocksPt"];
 const PARTNER_MARKERS = ["const en: Content", "const it: Content", "const pt: Content"];
+const METHOD_MARKERS = ["const blocksEn", "const blocksIt", "const blocksPt"];
 const LANGS: Lang[] = ["en", "it", "pt"];
 
 const HOW_WE_WORK_TITLE: Record<Lang, string> = {
