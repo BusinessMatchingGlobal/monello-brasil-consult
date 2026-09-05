@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useT } from "@/lib/i18n";
-import { useCanonical } from "@/lib/useCanonical";
+import { useCanonical, SITE } from "@/lib/useCanonical";
 import { Nav } from "./AboutUs";
 
 const EMAIL = "info@businessmatching.global";
@@ -21,6 +21,8 @@ type Content = {
   closingTitle: string;
   closingText: string;
   closingCta: string;
+  faqTitle: string;
+  faqs: Array<[string, string]>;
   seo: { title: string; description: string };
 };
 
@@ -72,6 +74,33 @@ const en: Content = {
   closingText:
     "Write to us describing the project and the client's stage. You will receive a written, documented reply.",
   closingCta: "Write to us",
+  faqTitle: "Frequently asked questions about the agreements",
+  faqs: [
+    [
+      "Who does the client relationship belong to?",
+      "To you. The agreement states it explicitly: we work under your direction and report to you. We never contact your client directly unless you ask us to, and we do not accept direct mandates from a client you introduced while the collaboration is running.",
+    ],
+    [
+      "How does white-label collaboration work?",
+      "We operate behind your brand: documents and correspondence carry your letterhead, and to the client we appear as your team. Alternatively we can work under our own brand, with you formally leading the engagement. The form is defined in the agreement before we start.",
+    ],
+    [
+      "How are fees structured?",
+      "Phase zero is always billed at a fixed fee, agreed in writing before work begins. Research and outreach are quoted per project on the agreed scope. Where a success fee applies, it is defined in the agreement — trigger, percentage and payment terms — before any introduction is made.",
+    ],
+    [
+      "Is there exclusivity between us?",
+      "Not by default. We do not work for two parties competing on the same profile in the same period, and we can grant exclusivity on a sector or territory when the scope justifies it. Any exclusivity is written into the agreement, not implied.",
+    ],
+    [
+      "How is confidential information handled?",
+      "Everything you share about your client is covered by a confidentiality clause from the first exchange, before any formal engagement. If you prefer, we sign your NDA. The client's identity is disclosed to Brazilian counterparts only with your written authorisation.",
+    ],
+    [
+      "What happens when the collaboration ends?",
+      "Each agreement defines notice and how to handle work in progress. Introductions already made remain attributed to the agreement that generated them; no clause gives us any claim over your client relationship after the end of the collaboration.",
+    ],
+  ],
   seo: {
     title: "Partner Program — Business Matching Global",
     description:
@@ -127,6 +156,33 @@ const it: Content = {
   closingText:
     "Scrivici descrivendo il progetto e lo stadio in cui si trova il cliente. Riceverai una risposta scritta e documentata.",
   closingCta: "Scrivici",
+  faqTitle: "Domande frequenti sugli accordi",
+  faqs: [
+    [
+      "A chi appartiene il rapporto con il cliente?",
+      "A te. L'accordo lo dice in modo esplicito: lavoriamo sotto la tua direzione e riferiamo a te. Non contattiamo mai il tuo cliente direttamente senza che tu lo chieda, e non accettiamo incarichi diretti da un cliente che ci hai presentato finché la collaborazione è in corso.",
+    ],
+    [
+      "Come funziona la collaborazione in white label?",
+      "Operiamo dietro il tuo marchio: documenti e corrispondenza escono con la tua carta intestata e, per il cliente, siamo parte del tuo team. In alternativa possiamo lavorare con il nostro marchio, con te che guidi formalmente il progetto. La forma si definisce nell'accordo prima di partire.",
+    ],
+    [
+      "Come sono strutturati i compensi?",
+      "La fase zero è sempre a compenso fisso, concordato per iscritto prima dell'avvio. Ricerca e contatto sono preventivati per progetto, sul perimetro concordato. Dove è prevista una success fee, viene definita nell'accordo — presupposto, percentuale e termini di pagamento — prima di qualsiasi presentazione.",
+    ],
+    [
+      "C'è esclusiva tra noi?",
+      "Non per impostazione predefinita. Non lavoriamo per due parti concorrenti sullo stesso profilo nello stesso periodo, e possiamo concedere esclusiva per settore o territorio quando il perimetro lo giustifica. Ogni esclusiva è scritta nell'accordo, mai sottintesa.",
+    ],
+    [
+      "Come vengono trattate le informazioni riservate?",
+      "Tutto ciò che condividi sul tuo cliente è coperto da una clausola di riservatezza dal primo scambio, prima di qualsiasi incarico formale. Se preferisci, firmiamo il tuo NDA. L'identità del cliente viene rivelata alle controparti brasiliane solo con la tua autorizzazione scritta.",
+    ],
+    [
+      "Cosa succede quando la collaborazione finisce?",
+      "Ogni accordo definisce il preavviso e la gestione dei lavori in corso. Le presentazioni già fatte restano attribuite all'accordo che le ha generate; nessuna clausola ci dà diritti sul tuo rapporto con il cliente dopo la fine della collaborazione.",
+    ],
+  ],
   seo: {
     title: "Partner Program — Business Matching Global",
     description:
@@ -182,6 +238,33 @@ const pt: Content = {
   closingText:
     "Escreva para nós descrevendo o projeto e o estágio em que o cliente está. Você receberá uma resposta escrita e documentada.",
   closingCta: "Escreva para nós",
+  faqTitle: "Perguntas frequentes sobre os acordos",
+  faqs: [
+    [
+      "De quem é a relação com o cliente?",
+      "Sua. O acordo diz isso de forma explícita: trabalhamos sob a sua direção e reportamos a você. Nunca contatamos o seu cliente diretamente sem que você peça, e não aceitamos mandatos diretos de um cliente que você apresentou enquanto a colaboração estiver em curso.",
+    ],
+    [
+      "Como funciona a colaboração em white label?",
+      "Operamos por trás da sua marca: documentos e correspondência saem com o seu timbre e, para o cliente, aparecemos como a sua equipe. Como alternativa, podemos atuar com a nossa marca, com você conduzindo formalmente o projeto. A forma é definida no acordo antes do início.",
+    ],
+    [
+      "Como são estruturados os honorários?",
+      "A fase zero é sempre cobrada a honorário fixo, acordado por escrito antes do início. Pesquisa e abordagem são orçadas por projeto, sobre o escopo acordado. Quando há success fee, ela é definida no acordo — gatilho, percentual e prazo de pagamento — antes de qualquer apresentação.",
+    ],
+    [
+      "Existe exclusividade entre nós?",
+      "Não por padrão. Não trabalhamos para duas partes concorrentes no mesmo perfil e no mesmo período, e podemos conceder exclusividade por setor ou território quando o escopo justificar. Qualquer exclusividade fica escrita no acordo, nunca subentendida.",
+    ],
+    [
+      "Como é tratada a informação confidencial?",
+      "Tudo o que você compartilha sobre o seu cliente é coberto por cláusula de confidencialidade desde a primeira troca, antes de qualquer contrato. Se preferir, assinamos o seu NDA. A identidade do cliente é revelada às contrapartes apenas com a sua autorização por escrito.",
+    ],
+    [
+      "O que acontece quando a colaboração termina?",
+      "Cada acordo define o aviso prévio e o tratamento dos trabalhos em andamento. As apresentações já feitas permanecem atribuídas ao acordo que as gerou; nenhuma cláusula nos dá direito sobre a sua relação com o cliente depois do fim da colaboração.",
+    ],
+  ],
   seo: {
     title: "Partner Program — Business Matching Global",
     description:
@@ -208,6 +291,26 @@ export default function PartnerProgram() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "ld-partner-program-faq";
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      url: SITE + "/Partner_Program",
+      mainEntity: c.faqs.map(([q, a]) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    });
+    document.head.appendChild(el);
+    return () => {
+      el.remove();
+    };
+  }, [c]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -268,6 +371,19 @@ export default function PartnerProgram() {
             <li key={i}>{a}</li>
           ))}
         </ul>
+
+        {/* FAQ */}
+        <section className="mt-16">
+          <h2 className="font-display text-2xl md:text-3xl mb-8">{c.faqTitle}</h2>
+          <dl className="space-y-6">
+            {c.faqs.map(([q, a]) => (
+              <div key={q}>
+                <dt className="font-display text-lg mb-2">{q}</dt>
+                <dd className="text-muted-foreground leading-relaxed text-justify">{a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
         {/* Closing */}
         <div className="mt-16 rounded-2xl border border-border bg-secondary/50 p-6 md:p-8">
