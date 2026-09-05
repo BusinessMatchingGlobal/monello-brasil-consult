@@ -2,6 +2,8 @@ import { createContext, useContext, useState, useEffect, ReactNode, createElemen
 
 export type { Lang } from "./lang";
 import type { Lang } from "./lang";
+import { detectLangFromPath, pathForLang, stripLangPrefix } from "./langPath";
+
 
 type Dict = typeof translations.en;
 
