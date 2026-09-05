@@ -1,7 +1,25 @@
+import { detectLangFromPath } from "@/lib/langPath";
+
 const STORAGE_KEY = "bmg-cookie-consent"; // "accepted" | "declined"
 export const NEWSLETTER_FALLBACK_KEY = "bmg-newsletter-fallback";
 const GA_ID = "G-R1WPY0LSNM";
 const LI_PARTNER_ID = "10524913";
+
+/**
+ * GA4 DebugView is enabled on preview/local hosts, or on any host with ?ga_debug=1
+ * (kept for the session). Production traffic is never flagged as debug.
+ */
+export function isGaDebug(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("ga_debug") === "1") sessionStorage.setItem("bmg-ga-debug", "1");
+    if (params.get("ga_debug") === "0") sessionStorage.removeItem("bmg-ga-debug");
+    if (sessionStorage.getItem("bmg-ga-debug") === "1") return true;
+  } catch {}
+  const h = window.location.hostname;
+  return h === "localhost" || h === "127.0.0.1" || h.endsWith(".lovable.app") || h.endsWith(".lovableproject.com");
+}
 
 export type ConsentState = "accepted" | "declined" | null;
 
