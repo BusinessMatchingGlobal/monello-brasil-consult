@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { trackContactForm } from "@/lib/analytics";
 import { openConsentBanner } from "@/lib/consent";
 import { useCanonical } from "@/lib/useCanonical";
 import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
@@ -339,10 +340,12 @@ function Contact() {
       return;
     }
     if (!consent) {
+      trackContactForm("validation_error", 'Home — contact form', { reason: "consent" });
       toast.error(t.consent.required);
       return;
     }
     setSubmitting(true);
+    trackContactForm("submit", 'Home — contact form');
     try {
       const { error } = await supabase.functions.invoke("send-contact-notification", {
         body: {
@@ -358,9 +361,11 @@ function Contact() {
         },
       });
       if (error) throw error;
+      trackContactForm("success", 'Home — contact form');
       toast.success("Thanks — your message has been sent.");
       form.reset();
     } catch (err) {
+      trackContactForm("error", 'Home — contact form');
       console.error("Contact form send failed", err);
       toast.error("Sending failed. Please try again or email us directly.");
     } finally {

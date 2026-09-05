@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
+import { trackLinkClick, trackContactForm } from "@/lib/analytics";
 
 const EMAIL = "info@businessmatching.global";
 
@@ -82,6 +83,7 @@ function NavDropdown({
         target="_blank"
         rel="noopener"
         onClick={() => {
+          trackLinkClick(it.label, it.href, "nav_dropdown");
           setOpen(false);
           onNavigate?.();
         }}
@@ -94,6 +96,7 @@ function NavDropdown({
         key={it.href}
         to={it.href}
         onClick={() => {
+          trackLinkClick(it.label, it.href, "nav_dropdown");
           setOpen(false);
           onNavigate?.();
         }}
@@ -223,6 +226,7 @@ export function Nav() {
               <Link
                 key={l.href}
                 to={l.href}
+                onClick={() => trackLinkClick(l.label, l.href, "nav_desktop")}
                 className="text-sm text-foreground/75 hover:text-foreground transition-colors"
               >
                 {l.label}
@@ -233,6 +237,7 @@ export function Nav() {
                 href={l.href}
                 target="_blank"
                 rel="noopener"
+                onClick={() => trackLinkClick(l.label, l.href, "nav_desktop")}
                 className="text-sm text-foreground/75 hover:text-foreground transition-colors"
               >
                 {l.label}
@@ -249,7 +254,9 @@ export function Nav() {
           )}
           <LangSwitcher />
           <Button asChild size="sm" className="rounded-full">
-            <a href="/#contact">{t.nav.contact}</a>
+            <a href="/#contact" onClick={() => trackLinkClick(t.nav.contact, "/#contact", "cta")}>
+              {t.nav.contact}
+            </a>
           </Button>
         </nav>
         <button
@@ -276,7 +283,10 @@ export function Nav() {
                 <Link
                   key={l.href}
                   to={l.href}
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    trackLinkClick(l.label, l.href, "nav_mobile");
+                    setOpen(false);
+                  }}
                   className="text-base py-2"
                 >
                   {l.label}
@@ -287,7 +297,10 @@ export function Nav() {
                   href={l.href}
                   target="_blank"
                   rel="noopener"
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    trackLinkClick(l.label, l.href, "nav_mobile");
+                    setOpen(false);
+                  }}
                   className="text-base py-2"
                 >
                   {l.label}
@@ -334,10 +347,12 @@ export function ContactForm() {
       return;
     }
     if (!consent) {
+      trackContactForm("validation_error", 'About us — contact form', { reason: "consent" });
       toast.error(t.consent.required);
       return;
     }
     setSubmitting(true);
+    trackContactForm("submit", 'About us — contact form');
     try {
       const { error } = await supabase.functions.invoke("send-contact-notification", {
         body: {
@@ -353,9 +368,11 @@ export function ContactForm() {
         },
       });
       if (error) throw error;
+      trackContactForm("success", 'About us — contact form');
       toast.success("Thanks — your message has been sent.");
       form.reset();
     } catch (err) {
+      trackContactForm("error", 'About us — contact form');
       console.error("Contact form send failed", err);
       toast.error("Sending failed. Please try again or email us directly.");
     } finally {
