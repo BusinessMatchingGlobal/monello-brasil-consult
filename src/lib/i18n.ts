@@ -10,7 +10,7 @@ export const translations = {
     nav: { home: "Home", servicesLink: "How can we help you?", services: "Services", how: "How it works", method: "Our method", about: "Who we are", ethics: "Code of Ethics", travel: "Business Travel", news: "Ebook", analysis: "Analysis", analysisAll: "All articles →", contact: "Contact" },
     hero: {
       title: "From the first data point to the first contact in Brazil.",
-      sub: "We help international companies assess the Brazilian market, verify counterparts and turn an opportunity into a commercial relationship.",
+      sub: "We help companies, export managers and professional advisors assess the Brazilian market, verify counterparts and turn an opportunity into a commercial relationship.",
       areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Request a report",
       cta2: "See services",
@@ -191,7 +191,7 @@ export const translations = {
     nav: { home: "Home", servicesLink: "Come possiamo aiutarti?", services: "Servizi", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", ethics: "Codice Etico", travel: "Business Travel", news: "Ebook", analysis: "Analisi", analysisAll: "Tutti gli articoli →", contact: "Contatti" },
     hero: {
       title: "Dal primo dato al primo contatto in Brasile.",
-      sub: "Aiutiamo imprese e investitori a capire il mercato brasiliano, verificare le controparti giuste e trasformare un'opportunità in un rapporto commerciale.",
+      sub: "Aiutiamo aziende, export manager e professionisti a capire il mercato brasiliano, verificare le controparti giuste e trasformare un'opportunità in un rapporto commerciale.",
       areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Richiedi un report",
       cta2: "Scopri i servizi",
@@ -372,7 +372,7 @@ export const translations = {
     nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", how: "Como funciona", method: "Nosso método", about: "Quem somos", ethics: "Código de Ética", travel: "Business Travel", news: "Ebook", analysis: "Análises", analysisAll: "Todos os artigos →", contact: "Contato" },
     hero: {
       title: "Da inteligência de mercado às conversas certas na Europa.",
-      sub: "Ajudamos empresas brasileiras a avaliar mercados europeus, verificar contrapartes e transformar uma oportunidade em relação comercial.",
+      sub: "Ajudamos empresas, export managers e profissionais a avaliar mercados europeus, verificar contrapartes e transformar uma oportunidade em relação comercial.",
       areas: "Business Intelligence · Busca de Compradores e Fornecedores · Import/Export · Business Matching",
       cta1: "Solicite um relatório",
       cta2: "Ver serviços",

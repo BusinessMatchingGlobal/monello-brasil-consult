@@ -929,6 +929,46 @@ function FooterInner() {
   );
 }
 
+function PartnerProgramBanner() {
+  const { lang } = useT();
+  const c =
+    lang === "it"
+      ? {
+          title: "Sei un export manager o un professionista con clienti che guardano al Brasile?",
+          text: "Tieni il tuo cliente. Allunga il tuo raggio. Usa BMG come desk operativo locale per il Brasile.",
+          cta: "Scopri il Partner Program",
+        }
+      : lang === "pt"
+      ? {
+          title: "Você é export manager ou assessor com clientes de olho no Brasil?",
+          text: "Mantenha o seu cliente. Amplie o seu alcance. Use a BMG como desk operacional local para o Brasil.",
+          cta: "Conheça o Partner Program",
+        }
+      : {
+          title: "Are you an export manager or an adviser with clients looking at Brazil?",
+          text: "Keep your client. Extend your reach. Use BMG as your local operating desk for Brazil.",
+          cta: "Explore the Partner Program",
+        };
+  return (
+    <section className="py-12 md:py-16">
+      <div className="container">
+        <div className="rounded-2xl bg-secondary/60 border border-border p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+          <div className="flex-1">
+            <h2 className="font-display text-xl md:text-2xl leading-snug text-foreground">{c.title}</h2>
+            <p className="mt-2 text-muted-foreground">{c.text}</p>
+          </div>
+          <Link
+            to="/Partner_Program"
+            className="shrink-0 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
+          >
+            {c.cta}
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PullQuote() {
   const { lang } = useT();
   const text =
@@ -955,20 +995,20 @@ export default function Index() {
   const homeSeo =
     lang === "it"
       ? {
-          title: "Dal primo dato al primo contatto in Brasile | Business Matching Global",
+          title: "Business Matching Global — Market intelligence e orchestrazione d'affari UE–Brasile",
           description:
-            "Aiutiamo imprese e investitori a capire il mercato brasiliano, verificare le controparti e trasformare un'opportunità in un rapporto commerciale.",
+            "Market intelligence, verifica delle controparti ed esecuzione locale tra Europa e Brasile, nei due sensi. Risposte chiare e documentate per aziende, export manager e professionisti.",
         }
       : lang === "pt"
       ? {
-          title: "Da inteligência de mercado às conversas certas na Europa | BMG",
+          title: "Business Matching Global — Inteligência de mercado e orquestração de negócios UE–Brasil",
           description:
-            "Ajudamos empresas brasileiras a avaliar mercados europeus, verificar contrapartes e transformar uma oportunidade em relação comercial.",
+            "Inteligência de mercado, verificação de contrapartes e execução local entre Europa e Brasil, nos dois sentidos. Respostas claras e documentadas para empresas, export managers e assessores.",
         }
       : {
-          title: "From the first data point to the first contact in Brazil | BMG",
+          title: "Business Matching Global — EU–Brazil Market Intelligence and Business Orchestration",
           description:
-            "We help international companies assess the Brazilian market, verify counterparts and turn an opportunity into a commercial relationship.",
+            "Market intelligence, counterpart verification and local execution between Europe and Brazil, in both directions. Clear, documented answers for companies, export managers and advisers.",
         };
   useCanonical("/", homeSeo);
   return (
@@ -978,6 +1018,7 @@ export default function Index() {
         <Hero />
         <Problem />
         <Services />
+        <PartnerProgramBanner />
         <HowItWorks />
         <Contact />
         <HomeNewsletter />
