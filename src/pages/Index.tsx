@@ -929,6 +929,27 @@ function FooterInner() {
   );
 }
 
+function PullQuote() {
+  const { lang } = useT();
+  const text =
+    lang === "it"
+      ? "L'ordine è il primo prodotto da esportare."
+      : lang === "pt"
+      ? "A ordem é o primeiro produto a exportar."
+      : "Order is the first thing you export.";
+  return (
+    <section className="py-20 md:py-28 border-t border-border/60">
+      <div className="container max-w-4xl text-center">
+        <Link to="/How_we_work" className="group inline-block">
+          <blockquote className="font-display text-3xl md:text-5xl leading-tight text-foreground group-hover:text-primary transition-colors">
+            {text}
+          </blockquote>
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 export default function Index() {
   const { lang } = useT();
   const homeSeo =
@@ -960,6 +981,7 @@ export default function Index() {
         <HowItWorks />
         <Contact />
         <HomeNewsletter />
+        <PullQuote />
       </main>
       <Footer />
     </div>

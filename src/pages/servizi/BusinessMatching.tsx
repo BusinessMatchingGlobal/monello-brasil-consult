@@ -188,6 +188,17 @@ export default function BusinessMatching() {
           <div className="container max-w-5xl">
             <h2 className="font-display text-2xl md:text-3xl text-background mb-10">Come lavoriamo</h2>
             <div className="grid md:grid-cols-2 gap-6">
+              <Link
+                to="/How_we_work"
+                className="p-6 md:p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:bg-background/[0.08] transition-colors block"
+              >
+                <span className="text-xs tracking-wider uppercase text-primary">00 —</span>
+                <h3 className="font-display text-xl md:text-2xl text-background mt-1 mb-3">Fase zero</h3>
+                <p className="text-background/70 leading-relaxed text-justify">
+                  Prima di cercare controparti, verifichiamo chi possiede cosa e allineiamo la carta agli accordi
+                  reali. Un accordo che non regge in entrambi gli ordinamenti non è un accordo.
+                </p>
+              </Link>
               {steps.map(([title, body], i) => (
                 <div
                   key={title}

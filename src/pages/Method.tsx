@@ -1,16 +1,17 @@
 import { useEffect } from "react";
 import { Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useT } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { Nav, ContactForm } from "./AboutUs";
 
 const EMAIL = "info@businessmatching.global";
 
-type Block = { type: "h2" | "p" | "li"; text: string; italic?: boolean };
+type Block = { type: "h2" | "p" | "li"; text: string; italic?: boolean; link?: { text: string; href: string } };
 
 const blocksIt: Block[] = [
   { type: "p", text: "Che cosa deve attraversare l'Atlantico: il prodotto finito, i componenti, il metodo, il marchio, una licenza — o nulla?" },
-  { type: "p", text: "È la domanda da cui partiamo, e quasi nessuno la fa prima di aver già deciso la risposta. In alcuni casi, invece di esportare direttamente, conviene produrre su licenza in loco." },
+  { type: "p", text: "È la domanda da cui partiamo, e quasi nessuno la fa prima di aver già deciso la risposta. In alcuni casi, invece di esportare direttamente, conviene produrre su licenza in loco. Chi produce su licenza vive di contratti: la differenza tra una licenza che regge a Milano e una che regge anche a Belo Horizonte è la doppia liceità, il cuore della nostra fase zero.", link: { text: "la nostra fase zero", href: "/How_we_work" } },
 
   { type: "h2", text: "Una friggitrice ad aria" },
   { type: "p", text: "Philips ha portato in Brasile la friggitrice ad aria e ne ha brevettato la tecnologia: il flusso d'aria calda, il fondo del cestello sagomato a stella. Ha creato la categoria dal nulla." },
@@ -94,7 +95,7 @@ const blocksIt: Block[] = [
 
 const blocksEn: Block[] = [
   { type: "p", text: "What should cross the Atlantic: the finished product, the components, the method, the brand, a licence — or nothing?" },
-  { type: "p", text: "This is the question we start with, and almost nobody asks it before the answer has already been decided. In some cases, instead of exporting directly, it pays to manufacture under licence locally." },
+  { type: "p", text: "This is the question we start with, and almost nobody asks it before the answer has already been decided. In some cases, instead of exporting directly, it pays to manufacture under licence locally. Licensing lives on contracts: the difference between a licence that holds in Milan and one that also holds in Belo Horizonte is being lawful twice over, the heart of our phase zero.", link: { text: "our phase zero", href: "/How_we_work" } },
 
   { type: "h2", text: "An air fryer" },
   { type: "p", text: "Philips brought the air fryer to Brazil and patented the technology behind it: the hot-air flow, the star-shaped basket floor. It created the category from scratch." },
@@ -178,7 +179,7 @@ const blocksEn: Block[] = [
 
 const blocksPt: Block[] = [
   { type: "p", text: "O que deve atravessar o Atlântico: o produto acabado, os componentes, o método, a marca, uma licença — ou nada?" },
-  { type: "p", text: "É a pergunta de que partimos, e quase ninguém a formula antes de já ter decidido a resposta. Em alguns casos, em vez de exportar diretamente, compensa produzir sob licença no destino." },
+  { type: "p", text: "É a pergunta de que partimos, e quase ninguém a formula antes de já ter decidido a resposta. Em alguns casos, em vez de exportar diretamente, compensa produzir sob licença no destino. Quem produz sob licença vive de contratos: a diferença entre uma licença que se sustenta em Milão e uma que também se sustenta em Belo Horizonte é a dupla licitude, o coração da nossa fase zero.", link: { text: "nossa fase zero", href: "/How_we_work" } },
 
   { type: "h2", text: "Uma fritadeira sem óleo" },
   { type: "p", text: "A Philips trouxe a airfryer para o Brasil e patenteou a tecnologia: o fluxo de ar quente, o fundo do cesto em formato de estrela. Criou a categoria do zero." },
@@ -309,7 +310,17 @@ export default function Method() {
               </p>
             ) : (
               <p key={i} className="text-base md:text-lg leading-relaxed text-muted-foreground text-justify">
-                {b.text}
+                {b.link && b.text.includes(b.link.text) ? (
+                  <>
+                    {b.text.slice(0, b.text.indexOf(b.link.text))}
+                    <Link to={b.link.href} className="text-primary underline hover:text-primary/80 transition-colors">
+                      {b.link.text}
+                    </Link>
+                    {b.text.slice(b.text.indexOf(b.link.text) + b.link.text.length)}
+                  </>
+                ) : (
+                  b.text
+                )}
               </p>
             )
           )}
