@@ -775,15 +775,44 @@ function FooterInner() {
           </div>
           <p className="text-sm text-muted-foreground mt-1">{t.footer.tag}</p>
         </div>
-        <div className="flex items-center gap-5 text-sm">
-          <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.footer.privacy}
+        <div className="flex flex-wrap items-center gap-5 text-sm">
+          <Link to="/Our_Services" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.services}
           </Link>
           <Link to="/How_we_work" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.howWeWork}
           </Link>
           <Link to="/Partner_Program" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.partnerProgram}
+          </Link>
+          <Link to="/analysis" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.analysis}
+          </Link>
+          <Link to="/news" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.news}
+          </Link>
+          <Link to="/BT" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.travel}
+          </Link>
+          <a
+            href="https://www.linkedin.com/company/109746306/admin/page-posts/published/"
+            target="_blank"
+            rel="noopener"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            #Custo Brasil
+          </a>
+          <Link to="/About_us" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.about}
+          </Link>
+          <Link to="/ethics" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.ethics}
+          </Link>
+          <a href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.contact}
+          </a>
+          <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.footer.privacy}
           </Link>
           {lang === "en" && (
             <a
