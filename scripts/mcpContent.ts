@@ -133,6 +133,7 @@ export function mcpContentPlugin(): Plugin {
     };
     write1("articles.json", { generatedAt: null, articles: buildArticleContent() });
     write1("services.json", { generatedAt: null, services: buildServiceContent() });
+    write1("method.json", { generatedAt: null, method: buildMethodContent() });
   };
   return {
     name: "bmg-mcp-content",
@@ -186,4 +187,180 @@ export function buildServiceContent(): ArticleContent[] {
       text: parts.join("\n\n").trim(),
     };
   });
+}
+
+/* ------------------------------------------------------------------ */
+/* Method pages (How we work, Partner Program, phase zero) as documents */
+/* ------------------------------------------------------------------ */
+
+const PAGES_DIR = path.resolve(process.cwd(), "src/pages");
+
+function readPage(rel: string): string {
+  const file = path.join(PAGES_DIR, rel);
+  return fs.existsSync(file) ? fs.readFileSync(file, "utf8") : "";
+}
+
+/** Slices a source file into the chunk that starts at `marker` and ends at the next one. */
+function chunkBetween(source: string, markers: string[], index: number): string {
+  const start = source.indexOf(markers[index]);
+  if (start < 0) return "";
+  let end = source.length;
+  for (let i = index + 1; i < markers.length; i++) {
+    const next = source.indexOf(markers[i]);
+    if (next > start) {
+      end = next;
+      break;
+    }
+  }
+  return source.slice(start, end);
+}
+
+/** Collects the values of the given object keys, in source order. */
+function keyStrings(chunk: string, keys: string[]): string[] {
+  const re = new RegExp(`\\b(?:${keys.join("|")}):\\s*"((?:[^"\\\\]|\\\\.)*)"`, "g");
+  const out: string[] = [];
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(chunk))) {
+    const text = unescapeLiteral(m[1]).trim();
+    if (text) out.push(text);
+  }
+  return out;
+}
+
+function arrayStrings(chunk: string, key: string): string[] {
+  const m = new RegExp(`\\b${key}:\\s*\\[([\\s\\S]*?)\\]`).exec(chunk);
+  if (!m) return [];
+  const out: string[] = [];
+  const re = /"((?:[^"\\]|\\.)*)"/g;
+  let s: RegExpExecArray | null;
+  while ((s = re.exec(m[1]))) {
+    const text = unescapeLiteral(s[1]).trim();
+    if (text) out.push(text);
+  }
+  return out;
+}
+
+const HOW_WE_WORK_MARKERS = ["const blocksEn", "const blocksIt", "const blocksPt"];
+const PARTNER_MARKERS = ["const en: Content", "const it: Content", "const pt: Content"];
+const LANGS: Lang[] = ["en", "it", "pt"];
+
+const HOW_WE_WORK_TITLE: Record<Lang, string> = {
+  en: "How we work — Business Matching Global",
+  it: "Come lavoriamo — Business Matching Global",
+  pt: "Como trabalhamos — Business Matching Global",
+};
+const PARTNER_TITLE: Record<Lang, string> = {
+  en: "Partner Program — Business Matching Global",
+  it: "Partner Program — Business Matching Global",
+  pt: "Partner Program — Business Matching Global",
+};
+const PHASE_ZERO_TITLE: Record<Lang, string> = {
+  en: "Phase zero — Business Matching",
+  it: "Fase zero — Business Matching",
+  pt: "Fase zero — Business Matching",
+};
+const PHASE_ZERO_PAGES: Record<Lang, string> = {
+  en: "services/BusinessMatching.tsx",
+  it: "servizi/BusinessMatching.tsx",
+  pt: "servicos/BusinessMatching.tsx",
+};
+const PHASE_ZERO_URLS: Record<Lang, string> = {
+  en: `${SITE}/services/business-matching`,
+  it: `${SITE}/servizi/business-matching`,
+  pt: `${SITE}/servicos/business-matching`,
+};
+
+function howWeWorkText(source: string, index: number): string {
+  const chunk = chunkBetween(source, HOW_WE_WORK_MARKERS, index);
+  if (!chunk) return "";
+  const parts: string[] = [];
+  const blockRe = /\{\s*title:\s*"((?:[^"\\]|\\.)*)"([\s\S]*?)highlight:\s*"((?:[^"\\]|\\.)*)"/g;
+  let m: RegExpExecArray | null;
+  while ((m = blockRe.exec(chunk))) {
+    parts.push(`## ${unescapeLiteral(m[1]).trim()}`);
+    parts.push(...keyStrings(m[2], ["text"]));
+    parts.push(unescapeLiteral(m[3]).trim());
+  }
+  return parts.join("\n\n").trim();
+}
+
+function partnerText(source: string, index: number): string {
+  let chunk = chunkBetween(source, PARTNER_MARKERS, index);
+  if (!chunk) return "";
+  const seo = chunk.search(/^\s{2}seo:\s*\{/m);
+  if (seo > 0) chunk = chunk.slice(0, seo);
+  const parts: string[] = [];
+  parts.push(...keyStrings(chunk, ["pageTitle", "heroSub", "top", "mid", "bottom", "whiteLabel"]));
+  const cardsStart = chunk.indexOf("cardsTitle:");
+  const phaseStart = chunk.indexOf("phaseTitle:");
+  if (cardsStart >= 0 && phaseStart > cardsStart) {
+    parts.push(`## ${keyStrings(chunk.slice(cardsStart), ["cardsTitle"])[0] ?? ""}`);
+    parts.push(...keyStrings(chunk.slice(cardsStart, phaseStart), ["title", "text", "cta"]));
+  }
+  if (phaseStart >= 0) {
+    const phase = chunk.slice(phaseStart);
+    parts.push(`## ${keyStrings(phase, ["phaseTitle"])[0] ?? ""}`);
+    parts.push(...keyStrings(phase, ["phaseText"]));
+    parts.push(`## ${keyStrings(phase, ["audienceTitle"])[0] ?? ""}`);
+    parts.push(...arrayStrings(phase, "audience").map((a) => `- ${a}`));
+    parts.push(...keyStrings(phase, ["closingTitle", "closingText"]));
+  }
+  return parts.filter((p) => p && p !== "## ").join("\n\n").trim();
+}
+
+function phaseZeroText(source: string): string {
+  const m = /mb-3">(Fase zero|Phase zero)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/.exec(source);
+  if (!m) return "";
+  const body = m[2].replace(/\s+/g, " ").trim();
+  return `## ${m[1]}\n\n${body}`;
+}
+
+/**
+ * Builds public/mcp/method.json: the method and partnership pages
+ * (How we work, Partner Program, the phase-zero step of Business Matching)
+ * so the MCP server and Ask BMG can answer from them.
+ */
+export function buildMethodContent(): ArticleContent[] {
+  const today = new Date().toISOString().slice(0, 10);
+  const howWeWork = readPage("HowWeWork.tsx");
+  const partner = readPage("PartnerProgram.tsx");
+  const docs: ArticleContent[] = [];
+
+  LANGS.forEach((lang, i) => {
+    const text = howWeWorkText(howWeWork, i);
+    if (text) {
+      docs.push({
+        slug: "how-we-work",
+        lang,
+        title: HOW_WE_WORK_TITLE[lang],
+        date: today,
+        url: `${SITE}/How_we_work`,
+        text,
+      });
+    }
+    const partnerBody = partnerText(partner, i);
+    if (partnerBody) {
+      docs.push({
+        slug: "partner-program",
+        lang,
+        title: PARTNER_TITLE[lang],
+        date: today,
+        url: `${SITE}/Partner_Program`,
+        text: partnerBody,
+      });
+    }
+    const phase = phaseZeroText(readPage(PHASE_ZERO_PAGES[lang]));
+    if (phase) {
+      docs.push({
+        slug: "business-matching-phase-zero",
+        lang,
+        title: PHASE_ZERO_TITLE[lang],
+        date: today,
+        url: PHASE_ZERO_URLS[lang],
+        text: phase,
+      });
+    }
+  });
+
+  return docs;
 }
