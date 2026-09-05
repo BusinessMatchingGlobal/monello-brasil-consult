@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useT } from "@/lib/i18n";
-import { useCanonical } from "@/lib/useCanonical";
+import { useCanonical, SITE } from "@/lib/useCanonical";
 import { Nav } from "./AboutUs";
 
 const EMAIL = "info@businessmatching.global";
@@ -351,6 +351,19 @@ export default function PartnerProgram() {
             <li key={i}>{a}</li>
           ))}
         </ul>
+
+        {/* FAQ */}
+        <section className="mt-16">
+          <h2 className="font-display text-2xl md:text-3xl mb-8">{c.faqTitle}</h2>
+          <dl className="space-y-6">
+            {c.faqs.map(([q, a]) => (
+              <div key={q}>
+                <dt className="font-display text-lg mb-2">{q}</dt>
+                <dd className="text-muted-foreground leading-relaxed text-justify">{a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
         {/* Closing */}
         <div className="mt-16 rounded-2xl border border-border bg-secondary/50 p-6 md:p-8">
