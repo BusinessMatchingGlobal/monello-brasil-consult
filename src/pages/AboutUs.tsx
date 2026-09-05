@@ -1,7 +1,6 @@
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Menu, X, Mail } from "lucide-react";
-import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
+import { ArrowRight, Menu, X, Mail, ChevronDown } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { Button } from "@/components/ui/button";
@@ -218,8 +217,8 @@ export function Nav() {
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l: any) =>
-            l.analysis ? (
-              <AnalysisNavMenu key="analysis-desktop" variant="desktop" />
+            l.children ? (
+              <NavDropdown key={l.href} label={l.label} items={l.children} variant="desktop" />
             ) : l.internal ? (
               <Link
                 key={l.href}
@@ -265,9 +264,11 @@ export function Nav() {
         <div className="md:hidden border-t border-border/60 bg-background">
           <div className="container py-4 flex flex-col gap-4">
             {links.map((l: any) =>
-              l.analysis ? (
-                <AnalysisNavMenu
-                  key="analysis-mobile"
+              l.children ? (
+                <NavDropdown
+                  key={l.href}
+                  label={l.label}
+                  items={l.children}
                   variant="mobile"
                   onNavigate={() => setOpen(false)}
                 />
