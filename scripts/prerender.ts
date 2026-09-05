@@ -26,6 +26,7 @@ export function prerenderPlugin(): Plugin {
       installGlobals(dom);
 
       const server = await createServer({
+        mode: "production",
         server: { middlewareMode: true, hmr: false },
         appType: "custom",
         logLevel: "error",
