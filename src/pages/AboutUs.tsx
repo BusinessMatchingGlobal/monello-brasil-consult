@@ -347,10 +347,12 @@ export function ContactForm() {
       return;
     }
     if (!consent) {
+      trackContactForm("validation_error", 'About us — contact form', { reason: "consent" });
       toast.error(t.consent.required);
       return;
     }
     setSubmitting(true);
+    trackContactForm("submit", 'About us — contact form');
     try {
       const { error } = await supabase.functions.invoke("send-contact-notification", {
         body: {
@@ -366,9 +368,11 @@ export function ContactForm() {
         },
       });
       if (error) throw error;
+      trackContactForm("success", 'About us — contact form');
       toast.success("Thanks — your message has been sent.");
       form.reset();
     } catch (err) {
+      trackContactForm("error", 'About us — contact form');
       console.error("Contact form send failed", err);
       toast.error("Sending failed. Please try again or email us directly.");
     } finally {

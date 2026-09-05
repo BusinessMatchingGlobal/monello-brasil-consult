@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { trackContactForm } from "@/lib/analytics";
 import { ServiceRequestDialog } from "@/components/ServiceRequestDialog";
 import { getServicesCatalog, type ServiceItem } from "@/data/servicesCatalog";
 import type { FormEvent } from "react";
@@ -155,6 +156,7 @@ function ContactSection() {
       return;
     }
     setSubmitting(true);
+    trackContactForm("submit", 'Our Services — contact form');
     try {
       const { error } = await supabase.functions.invoke("send-contact-notification", {
         body: {
@@ -170,9 +172,11 @@ function ContactSection() {
         },
       });
       if (error) throw error;
+      trackContactForm("success", 'Our Services — contact form');
       toast.success("Messaggio inviato. Grazie!");
       form.reset();
     } catch (err) {
+      trackContactForm("error", 'Our Services — contact form');
       console.error("Contact send failed", err);
       toast.error("Invio non riuscito. Riprova o scrivici via email.");
     } finally {
