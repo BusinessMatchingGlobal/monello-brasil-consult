@@ -70,6 +70,8 @@ import AsuncionBR from "./pages/analysis/Asuncion_BR";
 
 
 import { LanguageProvider } from "./lib/i18n";
+import { basenameForLang, detectLangFromPath } from "./lib/langPath";
+
 import { CookieConsent } from "./components/CookieConsent";
 import { AskBmgWidget } from "./components/AskBmgWidget";
 
