@@ -108,6 +108,9 @@ function useStructuredData() {
         },
       ],
     };
+    // Remove the generic sitewide FAQ block to avoid duplicate FAQPage schemas
+    const sitewide = document.getElementById("ld-faq-sitewide");
+    sitewide?.remove();
     const el = document.createElement("script");
     el.type = "application/ld+json";
     el.id = "ld-business-matching-br";
@@ -115,6 +118,7 @@ function useStructuredData() {
     document.head.appendChild(el);
     return () => {
       el.remove();
+      if (sitewide) document.head.appendChild(sitewide);
     };
   }, []);
 }
