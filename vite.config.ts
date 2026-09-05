@@ -5,6 +5,8 @@ import { componentTagger } from "lovable-tagger";
 import { sitemapPlugin } from "./scripts/sitemap";
 import { prerenderPlugin } from "./scripts/prerender";
 import { mcpContentPlugin } from "./scripts/mcpContent";
+import { exitAfterBuildPlugin } from "./scripts/exitAfterBuild";
+
 import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 // https://vitejs.dev/config/
