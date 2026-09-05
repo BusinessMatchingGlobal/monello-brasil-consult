@@ -174,7 +174,7 @@ export function useNavLinks(): NavItem[] {
       ],
     },
     {
-      href: "https://www.linkedin.com/company/109746306/admin/page-posts/published/",
+      href: "https://www.linkedin.com/company/businessmatchingglobal",
       label: "#Custo Brasil",
       external: true,
     },

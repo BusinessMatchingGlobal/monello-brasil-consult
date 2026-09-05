@@ -112,7 +112,7 @@ function Hero() {
         </div>
         <div className="mt-3">
           <a
-            href="https://www.linkedin.com/company/109746306/admin/dashboard/"
+            href="https://www.linkedin.com/company/businessmatchingglobal"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
@@ -662,7 +662,7 @@ function FooterInner() {
             {t.nav.travel}
           </Link>
           <a
-            href="https://www.linkedin.com/company/109746306/admin/page-posts/published/"
+            href="https://www.linkedin.com/company/businessmatchingglobal"
             target="_blank"
             rel="noopener"
             className="text-muted-foreground hover:text-foreground transition-colors"
