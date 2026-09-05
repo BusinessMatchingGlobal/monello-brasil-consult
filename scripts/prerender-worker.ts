@@ -28,6 +28,9 @@ async function main() {
     server: { middlewareMode: true, hmr: false },
     appType: "custom",
     logLevel: "error",
+    // SSR markup doesn't need CSS transforms; skip PostCSS config loading
+    // (it crashes with a stack overflow when loaded via a configless server).
+    css: { postcss: { plugins: [] } },
     esbuild: { jsx: "automatic", jsxDev: false },
     resolve: { alias: { "@": path.resolve(process.cwd(), "src") } },
     plugins: [],
