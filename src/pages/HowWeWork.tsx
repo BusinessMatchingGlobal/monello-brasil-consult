@@ -238,8 +238,19 @@ export default function HowWeWork() {
           </div>
           <p className="mt-10 border-l-2 border-amber pl-5 font-display text-lg md:text-xl">{t.how.note}</p>
 
-          <h3 className="font-display text-2xl md:text-3xl mt-16 mb-6 text-foreground">{methodTitle(lang)}</h3>
-          <MethodArticle />
+          <p className="mt-12">
+            <Link
+              to="/Transfer_the_method"
+              className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors font-medium"
+            >
+              {lang === "en"
+                ? "Read: Transfer the method, not just the product"
+                : lang === "pt"
+                  ? "Leia: Transferir o método, não só o produto"
+                  : "Leggi: Trasferire il metodo, non solo il prodotto"}
+            </Link>
+          </p>
+
         </section>
 
         <ContactForm />
