@@ -14,7 +14,7 @@ export interface TemplateEntry {
   to?: string
   /**
    * If true, this template can only be sent when the caller of
-   * `send-transactional-email` presents a service_role JWT. Use for templates
+   * a send is triggered from trusted server code. Use for templates
    * whose recipient or link content is caller-controlled and could otherwise
    * be abused to send branded phishing to arbitrary addresses.
    */

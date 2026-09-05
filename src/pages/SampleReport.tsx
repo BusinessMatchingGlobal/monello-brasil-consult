@@ -208,9 +208,8 @@ export default function SampleReport() {
       return;
     }
     try {
-      await supabase.functions.invoke("send-transactional-email", {
+      await supabase.functions.invoke("send-contact-notification", {
         body: {
-          templateName: "contact-notification",
           idempotencyKey: `sample-${parsed.data.email}-${Date.now()}`,
           templateData: {
             name: `${parsed.data.firstName} ${parsed.data.lastName}`,

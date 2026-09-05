@@ -1,4 +1,5 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { sendTemplateEmailLogged } from "../_shared/transactional-email-templates/log-send.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -69,16 +70,12 @@ Deno.serve(async (req) => {
     topUncovered,
   };
 
-  const { error: sendError } = await supabase.functions.invoke("send-transactional-email", {
-    headers: { Authorization: `Bearer ${serviceKey}` },
-    body: {
-      templateName: "assistant-weekly-digest",
-      recipientEmail: OWNER_EMAIL,
+  try {
+    await sendTemplateEmailLogged("assistant-weekly-digest", OWNER_EMAIL, {
       idempotencyKey: `ask-bmg-digest-${templateData.periodEnd}`,
       templateData,
-    },
-  });
-  if (sendError) {
+    });
+  } catch (sendError) {
     console.error("Digest send failed", sendError);
     return json(502, { error: "send_failed" });
   }

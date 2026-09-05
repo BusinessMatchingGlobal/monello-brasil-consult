@@ -1,5 +1,6 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
+import { sendTemplateEmailLogged } from '../_shared/transactional-email-templates/log-send.ts'
 
 const EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
 const APP_ORIGIN = 'https://businessmatching.global'
@@ -104,11 +105,8 @@ Deno.serve(async (req) => {
 
   const confirmUrl = `${APP_ORIGIN}/newsletter/confirm?token=${token}`
 
-  const { error: sendError } = await supabase.functions.invoke('send-transactional-email', {
-    headers: { Authorization: `Bearer ${serviceKey}` },
-    body: {
-      templateName: 'newsletter-confirm',
-      recipientEmail: email,
+  try {
+    await sendTemplateEmailLogged('newsletter-confirm', email, {
       idempotencyKey: `newsletter-confirm-${token}`,
       templateData: {
         firstName,
@@ -116,9 +114,8 @@ Deno.serve(async (req) => {
         language,
         newsletterName,
       },
-    },
-  })
-  if (sendError) {
+    })
+  } catch (sendError) {
     console.error('Failed to send confirmation email', sendError)
     return json(500, { error: 'email_send_failed' })
   }

@@ -1,12 +1,13 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 import { verifyFlySessionToken } from '../_shared/fly-session.ts'
+import { sendTemplateEmailLogged } from '../_shared/transactional-email-templates/log-send.ts'
 
 // Server-side handler for /fly submissions. Requires the HMAC session token
 // issued by fly-session-init, so the fly-contact-notification template (which
 // carries free-text form data) cannot be triggered by arbitrary internet
 // callers. Signed download URLs for uploaded documents are generated here
-// with the service role, then handed to send-transactional-email as
+// with the service role, then included in the notification email as
 // pre-signed https URLs — the client never calls the signing function.
 
 const BUCKET = 'fly-documents'
@@ -162,40 +163,28 @@ Deno.serve(async (req) => {
     }
   }
 
-  // Call send-transactional-email with service_role so the restricted
-  // fly-contact-notification template is allowed to run. Email is skipped by
-  // default when an n8n webhook is configured; set FLY_WEBHOOK_ONLY=false to
-  // keep both channels.
+  // Send the fly-contact-notification template through Lovable's managed email
+  // API. Email is skipped by default when an n8n webhook is configured; set
+  // FLY_WEBHOOK_ONLY=false to keep both channels.
   const sendResults: Array<{ recipient: string; ok: boolean; error?: string }> = []
   const shouldEmail = !N8N_WEBHOOK_URL || !WEBHOOK_ONLY
   if (shouldEmail) {
     for (let i = 0; i < RECIPIENTS.length; i++) {
       const recipient = RECIPIENTS[i]
       try {
-        const res = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${serviceKey}`,
-            apikey: serviceKey,
-          },
-          body: JSON.stringify({
-            templateName: 'fly-contact-notification',
-            recipientEmail: recipient,
-            idempotencyKey: `${baseIdempotencyKey}-${i}`,
-            templateData: fullTemplateData,
-          }),
+        const result = await sendTemplateEmailLogged('fly-contact-notification', recipient, {
+          idempotencyKey: `${baseIdempotencyKey}-${i}`,
+          templateData: fullTemplateData,
         })
-        if (!res.ok) {
-          const text = await res.text().catch(() => '')
-          console.error('send-transactional-email failed', { status: res.status, text })
-          sendResults.push({ recipient, ok: false, error: `status_${res.status}` })
+        if (!result.sent) {
+          console.warn('fly notification suppressed for recipient')
+          sendResults.push({ recipient, ok: false, error: 'recipient_suppressed' })
         } else {
           sendResults.push({ recipient, ok: true })
         }
       } catch (err) {
-        console.error('send-transactional-email invoke error', err)
-        sendResults.push({ recipient, ok: false, error: 'network' })
+        console.error('fly notification send failed', err)
+        sendResults.push({ recipient, ok: false, error: 'send_failed' })
       }
     }
   }

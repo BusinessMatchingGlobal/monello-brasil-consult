@@ -36,9 +36,8 @@ export function ServiceRequestDialog({
     }
     setSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("send-transactional-email", {
+      const { error } = await supabase.functions.invoke("send-contact-notification", {
         body: {
-          templateName: "contact-notification",
           idempotencyKey: `service-${email}-${Date.now()}`,
           templateData: {
             name,
