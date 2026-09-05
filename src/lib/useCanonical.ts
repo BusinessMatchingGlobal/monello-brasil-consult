@@ -90,14 +90,25 @@ export function useCanonical(path: string, seo?: SEO) {
   const { lang } = useT();
   useEffect(() => {
     const base = siteForPath(path);
-    const url = base + path;
+    const localized = base === CALLIPHORA_SITE ? path : pathForLang(lang, path);
+    const url = base + localized;
     const article = getArticleByPath(path);
 
     // Favicon brand switch
     updateFavicon(path);
 
-    // Hreflang alternates
-    updateAlternates(base, seo?.alternates);
+    // Hreflang alternates — one per language version of this same page
+    const autoAlternates =
+      base === CALLIPHORA_SITE
+        ? undefined
+        : [
+            ...(["en", "it", "pt"] as const).map((l) => ({
+              hreflang: HREFLANG[l],
+              href: base + pathForLang(l, path),
+            })),
+            { hreflang: "x-default", href: base + pathForLang("en", path) },
+          ];
+    updateAlternates(base, seo?.alternates ?? autoAlternates);
 
     // Canonical
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -110,6 +121,7 @@ export function useCanonical(path: string, seo?: SEO) {
 
     // og:url — always self-referential
     upsertMeta('meta[property="og:url"]', "property", "og:url", url);
+    upsertMeta('meta[property="og:locale"]', "property", "og:locale", OG_LOCALE[lang]);
     upsertMeta(
       'meta[property="og:site_name"]',
       "property",
@@ -119,6 +131,7 @@ export function useCanonical(path: string, seo?: SEO) {
     const ogType = seo?.type ?? (article ? "article" : "website");
     upsertMeta('meta[property="og:type"]', "property", "og:type", ogType);
     upsertMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
+
 
     // og:image — article cover when available, otherwise the site default
     const rawImg = seo?.image ?? article?.image ?? DEFAULT_OG_IMAGE;
