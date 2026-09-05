@@ -27,9 +27,13 @@ export function prerenderPlugin(): Plugin {
 
       const server = await createServer({
         mode: "production",
+        configFile: false,
+        root: process.cwd(),
         server: { middlewareMode: true, hmr: false },
         appType: "custom",
         logLevel: "error",
+        esbuild: { jsx: "automatic", jsxDev: false },
+        resolve: { alias: { "@": path.resolve(process.cwd(), "src") } },
         plugins: [],
       });
 
