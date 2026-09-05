@@ -9,7 +9,7 @@ type Dict = typeof translations.en;
 
 export const translations = {
   en: {
-    nav: { home: "Home", servicesLink: "How can we help you?", services: "Services", howWeWork: "How we work", partnerProgram: "Partner Program", how: "How it works", method: "Our method", about: "Who we are", ethics: "Code of Ethics", travel: "Business Travel", news: "Ebook", analysis: "Analysis", analysisAll: "All articles →", resources: "Resources", aboutGroup: "About", contact: "Contact" },
+    nav: { home: "Home", servicesLink: "How can we help you?", services: "Services", howWeWork: "How we work", partnerProgram: "Partner Program", how: "How it works", method: "Our method", about: "Who we are", ethics: "Code of Ethics", travel: "Business Travel", news: "Ebook", analysis: "Analysis", transferMethod: "Transfer the method", analysisAll: "All articles →", resources: "Resources", aboutGroup: "About", contact: "Contact" },
     hero: {
       title: "From the first data point to the first contact in Brazil.",
       sub: "We help companies, export managers and professional advisors assess the Brazilian market, verify counterparts and turn an opportunity into a commercial relationship.",
@@ -23,7 +23,7 @@ export const translations = {
       body: "Most mistakes in Brazil are not made at the negotiating table. They are made earlier, on an assumption nobody verified: a rule, a tax, a distributor's real position. We verify it, in writing, with the source attached.",
       items: [
         ["Unreliable Information", "Information is often fragmented, difficult to access and hard to verify, both in terms of reliability and timeliness.\n\nSources may contradict one another, making it difficult to determine which data can truly be trusted and used as a basis for informed decision-making."],
-        ["Wrong Interpretations", "Reliable information is only the starting point. To make sound business decisions, companies must be able to interpret that information correctly, place it in context and understand how it is applied in practice.\n\nLanguage skills alone are not enough. What matters is understanding how local professionals, authorities and market operators read, interpret and apply that information in everyday administrative, tax and commercial contexts.\n\nThe challenge is often made harder by fragmented information, difficult access and sources that are not always easy to verify. Data may be incomplete, outdated or contradictory, making it difficult to determine what can genuinely be trusted as a basis for informed decision-making."],
+        ["Wrong Interpretations", "Reliable information is only the starting point. To make sound business decisions, companies must be able to interpret that information correctly, place it in context and understand how it is applied in practice.\n\nLanguage skills alone are not enough. What matters is understanding how local professionals, authorities and market operators read, interpret and apply that information in everyday administrative, tax and commercial contexts."],
         ["Costly Mistakes", "When decisions are based on inaccurate or misinterpreted data, businesses risk making poor strategic choices that can result in significant costs, wasted time and missed opportunities."],
       ],
     },
@@ -87,9 +87,9 @@ export const translations = {
     how: {
       title: "Simple, fast, clear.",
       steps: [
-        ["Understand", "Get in touch with us and tell us what you need and what your goals are.\n\nWe will contact you to clarify any questions, better understand your needs, and optimize our work so we can help you get straight to the point."],
+        ["Understand", "Get in touch with us and tell us what you need and what your goals are.\n\nWe reply in writing with the questions needed to frame the work and get straight to the point."],
         ["Investigate", "After understanding your objectives and needs, we begin the research and preparation of the dossier, selecting the information relevant to your case.\n\nEach piece of content is verified, organized and integrated with the necessary clarifications."],
-        ["Verify", "You receive a clear, written and structured report, ready to use, with an optional dedicated call.\n\nWe go through the results, clarify any questions and help you turn the information into practical insights."],
+        ["Verify", "You receive a clear, written and structured report, ready to use, with a written round of questions and answers.\n\nWe go through the results, clarify any questions and help you turn the information into practical insights."],
         ["Connect", "We identify and contact the selected buyers, distributors, suppliers or partners.\n\nWe handle the first approach, qualify the interest and introduce you to the counterparts that are genuinely relevant."],
         ["Develop", "We support you through market access, negotiation and the first commercial operation.\n\nFrom follow-up to practical requirements, we stay alongside you until the relationship starts producing results."],
       ],
@@ -114,8 +114,8 @@ export const translations = {
       ],
     },
     contact: {
-      title: "Tell me what you need to know about Brazil.",
-      sub: "Send a short description of your request and I'll get back to you with next steps.",
+      title: "Tell us what you need to know.",
+      sub: "Send a short description of your request; you will receive a written reply with next steps.",
       name: "Name",
       email: "Email",
       company: "Company (optional)",
@@ -131,7 +131,7 @@ export const translations = {
       required: "You must accept the privacy notice to send your request.",
     },
     footer: {
-      tag: "Business intelligence & research on Brazil.",
+      tag: "Market intelligence between Europe and Brazil.",
       rights: "© 2026 Business Matching Global.",
       legalName: "Registered name",
       address: "Address",
@@ -190,7 +190,7 @@ export const translations = {
     },
   },
   it: {
-    nav: { home: "Home", servicesLink: "Come possiamo aiutarti?", services: "Servizi", howWeWork: "Come lavoriamo", partnerProgram: "Partner Program", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", ethics: "Codice Etico", travel: "Business Travel", news: "Ebook", analysis: "Analisi", analysisAll: "Tutti gli articoli →", resources: "Risorse", aboutGroup: "Chi siamo", contact: "Contatti" },
+    nav: { home: "Home", servicesLink: "Come possiamo aiutarti?", services: "Servizi", howWeWork: "Come lavoriamo", partnerProgram: "Partner Program", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", ethics: "Codice Etico", travel: "Business Travel", news: "Ebook", analysis: "Analisi", transferMethod: "Trasferire il metodo", analysisAll: "Tutti gli articoli →", resources: "Risorse", aboutGroup: "Chi siamo", contact: "Contatti" },
     hero: {
       title: "Dal primo dato al primo contatto in Brasile.",
       sub: "Aiutiamo aziende, export manager e professionisti a capire il mercato brasiliano, verificare le controparti giuste e trasformare un'opportunità in un rapporto commerciale.",
@@ -268,9 +268,9 @@ export const translations = {
     how: {
       title: "Semplice, veloce, chiaro.",
       steps: [
-        ["Capire", "Entra in contatto con noi e spiegaci di cosa hai bisogno e quali sono i tuoi obiettivi.\n\nTi ricontatteremo per chiarire ogni eventuale dubbio, comprendere meglio le tue esigenze e andare direttamente al punto."],
+        ["Capire", "Entra in contatto con noi e spiegaci di cosa hai bisogno e quali sono i tuoi obiettivi.\n\nTi rispondiamo per iscritto con le domande necessarie a inquadrare il lavoro e andare dritti al punto."],
         ["Indagare", "Dopo aver compreso obiettivi ed esigenze, avviamo la ricerca e la redazione del dossier, selezionando le informazioni rilevanti per il tuo caso.\n\nOgni contenuto viene verificato, organizzato e integrato con i chiarimenti necessari."],
-        ["Verificare", "Ricevi un report chiaro, scritto e strutturato, pronto all'uso, con call dedicata opzionale.\n\nApprofondiamo i risultati, chiariamo eventuali dubbi e trasformiamo le informazioni in indicazioni pratiche."],
+        ["Verificare", "Ricevi un report chiaro, scritto e strutturato, pronto all'uso, con un giro di domande e risposte per iscritto.\n\nApprofondiamo i risultati, chiariamo eventuali dubbi e trasformiamo le informazioni in indicazioni pratiche."],
         ["Connettere", "Identifichiamo e contattiamo i compratori, distributori, fornitori o partner selezionati.\n\nGestiamo il primo approccio, qualifichiamo l'interesse e ti presentiamo le controparti realmente rilevanti."],
         ["Sviluppare", "Ti accompagniamo nell'accesso al mercato, nella trattativa e nella prima operazione commerciale.\n\nDal follow-up agli adempimenti pratici, restiamo al tuo fianco finché il rapporto inizia a produrre risultati."],
       ],
@@ -295,8 +295,8 @@ export const translations = {
       ],
     },
     contact: {
-      title: "Dimmi cosa hai bisogno di sapere sul Brasile.",
-      sub: "Inviami una breve descrizione della tua richiesta e ti risponderò con i prossimi passi.",
+      title: "Dicci cosa hai bisogno di sapere.",
+      sub: "Invia una breve descrizione della tua richiesta; riceverai una risposta scritta con i prossimi passi.",
       name: "Nome",
       email: "Email",
       company: "Azienda (facoltativo)",
@@ -312,7 +312,7 @@ export const translations = {
       required: "Devi accettare l'informativa privacy per inviare la richiesta.",
     },
     footer: {
-      tag: "Ricerca e business intelligence sul Brasile.",
+      tag: "Market intelligence tra Europa e Brasile.",
       rights: "© 2026 Business Matching Global.",
       legalName: "Ragione sociale",
       address: "Sede legale",
@@ -371,7 +371,7 @@ export const translations = {
     },
   },
   pt: {
-    nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", howWeWork: "Como trabalhamos", partnerProgram: "Partner Program", how: "Como funciona", method: "Nosso método", about: "Quem somos", ethics: "Código de Ética", travel: "Business Travel", news: "Ebook", analysis: "Análises", analysisAll: "Todos os artigos →", resources: "Recursos", aboutGroup: "Quem somos", contact: "Contato" },
+    nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", howWeWork: "Como trabalhamos", partnerProgram: "Partner Program", how: "Como funciona", method: "Nosso método", about: "Quem somos", ethics: "Código de Ética", travel: "Business Travel", news: "Ebook", analysis: "Análises", transferMethod: "Transferir o método", analysisAll: "Todos os artigos →", resources: "Recursos", aboutGroup: "Quem somos", contact: "Contato" },
     hero: {
       title: "Da inteligência de mercado às conversas certas na Europa.",
       sub: "Ajudamos empresas, export managers e profissionais a avaliar mercados europeus, verificar contrapartes e transformar uma oportunidade em relação comercial.",
@@ -385,7 +385,7 @@ export const translations = {
       body: "A maioria dos erros na Europa não acontece na mesa de negociação. Acontece antes, numa suposição que ninguém verificou: uma norma, um imposto, a posição real de um distribuidor. Nós verificamos, por escrito, com a fonte anexada.",
       items: [
         ["Informações não confiáveis", "O desafio muitas vezes está em lidar com informações fragmentadas, de difícil acesso e nem sempre fáceis de verificar, seja quanto à sua confiabilidade, seja quanto ao seu grado de atualização.\n\nAs fontes disponíveis podem ser incompletas, desatualizadas ou até contraditórias, tornando complexo entender quais dados podem de fato ser considerados confiáveis e utilizados como base para decisões bem fundamentadas."],
-        ["Interpretações equivocadas", "Ter acesso a informações confiáveis é apenas o primeiro passo. Para tomar decisões verdadeiramente bem fundamentadas, é preciso saber interpretá-las, contextualizá-las e compreender como elas são aplicadas na prática.\n\nO domínio do idioma, isoladamente, não basta. É necessário entender como profissionais e operadores locais interpretam essas informações e de que forma elas se traduzem no dia a dia administrativo, tributário e comercial.\n\nEsse desafio se torna ainda maior quando as informações disponíveis são fragmentadas, difíceis de acessar e nem sempre fáceis de verificar. As fontes podem ser incompletas, desatualizadas ou contraditórias, tornando complexa a identificação de dados realmente confiáveis para embasar decisões informadas."],
+        ["Interpretações equivocadas", "Ter acesso a informações confiáveis é apenas o primeiro passo. Para tomar decisões verdadeiramente bem fundamentadas, é preciso saber interpretá-las, contextualizá-las e compreender como elas são aplicadas na prática.\n\nO domínio do idioma, isoladamente, não basta. É necessário entender como profissionais e operadores locais interpretam essas informações e de que forma elas se traduzem no dia a dia administrativo, tributário e comercial."],
         ["Erros custosos", "Quando as decisões são baseadas em dados imprecisos, incompletos ou mal interpretados, as empresas correm o risco de fazer escolhas estratégicas equivocadas, com custos significativos em termos de tempo, dinheiro e oportunidades perdidas."],
       ],
     },
@@ -449,9 +449,9 @@ export const translations = {
     how: {
       title: "Simples, rápido, claro.",
       steps: [
-        ["Entender", "Entre em contato conosco e explique o que você precisa e quais são os seus objetivos.\n\nNós entraremos em contato para esclarecer dúvidas, entender melhor suas necessidades e ir direto ao ponto."],
+        ["Entender", "Entre em contato conosco e explique o que você precisa e quais são os seus objetivos.\n\nRespondemos por escrito com as perguntas necessárias para enquadrar o trabalho e ir direto ao ponto."],
         ["Investigar", "Após compreender seus objetivos e necessidades, iniciamos a pesquisa e a elaboração do dossiê, selecionando as informações relevantes para o seu caso.\n\nCada conteúdo é verificado, organizado e integrado com os esclarecimentos necessários."],
-        ["Verificar", "Você recebe um relatório claro, escrito e estruturado, pronto para uso, com call dedicada opcional.\n\nAprofundamos os resultados, esclarecemos dúvidas e transformamos as informações em orientações práticas."],
+        ["Verificar", "Você recebe um relatório claro, escrito e estruturado, pronto para uso, com uma rodada de perguntas e respostas por escrito.\n\nAprofundamos os resultados, esclarecemos dúvidas e transformamos as informações em orientações práticas."],
         ["Conectar", "Identificamos e contatamos os compradores, distribuidores, fornecedores ou parceiros europeus selecionados.\n\nCuidamos da primeira abordagem, qualificamos o interesse e apresentamos as contrapartes realmente relevantes."],
         ["Desenvolver", "Acompanhamos você no acesso ao mercado europeu, na negociação e na primeira operação comercial.\n\nDo follow-up às exigências práticas, seguimos ao seu lado até a relação começar a gerar resultados."],
       ],
@@ -476,8 +476,8 @@ export const translations = {
       ],
     },
     contact: {
-      title: "Me diga o que você precisa saber sobre o Brasil.",
-      sub: "Envie uma breve descrição da sua solicitação e eu retorno com os próximos passos.",
+      title: "Diga-nos o que você precisa saber.",
+      sub: "Envie uma breve descrição da sua solicitação; você receberá uma resposta por escrito com os próximos passos.",
       name: "Nome",
       email: "E-mail",
       company: "Empresa (opcional)",
@@ -493,7 +493,7 @@ export const translations = {
       required: "Você precisa aceitar o aviso de privacidade para enviar a solicitação.",
     },
     footer: {
-      tag: "Pesquisa e inteligência de negócios sobre o Brasil.",
+      tag: "Market intelligence entre a Europa e o Brasil.",
       rights: "© 2026 Business Matching Global.",
       legalName: "Razão social",
       address: "Endereço",
