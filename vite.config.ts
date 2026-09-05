@@ -22,6 +22,7 @@ export default defineConfig(({ mode }) => ({
     mcpContentPlugin(),
     mcpPlugin(),
     mode === "development" && componentTagger(),
+    exitAfterBuildPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {
