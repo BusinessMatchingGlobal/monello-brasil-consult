@@ -211,6 +211,33 @@ const pt: Content = {
   closingText:
     "Escreva para nós descrevendo o projeto e o estágio em que o cliente está. Você receberá uma resposta escrita e documentada.",
   closingCta: "Escreva para nós",
+  faqTitle: "Perguntas frequentes sobre os acordos",
+  faqs: [
+    [
+      "De quem é a relação com o cliente?",
+      "Sua. O acordo diz isso de forma explícita: trabalhamos sob a sua direção e reportamos a você. Nunca contatamos o seu cliente diretamente sem que você peça, e não aceitamos mandatos diretos de um cliente que você apresentou enquanto a colaboração estiver em curso.",
+    ],
+    [
+      "Como funciona a colaboração em white label?",
+      "Operamos por trás da sua marca: documentos e correspondência saem com o seu timbre e, para o cliente, aparecemos como a sua equipe. Como alternativa, podemos atuar com a nossa marca, com você conduzindo formalmente o projeto. A forma é definida no acordo antes do início.",
+    ],
+    [
+      "Como são estruturados os honorários?",
+      "A fase zero é sempre cobrada a honorário fixo, acordado por escrito antes do início. Pesquisa e abordagem são orçadas por projeto, sobre o escopo acordado. Quando há success fee, ela é definida no acordo — gatilho, percentual e prazo de pagamento — antes de qualquer apresentação.",
+    ],
+    [
+      "Existe exclusividade entre nós?",
+      "Não por padrão. Não trabalhamos para duas partes concorrentes no mesmo perfil e no mesmo período, e podemos conceder exclusividade por setor ou território quando o escopo justificar. Qualquer exclusividade fica escrita no acordo, nunca subentendida.",
+    ],
+    [
+      "Como é tratada a informação confidencial?",
+      "Tudo o que você compartilha sobre o seu cliente é coberto por cláusula de confidencialidade desde a primeira troca, antes de qualquer contrato. Se preferir, assinamos o seu NDA. A identidade do cliente é revelada às contrapartes apenas com a sua autorização por escrito.",
+    ],
+    [
+      "O que acontece quando a colaboração termina?",
+      "Cada acordo define o aviso prévio e o tratamento dos trabalhos em andamento. As apresentações já feitas permanecem atribuídas ao acordo que as gerou; nenhuma cláusula nos dá direito sobre a sua relação com o cliente depois do fim da colaboração.",
+    ],
+  ],
   seo: {
     title: "Partner Program — Business Matching Global",
     description:
