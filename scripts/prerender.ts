@@ -74,8 +74,17 @@ export function prerenderPlugin(): Plugin {
       } catch (error) {
         // Prerendering is an enhancement: never fail the build over it.
         console.warn("[prerender] skipped —", (error as Error)?.message ?? error);
+      } finally {
+        // Loading the app in JSDOM leaves handles that keep the build process
+        // alive after dist/ is complete, which makes deploys hang. Vite has no
+        // work left at this point, so exit successfully.
+        if (!process.env.BMG_NO_FORCE_EXIT) {
+          const timer = setTimeout(() => process.exit(0), 1500);
+          timer.unref?.();
+        }
       }
     },
+
 
   };
 }
