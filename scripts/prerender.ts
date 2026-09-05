@@ -115,13 +115,20 @@ function composeHtml(
 function installGlobals(dom: import("jsdom").JSDOM) {
   const win = dom.window as unknown as Record<string, unknown> & { document: Document };
   const g = globalThis as unknown as Record<string, unknown>;
-  g.window = win;
-  g.document = win.document;
-  g.navigator = win.navigator;
-  g.location = win.location;
-  g.history = win.history;
-  g.localStorage = win.localStorage;
-  g.sessionStorage = win.sessionStorage;
+  const define = (key: string, value: unknown) => {
+    try {
+      g[key] = value;
+    } catch {
+      Object.defineProperty(g, key, { value, configurable: true, writable: true });
+    }
+  };
+  define("window", win);
+  define("document", win.document);
+  define("navigator", win.navigator);
+  define("location", win.location);
+  define("history", win.history);
+  define("localStorage", win.localStorage);
+  define("sessionStorage", win.sessionStorage);
   g.requestAnimationFrame = (cb: FrameRequestCallback) => setTimeout(() => cb(Date.now()), 0) as unknown as number;
   g.cancelAnimationFrame = (id: number) => clearTimeout(id);
   for (const key of [
