@@ -56,6 +56,26 @@ function MethodBlock({ block }: { block: MethodBlockData }) {
 
 const blocksEn: MethodBlockData[] = [
   {
+    title: "Gold in the mud",
+    paragraphs: [
+      {
+        text: "The Romans said veritas: a truth certified, stamped, standing still on a page. The Greeks said alétheia, which literally means \"what is no longer hidden\": truth not as a document to be shown, but as work to be done, lifting the veil one piece at a time. We work with the second.",
+        italicParts: ["veritas", "alétheia"],
+      },
+      {
+        text: "A foreign market always arrives covered. Promotional posts, partisan data, press releases, stories told by those with an interest in telling them that way. The two most common reactions are to take everything at face value, or to throw everything out as noise. Both are wrong. Gold does not arrive clean: it comes mixed with mud, and whoever discards the mud throws away the gold with it. Through the noise pass facts and trends that never travel on official channels — an appointment, a construction site, a tender that changes its terms — and those who know how to read them see them before anyone else.",
+      },
+      {
+        text: "Sifting is not an attitude; it is a trade. You need to know where a figure can be verified — which company register, which balance sheet, which official gazette — which sources hold and which collapse at the second question, what to ask and whom. Digging is not enough: you have to know how to dig.",
+      },
+      {
+        text: "That is why every answer we give comes in writing, with the source attached. We do not ask you to trust us: we give you the means to check.",
+      },
+    ],
+    highlight: "Mud is not discarded. It is sifted.",
+  },
+  {
+
     title: "Clear terms, long corridors",
     paragraphs: [
       {
@@ -78,6 +98,26 @@ const blocksEn: MethodBlockData[] = [
 
 const blocksIt: MethodBlockData[] = [
   {
+    title: "L'oro nel fango",
+    paragraphs: [
+      {
+        text: "I romani dicevano veritas: una verità certificata, timbrata, che sta ferma su un foglio. I greci dicevano alétheia, che alla lettera significa \"ciò che non è più nascosto\": la verità non come documento da esibire, ma come lavoro da fare, togliere il velo un pezzo alla volta. Noi lavoriamo con la seconda.",
+        italicParts: ["veritas", "alétheia"],
+      },
+      {
+        text: "Un mercato straniero arriva sempre coperto. Post promozionali, dati di parte, comunicati, storie raccontate da chi ha interesse a raccontarle così. Le reazioni più comuni sono due: prendere tutto per buono, oppure buttare tutto come rumore. Sbagliano entrambe. L'oro non arriva pulito: sta mescolato al fango, e chi scarta il fango butta via anche l'oro. Nel rumore passano fatti e tendenze che non viaggiano mai sui canali ufficiali, una nomina, un cantiere, una gara che cambia condizioni, e chi li sa leggere li vede prima degli altri.",
+      },
+      {
+        text: "Setacciare non è un'attitudine, è un mestiere. Serve sapere dove un dato si verifica, in quale registro delle imprese, in quale bilancio, in quale gazzetta ufficiale; quali fonti reggono e quali crollano alla seconda domanda; cosa chiedere e a chi. Non basta scavare: bisogna sapere come si scava.",
+      },
+      {
+        text: "Per questo ogni nostra risposta arriva per iscritto e con la fonte attaccata. Non vi chiediamo di fidarvi: vi diamo modo di controllare.",
+      },
+    ],
+    highlight: "Il fango non si scarta. Si setaccia.",
+  },
+  {
+
     title: "Patti chiari, corridoi lunghi",
     paragraphs: [
       {
@@ -101,6 +141,26 @@ const blocksIt: MethodBlockData[] = [
 
 const blocksPt: MethodBlockData[] = [
   {
+    title: "O ouro na lama",
+    paragraphs: [
+      {
+        text: "Os romanos diziam veritas: uma verdade certificada, carimbada, parada numa folha. Os gregos diziam alétheia, que ao pé da letra significa \"o que já não está escondido\": a verdade não como documento a exibir, mas como trabalho a fazer, tirar o véu um pedaço de cada vez. Nós trabalhamos com a segunda.",
+        italicParts: ["veritas", "alétheia"],
+      },
+      {
+        text: "Um mercado estrangeiro chega sempre coberto. Posts promocionais, dados de parte, comunicados, histórias contadas por quem tem interesse em contá-las assim. As reações mais comuns são duas: aceitar tudo como verdade ou descartar tudo como ruído. As duas erram. O ouro não chega limpo: vem misturado à lama, e quem descarta a lama joga fora o ouro junto. No ruído passam fatos e tendências que nunca viajam pelos canais oficiais — uma nomeação, uma obra, uma licitação que muda as condições — e quem sabe lê-los os vê antes dos outros.",
+      },
+      {
+        text: "Peneirar não é uma atitude, é um ofício. É preciso saber onde um dado se verifica, em qual registro de empresas, em qual balanço, em qual diário oficial; quais fontes se sustentam e quais desmoronam na segunda pergunta; o que perguntar e a quem. Cavar não basta: é preciso saber como se cava.",
+      },
+      {
+        text: "Por isso toda resposta nossa chega por escrito e com a fonte anexada. Não pedimos que confiem em nós: damos os meios para conferir.",
+      },
+    ],
+    highlight: "A lama não se descarta. Peneira-se.",
+  },
+  {
+
     title: "Combinado direito, corredores longos",
     paragraphs: [
       {
@@ -128,16 +188,16 @@ export default function HowWeWork() {
     lang === "it"
       ? {
           title: "Come lavoriamo — Business Matching Global",
-          description: "L'ordine è il primo prodotto da esportare.",
+          description: "Il fango non si scarta. Si setaccia. L'ordine è il primo prodotto da esportare.",
         }
       : lang === "pt"
       ? {
           title: "Como trabalhamos — Business Matching Global",
-          description: "A ordem é o primeiro produto a exportar.",
+          description: "A lama não se descarta. Peneira-se. A ordem é o primeiro produto a exportar.",
         }
       : {
           title: "How we work — Business Matching Global",
-          description: "Order is the first thing you export.",
+          description: "Mud is not discarded. It is sifted. Order is the first thing you export.",
         };
   useCanonical("/How_we_work", seo);
   useEffect(() => {
