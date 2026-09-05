@@ -156,6 +156,33 @@ const it: Content = {
   closingText:
     "Scrivici descrivendo il progetto e lo stadio in cui si trova il cliente. Riceverai una risposta scritta e documentata.",
   closingCta: "Scrivici",
+  faqTitle: "Domande frequenti sugli accordi",
+  faqs: [
+    [
+      "A chi appartiene il rapporto con il cliente?",
+      "A te. L'accordo lo dice in modo esplicito: lavoriamo sotto la tua direzione e riferiamo a te. Non contattiamo mai il tuo cliente direttamente senza che tu lo chieda, e non accettiamo incarichi diretti da un cliente che ci hai presentato finché la collaborazione è in corso.",
+    ],
+    [
+      "Come funziona la collaborazione in white label?",
+      "Operiamo dietro il tuo marchio: documenti e corrispondenza escono con la tua carta intestata e, per il cliente, siamo parte del tuo team. In alternativa possiamo lavorare con il nostro marchio, con te che guidi formalmente il progetto. La forma si definisce nell'accordo prima di partire.",
+    ],
+    [
+      "Come sono strutturati i compensi?",
+      "La fase zero è sempre a compenso fisso, concordato per iscritto prima dell'avvio. Ricerca e contatto sono preventivati per progetto, sul perimetro concordato. Dove è prevista una success fee, viene definita nell'accordo — presupposto, percentuale e termini di pagamento — prima di qualsiasi presentazione.",
+    ],
+    [
+      "C'è esclusiva tra noi?",
+      "Non per impostazione predefinita. Non lavoriamo per due parti concorrenti sullo stesso profilo nello stesso periodo, e possiamo concedere esclusiva per settore o territorio quando il perimetro lo giustifica. Ogni esclusiva è scritta nell'accordo, mai sottintesa.",
+    ],
+    [
+      "Come vengono trattate le informazioni riservate?",
+      "Tutto ciò che condividi sul tuo cliente è coperto da una clausola di riservatezza dal primo scambio, prima di qualsiasi incarico formale. Se preferisci, firmiamo il tuo NDA. L'identità del cliente viene rivelata alle controparti brasiliane solo con la tua autorizzazione scritta.",
+    ],
+    [
+      "Cosa succede quando la collaborazione finisce?",
+      "Ogni accordo definisce il preavviso e la gestione dei lavori in corso. Le presentazioni già fatte restano attribuite all'accordo che le ha generate; nessuna clausola ci dà diritti sul tuo rapporto con il cliente dopo la fine della collaborazione.",
+    ],
+  ],
   seo: {
     title: "Partner Program — Business Matching Global",
     description:
