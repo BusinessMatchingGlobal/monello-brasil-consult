@@ -285,6 +285,59 @@ function howWeWorkText(source: string, index: number): string {
   return parts.join("\n\n").trim();
 }
 
+/** Extracts the "how" steps (title, step pairs, note) for one language from src/lib/i18n.ts. */
+function howStepsText(source: string, index: number): string {
+  const chunk = chunkBetween(source, HOW_MARKERS, index);
+  if (!chunk) return "";
+  const end = chunk.indexOf("note:");
+  const body = end > 0 ? chunk.slice(0, end) : chunk;
+  const parts: string[] = [];
+  const title = keyStrings(chunk, ["title"])[0];
+  if (title) parts.push(`## ${title}`);
+  const pairRe = /\[\s*"((?:[^"\\]|\\.)*)"\s*,\s*"((?:[^"\\]|\\.)*)"\s*\]/g;
+  let m: RegExpExecArray | null;
+  let i = 0;
+  while ((m = pairRe.exec(body))) {
+    i += 1;
+    parts.push(`### 0${i} ${unescapeLiteral(m[1]).trim()}`);
+    parts.push(unescapeLiteral(m[2]).trim());
+  }
+  const note = keyStrings(chunk, ["note"])[0];
+  if (note) parts.push(note);
+  return parts.join("\n\n").trim();
+}
+
+/** Extracts the blocks (h2/p/li) of the /method article for one language from Method.tsx. */
+function methodBlocksText(source: string, index: number): string {
+  let chunk = chunkBetween(source, METHOD_MARKERS, index);
+  if (!chunk) return "";
+  const close = chunk.indexOf("];");
+  if (close > 0) chunk = chunk.slice(0, close);
+  const parts: string[] = [];
+  const re = /\{\s*type:\s*"(h2|p|li)",\s*text:\s*"((?:[^"\\]|\\.)*)"/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(chunk))) {
+    const text = unescapeLiteral(m[2]).trim();
+    if (!text) continue;
+    if (m[1] === "h2") parts.push(`## ${text}`);
+    else if (m[1] === "li") parts.push(`- ${text}`);
+    else parts.push(text);
+  }
+  return parts.join("\n\n").trim();
+}
+
+const HOW_MARKERS = ["    how: {", "    how: {", "    how: {"];
+const STEP_BY_STEP_TITLE: Record<Lang, string> = {
+  en: "The method, step by step — How we work",
+  it: "Il metodo, passo per passo — Come lavoriamo",
+  pt: "O método, passo a passo — Como trabalhamos",
+};
+const METHOD_ARTICLE_TITLE: Record<Lang, string> = {
+  en: "Our method",
+  it: "Il nostro metodo",
+  pt: "Nosso método",
+};
+
 function partnerText(source: string, index: number): string {
   let chunk = chunkBetween(source, PARTNER_MARKERS, index);
   if (!chunk) return "";
