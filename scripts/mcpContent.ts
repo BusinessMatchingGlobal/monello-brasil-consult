@@ -133,6 +133,7 @@ export function mcpContentPlugin(): Plugin {
     };
     write1("articles.json", { generatedAt: null, articles: buildArticleContent() });
     write1("services.json", { generatedAt: null, services: buildServiceContent() });
+    write1("method.json", { generatedAt: null, method: buildMethodContent() });
   };
   return {
     name: "bmg-mcp-content",
