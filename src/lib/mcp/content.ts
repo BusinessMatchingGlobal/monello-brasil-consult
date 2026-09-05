@@ -121,7 +121,7 @@ export function normalize(value: string): string {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
-/** Simple keyword scoring over title + body. */
+/** Simple keyword scoring over title + body. Mirrors _shared/bmg-content.ts. */
 export function scoreArticle(article: ArticleContent, query: string): number {
   const terms = normalize(query).split(/\s+/).filter((t) => t.length > 2);
   if (!terms.length) return 0;
@@ -129,9 +129,12 @@ export function scoreArticle(article: ArticleContent, query: string): number {
   const text = normalize(article.text);
   let score = 0;
   for (const term of terms) {
-    if (title.includes(term)) score += 5;
+    const weight = term.length >= 6 ? 2 : 1;
+    if (title.includes(term)) score += 5 * weight;
     const matches = text.split(term).length - 1;
-    score += Math.min(matches, 10);
+    // Low frequency cap: common words must not saturate and tie with the
+    // documents that actually contain the query's rare terms.
+    if (matches > 0) score += (3 + Math.min(matches, 3)) * weight;
   }
   return score;
 }

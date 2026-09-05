@@ -91,9 +91,10 @@ function scoreArticle(article, query) {
   const text = normalize(article.text);
   let score = 0;
   for (const term of terms) {
-    if (title.includes(term)) score += 5;
+    const weight = term.length >= 6 ? 2 : 1;
+    if (title.includes(term)) score += 5 * weight;
     const matches = text.split(term).length - 1;
-    score += Math.min(matches, 10);
+    if (matches > 0) score += (3 + Math.min(matches, 3)) * weight;
   }
   return score;
 }
