@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useT } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { Nav, ContactForm } from "./AboutUs";
+import { MethodArticle, methodTitle } from "./Method";
 
 type MethodBlockData = {
   title: string;
@@ -122,7 +123,7 @@ const blocksPt: MethodBlockData[] = [
 ];
 
 export default function HowWeWork() {
-  const { lang } = useT();
+  const { t, lang } = useT();
   const seo =
     lang === "it"
       ? {
@@ -155,6 +156,32 @@ export default function HowWeWork() {
             <MethodBlock key={i} block={b} />
           ))}
         </article>
+
+        <section className="mt-16 pt-12 border-t border-border">
+          <h2 className="font-display text-3xl md:text-4xl mb-10 text-foreground">
+            {lang === "en"
+              ? "The method, step by step"
+              : lang === "pt"
+                ? "O método, passo a passo"
+                : "Il metodo, passo per passo"}
+          </h2>
+
+          <h3 className="font-display text-xl md:text-2xl mb-6 text-foreground">{t.how.title}</h3>
+          <div className="space-y-8">
+            {t.how.steps.map(([title, body], i) => (
+              <div key={title}>
+                <div className="text-amber font-display text-3xl mb-1">0{i + 1}</div>
+                <h4 className="font-display text-lg mb-2">{title}</h4>
+                <p className="text-base leading-relaxed text-muted-foreground whitespace-pre-line">{body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-10 border-l-2 border-amber pl-5 font-display text-lg md:text-xl">{t.how.note}</p>
+
+          <h3 className="font-display text-2xl md:text-3xl mt-16 mb-6 text-foreground">{methodTitle(lang)}</h3>
+          <MethodArticle />
+        </section>
+
         <ContactForm />
       </div>
     </div>
