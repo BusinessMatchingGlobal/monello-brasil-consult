@@ -261,6 +261,51 @@ const blocksPt: Block[] = [
   { type: "p", text: "Os pareceres jurídicos e tributários são emitidos por profissionais habilitados em seus respectivos ordenamentos, selecionados por nós para o caso concreto e acostumados a trabalhar entre Brasil e Europa; respondem diretamente ao cliente. Nós sustentamos o desenho." },
 ];
 
+export function MethodArticle() {
+  const { lang } = useT();
+  const blocks = lang === "en" ? blocksEn : lang === "pt" ? blocksPt : blocksIt;
+  return (
+    <article className="space-y-6">
+      {blocks.map((b, i) =>
+        b.type === "h2" ? (
+          <h3 key={i} className="font-display text-xl md:text-2xl mt-10 mb-2 text-foreground">
+            {b.text}
+          </h3>
+        ) : b.type === "li" ? (
+          <p
+            key={i}
+            className="text-base md:text-lg leading-relaxed text-muted-foreground text-justify pl-5 border-l-2 border-border"
+          >
+            {b.text}
+          </p>
+        ) : (
+          <p key={i} className="text-base md:text-lg leading-relaxed text-muted-foreground text-justify">
+            {b.link && b.text.includes(b.link.text) ? (
+              <>
+                {b.text.slice(0, b.text.indexOf(b.link.text))}
+                <Link to={b.link.href} className="text-primary underline hover:text-primary/80 transition-colors">
+                  {b.link.text}
+                </Link>
+                {b.text.slice(b.text.indexOf(b.link.text) + b.link.text.length)}
+              </>
+            ) : (
+              b.text
+            )}
+          </p>
+        )
+      )}
+    </article>
+  );
+}
+
+export function methodTitle(lang: string) {
+  return lang === "en"
+    ? "Transfer the method, not just the product"
+    : lang === "pt"
+      ? "Transferir o método, não apenas o produto"
+      : "Trasferire il metodo, non solo il prodotto";
+}
+
 export default function Method() {
   const { lang } = useT();
   const isEn = lang === "en";

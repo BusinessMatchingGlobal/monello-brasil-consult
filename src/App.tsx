@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
@@ -13,7 +13,6 @@ import HowWeWork from "./pages/HowWeWork";
 import PartnerProgram from "./pages/PartnerProgram";
 import OurServices from "./pages/OurServices";
 import Ethics from "./pages/Ethics";
-import Method from "./pages/Method";
 import BusinessMatchingService from "./pages/servizi/BusinessMatching";
 import BusinessMatchingServiceBR from "./pages/servicos/BusinessMatching";
 import BusinessMatchingServiceEN from "./pages/services/BusinessMatching";
@@ -103,8 +102,8 @@ const App = () => {
             <Route path="/partner_program" element={<PartnerProgram />} />
             <Route path="/ethics" element={<Ethics />} />
             <Route path="/Ethics" element={<Ethics />} />
-            <Route path="/method" element={<Method />} />
-            <Route path="/Method" element={<Method />} />
+            <Route path="/method" element={<Navigate to="/How_we_work" replace />} />
+            <Route path="/Method" element={<Navigate to="/How_we_work" replace />} />
             <Route path="/Our_Services" element={<OurServices />} />
             <Route path="/our_services" element={<OurServices />} />
             <Route path="/servizi/business-matching" element={<BusinessMatchingService />} />

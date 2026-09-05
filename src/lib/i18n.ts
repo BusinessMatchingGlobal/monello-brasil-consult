@@ -7,7 +7,7 @@ type Dict = typeof translations.en;
 
 export const translations = {
   en: {
-    nav: { home: "Home", servicesLink: "How can we help you?", services: "Services", howWeWork: "How we work", partnerProgram: "Partner Program", how: "How it works", method: "Our method", about: "Who we are", ethics: "Code of Ethics", travel: "Business Travel", news: "Ebook", analysis: "Analysis", analysisAll: "All articles →", contact: "Contact" },
+    nav: { home: "Home", servicesLink: "How can we help you?", services: "Services", howWeWork: "How we work", partnerProgram: "Partner Program", how: "How it works", method: "Our method", about: "Who we are", ethics: "Code of Ethics", travel: "Business Travel", news: "Ebook", analysis: "Analysis", analysisAll: "All articles →", resources: "Resources", aboutGroup: "About", contact: "Contact" },
     hero: {
       title: "From the first data point to the first contact in Brazil.",
       sub: "We help companies, export managers and professional advisors assess the Brazilian market, verify counterparts and turn an opportunity into a commercial relationship.",
@@ -188,7 +188,7 @@ export const translations = {
     },
   },
   it: {
-    nav: { home: "Home", servicesLink: "Come possiamo aiutarti?", services: "Servizi", howWeWork: "Come lavoriamo", partnerProgram: "Partner Program", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", ethics: "Codice Etico", travel: "Business Travel", news: "Ebook", analysis: "Analisi", analysisAll: "Tutti gli articoli →", contact: "Contatti" },
+    nav: { home: "Home", servicesLink: "Come possiamo aiutarti?", services: "Servizi", howWeWork: "Come lavoriamo", partnerProgram: "Partner Program", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", ethics: "Codice Etico", travel: "Business Travel", news: "Ebook", analysis: "Analisi", analysisAll: "Tutti gli articoli →", resources: "Risorse", aboutGroup: "Chi siamo", contact: "Contatti" },
     hero: {
       title: "Dal primo dato al primo contatto in Brasile.",
       sub: "Aiutiamo aziende, export manager e professionisti a capire il mercato brasiliano, verificare le controparti giuste e trasformare un'opportunità in un rapporto commerciale.",
@@ -369,7 +369,7 @@ export const translations = {
     },
   },
   pt: {
-    nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", howWeWork: "Como trabalhamos", partnerProgram: "Partner Program", how: "Como funciona", method: "Nosso método", about: "Quem somos", ethics: "Código de Ética", travel: "Business Travel", news: "Ebook", analysis: "Análises", analysisAll: "Todos os artigos →", contact: "Contato" },
+    nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", howWeWork: "Como trabalhamos", partnerProgram: "Partner Program", how: "Como funciona", method: "Nosso método", about: "Quem somos", ethics: "Código de Ética", travel: "Business Travel", news: "Ebook", analysis: "Análises", analysisAll: "Todos os artigos →", resources: "Recursos", aboutGroup: "Quem somos", contact: "Contato" },
     hero: {
       title: "Da inteligência de mercado às conversas certas na Europa.",
       sub: "Ajudamos empresas, export managers e profissionais a avaliar mercados europeus, verificar contrapartes e transformar uma oportunidade em relação comercial.",

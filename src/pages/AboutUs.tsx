@@ -1,7 +1,6 @@
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Menu, X, Mail } from "lucide-react";
-import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
+import { ArrowRight, Menu, X, Mail, ChevronDown } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { Button } from "@/components/ui/button";
@@ -41,6 +40,152 @@ function LangSwitcher() {
   );
 }
 
+type NavItem = {
+  href: string;
+  label: string;
+  internal?: boolean;
+  external?: boolean;
+  children?: Array<{ href: string; label: string; internal?: boolean; external?: boolean }>;
+};
+
+function NavDropdown({
+  label,
+  items,
+  variant,
+  onNavigate,
+}: {
+  label: string;
+  items: Array<{ href: string; label: string; internal?: boolean; external?: boolean }>;
+  variant: "desktop" | "mobile";
+  onNavigate?: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (variant !== "desktop") return;
+    const onDoc = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, [variant]);
+
+  const renderItem = (
+    it: { href: string; label: string; internal?: boolean; external?: boolean },
+    className: string
+  ) =>
+    it.external ? (
+      <a
+        key={it.href}
+        href={it.href}
+        target="_blank"
+        rel="noopener"
+        onClick={() => {
+          setOpen(false);
+          onNavigate?.();
+        }}
+        className={className}
+      >
+        {it.label}
+      </a>
+    ) : (
+      <Link
+        key={it.href}
+        to={it.href}
+        onClick={() => {
+          setOpen(false);
+          onNavigate?.();
+        }}
+        className={className}
+      >
+        {it.label}
+      </Link>
+    );
+
+  if (variant === "mobile") {
+    return (
+      <div className="flex flex-col">
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="flex items-center justify-between text-base py-2"
+          aria-expanded={open}
+        >
+          <span>{label}</span>
+          <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
+        </button>
+        {open && (
+          <div className="flex flex-col gap-2 pl-3 pb-2 border-l border-border/60">
+            {items.map((it) => renderItem(it, "text-sm py-1 text-foreground/80"))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        onMouseEnter={() => setOpen(true)}
+        className="flex items-center gap-1 text-sm text-foreground/75 hover:text-foreground transition-colors"
+        aria-haspopup="menu"
+        aria-expanded={open}
+      >
+        {label}
+        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div
+          onMouseLeave={() => setOpen(false)}
+          className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-border/60 bg-background/95 backdrop-blur-md shadow-lg p-2 z-50"
+          role="menu"
+        >
+          {items.map((it) =>
+            renderItem(
+              it,
+              "block px-3 py-2 rounded-lg text-sm text-foreground/85 hover:bg-foreground/5 hover:text-foreground"
+            )
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function useNavLinks(): NavItem[] {
+  const { t } = useT();
+  return [
+    { href: "/Our_Services", label: t.nav.services, internal: true },
+    { href: "/How_we_work", label: t.nav.howWeWork, internal: true },
+    { href: "/Partner_Program", label: t.nav.partnerProgram, internal: true },
+    {
+      href: "__resources__",
+      label: t.nav.resources,
+      children: [
+        { href: "/analysis", label: t.nav.analysis, internal: true },
+        { href: "/news", label: t.nav.news, internal: true },
+        { href: "/BT", label: t.nav.travel, internal: true },
+      ],
+    },
+    {
+      href: "https://www.linkedin.com/company/109746306/admin/page-posts/published/",
+      label: "#Custo Brasil",
+      external: true,
+    },
+    {
+      href: "__about__",
+      label: t.nav.aboutGroup,
+      children: [
+        { href: "/About_us", label: t.nav.about, internal: true },
+        { href: "/ethics", label: t.nav.ethics, internal: true },
+      ],
+    },
+  ];
+}
+
 export function Nav() {
   const { t } = useT();
   const [open, setOpen] = useState(false);
@@ -53,20 +198,8 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links: Array<{ href: string; label: string; internal?: boolean; external?: boolean }> = [
-    { href: "/", label: t.nav.home, internal: true },
-    { href: "/Our_Services", label: t.nav.servicesLink, internal: true },
-    { href: "/How_we_work", label: t.nav.howWeWork, internal: true },
-    { href: "/Partner_Program", label: t.nav.partnerProgram, internal: true },
-    { href: "/#how", label: t.nav.how },
-    { href: "/method", label: t.nav.method, internal: true },
-    { href: "/About_us", label: t.nav.about, internal: true },
-    { href: "/ethics", label: t.nav.ethics, internal: true },
-    { href: "/BT", label: t.nav.travel, internal: true },
-    { href: "/news", label: t.nav.news, internal: true },
-    { href: "__analysis__", label: t.nav.analysis, analysis: true } as any,
-    { href: "https://www.linkedin.com/company/109746306/admin/page-posts/published/", label: "#Custo Brasil", external: true },
-  ];
+  const links = useNavLinks();
+
 
   return (
     <header
@@ -84,8 +217,8 @@ export function Nav() {
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l: any) =>
-            l.analysis ? (
-              <AnalysisNavMenu key="analysis-desktop" variant="desktop" />
+            l.children ? (
+              <NavDropdown key={l.href} label={l.label} items={l.children} variant="desktop" />
             ) : l.internal ? (
               <Link
                 key={l.href}
@@ -131,9 +264,11 @@ export function Nav() {
         <div className="md:hidden border-t border-border/60 bg-background">
           <div className="container py-4 flex flex-col gap-4">
             {links.map((l: any) =>
-              l.analysis ? (
-                <AnalysisNavMenu
-                  key="analysis-mobile"
+              l.children ? (
+                <NavDropdown
+                  key={l.href}
+                  label={l.label}
+                  items={l.children}
                   variant="mobile"
                   onNavigate={() => setOpen(false)}
                 />

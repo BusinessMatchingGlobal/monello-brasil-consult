@@ -60,145 +60,7 @@ function LangSwitcher() {
   );
 }
 
-function Nav() {
-  const { t, lang } = useT();
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const links: Array<{ href: string; label: string; internal?: boolean; external?: boolean }> = [
-    { href: "#top", label: t.nav.home },
-    { href: "/Our_Services", label: t.nav.servicesLink, internal: true },
-    { href: "/How_we_work", label: t.nav.howWeWork, internal: true },
-    { href: "/Partner_Program", label: t.nav.partnerProgram, internal: true },
-    { href: "#how", label: t.nav.how },
-    { href: "/method", label: t.nav.method, internal: true },
-    { href: "/About_us", label: t.nav.about, internal: true },
-    { href: "/ethics", label: t.nav.ethics, internal: true },
-    { href: "/BT", label: t.nav.travel, internal: true },
-    { href: "/news", label: t.nav.news, internal: true },
-    { href: "__analysis__", label: t.nav.analysis, analysis: true } as any,
-    { href: "https://www.linkedin.com/company/109746306/admin/page-posts/published/", label: "#Custo Brasil", external: true },
-  ];
-
-  return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/85 backdrop-blur-md border-b border-border/60" : "bg-transparent"
-      }`}
-    >
-      <div className="container flex h-16 md:h-20 items-center justify-between">
-        <a href="#top" className="flex items-center" aria-label="Business Matching Global">
-          <img
-            src={logoBMG.url}
-            alt="Business Matching Global"
-            className="h-11 md:h-13 w-auto"
-          />
-        </a>
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map((l: any) =>
-            l.analysis ? (
-              <AnalysisNavMenu key="analysis-desktop" variant="desktop" />
-            ) : l.internal ? (
-              <Link
-                key={l.href}
-                to={l.href}
-                className="text-sm text-foreground/75 hover:text-foreground transition-colors"
-              >
-                {l.label}
-              </Link>
-            ) : l.external ? (
-              <a
-                key={l.href}
-                href={l.href}
-                target="_blank"
-                rel="noopener"
-                className="text-sm text-foreground/75 hover:text-foreground transition-colors"
-              >
-                {l.label}
-              </a>
-            ) : (
-              <a
-                key={l.href}
-                href={l.href}
-                className="text-sm text-foreground/75 hover:text-foreground transition-colors"
-              >
-                {l.label}
-              </a>
-            )
-          )}
-          <LangSwitcher />
-          <Button asChild size="sm" className="rounded-full">
-            <a href="#contact">{t.nav.contact}</a>
-          </Button>
-        </nav>
-        <button
-          className="md:hidden p-2 -mr-2"
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
-      </div>
-      {open && (
-        <div className="md:hidden border-t border-border/60 bg-background">
-          <div className="container py-4 flex flex-col gap-4">
-            {links.map((l: any) =>
-              l.analysis ? (
-                <AnalysisNavMenu
-                  key="analysis-mobile"
-                  variant="mobile"
-                  onNavigate={() => setOpen(false)}
-                />
-              ) : l.internal ? (
-                <Link
-                  key={l.href}
-                  to={l.href}
-                  onClick={() => setOpen(false)}
-                  className="text-base py-2"
-                >
-                  {l.label}
-                </Link>
-              ) : l.external ? (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  target="_blank"
-                  rel="noopener"
-                  onClick={() => setOpen(false)}
-                  className="text-base py-2"
-                >
-                  {l.label}
-                </a>
-              ) : (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="text-base py-2"
-                >
-                  {l.label}
-                </a>
-              )
-            )}
-            <div className="flex items-center justify-between pt-2 border-t border-border/60">
-              <LangSwitcher />
-              <Button asChild size="sm" className="rounded-full" onClick={() => setOpen(false)}>
-                <a href="#contact">{t.nav.contact}</a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
-    </header>
-  );
-}
+import { Nav } from "./AboutUs";
 
 function Hero() {
   const { t, lang } = useT();
@@ -775,15 +637,44 @@ function FooterInner() {
           </div>
           <p className="text-sm text-muted-foreground mt-1">{t.footer.tag}</p>
         </div>
-        <div className="flex items-center gap-5 text-sm">
-          <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.footer.privacy}
+        <div className="flex flex-wrap items-center gap-5 text-sm">
+          <Link to="/Our_Services" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.services}
           </Link>
           <Link to="/How_we_work" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.howWeWork}
           </Link>
           <Link to="/Partner_Program" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.partnerProgram}
+          </Link>
+          <Link to="/analysis" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.analysis}
+          </Link>
+          <Link to="/news" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.news}
+          </Link>
+          <Link to="/BT" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.travel}
+          </Link>
+          <a
+            href="https://www.linkedin.com/company/109746306/admin/page-posts/published/"
+            target="_blank"
+            rel="noopener"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            #Custo Brasil
+          </a>
+          <Link to="/About_us" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.about}
+          </Link>
+          <Link to="/ethics" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.ethics}
+          </Link>
+          <a href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.nav.contact}
+          </a>
+          <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.footer.privacy}
           </Link>
           {lang === "en" && (
             <a
