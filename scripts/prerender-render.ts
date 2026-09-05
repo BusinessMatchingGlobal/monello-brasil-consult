@@ -33,12 +33,33 @@ export async function renderTargets(targets: RenderTarget[]): Promise<number> {
     plugins: [],
   });
 
+  // Rendered pages schedule timers/intervals that would keep the build process
+  // alive forever. Track everything scheduled while rendering and clear it after.
+  const timers = new Set<NodeJS.Timeout>();
+  const realSetTimeout = globalThis.setTimeout;
+  const realSetInterval = globalThis.setInterval;
+  (globalThis as Record<string, unknown>).setTimeout = ((...args: unknown[]) => {
+    const id = (realSetTimeout as (...a: unknown[]) => NodeJS.Timeout)(...args);
+    timers.add(id);
+    return id;
+  }) as typeof setTimeout;
+  (globalThis as Record<string, unknown>).setInterval = ((...args: unknown[]) => {
+    const id = (realSetInterval as (...a: unknown[]) => NodeJS.Timeout)(...args);
+    timers.add(id);
+    return id;
+  }) as typeof setInterval;
+
   let rendered = 0;
+  const deadline = Date.now() + Number(process.env.BMG_PRERENDER_BUDGET_MS ?? 480_000);
   try {
     const mod = (await server.ssrLoadModule("/src/prerender.tsx")) as {
       renderPage: () => Promise<{ html: string; head: string; title: string }>;
     };
     for (const target of targets) {
+      if (Date.now() > deadline) {
+        console.warn(`[prerender] time budget exhausted after ${rendered}/${targets.length} pages`);
+        break;
+      }
       try {
         dom.reconfigure({ url: "https://businessmatching.global" + target.url });
         dom.window.document.getElementById("root")!.innerHTML = "";
@@ -52,12 +73,28 @@ export async function renderTargets(targets: RenderTarget[]): Promise<number> {
       }
     }
   } finally {
+    globalThis.setTimeout = realSetTimeout;
+    globalThis.setInterval = realSetInterval;
+    for (const id of timers) {
+      try {
+        clearTimeout(id);
+        clearInterval(id);
+      } catch {
+        // Best effort: a already-fired timer cannot be cleared.
+      }
+    }
+    timers.clear();
     try {
       await server.close();
     } catch {
       // Closing the throwaway SSR server must never fail the build.
     }
-    dom.window.close();
+    try {
+      dom.window.close();
+    } catch {
+      // Ignore teardown errors from externally mutated DOM.
+    }
   }
   return rendered;
 }
+
