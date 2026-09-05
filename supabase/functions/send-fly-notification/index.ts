@@ -7,7 +7,7 @@ import { sendTemplateEmailLogged } from '../_shared/transactional-email-template
 // issued by fly-session-init, so the fly-contact-notification template (which
 // carries free-text form data) cannot be triggered by arbitrary internet
 // callers. Signed download URLs for uploaded documents are generated here
-// with the service role, then handed to send-transactional-email as
+// with the service role, then included in the notification email as
 // pre-signed https URLs — the client never calls the signing function.
 
 const BUCKET = 'fly-documents'
