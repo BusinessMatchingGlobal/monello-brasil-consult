@@ -184,6 +184,17 @@ export default function BusinessMatchingBR() {
           <div className="container max-w-5xl">
             <h2 className="font-display text-2xl md:text-3xl text-background mb-10">Como trabalhamos</h2>
             <div className="grid md:grid-cols-2 gap-6">
+              <Link
+                to="/How_we_work"
+                className="p-6 md:p-7 rounded-2xl bg-background/[0.04] border border-background/10 hover:bg-background/[0.08] transition-colors block"
+              >
+                <span className="text-xs tracking-wider uppercase text-primary">00 —</span>
+                <h3 className="font-display text-xl md:text-2xl text-background mt-1 mb-3">Fase zero</h3>
+                <p className="text-background/70 leading-relaxed text-justify">
+                  Antes de procurar contrapartes, verificamos quem é dono do quê e alinhamos o papel aos acordos
+                  reais. Um acordo que não se sustenta nos dois ordenamentos não é um acordo.
+                </p>
+              </Link>
               {steps.map(([title, body], i) => (
                 <div
                   key={title}
