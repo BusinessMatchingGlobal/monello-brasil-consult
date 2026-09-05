@@ -97,6 +97,9 @@ function Hero() {
               {t.hero.cta1} <ArrowRight className="ml-1 h-4 w-4" />
             </a>
           </Button>
+          <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-6">
+            <Link to="/Our_Services">{t.hero.ctaAsk}</Link>
+          </Button>
           <Button asChild size="lg" variant="ghost" className="rounded-full h-12 px-6">
             <a href="#services">{t.hero.cta2}</a>
           </Button>
@@ -121,6 +124,31 @@ function Hero() {
             {t.hero.linkedin}
           </a>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function CredibilityStrip() {
+  const { t } = useT();
+  return (
+    <section className="border-y border-border/60 bg-muted/30">
+      <div className="container max-w-5xl py-5">
+        <Link to="/About_us" className="block group">
+          <p className="text-sm text-foreground/80 group-hover:text-foreground transition-colors">
+            {t.credibility.line}
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {t.credibility.badges.map((b) => (
+              <span
+                key={b}
+                className="inline-flex items-center rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground"
+              >
+                {b}
+              </span>
+            ))}
+          </div>
+        </Link>
       </div>
     </section>
   );
@@ -919,6 +947,7 @@ export default function Index() {
       <Nav />
       <main>
         <Hero />
+      <CredibilityStrip />
         <Problem />
         <Services />
         <PartnerProgramBanner />

@@ -172,7 +172,6 @@ export function useNavLinks(): NavItem[] {
         { href: "/analysis", label: t.nav.analysis, internal: true },
 
         { href: "/news", label: t.nav.news, internal: true },
-        { href: "/BT", label: t.nav.travel, internal: true },
       ],
     },
     {

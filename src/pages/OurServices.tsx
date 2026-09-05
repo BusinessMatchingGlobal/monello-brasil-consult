@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { trackContactForm } from "@/lib/analytics";
 import { ServiceRequestDialog } from "@/components/ServiceRequestDialog";
+import { SampleReportBlock } from "@/components/SampleReportBlock";
 import { getServicesCatalog, type ServiceItem } from "@/data/servicesCatalog";
 import type { FormEvent } from "react";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
@@ -76,6 +77,8 @@ function ServiceCard({ item, onRequest }: { item: ServiceItem; onRequest: (n: st
       >
         {servicesIntro.more} <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
+
+      <SampleReportBlock url={item.sampleReport} className="mb-5" />
 
       <div className="mt-auto pt-5 border-t border-background/10 flex items-center justify-between gap-4 flex-wrap">
         <span className="text-sm text-background/80">{item.price}</span>

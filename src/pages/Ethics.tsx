@@ -145,7 +145,7 @@ const blocksIt: Block[] = [
   { type: "p", text: "Il presente Codice ha natura di impegno volontario e si affianca, senza sostituirli, agli obblighi derivanti da contratti, mandati, accordi di riservatezza e dalla normativa applicabile, che restano in ogni caso prevalenti." },
   { type: "p", text: "Il Codice viene riesaminato periodicamente per mantenerlo coerente con l'evoluzione delle nostre attività, delle tecnologie utilizzate e delle normative applicabili." },
   { type: "p", text: "Versione in vigore dal 1º agosto 2026." },
-  { type: "p", text: "Business Matching Global — Dal primo insight al primo affare.", italic: true },
+  { type: "p", text: "Business Matching Global — Dal primo insight alla prima conversazione commerciale.", italic: true },
 ];
 
 const blocksEn: Block[] = [
@@ -283,7 +283,7 @@ const blocksEn: Block[] = [
   { type: "p", text: "This Code is a voluntary commitment. It complements, but does not replace, the obligations arising from contracts, mandates, confidentiality agreements and applicable law, which prevail in all cases." },
   { type: "p", text: "The Code is reviewed periodically to keep it consistent with the evolution of our activities, the technologies we use and the applicable regulations." },
   { type: "p", text: "Version effective from August 2026.", italic: true },
-  { type: "p", text: "Business Matching Global — From the first insight to the first deal.", italic: true },
+  { type: "p", text: "Business Matching Global — From the first insight to the first business conversation.", italic: true },
 ];
 
 const blocksPt: Block[] = [
@@ -421,7 +421,7 @@ const blocksPt: Block[] = [
   { type: "p", text: "Este Código tem natureza de compromisso voluntário e complementa, sem substituí-las, as obrigações decorrentes de contratos, mandatos, acordos de confidencialidade e da legislação aplicável, que prevalecem em qualquer caso." },
   { type: "p", text: "O Código é revisado periodicamente para mantê-lo coerente com a evolução de nossas atividades, das tecnologias utilizadas e da legislação aplicável." },
   { type: "p", text: "Versão em vigor desde agosto de 2026.", italic: true },
-  { type: "p", text: "Business Matching Global — Do primeiro insight ao primeiro negócio.", italic: true },
+  { type: "p", text: "Business Matching Global — Do primeiro insight à primeira conversa de negócios.", italic: true },
 ];
 
 export default function Ethics() {

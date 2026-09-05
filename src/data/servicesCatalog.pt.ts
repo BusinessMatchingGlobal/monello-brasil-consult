@@ -117,6 +117,7 @@ export const serviceGroupsPT: ServiceGroup[] = [
     items: [
       {
         name: "Competitor Snapshot",
+        sampleReport: "/sample-report",
         tagline: "Quem já está no mercado que você quer alcançar.",
         bullets: [
           "Principais concorrentes no mercado-alvo",
@@ -134,6 +135,7 @@ export const serviceGroupsPT: ServiceGroup[] = [
       },
       {
         name: "Opportunity Scan",
+        sampleReport: "/sample-report",
         tagline: "Seu produto tem espaço naquele mercado?",
         bullets: [
           "Mercado, importações e concorrentes",
@@ -151,6 +153,7 @@ export const serviceGroupsPT: ServiceGroup[] = [
       },
       {
         name: "Análise de Mercado",
+        sampleReport: "/sample-report",
         tagline: "Entenda o mercado antes de entrar nele.",
         bullets: [
           "Tamanho e características do mercado para o seu produto ou setor",
