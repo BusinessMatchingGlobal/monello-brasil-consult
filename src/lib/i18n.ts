@@ -2,6 +2,8 @@ import { createContext, useContext, useState, useEffect, ReactNode, createElemen
 
 export type { Lang } from "./lang";
 import type { Lang } from "./lang";
+import { detectLangFromPath, pathForLang, stripLangPrefix } from "./langPath";
+
 
 type Dict = typeof translations.en;
 
@@ -554,28 +556,58 @@ export const translations = {
 type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: Dict };
 const LanguageContext = createContext<Ctx | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(() => {
+/**
+ * The active language comes from the URL: English at the root, Italian under
+ * /it and Portuguese under /pt. Switching language navigates to the twin URL,
+ * so every language version is a real, indexable address.
+ */
+export function LanguageProvider({ children, lang: langProp }: { children: ReactNode; lang?: Lang }) {
+  const [detected, setDetected] = useState<Lang>(() => {
+    if (langProp) return langProp;
     if (typeof window === "undefined") return "en";
-    const saved = localStorage.getItem("bmg-lang") as Lang | null;
-    if (saved && ["en", "it", "pt"].includes(saved)) return saved;
-    const browser = navigator.language.toLowerCase();
-    if (browser.startsWith("it")) return "it";
-    if (browser.startsWith("pt")) return "pt";
-    return "en";
+    return detectLangFromPath(window.location.pathname);
   });
+  const lang = langProp ?? detected;
 
   useEffect(() => {
-    localStorage.setItem("bmg-lang", lang);
+    if (typeof window === "undefined") return;
+    setDetected(detectLangFromPath(window.location.pathname));
+  }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("bmg-lang", lang);
+    } catch {
+      /* storage may be unavailable */
+    }
     document.documentElement.lang = lang;
   }, [lang]);
 
+  const setLang = (next: Lang) => {
+    if (typeof window === "undefined") return;
+    try {
+      localStorage.setItem("bmg-lang", next);
+    } catch {
+      /* ignore */
+    }
+    const target =
+      pathForLang(next, stripLangPrefix(window.location.pathname)) +
+      window.location.search +
+      window.location.hash;
+    if (target !== window.location.pathname + window.location.search + window.location.hash) {
+      window.location.assign(target);
+    } else {
+      setDetected(next);
+    }
+  };
+
   return createElement(
     LanguageContext.Provider,
-    { value: { lang, setLang: setLangState, t: translations[lang] as Dict } },
+    { value: { lang, setLang, t: translations[lang] as Dict } },
     children
   );
 }
+
 
 export function useT() {
   const ctx = useContext(LanguageContext);

@@ -70,6 +70,8 @@ import AsuncionBR from "./pages/analysis/Asuncion_BR";
 
 
 import { LanguageProvider } from "./lib/i18n";
+import { basenameForLang, detectLangFromPath } from "./lib/langPath";
+
 import { CookieConsent } from "./components/CookieConsent";
 import { AskBmgWidget } from "./components/AskBmgWidget";
 
@@ -81,13 +83,17 @@ const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => { initConsent(); }, []);
+  const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
+  const lang = detectLangFromPath(pathname);
+  const basename = basenameForLang(lang);
   return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <LanguageProvider>
-        <BrowserRouter>
+      <LanguageProvider lang={lang}>
+        <BrowserRouter basename={basename}>
+
           <CalliphoraDomainRouting />
           <Routes>
             <Route path="/" element={<Index />} />

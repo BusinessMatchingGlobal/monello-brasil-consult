@@ -7,12 +7,23 @@ import { useCanonical } from "@/lib/useCanonical";
 const TARGET = "https://www.linkedin.com/company/109746306/admin/page-posts/published/";
 
 export default function CustoBrasil() {
-  const { t } = useT();
+  const { t, lang } = useT();
   const [isNewsletter, setIsNewsletter] = useState(false);
   useCanonical("/custo-brasil", {
-    title: "#CustoBrasil — Newsletter | Business Matching Global",
-    description: "Iscriviti alla newsletter #CustoBrasil: analisi e aggiornamenti su costi, regolamentazione e opportunità di ingresso in Brasile.",
+    title:
+      lang === "it"
+        ? "#CustoBrasil — Newsletter | Business Matching Global"
+        : lang === "pt"
+        ? "#CustoBrasil — Newsletter | Business Matching Global"
+        : "#CustoBrasil — Newsletter | Business Matching Global",
+    description:
+      lang === "it"
+        ? "Iscriviti alla newsletter #CustoBrasil: analisi e aggiornamenti su costi, regolamentazione e opportunità di ingresso in Brasile."
+        : lang === "pt"
+        ? "Assine a newsletter #CustoBrasil: análises e atualizações sobre custos, regulação e oportunidades de negócios."
+        : "Join the #CustoBrasil newsletter: analysis and updates on costs, regulation and opportunities for entering Brazil.",
   });
+
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);

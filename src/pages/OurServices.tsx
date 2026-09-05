@@ -263,8 +263,13 @@ export default function OurServices() {
         ? "Nossos serviços — Business Matching Global"
         : "Our services — Business Matching Global",
     description:
-      "Dal controllo di una singola azienda al progetto completo di ingresso nel mercato: verifiche, analisi di mercato, ricerca buyer e business matching tra Europa, Brasile e America Latina.",
+      lang === "it"
+        ? "Dal controllo di una singola azienda al progetto completo di ingresso nel mercato: verifiche, analisi di mercato, ricerca buyer e business matching tra Europa, Brasile e America Latina."
+        : lang === "pt"
+        ? "Da verificação de uma única empresa ao projeto completo de entrada no mercado: checagens, análises de mercado, busca de buyers e business matching entre Europa, Brasil e América Latina."
+        : "From checking a single company to a full market-entry project: counterparty checks, market analysis, buyer search and business matching between Europe, Brazil and Latin America.",
   });
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
