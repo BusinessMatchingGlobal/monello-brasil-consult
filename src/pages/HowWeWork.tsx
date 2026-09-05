@@ -188,16 +188,16 @@ export default function HowWeWork() {
     lang === "it"
       ? {
           title: "Come lavoriamo — Business Matching Global",
-          description: "L'ordine è il primo prodotto da esportare.",
+          description: "Il fango non si scarta. Si setaccia. L'ordine è il primo prodotto da esportare.",
         }
       : lang === "pt"
       ? {
           title: "Como trabalhamos — Business Matching Global",
-          description: "A ordem é o primeiro produto a exportar.",
+          description: "A lama não se descarta. Peneira-se. A ordem é o primeiro produto a exportar.",
         }
       : {
           title: "How we work — Business Matching Global",
-          description: "Order is the first thing you export.",
+          description: "Mud is not discarded. It is sifted. Order is the first thing you export.",
         };
   useCanonical("/How_we_work", seo);
   useEffect(() => {
