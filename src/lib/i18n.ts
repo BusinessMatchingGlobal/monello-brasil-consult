@@ -11,11 +11,12 @@ export const translations = {
   en: {
     nav: { home: "Home", servicesLink: "How can we help you?", services: "Services", howWeWork: "How we work", partnerProgram: "Partner Program", how: "How it works", method: "Our method", about: "Who we are", ethics: "Code of Ethics", travel: "Business Travel", news: "Ebook", analysis: "Analysis", transferMethod: "Transfer the method", analysisAll: "All articles →", resources: "Resources", aboutGroup: "About", contact: "Contact" },
     hero: {
-      title: "From the first data point to the first contact in Brazil.",
-      sub: "We help companies, export managers and professional advisors assess the Brazilian market, verify counterparts and turn an opportunity into a commercial relationship.",
+      title: "Research is only the beginning.",
+      sub: "We help you understand the Brazilian market, identify the right companies and start the right business conversations.",
       areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Request a report",
       cta2: "See services",
+      ctaAsk: "Ask Brazil / Ask Europe — from €79",
       linkedin: "Follow Business Matching Global on LinkedIn for insights, reports and updates on Brazil.",
     },
     problem: {
@@ -74,7 +75,7 @@ export const translations = {
     },
     homeServices: {
       title: "How can we help you?",
-      subtitle: "From the first data point to the first contact.",
+      subtitle: "From the first insight to the first business conversation.",
       intro: "We verify companies, analyze markets, and identify potential customers, suppliers, and partners in Brazil, Europe, and other markets.",
       items: [
         { name: "Business Intelligence", desc: "Companies, competitors, markets, risks, and opportunities." },
@@ -129,6 +130,14 @@ export const translations = {
       link: "privacy notice",
       suffix: "and I consent to the processing of my personal data to receive a reply.",
       required: "You must accept the privacy notice to send your request.",
+    },
+    credibility: {
+      line: "Based in Brazil. European roots. Local professional network.",
+      badges: ["Member of ITALCAM São Paulo", "Member of Câmara de Comércio Italiana de Minas Gerais", "Member of Associazione Export Strategist"],
+    },
+    sampleBlock: {
+      title: "See what the deliverable looks like",
+      cta: "Open the sample report",
     },
     footer: {
       tag: "Market intelligence between Europe and Brazil.",
@@ -192,11 +201,12 @@ export const translations = {
   it: {
     nav: { home: "Home", servicesLink: "Come possiamo aiutarti?", services: "Servizi", howWeWork: "Come lavoriamo", partnerProgram: "Partner Program", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", ethics: "Codice Etico", travel: "Business Travel", news: "Ebook", analysis: "Analisi", transferMethod: "Trasferire il metodo", analysisAll: "Tutti gli articoli →", resources: "Risorse", aboutGroup: "Chi siamo", contact: "Contatti" },
     hero: {
-      title: "Dal primo dato al primo contatto in Brasile.",
-      sub: "Aiutiamo aziende, export manager e professionisti a capire il mercato brasiliano, verificare le controparti giuste e trasformare un'opportunità in un rapporto commerciale.",
+      title: "La ricerca è solo l'inizio.",
+      sub: "Ti aiutiamo a capire il mercato brasiliano, individuare le aziende giuste e avviare le conversazioni commerciali giuste.",
       areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Richiedi un report",
       cta2: "Scopri i servizi",
+      ctaAsk: "Ask Brazil / Ask Europe — da 79 €",
       linkedin: "Seguici su LinkedIn per approfondimenti e aggiornamenti sul Brasile →",
     },
     problem: {
@@ -255,7 +265,7 @@ export const translations = {
     },
     homeServices: {
       title: "Come possiamo aiutarti?",
-      subtitle: "Dal primo dato al primo contatto.",
+      subtitle: "Dal primo insight alla prima conversazione commerciale.",
       intro: "Verifichiamo aziende, analizziamo mercati e individuiamo potenziali clienti, fornitori e partner in Brasile, Europa e altri mercati.",
       items: [
         { name: "Business Intelligence", desc: "Aziende, concorrenti, mercati, rischi e opportunità." },
@@ -310,6 +320,14 @@ export const translations = {
       link: "informativa privacy",
       suffix: "e acconsento al trattamento dei miei dati personali per ricevere una risposta.",
       required: "Devi accettare l'informativa privacy per inviare la richiesta.",
+    },
+    credibility: {
+      line: "Con base in Brasile. Radici europee. Rete professionale locale.",
+      badges: ["Member of ITALCAM São Paulo", "Member of Câmara de Comércio Italiana de Minas Gerais", "Member of Associazione Export Strategist"],
+    },
+    sampleBlock: {
+      title: "Guarda com'è fatto il deliverable",
+      cta: "Apri il report di esempio",
     },
     footer: {
       tag: "Market intelligence tra Europa e Brasile.",
@@ -373,11 +391,12 @@ export const translations = {
   pt: {
     nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", howWeWork: "Como trabalhamos", partnerProgram: "Partner Program", how: "Como funciona", method: "Nosso método", about: "Quem somos", ethics: "Código de Ética", travel: "Business Travel", news: "Ebook", analysis: "Análises", transferMethod: "Transferir o método", analysisAll: "Todos os artigos →", resources: "Recursos", aboutGroup: "Quem somos", contact: "Contato" },
     hero: {
-      title: "Da inteligência de mercado às conversas certas na Europa.",
-      sub: "Ajudamos empresas, export managers e profissionais a avaliar mercados europeus, verificar contrapartes e transformar uma oportunidade em relação comercial.",
+      title: "A pesquisa é só o começo.",
+      sub: "Ajudamos você a entender o mercado brasileiro, identificar as empresas certas e iniciar as conversas de negócios certas.",
       areas: "Business Intelligence · Busca de Compradores e Fornecedores · Import/Export · Business Matching",
       cta1: "Solicite um relatório",
       cta2: "Ver serviços",
+      ctaAsk: "Ask Brazil / Ask Europe — a partir de €79",
       linkedin: "Acompanhe a Business Matching Global no LinkedIn para acessar análises, relatórios e atualizações sobre o Brasil.",
     },
     problem: {
@@ -436,7 +455,7 @@ export const translations = {
     },
     homeServices: {
       title: "Como podemos ajudar?",
-      subtitle: "Do primeiro dado ao primeiro contato.",
+      subtitle: "Do primeiro insight à primeira conversa de negócios.",
       intro: "Verificamos empresas, analisamos mercados e identificamos potenciais clientes, fornecedores e parceiros no Brasil, na Europa e em outros mercados.",
       items: [
         { name: "Business Intelligence", desc: "Empresas, concorrentes, mercados, riscos e oportunidades." },
@@ -491,6 +510,14 @@ export const translations = {
       link: "aviso de privacidade",
       suffix: "e concordo com o tratamento dos meus dados pessoais para receber uma resposta.",
       required: "Você precisa aceitar o aviso de privacidade para enviar a solicitação.",
+    },
+    credibility: {
+      line: "Sediados no Brasil. Raízes europeias. Rede profissional local.",
+      badges: ["Member of ITALCAM São Paulo", "Member of Câmara de Comércio Italiana de Minas Gerais", "Member of Associazione Export Strategist"],
+    },
+    sampleBlock: {
+      title: "Veja como é a entrega",
+      cta: "Abrir o relatório de exemplo",
     },
     footer: {
       tag: "Market intelligence entre a Europa e o Brasil.",
