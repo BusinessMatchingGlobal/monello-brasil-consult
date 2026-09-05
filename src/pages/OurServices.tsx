@@ -37,7 +37,8 @@ function LangSwitcher() {
   );
 }
 
-export { Nav } from "./AboutUs";
+import { Nav } from "./AboutUs";
+export { Nav };
 
 function ServiceCard({ item, onRequest }: { item: ServiceItem; onRequest: (n: string) => void }) {
   const [open, setOpen] = useState(false);
