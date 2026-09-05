@@ -1,15 +1,20 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import type { Plugin } from "vite";
 import { LANGS, localizedPath, publicRoutes } from "./routes";
+import { renderTargets } from "./prerender-render";
 import type { RenderTarget } from "./prerender-shared";
 
 /**
  * Build-time prerenderer (orchestrator). Splits all public routes × languages
  * into shards rendered by parallel worker processes (scripts/prerender-worker.ts),
  * so the whole static site is written within the build's time budget.
+ *
+ * Workers need a runtime that executes TypeScript directly (bun). Deployment
+ * builds may run on plain Node, where spawning bun fails — in that case we
+ * render in-process instead of silently shipping an empty SPA shell.
  * Failures degrade gracefully: unrouted pages keep the SPA template.
  */
 export function prerenderPlugin(): Plugin {
@@ -32,6 +37,13 @@ export function prerenderPlugin(): Plugin {
         }
       }
 
+      if (!hasBun()) {
+        console.log(`[prerender] bun not available — rendering ${targets.length} pages in-process`);
+        const rendered = await renderTargets(targets);
+        console.log(`[prerender] wrote ${rendered}/${targets.length} pages (in-process)`);
+        return;
+      }
+
       const workers = Math.min(4, os.cpus().length || 2, targets.length);
       const shards: RenderTarget[][] = Array.from({ length: workers }, () => []);
       targets.forEach((t, i) => shards[i % workers].push(t));
@@ -50,8 +62,24 @@ export function prerenderPlugin(): Plugin {
           (failed ? ` — ${failed} worker(s) reported skips (SPA fallback for those URLs)` : ""),
       );
       fs.rmSync(tmpDir, { recursive: true, force: true });
+
+      // If every worker failed (e.g. the runtime cannot start), fall back to
+      // in-process rendering rather than deploying an empty shell.
+      if (failed === results.length) {
+        console.warn("[prerender] all workers failed — retrying in-process");
+        const rendered = await renderTargets(targets);
+        console.log(`[prerender] wrote ${rendered}/${targets.length} pages (in-process fallback)`);
+      }
     },
   };
+}
+
+function hasBun(): boolean {
+  try {
+    return spawnSync("bun", ["--version"], { stdio: "ignore" }).status === 0;
+  } catch {
+    return false;
+  }
 }
 
 function runWorker(shardFile: string): Promise<boolean> {
@@ -76,3 +104,4 @@ function runWorker(shardFile: string): Promise<boolean> {
     });
   });
 }
+
