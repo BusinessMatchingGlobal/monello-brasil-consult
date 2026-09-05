@@ -4,7 +4,7 @@ import { NEWSLETTER_FALLBACK_KEY } from "@/lib/consent";
 import { NewsletterInlineForm } from "@/components/NewsletterInlineForm";
 import { useCanonical } from "@/lib/useCanonical";
 
-const TARGET = "https://www.linkedin.com/company/109746306/admin/page-posts/published/";
+const TARGET = "https://www.linkedin.com/company/businessmatchingglobal";
 
 export default function CustoBrasil() {
   const { t, lang } = useT();

@@ -109,6 +109,33 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/How_we_work" />
   </url>
   <url>
+    <loc>https://businessmatching.global/Transfer_the_method</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Transfer_the_method" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Transfer_the_method" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Transfer_the_method" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Transfer_the_method" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/Transfer_the_method</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Transfer_the_method" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Transfer_the_method" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Transfer_the_method" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Transfer_the_method" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/Transfer_the_method</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Transfer_the_method" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Transfer_the_method" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Transfer_the_method" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Transfer_the_method" />
+  </url>
+  <url>
     <loc>https://businessmatching.global/Partner_Program</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

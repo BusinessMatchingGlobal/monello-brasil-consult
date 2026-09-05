@@ -302,7 +302,7 @@ export function methodTitle(lang: string) {
   return lang === "en"
     ? "Transfer the method, not just the product"
     : lang === "pt"
-      ? "Transferir o método, não apenas o produto"
+      ? "Transferir o método, não só o produto"
       : "Trasferire il metodo, non solo il prodotto";
 }
 
@@ -310,11 +310,11 @@ export default function Method() {
   const { lang } = useT();
   const isEn = lang === "en";
   const isPt = lang === "pt";
-  useCanonical("/method", {
+  useCanonical("/Transfer_the_method", {
     title: isEn
       ? "Transfer the method, not just the product | Business Matching Global"
       : isPt
-        ? "Transferir o método, não apenas o produto | Business Matching Global"
+        ? "Transferir o método, não só o produto | Business Matching Global"
         : "Trasferire il metodo, non solo il prodotto | Business Matching Global",
     description: isEn
       ? "Licence, royalties and technology transfer to Brazil: when it pays to manufacture locally instead of exporting, and how to protect the keystone."
@@ -336,7 +336,7 @@ export default function Method() {
           {isEn
             ? "Transfer the method, not just the product"
             : isPt
-              ? "Transferir o método, não apenas o produto"
+              ? "Transferir o método, não só o produto"
               : "Trasferire il metodo, non solo il prodotto"}
         </h1>
 

@@ -112,7 +112,7 @@ function Hero() {
         </div>
         <div className="mt-3">
           <a
-            href="https://www.linkedin.com/company/109746306/admin/dashboard/"
+            href="https://www.linkedin.com/company/businessmatchingglobal"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
@@ -662,7 +662,7 @@ function FooterInner() {
             {t.nav.travel}
           </Link>
           <a
-            href="https://www.linkedin.com/company/109746306/admin/page-posts/published/"
+            href="https://www.linkedin.com/company/businessmatchingglobal"
             target="_blank"
             rel="noopener"
             className="text-muted-foreground hover:text-foreground transition-colors"
@@ -813,7 +813,7 @@ function FooterInner() {
         <div className="container mt-8 pt-6 border-t border-border/40 text-xs text-muted-foreground">
           <p className="text-center text-sm font-medium text-foreground mb-4">{t.footer.memberOf}</p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-6">
-            <a href="https://www.italiabrasil.com.br" target="_blank" rel="noopener noreferrer">
+            <a href="https://italcam.com.br" target="_blank" rel="noopener noreferrer">
               <img src={italcamLogo.url} alt="Câmara de Comércio Italiana - Italcam Associado 2026" className="h-12 md:h-14 w-auto max-w-[260px] md:max-w-[320px] object-contain" />
             </a>
             <a href="https://www.italiabrasil.com.br" target="_blank" rel="noopener noreferrer">

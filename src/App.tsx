@@ -9,6 +9,7 @@ import Privacy from "./pages/Privacy";
 import SampleReport from "./pages/SampleReport";
 import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
+import Method from "./pages/Method";
 import HowWeWork from "./pages/HowWeWork";
 import PartnerProgram from "./pages/PartnerProgram";
 import OurServices from "./pages/OurServices";
@@ -109,8 +110,11 @@ const App = () => {
             <Route path="/partner_program" element={<PartnerProgram />} />
             <Route path="/ethics" element={<Ethics />} />
             <Route path="/Ethics" element={<Ethics />} />
-            <Route path="/method" element={<Navigate to="/How_we_work" replace />} />
-            <Route path="/Method" element={<Navigate to="/How_we_work" replace />} />
+            <Route path="/Transfer_the_method" element={<Method />} />
+            <Route path="/transfer_the_method" element={<Method />} />
+            <Route path="/method" element={<Navigate to="/Transfer_the_method" replace />} />
+            <Route path="/Method" element={<Navigate to="/Transfer_the_method" replace />} />
+
             <Route path="/Our_Services" element={<OurServices />} />
             <Route path="/our_services" element={<OurServices />} />
             <Route path="/servizi/business-matching" element={<BusinessMatchingService />} />
