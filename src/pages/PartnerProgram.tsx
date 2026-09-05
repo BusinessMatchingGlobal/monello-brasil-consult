@@ -292,6 +292,26 @@ export default function PartnerProgram() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "ld-partner-program-faq";
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      url: SITE + "/Partner_Program",
+      mainEntity: c.faqs.map(([q, a]) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    });
+    document.head.appendChild(el);
+    return () => {
+      el.remove();
+    };
+  }, [c]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
