@@ -1,171 +1,933 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://businessmatching.global/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/" />
   </url>
   <url>
     <loc>https://businessmatching.global/About_us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/About_us" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/About_us" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/About_us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/About_us" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/About_us</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/About_us" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/About_us" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/About_us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/About_us" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/About_us</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/About_us" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/About_us" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/About_us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/About_us" />
   </url>
   <url>
     <loc>https://businessmatching.global/Our_Services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Our_Services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Our_Services" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Our_Services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Our_Services" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/Our_Services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Our_Services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Our_Services" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Our_Services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Our_Services" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/Our_Services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Our_Services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Our_Services" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Our_Services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Our_Services" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/How_we_work</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/How_we_work" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/How_we_work" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/How_we_work" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/How_we_work" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/How_we_work</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/How_we_work" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/How_we_work" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/How_we_work" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/How_we_work" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/How_we_work</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/How_we_work" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/How_we_work" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/How_we_work" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/How_we_work" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/Partner_Program</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Partner_Program" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Partner_Program" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Partner_Program" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Partner_Program" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/Partner_Program</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Partner_Program" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Partner_Program" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Partner_Program" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Partner_Program" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/Partner_Program</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Partner_Program" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Partner_Program" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Partner_Program" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Partner_Program" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/ethics</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/ethics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/ethics" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/ethics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/ethics" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/ethics</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/ethics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/ethics" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/ethics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/ethics" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/ethics</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/ethics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/ethics" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/ethics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/ethics" />
   </url>
   <url>
     <loc>https://businessmatching.global/custo-brasil</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/custo-brasil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/custo-brasil" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/custo-brasil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/custo-brasil" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/custo-brasil</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/custo-brasil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/custo-brasil" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/custo-brasil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/custo-brasil" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/custo-brasil</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/custo-brasil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/custo-brasil" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/custo-brasil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/custo-brasil" />
   </url>
   <url>
     <loc>https://businessmatching.global/analysis</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/analysis" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/analysis" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/analysis" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/analysis" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/analysis</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/analysis" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/analysis" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/analysis" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/analysis" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/analysis</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/analysis" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/analysis" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/analysis" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/analysis" />
   </url>
   <url>
     <loc>https://businessmatching.global/news</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/news" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/news" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/news" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/news" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/news</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/news" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/news" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/news" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/news" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/news</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/news" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/news" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/news" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/news" />
   </url>
   <url>
     <loc>https://businessmatching.global/sace</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/sace" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/sace" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/sace" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/sace" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/sace</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/sace" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/sace" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/sace" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/sace" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/sace</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/sace" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/sace" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/sace" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/sace" />
   </url>
   <url>
     <loc>https://businessmatching.global/pharma</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/pharma" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/pharma" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/pharma" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/pharma" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/pharma</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/pharma" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/pharma" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/pharma" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/pharma" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/pharma</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/pharma" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/pharma" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/pharma" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/pharma" />
   </url>
   <url>
     <loc>https://businessmatching.global/eudr</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/eudr" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/eudr" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/eudr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/eudr" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/eudr</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/eudr" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/eudr" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/eudr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/eudr" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/eudr</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/eudr" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/eudr" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/eudr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/eudr" />
   </url>
   <url>
     <loc>https://businessmatching.global/BT</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/BT" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/BT" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/BT" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/BT" />
   </url>
   <url>
-    <loc>https://businessmatching.global/fly</loc>
+    <loc>https://businessmatching.global/it/BT</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/BT" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/BT" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/BT" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/BT" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/BT</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/BT" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/BT" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/BT" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/BT" />
   </url>
   <url>
     <loc>https://businessmatching.global/sample-report</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/sample-report" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/sample-report" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/sample-report" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/sample-report" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/sample-report</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/sample-report" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/sample-report" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/sample-report" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/sample-report" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/sample-report</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/sample-report" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/sample-report" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/sample-report" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/sample-report" />
   </url>
   <url>
     <loc>https://businessmatching.global/guides/doing-business-in-brazil</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/guides/doing-business-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/guides/doing-business-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/guides/doing-business-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/guides/doing-business-in-brazil" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/guides/doing-business-in-brazil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/guides/doing-business-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/guides/doing-business-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/guides/doing-business-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/guides/doing-business-in-brazil" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/guides/doing-business-in-brazil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/guides/doing-business-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/guides/doing-business-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/guides/doing-business-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/guides/doing-business-in-brazil" />
   </url>
   <url>
     <loc>https://businessmatching.global/servizi/business-matching</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/servizi/business-matching" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/business-matching" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servizi/business-matching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/servizi/business-matching" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/servizi/business-matching</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/servizi/business-matching" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/business-matching" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servizi/business-matching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/servizi/business-matching" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/servizi/business-matching</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/servizi/business-matching" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/business-matching" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servizi/business-matching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/servizi/business-matching" />
   </url>
   <url>
     <loc>https://businessmatching.global/servicos/business-matching</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/servicos/business-matching" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servicos/business-matching" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/business-matching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/servicos/business-matching" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/servicos/business-matching</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/servicos/business-matching" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servicos/business-matching" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/business-matching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/servicos/business-matching" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/servicos/business-matching</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/servicos/business-matching" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servicos/business-matching" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/business-matching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/servicos/business-matching" />
   </url>
   <url>
     <loc>https://businessmatching.global/services/business-matching</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/business-matching" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/services/business-matching" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/services/business-matching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/business-matching" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/services/business-matching</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/business-matching" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/services/business-matching" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/services/business-matching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/business-matching" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/services/business-matching</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/business-matching" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/services/business-matching" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/services/business-matching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/business-matching" />
   </url>
   <url>
     <loc>https://businessmatching.global/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/privacy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/privacy" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/privacy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/privacy" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/privacy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/privacy" />
   </url>
   <url>
     <loc>https://businessmatching.global/unsubscribe</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/unsubscribe" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/unsubscribe" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/unsubscribe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/unsubscribe" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/unsubscribe</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/unsubscribe" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/unsubscribe" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/unsubscribe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/unsubscribe" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/unsubscribe</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/unsubscribe" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/unsubscribe" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/unsubscribe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/unsubscribe" />
   </url>
   <url>
     <loc>https://businessmatching.global/bahia</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/bahia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/bahia" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/bahia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/bahia" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/bahia</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/bahia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/bahia" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/bahia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/bahia" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/bahia</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/bahia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/bahia" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/bahia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/bahia" />
   </url>
   <url>
     <loc>https://businessmatching.global/lima</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/lima" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/lima" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/lima" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/lima" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/lima</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/lima" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/lima" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/lima" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/lima" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/lima</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/lima" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/lima" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/lima" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/lima" />
   </url>
   <url>
     <loc>https://businessmatching.global/rare</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/rare" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/rare" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/rare" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/rare" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/rare</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/rare" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/rare" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/rare" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/rare" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/rare</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/rare" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/rare" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/rare" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/rare" />
   </url>
   <url>
     <loc>https://businessmatching.global/amapa</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/amapa" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/amapa" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/amapa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/amapa" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/amapa</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/amapa" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/amapa" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/amapa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/amapa" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/amapa</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/amapa" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/amapa" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/amapa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/amapa" />
   </url>
   <url>
     <loc>https://businessmatching.global/asuncion</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/asuncion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/asuncion" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/asuncion" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/asuncion" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/asuncion</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/asuncion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/asuncion" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/asuncion" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/asuncion" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/asuncion</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/asuncion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/asuncion" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/asuncion" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/asuncion" />
   </url>
   <url>
     <loc>https://businessmatching.global/ceuta</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/ceuta" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/ceuta" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/ceuta" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/ceuta" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/ceuta</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/ceuta" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/ceuta" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/ceuta" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/ceuta" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/ceuta</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/ceuta" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/ceuta" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/ceuta" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/ceuta" />
   </url>
   <url>
     <loc>https://businessmatching.global/economist</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/economist" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/economist" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/economist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/economist" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/economist</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/economist" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/economist" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/economist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/economist" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/economist</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/economist" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/economist" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/economist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/economist" />
   </url>
   <url>
     <loc>https://businessmatching.global/lorenzetti</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/lorenzetti" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/lorenzetti" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/lorenzetti" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/lorenzetti" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/lorenzetti</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/lorenzetti" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/lorenzetti" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/lorenzetti" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/lorenzetti" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/lorenzetti</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/lorenzetti" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/lorenzetti" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/lorenzetti" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/lorenzetti" />
   </url>
   <url>
     <loc>https://businessmatching.global/amaro</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/amaro" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/amaro" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/amaro" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/amaro" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/amaro</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/amaro" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/amaro" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/amaro" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/amaro" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/amaro</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/amaro" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/amaro" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/amaro" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/amaro" />
   </url>
   <url>
     <loc>https://businessmatching.global/aiJus</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/aiJus" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/aiJus" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/aiJus" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/aiJus" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/aiJus</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/aiJus" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/aiJus" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/aiJus" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/aiJus" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/aiJus</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/aiJus" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/aiJus" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/aiJus" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/aiJus" />
   </url>
   <url>
     <loc>https://businessmatching.global/Embraer</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Embraer" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Embraer" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Embraer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Embraer" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/Embraer</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Embraer" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Embraer" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Embraer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Embraer" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/Embraer</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/Embraer" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/Embraer" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/Embraer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Embraer" />
   </url>
   <url>
     <loc>https://businessmatching.global/suja</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/suja" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/suja" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/suja" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/suja" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/suja</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/suja" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/suja" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/suja" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/suja" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/suja</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/suja" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/suja" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/suja" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/suja" />
   </url>
   <url>
     <loc>https://businessmatching.global/pix</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/pix" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/pix" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/pix" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/pix" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/pix</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/pix" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/pix" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/pix" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/pix" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/pix</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/pix" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/pix" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/pix" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/pix" />
   </url>
 </urlset>
