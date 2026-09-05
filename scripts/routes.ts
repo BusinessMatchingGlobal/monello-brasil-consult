@@ -17,6 +17,8 @@ const STATIC_ROUTES: RouteEntry[] = [
   { loc: "/About_us", changefreq: "monthly", priority: "0.8" },
   { loc: "/Our_Services", changefreq: "monthly", priority: "0.9" },
   { loc: "/How_we_work", changefreq: "monthly", priority: "0.9" },
+  { loc: "/Transfer_the_method", changefreq: "monthly", priority: "0.8" },
+
   { loc: "/Partner_Program", changefreq: "monthly", priority: "0.8" },
   { loc: "/ethics", changefreq: "yearly", priority: "0.5" },
   { loc: "/custo-brasil", changefreq: "weekly", priority: "0.8" },
