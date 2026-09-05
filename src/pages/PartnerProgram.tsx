@@ -74,6 +74,33 @@ const en: Content = {
   closingText:
     "Write to us describing the project and the client's stage. You will receive a written, documented reply.",
   closingCta: "Write to us",
+  faqTitle: "Frequently asked questions about the agreements",
+  faqs: [
+    [
+      "Who does the client relationship belong to?",
+      "To you. The agreement states it explicitly: we work under your direction and report to you. We never contact your client directly unless you ask us to, and we do not accept direct mandates from a client you introduced while the collaboration is running.",
+    ],
+    [
+      "How does white-label collaboration work?",
+      "We operate behind your brand: documents and correspondence carry your letterhead, and to the client we appear as your team. Alternatively we can work under our own brand, with you formally leading the engagement. The form is defined in the agreement before we start.",
+    ],
+    [
+      "How are fees structured?",
+      "Phase zero is always billed at a fixed fee, agreed in writing before work begins. Research and outreach are quoted per project on the agreed scope. Where a success fee applies, it is defined in the agreement — trigger, percentage and payment terms — before any introduction is made.",
+    ],
+    [
+      "Is there exclusivity between us?",
+      "Not by default. We do not work for two parties competing on the same profile in the same period, and we can grant exclusivity on a sector or territory when the scope justifies it. Any exclusivity is written into the agreement, not implied.",
+    ],
+    [
+      "How is confidential information handled?",
+      "Everything you share about your client is covered by a confidentiality clause from the first exchange, before any formal engagement. If you prefer, we sign your NDA. The client's identity is disclosed to Brazilian counterparts only with your written authorisation.",
+    ],
+    [
+      "What happens when the collaboration ends?",
+      "Each agreement defines notice and how to handle work in progress. Introductions already made remain attributed to the agreement that generated them; no clause gives us any claim over your client relationship after the end of the collaboration.",
+    ],
+  ],
   seo: {
     title: "Partner Program — Business Matching Global",
     description:
