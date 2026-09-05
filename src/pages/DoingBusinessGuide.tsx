@@ -78,7 +78,7 @@ export default function DoingBusinessGuide() {
           </h1>
 
           <p className="lead text-xl text-muted-foreground mb-8">
-            Brazil is the largest economy in Latin America, a market of over 210 million consumers, and — since the provisional application of the EU-Mercosur agreement in May 2026 — closer to European exporters than it has been in decades. It is also one of the most misunderstood markets in the world.
+            Brazil is the largest economy in Latin America, a market of over 210 million consumers, and — since the provisional application of the EU-Mercosur agreement in May 2026 — closer to European exporters than it has been in decades. It is also one of the most misunderstood markets in the world — especially for anyone trying to find a business partner in Brazil.
           </p>
 
           <p className="mb-6">

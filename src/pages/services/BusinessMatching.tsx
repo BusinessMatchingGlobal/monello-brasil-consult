@@ -142,8 +142,9 @@ export default function BusinessMatchingEN() {
               A contact isn't a list. It's a conversation that starts.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed text-justify">
-              We identify, verify and approach — on your behalf — the right buyers, distributors,
-              importers, suppliers or industrial partners in Brazil or in Europe.
+              Whether you need to find a business partner in Brazil or reach buyers in Europe,
+              we identify, verify and approach — on your behalf — the right buyers, distributors,
+              importers, suppliers or industrial partners.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
