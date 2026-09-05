@@ -1,6 +1,7 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 import { verifyFlySessionToken } from '../_shared/fly-session.ts'
+import { sendTemplateEmailLogged } from '../_shared/transactional-email-templates/log-send.ts'
 
 // Server-side handler for /fly submissions. Requires the HMAC session token
 // issued by fly-session-init, so the fly-contact-notification template (which
