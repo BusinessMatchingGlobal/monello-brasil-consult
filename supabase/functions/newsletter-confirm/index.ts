@@ -68,20 +68,16 @@ Deno.serve(async (req) => {
 
   // Notify owner (do not block on failure)
   try {
-    await supabase.functions.invoke('send-transactional-email', {
-      headers: { Authorization: `Bearer ${serviceKey}` },
-      body: {
-        templateName: 'newsletter-owner-notification',
-        idempotencyKey: `newsletter-owner-${sub.id}`,
-        templateData: {
-          firstName: sub.first_name ?? '',
-          lastName: sub.last_name ?? '',
-          email: sub.email,
-          language: sub.language ?? '',
-          source: sub.source ?? 'Newsletter popup',
-          confirmedAt: now,
-          ipAddress: sub.ip_address ?? '',
-        },
+    await sendTemplateEmailLogged('newsletter-owner-notification', '', {
+      idempotencyKey: `newsletter-owner-${sub.id}`,
+      templateData: {
+        firstName: sub.first_name ?? '',
+        lastName: sub.last_name ?? '',
+        email: sub.email,
+        language: sub.language ?? '',
+        source: sub.source ?? 'Newsletter popup',
+        confirmedAt: now,
+        ipAddress: sub.ip_address ?? '',
       },
     })
   } catch (e) {
@@ -90,16 +86,11 @@ Deno.serve(async (req) => {
 
   // Follow-up to the subscriber: confirmation + travel desk reminder
   try {
-    await supabase.functions.invoke('send-transactional-email', {
-      headers: { Authorization: `Bearer ${serviceKey}` },
-      body: {
-        templateName: 'newsletter-travel-desk',
-        recipientEmail: sub.email,
-        idempotencyKey: `newsletter-travel-desk-${sub.id}`,
-        templateData: {
-          firstName: sub.first_name ?? '',
-          language: ['it', 'en', 'pt'].includes(sub.language ?? '') ? sub.language : 'it',
-        },
+    await sendTemplateEmailLogged('newsletter-travel-desk', sub.email, {
+      idempotencyKey: `newsletter-travel-desk-${sub.id}`,
+      templateData: {
+        firstName: sub.first_name ?? '',
+        language: ['it', 'en', 'pt'].includes(sub.language ?? '') ? sub.language : 'it',
       },
     })
   } catch (e) {
