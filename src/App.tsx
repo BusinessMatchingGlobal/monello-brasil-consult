@@ -78,11 +78,12 @@ import { AskBmgWidget } from "./components/AskBmgWidget";
 import { CalliphoraDomainRouting } from "./components/CalliphoraDomainRouting";
 import { useEffect } from "react";
 import { initConsent } from "./lib/consent";
+import { initAutoTracking } from "./lib/analytics";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  useEffect(() => { initConsent(); }, []);
+  useEffect(() => { initConsent(); initAutoTracking(); }, []);
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
   const lang = detectLangFromPath(pathname);
   const basename = basenameForLang(lang);
