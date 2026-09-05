@@ -1,5 +1,6 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
+import { sendTemplateEmailLogged } from '../_shared/transactional-email-templates/log-send.ts'
 
 function json(status: number, body: unknown) {
   return new Response(JSON.stringify(body), {
