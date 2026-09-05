@@ -21,6 +21,8 @@ type Content = {
   closingTitle: string;
   closingText: string;
   closingCta: string;
+  faqTitle: string;
+  faqs: Array<[string, string]>;
   seo: { title: string; description: string };
 };
 
