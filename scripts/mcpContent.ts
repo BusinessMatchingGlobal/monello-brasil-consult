@@ -389,6 +389,8 @@ export function buildMethodContent(): ArticleContent[] {
   const today = new Date().toISOString().slice(0, 10);
   const howWeWork = readPage("HowWeWork.tsx");
   const partner = readPage("PartnerProgram.tsx");
+  const i18n = fs.readFileSync(path.resolve(process.cwd(), "src/lib/i18n.ts"), "utf8");
+  const method = readPage("Method.tsx");
   const docs: ArticleContent[] = [];
 
   LANGS.forEach((lang, i) => {
@@ -401,6 +403,25 @@ export function buildMethodContent(): ArticleContent[] {
         date: today,
         url: `${SITE}/How_we_work`,
         text,
+      });
+    }
+    const stepByStep = [
+      howStepsText(i18n, i),
+      methodBlocksText(method, i)
+        ? `## ${METHOD_ARTICLE_TITLE[lang]}\n\n${methodBlocksText(method, i)}`
+        : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n")
+      .trim();
+    if (stepByStep) {
+      docs.push({
+        slug: "method-step-by-step",
+        lang,
+        title: STEP_BY_STEP_TITLE[lang],
+        date: today,
+        url: `${SITE}/How_we_work`,
+        text: stepByStep,
       });
     }
     const partnerBody = partnerText(partner, i);
