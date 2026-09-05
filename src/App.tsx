@@ -10,6 +10,7 @@ import SampleReport from "./pages/SampleReport";
 import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
 import HowWeWork from "./pages/HowWeWork";
+import PartnerProgram from "./pages/PartnerProgram";
 import OurServices from "./pages/OurServices";
 import Ethics from "./pages/Ethics";
 import Method from "./pages/Method";
@@ -98,6 +99,8 @@ const App = () => {
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="/How_we_work" element={<HowWeWork />} />
             <Route path="/how_we_work" element={<HowWeWork />} />
+            <Route path="/Partner_Program" element={<PartnerProgram />} />
+            <Route path="/partner_program" element={<PartnerProgram />} />
             <Route path="/ethics" element={<Ethics />} />
             <Route path="/Ethics" element={<Ethics />} />
             <Route path="/method" element={<Method />} />
