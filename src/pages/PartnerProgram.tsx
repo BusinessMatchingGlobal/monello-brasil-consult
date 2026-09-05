@@ -293,6 +293,9 @@ export default function PartnerProgram() {
   }, []);
 
   useEffect(() => {
+    // Remove the generic sitewide FAQ block to avoid duplicate FAQPage schemas
+    const sitewide = document.getElementById("ld-faq-sitewide");
+    sitewide?.remove();
     const el = document.createElement("script");
     el.type = "application/ld+json";
     el.id = "ld-partner-program-faq";
@@ -309,6 +312,7 @@ export default function PartnerProgram() {
     document.head.appendChild(el);
     return () => {
       el.remove();
+      if (sitewide) document.head.appendChild(sitewide);
     };
   }, [c]);
 
