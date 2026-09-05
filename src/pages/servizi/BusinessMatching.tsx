@@ -142,8 +142,9 @@ export default function BusinessMatching() {
               Un contatto non è una lista. È una conversazione che comincia.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed text-justify">
-              Identifichiamo, verifichiamo e contattiamo per tuo conto i potenziali clienti, distributori,
-              importatori, fornitori o partner industriali giusti — in Brasile o in Europa.
+              Se devi trovare un partner commerciale in Brasile o raggiungere clienti in Europa,
+              identifichiamo, verifichiamo e contattiamo per tuo conto i potenziali clienti, distributori,
+              importatori, fornitori o partner industriali giusti.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">

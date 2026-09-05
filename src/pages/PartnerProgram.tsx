@@ -27,7 +27,7 @@ type Content = {
 const en: Content = {
   pageTitle: "Your client. Your strategy. Our local execution in Brazil.",
   heroSub:
-    "You don't need to build a Brazilian operation to offer Brazil to your clients. Business Matching Global works as your local research, intelligence and business development desk, while you keep the client relationship and lead the export strategy.",
+    "You don't need to build a Brazilian operation to offer Brazil to your clients. When they need to find a business partner in Brazil, Business Matching Global works as your local research, intelligence and business development desk, while you keep the client relationship and lead the export strategy.",
   layers: {
     top: "Export manager / adviser — Client relationship · Export strategy · Commercial direction",
     mid: "Business Matching Global — Brazil — Phase zero · Market intelligence · Buyer and distributor search · Verification · Portuguese outreach · Meetings · Local follow-up",
@@ -82,7 +82,7 @@ const en: Content = {
 const it: Content = {
   pageTitle: "Il tuo cliente. La tua strategia. La nostra esecuzione locale in Brasile.",
   heroSub:
-    "Non devi costruire una struttura in Brasile per offrire il Brasile ai tuoi clienti. Business Matching Global lavora come tuo desk locale di ricerca, intelligence e sviluppo commerciale, mentre tu mantieni il rapporto con il cliente e guidi la strategia export.",
+    "Non devi costruire una struttura in Brasile per offrire il Brasile ai tuoi clienti. Quando devono trovare un partner commerciale in Brasile, Business Matching Global lavora come tuo desk locale di ricerca, intelligence e sviluppo commerciale, mentre tu mantieni il rapporto con il cliente e guidi la strategia export.",
   layers: {
     top: "Export manager / professionista — Rapporto con il cliente · Strategia export · Direzione commerciale",
     mid: "Business Matching Global — Brasile — Fase zero · Market intelligence · Ricerca buyer e distributori · Verifica · Contatto in portoghese · Incontri · Follow-up locale",
@@ -137,7 +137,7 @@ const it: Content = {
 const pt: Content = {
   pageTitle: "O seu cliente. A sua estratégia. A nossa execução local no Brasil.",
   heroSub:
-    "Você não precisa montar uma estrutura no Brasil para oferecer o Brasil aos seus clientes. A Business Matching Global trabalha como o seu desk local de pesquisa, inteligência e desenvolvimento comercial, enquanto você mantém a relação com o cliente e conduz a estratégia de exportação.",
+    "Você não precisa montar uma estrutura no Brasil para oferecer o Brasil aos seus clientes. Quando eles precisam encontrar um parceiro de negócios na Europa ou no Brasil, a Business Matching Global trabalha como o seu desk local de pesquisa, inteligência e desenvolvimento comercial, enquanto você mantém a relação com o cliente e conduz a estratégia de exportação.",
   layers: {
     top: "Export manager / assessor — Relação com o cliente · Estratégia de exportação · Direção comercial",
     mid: "Business Matching Global — Brasil — Fase zero · Inteligência de mercado · Busca de compradores e distribuidores · Verificação · Abordagem em português · Reuniões · Acompanhamento local",
