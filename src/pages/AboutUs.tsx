@@ -168,7 +168,9 @@ export function useNavLinks(): NavItem[] {
       href: "__resources__",
       label: t.nav.resources,
       children: [
+        { href: "/Transfer_the_method", label: t.nav.transferMethod, internal: true },
         { href: "/analysis", label: t.nav.analysis, internal: true },
+
         { href: "/news", label: t.nav.news, internal: true },
         { href: "/BT", label: t.nav.travel, internal: true },
       ],
