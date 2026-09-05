@@ -310,7 +310,7 @@ export default function Method() {
   const { lang } = useT();
   const isEn = lang === "en";
   const isPt = lang === "pt";
-  useCanonical("/method", {
+  useCanonical("/Transfer_the_method", {
     title: isEn
       ? "Transfer the method, not just the product | Business Matching Global"
       : isPt

@@ -9,6 +9,7 @@ import Privacy from "./pages/Privacy";
 import SampleReport from "./pages/SampleReport";
 import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
+import Method from "./pages/Method";
 import HowWeWork from "./pages/HowWeWork";
 import PartnerProgram from "./pages/PartnerProgram";
 import OurServices from "./pages/OurServices";
