@@ -22,55 +22,70 @@ export function prerenderPlugin(): Plugin {
     name: "bmg-prerender",
     apply: "build",
     async closeBundle() {
-      if (process.env.BMG_SKIP_PRERENDER) return;
-      const outDir = path.resolve(process.cwd(), "dist");
-      const templatePath = path.join(outDir, "index.html");
-      if (!fs.existsSync(templatePath)) return;
+      try {
+        if (process.env.BMG_SKIP_PRERENDER) return;
+        const outDir = path.resolve(process.cwd(), "dist");
+        const templatePath = path.join(outDir, "index.html");
+        if (!fs.existsSync(templatePath)) return;
 
-      const targets: RenderTarget[] = [];
-      for (const route of publicRoutes()) {
-        for (const lang of LANGS) {
-          const url = localizedPath(lang, route.loc);
-          const file =
-            url === "/" ? path.join(outDir, "index.html") : path.join(outDir, url.replace(/^\//, ""), "index.html");
-          targets.push({ url, file });
+        const targets: RenderTarget[] = [];
+        for (const route of publicRoutes()) {
+          for (const lang of LANGS) {
+            const url = localizedPath(lang, route.loc);
+            const file =
+              url === "/" ? path.join(outDir, "index.html") : path.join(outDir, url.replace(/^\//, ""), "index.html");
+            targets.push({ url, file });
+          }
+        }
+
+        // Default path: render in-process. Worker processes need bun, which the
+        // publish environment may not provide; only use them when explicitly
+        // enabled and bun is confirmed present.
+        if (!(process.env.BMG_PRERENDER_WORKERS === "1" && hasBun())) {
+          const rendered = await renderTargets(targets);
+          console.log(`[prerender] wrote ${rendered}/${targets.length} pages (in-process)`);
+          return;
+        }
+
+        const workers = Math.min(4, os.cpus().length || 2, targets.length);
+        const shards: RenderTarget[][] = Array.from({ length: workers }, () => []);
+        targets.forEach((t, i) => shards[i % workers].push(t));
+
+        const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "bmg-prerender-"));
+        const jobs = shards.map((shard, i) => {
+          const shardFile = path.join(tmpDir, `shard-${i}.json`);
+          fs.writeFileSync(shardFile, JSON.stringify(shard));
+          return runWorker(shardFile);
+        });
+
+        const results = await Promise.all(jobs);
+        const failed = results.filter((ok) => !ok).length;
+        console.log(
+          `[prerender] ${targets.length} pages across ${workers} workers` +
+            (failed ? ` — ${failed} worker(s) reported skips (SPA fallback for those URLs)` : ""),
+        );
+        fs.rmSync(tmpDir, { recursive: true, force: true });
+
+        if (failed === results.length) {
+          console.warn("[prerender] all workers failed — retrying in-process");
+          const rendered = await renderTargets(targets);
+          console.log(`[prerender] wrote ${rendered}/${targets.length} pages (in-process fallback)`);
+        }
+      } catch (error) {
+        // Prerendering is an enhancement: never fail the build over it.
+        console.warn("[prerender] skipped —", (error as Error)?.message ?? error);
+      } finally {
+        // Loading the app in JSDOM leaves handles that keep the build process
+        // alive after dist/ is complete, which makes deploys hang. Vite has no
+        // work left at this point, so exit successfully.
+        if (!process.env.BMG_NO_FORCE_EXIT) {
+          const timer = setTimeout(() => process.exit(0), 1500);
+          timer.unref?.();
         }
       }
-
-      if (!hasBun()) {
-        console.log(`[prerender] bun not available — rendering ${targets.length} pages in-process`);
-        const rendered = await renderTargets(targets);
-        console.log(`[prerender] wrote ${rendered}/${targets.length} pages (in-process)`);
-        return;
-      }
-
-      const workers = Math.min(4, os.cpus().length || 2, targets.length);
-      const shards: RenderTarget[][] = Array.from({ length: workers }, () => []);
-      targets.forEach((t, i) => shards[i % workers].push(t));
-
-      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "bmg-prerender-"));
-      const jobs = shards.map((shard, i) => {
-        const shardFile = path.join(tmpDir, `shard-${i}.json`);
-        fs.writeFileSync(shardFile, JSON.stringify(shard));
-        return runWorker(shardFile);
-      });
-
-      const results = await Promise.all(jobs);
-      const failed = results.filter((ok) => !ok).length;
-      console.log(
-        `[prerender] ${targets.length} pages across ${workers} workers` +
-          (failed ? ` — ${failed} worker(s) reported skips (SPA fallback for those URLs)` : ""),
-      );
-      fs.rmSync(tmpDir, { recursive: true, force: true });
-
-      // If every worker failed (e.g. the runtime cannot start), fall back to
-      // in-process rendering rather than deploying an empty shell.
-      if (failed === results.length) {
-        console.warn("[prerender] all workers failed — retrying in-process");
-        const rendered = await renderTargets(targets);
-        console.log(`[prerender] wrote ${rendered}/${targets.length} pages (in-process fallback)`);
-      }
     },
+
+
   };
 }
 
