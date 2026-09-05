@@ -337,7 +337,7 @@ function methodBlocksText(source: string, index: number): string {
   return parts.join("\n\n").trim();
 }
 
-const HOW_MARKERS = ["    how: {", "    how: {", "    how: {"];
+const HOW_MARKER = "    how: {";
 const STEP_BY_STEP_TITLE: Record<Lang, string> = {
   en: "The method, step by step — How we work",
   it: "Il metodo, passo per passo — Come lavoriamo",
