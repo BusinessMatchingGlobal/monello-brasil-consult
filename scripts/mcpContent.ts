@@ -242,6 +242,7 @@ function arrayStrings(chunk: string, key: string): string[] {
 
 const HOW_WE_WORK_MARKERS = ["const blocksEn", "const blocksIt", "const blocksPt"];
 const PARTNER_MARKERS = ["const en: Content", "const it: Content", "const pt: Content"];
+const METHOD_MARKERS = ["const blocksEn", "const blocksIt", "const blocksPt"];
 const LANGS: Lang[] = ["en", "it", "pt"];
 
 const HOW_WE_WORK_TITLE: Record<Lang, string> = {
@@ -284,6 +285,70 @@ function howWeWorkText(source: string, index: number): string {
   return parts.join("\n\n").trim();
 }
 
+/** Returns the chunk starting at the nth occurrence of `marker`, ending at the next one. */
+function nthChunk(source: string, marker: string, index: number): string {
+  let pos = -1;
+  for (let i = 0; i <= index; i++) {
+    pos = source.indexOf(marker, pos + 1);
+    if (pos < 0) return "";
+  }
+  const next = source.indexOf(marker, pos + 1);
+  return source.slice(pos, next > 0 ? next : source.length);
+}
+
+/** Extracts the "how" steps (title, step pairs, note) for one language from src/lib/i18n.ts. */
+function howStepsText(source: string, index: number): string {
+  const chunk = nthChunk(source, HOW_MARKER, index);
+  if (!chunk) return "";
+  const end = chunk.indexOf("note:");
+  const body = end > 0 ? chunk.slice(0, end) : chunk;
+  const parts: string[] = [];
+  const title = keyStrings(chunk, ["title"])[0];
+  if (title) parts.push(`## ${title}`);
+  const pairRe = /\[\s*"((?:[^"\\]|\\.)*)"\s*,\s*"((?:[^"\\]|\\.)*)"\s*\]/g;
+  let m: RegExpExecArray | null;
+  let i = 0;
+  while ((m = pairRe.exec(body))) {
+    i += 1;
+    parts.push(`### 0${i} ${unescapeLiteral(m[1]).trim()}`);
+    parts.push(unescapeLiteral(m[2]).trim());
+  }
+  const note = keyStrings(chunk, ["note"])[0];
+  if (note) parts.push(note);
+  return parts.join("\n\n").trim();
+}
+
+/** Extracts the blocks (h2/p/li) of the /method article for one language from Method.tsx. */
+function methodBlocksText(source: string, index: number): string {
+  let chunk = chunkBetween(source, METHOD_MARKERS, index);
+  if (!chunk) return "";
+  const close = chunk.indexOf("];");
+  if (close > 0) chunk = chunk.slice(0, close);
+  const parts: string[] = [];
+  const re = /\{\s*type:\s*"(h2|p|li)",\s*text:\s*"((?:[^"\\]|\\.)*)"/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(chunk))) {
+    const text = unescapeLiteral(m[2]).trim();
+    if (!text) continue;
+    if (m[1] === "h2") parts.push(`## ${text}`);
+    else if (m[1] === "li") parts.push(`- ${text}`);
+    else parts.push(text);
+  }
+  return parts.join("\n\n").trim();
+}
+
+const HOW_MARKER = "    how: {";
+const STEP_BY_STEP_TITLE: Record<Lang, string> = {
+  en: "The method, step by step — How we work",
+  it: "Il metodo, passo per passo — Come lavoriamo",
+  pt: "O método, passo a passo — Como trabalhamos",
+};
+const METHOD_ARTICLE_TITLE: Record<Lang, string> = {
+  en: "Our method",
+  it: "Il nostro metodo",
+  pt: "Nosso método",
+};
+
 function partnerText(source: string, index: number): string {
   let chunk = chunkBetween(source, PARTNER_MARKERS, index);
   if (!chunk) return "";
@@ -324,6 +389,8 @@ export function buildMethodContent(): ArticleContent[] {
   const today = new Date().toISOString().slice(0, 10);
   const howWeWork = readPage("HowWeWork.tsx");
   const partner = readPage("PartnerProgram.tsx");
+  const i18n = fs.readFileSync(path.resolve(process.cwd(), "src/lib/i18n.ts"), "utf8");
+  const method = readPage("Method.tsx");
   const docs: ArticleContent[] = [];
 
   LANGS.forEach((lang, i) => {
@@ -336,6 +403,25 @@ export function buildMethodContent(): ArticleContent[] {
         date: today,
         url: `${SITE}/How_we_work`,
         text,
+      });
+    }
+    const stepByStep = [
+      howStepsText(i18n, i),
+      methodBlocksText(method, i)
+        ? `## ${METHOD_ARTICLE_TITLE[lang]}\n\n${methodBlocksText(method, i)}`
+        : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n")
+      .trim();
+    if (stepByStep) {
+      docs.push({
+        slug: "method-step-by-step",
+        lang,
+        title: STEP_BY_STEP_TITLE[lang],
+        date: today,
+        url: `${SITE}/How_we_work`,
+        text: stepByStep,
       });
     }
     const partnerBody = partnerText(partner, i);

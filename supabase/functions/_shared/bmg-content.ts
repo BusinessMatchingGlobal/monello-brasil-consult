@@ -101,8 +101,10 @@ export function scoreArticle(article: ArticleContent, query: string): number {
     if (title.includes(term)) score += 5 * weight;
     const matches = text.split(term).length - 1;
     // Presence matters more than raw frequency, so long ebooks do not swamp
-    // shorter but more on-topic documents.
-    if (matches > 0) score += (3 + Math.min(matches, 5)) * weight;
+    // shorter but more on-topic documents. A low cap keeps common words
+    // (e.g. "significa") from saturating and tying with documents that
+    // actually contain the query's rare terms.
+    if (matches > 0) score += (3 + Math.min(matches, 3)) * weight;
   }
   if (article.kind === "service" && isServiceQuery(query)) score += 40;
   return score;
