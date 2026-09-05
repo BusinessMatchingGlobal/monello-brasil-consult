@@ -237,7 +237,11 @@ export function loadTrackers() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (window as any).gtag = gtag;
   gtag("js", new Date());
-  gtag("config", GA_ID, { anonymize_ip: true });
+  gtag("config", GA_ID, {
+    anonymize_ip: true,
+    language: detectLangFromPath(window.location.pathname),
+    ...(isGaDebug() ? { debug_mode: true } : {}),
+  });
 
   // LinkedIn Insight Tag
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
