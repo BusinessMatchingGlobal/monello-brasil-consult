@@ -5,6 +5,7 @@ export type ServiceItem = {
   audience: string[];
   examples?: string;
   price: string;
+  sampleReport?: string;
 };
 
 export type ServiceGroup = {
@@ -131,6 +132,7 @@ export const serviceGroups: ServiceGroup[] = [
     items: [
       {
         name: "Competitor Snapshot",
+        sampleReport: "/sample-report",
         tagline: "Chi c'è già nel mercato che vuoi raggiungere.",
         bullets: [
           "Principali concorrenti nel mercato target",
@@ -148,6 +150,7 @@ export const serviceGroups: ServiceGroup[] = [
       },
       {
         name: "Opportunity Scan",
+        sampleReport: "/sample-report",
         tagline: "Il tuo prodotto ha spazio in quel mercato?",
         bullets: [
           "Mercato, importazioni e concorrenti",
@@ -165,6 +168,7 @@ export const serviceGroups: ServiceGroup[] = [
       },
       {
         name: "Analisi di Mercato",
+        sampleReport: "/sample-report",
         tagline: "Comprendi il mercato prima di entrarci.",
         bullets: [
           "Dimensione e caratteristiche del mercato per il tuo prodotto o settore",

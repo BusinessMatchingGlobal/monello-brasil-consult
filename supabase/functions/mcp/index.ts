@@ -399,6 +399,7 @@ var serviceGroupsPT = [
     items: [
       {
         name: "Competitor Snapshot",
+        sampleReport: "/sample-report",
         tagline: "Quem j\xE1 est\xE1 no mercado que voc\xEA quer alcan\xE7ar.",
         bullets: [
           "Principais concorrentes no mercado-alvo",
@@ -416,6 +417,7 @@ var serviceGroupsPT = [
       },
       {
         name: "Opportunity Scan",
+        sampleReport: "/sample-report",
         tagline: "Seu produto tem espa\xE7o naquele mercado?",
         bullets: [
           "Mercado, importa\xE7\xF5es e concorrentes",
@@ -433,6 +435,7 @@ var serviceGroupsPT = [
       },
       {
         name: "An\xE1lise de Mercado",
+        sampleReport: "/sample-report",
         tagline: "Entenda o mercado antes de entrar nele.",
         bullets: [
           "Tamanho e caracter\xEDsticas do mercado para o seu produto ou setor",
@@ -830,6 +833,7 @@ var serviceGroupsEN = [
     items: [
       {
         name: "Competitor Snapshot",
+        sampleReport: "/sample-report",
         tagline: "Who's already in the market you want to reach.",
         bullets: [
           "Main competitors in the target market",
@@ -847,6 +851,7 @@ var serviceGroupsEN = [
       },
       {
         name: "Opportunity Scan",
+        sampleReport: "/sample-report",
         tagline: "Does your product have room in that market?",
         bullets: [
           "Market, imports, and competitors",
@@ -864,6 +869,7 @@ var serviceGroupsEN = [
       },
       {
         name: "Market Analysis",
+        sampleReport: "/sample-report",
         tagline: "Understand the market before you enter it.",
         bullets: [
           "Market size and characteristics for your product or industry",
@@ -1261,6 +1267,7 @@ var serviceGroups = [
     items: [
       {
         name: "Competitor Snapshot",
+        sampleReport: "/sample-report",
         tagline: "Chi c'\xE8 gi\xE0 nel mercato che vuoi raggiungere.",
         bullets: [
           "Principali concorrenti nel mercato target",
@@ -1278,6 +1285,7 @@ var serviceGroups = [
       },
       {
         name: "Opportunity Scan",
+        sampleReport: "/sample-report",
         tagline: "Il tuo prodotto ha spazio in quel mercato?",
         bullets: [
           "Mercato, importazioni e concorrenti",
@@ -1295,6 +1303,7 @@ var serviceGroups = [
       },
       {
         name: "Analisi di Mercato",
+        sampleReport: "/sample-report",
         tagline: "Comprendi il mercato prima di entrarci.",
         bullets: [
           "Dimensione e caratteristiche del mercato per il tuo prodotto o settore",
