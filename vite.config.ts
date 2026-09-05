@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { sitemapPlugin } from "./scripts/sitemap";
+import { prerenderPlugin } from "./scripts/prerender";
 import { mcpContentPlugin } from "./scripts/mcpContent";
 import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
@@ -15,6 +16,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     sitemapPlugin(),
+    prerenderPlugin(),
     mcpContentPlugin(),
     mcpPlugin(),
     mode === "development" && componentTagger(),
