@@ -3,7 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { spawn, spawnSync } from "node:child_process";
 import type { Plugin } from "vite";
-import { LANGS, localizedPath, publicRoutes } from "./routes";
+import { LANGS, publicRoutes, routePath } from "./routes";
 import { renderTargets } from "./prerender-render";
 import type { RenderTarget } from "./prerender-shared";
 
@@ -31,7 +31,8 @@ export function prerenderPlugin(): Plugin {
         const targets: RenderTarget[] = [];
         for (const route of publicRoutes()) {
           for (const lang of LANGS) {
-            const url = localizedPath(lang, route.loc);
+            const url = routePath(lang, route);
+            if (!url) continue;
             const file =
               url === "/" ? path.join(outDir, "index.html") : path.join(outDir, url.replace(/^\//, ""), "index.html");
             targets.push({ url, file });

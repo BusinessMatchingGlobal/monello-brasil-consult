@@ -36,6 +36,7 @@ import { trackContactForm } from "@/lib/analytics";
 import { openConsentBanner } from "@/lib/consent";
 import { useCanonical } from "@/lib/useCanonical";
 import { pathForLang } from "@/lib/langPath";
+import { hasSituations, situationContent, STARTING_POINT } from "@/data/situations";
 import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
 
 const EMAIL = "info@businessmatching.global";
@@ -150,6 +151,38 @@ function CredibilityStrip() {
             ))}
           </div>
         </Link>
+      </div>
+    </section>
+  );
+}
+
+function StartingPoint() {
+  const { lang } = useT();
+  const copy = STARTING_POINT[lang] ?? STARTING_POINT.en;
+  if (!hasSituations(lang)) return null;
+  const already = situationContent("already-in-brazil", lang);
+  const back = situationContent("back-to-brazil", lang);
+  const cards = [
+    { to: "/Our_Services", title: copy.notYet.title, text: copy.notYet.text },
+    { to: already.slug, title: already.cardTitle, text: already.cardText },
+    { to: back.slug, title: back.cardTitle, text: back.cardText },
+  ];
+  return (
+    <section className="py-16 md:py-20 border-b border-border/60">
+      <div className="container max-w-6xl">
+        <h2 className="text-2xl md:text-3xl mb-8">{copy.title}</h2>
+        <div className="grid md:grid-cols-3 gap-5">
+          {cards.map((card) => (
+            <Link
+              key={card.to}
+              to={card.to}
+              className="group p-7 rounded-2xl border border-border bg-card hover:border-primary/60 transition-colors block"
+            >
+              <h3 className="font-display text-xl mb-3">{card.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">{card.text}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -354,6 +387,10 @@ function FAQ() {
 function Contact() {
   const { t } = useT();
   const [submitting, setSubmitting] = useState(false);
+  const subject =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search).get("subject") ?? ""
+      : "";
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -468,6 +505,7 @@ function Contact() {
                 id="message"
                 name="message"
                 required
+                defaultValue={subject ? `${subject}\n\n` : undefined}
                 rows={5}
                 maxLength={2000}
                 className="mt-2 bg-background/[0.04] border-background/15 text-background placeholder:text-background/30 focus-visible:ring-primary resize-none"
@@ -675,6 +713,16 @@ function FooterInner() {
           <Link to="/Our_Services" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.services}
           </Link>
+          {hasSituations(lang) && (
+          <Link to={situationContent("already-in-brazil", lang).slug} className="text-muted-foreground hover:text-foreground transition-colors">
+            {situationContent("already-in-brazil", lang).navLabel}
+          </Link>
+          )}
+          {hasSituations(lang) && (
+          <Link to={situationContent("back-to-brazil", lang).slug} className="text-muted-foreground hover:text-foreground transition-colors">
+            {situationContent("back-to-brazil", lang).navLabel}
+          </Link>
+          )}
           <Link to="/How_we_work" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.howWeWork}
           </Link>
@@ -949,6 +997,7 @@ export default function Index() {
       <main>
         <Hero />
       <CredibilityStrip />
+      <StartingPoint />
         <Problem />
         <Services />
         <PartnerProgramBanner />

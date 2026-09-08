@@ -514,6 +514,38 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/business-matching" />
   </url>
   <url>
+    <loc>https://businessmatching.global/already-in-brazil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/already-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/gia-in-brasile" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/already-in-brazil" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/gia-in-brasile</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/already-in-brazil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/gia-in-brasile" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/already-in-brazil" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/back-to-brazil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/back-to-brazil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/riprendere-il-brasile" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/back-to-brazil" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/riprendere-il-brasile</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/back-to-brazil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/riprendere-il-brasile" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/back-to-brazil" />
+  </url>
+  <url>
     <loc>https://businessmatching.global/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

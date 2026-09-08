@@ -13,6 +13,7 @@ import Method from "./pages/Method";
 import HowWeWork from "./pages/HowWeWork";
 import PartnerProgram from "./pages/PartnerProgram";
 import OurServices from "./pages/OurServices";
+import { AlreadyInBrazil, BackToBrazil } from "./pages/Situation";
 import Ethics from "./pages/Ethics";
 import BusinessMatchingService from "./pages/servizi/BusinessMatching";
 import BusinessMatchingServiceBR from "./pages/servicos/BusinessMatching";
@@ -117,6 +118,10 @@ const App = () => {
 
             <Route path="/Our_Services" element={<OurServices />} />
             <Route path="/our_services" element={<OurServices />} />
+            <Route path="/already-in-brazil" element={<AlreadyInBrazil />} />
+            <Route path="/gia-in-brasile" element={<AlreadyInBrazil />} />
+            <Route path="/back-to-brazil" element={<BackToBrazil />} />
+            <Route path="/riprendere-il-brasile" element={<BackToBrazil />} />
             <Route path="/servizi/business-matching" element={<BusinessMatchingService />} />
             <Route path="/servicos/business-matching" element={<BusinessMatchingServiceBR />} />
             <Route path="/services/business-matching" element={<BusinessMatchingServiceEN />} />

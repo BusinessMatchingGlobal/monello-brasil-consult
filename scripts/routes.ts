@@ -1,4 +1,5 @@
 import { ANALYSIS_ARTICLES, getGroupSlug } from "../src/lib/analysis";
+import { SITUATIONS } from "../src/data/situations";
 
 export const SITE = "https://businessmatching.global";
 export const LANGS = ["en", "it", "pt"] as const;
@@ -9,6 +10,8 @@ export type RouteEntry = {
   changefreq: string;
   priority: string;
   lastmod?: string;
+  /** Per-language slugs, when the URL differs by language. Missing = not published. */
+  slugs?: Partial<Record<SiteLang, string>>;
 };
 
 /** Public, language-neutral routes. Article URLs are appended automatically. */
@@ -33,6 +36,14 @@ const STATIC_ROUTES: RouteEntry[] = [
   { loc: "/servizi/business-matching", changefreq: "monthly", priority: "0.8" },
   { loc: "/servicos/business-matching", changefreq: "monthly", priority: "0.8" },
   { loc: "/services/business-matching", changefreq: "monthly", priority: "0.8" },
+  ...SITUATIONS.map((s) => ({
+    loc: s.content.en?.slug ?? `/${s.key}`,
+    changefreq: "monthly",
+    priority: "0.8",
+    slugs: Object.fromEntries(
+      Object.entries(s.content).map(([lang, c]) => [lang, c!.slug]),
+    ) as Partial<Record<SiteLang, string>>,
+  })),
   { loc: "/privacy", changefreq: "yearly", priority: "0.3" },
   { loc: "/unsubscribe", changefreq: "yearly", priority: "0.2" },
 ];
@@ -60,4 +71,11 @@ export function localizedPath(lang: SiteLang, loc: string): string {
   const p = loc.startsWith("/") ? loc : `/${loc}`;
   if (lang === "en") return p;
   return p === "/" ? `/${lang}` : `/${lang}${p}`;
+}
+
+/** URL of a route in one language, or null when that language is not published. */
+export function routePath(lang: SiteLang, route: RouteEntry): string | null {
+  const slug = route.slugs ? route.slugs[lang] : route.loc;
+  if (!slug) return null;
+  return localizedPath(lang, slug);
 }

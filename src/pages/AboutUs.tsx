@@ -4,6 +4,7 @@ import { ArrowRight, Menu, X, Mail, ChevronDown } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { pathForLang } from "@/lib/langPath";
+import { hasSituations, situationContent } from "@/data/situations";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -160,9 +161,23 @@ function NavDropdown({
 }
 
 export function useNavLinks(): NavItem[] {
-  const { t } = useT();
+  const { t, lang } = useT();
+  const already = situationContent("already-in-brazil", lang);
+  const back = situationContent("back-to-brazil", lang);
   return [
-    { href: "/Our_Services", label: t.nav.services, internal: true },
+    {
+      href: "__services__",
+      label: t.nav.services,
+      children: [
+        { href: "/Our_Services", label: t.nav.services, internal: true },
+        ...(hasSituations(lang)
+          ? [
+              { href: already.slug, label: already.navLabel, internal: true },
+              { href: back.slug, label: back.navLabel, internal: true },
+            ]
+          : []),
+      ],
+    },
     { href: "/How_we_work", label: t.nav.howWeWork, internal: true },
     { href: "/Partner_Program", label: t.nav.partnerProgram, internal: true },
     {
