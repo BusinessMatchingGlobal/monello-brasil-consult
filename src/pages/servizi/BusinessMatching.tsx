@@ -152,7 +152,7 @@ export default function BusinessMatching() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
-                <a href="/#contact">
+                <a href="/it#contact">
                   Parliamone <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
@@ -287,7 +287,7 @@ export default function BusinessMatching() {
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="rounded-full">
-                <a href="/#contact">
+                <a href="/it#contact">
                   Richiedi un preventivo <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
@@ -337,7 +337,7 @@ export default function BusinessMatching() {
               Raccontaci cosa stai cercando e ti diremo con franchezza se possiamo trovartelo.
             </p>
             <Button asChild size="lg" className="rounded-full">
-              <a href="/#contact">
+              <a href="/it#contact">
                 Parliamone <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>
