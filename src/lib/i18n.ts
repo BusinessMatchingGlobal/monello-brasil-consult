@@ -491,7 +491,7 @@ export const translations = {
         ["Em quais idiomas você trabalha?", "Entrego relatórios em inglês, italiano e português."],
         ["Minha solicitação é sigilosa?", "Sim, sempre."],
         ["Você faz pesquisas sob medida?", "Sim — descreva o que você precisa e definimos juntos."],
-        ["Quanto custa?", "Cada pacote tem um preço inicial; trabalhos sob medida são orçados conforme a solicitação."],
+        ["Quanto custa?", "Cada serviço é orçado sob consulta, conforme o escopo."],
       ],
     },
     contact: {
