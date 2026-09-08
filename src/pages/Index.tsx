@@ -36,7 +36,7 @@ import { trackContactForm } from "@/lib/analytics";
 import { openConsentBanner } from "@/lib/consent";
 import { useCanonical } from "@/lib/useCanonical";
 import { pathForLang } from "@/lib/langPath";
-import { situationContent, STARTING_POINT } from "@/data/situations";
+import { hasSituations, situationContent, STARTING_POINT } from "@/data/situations";
 import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
 
 const EMAIL = "info@businessmatching.global";
@@ -159,6 +159,7 @@ function CredibilityStrip() {
 function StartingPoint() {
   const { lang } = useT();
   const copy = STARTING_POINT[lang] ?? STARTING_POINT.en;
+  if (!hasSituations(lang)) return null;
   const already = situationContent("already-in-brazil", lang);
   const back = situationContent("back-to-brazil", lang);
   const cards = [
@@ -712,12 +713,16 @@ function FooterInner() {
           <Link to="/Our_Services" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.services}
           </Link>
+          {hasSituations(lang) && (
           <Link to={situationContent("already-in-brazil", lang).slug} className="text-muted-foreground hover:text-foreground transition-colors">
             {situationContent("already-in-brazil", lang).navLabel}
           </Link>
+          )}
+          {hasSituations(lang) && (
           <Link to={situationContent("back-to-brazil", lang).slug} className="text-muted-foreground hover:text-foreground transition-colors">
             {situationContent("back-to-brazil", lang).navLabel}
           </Link>
+          )}
           <Link to="/How_we_work" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.howWeWork}
           </Link>

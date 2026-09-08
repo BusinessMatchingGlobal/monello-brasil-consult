@@ -293,6 +293,11 @@ export const SITUATIONS: Situation[] = [
   },
 ];
 
+/** True when the copy for that language exists (Portuguese is not published yet). */
+export function hasSituations(lang: SituationLang): boolean {
+  return SITUATIONS.every((s) => Boolean(s.content[lang]));
+}
+
 export function getSituation(key: SituationKey): Situation {
   return SITUATIONS.find((s) => s.key === key)!;
 }

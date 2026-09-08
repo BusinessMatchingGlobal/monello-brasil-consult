@@ -4,7 +4,7 @@ import { ArrowRight, Menu, X, Mail, ChevronDown } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { pathForLang } from "@/lib/langPath";
-import { situationContent } from "@/data/situations";
+import { hasSituations, situationContent } from "@/data/situations";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -170,8 +170,12 @@ export function useNavLinks(): NavItem[] {
       label: t.nav.services,
       children: [
         { href: "/Our_Services", label: t.nav.services, internal: true },
-        { href: already.slug, label: already.navLabel, internal: true },
-        { href: back.slug, label: back.navLabel, internal: true },
+        ...(hasSituations(lang)
+          ? [
+              { href: already.slug, label: already.navLabel, internal: true },
+              { href: back.slug, label: back.navLabel, internal: true },
+            ]
+          : []),
       ],
     },
     { href: "/How_we_work", label: t.nav.howWeWork, internal: true },
