@@ -424,7 +424,7 @@ export const translations = {
             "Verificação de clientes, fornecedores, parceiros, distribuidores ou agentes",
             "Síntese final com indicação clara do nível de risco",
           ],
-          price: "On request",
+          price: "Sob consulta",
         },
         {
           name: "Análise de Mercado Brasil",
@@ -437,7 +437,7 @@ export const translations = {
             "Normas, padrões e requisitos relevantes",
             "Tarifas, barreiras não tarifárias e principais questões de importação em síntese",
           ],
-          price: "On request",
+          price: "Sob consulta",
         },
         {
           name: "Briefing de Importação/Exportação Brasil",
