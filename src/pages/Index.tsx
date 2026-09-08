@@ -35,6 +35,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { trackContactForm } from "@/lib/analytics";
 import { openConsentBanner } from "@/lib/consent";
 import { useCanonical } from "@/lib/useCanonical";
+import { pathForLang } from "@/lib/langPath";
 import { AnalysisNavMenu } from "@/components/AnalysisNavMenu";
 
 const EMAIL = "info@businessmatching.global";
@@ -106,7 +107,7 @@ function Hero() {
         </div>
         <div className="mt-6">
           <a
-            href="/sample-report"
+            href={pathForLang(lang, "/sample-report")}
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
           >
             {lang === "it" ? "Scarica un esempio di report (PDF)" : lang === "pt" ? "Baixe um exemplo de relatório (PDF)" : "Download a sample report (PDF)"}
@@ -703,7 +704,7 @@ function FooterInner() {
           <Link to="/ethics" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.ethics}
           </Link>
-          <a href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+          <a href={`${pathForLang(lang, "/")}#contact`} className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.contact}
           </a>
           <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Menu, X, Mail, ChevronDown } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
+import { pathForLang } from "@/lib/langPath";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -191,7 +192,8 @@ export function useNavLinks(): NavItem[] {
 }
 
 export function Nav() {
-  const { t } = useT();
+  const { t, lang } = useT();
+  const contactHref = `${pathForLang(lang, "/")}#contact`;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -255,7 +257,7 @@ export function Nav() {
           )}
           <LangSwitcher />
           <Button asChild size="sm" className="rounded-full">
-            <a href="/#contact" onClick={() => trackLinkClick(t.nav.contact, "/#contact", "cta")}>
+            <a href={contactHref} onClick={() => trackLinkClick(t.nav.contact, contactHref, "cta")}>
               {t.nav.contact}
             </a>
           </Button>
@@ -320,7 +322,7 @@ export function Nav() {
             <div className="flex items-center justify-between pt-2 border-t border-border/60">
               <LangSwitcher />
               <Button asChild size="sm" className="rounded-full" onClick={() => setOpen(false)}>
-                <a href="/#contact">{t.nav.contact}</a>
+                <a href={contactHref}>{t.nav.contact}</a>
               </Button>
             </div>
           </div>
