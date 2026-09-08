@@ -16,7 +16,7 @@ export const translations = {
       areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Request a report",
       cta2: "See services",
-      ctaAsk: "Ask Brazil / Ask Europe — from €79",
+      ctaAsk: "Ask Brazil / Ask Europe",
       linkedin: "Follow Business Matching Global on LinkedIn for insights, reports and updates on Brazil.",
     },
     problem: {
@@ -44,7 +44,7 @@ export const translations = {
             "Checks on clients, suppliers, partners, distributors or agents",
             "Final summary with a clear indication of the risk level",
           ],
-          price: "€150",
+          price: "On request",
         },
         {
           name: "Brazil Market Analysis",
@@ -57,7 +57,7 @@ export const translations = {
             "Relevant regulations, standards and requirements",
             "Duties, non-tariff barriers and key import issues in summary",
           ],
-          price: "€500",
+          price: "On request",
         },
         {
           name: "Brazil Import/Export Briefing",
@@ -69,7 +69,7 @@ export const translations = {
             "Common mistakes and critical issues to avoid",
             "Sources, references and practical guidance",
           ],
-          price: "starting from €600",
+          price: "On request",
         },
       ],
     },
@@ -111,7 +111,7 @@ export const translations = {
         ["What languages do you work in?", "Reports are delivered in English; I also work in Italian and Portuguese."],
         ["Is my request confidential?", "Yes, always."],
         ["Can you do custom research?", "Yes — just describe what you need and I'll scope it."],
-        ["How much does it cost?", "Each package has a starting price; custom work is quoted per request."],
+        ["How much does it cost?", "Every service is quoted on request, based on scope."],
       ],
     },
     contact: {
@@ -206,7 +206,7 @@ export const translations = {
       areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Richiedi un report",
       cta2: "Scopri i servizi",
-      ctaAsk: "Ask Brazil / Ask Europe — da 79 €",
+      ctaAsk: "Ask Brazil / Ask Europe",
       linkedin: "Seguici su LinkedIn per approfondimenti e aggiornamenti sul Brasile →",
     },
     problem: {
@@ -234,7 +234,7 @@ export const translations = {
             "Verifica di clienti, fornitori, partner, distributori o agenti",
             "Sintesi finale con indicazione chiara del livello di rischio",
           ],
-          price: "150 €",
+          price: "Su richiesta",
         },
         {
           name: "Analisi di Mercato Brasile",
@@ -247,7 +247,7 @@ export const translations = {
             "Normative, standard e requisiti rilevanti",
             "Dazi, barriere non tariffarie e criticità all'importazione in sintesi",
           ],
-          price: "500 €",
+          price: "Su richiesta",
         },
         {
           name: "Briefing Import/Export Brasile",
@@ -259,7 +259,7 @@ export const translations = {
             "Errori tipici e criticità da evitare",
             "Fonti, riferimenti e indicazioni operative",
           ],
-          price: "600 €",
+          price: "Su richiesta",
         },
       ],
     },
@@ -301,7 +301,7 @@ export const translations = {
         ["In che lingue lavori?", "Consegno i report in inglese, italiano e portoghese."],
         ["La mia richiesta è riservata?", "Sì, sempre."],
         ["Puoi fare ricerche su misura?", "Sì — descrivimi cosa ti serve e la definiamo insieme."],
-        ["Quanto costa?", "Ogni pacchetto ha un prezzo di partenza; i lavori su misura sono quotati su richiesta."],
+        ["Quanto costa?", "Ogni servizio viene quotato su richiesta, in base al perimetro."],
       ],
     },
     contact: {
@@ -396,7 +396,7 @@ export const translations = {
       areas: "Business Intelligence · Busca de Compradores e Fornecedores · Import/Export · Business Matching",
       cta1: "Solicite um relatório",
       cta2: "Ver serviços",
-      ctaAsk: "Ask Brazil / Ask Europe — a partir de €79",
+      ctaAsk: "Ask Brazil / Ask Europe",
       linkedin: "Acompanhe a Business Matching Global no LinkedIn para acessar análises, relatórios e atualizações sobre o Brasil.",
     },
     problem: {
@@ -424,7 +424,7 @@ export const translations = {
             "Verificação de clientes, fornecedores, parceiros, distribuidores ou agentes",
             "Síntese final com indicação clara do nível de risco",
           ],
-          price: "€150",
+          price: "Sob consulta",
         },
         {
           name: "Análise de Mercado Brasil",
@@ -437,7 +437,7 @@ export const translations = {
             "Normas, padrões e requisitos relevantes",
             "Tarifas, barreiras não tarifárias e principais questões de importação em síntese",
           ],
-          price: "€500",
+          price: "Sob consulta",
         },
         {
           name: "Briefing de Importação/Exportação Brasil",
@@ -449,7 +449,7 @@ export const translations = {
             "Erros comuns e pontos críticos a evitar",
             "Fontes, referências e orientações práticas",
           ],
-          price: "€600",
+          price: "Sob consulta",
         },
       ],
     },
@@ -491,7 +491,7 @@ export const translations = {
         ["Em quais idiomas você trabalha?", "Entrego relatórios em inglês, italiano e português."],
         ["Minha solicitação é sigilosa?", "Sim, sempre."],
         ["Você faz pesquisas sob medida?", "Sim — descreva o que você precisa e definimos juntos."],
-        ["Quanto custa?", "Cada pacote tem um preço inicial; trabalhos sob medida são orçados conforme a solicitação."],
+        ["Quanto custa?", "Cada serviço é orçado sob consulta, conforme o escopo."],
       ],
     },
     contact: {

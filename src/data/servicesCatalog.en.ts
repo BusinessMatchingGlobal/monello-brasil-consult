@@ -3,7 +3,7 @@ import type { ServiceGroup } from "./servicesCatalog";
 export const servicesIntroEN = {
   title: "Our Services",
   intro:
-    "From checking a single company to a full market entry project. Every service has a clear scope, a starting price, and indicative delivery times. Start wherever you need.",
+    "From checking a single company to a full market entry project. Every service has a clear scope and indicative delivery times; every quote is on request. Start wherever you need.",
   markets: "Main markets: Brazil · Italy · European Union · Latin America",
   more: "Learn more",
   request: "Request",
@@ -32,7 +32,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
         ],
         examples:
           'Sample questions: "Who are the main importers of my product in Brazil?" · "What duties and taxes does my product pay at entry?" · "Does this industry require registrations or licenses?" · "How is this product typically sold in that market?"',
-        price: "starting at €79",
+        price: "Quote on request",
       },
     ],
   },
@@ -55,7 +55,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone who met a counterpart at a trade show or online and wants to know if they're real",
           "Anyone deciding whether a negotiation deserves their time",
         ],
-        price: "starting at €150 — delivery normally in 2–3 business days",
+        price: "Quote on request — delivery normally in 2–3 business days",
       },
       {
         name: "Supplier Check",
@@ -72,7 +72,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone choosing among several candidate suppliers",
           "Importers who can't afford the wrong container",
         ],
-        price: "starting at €190 — delivery normally in 3–4 business days",
+        price: "Quote on request — delivery normally in 3–4 business days",
       },
       {
         name: "Business Due Diligence",
@@ -90,7 +90,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone who noticed inconsistencies and wants clarity before moving forward",
           "Anyone who must present the counterpart to partners, banks, or the board",
         ],
-        price: "starting at €350 — delivery normally in 5–7 business days",
+        price: "Quote on request — delivery normally in 5–7 business days",
       },
       {
         name: "Enhanced Due Diligence",
@@ -107,7 +107,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone entering a transaction that will require local legal, tax, or documentary checks",
           "Anyone who must satisfy internal compliance requirements before signing",
         ],
-        price: "starting at €750 — delivery normally in 2–3 weeks",
+        price: "Quote on request — delivery normally in 2–3 weeks",
       },
     ],
   },
@@ -122,7 +122,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
         bullets: [
           "Main competitors in the target market",
           "Products, positioning, and sales channels",
-          "Indicative prices where available",
+          "Indicative price levels where available",
           "Comparative summary",
         ],
         audience: [
@@ -131,7 +131,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone preparing for a trade show or mission who wants to arrive knowing the players",
           "Anyone looking for the space competitors have left uncovered",
         ],
-        price: "starting at €199 — delivery normally in 1 week",
+        price: "Quote on request — delivery normally in 1 week",
       },
       {
         name: "Opportunity Scan",
@@ -147,9 +147,9 @@ export const serviceGroupsEN: ServiceGroup[] = [
           'Anyone wondering "would my product work there?" and wanting an honest answer',
           "Anyone choosing between two or more markets to focus their energy on",
           "Anyone deciding whether a trade show, mission, or full analysis is worth the investment",
-          "Anyone who'd rather spend €290 on a no today than €29,000 on a no a year from now",
+          "Anyone who'd rather get a no today than a far more expensive no a year from now",
         ],
-        price: "starting at €290 — delivery normally in 1 week",
+        price: "Quote on request — delivery normally in 1 week",
       },
       {
         name: "Market Analysis",
@@ -168,7 +168,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone presenting the project to partners, banks, or the board",
           "Anyone applying for internationalization grants that require a market analysis",
         ],
-        price: "starting at €500 — delivery normally in 2 weeks",
+        price: "Quote on request — delivery normally in 2 weeks",
       },
       {
         name: "Import/Export Briefing",
@@ -186,7 +186,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone who wants to keep their container from sitting in customs over a missing document",
           "Anyone who already has a counterpart and needs to make the deal operational",
         ],
-        price: "starting at €600 — delivery normally in 1–2 weeks",
+        price: "Quote on request — delivery normally in 1–2 weeks",
       },
     ],
   },
@@ -208,7 +208,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone who wants to test market response before investing more",
           "Anyone with their own sales structure who just needs the raw material: the contacts",
         ],
-        price: "starting at €199 — delivery normally in 1 week",
+        price: "Quote on request — delivery normally in 1 week",
       },
       {
         name: "Buyer Finder — Pro",
@@ -224,7 +224,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Export managers building the year's commercial pipeline",
           "Anyone preparing a structured outreach campaign who wants to start from the map",
         ],
-        price: "starting at €490 — delivery normally in 2 weeks",
+        price: "Quote on request — delivery normally in 2 weeks",
       },
       {
         name: "Supplier Finder",
@@ -240,7 +240,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone looking for a producer for their private label",
           "Anyone who received an offer and wants to benchmark it against the market",
         ],
-        price: "starting at €290 — delivery normally in 1–2 weeks",
+        price: "Quote on request — delivery normally in 1–2 weeks",
       },
     ],
   },
@@ -263,7 +263,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone who wants qualified responses on their desk, not names to work through",
           "Anyone who knows a poorly written first message burns the contact forever",
         ],
-        price: "starting at €1,200 — normally 4–6 weeks",
+        price: "Quote on request — normally 4–6 weeks",
       },
       {
         name: "B2B Agenda for Missions & Trade Shows",
@@ -281,7 +281,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Companies on a collective mission that want their own agenda beyond the official program",
           "Anyone who wants someone local preparing the ground before they land",
         ],
-        price: "starting at €800 per company — preparation normally 3–4 weeks",
+        price: "Quote on request — preparation normally 3–4 weeks",
       },
       {
         name: "Business Matching Campaign",
@@ -297,7 +297,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone without an export office who has no intention of building one for a single market",
           "Anyone who's tried alone and learned they need someone on the ground",
         ],
-        price: "starting at €2,000 — normally 6–8 weeks",
+        price: "Quote on request — normally 6–8 weeks",
       },
     ],
   },
@@ -319,7 +319,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone negotiating with local counterparts who wants someone at their side who knows the codes, the language, and the practices",
           "Companies considering a stable presence — importer, subsidiary, partnership — who want to get there step by step",
         ],
-        price: "from €2,500 per project — quote based on scope — normally 2–3 months",
+        price: "Quote on request — normally 2–3 months",
       },
     ],
   },
@@ -340,7 +340,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone who wants to notice market moves before reading about them in the news",
           'Anyone who\'s needed "urgent" research more than once and prefers a desk already engaged',
         ],
-        price: "starting at €290/month",
+        price: "Quote on request",
       },
       {
         name: "Local Business Support",
@@ -355,7 +355,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone who wants orders, deliveries, and issues handled in the right time zone and the right language",
           "Companies not (yet) ready to open an office, but no longer able to manage everything remotely",
         ],
-        price: "starting at €500/month",
+        price: "Quote on request",
       },
       {
         name: "Commercial Representation — Light",
@@ -370,7 +370,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone who closed a campaign or a mission and doesn't want the leads to go cold",
           "Anyone who wants an ongoing commercial presence at a subscription cost",
         ],
-        price: "starting at €300/month + variable terms defined by agreement",
+        price: "Quote on request — variable terms defined by agreement",
       },
       {
         name: "Commercial Representation — Full",
@@ -385,7 +385,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone with concrete sales targets who wants someone actively developing, not just maintaining",
           "Anyone who wants to be represented at trade shows, meetings, and negotiations by someone who knows the market from the inside",
         ],
-        price: "starting at €700/month + variable terms defined by agreement",
+        price: "Quote on request — variable terms defined by agreement",
       },
       {
         name: "Fractional Export Desk",
@@ -401,7 +401,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Anyone whose volume and ambitions have outgrown a light representation",
           "Anyone who wants a single person reporting to their sales leadership the way an in-house export manager would",
         ],
-        price: "from €1,500/month + variable terms defined by agreement",
+        price: "Quote on request — variable terms defined by agreement",
       },
     ],
   },
@@ -422,14 +422,14 @@ export const serviceGroupsEN: ServiceGroup[] = [
           "Companies that need to align the team on a market or a regulation",
           "Event organizers looking for a speaker who talks operations, not theory",
         ],
-        price: "starting at €300 (chambers and associations) / €500 (corporate)",
+        price: "Quote on request",
       },
       {
         name: "Workshop / Training",
         tagline: "Half day or full day, online or in person.",
         bullets: [
-          "Half day (3–4 hours): from €600",
-          "Full day (6–7 hours): from €1,000",
+          "Half day (3–4 hours)",
+          "Full day (6–7 hours)",
           "Program built on the company's own case",
           "In person: + out-of-pocket expenses",
         ],
@@ -447,13 +447,13 @@ export const serviceGroupsEN: ServiceGroup[] = [
 export const servicesNotesEN = {
   title: "NOTES",
   items: [
-    'Pricing. Prices shown are minimum starting amounts ("starting at"). The final quote is provided in a specific, no-obligation proposal, which the client is free to accept or decline.',
-    "Timelines. Delivery times shown are indicative. Actual turnaround and delivery deadlines are set out in the detailed proposal and, like the price, become binding only upon acceptance.",
+    "Pricing. Every service is quoted on request: the quote is provided in a specific, no-obligation proposal, which the client is free to accept or decline.",
+    "Timelines. Delivery times shown are indicative. Actual turnaround and delivery deadlines are set out in the detailed proposal and, like the quote, become binding only upon acceptance.",
     'Performance-based services. Terms — including exactly what counts as a "result" — are defined in detail at the proposal stage and formalized in writing before work begins.',
     "Quality over quantity. The number of counterparts identified depends on the market: in niche industries there may be few, but all relevant. We select and assess real matching potential: that's why we never promise a minimum number of contacts — only the selected contacts with the highest likelihood of success.",
     "No generic databases. Companies are selected based on your product, target market, and commercial profile. Our research combines public sources, databases, and business intelligence tools, always subject to human verification.",
     "Nature of verification and due diligence services. They are informational and business-intelligence in nature, based on the sources accessible for each specific case. They are conducted rigorously on reliable, verified data; however, they cannot cover circumstances that are not foreseeable or knowable through ordinary diligence, and they do not constitute professional legal, tax, accounting, or financial due diligence.",
     "Professional network. Where needed, BMG can coordinate deeper reviews with trusted, qualified professionals from its network.",
-    "Currencies and payments. All prices are in EUR. Payment can be made fee-free via SEPA or, also at no extra cost, in BRL (Pix/TED) at the Banco Central do Brasil PTAX selling rate, or in USD (ACH), GBP (Faster Payments), AUD, NZD, and CAD (domestic transfer) at the ECB reference rate — in all cases, at the rate of the business day before the invoice date.",
+    "Currencies and payments. All quotes are in EUR. Payment can be made fee-free via SEPA or, also at no extra cost, in BRL (Pix/TED) at the Banco Central do Brasil PTAX selling rate, or in USD (ACH), GBP (Faster Payments), AUD, NZD, and CAD (domestic transfer) at the ECB reference rate — in all cases, at the rate of the business day before the invoice date.",
   ],
 };
