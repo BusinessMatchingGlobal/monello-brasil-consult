@@ -3,7 +3,7 @@ import type { ServiceGroup } from "./servicesCatalog";
 export const servicesIntroEN = {
   title: "Our Services",
   intro:
-    "From checking a single company to a full market entry project. Every service has a clear scope, a starting price, and indicative delivery times. Start wherever you need.",
+    "From checking a single company to a full market entry project. Every service has a clear scope and indicative delivery times; every quote is on request. Start wherever you need.",
   markets: "Main markets: Brazil · Italy · European Union · Latin America",
   more: "Learn more",
   request: "Request",
@@ -122,7 +122,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
         bullets: [
           "Main competitors in the target market",
           "Products, positioning, and sales channels",
-          "Indicative prices where available",
+          "Indicative price levels where available",
           "Comparative summary",
         ],
         audience: [
@@ -147,7 +147,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
           'Anyone wondering "would my product work there?" and wanting an honest answer',
           "Anyone choosing between two or more markets to focus their energy on",
           "Anyone deciding whether a trade show, mission, or full analysis is worth the investment",
-          "Anyone who'd rather spend €290 on a no today than €29,000 on a no a year from now",
+          "Anyone who'd rather get a no today than a far more expensive no a year from now",
         ],
         price: "Quote on request — delivery normally in 1 week",
       },
@@ -428,8 +428,8 @@ export const serviceGroupsEN: ServiceGroup[] = [
         name: "Workshop / Training",
         tagline: "Half day or full day, online or in person.",
         bullets: [
-          "Half day (3–4 hours): from €600",
-          "Full day (6–7 hours): from €1,000",
+          "Half day (3–4 hours)",
+          "Full day (6–7 hours)",
           "Program built on the company's own case",
           "In person: + out-of-pocket expenses",
         ],
@@ -447,13 +447,13 @@ export const serviceGroupsEN: ServiceGroup[] = [
 export const servicesNotesEN = {
   title: "NOTES",
   items: [
-    'Pricing. Prices shown are minimum starting amounts ("starting at"). The final quote is provided in a specific, no-obligation proposal, which the client is free to accept or decline.',
-    "Timelines. Delivery times shown are indicative. Actual turnaround and delivery deadlines are set out in the detailed proposal and, like the price, become binding only upon acceptance.",
+    "Pricing. Every service is quoted on request: the quote is provided in a specific, no-obligation proposal, which the client is free to accept or decline.",
+    "Timelines. Delivery times shown are indicative. Actual turnaround and delivery deadlines are set out in the detailed proposal and, like the quote, become binding only upon acceptance.",
     'Performance-based services. Terms — including exactly what counts as a "result" — are defined in detail at the proposal stage and formalized in writing before work begins.',
     "Quality over quantity. The number of counterparts identified depends on the market: in niche industries there may be few, but all relevant. We select and assess real matching potential: that's why we never promise a minimum number of contacts — only the selected contacts with the highest likelihood of success.",
     "No generic databases. Companies are selected based on your product, target market, and commercial profile. Our research combines public sources, databases, and business intelligence tools, always subject to human verification.",
     "Nature of verification and due diligence services. They are informational and business-intelligence in nature, based on the sources accessible for each specific case. They are conducted rigorously on reliable, verified data; however, they cannot cover circumstances that are not foreseeable or knowable through ordinary diligence, and they do not constitute professional legal, tax, accounting, or financial due diligence.",
     "Professional network. Where needed, BMG can coordinate deeper reviews with trusted, qualified professionals from its network.",
-    "Currencies and payments. All prices are in EUR. Payment can be made fee-free via SEPA or, also at no extra cost, in BRL (Pix/TED) at the Banco Central do Brasil PTAX selling rate, or in USD (ACH), GBP (Faster Payments), AUD, NZD, and CAD (domestic transfer) at the ECB reference rate — in all cases, at the rate of the business day before the invoice date.",
+    "Currencies and payments. All quotes are in EUR. Payment can be made fee-free via SEPA or, also at no extra cost, in BRL (Pix/TED) at the Banco Central do Brasil PTAX selling rate, or in USD (ACH), GBP (Faster Payments), AUD, NZD, and CAD (domestic transfer) at the ECB reference rate — in all cases, at the rate of the business day before the invoice date.",
   ],
 };

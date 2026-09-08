@@ -429,7 +429,7 @@ var serviceGroupsPT = [
           'Para quem se pergunta "meu produto funcionaria l\xE1?" e quer uma resposta honesta',
           "Para quem precisa escolher entre dois ou mais mercados onde concentrar energia",
           "Para quem avalia se vale a pena investir em uma feira, uma miss\xE3o ou uma an\xE1lise completa",
-          'Para quem prefere gastar \u20AC290 em um "n\xE3o" agora a \u20AC29.000 em um "n\xE3o" daqui a um ano'
+          'Para quem prefere um "n\xE3o" agora a um "n\xE3o" muito mais caro daqui a um ano'
         ],
         price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 1 semana"
       },
@@ -710,8 +710,8 @@ var serviceGroupsPT = [
         name: "Workshop / Treinamento",
         tagline: "Meio per\xEDodo ou dia inteiro, online ou presencial.",
         bullets: [
-          "Meio per\xEDodo (3\u20134 horas): a partir de \u20AC600",
-          "Dia inteiro (6\u20137 horas): a partir de \u20AC1.000",
+          "Meio per\xEDodo (3\u20134 horas)",
+          "Dia inteiro (6\u20137 horas)",
           "Programa constru\xEDdo sobre o caso da empresa",
           "Presencial: + despesas de deslocamento"
         ],
@@ -838,7 +838,7 @@ var serviceGroupsEN = [
         bullets: [
           "Main competitors in the target market",
           "Products, positioning, and sales channels",
-          "Indicative prices where available",
+          "Indicative price levels where available",
           "Comparative summary"
         ],
         audience: [
@@ -863,7 +863,7 @@ var serviceGroupsEN = [
           'Anyone wondering "would my product work there?" and wanting an honest answer',
           "Anyone choosing between two or more markets to focus their energy on",
           "Anyone deciding whether a trade show, mission, or full analysis is worth the investment",
-          "Anyone who'd rather spend \u20AC290 on a no today than \u20AC29,000 on a no a year from now"
+          "Anyone who'd rather get a no today than a far more expensive no a year from now"
         ],
         price: "Quote on request \u2014 delivery normally in 1 week"
       },
@@ -1144,8 +1144,8 @@ var serviceGroupsEN = [
         name: "Workshop / Training",
         tagline: "Half day or full day, online or in person.",
         bullets: [
-          "Half day (3\u20134 hours): from \u20AC600",
-          "Full day (6\u20137 hours): from \u20AC1,000",
+          "Half day (3\u20134 hours)",
+          "Full day (6\u20137 hours)",
           "Program built on the company's own case",
           "In person: + out-of-pocket expenses"
         ],
@@ -1297,7 +1297,7 @@ var serviceGroups = [
           'A chi si chiede "il mio prodotto funzionerebbe l\xEC?" e vuole una risposta onesta',
           "A chi deve scegliere tra due o pi\xF9 mercati dove concentrare le energie",
           "A chi valuta se vale la pena investire in una fiera, una missione o un'analisi completa",
-          "A chi preferisce spendere 290 \u20AC per un no adesso, che 29.000 \u20AC per un no tra un anno"
+          "A chi preferisce un no adesso, invece di un no molto pi\xF9 costoso tra un anno"
         ],
         price: "Preventivo su richiesta \u2014 consegna normalmente in 1 settimana"
       },
@@ -1578,8 +1578,8 @@ var serviceGroups = [
         name: "Workshop / Training",
         tagline: "Mezza giornata o giornata intera, online o in presenza.",
         bullets: [
-          "Mezza giornata (3\u20134 ore): da 600 \u20AC",
-          "Giornata intera (6\u20137 ore): da 1.000 \u20AC",
+          "Mezza giornata (3\u20134 ore)",
+          "Giornata intera (6\u20137 ore)",
           "Programma costruito sul caso dell'azienda",
           "In presenza: + spese vive"
         ],

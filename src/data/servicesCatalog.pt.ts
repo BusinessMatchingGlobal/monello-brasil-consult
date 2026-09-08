@@ -147,7 +147,7 @@ export const serviceGroupsPT: ServiceGroup[] = [
           'Para quem se pergunta "meu produto funcionaria lá?" e quer uma resposta honesta',
           "Para quem precisa escolher entre dois ou mais mercados onde concentrar energia",
           "Para quem avalia se vale a pena investir em uma feira, uma missão ou uma análise completa",
-          'Para quem prefere gastar €290 em um "não" agora a €29.000 em um "não" daqui a um ano',
+          'Para quem prefere um "não" agora a um "não" muito mais caro daqui a um ano',
         ],
         price: "Orçamento sob consulta — entrega normalmente em 1 semana",
       },
@@ -428,8 +428,8 @@ export const serviceGroupsPT: ServiceGroup[] = [
         name: "Workshop / Treinamento",
         tagline: "Meio período ou dia inteiro, online ou presencial.",
         bullets: [
-          "Meio período (3–4 horas): a partir de €600",
-          "Dia inteiro (6–7 horas): a partir de €1.000",
+          "Meio período (3–4 horas)",
+          "Dia inteiro (6–7 horas)",
           "Programa construído sobre o caso da empresa",
           "Presencial: + despesas de deslocamento",
         ],
@@ -447,13 +447,13 @@ export const serviceGroupsPT: ServiceGroup[] = [
 export const servicesNotesPT = {
   title: "OBSERVAÇÕES",
   items: [
-    'Preços. Os preços indicados são valores mínimos de partida ("a partir de"). A cotação definitiva é apresentada em um orçamento específico e sem compromisso, que o cliente é livre para aceitar ou não.',
-    "Prazos. Os prazos indicados são orientativos. Os tempos efetivos de execução e as datas de entrega são definidos no orçamento detalhado e, assim como o preço, só se tornam vinculantes com a aceitação.",
+    "Preços. Cada serviço é cotado sob consulta: a cotação é apresentada em um orçamento específico e sem compromisso, que o cliente é livre para aceitar ou não.",
+    "Prazos. Os prazos indicados são orientativos. Os tempos efetivos de execução e as datas de entrega são definidos no orçamento detalhado e, assim como a cotação, só se tornam vinculantes com a aceitação.",
     'Serviços com componente por resultado. As condições — inclusive o que exatamente se entende por "resultado" — são estabelecidas em detalhe na fase de orçamento e formalizadas por escrito antes do início da atividade.',
     "Qualidade, não quantidade. O número de contrapartes identificadas depende do mercado: em setores de nicho podem ser poucas, mas todas relevantes. Selecionamos e analisamos as reais possibilidades de matching: por isso nunca prometemos um número mínimo de contatos — apenas os contatos selecionados com as maiores chances de sucesso.",
     "Nenhum banco de dados genérico. As empresas são selecionadas em função do produto, do mercado-alvo e do perfil comercial do cliente. As pesquisas combinam fontes públicas, bancos de dados e ferramentas de business intelligence, sempre submetidos a verificação humana.",
     "Natureza dos serviços de verificação e due diligence. Têm natureza informativa e de business intelligence e se baseiam nas fontes acessíveis para cada caso específico. São conduzidos com rigor sobre dados confiáveis e verificados; não podem, contudo, cobrir circunstâncias imprevisíveis ou não conhecíveis com a diligência ordinária, e não constituem due diligence jurídica, fiscal, contábil ou financeira profissional.",
     "Rede de profissionais. Quando necessário, a BMG pode coordenar aprofundamentos com profissionais qualificados de confiança de sua rede.",
-    "Moedas e pagamentos. Todos os preços são expressos em EUR. O pagamento pode ser feito sem taxas via SEPA ou, também sem custos adicionais, em BRL (Pix/TED) pela PTAX de venda do Banco Central do Brasil, ou em USD (ACH), GBP (Faster Payments), AUD, NZD e CAD (transferência doméstica) pela taxa de referência do BCE — em todos os casos, pela taxa do dia útil anterior à emissão da fatura.",
+    "Moedas e pagamentos. Todos os orçamentos são expressos em EUR. O pagamento pode ser feito sem taxas via SEPA ou, também sem custos adicionais, em BRL (Pix/TED) pela PTAX de venda do Banco Central do Brasil, ou em USD (ACH), GBP (Faster Payments), AUD, NZD e CAD (transferência doméstica) pela taxa de referência do BCE — em todos os casos, pela taxa do dia útil anterior à emissão da fatura.",
   ],
 };

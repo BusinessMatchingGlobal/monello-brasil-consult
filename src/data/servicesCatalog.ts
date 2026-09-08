@@ -18,7 +18,7 @@ export type ServiceGroup = {
 export const servicesIntro = {
   title: "I nostri servizi",
   intro:
-    "Dal controllo di una singola azienda al progetto completo di ingresso nel mercato. Ogni servizio ha un perimetro chiaro, un prezzo di partenza e tempi di consegna indicativi. Inizia da dove ti serve.",
+    "Dal controllo di una singola azienda al progetto completo di ingresso nel mercato. Ogni servizio ha un perimetro chiaro e tempi di consegna indicativi; la quotazione è sempre su richiesta. Inizia da dove ti serve.",
   markets: "Mercati principali: Brasile · Italia · Unione Europea · America Latina",
   more: "Scopri di più",
   request: "Richiedi",
@@ -162,7 +162,7 @@ export const serviceGroups: ServiceGroup[] = [
           'A chi si chiede "il mio prodotto funzionerebbe lì?" e vuole una risposta onesta',
           "A chi deve scegliere tra due o più mercati dove concentrare le energie",
           "A chi valuta se vale la pena investire in una fiera, una missione o un'analisi completa",
-          "A chi preferisce spendere 290 € per un no adesso, che 29.000 € per un no tra un anno",
+          "A chi preferisce un no adesso, invece di un no molto più costoso tra un anno",
         ],
         price: "Preventivo su richiesta — consegna normalmente in 1 settimana",
       },
@@ -443,8 +443,8 @@ export const serviceGroups: ServiceGroup[] = [
         name: "Workshop / Training",
         tagline: "Mezza giornata o giornata intera, online o in presenza.",
         bullets: [
-          "Mezza giornata (3–4 ore): da 600 €",
-          "Giornata intera (6–7 ore): da 1.000 €",
+          "Mezza giornata (3–4 ore)",
+          "Giornata intera (6–7 ore)",
           "Programma costruito sul caso dell'azienda",
           "In presenza: + spese vive",
         ],
@@ -462,14 +462,14 @@ export const serviceGroups: ServiceGroup[] = [
 export const servicesNotes = {
   title: "NOTE",
   items: [
-    'Prezzi. I prezzi indicati sono importi minimi di partenza ("a partire da"). La quotazione definitiva viene formulata in un preventivo specifico e senza impegno, che il cliente è libero di accettare o meno.',
-    "Tempi. I tempi di lavorazione indicati sono orientativi. Le tempistiche effettive e le scadenze di consegna vengono definite nel preventivo di dettaglio e, come il prezzo, diventano vincolanti solo con l'accettazione.",
+    "Prezzi. Ogni servizio viene quotato su richiesta: la quotazione viene formulata in un preventivo specifico e senza impegno, che il cliente è libero di accettare o meno.",
+    "Tempi. I tempi di lavorazione indicati sono orientativi. Le tempistiche effettive e le scadenze di consegna vengono definite nel preventivo di dettaglio e, come la quotazione, diventano vincolanti solo con l'accettazione.",
     'Servizi con componente a risultato. Le condizioni — incluso che cosa si intende esattamente per "risultato" — vengono stabilite in dettaglio in fase di preventivo e formalizzate per iscritto prima dell\'avvio dell\'attività.',
     "Qualità, non quantità. Il numero di controparti individuate dipende dal mercato: nei settori di nicchia possono essere poche, ma tutte rilevanti. Selezioniamo e analizziamo le reali possibilità di matching: per questo non promettiamo mai un numero minimo di contatti, ma esclusivamente i contatti selezionati con le maggiori probabilità di successo.",
     "Nessun database generico. Le aziende vengono selezionate in funzione del prodotto, del mercato target e del profilo commerciale del cliente. Le ricerche combinano fonti pubbliche, database e strumenti di business intelligence, sempre sottoposti a verifica umana.",
     "Natura dei servizi di verifica e due diligence. Hanno natura informativa e di business intelligence e si basano sulle fonti accessibili per il caso specifico. Sono condotti con rigore su dati affidabili e verificati; non possono tuttavia coprire circostanze non prevedibili né conoscibili con l'ordinaria diligenza, e non costituiscono due diligence legale, fiscale, contabile o finanziaria professionale.",
     "Rete di professionisti. Quando necessario, BMG può coordinare approfondimenti con professionisti qualificati di fiducia del proprio network.",
-    "Valute e pagamenti. Tutti i prezzi sono espressi in EUR. Il pagamento può essere effettuato senza spese via SEPA oppure, sempre senza costi aggiuntivi, in BRL (Pix/TED) al PTAX de venda del Banco Central do Brasil, o in USD (ACH), GBP (Faster Payments), AUD, NZD e CAD (trasferimento domestico) al tasso di riferimento BCE — in tutti i casi al tasso del giorno lavorativo precedente l'emissione della fattura.",
+    "Valute e pagamenti. Tutti i preventivi sono espressi in EUR. Il pagamento può essere effettuato senza spese via SEPA oppure, sempre senza costi aggiuntivi, in BRL (Pix/TED) al PTAX de venda del Banco Central do Brasil, o in USD (ACH), GBP (Faster Payments), AUD, NZD e CAD (trasferimento domestico) al tasso di riferimento BCE — in tutti i casi al tasso del giorno lavorativo precedente l'emissione della fattura.",
   ],
 };
 
