@@ -314,7 +314,7 @@ var serviceGroupsPT = [
           "Para o profissional \u2014 contador, advogado, consultor \u2014 com cliente ativo entre a Europa e o Brasil"
         ],
         examples: 'Exemplos de perguntas: "Quem s\xE3o os principais importadores do meu produto na Europa?" \xB7 "Quais impostos e taxas meu produto paga na entrada?" \xB7 "Esse setor exige registros ou licen\xE7as?" \xB7 "Como esse produto costuma ser vendido naquele mercado?"',
-        price: "a partir de \u20AC79"
+        price: "Or\xE7amento sob consulta"
       }
     ]
   },
@@ -337,7 +337,7 @@ var serviceGroupsPT = [
           "Para quem conheceu o interlocutor em feira ou online e quer saber se ele \xE9 real",
           "Para quem precisa decidir se uma negocia\xE7\xE3o merece seu tempo"
         ],
-        price: "a partir de \u20AC150 \u2014 entrega normalmente em 2\u20133 dias \xFAteis"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 2\u20133 dias \xFAteis"
       },
       {
         name: "Supplier Check",
@@ -354,7 +354,7 @@ var serviceGroupsPT = [
           "Para quem precisa escolher entre v\xE1rios fornecedores candidatos",
           "Para o importador que n\xE3o pode se dar ao luxo de receber o cont\xEAiner errado"
         ],
-        price: "a partir de \u20AC190 \u2014 entrega normalmente em 3\u20134 dias \xFAteis"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 3\u20134 dias \xFAteis"
       },
       {
         name: "Business Due Diligence",
@@ -372,7 +372,7 @@ var serviceGroupsPT = [
           "Para quem notou inconsist\xEAncias nas informa\xE7\xF5es recebidas e quer enxergar com clareza",
           "Para quem precisa apresentar a contraparte a s\xF3cios, banco ou conselho"
         ],
-        price: "a partir de \u20AC350 \u2014 entrega normalmente em 5\u20137 dias \xFAteis"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 5\u20137 dias \xFAteis"
       },
       {
         name: "Enhanced Due Diligence",
@@ -389,7 +389,7 @@ var serviceGroupsPT = [
           "Para quem entra em uma opera\xE7\xE3o que exigir\xE1 verifica\xE7\xF5es jur\xEDdicas, fiscais ou documentais locais",
           "Para quem precisa atender a exig\xEAncias internas de compliance antes de assinar"
         ],
-        price: "a partir de \u20AC750 \u2014 entrega normalmente em 2\u20133 semanas"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 2\u20133 semanas"
       }
     ]
   },
@@ -413,7 +413,7 @@ var serviceGroupsPT = [
           "Para quem se prepara para uma feira ou miss\xE3o e quer chegar conhecendo os players",
           "Para quem quer identificar o espa\xE7o que os concorrentes deixaram descoberto"
         ],
-        price: "a partir de \u20AC199 \u2014 entrega normalmente em 1 semana"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 1 semana"
       },
       {
         name: "Opportunity Scan",
@@ -431,7 +431,7 @@ var serviceGroupsPT = [
           "Para quem avalia se vale a pena investir em uma feira, uma miss\xE3o ou uma an\xE1lise completa",
           'Para quem prefere gastar \u20AC290 em um "n\xE3o" agora a \u20AC29.000 em um "n\xE3o" daqui a um ano'
         ],
-        price: "a partir de \u20AC290 \u2014 entrega normalmente em 1 semana"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 1 semana"
       },
       {
         name: "An\xE1lise de Mercado",
@@ -450,7 +450,7 @@ var serviceGroupsPT = [
           "Para quem precisa apresentar o projeto a s\xF3cios, banco ou conselho",
           "Para quem participa de editais e programas de apoio \xE0 internacionaliza\xE7\xE3o que exigem uma an\xE1lise de mercado"
         ],
-        price: "a partir de \u20AC500 \u2014 entrega normalmente em 2 semanas"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 2 semanas"
       },
       {
         name: "Briefing de Importa\xE7\xE3o/Exporta\xE7\xE3o",
@@ -468,7 +468,7 @@ var serviceGroupsPT = [
           "Para quem quer evitar que o cont\xEAiner fique parado na alf\xE2ndega por falta de um documento",
           "Para quem j\xE1 tem uma contraparte e precisa tornar o acordo operacional"
         ],
-        price: "a partir de \u20AC600 \u2014 entrega normalmente em 1\u20132 semanas"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 1\u20132 semanas"
       }
     ]
   },
@@ -490,7 +490,7 @@ var serviceGroupsPT = [
           "Para quem quer testar a resposta do mercado antes de investir mais",
           "Para quem tem estrutura comercial pr\xF3pria e s\xF3 precisa da mat\xE9ria-prima: os contatos"
         ],
-        price: "a partir de \u20AC199 \u2014 entrega normalmente em 1 semana"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 1 semana"
       },
       {
         name: "Buyer Finder \u2014 Pro",
@@ -506,7 +506,7 @@ var serviceGroupsPT = [
           "Para o gerente de exporta\xE7\xE3o que constr\xF3i o pipeline comercial do ano",
           "Para quem prepara uma campanha de contato estruturada e quer partir do mapa"
         ],
-        price: "a partir de \u20AC490 \u2014 entrega normalmente em 2 semanas"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 2 semanas"
       },
       {
         name: "Supplier Finder",
@@ -522,7 +522,7 @@ var serviceGroupsPT = [
           "Para quem busca um produtor para sua marca pr\xF3pria",
           "Para quem recebeu uma oferta e quer compar\xE1-la com o restante do mercado"
         ],
-        price: "a partir de \u20AC290 \u2014 entrega normalmente em 1\u20132 semanas"
+        price: "Or\xE7amento sob consulta \u2014 entrega normalmente em 1\u20132 semanas"
       }
     ]
   },
@@ -545,7 +545,7 @@ var serviceGroupsPT = [
           "Para quem quer respostas qualificadas na mesa, n\xE3o nomes para trabalhar",
           "Para quem sabe que a primeira mensagem, mal escrita, queima o contato para sempre"
         ],
-        price: "a partir de \u20AC1.200 \u2014 dura\xE7\xE3o normalmente de 4\u20136 semanas"
+        price: "Or\xE7amento sob consulta \u2014 dura\xE7\xE3o normalmente de 4\u20136 semanas"
       },
       {
         name: "Agenda B2B para Miss\xF5es e Feiras",
@@ -563,7 +563,7 @@ var serviceGroupsPT = [
           "Para a empresa em miss\xE3o coletiva que quer uma agenda pr\xF3pria, al\xE9m do programa oficial",
           "Para quem quer algu\xE9m local preparando o terreno antes da chegada"
         ],
-        price: "a partir de \u20AC800 por empresa \u2014 prepara\xE7\xE3o normalmente de 3\u20134 semanas"
+        price: "Or\xE7amento sob consulta \u2014 prepara\xE7\xE3o normalmente de 3\u20134 semanas"
       },
       {
         name: "Business Matching Campaign",
@@ -579,7 +579,7 @@ var serviceGroupsPT = [
           "Para quem n\xE3o tem departamento de exporta\xE7\xE3o e n\xE3o pretende criar um para um \xFAnico mercado",
           "Para quem j\xE1 tentou sozinho e entendeu que precisa de algu\xE9m no local"
         ],
-        price: "a partir de \u20AC2.000 \u2014 dura\xE7\xE3o normalmente de 6\u20138 semanas"
+        price: "Or\xE7amento sob consulta \u2014 dura\xE7\xE3o normalmente de 6\u20138 semanas"
       }
     ]
   },
@@ -601,7 +601,7 @@ var serviceGroupsPT = [
           "Para quem vai negociar com contrapartes locais e quer ao lado algu\xE9m que conhece os c\xF3digos, o idioma e as pr\xE1ticas",
           "Para a empresa que avalia uma presen\xE7a est\xE1vel \u2014 importador, filial, parceria \u2014 e quer chegar l\xE1 por etapas"
         ],
-        price: "a partir de \u20AC2.500 por projeto \u2014 or\xE7amento conforme o escopo \u2014 dura\xE7\xE3o normalmente de 2\u20133 meses"
+        price: "Or\xE7amento sob consulta \u2014 dura\xE7\xE3o normalmente de 2\u20133 meses"
       }
     ]
   },
@@ -622,7 +622,7 @@ var serviceGroupsPT = [
           "Para quem quer perceber os movimentos do mercado antes de l\xEA-los no notici\xE1rio",
           'Para quem j\xE1 precisou de pesquisa "urgente" mais de uma vez e prefere ter um desk j\xE1 contratado'
         ],
-        price: "a partir de \u20AC290/m\xEAs"
+        price: "Or\xE7amento sob consulta"
       },
       {
         name: "Local Business Support",
@@ -637,7 +637,7 @@ var serviceGroupsPT = [
           "Para quem quer que pedidos, entregas e problemas sejam acompanhados no fuso e no idioma certos",
           "Para a empresa que (ainda) n\xE3o quer abrir escrit\xF3rio, mas j\xE1 n\xE3o consegue administrar tudo a dist\xE2ncia"
         ],
-        price: "a partir de \u20AC500/m\xEAs"
+        price: "Or\xE7amento sob consulta"
       },
       {
         name: "Commercial Representation \u2014 Light",
@@ -652,7 +652,7 @@ var serviceGroupsPT = [
           "Para quem encerrou uma campanha ou uma miss\xE3o e n\xE3o quer que os leads esfriem",
           "Para quem quer presen\xE7a comercial cont\xEDnua a custo de assinatura"
         ],
-        price: "a partir de \u20AC300/m\xEAs + condi\xE7\xF5es vari\xE1veis definidas em acordo"
+        price: "Or\xE7amento sob consulta \u2014 condi\xE7\xF5es vari\xE1veis definidas em acordo"
       },
       {
         name: "Commercial Representation \u2014 Full",
@@ -667,7 +667,7 @@ var serviceGroupsPT = [
           "Para quem tem metas de venda concretas e quer algu\xE9m desenvolvendo ativamente, n\xE3o apenas mantendo",
           "Para quem quer ser representado em feiras, reuni\xF5es e negocia\xE7\xF5es por quem conhece o mercado por dentro"
         ],
-        price: "a partir de \u20AC700/m\xEAs + condi\xE7\xF5es vari\xE1veis definidas em acordo"
+        price: "Or\xE7amento sob consulta \u2014 condi\xE7\xF5es vari\xE1veis definidas em acordo"
       },
       {
         name: "Fractional Export Desk",
@@ -683,7 +683,7 @@ var serviceGroupsPT = [
           "Para quem tem volumes e ambi\xE7\xF5es que uma representa\xE7\xE3o leve j\xE1 n\xE3o atende",
           "Para quem quer uma \xFAnica figura respondendo \xE0 sua diretoria comercial como faria um gerente de exporta\xE7\xE3o interno"
         ],
-        price: "a partir de \u20AC1.500/m\xEAs + condi\xE7\xF5es vari\xE1veis definidas em acordo"
+        price: "Or\xE7amento sob consulta \u2014 condi\xE7\xF5es vari\xE1veis definidas em acordo"
       }
     ]
   },
@@ -704,7 +704,7 @@ var serviceGroupsPT = [
           "Para a empresa que precisa alinhar a equipe sobre um mercado ou uma norma",
           "Para quem organiza eventos e busca um palestrante que fale de opera\xE7\xE3o, n\xE3o de teoria"
         ],
-        price: "a partir de \u20AC300 (c\xE2maras e associa\xE7\xF5es) / \u20AC500 (empresarial)"
+        price: "Or\xE7amento sob consulta"
       },
       {
         name: "Workshop / Treinamento",
@@ -748,7 +748,7 @@ var serviceGroupsEN = [
           "Professionals \u2014 accountants, attorneys, consultants \u2014 with a client active between Europe and Brazil"
         ],
         examples: 'Sample questions: "Who are the main importers of my product in Brazil?" \xB7 "What duties and taxes does my product pay at entry?" \xB7 "Does this industry require registrations or licenses?" \xB7 "How is this product typically sold in that market?"',
-        price: "starting at \u20AC79"
+        price: "Quote on request"
       }
     ]
   },
@@ -771,7 +771,7 @@ var serviceGroupsEN = [
           "Anyone who met a counterpart at a trade show or online and wants to know if they're real",
           "Anyone deciding whether a negotiation deserves their time"
         ],
-        price: "starting at \u20AC150 \u2014 delivery normally in 2\u20133 business days"
+        price: "Quote on request \u2014 delivery normally in 2\u20133 business days"
       },
       {
         name: "Supplier Check",
@@ -788,7 +788,7 @@ var serviceGroupsEN = [
           "Anyone choosing among several candidate suppliers",
           "Importers who can't afford the wrong container"
         ],
-        price: "starting at \u20AC190 \u2014 delivery normally in 3\u20134 business days"
+        price: "Quote on request \u2014 delivery normally in 3\u20134 business days"
       },
       {
         name: "Business Due Diligence",
@@ -806,7 +806,7 @@ var serviceGroupsEN = [
           "Anyone who noticed inconsistencies and wants clarity before moving forward",
           "Anyone who must present the counterpart to partners, banks, or the board"
         ],
-        price: "starting at \u20AC350 \u2014 delivery normally in 5\u20137 business days"
+        price: "Quote on request \u2014 delivery normally in 5\u20137 business days"
       },
       {
         name: "Enhanced Due Diligence",
@@ -823,7 +823,7 @@ var serviceGroupsEN = [
           "Anyone entering a transaction that will require local legal, tax, or documentary checks",
           "Anyone who must satisfy internal compliance requirements before signing"
         ],
-        price: "starting at \u20AC750 \u2014 delivery normally in 2\u20133 weeks"
+        price: "Quote on request \u2014 delivery normally in 2\u20133 weeks"
       }
     ]
   },
@@ -847,7 +847,7 @@ var serviceGroupsEN = [
           "Anyone preparing for a trade show or mission who wants to arrive knowing the players",
           "Anyone looking for the space competitors have left uncovered"
         ],
-        price: "starting at \u20AC199 \u2014 delivery normally in 1 week"
+        price: "Quote on request \u2014 delivery normally in 1 week"
       },
       {
         name: "Opportunity Scan",
@@ -865,7 +865,7 @@ var serviceGroupsEN = [
           "Anyone deciding whether a trade show, mission, or full analysis is worth the investment",
           "Anyone who'd rather spend \u20AC290 on a no today than \u20AC29,000 on a no a year from now"
         ],
-        price: "starting at \u20AC290 \u2014 delivery normally in 1 week"
+        price: "Quote on request \u2014 delivery normally in 1 week"
       },
       {
         name: "Market Analysis",
@@ -884,7 +884,7 @@ var serviceGroupsEN = [
           "Anyone presenting the project to partners, banks, or the board",
           "Anyone applying for internationalization grants that require a market analysis"
         ],
-        price: "starting at \u20AC500 \u2014 delivery normally in 2 weeks"
+        price: "Quote on request \u2014 delivery normally in 2 weeks"
       },
       {
         name: "Import/Export Briefing",
@@ -902,7 +902,7 @@ var serviceGroupsEN = [
           "Anyone who wants to keep their container from sitting in customs over a missing document",
           "Anyone who already has a counterpart and needs to make the deal operational"
         ],
-        price: "starting at \u20AC600 \u2014 delivery normally in 1\u20132 weeks"
+        price: "Quote on request \u2014 delivery normally in 1\u20132 weeks"
       }
     ]
   },
@@ -924,7 +924,7 @@ var serviceGroupsEN = [
           "Anyone who wants to test market response before investing more",
           "Anyone with their own sales structure who just needs the raw material: the contacts"
         ],
-        price: "starting at \u20AC199 \u2014 delivery normally in 1 week"
+        price: "Quote on request \u2014 delivery normally in 1 week"
       },
       {
         name: "Buyer Finder \u2014 Pro",
@@ -940,7 +940,7 @@ var serviceGroupsEN = [
           "Export managers building the year's commercial pipeline",
           "Anyone preparing a structured outreach campaign who wants to start from the map"
         ],
-        price: "starting at \u20AC490 \u2014 delivery normally in 2 weeks"
+        price: "Quote on request \u2014 delivery normally in 2 weeks"
       },
       {
         name: "Supplier Finder",
@@ -956,7 +956,7 @@ var serviceGroupsEN = [
           "Anyone looking for a producer for their private label",
           "Anyone who received an offer and wants to benchmark it against the market"
         ],
-        price: "starting at \u20AC290 \u2014 delivery normally in 1\u20132 weeks"
+        price: "Quote on request \u2014 delivery normally in 1\u20132 weeks"
       }
     ]
   },
@@ -979,7 +979,7 @@ var serviceGroupsEN = [
           "Anyone who wants qualified responses on their desk, not names to work through",
           "Anyone who knows a poorly written first message burns the contact forever"
         ],
-        price: "starting at \u20AC1,200 \u2014 normally 4\u20136 weeks"
+        price: "Quote on request \u2014 normally 4\u20136 weeks"
       },
       {
         name: "B2B Agenda for Missions & Trade Shows",
@@ -997,7 +997,7 @@ var serviceGroupsEN = [
           "Companies on a collective mission that want their own agenda beyond the official program",
           "Anyone who wants someone local preparing the ground before they land"
         ],
-        price: "starting at \u20AC800 per company \u2014 preparation normally 3\u20134 weeks"
+        price: "Quote on request \u2014 preparation normally 3\u20134 weeks"
       },
       {
         name: "Business Matching Campaign",
@@ -1013,7 +1013,7 @@ var serviceGroupsEN = [
           "Anyone without an export office who has no intention of building one for a single market",
           "Anyone who's tried alone and learned they need someone on the ground"
         ],
-        price: "starting at \u20AC2,000 \u2014 normally 6\u20138 weeks"
+        price: "Quote on request \u2014 normally 6\u20138 weeks"
       }
     ]
   },
@@ -1035,7 +1035,7 @@ var serviceGroupsEN = [
           "Anyone negotiating with local counterparts who wants someone at their side who knows the codes, the language, and the practices",
           "Companies considering a stable presence \u2014 importer, subsidiary, partnership \u2014 who want to get there step by step"
         ],
-        price: "from \u20AC2,500 per project \u2014 quote based on scope \u2014 normally 2\u20133 months"
+        price: "Quote on request \u2014 normally 2\u20133 months"
       }
     ]
   },
@@ -1056,7 +1056,7 @@ var serviceGroupsEN = [
           "Anyone who wants to notice market moves before reading about them in the news",
           `Anyone who's needed "urgent" research more than once and prefers a desk already engaged`
         ],
-        price: "starting at \u20AC290/month"
+        price: "Quote on request"
       },
       {
         name: "Local Business Support",
@@ -1071,7 +1071,7 @@ var serviceGroupsEN = [
           "Anyone who wants orders, deliveries, and issues handled in the right time zone and the right language",
           "Companies not (yet) ready to open an office, but no longer able to manage everything remotely"
         ],
-        price: "starting at \u20AC500/month"
+        price: "Quote on request"
       },
       {
         name: "Commercial Representation \u2014 Light",
@@ -1086,7 +1086,7 @@ var serviceGroupsEN = [
           "Anyone who closed a campaign or a mission and doesn't want the leads to go cold",
           "Anyone who wants an ongoing commercial presence at a subscription cost"
         ],
-        price: "starting at \u20AC300/month + variable terms defined by agreement"
+        price: "Quote on request \u2014 variable terms defined by agreement"
       },
       {
         name: "Commercial Representation \u2014 Full",
@@ -1101,7 +1101,7 @@ var serviceGroupsEN = [
           "Anyone with concrete sales targets who wants someone actively developing, not just maintaining",
           "Anyone who wants to be represented at trade shows, meetings, and negotiations by someone who knows the market from the inside"
         ],
-        price: "starting at \u20AC700/month + variable terms defined by agreement"
+        price: "Quote on request \u2014 variable terms defined by agreement"
       },
       {
         name: "Fractional Export Desk",
@@ -1117,7 +1117,7 @@ var serviceGroupsEN = [
           "Anyone whose volume and ambitions have outgrown a light representation",
           "Anyone who wants a single person reporting to their sales leadership the way an in-house export manager would"
         ],
-        price: "from \u20AC1,500/month + variable terms defined by agreement"
+        price: "Quote on request \u2014 variable terms defined by agreement"
       }
     ]
   },
@@ -1138,7 +1138,7 @@ var serviceGroupsEN = [
           "Companies that need to align the team on a market or a regulation",
           "Event organizers looking for a speaker who talks operations, not theory"
         ],
-        price: "starting at \u20AC300 (chambers and associations) / \u20AC500 (corporate)"
+        price: "Quote on request"
       },
       {
         name: "Workshop / Training",
@@ -1182,7 +1182,7 @@ var serviceGroups = [
           "Al professionista \u2014 commercialista, avvocato, consulente \u2014 con un cliente attivo tra Europa e Brasile"
         ],
         examples: `Esempi di domande: "Chi sono i principali importatori del mio prodotto in Brasile?" \xB7 "Che dazi e imposte paga il mio prodotto all'ingresso?" \xB7 "Questo settore richiede registrazioni o licenze?" \xB7 "Come si vende, di solito, questo prodotto in quel mercato?"`,
-        price: "a partire da 79 \u20AC"
+        price: "Preventivo su richiesta"
       }
     ]
   },
@@ -1205,7 +1205,7 @@ var serviceGroups = [
           "A chi ha conosciuto l'interlocutore in fiera o online e vuole sapere se \xE8 reale",
           "A chi deve decidere se una trattativa merita il suo tempo"
         ],
-        price: "a partire da 150 \u20AC \u2014 consegna normalmente in 2\u20133 giorni"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 2\u20133 giorni"
       },
       {
         name: "Supplier Check",
@@ -1222,7 +1222,7 @@ var serviceGroups = [
           "A chi deve scegliere tra pi\xF9 fornitori candidati",
           "All'importatore che non pu\xF2 permettersi il container sbagliato"
         ],
-        price: "a partire da 190 \u20AC \u2014 consegna normalmente in 3\u20134 giorni"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 3\u20134 giorni"
       },
       {
         name: "Business Due Diligence",
@@ -1240,7 +1240,7 @@ var serviceGroups = [
           "A chi ha notato incongruenze nelle informazioni ricevute e vuole vederci chiaro",
           "A chi deve presentare la controparte a soci, banca o consiglio di amministrazione"
         ],
-        price: "a partire da 350 \u20AC \u2014 consegna normalmente in 5\u20137 giorni"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 5\u20137 giorni"
       },
       {
         name: "Enhanced Due Diligence",
@@ -1257,7 +1257,7 @@ var serviceGroups = [
           "A chi entra in un'operazione che richieder\xE0 verifiche legali, fiscali o documentali locali",
           "A chi deve soddisfare obblighi interni di compliance prima di firmare"
         ],
-        price: "a partire da 750 \u20AC \u2014 consegna normalmente in 2\u20133 settimane"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 2\u20133 settimane"
       }
     ]
   },
@@ -1281,7 +1281,7 @@ var serviceGroups = [
           "A chi prepara una fiera o una missione e vuole arrivare conoscendo i player",
           "A chi vuole individuare lo spazio lasciato scoperto dai concorrenti"
         ],
-        price: "a partire da 199 \u20AC \u2014 consegna normalmente in 1 settimana"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 1 settimana"
       },
       {
         name: "Opportunity Scan",
@@ -1299,7 +1299,7 @@ var serviceGroups = [
           "A chi valuta se vale la pena investire in una fiera, una missione o un'analisi completa",
           "A chi preferisce spendere 290 \u20AC per un no adesso, che 29.000 \u20AC per un no tra un anno"
         ],
-        price: "a partire da 290 \u20AC \u2014 consegna normalmente in 1 settimana"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 1 settimana"
       },
       {
         name: "Analisi di Mercato",
@@ -1318,7 +1318,7 @@ var serviceGroups = [
           "A chi deve presentare il progetto a soci, banca o consiglio di amministrazione",
           "A chi partecipa a bandi per l'internazionalizzazione e deve allegare un'analisi di mercato"
         ],
-        price: "a partire da 500 \u20AC \u2014 consegna normalmente in 2 settimane"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 2 settimane"
       },
       {
         name: "Briefing Import/Export",
@@ -1336,7 +1336,7 @@ var serviceGroups = [
           "A chi vuole evitare che il container si fermi in dogana per un documento mancante",
           "A chi ha gi\xE0 una controparte e deve capire come rendere operativo l'accordo"
         ],
-        price: "a partire da 600 \u20AC \u2014 consegna normalmente in 1\u20132 settimane"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 1\u20132 settimane"
       }
     ]
   },
@@ -1358,7 +1358,7 @@ var serviceGroups = [
           "A chi vuole testare la risposta del mercato prima di investire di pi\xF9",
           "A chi ha una struttura commerciale propria e vuole solo la materia prima: i contatti"
         ],
-        price: "a partire da 199 \u20AC \u2014 consegna normalmente in 1 settimana"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 1 settimana"
       },
       {
         name: "Buyer Finder \u2014 Pro",
@@ -1374,7 +1374,7 @@ var serviceGroups = [
           "All'export manager che costruisce la pipeline commerciale dell'anno",
           "A chi prepara una campagna di contatto strutturata e vuole partire dalla mappa"
         ],
-        price: "a partire da 490 \u20AC \u2014 consegna normalmente in 2 settimane"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 2 settimane"
       },
       {
         name: "Supplier Finder",
@@ -1390,7 +1390,7 @@ var serviceGroups = [
           "A chi cerca un produttore per il proprio private label",
           "A chi ha ricevuto un'offerta e vuole confrontarla con il resto del mercato"
         ],
-        price: "a partire da 290 \u20AC \u2014 consegna normalmente in 1\u20132 settimane"
+        price: "Preventivo su richiesta \u2014 consegna normalmente in 1\u20132 settimane"
       }
     ]
   },
@@ -1413,7 +1413,7 @@ var serviceGroups = [
           "A chi vuole risposte qualificate sulla scrivania, non nomi da lavorare",
           "A chi sa che il primo messaggio, scritto male, brucia il contatto per sempre"
         ],
-        price: "a partire da 1.200 \u20AC \u2014 durata normalmente 4\u20136 settimane"
+        price: "Preventivo su richiesta \u2014 durata normalmente 4\u20136 settimane"
       },
       {
         name: "Agenda B2B per missioni e fiere",
@@ -1431,7 +1431,7 @@ var serviceGroups = [
           "All'azienda in missione collettiva che vuole un'agenda propria, oltre al programma ufficiale",
           "A chi vuole qualcuno del posto che prepari il terreno prima dell'arrivo"
         ],
-        price: "a partire da 800 \u20AC per azienda \u2014 preparazione normalmente 3\u20134 settimane"
+        price: "Preventivo su richiesta \u2014 preparazione normalmente 3\u20134 settimane"
       },
       {
         name: "Business Matching Campaign",
@@ -1447,7 +1447,7 @@ var serviceGroups = [
           "A chi non ha un ufficio export e non intende crearne uno per un solo mercato",
           "A chi ha gi\xE0 provato da solo e ha capito che serve qualcuno sul posto"
         ],
-        price: "a partire da 2.000 \u20AC \u2014 durata normalmente 6\u20138 settimane"
+        price: "Preventivo su richiesta \u2014 durata normalmente 6\u20138 settimane"
       }
     ]
   },
@@ -1469,7 +1469,7 @@ var serviceGroups = [
           "A chi deve trattare con controparti locali e vuole al fianco chi conosce codici, lingua e prassi",
           "All'azienda che valuta una presenza stabile \u2014 importatore, filiale, partnership \u2014 e vuole arrivarci per gradi"
         ],
-        price: "da 2.500 \u20AC per progetto \u2014 preventivo su perimetro \u2014 durata normalmente 2\u20133 mesi"
+        price: "Preventivo su richiesta \u2014 durata normalmente 2\u20133 mesi"
       }
     ]
   },
@@ -1490,7 +1490,7 @@ var serviceGroups = [
           "A chi vuole accorgersi dei movimenti di mercato prima di leggerli sui giornali",
           'A chi si \xE8 trovato pi\xF9 volte a chiedere una ricerca "urgente" e preferisce avere un desk gi\xE0 ingaggiato'
         ],
-        price: "a partire da 290 \u20AC/mese"
+        price: "Preventivo su richiesta"
       },
       {
         name: "Local Business Support",
@@ -1505,7 +1505,7 @@ var serviceGroups = [
           "A chi vuole che ordini, consegne e problemi vengano seguiti nel fuso e nella lingua giusti",
           "All'azienda che non vuole (ancora) aprire una sede, ma non pu\xF2 pi\xF9 gestire tutto a distanza"
         ],
-        price: "a partire da 500 \u20AC/mese"
+        price: "Preventivo su richiesta"
       },
       {
         name: "Commercial Representation \u2014 Light",
@@ -1520,7 +1520,7 @@ var serviceGroups = [
           "A chi ha chiuso una campagna o una missione e non vuole che i lead si raffreddino",
           "A chi vuole una presenza commerciale continuativa a costo di abbonamento"
         ],
-        price: "a partire da 300 \u20AC/mese + condizioni variabili definite in accordo"
+        price: "Preventivo su richiesta \u2014 condizioni variabili definite in accordo"
       },
       {
         name: "Commercial Representation \u2014 Full",
@@ -1535,7 +1535,7 @@ var serviceGroups = [
           "A chi ha obiettivi di vendita concreti e vuole qualcuno che sviluppi attivamente, non solo mantenga",
           "A chi vuole essere rappresentato a fiere, incontri e trattative da chi conosce il mercato dall'interno"
         ],
-        price: "a partire da 700 \u20AC/mese + condizioni variabili definite in accordo"
+        price: "Preventivo su richiesta \u2014 condizioni variabili definite in accordo"
       },
       {
         name: "Fractional Export Desk",
@@ -1551,7 +1551,7 @@ var serviceGroups = [
           "A chi ha volumi e ambizioni che una rappresentanza leggera non basta pi\xF9 a servire",
           "A chi vuole un'unica figura che risponda alla propria direzione commerciale come farebbe un export manager interno"
         ],
-        price: "da 1.500 \u20AC/mese + condizioni variabili definite in accordo"
+        price: "Preventivo su richiesta \u2014 condizioni variabili definite in accordo"
       }
     ]
   },
@@ -1572,7 +1572,7 @@ var serviceGroups = [
           "All'azienda che deve allineare il team su un mercato o una normativa",
           "A chi organizza eventi e cerca un relatore che parli di operativit\xE0, non di teoria"
         ],
-        price: "a partire da 300 \u20AC (Camere e associazioni) / 500 \u20AC (aziendale)"
+        price: "Preventivo su richiesta"
       },
       {
         name: "Workshop / Training",
