@@ -7,7 +7,7 @@
 export type Lang = "it" | "en" | "pt";
 
 export type ArticleContent = {
-  kind?: "analysis" | "guide" | "service" | "method";
+  kind?: "analysis" | "guide" | "service" | "method" | "situation";
   slug: string;
   lang: Lang;
   title: string;
@@ -48,17 +48,19 @@ async function fetchJson<T>(path: string): Promise<T | null> {
 /** Everything BMG has published: analyses + ebooks/guides/dossiers. */
 export async function loadDocuments(): Promise<ArticleContent[]> {
   if (cache && Date.now() - cache.at < TTL_MS) return cache.documents;
-  const [a, g, s, m] = await Promise.all([
+  const [a, g, s, m, sit] = await Promise.all([
     fetchJson<{ articles?: ArticleContent[] }>("/mcp/articles.json"),
     fetchJson<{ guides?: ArticleContent[] }>("/mcp/guides.json"),
     fetchJson<{ services?: ArticleContent[] }>("/mcp/services.json"),
     fetchJson<{ method?: ArticleContent[] }>("/mcp/method.json"),
+    fetchJson<{ situations?: ArticleContent[] }>("/mcp/situations.json"),
   ]);
   const documents: ArticleContent[] = [
     ...((a?.articles ?? []).map((x) => ({ ...x, kind: x.kind ?? ("analysis" as const) }))),
     ...((g?.guides ?? []).map((x) => ({ ...x, kind: "guide" as const }))),
     ...((s?.services ?? []).map((x) => ({ ...x, kind: "service" as const }))),
     ...((m?.method ?? []).map((x) => ({ ...x, kind: "method" as const }))),
+    ...((sit?.situations ?? []).map((x) => ({ ...x, kind: "situation" as const }))),
   ];
   cache = { at: Date.now(), documents };
   return documents;

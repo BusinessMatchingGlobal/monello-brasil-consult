@@ -134,6 +134,7 @@ export function mcpContentPlugin(): Plugin {
     write1("articles.json", { generatedAt: null, articles: buildArticleContent() });
     write1("services.json", { generatedAt: null, services: buildServiceContent() });
     write1("method.json", { generatedAt: null, method: buildMethodContent() });
+    write1("situations.json", { generatedAt: null, situations: buildSituationContent() });
   };
   return {
     name: "bmg-mcp-content",
@@ -146,6 +147,7 @@ export function mcpContentPlugin(): Plugin {
 /* Services catalogue as retrievable documents                         */
 /* ------------------------------------------------------------------ */
 
+import { SITUATIONS } from "../src/data/situations";
 import { servicesIntro, serviceGroups } from "../src/data/servicesCatalog";
 import { servicesIntroEN, serviceGroupsEN } from "../src/data/servicesCatalog.en";
 import { servicesIntroPT, serviceGroupsPT } from "../src/data/servicesCatalog.pt";
@@ -451,5 +453,42 @@ export function buildMethodContent(): ArticleContent[] {
     }
   });
 
+  return docs;
+}
+
+/* ------------------------------------------------------------------ */
+/* Situation pages (already in Brazil / back to Brazil) as documents   */
+/* ------------------------------------------------------------------ */
+
+export function buildSituationContent(): Array<ArticleContent & { type: string }> {
+  const today = new Date().toISOString().slice(0, 10);
+  const docs: Array<ArticleContent & { type: string }> = [];
+  for (const situation of SITUATIONS) {
+    for (const [lang, c] of Object.entries(situation.content) as Array<[Lang, (typeof SITUATIONS)[number]["content"]["en"]]>) {
+      if (!c) continue;
+      const parts: string[] = [`## ${c.heroTitle}`, c.heroBody];
+      for (const section of c.sections) {
+        parts.push(`## ${section.title}`);
+        if (section.body) parts.push(...section.body);
+        if (section.bullets) {
+          parts.push(
+            section.bullets
+              .map((b, i) => `${section.ordered ? `${i + 1}.` : "-"} ${b.text}${b.service ? ` → ${b.service}` : ""}`)
+              .join("\n"),
+          );
+        }
+      }
+      parts.push(`## ${c.start.title}`, c.start.body, c.cta.text);
+      docs.push({
+        slug: situation.key,
+        type: "situation-page",
+        lang,
+        title: c.title,
+        date: today,
+        url: `${SITE}${lang === "en" ? "" : `/${lang}`}${c.slug}`,
+        text: parts.join("\n\n").trim(),
+      });
+    }
+  }
   return docs;
 }
