@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Plugin } from "vite";
-import { LANGS, SITE, localizedPath, publicRoutes } from "./routes";
+import { LANGS, SITE, localizedPath, publicRoutes, routePath } from "./routes";
 
 const HREFLANG: Record<string, string> = { en: "en", it: "it", pt: "pt-BR" };
 
@@ -10,19 +10,25 @@ export function buildSitemap(): string {
 
   for (const route of publicRoutes()) {
     for (const lang of LANGS) {
-      const alternates = LANGS.map(
-        (l) =>
-          `    <xhtml:link rel="alternate" hreflang="${HREFLANG[l]}" href="${SITE}${localizedPath(l, route.loc)}" />`,
-      ).join("\n");
+      const loc = routePath(lang, route);
+      if (!loc) continue;
+      const alternates = LANGS.map((l) => {
+        const href = routePath(l, route);
+        return href
+          ? `    <xhtml:link rel="alternate" hreflang="${HREFLANG[l]}" href="${SITE}${href}" />`
+          : null;
+      })
+        .filter(Boolean)
+        .join("\n");
       entries.push(
         [
           `  <url>`,
-          `    <loc>${SITE}${localizedPath(lang, route.loc)}</loc>`,
+          `    <loc>${SITE}${loc}</loc>`,
           route.lastmod ? `    <lastmod>${route.lastmod}</lastmod>` : null,
           `    <changefreq>${route.changefreq}</changefreq>`,
           `    <priority>${route.priority}</priority>`,
           alternates,
-          `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${localizedPath("en", route.loc)}" />`,
+          `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${routePath("en", route) ?? localizedPath("en", route.loc)}" />`,
           `  </url>`,
         ]
           .filter(Boolean)
