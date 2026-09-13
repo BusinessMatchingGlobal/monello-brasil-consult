@@ -6,7 +6,7 @@ import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
 const EMAIL = "info@businessmatching.global";
 
 /** Set the questionnaire URL here when available. */
-const QUESTIONNAIRE_URL = "";
+const QUESTIONNAIRE_URL = "https://forms.gle/778CA7FrXVW8FHHP9";
 
 const Turismo = () => {
   useEffect(() => {
@@ -61,6 +61,8 @@ const Turismo = () => {
         <section className="mt-10 text-center">
           <a
             href={href}
+            target={QUESTIONNAIRE_URL ? "_blank" : undefined}
+            rel={QUESTIONNAIRE_URL ? "noopener noreferrer" : undefined}
             className="inline-flex w-full sm:w-auto items-center justify-center rounded-md bg-primary px-8 py-4 text-base sm:text-lg font-medium text-primary-foreground hover:bg-primary/90"
           >
             Compila il questionario — 3 minuti
