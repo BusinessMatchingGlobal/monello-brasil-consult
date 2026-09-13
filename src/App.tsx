@@ -40,6 +40,7 @@ import Amaro from "./pages/analysis/Amaro";
 import AmaroIT from "./pages/analysis/Amaro_IT";
 import AmaroBR from "./pages/analysis/Amaro_BR";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
+import Turismo from "./pages/Turismo";
 import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
@@ -232,6 +233,7 @@ const App = () => {
 
 
             <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
+            <Route path="/turismo" element={<Turismo />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <AskBmgWidget />
