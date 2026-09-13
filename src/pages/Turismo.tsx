@@ -1,4 +1,7 @@
 import { useEffect } from "react";
+import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
+import italiabrasilLogo from "@/assets/italcam-minas-gerais.png.asset.json";
+import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
 
 const EMAIL = "info@businessmatching.global";
 
@@ -69,22 +72,62 @@ const Turismo = () => {
       </main>
 
       <footer className="border-t border-border">
-        <div className="max-w-2xl mx-auto px-6 py-6 text-sm text-muted-foreground space-y-1">
-          <p>Business Matching Global</p>
-          <p>
-            <a href={`mailto:${EMAIL}`} className="hover:text-foreground">
-              {EMAIL}
-            </a>
-          </p>
-          <p>
-            <a
-              href="https://businessmatching.global"
-              className="hover:text-foreground"
-              rel="noopener"
-            >
-              businessmatching.global
-            </a>
-          </p>
+        <div className="max-w-2xl mx-auto px-6 py-8 text-sm text-muted-foreground space-y-4">
+          <div className="space-y-1">
+            <p className="font-medium text-foreground">Business Matching Global</p>
+            <p>ENZO ALDO STOBBIONE LTDA · CNPJ: 67.589.228/0001-30</p>
+            <p>
+              Avenida Getúlio Vargas, 671, Sala 500, CEP 30.112-021, Savassi, Belo Horizonte/MG,
+              Brasile
+            </p>
+            <p>
+              <a href={`mailto:${EMAIL}`} className="hover:text-foreground">
+                {EMAIL}
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://businessmatching.global"
+                className="hover:text-foreground"
+                rel="noopener"
+              >
+                businessmatching.global
+              </a>
+            </p>
+          </div>
+
+          <div className="pt-2">
+            <p className="text-xs uppercase tracking-wide">Membro di</p>
+            <div className="mt-3 flex flex-wrap items-center gap-6">
+              <a href="https://italcam.com.br" target="_blank" rel="noopener noreferrer">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={italcamLogo.url}
+                  alt="Camera di Commercio Italiana in Brasile - Italcam Associado 2026"
+                  className="h-10 md:h-12 w-auto max-w-[220px] object-contain"
+                />
+              </a>
+              <a href="https://www.italiabrasil.com.br" target="_blank" rel="noopener noreferrer">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={italiabrasilLogo.url}
+                  alt="Camera di Commercio Italiana di Minas Gerais"
+                  className="h-10 md:h-12 w-auto max-w-[220px] object-contain"
+                />
+              </a>
+              <a href="https://www.exportstrategist.it" target="_blank" rel="noopener noreferrer">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={exportStrategistLogo.url}
+                  alt="Associazione Export Strategist"
+                  className="h-9 md:h-10 w-auto object-contain"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
