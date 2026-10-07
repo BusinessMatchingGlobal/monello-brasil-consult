@@ -130,7 +130,7 @@ const blocksIt: Block[] = [
   { type: "h2", text: "12. Comunicazione corretta e trasparente" },
   { type: "p", text: "Le comunicazioni di BMG devono essere accurate, riconoscibili e rispettose." },
   { type: "p", text: "Non diffondiamo informazioni ingannevoli, testimonianze non autentiche o dichiarazioni suscettibili di danneggiare ingiustamente la reputazione di persone e organizzazioni." },
-  { type: "p", text: "L'utilizzo pubblico di nomi, marchi, loghi, casi aziendali o riferimenti a clienti e partner richiede la preventiva autorizzazione degli interessati." },
+  { type: "p", text: "Non utilizziamo mai nomi di clienti o casi aziendali, in nessuna forma, con o senza autorizzazione." },
   { type: "p", text: "Le comunicazioni editoriali e le analisi di mercato devono distinguere chiaramente i contenuti informativi dalle attività promozionali o commerciali. La nostra attività di analisi è tecnica e indipendente: non svolgiamo attività di rappresentanza di interessi presso soggetti pubblici e non assumiamo posizioni di parte nel dibattito politico dei Paesi in cui operiamo." },
 
   { type: "h2", text: "13. Segnalazioni e richieste di chiarimento" },
@@ -268,7 +268,7 @@ const blocksEn: Block[] = [
   { type: "h2", text: "12. Accurate and transparent communication" },
   { type: "p", text: "BMG's communications must be accurate, clearly identifiable as ours, and respectful." },
   { type: "p", text: "We do not circulate misleading information, inauthentic testimonials or statements liable to damage unfairly the reputation of individuals or organisations." },
-  { type: "p", text: "Public use of names, trademarks, logos, case studies or references to clients and partners requires their prior authorisation." },
+  { type: "p", text: "We never use client names or case studies in any form, with or without authorisation." },
   { type: "p", text: "Our editorial output and market analysis must clearly separate informational content from promotional or commercial activity. Our analytical work is technical and independent: we do not carry out advocacy before public bodies and we do not take partisan positions in the political debate of the countries where we operate." },
 
   { type: "h2", text: "13. Questions and reports" },
@@ -406,7 +406,7 @@ const blocksPt: Block[] = [
   { type: "h2", text: "12. Comunicação correta e transparente" },
   { type: "p", text: "As comunicações da BMG devem ser precisas, identificáveis e respeitosas." },
   { type: "p", text: "Não divulgamos informações enganosas, depoimentos não autênticos ou declarações capazes de prejudicar injustamente a reputação de pessoas ou organizações." },
-  { type: "p", text: "O uso público de nomes, marcas, logotipos, casos empresariais ou referências a clientes e parceiros exige autorização prévia dos interessados." },
+  { type: "p", text: "Nunca utilizamos nomes de clientes ou casos empresariais, de nenhuma forma, com ou sem autorização." },
   { type: "p", text: "As comunicações editoriais e as análises de mercado devem distinguir claramente o conteúdo informativo das atividades promocionais ou comerciais. Nossa atividade de análise é técnica e independente: não exercemos representação de interesses perante entes públicos e não assumimos posições partidárias no debate político dos países em que atuamos." },
 
   { type: "h2", text: "13. Comunicações e pedidos de esclarecimento" },
