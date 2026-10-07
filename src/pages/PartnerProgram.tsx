@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useT } from "@/lib/i18n";
+import { pathForLang } from "@/lib/langPath";
 import { useCanonical, SITE } from "@/lib/useCanonical";
 import { Nav } from "./AboutUs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -142,14 +143,14 @@ export default function PartnerProgram() {
           ))}
         </div>
 
+        {/* 6 (shown before 5) */}
+        <H2>{s[6].title}</H2>
+        {plain(6).map((x, i) => <P key={i}>{x}</P>)}
+
         {/* 5 */}
         <H2>{s[5].title}</H2>
         {plain(5).map((x, i) => <P key={i}>{x}</P>)}
         {linkPara(5)}
-
-        {/* 6 */}
-        <H2>{s[6].title}</H2>
-        {plain(6).map((x, i) => <P key={i}>{x}</P>)}
 
         {/* 7 */}
         <H2>{s[7].title}</H2>
@@ -171,7 +172,12 @@ export default function PartnerProgram() {
 
         {/* 9 */}
         <H2>{s[9].title}</H2>
-        {plain(9).map((x, i) => <P key={i}>{x}</P>)}
+        {plain(9).map((x, i) => {
+          const label = lang === "it" ? "Chi siamo" : lang === "pt" ? "Quem somos" : "About us";
+          const idx = x.indexOf(label);
+          if (idx < 0) return <P key={i}>{x}</P>;
+          return <P key={i}>{x.slice(0, idx)}<Link to={pathForLang(lang, "/About_us")} className={linkCls}>{label}</Link>{x.slice(idx + label.length)}</P>;
+        })}
 
         {/* 10 */}
         <H2>{s[10].title}</H2>

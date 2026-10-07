@@ -48,6 +48,7 @@ Label under the diagram: White-label collaboration available.
 
 3. You stay in front of your client
 Your client deals with you. Everything we produce reaches the client through you, under your direction: answers, analyses, verified counterparts. What your client sees is an adviser who comes back with precise, documented answers on a market that most people approach by trial and error. Our work strengthens your position with your client. It never takes your place.
+The collaboration is white-label: analyses, checks and contacts with counterparts go out under your name or ours, as you prefer, and you decide at the start of each engagement. The client knows we exist only if you want them to.
 
 4. Three levels of collaboration
 Card 1
@@ -67,7 +68,7 @@ Text: When your client starts working Brazil for real, we become the continuous 
 Link: https://businessmatching.global/Our_Services
 
 5. Why phase zero matters to you
-Every level starts with the same step: phase zero. Before we present a single counterpart, we establish who owns what, align the paperwork with the real agreements and check that every clause holds in both legal systems. It is the part of the work an export manager cannot do from Europe, because it requires knowing what a Brazilian court will strike down and what it will defend. It is always offered at a fixed fee, agreed in writing and separate from any other part of the work.
+For a company entering Brazil, the first step is the triage described above. For a company already in Brazil, or about to sign with an importer, a distributor or a partner, the first step is phase zero: we establish who owns what, align the documents with the real agreements and have the firms we coordinate verify that every clause holds under both legal systems, before presenting any counterpart. It is work an export manager cannot do alone from Europe. Phase zero is always offered at a fixed fee, agreed in writing and separate from every other part of the work.
 Link text: How we work → https://businessmatching.global/How_we_work
 
 6. First question: is Brazil worth it?
@@ -81,11 +82,12 @@ Intro: When Brazil is worth it, we indicate the route that fits the product, the
 4. Investment, joint venture or acquisition of a local company.
 
 8. Right answers start with right questions
-It works like artificial intelligence: the quality of the answer depends on the quality of the question. Our coordination is a form of prompt engineering applied to people. We translate your client's project into precise questions for each specialist, ask them at the right moment, and put the answers together into a decision.
+The quality of an answer depends on the quality of the question. Our coordination work is exactly that: putting the right question to each specialist, in the right order, and assembling the answers into a picture you can use.
 A legal, tax or customs opinion is only as good as the question that generated it. Knowing where projects in Brazil get stuck is what tells us which questions to ask, and in what order, before the problems show up.
 
 9. Who coordinates
 Every project is coordinated by Enzo Stobbione, CEO of Business Matching Global. His role is that of an architect: he keeps the overall design in mind and knows who can best carry out each task. Nothing ties him to the specialists he brings in except the wish that the work is done as well as possible. Knowing Brazil and knowing how to ask the right questions is what produces the answers needed to keep your client out of trouble.
+The track record of the person who coordinates, training, experience and memberships, is on the About us page. All of it is verifiable.
 
 10. What cannot be seen from Europe
 Intro: Brazil is an archipelago of markets. Tax incentives for a warehouse or a plant differ from one State or municipality to the next, so a project's success can depend on where it lands. With our team of independent experts we assess what is usually missed from Europe:
@@ -102,9 +104,7 @@ Every engagement starts with a written quote and a defined scope: what we do, wh
 
 12. A study can be financed. A mistake cannot.
 Epigraph:
-"O Brasil não é para principiantes."
-Brazil is not for beginners.
-— attributed to Tom Jobim
+What sets us apart is that we ask the question first.
 Headline: A study can be financed. A mistake cannot.
 Text:
 Mistakes in Brazil are rarely made in bad faith. They come from inexperience, from not knowing the country: a contract a Brazilian court will not uphold, a trademark registered by someone else, a distributor your client cannot leave, a warehouse in the wrong State, a shelf price the market will not accept. Any of these can cost far more than a study, and no programme finances them.
@@ -130,11 +130,11 @@ A: For research, intelligence and outreach we can operate behind your brand: doc
 Q: How are fees structured?
 A: Phase zero is always billed at a fixed fee, agreed in writing before work begins. Triage and intelligence are quoted per project, with the scope defined in writing. For buyer search and outreach there are two options, and whoever engages us chooses before work begins: a fixed quote for the whole agreed scope, or a reduced fixed fee plus a success fee, with trigger, percentage and payment terms written into the agreement before any introduction is made. Our independent experts quote their own work and are paid directly by the client.
 Q: Is there exclusivity between us?
-A: Not by default. We do not work for two parties competing on the same profile in the same period, and we can grant exclusivity on a sector or territory when the scope justifies it. Any exclusivity is written into the agreement, not implied.
+A: No, in either direction. You work with whomever you choose, and we also work with more than one company in the same sector, at the same time, never for opposing parties in the same transaction. That is precisely why confidentiality allows no grey areas.
 Q: How is confidential information handled?
-A: Everything you share about your client is covered by a confidentiality clause from the first exchange, before any formal engagement. If you prefer, we sign your NDA. Confidentiality agreements bind every professional involved, and the client's identity is disclosed to Brazilian counterparts only with your written authorisation.
+A: What we learn about the market while working stays with us and benefits all our clients. What we learn about a client stays with the client: information, strategies, figures and contacts never pass to another, not even in anonymised form. The GDPR and the LGPD set the legal minimum; our commitments hold towards everyone, always, without exception, and are written in our Code of Ethics.
 Q: Can you share references or client names?
-A: No. All our clients benefit from strict confidentiality, whether or not an NDA has been signed. We do not name the companies we work for, and the same will apply to your clients: nobody will hear their names from us. The discretion that keeps us from giving references is the same discretion your client will get.
+A: No. We do not provide references or client names, and we do not discuss the cases we are handling or have handled, with or without a written agreement. The reason is simple: no client would want to be cited in front of another client of ours, who may well be a competitor. That applies to your clients as to everyone else. What we can show is the method: our articles and the track record of the person who coordinates, on the About us page.
 Q: What happens when the collaboration ends?
 A: Each agreement defines notice and how to handle work in progress. Introductions already made remain attributed to the agreement that generated them. No clause gives us any claim over your client relationship after the end of the collaboration.
 
@@ -165,6 +165,7 @@ Label under the diagram: Collaborazione white-label disponibile.
 
 3. Restate davanti al vostro cliente
 Il vostro cliente parla con voi. Tutto ciò che produciamo arriva al cliente attraverso di voi, sotto la vostra direzione: risposte, analisi, controparti verificate. Il vostro cliente vede un consulente che torna con risposte precise e documentate su un mercato che i più affrontano per tentativi. Il nostro lavoro rafforza la vostra posizione presso il cliente. Non prende mai il vostro posto.
+La collaborazione è white-label: analisi, verifiche e contatti con le controparti escono con il vostro nome o con il nostro, come preferite, e lo decidete voi all'inizio di ogni incarico. Il cliente sa che esistiamo solo se lo volete voi.
 
 4. Tre livelli di collaborazione
 Card 1
@@ -184,7 +185,7 @@ Text: Quando il vostro cliente comincia a lavorare il Brasile sul serio, diventi
 Link: https://businessmatching.global/Our_Services
 
 5. Perché la fase zero conta per voi
-Ogni livello parte dallo stesso passaggio: la fase zero. Prima di presentare una sola controparte, stabiliamo chi possiede cosa, allineiamo i documenti agli accordi reali e verifichiamo che ogni clausola regga in entrambi gli ordinamenti. È la parte del lavoro che un export manager non può fare dall'Europa, perché richiede di sapere che cosa un tribunale brasiliano annullerà e che cosa difenderà. È sempre offerta a compenso fisso, concordato per iscritto e separato da ogni altra parte del lavoro.
+Per chi entra in Brasile, il primo passo è il triage descritto qui sopra. Per chi è già in Brasile, o sta per firmare con un importatore, un distributore o un socio, il primo passo è la fase zero: stabiliamo chi possiede cosa, allineiamo i documenti agli accordi reali e facciamo verificare dagli studi che coordiniamo che ogni clausola regga nei due ordinamenti, prima di presentare qualunque controparte. È un lavoro che dall'Europa un export manager non può fare da solo. La fase zero è sempre offerta a compenso fisso, concordato per iscritto e separato da ogni altra parte del lavoro.
 Link text: Come lavoriamo → https://businessmatching.global/How_we_work
 
 6. Prima domanda: il Brasile conviene?
@@ -198,11 +199,12 @@ Intro: Quando il Brasile conviene, indichiamo la strada adatta al prodotto, ai v
 4. Investimento, joint venture o acquisizione di un'azienda locale.
 
 8. Risposte giuste nascono da domande giuste
-Funziona come con l'intelligenza artificiale: la qualità della risposta dipende dalla qualità della domanda. Il nostro coordinamento è una forma di prompt engineering applicato alle persone. Traduciamo il progetto del vostro cliente in domande precise per ciascuno specialista, le poniamo al momento giusto e mettiamo insieme le risposte in una decisione.
+La qualità di una risposta dipende dalla qualità della domanda. Il nostro lavoro di coordinamento è esattamente questo: porre a ciascuno specialista la domanda giusta, nell'ordine giusto, e mettere insieme le risposte in un quadro che si possa usare.
 Un parere legale, fiscale o doganale vale quanto la domanda da cui nasce. Sapere dove i progetti in Brasile si arenano è ciò che ci dice quali domande porre, e in quale ordine, prima che i problemi si presentino.
 
 9. Chi coordina
 Ogni progetto è coordinato da Enzo Stobbione, CEO di Business Matching Global. Il suo ruolo è quello dell'architetto: ha in mente il disegno complessivo e sa chi può svolgere al meglio ciascun compito. Agli specialisti che coinvolge non lo lega nulla, se non il desiderio che il lavoro venga fatto nel miglior modo possibile. Conoscere il Brasile e saper fare le domande giuste è ciò che produce le risposte necessarie per evitare problemi al vostro cliente.
+Il percorso di chi coordina, formazione, esperienza e appartenenze, è nella pagina Chi siamo. È tutto verificabile.
 
 10. Ciò che dall'Europa non si vede
 Intro: Il Brasile è un arcipelago di mercati. Gli incentivi fiscali per un magazzino o uno stabilimento cambiano da uno Stato o da un municipio all'altro, e il successo di un progetto può dipendere da dove si insedia. Con il nostro team di esperti indipendenti valutiamo ciò che dall'Europa di solito sfugge:
@@ -219,9 +221,7 @@ Ogni incarico parte da un preventivo scritto e da un perimetro definito: cosa fa
 
 12. Uno studio si può finanziare. Un errore no.
 Epigraph:
-"O Brasil não é para principiantes."
-Il Brasile non è per principianti.
-— attribuita a Tom Jobim
+La nostra differenza è che ce lo chiediamo prima.
 Headline: Uno studio si può finanziare. Un errore no.
 Text:
 In Brasile gli errori raramente si commettono in malafede. Nascono dall'inesperienza, dal non conoscere il paese: un contratto che un tribunale brasiliano non riconoscerà, un marchio registrato da qualcun altro, un distributore da cui il vostro cliente non può separarsi, un magazzino nello Stato sbagliato, un prezzo di scaffale che il mercato non accetta. Ognuno di questi può costare molto più di uno studio, e nessun programma lo finanzia.
@@ -247,11 +247,11 @@ A: Per ricerca, intelligence e contatti possiamo operare dietro il vostro marchi
 Q: Come sono strutturati i compensi?
 A: La fase zero è sempre fatturata a compenso fisso, concordato per iscritto prima di iniziare. Triage e intelligence sono quotati a progetto, con il perimetro definito per iscritto. Per la ricerca e il contatto di buyer ci sono due opzioni, e chi ci incarica sceglie prima di iniziare: un preventivo fisso per l'intero perimetro concordato, oppure un fisso ridotto più una success fee, con evento che la fa scattare, percentuale e termini di pagamento scritti nell'accordo prima di qualsiasi presentazione. I nostri esperti indipendenti quotano il proprio lavoro e sono pagati direttamente dal cliente.
 Q: C'è esclusiva tra noi?
-A: Non per impostazione predefinita. Non lavoriamo per due parti in concorrenza sullo stesso profilo nello stesso periodo, e possiamo concedere l'esclusiva su un settore o un territorio quando il perimetro lo giustifica. Ogni esclusiva è scritta nell'accordo, mai sottintesa.
+A: No, in nessuna direzione. Voi lavorate con chi volete, e noi lavoriamo anche con più aziende dello stesso settore, anche contemporaneamente, mai per parti opposte nella stessa operazione. È proprio per questo che la riservatezza non ammette zone grigie.
 Q: Come vengono trattate le informazioni riservate?
-A: Tutto ciò che ci comunicate sul vostro cliente è coperto da una clausola di riservatezza fin dal primo scambio, prima di qualsiasi incarico formale. Se preferite, firmiamo il vostro NDA. Gli accordi di riservatezza vincolano ogni professionista coinvolto, e l'identità del cliente viene rivelata alle controparti brasiliane solo con la vostra autorizzazione scritta.
+A: Quello che impariamo sul mercato lavorando resta nostro e va a vantaggio di tutti i clienti. Quello che impariamo su un cliente resta del cliente: informazioni, strategie, numeri e contatti non passano mai a un altro, nemmeno in forma anonima. Il GDPR e la LGPD fissano il minimo di legge; i nostri impegni valgono verso tutti, sempre, senza eccezioni, e sono scritti nel nostro Codice Etico.
 Q: Potete fornire referenze o nomi di clienti?
-A: No. Tutti i nostri clienti godono di estrema riservatezza, che sia stato firmato o no un NDA. Non facciamo i nomi delle aziende per cui lavoriamo, e lo stesso varrà per i vostri clienti: nessuno sentirà i loro nomi da noi. La discrezione che ci impedisce di dare referenze è la stessa che riceverà il vostro cliente.
+A: No. Non forniamo referenze né nomi di clienti, e non raccontiamo i casi che seguiamo o abbiamo seguito, con o senza accordo scritto. Il motivo è semplice: nessun cliente vorrebbe vedersi citato davanti a un altro nostro cliente, che potrebbe essere un suo concorrente. Vale per i vostri clienti come per tutti gli altri. Quello che possiamo mostrare è il metodo: i nostri articoli e il percorso di chi coordina, nella pagina Chi siamo.
 Q: Che cosa succede quando la collaborazione finisce?
 A: Ogni accordo definisce il preavviso e la gestione dei lavori in corso. Le presentazioni già fatte restano attribuite all'accordo che le ha generate. Nessuna clausola ci dà alcun diritto sul vostro rapporto con il cliente dopo la fine della collaborazione.
 
@@ -282,6 +282,7 @@ Label under the diagram: Colaboração white-label disponível.
 
 3. Você continua à frente do seu cliente
 Seu cliente fala com você. Tudo o que produzimos chega ao cliente por meio de você, sob a sua direção: respostas, análises, contrapartes verificadas. O que seu cliente vê é um consultor que volta com respostas precisas e documentadas sobre um mercado que a maioria aborda por tentativa e erro. Nosso trabalho fortalece a sua posição junto ao cliente. Nunca toma o seu lugar.
+A colaboração é white-label: análises, verificações e contatos com as contrapartes saem com o seu nome ou com o nosso, como preferir, e é você quem decide no início de cada trabalho. O cliente sabe que existimos só se você quiser.
 
 4. Três níveis de colaboração
 (No service names and no links in this version.)
@@ -296,7 +297,7 @@ Level: Mesa de exportação contínua
 Text: Quando seu cliente começa a trabalhar a Europa para valer, passamos a ser a mesa local contínua dele, sob a sua direção.
 
 5. Por que a fase zero importa para você
-Todo nível começa pelo mesmo passo: a fase zero. Antes de apresentar uma única contraparte, estabelecemos quem é dono do quê, alinhamos os documentos aos acordos reais e verificamos se cada cláusula se sustenta nos dois sistemas jurídicos. É a parte do trabalho que um consultor não consegue fazer a partir do Brasil, porque exige saber o que um tribunal europeu vai derrubar e o que vai defender. É sempre oferecida por um valor fixo, acordado por escrito e separado de qualquer outra parte do trabalho.
+Para quem entra no Brasil, o primeiro passo é a triagem descrita acima. Para quem já está no Brasil, ou está prestes a assinar com um importador, um distribuidor ou um sócio, o primeiro passo é a fase zero: estabelecemos quem é dono de quê, alinhamos os documentos aos acordos reais e pedimos aos escritórios que coordenamos que verifiquem se cada cláusula se sustenta nos dois ordenamentos jurídicos, antes de apresentar qualquer contraparte. É um trabalho que, da Europa, um export manager não consegue fazer sozinho. A fase zero é sempre oferecida a honorário fixo, acordado por escrito e separado de qualquer outra parte do trabalho.
 (No link in this version.)
 
 6. Primeira pergunta: a Europa vale a pena?
@@ -310,11 +311,12 @@ Intro: Quando a Europa vale a pena, indicamos o caminho adequado ao produto, aos
 4. Investimento, joint venture ou aquisição de uma empresa local.
 
 8. Respostas certas nascem de perguntas certas
-Funciona como com a inteligência artificial: a qualidade da resposta depende da qualidade da pergunta. Nossa coordenação é uma forma de prompt engineering aplicada a pessoas. Traduzimos o projeto do seu cliente em perguntas precisas para cada especialista, fazemos essas perguntas no momento certo e juntamos as respostas em uma decisão.
+A qualidade de uma resposta depende da qualidade da pergunta. O nosso trabalho de coordenação é exatamente isso: fazer a cada especialista a pergunta certa, na ordem certa, e reunir as respostas num quadro que se possa usar.
 Um parecer jurídico, tributário ou aduaneiro vale o que vale a pergunta que o originou. Saber onde os projetos na Europa emperram é o que nos diz quais perguntas fazer, e em que ordem, antes que os problemas apareçam.
 
 9. Quem coordena
 Cada projeto é coordenado por Enzo Stobbione, CEO da Business Matching Global. Seu papel é o de arquiteto: tem em mente o desenho do conjunto e sabe quem pode executar melhor cada tarefa. Nada o liga aos especialistas que envolve, a não ser o desejo de que o trabalho seja feito da melhor forma possível. Conhecer os dois lados e saber fazer as perguntas certas é o que produz as respostas necessárias para evitar problemas ao seu cliente.
+O percurso de quem coordena, formação, experiência e filiações, está na página Quem somos. Tudo verificável.
 
 10. O que não se vê a partir do Brasil
 Intro: A Europa é um mercado único, mas não um país só. Tributação, regras e incentivos mudam de um país para outro, e o sucesso de um projeto pode depender de onde ele se instala. Com a nossa equipe de especialistas independentes, avaliamos o que normalmente escapa a quem olha do Brasil:
@@ -331,8 +333,7 @@ Todo trabalho começa com um orçamento por escrito e um escopo definido: o que 
 
 12. Um estudo pode ser financiado. Um erro, não.
 Epigraph:
-"A Europa não é para principiantes."
-— parafraseando Tom Jobim
+A nossa diferença é que nós nos perguntamos antes.
 Headline: Um estudo pode ser financiado. Um erro, não.
 Text:
 Os erros na Europa raramente são cometidos de má-fé. Nascem da inexperiência, de não conhecer o mercado: um contrato que um tribunal europeu não vai sustentar, uma marca registrada por outra pessoa, um distribuidor do qual seu cliente não consegue se desligar, uma empresa aberta no país errado, um produto barrado por não cumprir as normas europeias. Qualquer um deles pode custar muito mais do que um estudo, e nenhum programa financia isso.
@@ -358,11 +359,11 @@ A: Para pesquisa, inteligência e contatos, podemos atuar por trás da sua marca
 Q: Como são estruturados os honorários?
 A: A fase zero é sempre cobrada por um valor fixo, acordado por escrito antes do início. Triagem e inteligência são orçadas por projeto, com escopo definido por escrito. Para a busca e o contato de compradores há duas opções, e quem nos contrata escolhe antes de começar: um orçamento fixo para todo o escopo acordado, ou um fixo reduzido mais uma taxa de sucesso, com o evento que a dispara, a porcentagem e as condições de pagamento escritos no acordo antes de qualquer apresentação. Nossos especialistas independentes orçam o próprio trabalho e são pagos diretamente pelo cliente.
 Q: Há exclusividade entre nós?
-A: Não por padrão. Não trabalhamos para duas partes concorrentes no mesmo perfil no mesmo período, e podemos conceder exclusividade em um setor ou território quando o escopo justificar. Qualquer exclusividade é escrita no acordo, nunca subentendida.
+A: Não, em nenhuma direção. Vocês trabalham com quem quiserem, e nós trabalhamos também com mais de uma empresa do mesmo setor, inclusive ao mesmo tempo, nunca com partes opostas na mesma operação. É justamente por isso que a confidencialidade não admite zonas cinzentas.
 Q: Como são tratadas as informações confidenciais?
-A: Tudo o que você compartilha sobre o seu cliente é coberto por uma cláusula de confidencialidade desde a primeira troca, antes de qualquer contratação formal. Se preferir, assinamos o seu NDA. Os acordos de confidencialidade vinculam todos os profissionais envolvidos, e a identidade do cliente só é revelada às contrapartes europeias com a sua autorização por escrito.
+A: O que aprendemos sobre o mercado trabalhando fica conosco e beneficia todos os clientes. O que aprendemos sobre um cliente fica com o cliente: informações, estratégias, números e contatos nunca passam a outro, nem mesmo de forma anônima. O GDPR e a LGPD fixam o mínimo legal; os nossos compromissos valem para todos, sempre, sem exceções, e estão escritos no nosso Código de Ética.
 Q: Vocês podem fornecer referências ou nomes de clientes?
-A: Não. Todos os nossos clientes contam com confidencialidade absoluta, tenha ou não sido assinado um NDA. Não divulgamos os nomes das empresas para as quais trabalhamos, e o mesmo valerá para os seus clientes: ninguém ouvirá o nome deles de nós. A discrição que nos impede de dar referências é a mesma que o seu cliente vai receber.
+A: Não. Não fornecemos referências nem nomes de clientes, e não contamos os casos que acompanhamos ou acompanhamos no passado, com ou sem acordo escrito. O motivo é simples: nenhum cliente gostaria de se ver citado diante de outro cliente nosso, que pode ser um concorrente seu. Vale para os seus clientes como para todos os outros. O que podemos mostrar é o método: os nossos artigos e o percurso de quem coordena, na página Quem somos.
 Q: O que acontece quando a colaboração termina?
 A: Cada acordo define o aviso prévio e o tratamento dos trabalhos em andamento. As apresentações já feitas continuam atribuídas ao acordo que as gerou. Nenhuma cláusula nos dá qualquer direito sobre o seu relacionamento com o cliente após o fim da colaboração.
 
