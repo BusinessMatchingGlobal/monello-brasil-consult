@@ -176,7 +176,7 @@ export default function PartnerProgram() {
           const label = lang === "it" ? "Chi siamo" : lang === "pt" ? "Quem somos" : "About us";
           const idx = x.indexOf(label);
           if (idx < 0) return <P key={i}>{x}</P>;
-          return <P key={i}>{x.slice(0, idx)}<Link to={pathForLang(lang, "/About_us")} className={linkCls}>{label}</Link>{x.slice(idx + label.length)}</P>;
+          return <P key={i}>{x.slice(0, idx)}<a href={pathForLang(lang, "/About_us")} className={linkCls}>{label}</a>{x.slice(idx + label.length)}</P>;
         })}
 
         {/* 10 */}
