@@ -419,13 +419,6 @@ export function ContactForm() {
             </div>
           </div>
           <form onSubmit={onSubmit} className="space-y-5">
-            <p className="text-sm italic text-muted-foreground leading-relaxed">
-              {lang === "it"
-                ? "Quello che ci dite resta tra noi. Non facciamo i nomi dei nostri clienti, e non faremo il vostro."
-                : lang === "pt"
-                  ? "O que você nos conta fica conosco. Não citamos nossos clientes, e não citaremos você."
-                  : "Whatever you tell us stays with us. We don't name our clients, and we won't name you."}
-            </p>
             <div>
               <Label htmlFor="name" className="text-xs tracking-wider uppercase text-muted-foreground">
                 {t.contact.name}
@@ -534,14 +527,10 @@ const blocksIt: Block[] = [
   { type: "p", text: "Così ho messo insieme le due metà del mio percorso: la visione internazionale della formazione e la gestione quotidiana di un'impresa. Ed è lì che ho imparato la cosa che conta di più in questo mestiere: bisogna guardarsi intorno, e con il know-how giusto anche situazioni che a prima vista sembrano un problema possono diventare un'opportunità." },
   { type: "p", text: "Dietro ci sono un passaggio al Parlamento Europeo, una formazione giuridica, e l'appartenenza a ITALCAM São Paulo, alla Camera di Commercio Italiana di Minas Gerais e all'Associazione Export Strategist. Tutto verificabile." },
   { type: "h2", text: "Referenze e riservatezza" },
+  { type: "p", text: "Alcuni consulenti aprono ogni conversazione con i nomi delle aziende per cui lavorano. Noi preferiamo aprirla con le domande che quei nomi non si sono mai posti." },
   { type: "p", text: "Non forniamo referenze né nomi di clienti, e non raccontiamo i casi che seguiamo o abbiamo seguito. Il motivo è semplice: nessun cliente sarebbe contento di vedersi citato come referenza davanti a un altro nostro cliente, che potrebbe essere un suo concorrente. E non basterebbe tacere i dettagli: anche da un racconto parziale o da un accenno un concorrente attento coglie più di quanto si pensi. La riservatezza vale per tutti, con o senza accordo scritto. Lavoriamo anche con più aziende dello stesso settore, anche contemporaneamente, mai per parti opposte nella stessa operazione: è proprio per questo che la riservatezza non ha zone grigie. Quello che impariamo sul mercato lavorando resta nostro e va a vantaggio di tutti i clienti: è il nostro mestiere. Quello che impariamo su un cliente resta del cliente: informazioni, strategie, numeri, contatti non passano mai a un altro, nemmeno in forma anonima. Non è una clausola, è una questione di etica." },
   { type: "p", text: "Sappiamo che tutto questo si verifica solo con il tempo. Ma non vogliamo dare mai a nessuno un argomento vero per dire che con lui non ci siamo comportati così. Chi vuole parlare male di noi dovrà inventarselo. Per questo i nostri impegni valgono erga omnes: verso tutti, sempre, senza eccezioni. Il GDPR in Europa e la LGPD in Brasile fissano il minimo di legge. Per noi sono solo l'inizio di qualcosa di ben più rigoroso: la legge protegge i dati, noi proteggiamo anche quello che i dati non dicono. Perché un dato insignificante, per un buon intenditore, insignificante non lo è mai." },
   { type: "p", text: "Quello che mostriamo volentieri è altro: i settori e i corridoi su cui lavoriamo, il percorso di chi guida BMG, gli studi specializzati che coordiniamo. I nostri articoli trattano temi di mercato e non hanno nulla a che fare con i mandati in corso o conclusi: non li usiamo per farci pubblicità né per promuovere i nostri clienti. Chi vuole capire come lavoriamo può leggerli: il metodo è quello." },
-
-  { type: "h2", text: "Perch\u00e9 non facciamo i nomi dei clienti" },
-  { type: "p", text: "Alcuni consulenti aprono ogni conversazione con i nomi delle aziende per cui lavorano. Noi preferiamo aprirla con le domande che quei nomi non si sono mai posti." },
-  { type: "p", text: "Non forniamo referenze né nomi di clienti, e non lo faremo mai. Ogni cliente di Business Matching Global lavora con noi in totale riservatezza, che sia stato firmato o meno un NDA. Le aziende che ci affidano i loro piani tra Europa e Brasile sanno che i loro nomi, le loro domande e le loro decisioni restano con noi." },
-  { type: "p", text: "Se lavorate con noi, vale lo stesso anche per voi." },
 
   { type: "h2", text: "Parliamone" },
   { type: "p", text: "Ogni progetto di internazionalizzazione di successo — che si tratti di import-export, soft landing, ricerca partner, analisi di mercato o sviluppo commerciale — inizia con le domande giuste." },
@@ -610,14 +599,10 @@ const blocksEn: Block[] = [
   { type: "p", text: "That is how I brought together the two halves of my path: the international outlook of my training and the day-to-day running of a business. And that is where I learned what matters most in this trade: you have to look around, and with the right know-how even situations that look like a problem at first sight can turn into an opportunity." },
   { type: "p", text: "Behind it are a spell at the European Parliament, legal training, and membership of ITALCAM São Paulo, the Italian Chamber of Commerce of Minas Gerais and the Associazione Export Strategist. All verifiable." },
   { type: "h2", text: "References and confidentiality" },
+  { type: "p", text: "Some advisers open every conversation with the names of the companies they work for. We prefer to open with the questions those names never asked." },
   { type: "p", text: "We do not provide references or client names, and we do not discuss the cases we are handling or have handled. The reason is simple: no client would be happy to be cited as a reference in front of another client of ours, who may well be a competitor. Nor would leaving out the details be enough: even from a partial account or a passing mention, an attentive competitor picks up more than one might think. Confidentiality applies to everyone, with or without a written agreement. We also work with more than one company in the same sector, at the same time, never for opposing parties in the same transaction: that is precisely why confidentiality has no grey areas. What we learn about the market while working stays with us and benefits all our clients: that is our trade. What we learn about a client stays with the client: information, strategies, figures and contacts never pass to another, not even in anonymised form. That is not a clause, it is a matter of ethics." },
   { type: "p", text: "We know that all of this can only be verified over time. But we never want to give anyone a genuine reason to say that we did not behave this way with them. Anyone who wants to speak ill of us will have to make it up. That is why our commitments hold erga omnes: towards everyone, always, without exception. The GDPR in Europe and the LGPD in Brazil set the legal minimum. For us they are only the beginning of something far more rigorous: the law protects data, we also protect what the data does not say. Because an insignificant piece of data, to a trained eye, is never insignificant." },
   { type: "p", text: "What we are glad to show is something else: the sectors and corridors we work on, the track record of the person running BMG, the specialised firms we coordinate. Our articles deal with market topics and have nothing to do with current or past mandates: we never use them to promote ourselves or our clients. Anyone who wants to understand how we work can read them: the method is there." },
-
-  { type: "h2", text: "Why we don't list clients" },
-  { type: "p", text: "Some advisers open every conversation with the names of the companies they work for. We prefer to open with the questions those names never asked." },
-  { type: "p", text: "We don't give references or client names, and we never will. Every client of Business Matching Global works with us under strict confidentiality, whether or not an NDA has been signed. The companies that trust us with their plans between Europe and Brazil know that their names, their questions and their decisions stay with us." },
-  { type: "p", text: "If you work with us, the same applies to you." },
 
   { type: "h2", text: "Let's talk" },
   { type: "p", text: "Every successful internationalisation project — whether it involves import-export, soft landing, partner search, market analysis or business development — starts with the right questions." },
@@ -685,14 +670,10 @@ const blocksPt: Block[] = [
   { type: "p", text: "Foi assim que juntei as duas metades do meu percurso: a visão internacional da formação e a gestão diária de uma empresa. E foi aí que aprendi o que mais conta neste ofício: é preciso olhar ao redor, e com o know-how certo até situações que à primeira vista parecem um problema podem virar uma oportunidade." },
   { type: "p", text: "Por trás disso há uma passagem pelo Parlamento Europeu, uma formação jurídica e a filiação à ITALCAM São Paulo, à Câmara de Comércio Italiana de Minas Gerais e à Associazione Export Strategist. Tudo verificável." },
   { type: "h2", text: "Referências e confidencialidade" },
+  { type: "p", text: "Alguns consultores abrem cada conversa com os nomes das empresas para as quais trabalham. Nós preferimos abrir com as perguntas que esses nomes nunca fizeram." },
   { type: "p", text: "Não fornecemos referências nem nomes de clientes, e não contamos os casos que acompanhamos ou acompanhamos no passado. O motivo é simples: nenhum cliente gostaria de se ver citado como referência diante de outro cliente nosso, que pode ser um concorrente seu. E não bastaria omitir os detalhes: mesmo de um relato parcial ou de uma menção de passagem, um concorrente atento capta mais do que se imagina. A confidencialidade vale para todos, com ou sem acordo escrito. Trabalhamos também com mais de uma empresa do mesmo setor, inclusive ao mesmo tempo, nunca com partes opostas na mesma operação: é justamente por isso que a confidencialidade não tem zonas cinzentas. O que aprendemos sobre o mercado trabalhando fica conosco e beneficia todos os clientes: é o nosso ofício. O que aprendemos sobre um cliente fica com o cliente: informações, estratégias, números e contatos nunca passam a outro, nem mesmo de forma anônima. Não é uma cláusula, é uma questão de ética." },
   { type: "p", text: "Sabemos que tudo isso só se verifica com o tempo. Mas nunca queremos dar a ninguém um argumento verdadeiro para dizer que com ele não nos comportamos assim. Quem quiser falar mal de nós terá que inventar. Por isso os nossos compromissos valem erga omnes: para todos, sempre, sem exceções. O GDPR na Europa e a LGPD no Brasil fixam o mínimo legal. Para nós são apenas o início de algo bem mais rigoroso: a lei protege os dados, nós protegemos também o que os dados não dizem. Porque um dado insignificante, para um bom entendedor, nunca é insignificante." },
   { type: "p", text: "O que mostramos com prazer é outra coisa: os setores e os corredores em que trabalhamos, o percurso de quem conduz a BMG, os escritórios especializados que coordenamos. Os nossos artigos tratam de temas de mercado e não têm nada a ver com os mandatos em curso ou concluídos: não os usamos para fazer publicidade nem para promover os nossos clientes. Quem quiser entender como trabalhamos pode lê-los: o método é aquele." },
-
-  { type: "h2", text: "Por que n\u00e3o citamos nossos clientes" },
-  { type: "p", text: "Alguns consultores abrem cada conversa com os nomes das empresas para as quais trabalham. Nós preferimos abrir com as perguntas que esses nomes nunca fizeram." },
-  { type: "p", text: "Não fornecemos referências nem nomes de clientes, e nunca forneceremos. Todo cliente da Business Matching Global trabalha conosco sob estrita confidencialidade, com ou sem NDA assinado. As empresas que nos confiam seus planos entre a Europa e o Brasil sabem que seus nomes, suas perguntas e suas decisões ficam conosco." },
-  { type: "p", text: "Se você trabalhar conosco, o mesmo vale para você." },
 
   { type: "h2", text: "Vamos conversar?" },
   { type: "p", text: "Todo projeto de internacionalização bem-sucedido — seja de importação e exportação, soft landing, busca de parceiros, análise de mercado ou desenvolvimento comercial — começa com as perguntas certas." },

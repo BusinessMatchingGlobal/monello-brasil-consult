@@ -457,7 +457,15 @@ function Contact() {
               </a>
             </div>
           </div>
-          <form onSubmit={onSubmit} className="space-y-5">
+          <div>
+            <p className="text-sm italic text-background/70 leading-relaxed mb-5">
+              {lang === "it"
+                ? "Quello che ci dite resta tra noi. Non facciamo i nomi dei nostri clienti, e non faremo il vostro."
+                : lang === "pt"
+                  ? "O que você nos conta fica conosco. Não citamos nossos clientes, e não citaremos você."
+                  : "Whatever you tell us stays with us. We don’t name our clients, and we won’t name you."}
+            </p>
+            <form onSubmit={onSubmit} className="space-y-5">
             <div>
               <Label htmlFor="name" className="text-background/70 text-xs tracking-wider uppercase">
                 {t.contact.name}
@@ -530,6 +538,7 @@ function Contact() {
               </span>
             </label>
           </form>
+          </div>
         </div>
       </div>
     </section>
