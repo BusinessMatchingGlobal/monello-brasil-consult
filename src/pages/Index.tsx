@@ -385,7 +385,7 @@ function FAQ() {
 }
 
 function Contact() {
-  const { t } = useT();
+  const { t, lang } = useT();
   const [submitting, setSubmitting] = useState(false);
   const subject =
     typeof window !== "undefined"
