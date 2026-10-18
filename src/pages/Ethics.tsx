@@ -361,7 +361,7 @@ const blocksPt: Block[] = [
   { type: "p", text: "Comunicamos qualquer interesse pessoal, profissional ou econômico que possa influenciar — ou aparentar influenciar — nossa imparcialidade." },
   { type: "p", text: "Não representamos simultaneamente partes opostas na mesma operação." },
   { type: "p", text: "Não aceitamos remunerações ocultas, comissões não declaradas ou vantagens pessoais de contrapartes, intermediários ou fornecedores." },
-  { type: "p", text: "Eventual remuneração da BMG por mais de uma parte envolvida na mesma operação deve ser previamente comunicada e aceita pelos interessados." },
+  { type: "p", text: "A BMG é remunerada somente pelo seu cliente. Não aceitamos remuneração de contrapartes nem de outras partes da mesma operação." },
   { type: "p", text: "Quando um conflito surge no curso de um mandato, conforme as circunstâncias, removemos sua causa, ou o declaramos às partes obtendo por escrito a concordância em prosseguir, ou renunciamos ao mandato." },
   { type: "p", text: "Não obtemos vantagem pessoal de informações privilegiadas adquiridas no curso de um mandato, nem permitimos que terceiros o façam. Não oferecemos aos colaboradores de um cliente outras oportunidades profissionais sem o consentimento dele." },
 

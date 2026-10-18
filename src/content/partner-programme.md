@@ -302,6 +302,7 @@ Para quem entra no Brasil, o primeiro passo é a triagem descrita acima. Para qu
 
 6. Primeira pergunta: a Europa vale a pena?
 Não começamos entregando uma lista de importadores tirada de um banco de dados. Começamos com uma triagem: dados de comércio atualizados sobre os produtos do seu cliente (fluxos de importação, preços, origem dos concorrentes, os países onde a demanda realmente está), lidos à luz da capacidade do seu cliente. Se a Europa não vale a pena agora, você recebe essa resposta por escrito, e seu cliente evita pagar para descobrir do jeito mais caro.
+A triagem é um serviço pago, com orçamento por escrito.
 
 7. O caminho certo, não só exportação
 Intro: Quando a Europa vale a pena, indicamos o caminho adequado ao produto, aos volumes e ao horizonte do cliente:
@@ -328,8 +329,9 @@ Intro: A Europa é um mercado único, mas não um país só. Tributação, regra
 Closing line: Cada especialista cobre uma única área, e vários especialistas no mesmo projeto verificam o trabalho uns dos outros. Você continua falando com um único interlocutor.
 
 11. Sem comissões. Transparência total.
-Somos pagos apenas pelo cliente, pelo nosso trabalho. Não recebemos nada de contrapartes, distribuidores ou especialistas, e ninguém, nem nós, fica com uma porcentagem dos honorários de outros.
+Somos pagos apenas pelo cliente, pelo nosso trabalho. Não recebemos nada de contrapartes, distribuidores ou especialistas, e não cobramos nenhum percentual sobre os honorários de terceiros.
 Todo trabalho começa com um orçamento por escrito e um escopo definido: o que fazemos, o que entregamos e o que fica de fora. Nossos especialistas independentes são contratados e pagos diretamente pelo cliente. Você sempre sabe quem faz o quê e quanto custa, e seu cliente também.
+O cliente também pode optar por acrescentar uma taxa de sucesso aos honorários dos serviços. Ela é paga só pelo cliente, nunca por uma contraparte. Nunca é acionada pela assinatura ou pelo primeiro pedido, mas por um resultado duradouro acordado por escrito, e a verificação da contraparte é sempre paga antes, independentemente do resultado.
 
 12. Um estudo pode ser financiado. Um erro, não.
 Epigraph:

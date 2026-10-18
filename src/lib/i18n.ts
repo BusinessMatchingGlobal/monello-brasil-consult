@@ -394,7 +394,7 @@ export const translations = {
       title: "A pesquisa é só o começo.",
       sub: "Ajudamos você a entender o mercado brasileiro, identificar as empresas certas e iniciar as conversas de negócios certas.",
       areas: "Business Intelligence · Busca de Compradores e Fornecedores · Import/Export · Business Matching",
-      cta1: "Solicite um relatório",
+      cta1: "Comece com um check-up",
       cta2: "Ver serviços",
       ctaAsk: "Ask Brazil / Ask Europe",
       linkedin: "Acompanhe a Business Matching Global no LinkedIn para acessar análises, relatórios e atualizações sobre o Brasil.",
@@ -512,7 +512,7 @@ export const translations = {
       required: "Você precisa aceitar o aviso de privacidade para enviar a solicitação.",
     },
     credibility: {
-      line: "Sediados no Brasil. Raízes europeias. Rede profissional local.",
+      line: "Empresa brasileira, com sede em Belo Horizonte. Raízes europeias. Rede profissional local.",
       badges: ["Member of ITALCAM São Paulo", "Member of Câmara de Comércio Italiana de Minas Gerais", "Member of Associazione Export Strategist"],
     },
     sampleBlock: {
