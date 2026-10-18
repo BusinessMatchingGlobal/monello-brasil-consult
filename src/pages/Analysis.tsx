@@ -6,6 +6,7 @@ import { getLocalizedArticles, formatArticleDate } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
 import { LangSwitcher } from "@/components/LangSwitcher";
+import { EXPORTPLANNING_URL } from "@/data/beforeYouChoose.pt";
 
 export default function Analysis() {
   const { t, lang } = useT();
@@ -83,6 +84,14 @@ export default function Analysis() {
         </div>
 
         <ul className="divide-y divide-border/60 border-y border-border/60">
+          {lang === "pt" && (!query.trim() || norm("Seleção de mercados por território: o móvel italiano no Brasil, estado por estado ExportPlanning").includes(norm(query.trim()))) && (
+            <li>
+              <a href={EXPORTPLANNING_URL} target="_blank" rel="noopener noreferrer" className="block py-5 group">
+                <span className="text-lg md:text-xl text-foreground group-hover:underline">Seleção de mercados por território: o móvel italiano no Brasil, estado por estado</span>
+                <p className="text-xs text-foreground/70 mt-2">ExportPlanning, 15 de outubro de 2026 — com Enzo Aldo Stobbione, Country Specialist Brasil</p>
+              </a>
+            </li>
+          )}
           {articles.map((a) => (
             <li key={a.slug}>
               <Link
