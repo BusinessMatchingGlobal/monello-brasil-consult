@@ -159,13 +159,15 @@ function CredibilityStrip() {
 function StartingPoint() {
   const { lang } = useT();
   const copy = STARTING_POINT[lang] ?? STARTING_POINT.en;
-  if (!hasSituations(lang)) return null;
+  if (!hasSituations(lang) && lang !== "pt") return null;
   const already = situationContent("already-in-brazil", lang);
   const back = situationContent("back-to-brazil", lang);
   const cards = [
     { to: "/Our_Services", title: copy.notYet.title, text: copy.notYet.text },
-    { to: already.slug, title: already.cardTitle, text: already.cardText },
-    { to: back.slug, title: back.cardTitle, text: back.cardText },
+    ...(hasSituations(lang) ? [
+      { to: already.slug, title: already.cardTitle, text: already.cardText },
+      { to: back.slug, title: back.cardTitle, text: back.cardText },
+    ] : []),
   ];
   return (
     <section className="py-16 md:py-20 border-b border-border/60">
@@ -173,14 +175,16 @@ function StartingPoint() {
         <h2 className="text-2xl md:text-3xl mb-8">{copy.title}</h2>
         <div className="grid md:grid-cols-3 gap-5">
           {cards.map((card) => (
-            <Link
+            <div
               key={card.to}
-              to={card.to}
               className="group p-7 rounded-2xl border border-border bg-card hover:border-primary/60 transition-colors block"
             >
+              <Link to={card.to} className="block">
               <h3 className="font-display text-xl mb-3">{card.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">{card.text}</p>
-            </Link>
+              </Link>
+              {lang === "pt" && card.to === "/Our_Services" && <Link to="/before-you-choose#who-gets-paid" className="mt-4 block text-sm text-primary underline underline-offset-4">Primeira pergunta: o Brasil vale a pena para o seu setor? →</Link>}
+            </div>
           ))}
         </div>
       </div>
@@ -741,6 +745,7 @@ function FooterInner() {
           <Link to="/analysis" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.analysis}
           </Link>
+          {lang === "pt" && <Link to="/before-you-choose" className="text-muted-foreground hover:text-foreground transition-colors">Antes de escolher</Link>}
           <Link to="/news" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.news}
           </Link>
@@ -1008,6 +1013,15 @@ export default function Index() {
       <CredibilityStrip />
       <StartingPoint />
         <Problem />
+        {lang === "pt" && (
+          <section className="py-16 md:py-20 border-t border-border/60">
+            <div className="container max-w-5xl">
+              <h2 className="font-display text-3xl md:text-4xl mb-6">Perguntamos antes</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">O seu produto pode já estar à venda no Brasil por canais dos quais vocês não sabem nada. Alguém pode já estar usando o seu nome ou a sua marca. Normalmente, isso só é percebido quando as consequências precisam ser pagas. Nós procuramos antes.</p>
+              <Link to="/before-you-choose#ask-first" className="mt-6 inline-block text-primary underline underline-offset-4">Antes de confiar o Brasil a alguém →</Link>
+            </div>
+          </section>
+        )}
         <Services />
         <PartnerProgramBanner />
         <HowItWorks />

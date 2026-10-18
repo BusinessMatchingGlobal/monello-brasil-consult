@@ -184,6 +184,7 @@ export function useNavLinks(): NavItem[] {
       href: "__resources__",
       label: t.nav.resources,
       children: [
+        ...(lang === "pt" ? [{ href: "/before-you-choose", label: "Antes de escolher", internal: true }] : []),
         { href: "/Transfer_the_method", label: t.nav.transferMethod, internal: true },
         { href: "/analysis", label: t.nav.analysis, internal: true },
 

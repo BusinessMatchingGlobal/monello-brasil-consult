@@ -11,6 +11,7 @@ import Unsubscribe from "./pages/Unsubscribe";
 import AboutUs from "./pages/AboutUs";
 import Method from "./pages/Method";
 import HowWeWork from "./pages/HowWeWork";
+import BeforeYouChoose from "./pages/BeforeYouChoose";
 import PartnerProgram from "./pages/PartnerProgram";
 import OurServices from "./pages/OurServices";
 import { AlreadyInBrazil, BackToBrazil } from "./pages/Situation";
@@ -107,6 +108,7 @@ const App = () => {
             <Route path="/About_us" element={<AboutUs />} />
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="/How_we_work" element={<HowWeWork />} />
+            {lang === "pt" && <Route path="/before-you-choose" element={<BeforeYouChoose />} />}
             <Route path="/how_we_work" element={<HowWeWork />} />
             <Route path="/Partner_Program" element={<PartnerProgram />} />
             <Route path="/partner_program" element={<PartnerProgram />} />
