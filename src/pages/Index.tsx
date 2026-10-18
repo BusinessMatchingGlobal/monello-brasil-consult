@@ -711,7 +711,7 @@ function HomeNewsletter() {
   );
 }
 
-function FooterInner() {
+export function FooterInner() {
   const { t, lang } = useT();
   return (
     <footer className="py-12 border-t border-border/60">
