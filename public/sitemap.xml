@@ -109,6 +109,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/How_we_work" />
   </url>
   <url>
+    <loc>https://businessmatching.global/pt/before-you-choose</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/before-you-choose" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/before-you-choose" />
+  </url>
+  <url>
     <loc>https://businessmatching.global/Transfer_the_method</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
