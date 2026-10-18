@@ -5,7 +5,7 @@
 - [x] Verify all three languages on mobile and desktop.
 
 # Portuguese copy update
-- [ ] Add PT-only Before you choose page, Resources and footer links.
-- [ ] Apply supplied PT homepage, method, partner, ethics and analysis copy without changing EN/IT.
-- [ ] Verify navigation, anchors and page layout.
-- [ ] Show existing Portuguese Not in Brazil yet card with requested secondary link, keeping untranslated situation cards hidden.
+- [x] Add PT-only Before you choose page, Resources and footer links.
+- [x] Apply supplied PT homepage, method, partner, ethics and analysis copy without changing EN/IT.
+- [x] Verify navigation, anchors and page layout.
+- [x] Show existing Portuguese Not in Brazil yet card with requested secondary link, keeping untranslated situation cards hidden.
