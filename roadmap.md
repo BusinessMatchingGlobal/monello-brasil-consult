@@ -9,3 +9,10 @@
 - [x] Apply supplied PT homepage, method, partner, ethics and analysis copy without changing EN/IT.
 - [x] Verify navigation, anchors and page layout.
 - [x] Show existing Portuguese Not in Brazil yet card with requested secondary link, keeping untranslated situation cards hidden.
+
+# English and Italian copy follow-up
+- [x] Reuse standard contact form and full footer on Before you choose, removing the Italian country name from the Portuguese page.
+- [ ] Apply English prompt and enable English page, Resources entry and related copy — waiting for the English prompt.
+- [ ] Apply Italian prompt and enable Italian page, Risorse entry and related copy — waiting for the Italian prompt.
+- [x] Verify updated page contact block and full footer on desktop and mobile.
+- [x] Keep the Analysis entry as an external ExportPlanning link; do not create an internal article.

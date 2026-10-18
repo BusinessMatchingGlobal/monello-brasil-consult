@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import { Nav } from "@/pages/AboutUs";
-import { InfoBar } from "@/pages/OurServices";
+import { Nav, ContactForm } from "@/pages/AboutUs";
+import { FooterInner } from "@/pages/Index";
 import { useCanonical, SITE } from "@/lib/useCanonical";
 import { BEFORE_YOU_CHOOSE_PT as copy, EXPORTPLANNING_URL } from "@/data/beforeYouChoose.pt";
 
@@ -36,9 +35,9 @@ export default function BeforeYouChoose() {
             </div>
           </section>
         ))}
-        <p className="mt-16 border-t border-border pt-8 text-sm"><Link to="/" className="text-primary underline underline-offset-4">Business Matching Global</Link></p>
+        <ContactForm />
       </main>
-      <InfoBar />
+      <FooterInner />
     </div>
   );
 }
