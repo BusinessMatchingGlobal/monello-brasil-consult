@@ -253,18 +253,6 @@ export default function NewsEbook() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border">
-        <div className="container mx-auto px-4 py-5 flex items-center justify-between">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-            <ArrowLeft className="h-4 w-4" />
-            {c.back}
-          </Link>
-          <div className="flex items-center gap-3">
-            <LangSwitcher />
-            <span className="text-sm font-medium">Business Matching Global</span>
-          </div>
-        </div>
-      </header>
 
       <main className="container mx-auto px-4 py-12 md:py-16">
         <GuidesMenu />

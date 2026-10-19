@@ -70,21 +70,8 @@ export default function BusinessTravelEN({ force }: { force?: Lang } = {}) {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur border-b border-border">
-        <div className="container flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center" aria-label="Business Matching Global">
-            <img src={logoBMG.url} alt="Business Matching Global" className="h-10 w-auto" />
-          </Link>
-          <div className="flex items-center gap-3">
-            <LangSwitcher to="/BT" />
-            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1">
-              <ArrowLeft className="h-4 w-4" /> Home
-            </Link>
-          </div>
-        </div>
-      </header>
 
-      <main className="container max-w-3xl pt-28 md:pt-36 pb-16 md:pb-24">
+      <main className="container max-w-3xl pt-12 md:pt-16 pb-16 md:pb-24">
         <h1 className="font-display text-4xl md:text-5xl leading-tight mb-6">
           Business Travel &amp; Travel Management
         </h1>
