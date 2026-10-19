@@ -1,3 +1,5 @@
+import { SiteContactForm } from "@/components/SiteContactForm";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useT } from "@/lib/i18n";
@@ -238,6 +240,8 @@ export default function PartnerProgram() {
           <a href={MAILTO} className={`mt-6 ${btnCls}`}>{field(s[16].lines, "Button")}</a>
         </div>
       </div>
+      <SiteContactForm />
+      <SiteFooter />
     </div>
   );
 }

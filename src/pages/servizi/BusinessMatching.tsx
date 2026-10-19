@@ -1,9 +1,11 @@
+import { SiteContactForm } from "@/components/SiteContactForm";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Download, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCanonical, SITE } from "@/lib/useCanonical";
-import { Nav, InfoBar } from "@/pages/OurServices";
+import { Nav } from "@/pages/OurServices";
 
 const PATH = "/servizi/business-matching";
 
@@ -152,7 +154,7 @@ export default function BusinessMatching() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
-                <a href="/it#contact">
+                <a href="#contact">
                   Parliamone <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
@@ -287,7 +289,7 @@ export default function BusinessMatching() {
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="rounded-full">
-                <a href="/it#contact">
+                <a href="#contact">
                   Richiedi un preventivo <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
@@ -337,14 +339,15 @@ export default function BusinessMatching() {
               Raccontaci cosa stai cercando e ti diremo con franchezza se possiamo trovartelo.
             </p>
             <Button asChild size="lg" className="rounded-full">
-              <a href="/it#contact">
+              <a href="#contact">
                 Parliamone <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>
           </div>
         </section>
       </main>
-      <InfoBar />
+      <SiteContactForm />
+      <SiteFooter />
     </div>
   );
 }

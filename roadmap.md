@@ -12,7 +12,10 @@
 
 # English and Italian copy follow-up
 - [x] Reuse standard contact form and full footer on Before you choose, removing the Italian country name from the Portuguese page.
-- [ ] Apply English prompt and enable English page, Resources entry and related copy — waiting for the English prompt.
-- [ ] Apply Italian prompt and enable Italian page, Risorse entry and related copy — waiting for the Italian prompt.
+- [x] EN/IT standalone prompts superseded by the 11-prompt site reorganisation file.
 - [x] Verify updated page contact block and full footer on desktop and mobile.
 - [x] Keep the Analysis entry as an external ExportPlanning link; do not create an internal article.
+
+# Site reorganisation (11 prompts, one at a time)
+- [x] 1/11 Same header, full footer and shared contact form (no phone) on every page
+- [ ] 2/11 to 11/11 — waiting for the user to start each prompt

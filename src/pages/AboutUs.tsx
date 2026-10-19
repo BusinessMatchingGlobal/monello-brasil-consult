@@ -1,3 +1,5 @@
+import { SiteContactForm } from "@/components/SiteContactForm";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useState, useEffect, useRef, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Menu, X, Mail, ChevronDown } from "lucide-react";
@@ -348,125 +350,8 @@ export function Nav() {
   );
 }
 
-export function ContactForm() {
-  const { t, lang } = useT();
-  const [submitting, setSubmitting] = useState(false);
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const name = (data.get("name") as string) || "";
-    const email = (data.get("email") as string) || "";
-    const company = (data.get("company") as string) || "";
-    const message = (data.get("message") as string) || "";
-    const consent = data.get("consent") === "on";
-    if (!name.trim() || !email.trim() || !message.trim()) {
-      toast.error("Please fill in name, email and message.");
-      return;
-    }
-    if (!consent) {
-      trackContactForm("validation_error", 'About us — contact form', { reason: "consent" });
-      toast.error(t.consent.required);
-      return;
-    }
-    setSubmitting(true);
-    trackContactForm("submit", 'About us — contact form');
-    try {
-      const { error } = await supabase.functions.invoke("send-contact-notification", {
-        body: {
-          idempotencyKey: `contact-${email}-${Date.now()}`,
-          templateData: {
-            name,
-            email,
-            company: company || "—",
-            message,
-            source: "Contact form",
-            submittedAt: new Date().toISOString(),
-          },
-        },
-      });
-      if (error) throw error;
-      trackContactForm("success", 'About us — contact form');
-      toast.success("Thanks — your message has been sent.");
-      form.reset();
-    } catch (err) {
-      trackContactForm("error", 'About us — contact form');
-      console.error("Contact form send failed", err);
-      toast.error("Sending failed. Please try again or email us directly.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  return (
-    <section id="contact" className="py-20 md:py-28">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="font-display text-3xl md:text-4xl leading-tight mb-8">
-          {t.contact.title}
-        </h2>
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20">
-          <div>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-10">
-              {t.contact.sub}
-            </p>
-            <div className="space-y-4 text-foreground/85">
-              <a
-                href={`mailto:${EMAIL}`}
-                className="flex items-center gap-3 hover:text-primary transition-colors"
-              >
-                <Mail className="h-4 w-4" /> {EMAIL}
-              </a>
-            </div>
-          </div>
-          <form onSubmit={onSubmit} className="space-y-5">
-            <div>
-              <Label htmlFor="name" className="text-xs tracking-wider uppercase text-muted-foreground">
-                {t.contact.name}
-              </Label>
-              <Input id="name" name="name" required maxLength={100} className="mt-2" />
-            </div>
-            <div>
-              <Label htmlFor="email" className="text-xs tracking-wider uppercase text-muted-foreground">
-                {t.contact.email}
-              </Label>
-              <Input id="email" name="email" type="email" required maxLength={255} className="mt-2" />
-            </div>
-            <div>
-              <Label htmlFor="company" className="text-xs tracking-wider uppercase text-muted-foreground">
-                {t.contact.company}
-              </Label>
-              <Input id="company" name="company" maxLength={150} className="mt-2" />
-            </div>
-            <div>
-              <Label htmlFor="message" className="text-xs tracking-wider uppercase text-muted-foreground">
-                {t.contact.message}
-              </Label>
-              <Textarea id="message" name="message" required rows={5} maxLength={2000} className="mt-2 resize-none" />
-            </div>
-            <Button type="submit" size="lg" disabled={submitting} className="rounded-full w-full h-12">
-              {submitting ? "…" : t.contact.send} <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-            <label className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed cursor-pointer">
-              <input
-                type="checkbox"
-                name="consent"
-                required
-                className="mt-0.5 h-4 w-4 rounded border-border bg-background accent-primary"
-              />
-              <span>
-                {t.consent.label}{" "}
-                <Link to="/privacy" className="underline hover:text-foreground">
-                  {t.consent.link}
-                </Link>{" "}
-                {t.consent.suffix}
-              </span>
-            </label>
-          </form>
-        </div>
-      </div>
-    </section>
-  );
+export function ContactForm({ subject }: { subject?: string } = {}) {
+  return <SiteContactForm subject={subject} />;
 }
 
 const blocksIt: Block[] = [
@@ -798,8 +683,9 @@ export default function AboutUs() {
             Business Matching Global su LinkedIn
           </a>
         </p>
-        <ContactForm />
-      </div>
+        </div>
+      <ContactForm />
+      <SiteFooter />
     </div>
   );
 }
