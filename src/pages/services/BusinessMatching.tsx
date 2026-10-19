@@ -154,7 +154,7 @@ export default function BusinessMatchingEN() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
-                <a href="/#contact">
+                <a href="#contact">
                   Let's talk <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
@@ -289,7 +289,7 @@ export default function BusinessMatchingEN() {
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="rounded-full">
-                <a href="/#contact">
+                <a href="#contact">
                   Request a quote <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
@@ -339,7 +339,7 @@ export default function BusinessMatchingEN() {
               Tell us what you're looking for, and we'll tell you frankly whether we can find it.
             </p>
             <Button asChild size="lg" className="rounded-full">
-              <a href="/#contact">
+              <a href="#contact">
                 Let's talk <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>

@@ -153,7 +153,7 @@ export default function BusinessMatchingBR() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
-                <a href="/pt#contact">
+                <a href="#contact">
                   Vamos conversar <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
@@ -303,7 +303,7 @@ export default function BusinessMatchingBR() {
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="rounded-full">
-                <a href="/pt#contact">
+                <a href="#contact">
                   Solicite um orçamento <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
@@ -350,7 +350,7 @@ export default function BusinessMatchingBR() {
               Conte o que você está procurando e diremos com franqueza se conseguimos encontrar.
             </p>
             <Button asChild size="lg" className="rounded-full">
-              <a href="/pt#contact">
+              <a href="#contact">
                 Vamos conversar <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>
