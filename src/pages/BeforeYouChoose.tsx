@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Nav, ContactForm } from "@/pages/AboutUs";
 import { FooterInner } from "@/pages/Index";
 import { useCanonical, SITE } from "@/lib/useCanonical";
@@ -19,6 +21,12 @@ export default function BeforeYouChoose() {
     description: copy.description,
     alternates: [{ hreflang: "pt-BR", href: `${SITE}/pt/before-you-choose` }],
   });
+  const { hash } = useLocation();
+  useEffect(() => {
+    const el = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
+    if (el) el.scrollIntoView();
+    else window.scrollTo(0, 0);
+  }, [hash]);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
