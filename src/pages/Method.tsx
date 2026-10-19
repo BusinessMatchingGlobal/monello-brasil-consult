@@ -1,3 +1,4 @@
+import { SiteFooter } from "@/components/SiteFooter";
 import { useEffect } from "react";
 import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -385,8 +386,9 @@ export default function Method() {
 
         </div>
 
-        <ContactForm />
-      </div>
+        </div>
+      <ContactForm />
+      <SiteFooter />
     </div>
   );
 }

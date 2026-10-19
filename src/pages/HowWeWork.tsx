@@ -1,3 +1,4 @@
+import { SiteFooter } from "@/components/SiteFooter";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useT } from "@/lib/i18n";
@@ -261,8 +262,9 @@ export default function HowWeWork() {
             </Link>
           </p>
         )}
-        <ContactForm />
-      </div>
+        </div>
+      <ContactForm />
+      <SiteFooter />
     </div>
   );
 }

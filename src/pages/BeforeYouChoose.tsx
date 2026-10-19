@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Nav, ContactForm } from "@/pages/AboutUs";
-import { FooterInner } from "@/pages/Index";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useCanonical, SITE } from "@/lib/useCanonical";
 import { BEFORE_YOU_CHOOSE_PT as copy, EXPORTPLANNING_URL } from "@/data/beforeYouChoose.pt";
 
@@ -43,9 +43,9 @@ export default function BeforeYouChoose() {
             </div>
           </section>
         ))}
-        <ContactForm />
       </main>
-      <FooterInner />
+      <ContactForm />
+      <SiteFooter />
     </div>
   );
 }
