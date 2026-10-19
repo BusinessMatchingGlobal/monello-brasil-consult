@@ -1,3 +1,5 @@
+import { SiteContactForm } from "@/components/SiteContactForm";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useEffect } from "react";
 import { useT } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
@@ -475,6 +477,8 @@ export default function Ethics() {
           )}
         </article>
       </div>
+      <SiteContactForm />
+      <SiteFooter />
     </div>
   );
 }

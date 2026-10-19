@@ -1,3 +1,5 @@
+import { SiteContactForm } from "@/components/SiteContactForm";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ArrowRight, Check, ChevronDown, Mail, Menu, X } from "lucide-react";
@@ -138,106 +140,6 @@ function Notes() {
   );
 }
 
-function ContactSection() {
-  const [submitting, setSubmitting] = useState(false);
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const d = new FormData(form);
-    const name = String(d.get("name") || "").trim();
-    const email = String(d.get("email") || "").trim();
-    const company = String(d.get("company") || "").trim();
-    const phone = String(d.get("phone") || "").trim();
-    const message = String(d.get("message") || "").trim();
-    if (!name || !email || !message) {
-      toast.error("Compila nome, email e messaggio.");
-      return;
-    }
-    if (d.get("consent") !== "on") {
-      toast.error("È necessario accettare l'informativa privacy.");
-      return;
-    }
-    setSubmitting(true);
-    trackContactForm("submit", 'Our Services — contact form');
-    try {
-      const { error } = await supabase.functions.invoke("send-contact-notification", {
-        body: {
-          idempotencyKey: `services-contact-${email}-${Date.now()}`,
-          templateData: {
-            name,
-            email,
-            company: company || "—",
-            message: `Telefono: ${phone || "—"}\n\n${message}`,
-            source: "Our Services — contact form",
-            submittedAt: new Date().toISOString(),
-          },
-        },
-      });
-      if (error) throw error;
-      trackContactForm("success", 'Our Services — contact form');
-      toast.success("Messaggio inviato. Grazie!");
-      form.reset();
-    } catch (err) {
-      trackContactForm("error", 'Our Services — contact form');
-      console.error("Contact send failed", err);
-      toast.error("Invio non riuscito. Riprova o scrivici via email.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  return (
-    <section id="contatti" className="py-16 md:py-24 bg-foreground text-background">
-      <div className="container max-w-5xl grid md:grid-cols-2 gap-12">
-        <div>
-          <h2 className="font-display text-3xl md:text-4xl text-background mb-5">Parliamo del tuo caso</h2>
-          <p className="text-background/70 leading-relaxed mb-8">
-            Raccontaci brevemente cosa ti serve: rispondiamo con una proposta di perimetro, tempi e prezzo.
-          </p>
-          <a href="mailto:info@businessmatching.global" className="inline-flex items-center gap-3 text-background/85 hover:text-primary transition-colors">
-            <Mail className="h-4 w-4" /> info@businessmatching.global
-          </a>
-        </div>
-        <form onSubmit={onSubmit} className="space-y-4">
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="c-name" className="text-background/70 text-xs tracking-wider uppercase">Nome *</Label>
-              <Input id="c-name" name="name" required maxLength={100} className="mt-2 bg-background/[0.04] border-background/15 text-background" />
-            </div>
-            <div>
-              <Label htmlFor="c-email" className="text-background/70 text-xs tracking-wider uppercase">Email *</Label>
-              <Input id="c-email" name="email" type="email" required maxLength={255} className="mt-2 bg-background/[0.04] border-background/15 text-background" />
-            </div>
-            <div>
-              <Label htmlFor="c-company" className="text-background/70 text-xs tracking-wider uppercase">Azienda</Label>
-              <Input id="c-company" name="company" maxLength={150} className="mt-2 bg-background/[0.04] border-background/15 text-background" />
-            </div>
-            <div>
-              <Label htmlFor="c-phone" className="text-background/70 text-xs tracking-wider uppercase">Telefono</Label>
-              <Input id="c-phone" name="phone" maxLength={40} className="mt-2 bg-background/[0.04] border-background/15 text-background" />
-            </div>
-          </div>
-          <div>
-            <Label htmlFor="c-message" className="text-background/70 text-xs tracking-wider uppercase">Messaggio *</Label>
-            <Textarea id="c-message" name="message" required rows={5} maxLength={2000} className="mt-2 bg-background/[0.04] border-background/15 text-background resize-none" />
-          </div>
-          <label className="flex items-start gap-3 text-xs text-background/70 leading-relaxed cursor-pointer">
-            <input type="checkbox" name="consent" required className="mt-0.5 h-4 w-4 accent-primary" />
-            <span>
-              Acconsento al trattamento dei dati secondo la{" "}
-              <Link to="/privacy" className="underline hover:text-background">privacy policy</Link>.
-            </span>
-          </label>
-          <Button type="submit" size="lg" disabled={submitting} className="rounded-full w-full h-12">
-            {submitting ? "…" : "Invia"} <ArrowRight className="ml-1 h-4 w-4" />
-          </Button>
-        </form>
-      </div>
-    </section>
-  );
-}
-
 export function InfoBar() {
   return (
     <footer className="py-8 border-t border-border/60">
@@ -298,9 +200,9 @@ export default function OurServices() {
         </section>
         <Services onRequest={setRequested} />
         <Notes />
-        <ContactSection />
+        <SiteContactForm />
       </main>
-      <InfoBar />
+      <SiteFooter />
       <ServiceRequestDialog service={requested} onOpenChange={(o) => !o && setRequested(null)} />
     </div>
   );

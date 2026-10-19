@@ -1,10 +1,11 @@
+import { SiteContactForm } from "@/components/SiteContactForm";
+import { SiteFooter } from "@/components/SiteFooter";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
 import { useCanonical, SITE } from "@/lib/useCanonical";
 import { Nav } from "@/pages/AboutUs";
-import { InfoBar } from "@/pages/OurServices";
 import { pathForLang } from "@/lib/langPath";
 import { HREFLANG } from "@/lib/langPath";
 import { getSituation, situationContent, type SituationKey } from "@/data/situations";
@@ -22,7 +23,7 @@ function alternatesFor(key: SituationKey) {
 export function SituationPage({ pageKey }: { pageKey: SituationKey }) {
   const { lang } = useT();
   const c = situationContent(pageKey, lang);
-  const contactHref = `${pathForLang(lang, "/")}?subject=${encodeURIComponent(c.cta.subject)}#contact`;
+  const contactHref = "#contact";
 
   useCanonical(c.slug, {
     title: c.title,
@@ -106,8 +107,9 @@ export function SituationPage({ pageKey }: { pageKey: SituationKey }) {
             </Button>
           </div>
         </section>
+        <SiteContactForm subject={c.cta.subject} />
       </main>
-      <InfoBar />
+      <SiteFooter />
     </div>
   );
 }

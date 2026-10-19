@@ -1,9 +1,11 @@
+import { SiteContactForm } from "@/components/SiteContactForm";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Download, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCanonical, SITE } from "@/lib/useCanonical";
-import { Nav, InfoBar } from "@/pages/OurServices";
+import { Nav } from "@/pages/OurServices";
 
 const PATH = "/servizi/business-matching";
 
@@ -344,7 +346,8 @@ export default function BusinessMatching() {
           </div>
         </section>
       </main>
-      <InfoBar />
+      <SiteContactForm />
+      <SiteFooter />
     </div>
   );
 }
