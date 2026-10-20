@@ -1,11 +1,10 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { getLocalizedArticles, formatArticleDate } from "@/lib/analysis";
 import { AnalysisFooter } from "@/components/AnalysisFooter";
 import { useCanonical } from "@/lib/useCanonical";
-import { LangSwitcher } from "@/components/LangSwitcher";
 import { EXPORTPLANNING_URL } from "@/data/beforeYouChoose.pt";
 
 export default function Analysis() {
@@ -37,8 +36,6 @@ export default function Analysis() {
     title: `${heading} | Business Matching Global`,
     description: intro,
   });
-  const back =
-    lang === "it" ? "Torna alla home" : lang === "pt" ? "Voltar ao início" : "Back to home";
   const searchLabel =
     lang === "it"
       ? "Cerca tra le analisi"
@@ -55,16 +52,6 @@ export default function Analysis() {
   return (
     <main className="min-h-screen bg-background">
       <div className="container max-w-3xl py-16 md:py-24">
-        <div className="flex items-center justify-between gap-4 mb-8">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {back}
-        </Link>
-          <LangSwitcher />
-        </div>
         <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4">{heading}</h1>
         <p className="text-foreground/70 mb-10">{intro}</p>
 
