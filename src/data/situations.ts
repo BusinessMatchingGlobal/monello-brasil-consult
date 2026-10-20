@@ -332,7 +332,7 @@ export const STARTING_POINT = {
   pt: {
     title: "De onde vocês estão partindo?",
     notYet: {
-      title: "Ainda não estão no Brasil",
+      title: "Ainda não estão na Europa",
       text: "Do primeiro dado ao primeiro contato: mercado, contrapartes, regras.",
     },
   },

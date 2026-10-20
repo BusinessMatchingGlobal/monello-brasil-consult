@@ -34,7 +34,6 @@ export function getSiteNavigation(lang: Lang): SiteNavItem[] {
     ] },
     { href: "__method__", label: c.method, children: [
       internal("/How_we_work", c.phase), internal("/Transfer_the_method", c.transfer), internal("/ethics", c.ethics),
-      ...(lang === "pt" ? [internal("/before-you-choose", "Antes de escolher")] : []),
     ] },
     { href: "__resources__", label: c.resources, children: [internal("/analysis", c.analysis), internal("/news", c.guides), internal("/sample-report", c.sample), newsletter] },
     internal("/Partner_Program", c.advisers), internal("/About_us", c.about),

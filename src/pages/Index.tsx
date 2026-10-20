@@ -186,7 +186,6 @@ function StartingPoint() {
               <h3 className="font-display text-xl mb-3">{card.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">{card.text}</p>
               </Link>
-              {lang === "pt" && card.to === "/Our_Services" && <Link to="/before-you-choose#who-gets-paid" className="mt-4 block text-sm text-primary underline underline-offset-4">Primeira pergunta: o Brasil vale a pena para o seu setor? →</Link>}
             </div>
           ))}
         </div>
@@ -409,8 +408,8 @@ function PartnerProgramBanner() {
         }
       : lang === "pt"
       ? {
-          title: "Você é export manager ou assessor com clientes de olho no Brasil?",
-          text: "Mantenha o seu cliente. Amplie o seu alcance. Use a BMG como desk operacional local para o Brasil.",
+          title: "Você é export manager ou assessor com clientes de olho na Europa?",
+          text: "Mantenha o seu cliente. Amplie o seu alcance. Use a BMG como o seu desk do outro lado do corredor.",
           cta: "Conheça o Partner Program",
         }
       : {
@@ -488,15 +487,6 @@ export default function Index() {
       <CredibilityStrip />
       <StartingPoint />
         <Problem />
-        {lang === "pt" && (
-          <section className="py-16 md:py-20 border-t border-border/60">
-            <div className="container max-w-5xl">
-              <h2 className="font-display text-3xl md:text-4xl mb-6">Perguntamos antes</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">O seu produto pode já estar à venda no Brasil por canais dos quais vocês não sabem nada. Alguém pode já estar usando o seu nome ou a sua marca. Normalmente, isso só é percebido quando as consequências precisam ser pagas. Nós procuramos antes.</p>
-              <Link to="/before-you-choose#ask-first" className="mt-6 inline-block text-primary underline underline-offset-4">Antes de confiar o Brasil a alguém →</Link>
-            </div>
-          </section>
-        )}
         <Services />
         <PartnerProgramBanner />
         <HowItWorks />

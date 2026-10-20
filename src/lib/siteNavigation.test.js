@@ -25,9 +25,9 @@ describe("navigation destinations", () => {
       expect(getFooterNavigation(lang).flatMap(group => group.children ?? []).some(link => link.href === "/BT")).toBe(true);
     }
   });
-  test("before-you-choose is advertised only in its published Portuguese version", () => {
+  test("before-you-choose is not advertised in any language", () => {
     for (const lang of ["en", "it", "pt"]) {
-      expect(getSiteNavigation(lang).flatMap(group => group.children ?? []).some(link => link.href === "/before-you-choose")).toBe(lang === "pt");
+      expect(getSiteNavigation(lang).flatMap(group => group.children ?? []).some(link => link.href === "/before-you-choose")).toBe(false);
     }
   });
   test("unpublished Portuguese situation translations are not advertised", () => {
