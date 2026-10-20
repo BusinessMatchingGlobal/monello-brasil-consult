@@ -1,5 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { getSiteNavigation, getFooterNavigation, SERVICE_ANCHORS } from "./siteNavigation";
+import { SERVICE_GROUP_FAMILIES } from "./siteNavigation";
+import { familyPath } from "../data/serviceFamilyMetadata";
 
 describe("navigation destinations", () => {
   test("Italian situation links use existing localized addresses in header and footer", () => {
@@ -16,7 +18,7 @@ describe("navigation destinations", () => {
   test("the eight existing service groups have the requested stable destinations", () => {
     expect([...SERVICE_ANCHORS]).toEqual(["get-an-answer", "verify", "assess", "find", "make-contact", "enter", "stay", "training"]);
     for (const lang of ["en", "it", "pt"]) {
-      expect(getSiteNavigation(lang)[1].children?.slice(0, 8).map(link => link.href)).toEqual(SERVICE_ANCHORS.map(anchor => `/Our_Services#${anchor}`));
+      expect(getSiteNavigation(lang)[1].children?.slice(0, 8).map(link => link.href)).toEqual(SERVICE_GROUP_FAMILIES.map(key => familyPath(key, lang)));
     }
   });
   test("Business Travel is footer-only in every language", () => {

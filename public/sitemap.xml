@@ -82,6 +82,168 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Our_Services" />
   </url>
   <url>
+    <loc>https://businessmatching.global/services/is-brazil-worth-it</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/is-brazil-worth-it" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/il-brasile-conviene" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/a-europa-vale-a-pena" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/is-brazil-worth-it" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/servizi/il-brasile-conviene</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/is-brazil-worth-it" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/il-brasile-conviene" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/a-europa-vale-a-pena" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/is-brazil-worth-it" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/servicos/a-europa-vale-a-pena</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/is-brazil-worth-it" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/il-brasile-conviene" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/a-europa-vale-a-pena" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/is-brazil-worth-it" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/services/verify</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/verify" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/verificare" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/verificar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/verify" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/servizi/verificare</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/verify" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/verificare" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/verificar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/verify" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/servicos/verificar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/verify" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/verificare" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/verificar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/verify" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/services/prepare-your-entry</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/prepare-your-entry" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/preparare-ingresso" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/preparar-a-entrada" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/prepare-your-entry" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/servizi/preparare-ingresso</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/prepare-your-entry" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/preparare-ingresso" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/preparar-a-entrada" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/prepare-your-entry" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/servicos/preparar-a-entrada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/prepare-your-entry" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/preparare-ingresso" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/preparar-a-entrada" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/prepare-your-entry" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/services/find-and-connect</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/find-and-connect" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/trovare-e-contattare" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/encontrar-e-contatar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/find-and-connect" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/servizi/trovare-e-contattare</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/find-and-connect" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/trovare-e-contattare" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/encontrar-e-contatar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/find-and-connect" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/servicos/encontrar-e-contatar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/find-and-connect" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/trovare-e-contattare" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/encontrar-e-contatar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/find-and-connect" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/services/stay-on-the-market</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/stay-on-the-market" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/presidiare-il-mercato" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/estar-presente" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/stay-on-the-market" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/servizi/presidiare-il-mercato</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/stay-on-the-market" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/presidiare-il-mercato" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/estar-presente" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/stay-on-the-market" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/servicos/estar-presente</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/stay-on-the-market" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/presidiare-il-mercato" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/estar-presente" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/stay-on-the-market" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/services/training</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/training" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/formazione" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/treinamento" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/training" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/it/servizi/formazione</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/training" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/formazione" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/treinamento" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/training" />
+  </url>
+  <url>
+    <loc>https://businessmatching.global/pt/servicos/treinamento</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/services/training" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/servizi/formazione" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/servicos/treinamento" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/services/training" />
+  </url>
+  <url>
     <loc>https://businessmatching.global/How_we_work</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

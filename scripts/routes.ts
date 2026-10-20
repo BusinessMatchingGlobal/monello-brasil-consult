@@ -1,5 +1,6 @@
 import { ANALYSIS_ARTICLES, getGroupSlug } from "../src/lib/analysis";
 import { SITUATIONS } from "../src/data/situations";
+import { SERVICE_FAMILIES } from "../src/data/serviceFamilyMetadata";
 
 export const SITE = "https://businessmatching.global";
 export const LANGS = ["en", "it", "pt"] as const;
@@ -19,6 +20,7 @@ const STATIC_ROUTES: RouteEntry[] = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
   { loc: "/About_us", changefreq: "monthly", priority: "0.8" },
   { loc: "/Our_Services", changefreq: "monthly", priority: "0.9" },
+  ...SERVICE_FAMILIES.map(family => ({ loc: family.paths.en, slugs: family.paths, changefreq: "monthly", priority: "0.8" })),
   { loc: "/How_we_work", changefreq: "monthly", priority: "0.9" },
   { loc: "/Transfer_the_method", changefreq: "monthly", priority: "0.8" },
 

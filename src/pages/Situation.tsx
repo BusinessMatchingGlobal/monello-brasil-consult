@@ -9,6 +9,7 @@ import { Nav } from "@/pages/AboutUs";
 import { pathForLang } from "@/lib/langPath";
 import { HREFLANG } from "@/lib/langPath";
 import { getSituation, situationContent, type SituationKey } from "@/data/situations";
+import { serviceDestination } from "@/data/serviceFamilies";
 
 function alternatesFor(key: SituationKey) {
   const s = getSituation(key);
@@ -73,7 +74,7 @@ export function SituationPage({ pageKey }: { pageKey: SituationKey }) {
                         {b.service && (
                           <>
                             {" "}
-                            <Link to="/Our_Services" className="underline hover:text-foreground">
+                            <Link to={serviceDestination(b.service, lang)} className="underline hover:text-foreground">
                               {b.service}
                             </Link>
                           </>

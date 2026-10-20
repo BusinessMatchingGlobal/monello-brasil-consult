@@ -134,7 +134,7 @@ export const serviceGroupsPT: ServiceGroup[] = [
         price: "Orçamento sob consulta — entrega normalmente em 1 semana",
       },
       {
-        name: "Opportunity Scan",
+        name: "Check-up Europa",
         sampleReport: "/sample-report",
         tagline: "Seu produto tem espaço naquele mercado?",
         bullets: [

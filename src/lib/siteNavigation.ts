@@ -1,8 +1,10 @@
 import type { Lang } from "@/lib/lang";
 import { getServicesCatalog } from "@/data/servicesCatalog";
+import { familyPath, type ServiceFamilyKey } from "@/data/serviceFamilyMetadata";
 import { STARTING_POINT, hasSituations, situationContent } from "@/data/situations";
 
 export const SERVICE_ANCHORS = ["get-an-answer", "verify", "assess", "find", "make-contact", "enter", "stay", "training"] as const;
+export const SERVICE_GROUP_FAMILIES: ServiceFamilyKey[] = ["decide", "verify", "prepare", "find", "find", "prepare", "stay", "training"];
 
 export type SiteLink = { href: string; label: string; internal?: boolean; external?: boolean; externalIcon?: boolean };
 export type SiteNavItem = SiteLink & { children?: SiteLink[] };
@@ -29,7 +31,7 @@ export function getSiteNavigation(lang: Lang): SiteNavItem[] {
       ] : []),
     ] },
     { href: "__services__", label: c.services, children: [
-      ...getServicesCatalog(lang).groups.map((g, i) => internal(`/Our_Services#${SERVICE_ANCHORS[i]}`, g.label)),
+      ...getServicesCatalog(lang).groups.map((g, i) => internal(familyPath(SERVICE_GROUP_FAMILIES[i], lang), g.label)),
       matching, beauty, internal("/Our_Services", c.all),
     ] },
     { href: "__method__", label: c.method, children: [

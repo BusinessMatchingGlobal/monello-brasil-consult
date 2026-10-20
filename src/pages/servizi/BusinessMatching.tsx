@@ -317,11 +317,11 @@ export default function BusinessMatching() {
           <div className="container max-w-3xl text-sm text-muted-foreground leading-relaxed">
             <p>
               Devi ancora capire se il mercato esiste? Parti dalla{" "}
-              <Link to="/Our_Services" className="underline hover:text-foreground">
+              <Link to="/servizi/il-brasile-conviene#check-up" className="underline hover:text-foreground">
                 Business Intelligence
               </Link>
               . Hai già trovato il partner e devi capire come far arrivare la merce? Vedi{" "}
-              <Link to="/Our_Services" className="underline hover:text-foreground">
+              <Link to="/servizi/preparare-ingresso" className="underline hover:text-foreground">
                 Import/Export Intelligence
               </Link>
               .
