@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect, ReactNode, createElemen
 export type { Lang } from "./lang";
 import type { Lang } from "./lang";
 import { detectLangFromPath, pathForLang, stripLangPrefix } from "./langPath";
+import { localizeFamilyPath } from "@/data/serviceFamilyMetadata";
 
 
 type Dict = typeof translations.en;
@@ -618,7 +619,7 @@ export function LanguageProvider({ children, lang: langProp }: { children: React
       /* ignore */
     }
     const target =
-      pathForLang(next, stripLangPrefix(window.location.pathname)) +
+      pathForLang(next, localizeFamilyPath(stripLangPrefix(window.location.pathname), next)) +
       window.location.search +
       window.location.hash;
     if (target !== window.location.pathname + window.location.search + window.location.hash) {

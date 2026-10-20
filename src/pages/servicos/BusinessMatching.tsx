@@ -329,11 +329,11 @@ export default function BusinessMatchingBR() {
           <div className="container max-w-3xl text-sm text-muted-foreground leading-relaxed">
             <p>
               Ainda precisa entender se o mercado existe? Comece pela{" "}
-              <Link to="/Our_Services" className="underline hover:text-foreground">
+              <Link to="/servicos/a-europa-vale-a-pena#check-up" className="underline hover:text-foreground">
                 Business Intelligence
               </Link>
               . Já encontrou o parceiro e precisa saber como fazer a mercadoria chegar? Veja{" "}
-              <Link to="/Our_Services" className="underline hover:text-foreground">
+              <Link to="/servicos/preparar-a-entrada" className="underline hover:text-foreground">
                 Import/Export Intelligence
               </Link>
               .

@@ -151,6 +151,8 @@ import { SITUATIONS } from "../src/data/situations";
 import { servicesIntro, serviceGroups } from "../src/data/servicesCatalog";
 import { servicesIntroEN, serviceGroupsEN } from "../src/data/servicesCatalog.en";
 import { servicesIntroPT, serviceGroupsPT } from "../src/data/servicesCatalog.pt";
+import { getServiceFamilies, familyCopy } from "../src/data/serviceFamilies";
+import { pathForLang } from "../src/lib/langPath";
 
 const SERVICE_CATALOGS: Record<Lang, { intro: typeof servicesIntro; groups: typeof serviceGroups }> = {
   it: { intro: servicesIntro, groups: serviceGroups },
@@ -160,34 +162,23 @@ const SERVICE_CATALOGS: Record<Lang, { intro: typeof servicesIntro; groups: type
 
 export function buildServiceContent(): ArticleContent[] {
   const today = new Date().toISOString().slice(0, 10);
-  return (Object.keys(SERVICE_CATALOGS) as Lang[]).map((lang) => {
-    const { intro, groups } = SERVICE_CATALOGS[lang];
-    const parts: string[] = [`## ${intro.title}`, intro.intro, intro.markets];
-    for (const group of groups) {
-      parts.push(`\n## ${group.num} — ${group.label}`);
-      if (group.note) parts.push(group.note);
-      for (const item of group.items) {
-        parts.push(
-          [
-            `### ${item.name} — ${item.price}`,
-            item.tagline,
-            item.bullets.map((b) => `- ${b}`).join("\n"),
-            item.audience?.length ? `${intro.forWhom} ${item.audience.join("; ")}` : "",
-            item.examples ?? "",
-          ]
-            .filter(Boolean)
-            .join("\n"),
-        );
+  return (Object.keys(SERVICE_CATALOGS) as Lang[]).flatMap((lang) => {
+    const { intro } = SERVICE_CATALOGS[lang];
+    return getServiceFamilies(lang).map(family => {
+      const parts = [`## ${family.title}`, family.intro];
+      if (family.levels.length) parts.push(`### Export Desk\n${familyCopy[lang].desk}`);
+      for (const item of [...family.items, ...family.levels]) {
+        parts.push([
+          `### ${item.name} — ${item.price}`, item.tagline,
+          item.name.includes("Check-up") ? familyCopy[lang].checkup : "",
+          item.bullets.map(b => `- ${b}`).join("\n"),
+          item.audience.length ? `${intro.forWhom} ${item.audience.join("; ")}` : "",
+          item.examples ?? "",
+        ].filter(Boolean).join("\n"));
       }
-    }
-    return {
-      slug: "services",
-      lang,
-      title: intro.title,
-      date: today,
-      url: `${SITE}/Our_Services`,
-      text: parts.join("\n\n").trim(),
-    };
+      return { slug: `services-${family.key}`, lang, title: family.title, date: today,
+        url: SITE + pathForLang(lang, family.path), text: parts.join("\n\n") };
+    });
   });
 }
 

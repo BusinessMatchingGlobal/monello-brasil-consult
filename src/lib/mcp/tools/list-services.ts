@@ -3,12 +3,14 @@ import { z } from "zod";
 import { serviceGroups } from "@/data/servicesCatalog";
 import { serviceGroupsEN } from "@/data/servicesCatalog.en";
 import { serviceGroupsPT } from "@/data/servicesCatalog.pt";
+import { serviceDestination } from "@/data/serviceFamilies";
+import { pathForLang } from "@/lib/langPath";
 
 const CATALOGS = { it: serviceGroups, en: serviceGroupsEN, pt: serviceGroupsPT } as const;
 const PAGES = {
-  it: "https://businessmatching.global/Our_Services",
+  it: "https://businessmatching.global/it/Our_Services",
   en: "https://businessmatching.global/Our_Services",
-  pt: "https://businessmatching.global/Our_Services",
+  pt: "https://businessmatching.global/pt/Our_Services",
 } as const;
 
 export default defineTool({
@@ -40,6 +42,7 @@ export default defineTool({
             item.bullets.map((b) => `- ${b}`).join("\n"),
             item.audience.length ? `For: ${item.audience.join("; ")}` : "",
             item.examples ?? "",
+            `Details: https://businessmatching.global${pathForLang(lang, serviceDestination(item.name, lang))}`,
           ]
             .filter(Boolean)
             .join("\n"),
@@ -50,6 +53,7 @@ export default defineTool({
           tagline: item.tagline,
           price: item.price,
           bullets: item.bullets,
+          url: `https://businessmatching.global${pathForLang(lang, serviceDestination(item.name, lang))}`,
         });
       }
     }

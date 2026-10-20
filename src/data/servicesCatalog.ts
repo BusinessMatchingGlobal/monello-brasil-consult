@@ -149,7 +149,7 @@ export const serviceGroups: ServiceGroup[] = [
         price: "Preventivo su richiesta — consegna normalmente in 1 settimana",
       },
       {
-        name: "Opportunity Scan",
+        name: "Brazil Check-up",
         sampleReport: "/sample-report",
         tagline: "Il tuo prodotto ha spazio in quel mercato?",
         bullets: [

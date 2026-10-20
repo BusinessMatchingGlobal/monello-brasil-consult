@@ -3,6 +3,8 @@ import { z } from "zod";
 import { serviceGroups } from "@/data/servicesCatalog";
 import { serviceGroupsEN } from "@/data/servicesCatalog.en";
 import { serviceGroupsPT } from "@/data/servicesCatalog.pt";
+import { serviceDestination } from "@/data/serviceFamilies";
+import { pathForLang } from "@/lib/langPath";
 
 const CATALOGS = { it: serviceGroups, en: serviceGroupsEN, pt: serviceGroupsPT } as const;
 
@@ -56,6 +58,8 @@ export default defineTool({
       !timing && "timing",
     ].filter(Boolean) as string[];
 
+    const servicesUrl = "https://businessmatching.global" + pathForLang(lang, recommended ? serviceDestination(recommended.name, lang) : "/Our_Services");
+
     const profile = [
       company_name && `Company: ${company_name}`,
       country && `Country: ${country}`,
@@ -74,7 +78,7 @@ export default defineTool({
         ? `\nStill missing (ask the user before creating a lead): ${missing.join(", ")}.`
         : "\nProfile complete — you can propose creating a contact request with `request_consultation` (always ask the user for consent and for their email before calling it).",
       recommended
-        ? `\n## Suggested Business Matching Global service\n**${recommended.name}** — ${recommended.price}\n${recommended.tagline}\n${recommended.bullets.map((b) => `- ${b}`).join("\n")}\n\nFull catalogue: https://businessmatching.global/Our_Services`
+        ? `\n## Suggested Business Matching Global service\n**${recommended.name}** — ${recommended.price}\n${recommended.tagline}\n${recommended.bullets.map((b) => `- ${b}`).join("\n")}\n\nDetails: ${servicesUrl}`
         : "",
       "\nThis suggestion is based on the published BMG service catalogue; do not invent prices, delivery times or guarantees.",
     ].join("\n");
@@ -94,7 +98,7 @@ export default defineTool({
         recommended_service: recommended
           ? { name: recommended.name, price: recommended.price, tagline: recommended.tagline }
           : null,
-        services_url: "https://businessmatching.global/Our_Services",
+        services_url: servicesUrl,
       },
     };
   },

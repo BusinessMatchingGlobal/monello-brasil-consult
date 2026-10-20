@@ -134,7 +134,7 @@ export const serviceGroupsEN: ServiceGroup[] = [
         price: "Quote on request — delivery normally in 1 week",
       },
       {
-        name: "Opportunity Scan",
+        name: "Brazil Check-up",
         sampleReport: "/sample-report",
         tagline: "Does your product have room in that market?",
         bullets: [

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useT } from "@/lib/i18n";
 import { pathForLang } from "@/lib/langPath";
+import { familyPath, localizeFamilyPath } from "@/data/serviceFamilyMetadata";
 import { useCanonical, SITE } from "@/lib/useCanonical";
 import { Nav } from "./AboutUs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -18,7 +19,7 @@ function SmartLink({ link, lang, className, children }: { link: PPLink; lang: PP
     if (path === "/services/business-matching") {
       path = lang === "it" ? "/servizi/business-matching" : lang === "pt" ? "/servicos/business-matching" : path;
     }
-    return <Link to={path} className={className}>{children}</Link>;
+    return <Link to={localizeFamilyPath(path, lang)} className={className}>{children}</Link>;
   }
   return <a href={link.href} target="_blank" rel="noopener noreferrer" className={className}>{children}</a>;
 }
@@ -147,7 +148,11 @@ export default function PartnerProgram() {
 
         {/* 6 (shown before 5) */}
         <H2>{s[6].title}</H2>
-        {plain(6).map((x, i) => <P key={i}>{x}</P>)}
+        {plain(6).map((x, i) => {
+          const name = lang === "pt" ? "Check-up Europa" : "Brazil Check-up";
+          const parts = x.split(name);
+          return <P key={i}>{parts.map((part, idx) => <span key={idx}>{idx > 0 && <Link to={familyPath("decide", lang) + "#check-up"} className={linkCls}>{name}</Link>}{part}</span>)}</P>;
+        })}
 
         {/* 5 */}
         <H2>{s[5].title}</H2>

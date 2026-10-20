@@ -55,7 +55,7 @@ Card 1
 Level: Intelligence on demand
 Service: Ask Brazil
 Text: You send a question about duties, importers, competitors, certifications, distribution structure, price levels or State incentives. We return a documented, written answer.
-Link: https://businessmatching.global/Our_Services
+Link: https://businessmatching.global/services/is-brazil-worth-it
 Card 2
 Level: Local execution
 Service: Buyer Search + Outreach / Business Matching
@@ -65,14 +65,14 @@ Card 3
 Level: Local export desk
 Service: Fractional Export Desk
 Text: When your client starts working Brazil for real, we become the continuous local desk, under your direction.
-Link: https://businessmatching.global/Our_Services
+Link: https://businessmatching.global/services/stay-on-the-market
 
 5. Why phase zero matters to you
 For a company entering Brazil, the first step is the triage described above. For a company already in Brazil, or about to sign with an importer, a distributor or a partner, the first step is phase zero: we establish who owns what, align the documents with the real agreements and have the firms we coordinate verify that every clause holds under both legal systems, before presenting any counterpart. It is work an export manager cannot do alone from Europe. Phase zero is always offered at a fixed fee, agreed in writing and separate from every other part of the work.
 Link text: How we work → https://businessmatching.global/How_we_work
 
 6. First question: is Brazil worth it?
-We don't start by handing you a list of importers pulled from a database. We start with a triage: updated trade data on your client's products (import flows, prices, where competitors come from, the States where demand actually is), read against your client's capacity. If Brazil is not worth it now, you get that answer in writing, and your client avoids paying to find out the hard way.
+We don't start by handing you a list of importers pulled from a database. We start with a Brazil Check-up: updated trade data on your client's products (import flows, prices, where competitors come from, the States where demand actually is), read against your client's capacity. If Brazil is not worth it now, you get that answer in writing, and your client avoids paying to find out the hard way.
 
 7. The right route, not only export
 Intro: When Brazil is worth it, we indicate the route that fits the product, the volumes and the client's horizon:
@@ -172,7 +172,7 @@ Card 1
 Level: Intelligence su richiesta
 Service: Ask Brazil
 Text: Ci inviate una domanda su dazi, importatori, concorrenti, certificazioni, struttura distributiva, livelli di prezzo o incentivi dei singoli Stati. Vi restituiamo una risposta scritta e documentata.
-Link: https://businessmatching.global/Our_Services
+Link: https://businessmatching.global/services/is-brazil-worth-it
 Card 2
 Level: Esecuzione locale
 Service: Buyer Search + Outreach / Business Matching
@@ -182,14 +182,14 @@ Card 3
 Level: Desk export locale
 Service: Fractional Export Desk
 Text: Quando il vostro cliente comincia a lavorare il Brasile sul serio, diventiamo il suo desk locale continuativo, sotto la vostra direzione.
-Link: https://businessmatching.global/Our_Services
+Link: https://businessmatching.global/services/stay-on-the-market
 
 5. Perché la fase zero conta per voi
 Per chi entra in Brasile, il primo passo è il triage descritto qui sopra. Per chi è già in Brasile, o sta per firmare con un importatore, un distributore o un socio, il primo passo è la fase zero: stabiliamo chi possiede cosa, allineiamo i documenti agli accordi reali e facciamo verificare dagli studi che coordiniamo che ogni clausola regga nei due ordinamenti, prima di presentare qualunque controparte. È un lavoro che dall'Europa un export manager non può fare da solo. La fase zero è sempre offerta a compenso fisso, concordato per iscritto e separato da ogni altra parte del lavoro.
 Link text: Come lavoriamo → https://businessmatching.global/How_we_work
 
 6. Prima domanda: il Brasile conviene?
-Non cominciamo consegnandovi una lista di importatori presa da un database. Cominciamo con un triage: dati commerciali aggiornati sui prodotti del vostro cliente (flussi di importazione, prezzi, provenienza dei concorrenti, gli Stati in cui la domanda c'è davvero), letti alla luce delle capacità del vostro cliente. Se oggi il Brasile non conviene, ricevete questa risposta per iscritto, e il vostro cliente evita di pagare per scoprirlo a proprie spese.
+Non cominciamo consegnandovi una lista di importatori presa da un database. Cominciamo con un Brazil Check-up: dati commerciali aggiornati sui prodotti del vostro cliente (flussi di importazione, prezzi, provenienza dei concorrenti, gli Stati in cui la domanda c'è davvero), letti alla luce delle capacità del vostro cliente. Se oggi il Brasile non conviene, ricevete questa risposta per iscritto, e il vostro cliente evita di pagare per scoprirlo a proprie spese.
 
 7. La strada giusta, non solo export
 Intro: Quando il Brasile conviene, indichiamo la strada adatta al prodotto, ai volumi e all'orizzonte del cliente:
@@ -301,8 +301,8 @@ Para quem entra na Europa, o primeiro passo é a triagem descrita acima. Para qu
 (No link in this version.)
 
 6. Primeira pergunta: a Europa vale a pena?
-Não começamos entregando uma lista de importadores tirada de um banco de dados. Começamos com uma triagem: dados de comércio atualizados sobre os produtos do seu cliente (fluxos de importação, preços, origem dos concorrentes, os países onde a demanda realmente está), lidos à luz da capacidade do seu cliente. Se a Europa não vale a pena agora, você recebe essa resposta por escrito, e seu cliente evita pagar para descobrir do jeito mais caro.
-A triagem é um serviço pago, com orçamento por escrito.
+Não começamos entregando uma lista de importadores tirada de um banco de dados. Começamos com um Check-up Europa: dados de comércio atualizados sobre os produtos do seu cliente (fluxos de importação, preços, origem dos concorrentes, os países onde a demanda realmente está), lidos à luz da capacidade do seu cliente. Se a Europa não vale a pena agora, você recebe essa resposta por escrito, e seu cliente evita pagar para descobrir do jeito mais caro.
+O Check-up Europa é um serviço pago, com orçamento por escrito.
 
 7. O caminho certo, não só exportação
 Intro: Quando a Europa vale a pena, indicamos o caminho adequado ao produto, aos volumes e ao horizonte do cliente:

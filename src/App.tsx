@@ -15,6 +15,8 @@ import HowWeWork from "./pages/HowWeWork";
 import BeforeYouChoose from "./pages/BeforeYouChoose";
 import PartnerProgram from "./pages/PartnerProgram";
 import OurServices from "./pages/OurServices";
+import ServiceFamily from "./pages/ServiceFamily";
+import { SERVICE_FAMILIES } from "./data/serviceFamilyMetadata";
 import { AlreadyInBrazil, BackToBrazil } from "./pages/Situation";
 import Ethics from "./pages/Ethics";
 import BusinessMatchingService from "./pages/servizi/BusinessMatching";
@@ -120,6 +122,7 @@ const App = () => {
 
             <Route path="/Our_Services" element={<OurServices />} />
             <Route path="/our_services" element={<OurServices />} />
+            {SERVICE_FAMILIES.map(family => <Route key={family.key} path={family.paths[lang]} element={<ServiceFamily familyKey={family.key} />} />)}
             <Route path="/already-in-brazil" element={<AlreadyInBrazil />} />
             <Route path="/gia-in-brasile" element={<AlreadyInBrazil />} />
             <Route path="/back-to-brazil" element={<BackToBrazil />} />
