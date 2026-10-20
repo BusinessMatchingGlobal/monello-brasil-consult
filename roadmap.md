@@ -1,6 +1,6 @@
 # Requested corrections
 
-- [ ] Correct Italian situation navigation addresses and audit every header/footer destination in EN/IT/PT; report Portuguese availability and all targets.
+- [x] Correct Italian situation navigation addresses and audit every header/footer destination in EN/IT/PT; report Portuguese availability and all targets.
 
 - [x] Remove redundant About us confidentiality sections and move introductory paragraphs in EN/IT/PT.
 - [x] Move confidentiality line to homepage contact form only.
