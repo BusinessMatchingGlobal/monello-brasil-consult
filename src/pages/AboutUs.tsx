@@ -111,7 +111,7 @@ function NavDropdown({
           variant="ghost"
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex items-center justify-between text-base py-2 px-0 h-auto"
+          className="flex items-center justify-between text-base py-2 px-0 h-auto hover:bg-transparent"
           aria-expanded={open}
         >
           <span>{label}</span>

@@ -1,6 +1,6 @@
 import type { Lang } from "@/lib/lang";
 import { getServicesCatalog } from "@/data/servicesCatalog";
-import { STARTING_POINT, situationContent } from "@/data/situations";
+import { STARTING_POINT, hasSituations, situationContent } from "@/data/situations";
 
 export const SERVICE_ANCHORS = ["get-an-answer", "verify", "assess", "find", "make-contact", "enter", "stay", "training"] as const;
 
@@ -23,8 +23,10 @@ export function getSiteNavigation(lang: Lang): SiteNavItem[] {
   return [
     { href: "__situation__", label: c.situation, children: [
       internal("/Our_Services", STARTING_POINT[lang].notYet.title),
-      internal("/already-in-brazil", lang === "pt" ? c.already : situationContent("already-in-brazil", lang).cardTitle),
-      internal("/back-to-brazil", lang === "pt" ? c.tried : situationContent("back-to-brazil", lang).cardTitle),
+      ...(hasSituations(lang) ? [
+        internal("/already-in-brazil", situationContent("already-in-brazil", lang).cardTitle),
+        internal("/back-to-brazil", situationContent("back-to-brazil", lang).cardTitle),
+      ] : []),
     ] },
     { href: "__services__", label: c.services, children: [
       ...getServicesCatalog(lang).groups.map((g, i) => internal(`/Our_Services#${SERVICE_ANCHORS[i]}`, g.label)),
