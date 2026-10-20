@@ -103,7 +103,6 @@ const App = () => {
           <CalliphoraDomainRouting />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/privacy" element={<Privacy />} />
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             <Route path="/About_us" element={<AboutUs />} />
             <Route path="/about_us" element={<AboutUs />} />
@@ -140,6 +139,8 @@ const App = () => {
 
 
             <Route element={<SiteLayout />}>
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
               <Route path="/sample-report" element={<SampleReport />} />
               <Route path="/news" element={<NewsEbook />} />
               <Route path="/sace" element={<SaceGuide />} />
@@ -237,7 +238,6 @@ const App = () => {
               <Route path="/bahia_br" element={<BahiaBR />} />
               <Route path="/Bahia_BR" element={<BahiaBR />} />
             </Route>
-            <Route path="/guides/doing-business-in-brazil" element={<DoingBusinessGuide />} />
             <Route path="/turismo" element={<Turismo />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

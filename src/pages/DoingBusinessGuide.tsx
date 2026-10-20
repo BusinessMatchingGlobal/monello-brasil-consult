@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { ShareBlock } from "@/components/ShareBlock";
-import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 import { useEffect } from "react";
-import { LangSwitcher } from "@/components/LangSwitcher";
 
 export default function DoingBusinessGuide() {
   useCanonical("/guides/doing-business-in-brazil", {
@@ -56,21 +54,6 @@ export default function DoingBusinessGuide() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border">
-        <div className="container mx-auto px-4 py-5 flex items-center justify-between">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-            <ArrowLeft className="h-4 w-4" />
-            Back to home
-          </Link>
-          <div className="flex items-center gap-3">
-            <LangSwitcher />
-            <Link to="/" aria-label="Business Matching Global">
-              <img src={logoBMG.url} alt="Business Matching Global" className="h-8 md:h-10 w-auto" />
-            </Link>
-          </div>
-        </div>
-      </header>
-
       <main className="container mx-auto max-w-3xl px-4 py-12 md:py-16">
         <article className="prose prose-lg max-w-none dark:prose-invert">
           <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
