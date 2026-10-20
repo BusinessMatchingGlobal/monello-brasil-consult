@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
+import { ArrowRight, Linkedin, Instagram, Facebook, Youtube, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import { useT } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import { openConsentBanner } from "@/lib/consent";
 import { pathForLang } from "@/lib/langPath";
-import { hasSituations, situationContent } from "@/data/situations";
+import { getFooterNavigation } from "@/lib/siteNavigation";
 import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italcam-minas-gerais.png.asset.json";
 import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
@@ -181,137 +181,25 @@ export function FooterInner() {
           </div>
           <p className="text-sm text-muted-foreground mt-1">{t.footer.tag}</p>
         </div>
+      </div>
+      <div className="container mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-sm">
+        {getFooterNavigation(lang).map(group => (
+          <div key={group.href}>
+            <h3 className="font-medium text-foreground mb-3">{group.label}</h3>
+            <div className="flex flex-col items-start gap-2">
+              {group.children?.map(link => link.internal ? (
+                <Link key={link.href} to={link.href} className="text-muted-foreground hover:text-foreground transition-colors">{link.label}</Link>
+              ) : (
+                <a key={link.href} href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined} className="text-muted-foreground hover:text-foreground transition-colors">
+                  {link.label}{link.externalIcon && <ExternalLink className="inline-block ml-1 h-3.5 w-3.5" aria-hidden="true" />}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="container mt-6">
         <div className="flex flex-wrap items-center gap-5 text-sm">
-          <Link to="/Our_Services" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.services}
-          </Link>
-          {hasSituations(lang) && (
-          <Link to={situationContent("already-in-brazil", lang).slug} className="text-muted-foreground hover:text-foreground transition-colors">
-            {situationContent("already-in-brazil", lang).navLabel}
-          </Link>
-          )}
-          {hasSituations(lang) && (
-          <Link to={situationContent("back-to-brazil", lang).slug} className="text-muted-foreground hover:text-foreground transition-colors">
-            {situationContent("back-to-brazil", lang).navLabel}
-          </Link>
-          )}
-          <Link to="/How_we_work" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.howWeWork}
-          </Link>
-          <Link to="/Partner_Program" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.partnerProgram}
-          </Link>
-          <Link to="/analysis" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.analysis}
-          </Link>
-          {lang === "pt" && <Link to="/before-you-choose" className="text-muted-foreground hover:text-foreground transition-colors">Antes de escolher</Link>}
-          <Link to="/news" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.news}
-          </Link>
-          <Link to="/BT" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.travel}
-          </Link>
-          <a
-            href="https://www.linkedin.com/company/businessmatchingglobal"
-            target="_blank"
-            rel="noopener"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            #Custo Brasil
-          </a>
-          <Link to="/About_us" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.about}
-          </Link>
-          <Link to="/ethics" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.ethics}
-          </Link>
-          <a href={`${pathForLang(lang, "/")}#contact`} className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.contact}
-          </a>
-          <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
-            {t.footer.privacy}
-          </Link>
-          {lang === "en" && (
-            <a
-              href="https://www.iubenda.com/privacy-policy/22477622"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              title="Privacy Policy"
-            >
-              Privacy Policy
-            </a>
-          )}
-          {lang === "en" && (
-            <a
-              href="https://www.iubenda.com/privacy-policy/22477622/cookie-policy"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              title="Cookie Policy"
-            >
-              Cookie Policy
-            </a>
-          )}
-          {lang === "en" && (
-            <a
-              href="https://www.iubenda.com/terms-and-conditions/22477622"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              title="Terms and Conditions"
-            >
-              Terms and Conditions
-            </a>
-          )}
-          {lang === "it" && (
-            <a
-              href="https://www.iubenda.com/privacy-policy/32646575"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              title="Privacy Policy"
-            >
-              Privacy Policy
-            </a>
-          )}
-          {lang === "it" && (
-            <a
-              href="https://www.iubenda.com/privacy-policy/32646575/cookie-policy"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              title="Cookie Policy"
-            >
-              Cookie Policy
-            </a>
-          )}
-          {lang === "it" && (
-            <a
-              href="https://www.iubenda.com/termini-e-condizioni/32646575"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              title="Termini e Condizioni"
-            >
-              Termini e Condizioni
-            </a>
-          )}
-          {lang === "pt" && (
-            <a
-              href="https://www.iubenda.com/privacy-policy/16979386"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              title="Política de Privacidade"
-            >
-              Política de Privacidade
-            </a>
-          )}
-          {lang === "pt" && (
-            <a
-              href="https://www.iubenda.com/privacy-policy/16979386/cookie-policy"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              title="Política de Cookies"
-            >
-              Política de Cookies
-            </a>
-          )}
-          {lang === "pt" && (
-            <a
-              href="https://www.iubenda.com/termos-e-condicoes/16979386"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              title="Termos e Condições"
-            >
-              Termos e Condições
-            </a>
-          )}
           <button
             type="button"
             onClick={() => openConsentBanner()}
