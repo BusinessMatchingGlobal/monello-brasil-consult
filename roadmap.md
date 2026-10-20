@@ -1,6 +1,6 @@
 # Requested corrections
 
-- [ ] Regroup services into six localized family pages, consolidate Export Desk levels, update overview and service links, and verify EN/IT/PT.
+- [x] Regroup services into six localized family pages, consolidate Export Desk levels, update overview and service links, and verify EN/IT/PT.
 
 - [x] Verify and correct the five specifically requested pages sequentially: English situations, English Business Matching, all Business Travel languages, and Portuguese Partner Programme wording.
 
