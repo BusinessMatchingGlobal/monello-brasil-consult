@@ -255,13 +255,6 @@ export default function HowWeWork() {
 
         </section>
 
-        {lang === "pt" && (
-          <p className="mt-12 text-base md:text-lg leading-relaxed">
-            <Link to="/before-you-choose" className="text-primary underline underline-offset-4 hover:text-primary/80">
-              Com quem trabalhamos, como somos remunerados e como fazemos orçamentos: leiam antes de escolher qualquer um, inclusive nós. →
-            </Link>
-          </p>
-        )}
         </div>
       <ContactForm />
       <SiteFooter />

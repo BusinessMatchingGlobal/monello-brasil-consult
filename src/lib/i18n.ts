@@ -392,9 +392,9 @@ export const translations = {
     nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", howWeWork: "Como trabalhamos", partnerProgram: "Partner Program", how: "Como funciona", method: "Nosso método", about: "Quem somos", ethics: "Código de Ética", travel: "Business Travel", news: "Ebook", analysis: "Análises", transferMethod: "Transferir o método", analysisAll: "Todos os artigos →", resources: "Recursos", aboutGroup: "Quem somos", contact: "Contato" },
     hero: {
       title: "A pesquisa é só o começo.",
-      sub: "Ajudamos você a entender o mercado brasileiro, identificar as empresas certas e iniciar as conversas de negócios certas.",
+      sub: "Ajudamos você a entender o mercado europeu, identificar as empresas certas e iniciar as conversas de negócios certas.",
       areas: "Business Intelligence · Busca de Compradores e Fornecedores · Import/Export · Business Matching",
-      cta1: "Comece com um check-up",
+      cta1: "Fale conosco",
       cta2: "Ver serviços",
       ctaAsk: "Ask Brazil / Ask Europe",
       linkedin: "Acompanhe a Business Matching Global no LinkedIn para acessar análises, relatórios e atualizações sobre o Brasil.",
@@ -403,7 +403,7 @@ export const translations = {
       title: "O mercado não é o problema. A suposição não verificada é.",
       body: "A maioria dos erros na Europa não acontece na mesa de negociação. Acontece antes, numa suposição que ninguém verificou: uma norma, um imposto, a posição real de um distribuidor. Nós verificamos, por escrito, com a fonte anexada.",
       items: [
-        ["Informações não confiáveis", "O desafio muitas vezes está em lidar com informações fragmentadas, de difícil acesso e nem sempre fáceis de verificar, seja quanto à sua confiabilidade, seja quanto ao seu grado de atualização.\n\nAs fontes disponíveis podem ser incompletas, desatualizadas ou até contraditórias, tornando complexo entender quais dados podem de fato ser considerados confiáveis e utilizados como base para decisões bem fundamentadas."],
+        ["Informações não confiáveis", "O desafio muitas vezes está em lidar com informações fragmentadas, de difícil acesso e nem sempre fáceis de verificar, seja quanto à sua confiabilidade, seja quanto ao seu grau de atualização.\n\nAs fontes disponíveis podem ser incompletas, desatualizadas ou até contraditórias, tornando complexo entender quais dados podem de fato ser considerados confiáveis e utilizados como base para decisões bem fundamentadas."],
         ["Interpretações equivocadas", "Ter acesso a informações confiáveis é apenas o primeiro passo. Para tomar decisões verdadeiramente bem fundamentadas, é preciso saber interpretá-las, contextualizá-las e compreender como elas são aplicadas na prática.\n\nO domínio do idioma, isoladamente, não basta. É necessário entender como profissionais e operadores locais interpretam essas informações e de que forma elas se traduzem no dia a dia administrativo, tributário e comercial."],
         ["Erros custosos", "Quando as decisões são baseadas em dados imprecisos, incompletos ou mal interpretados, as empresas correm o risco de fazer escolhas estratégicas equivocadas, com custos significativos em termos de tempo, dinheiro e oportunidades perdidas."],
       ],

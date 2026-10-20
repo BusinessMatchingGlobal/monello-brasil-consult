@@ -21,6 +21,14 @@ export default function BeforeYouChoose() {
     description: copy.description,
     alternates: [{ hreflang: "pt-BR", href: `${SITE}/pt/before-you-choose` }],
   });
+  useEffect(() => {
+    let robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    const created = !robots;
+    if (!robots) { robots = document.createElement("meta"); robots.setAttribute("name", "robots"); document.head.appendChild(robots); }
+    const previous = robots.getAttribute("content");
+    robots.setAttribute("content", "noindex, follow");
+    return () => { if (created) robots?.remove(); else if (previous !== null) robots?.setAttribute("content", previous); };
+  }, []);
   const { hash } = useLocation();
   useEffect(() => {
     const el = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
