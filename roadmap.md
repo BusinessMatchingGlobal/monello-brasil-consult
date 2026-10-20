@@ -1,5 +1,8 @@
 # Requested corrections
 
+- [x] Finish consistency audit on all requested EN/IT/PT pages, correct remaining shared header/contact/footer issues, and verify same-page assessment buttons without changing download forms.
+- [x] Correct the two Portuguese Partner Programme phase-zero references from Brazil to Europe.
+
 - [x] Correct Italian situation navigation addresses and audit every header/footer destination in EN/IT/PT; report Portuguese availability and all targets.
 
 - [x] Remove redundant About us confidentiality sections and move introductory paragraphs in EN/IT/PT.
