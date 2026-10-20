@@ -16,6 +16,8 @@ import { trackContactForm } from "@/lib/analytics";
 import { ServiceRequestDialog } from "@/components/ServiceRequestDialog";
 import { SampleReportBlock } from "@/components/SampleReportBlock";
 import { getServicesCatalog, type ServiceItem } from "@/data/servicesCatalog";
+import { SERVICE_ANCHORS } from "@/lib/siteNavigation";
+import { useLocation } from "react-router-dom";
 import type { FormEvent } from "react";
 import logoBMG from "@/assets/logo-business-matching-global-transparent.png.asset.json";
 
@@ -102,8 +104,8 @@ function Services({ onRequest }: { onRequest: (n: string) => void }) {
   return (
     <section className="py-16 md:py-24 bg-foreground text-background">
       <div className="container max-w-6xl space-y-16">
-        {serviceGroups.map((g) => (
-          <div key={g.num}>
+        {serviceGroups.map((g, i) => (
+          <div key={g.num} id={SERVICE_ANCHORS[i]} className="scroll-mt-28">
             <div className="mb-8">
               <span className="text-xs tracking-wider uppercase text-primary">{g.num} —</span>
               <h2 className="font-display text-2xl md:text-3xl text-background mt-1 uppercase tracking-wide">
@@ -162,6 +164,15 @@ export function InfoBar() {
 
 export default function OurServices() {
   const { lang } = useT();
+  const { hash, key } = useLocation();
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      const section = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
+      if (section) section.scrollIntoView();
+      else window.scrollTo(0, 0);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [hash, key]);
   const [requested, setRequested] = useState<string | null>(null);
   const { intro: servicesIntro } = getServicesCatalog(lang);
   useCanonical("/Our_Services", {

@@ -2,11 +2,11 @@ import { SiteContactForm } from "@/components/SiteContactForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useState, useEffect, useRef, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Menu, X, Mail, ChevronDown } from "lucide-react";
+import { ArrowRight, Menu, X, Mail, ChevronDown, ExternalLink } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
 import { pathForLang } from "@/lib/langPath";
-import { hasSituations, situationContent } from "@/data/situations";
+import { getSiteNavigation, type SiteLink, type SiteNavItem } from "@/lib/siteNavigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -45,13 +45,7 @@ function LangSwitcher() {
   );
 }
 
-type NavItem = {
-  href: string;
-  label: string;
-  internal?: boolean;
-  external?: boolean;
-  children?: Array<{ href: string; label: string; internal?: boolean; external?: boolean }>;
-};
+type NavItem = SiteNavItem;
 
 function NavDropdown({
   label,
@@ -60,7 +54,7 @@ function NavDropdown({
   onNavigate,
 }: {
   label: string;
-  items: Array<{ href: string; label: string; internal?: boolean; external?: boolean }>;
+  items: SiteLink[];
   variant: "desktop" | "mobile";
   onNavigate?: () => void;
 }) {
@@ -77,7 +71,7 @@ function NavDropdown({
   }, [variant]);
 
   const renderItem = (
-    it: { href: string; label: string; internal?: boolean; external?: boolean },
+    it: SiteLink,
     className: string
   ) =>
     it.external ? (
@@ -93,7 +87,7 @@ function NavDropdown({
         }}
         className={className}
       >
-        {it.label}
+        {it.label}{it.externalIcon && <ExternalLink className="inline-block ml-1 h-3.5 w-3.5" aria-hidden="true" />}
       </a>
     ) : (
       <Link
@@ -113,15 +107,16 @@ function NavDropdown({
   if (variant === "mobile") {
     return (
       <div className="flex flex-col">
-        <button
+        <Button
+          variant="ghost"
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex items-center justify-between text-base py-2"
+          className="flex items-center justify-between text-base py-2 px-0 h-auto hover:bg-transparent"
           aria-expanded={open}
         >
           <span>{label}</span>
           <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
-        </button>
+        </Button>
         {open && (
           <div className="flex flex-col gap-2 pl-3 pb-2 border-l border-border/60">
             {items.map((it) => renderItem(it, "text-sm py-1 text-foreground/80"))}
@@ -133,21 +128,22 @@ function NavDropdown({
 
   return (
     <div ref={ref} className="relative">
-      <button
+      <Button
+        variant="ghost"
         type="button"
         onClick={() => setOpen((v) => !v)}
         onMouseEnter={() => setOpen(true)}
-        className="flex items-center gap-1 text-sm text-foreground/75 hover:text-foreground transition-colors"
+        className="flex items-center gap-1 px-0 h-auto text-sm text-foreground/75 hover:text-foreground hover:bg-transparent transition-colors"
         aria-haspopup="menu"
         aria-expanded={open}
       >
         {label}
         <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
-      </button>
+      </Button>
       {open && (
         <div
           onMouseLeave={() => setOpen(false)}
-          className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-border/60 bg-background/95 backdrop-blur-md shadow-lg p-2 z-50"
+          className="absolute right-0 top-full mt-2 w-72 max-h-[70vh] overflow-y-auto rounded-xl border border-border/60 bg-background/95 backdrop-blur-md shadow-lg p-2 z-50"
           role="menu"
         >
           {items.map((it) =>
@@ -163,50 +159,8 @@ function NavDropdown({
 }
 
 export function useNavLinks(): NavItem[] {
-  const { t, lang } = useT();
-  const already = situationContent("already-in-brazil", lang);
-  const back = situationContent("back-to-brazil", lang);
-  return [
-    {
-      href: "__services__",
-      label: t.nav.services,
-      children: [
-        { href: "/Our_Services", label: t.nav.services, internal: true },
-        ...(hasSituations(lang)
-          ? [
-              { href: already.slug, label: already.navLabel, internal: true },
-              { href: back.slug, label: back.navLabel, internal: true },
-            ]
-          : []),
-      ],
-    },
-    { href: "/How_we_work", label: t.nav.howWeWork, internal: true },
-    { href: "/Partner_Program", label: t.nav.partnerProgram, internal: true },
-    {
-      href: "__resources__",
-      label: t.nav.resources,
-      children: [
-        ...(lang === "pt" ? [{ href: "/before-you-choose", label: "Antes de escolher", internal: true }] : []),
-        { href: "/Transfer_the_method", label: t.nav.transferMethod, internal: true },
-        { href: "/analysis", label: t.nav.analysis, internal: true },
-
-        { href: "/news", label: t.nav.news, internal: true },
-      ],
-    },
-    {
-      href: "https://www.linkedin.com/company/businessmatchingglobal",
-      label: "#Custo Brasil",
-      external: true,
-    },
-    {
-      href: "__about__",
-      label: t.nav.aboutGroup,
-      children: [
-        { href: "/About_us", label: t.nav.about, internal: true },
-        { href: "/ethics", label: t.nav.ethics, internal: true },
-      ],
-    },
-  ];
+  const { lang } = useT();
+  return getSiteNavigation(lang);
 }
 
 export function Nav() {
@@ -239,7 +193,7 @@ export function Nav() {
             className="h-11 md:h-13 w-auto"
           />
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden xl:flex items-center gap-4">
           {links.map((l: any) =>
             l.children ? (
               <NavDropdown key={l.href} label={l.label} items={l.children} variant="desktop" />
@@ -280,16 +234,16 @@ export function Nav() {
             </a>
           </Button>
         </nav>
-        <button
-          className="md:hidden p-2 -mr-2"
+        <Button
+          variant="ghost" size="icon" className="xl:hidden -mr-2"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        </Button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-border/60 bg-background">
+        <div className="xl:hidden max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-border/60 bg-background">
           <div className="container py-4 flex flex-col gap-4">
             {links.map((l: any) =>
               l.children ? (
