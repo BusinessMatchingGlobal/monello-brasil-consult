@@ -24,8 +24,8 @@ export function getSiteNavigation(lang: Lang): SiteNavItem[] {
     { href: "__situation__", label: c.situation, children: [
       internal("/Our_Services", STARTING_POINT[lang].notYet.title),
       ...(hasSituations(lang) ? [
-        internal("/already-in-brazil", situationContent("already-in-brazil", lang).cardTitle),
-        internal("/back-to-brazil", situationContent("back-to-brazil", lang).cardTitle),
+        internal(situationContent("already-in-brazil", lang).slug, situationContent("already-in-brazil", lang).cardTitle),
+        internal(situationContent("back-to-brazil", lang).slug, situationContent("back-to-brazil", lang).cardTitle),
       ] : []),
     ] },
     { href: "__services__", label: c.services, children: [

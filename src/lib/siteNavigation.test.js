@@ -2,6 +2,17 @@ import { describe, expect, test } from "bun:test";
 import { getSiteNavigation, getFooterNavigation, SERVICE_ANCHORS } from "./siteNavigation";
 
 describe("navigation destinations", () => {
+  test("Italian situation links use existing localized addresses in header and footer", () => {
+    const expected = ["/Our_Services", "/gia-in-brasile", "/riprendere-il-brasile"];
+    expect(getSiteNavigation("it")[0].children.map(link => link.href)).toEqual(expected);
+    expect(getFooterNavigation("it")[0].children.map(link => link.href)).toEqual(expected);
+  });
+  test("Business Matching uses each language's existing address", () => {
+    for (const [lang, address] of [["en", "/services/business-matching"], ["it", "/servizi/business-matching"], ["pt", "/servicos/business-matching"]]) {
+      expect(getSiteNavigation(lang)[1].children.find(link => link.label === "Business Matching").href).toBe(address);
+      expect(getFooterNavigation(lang)[1].children.find(link => link.label === "Business Matching").href).toBe(address);
+    }
+  });
   test("the eight existing service groups have the requested stable destinations", () => {
     expect([...SERVICE_ANCHORS]).toEqual(["get-an-answer", "verify", "assess", "find", "make-contact", "enter", "stay", "training"]);
     for (const lang of ["en", "it", "pt"]) {
