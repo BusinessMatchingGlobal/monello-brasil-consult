@@ -1,5 +1,7 @@
 # Requested corrections
 
+- [ ] Verify and correct the five specifically requested pages sequentially: English situations, English Business Matching, all Business Travel languages, and Portuguese Partner Programme wording.
+
 - [x] Finish consistency audit on all requested EN/IT/PT pages, correct remaining shared header/contact/footer issues, and verify same-page assessment buttons without changing download forms.
 - [x] Correct the two Portuguese Partner Programme phase-zero references from Brazil to Europe.
 
