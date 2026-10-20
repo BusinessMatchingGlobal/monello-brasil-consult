@@ -297,7 +297,7 @@ Level: Mesa de exportação contínua
 Text: Quando seu cliente começa a trabalhar a Europa para valer, passamos a ser a mesa local contínua dele, sob a sua direção.
 
 5. Por que a fase zero importa para você
-Para quem entra no Brasil, o primeiro passo é a triagem descrita acima. Para quem já está no Brasil, ou está prestes a assinar com um importador, um distribuidor ou um sócio, o primeiro passo é a fase zero: estabelecemos quem é dono de quê, alinhamos os documentos aos acordos reais e pedimos aos escritórios que coordenamos que verifiquem se cada cláusula se sustenta nos dois ordenamentos jurídicos, antes de apresentar qualquer contraparte. É um trabalho que, da Europa, um export manager não consegue fazer sozinho. A fase zero é sempre oferecida a honorário fixo, acordado por escrito e separado de qualquer outra parte do trabalho.
+Para quem entra na Europa, o primeiro passo é a triagem descrita acima. Para quem já está na Europa, ou está prestes a assinar com um importador, um distribuidor ou um sócio, o primeiro passo é a fase zero: estabelecemos quem é dono de quê, alinhamos os documentos aos acordos reais e pedimos aos escritórios que coordenamos que verifiquem se cada cláusula se sustenta nos dois ordenamentos jurídicos, antes de apresentar qualquer contraparte. É um trabalho que, da Europa, um export manager não consegue fazer sozinho. A fase zero é sempre oferecida a honorário fixo, acordado por escrito e separado de qualquer outra parte do trabalho.
 (No link in this version.)
 
 6. Primeira pergunta: a Europa vale a pena?
