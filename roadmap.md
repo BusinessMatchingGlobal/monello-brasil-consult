@@ -18,4 +18,5 @@
 
 # Site reorganisation (11 prompts, one at a time)
 - [x] 1/11 Same header, full footer and shared contact form (no phone) on every page
-- [ ] 2/11 to 11/11 — waiting for the user to start each prompt
+- [ ] 2/11 Reorganise header and footer navigation in EN/IT/PT; add and verify eight service anchors without changing page content.
+- [ ] 3/11 to 11/11 — waiting for the user to start each prompt
