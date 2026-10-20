@@ -1,6 +1,6 @@
 # Requested corrections
 
-- [ ] Verify the EN/IT/PT service overviews contain only six family blocks, with localized buttons, Notes, shared contact and full footer; audit the old assessment name sitewide.
+- [x] Verify the EN/IT/PT service overviews contain only six family blocks, with localized buttons, Notes, shared contact and full footer; audit the old assessment name sitewide.
 
 - [x] Regroup services into six localized family pages, consolidate Export Desk levels, update overview and service links, and verify EN/IT/PT.
 
