@@ -90,6 +90,9 @@ function Hero() {
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight max-w-4xl">
           {t.hero.title}
         </h1>
+        <p className="mt-5 text-lg md:text-xl text-foreground/80 max-w-3xl leading-relaxed">
+          {t.hero.tagline}
+        </p>
         <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-justify">
           {t.hero.sub}
         </p>
@@ -465,18 +468,18 @@ export default function Index() {
       ? {
           title: "Business Matching Global — Market intelligence e orchestrazione d'affari UE–Brasile",
           description:
-            "Market intelligence, verifica delle controparti ed esecuzione locale tra Europa e Brasile, nei due sensi. Risposte chiare e documentate per aziende, export manager e professionisti.",
+            "Market intelligence e business orchestration per il corridoio Europa–Brasile",
         }
       : lang === "pt"
       ? {
           title: "Business Matching Global — Inteligência de mercado e orquestração de negócios UE–Brasil",
           description:
-            "Inteligência de mercado, verificação de contrapartes e execução local entre Europa e Brasil, nos dois sentidos. Respostas claras e documentadas para empresas, export managers e assessores.",
+            "Inteligência de mercado e orquestração de negócios no corredor Europa–Brasil",
         }
       : {
           title: "Business Matching Global — EU–Brazil Market Intelligence and Business Orchestration",
           description:
-            "Market intelligence, counterpart verification and local execution between Europe and Brazil, in both directions. Clear, documented answers for companies, export managers and advisers.",
+            "Market intelligence and business orchestration for the Europe–Brazil corridor",
         };
   useCanonical("/", homeSeo);
   return (

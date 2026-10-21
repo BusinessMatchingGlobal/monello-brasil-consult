@@ -13,6 +13,7 @@ export const translations = {
     nav: { home: "Home", servicesLink: "How can we help you?", services: "Services", howWeWork: "How we work", partnerProgram: "Partner Program", how: "How it works", method: "Our method", about: "Who we are", ethics: "Code of Ethics", travel: "Business Travel", news: "Ebook", analysis: "Analysis", transferMethod: "Transfer the method", analysisAll: "All articles →", resources: "Resources", aboutGroup: "About", contact: "Contact" },
     hero: {
       title: "Research is only the beginning.",
+      tagline: "Market intelligence and business orchestration for the Europe–Brazil corridor",
       sub: "We help you understand the Brazilian market, identify the right companies and start the right business conversations.",
       areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Request a report",
@@ -203,6 +204,7 @@ export const translations = {
     nav: { home: "Home", servicesLink: "Come possiamo aiutarti?", services: "Servizi", howWeWork: "Come lavoriamo", partnerProgram: "Partner Program", how: "Come funziona", method: "Il nostro metodo", about: "Chi siamo", ethics: "Codice Etico", travel: "Business Travel", news: "Ebook", analysis: "Analisi", transferMethod: "Trasferire il metodo", analysisAll: "Tutti gli articoli →", resources: "Risorse", aboutGroup: "Chi siamo", contact: "Contatti" },
     hero: {
       title: "La ricerca è solo l'inizio.",
+      tagline: "Market intelligence e business orchestration per il corridoio Europa–Brasile",
       sub: "Ti aiutiamo a capire il mercato brasiliano, individuare le aziende giuste e avviare le conversazioni commerciali giuste.",
       areas: "Business Intelligence · Buyer & Supplier Search · Import/Export · Business Matching",
       cta1: "Richiedi un report",
@@ -393,6 +395,7 @@ export const translations = {
     nav: { home: "Home", servicesLink: "Como podemos ajudar?", services: "Serviços", howWeWork: "Como trabalhamos", partnerProgram: "Partner Program", how: "Como funciona", method: "Nosso método", about: "Quem somos", ethics: "Código de Ética", travel: "Business Travel", news: "Ebook", analysis: "Análises", transferMethod: "Transferir o método", analysisAll: "Todos os artigos →", resources: "Recursos", aboutGroup: "Quem somos", contact: "Contato" },
     hero: {
       title: "A pesquisa é só o começo.",
+      tagline: "Inteligência de mercado e orquestração de negócios no corredor Europa–Brasil",
       sub: "Ajudamos você a entender o mercado europeu, identificar as empresas certas e iniciar as conversas de negócios certas.",
       areas: "Business Intelligence · Busca de Compradores e Fornecedores · Import/Export · Business Matching",
       cta1: "Fale conosco",
