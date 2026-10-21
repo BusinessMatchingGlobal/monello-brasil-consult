@@ -81,7 +81,17 @@ export function SiteContactForm({ subject: subjectProp }: { subject?: string } =
             <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 text-background">
               {t.contact.title}
             </h2>
-            <p className="text-background/70 text-lg leading-relaxed mb-10">{t.contact.sub}</p>
+            <p className="text-background/70 text-lg leading-relaxed mb-6">{t.contact.sub}</p>
+            <div className="mb-10">
+              <h3 className="text-lg font-medium text-background mb-2">Verba volant, scripta manent</h3>
+              <p className="text-background/70 text-sm leading-relaxed">
+                {lang === "it"
+                  ? "Lavoriamo per iscritto. Ogni domanda riceve una risposta scritta, e ogni risposta si può documentare, condividere con il proprio team e verificare in seguito. Vi chiediamo di contattarci via email."
+                  : lang === "pt"
+                    ? "Trabalhamos por escrito. Cada pergunta recebe uma resposta escrita, e cada resposta pode ser documentada, compartilhada com a sua equipe e verificada depois. Pedimos que entre em contato por e-mail."
+                    : "We work in writing. Every question gets a written answer, and every answer can be documented, shared with your team and checked later. Please contact us by email."}
+              </p>
+            </div>
             <div className="space-y-4 text-background/85">
               <a
                 href={`mailto:${EMAIL}`}

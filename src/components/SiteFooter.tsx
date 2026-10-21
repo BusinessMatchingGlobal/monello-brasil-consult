@@ -265,6 +265,7 @@ export function FooterInner() {
         <p className="mt-2 text-muted-foreground/70 leading-relaxed">
           {t.footer.legalName}: ENZO ALDO STOBBIONE LTDA · CNPJ: 67.589.228/0001-30 · {t.footer.address}: Avenida Getúlio Vargas, 671, Sala 500, CEP 30.112-021, Savassi, Belo Horizonte/MG, {lang === "it" ? "Brasile" : lang === "pt" ? "Brasil" : "Brazil"}
         </p>
+        <p className="mt-4 text-xs italic text-muted-foreground/60">Verba volant, scripta manent</p>
       </div>
     </footer>
   );
