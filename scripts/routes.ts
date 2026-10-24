@@ -13,6 +13,8 @@ export type RouteEntry = {
   lastmod?: string;
   /** Per-language slugs, when the URL differs by language. Missing = not published. */
   slugs?: Partial<Record<SiteLang, string>>;
+  /** Per-language full paths, when they don't follow the language-prefix convention. */
+  urls?: Partial<Record<SiteLang, string>>;
 };
 
 /** Public, language-neutral routes. Article URLs are appended automatically. */
@@ -34,6 +36,12 @@ const STATIC_ROUTES: RouteEntry[] = [
   { loc: "/eudr", changefreq: "monthly", priority: "0.7" },
   { loc: "/BT", changefreq: "monthly", priority: "0.8" },
   { loc: "/sample-report", changefreq: "monthly", priority: "0.7" },
+  {
+    loc: "/webinar-brazil",
+    urls: { en: "/en/webinar-brazil", it: "/webinar-brasile", pt: "/pt/webinar-brasil" },
+    changefreq: "monthly",
+    priority: "0.7",
+  },
   { loc: "/guides/doing-business-in-brazil", changefreq: "monthly", priority: "0.8" },
   { loc: "/servizi/business-matching", changefreq: "monthly", priority: "0.8" },
   { loc: "/servicos/business-matching", changefreq: "monthly", priority: "0.8" },
@@ -77,6 +85,7 @@ export function localizedPath(lang: SiteLang, loc: string): string {
 
 /** URL of a route in one language, or null when that language is not published. */
 export function routePath(lang: SiteLang, route: RouteEntry): string | null {
+  if (route.urls) return route.urls[lang] ?? null;
   const slug = route.slugs ? route.slugs[lang] : route.loc;
   if (!slug) return null;
   return localizedPath(lang, slug);
