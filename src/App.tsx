@@ -45,6 +45,7 @@ import AmaroIT from "./pages/analysis/Amaro_IT";
 import AmaroBR from "./pages/analysis/Amaro_BR";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import Turismo from "./pages/Turismo";
+import Webinar from "./pages/Webinar";
 import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
@@ -242,6 +243,11 @@ const App = () => {
               <Route path="/Bahia_BR" element={<BahiaBR />} />
             </Route>
             <Route path="/turismo" element={<Turismo />} />
+            {/* Webinar — one URL per language */}
+            <Route path="/webinar-brasile" element={<Webinar lang="it" />} />
+            <Route path="/webinar-brazil" element={<Webinar lang="en" />} />
+            <Route path="/en/webinar-brazil" element={<Webinar lang="en" />} />
+            <Route path="/webinar-brasil" element={<Webinar lang="pt" />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <AskBmgWidget />

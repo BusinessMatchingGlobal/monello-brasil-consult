@@ -170,7 +170,7 @@ export function HomeNewsletter() {
   );
 }
 
-export function FooterInner() {
+export function FooterInner({ tagline }: { tagline?: string } = {}) {
   const { t, lang } = useT();
   return (
     <footer className="py-12 border-t border-border/60">
@@ -179,7 +179,7 @@ export function FooterInner() {
           <div className="font-display text-base font-medium">
             Business Matching <span className="text-primary">Global</span>
           </div>
-          <p className="text-sm text-muted-foreground mt-1">{t.footer.tag}</p>
+          <p className="text-sm text-muted-foreground mt-1">{tagline ?? t.footer.tag}</p>
         </div>
       </div>
       <div className="container mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-sm">
