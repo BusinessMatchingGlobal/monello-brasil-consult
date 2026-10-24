@@ -26,6 +26,7 @@ type SEO = {
   description?: string;
   image?: string; // absolute or site-relative URL
   type?: "website" | "article";
+  url?: string; // absolute canonical/og:url override, when the URL does not follow the language-prefix convention
   alternates?: Array<{ hreflang: string; href: string }>;
 };
 
@@ -93,7 +94,7 @@ export function useCanonical(path: string, seo?: SEO) {
   useEffect(() => {
     const base = siteForPath(path);
     const localized = base === CALLIPHORA_SITE ? path : pathForLang(lang, path);
-    const url = base + localized;
+    const url = seo?.url ?? base + localized;
     const article = getArticleByPath(path);
 
     // Favicon brand switch
@@ -176,6 +177,6 @@ export function useCanonical(path: string, seo?: SEO) {
       updateAlternates(base);
       setArticleJsonLd(null);
     };
-  }, [path, lang, seo?.title, seo?.description, seo?.image, seo?.type, seo?.alternates]);
+  }, [path, lang, seo?.title, seo?.description, seo?.image, seo?.type, seo?.url, seo?.alternates]);
 }
 
