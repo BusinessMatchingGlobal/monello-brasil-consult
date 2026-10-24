@@ -18,6 +18,9 @@ const labels = {
 const internal = (href: string, label: string): SiteLink => ({ href, label, internal: true });
 const beauty: SiteLink = { href: "https://www.brazilbeautydesk.com", label: "Brazil Beauty Desk", external: true };
 const newsletter: SiteLink = { href: "https://www.linkedin.com/company/businessmatchingglobal", label: "#CustoBrasil newsletter", external: true, externalIcon: true };
+/** Footer keeps the same items the header builds; look them up by address so menu order can change safely. */
+const byHref = (nav: SiteNavItem[], href: string): SiteNavItem =>
+  nav.find(item => item.href === href) ?? internal(href, href);
 
 export function getSiteNavigation(lang: Lang): SiteNavItem[] {
   const c = labels[lang];
