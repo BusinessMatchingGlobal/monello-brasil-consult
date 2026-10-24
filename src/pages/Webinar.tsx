@@ -275,7 +275,9 @@ const WebinarInner = ({ lang }: { lang: Lang }) => {
           </div>
           <p className="mt-4 text-sm">
             <a
-              href={pathForLang(lang, "/privacy")}
+              href="https://www.iubenda.com/privacy-policy/16979386"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-primary underline underline-offset-2 hover:text-primary/80"
             >
               {c.privacyLabel}
