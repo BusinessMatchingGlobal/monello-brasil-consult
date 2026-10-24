@@ -43,4 +43,9 @@ describe("navigation destinations", () => {
       expect(links.find(link => link.label === "#CustoBrasil newsletter")?.href).toBe("https://www.linkedin.com/company/businessmatchingglobal");
     }
   });
+  test("the webinar item opens each language's webinar page", () => {
+    for (const [lang, address] of [["en", "/en/webinar-brazil"], ["it", "/webinar-brasile"], ["pt", "/webinar-brasil"]]) {
+      expect(getSiteNavigation(lang).find(link => link.label === "Webinar")?.href).toBe(address);
+    }
+  });
 });

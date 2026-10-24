@@ -18,10 +18,15 @@ const labels = {
 const internal = (href: string, label: string): SiteLink => ({ href, label, internal: true });
 const beauty: SiteLink = { href: "https://www.brazilbeautydesk.com", label: "Brazil Beauty Desk", external: true };
 const newsletter: SiteLink = { href: "https://www.linkedin.com/company/businessmatchingglobal", label: "#CustoBrasil newsletter", external: true, externalIcon: true };
+/** Footer keeps the same items the header builds; look them up by address so menu order can change safely. */
+const byHref = (nav: SiteNavItem[], href: string): SiteNavItem =>
+  nav.find(item => item.href === href) ?? internal(href, href);
 
 export function getSiteNavigation(lang: Lang): SiteNavItem[] {
   const c = labels[lang];
   const matching = internal(lang === "it" ? "/servizi/business-matching" : lang === "pt" ? "/servicos/business-matching" : "/services/business-matching", "Business Matching");
+  // Webinar: the slug itself changes per language, so the path is spelled out per lang.
+  const webinar = internal(lang === "it" ? "/webinar-brasile" : lang === "pt" ? "/webinar-brasil" : "/en/webinar-brazil", "Webinar");
   return [
     { href: "__situation__", label: c.situation, children: [
       internal("/Our_Services", STARTING_POINT[lang].notYet.title),
@@ -38,6 +43,7 @@ export function getSiteNavigation(lang: Lang): SiteNavItem[] {
       internal("/How_we_work", c.phase), internal("/Transfer_the_method", c.transfer), internal("/ethics", c.ethics),
     ] },
     { href: "__resources__", label: c.resources, children: [internal("/analysis", c.analysis), internal("/news", c.guides), internal("/sample-report", c.sample), newsletter] },
+    webinar,
     internal("/Partner_Program", c.advisers), internal("/About_us", c.about),
   ];
 }
@@ -52,6 +58,6 @@ export function getFooterNavigation(lang: Lang): SiteNavItem[] {
     nav[0],
     { href: "__services__", label: c.services, children: [internal("/Our_Services", c.all), ...((nav[1].children ?? []).filter(l => l.label === "Business Matching" || l.label === beauty.label))] },
     nav[2], nav[3],
-    { href: "__company__", label: c.company, children: [nav[5], nav[4], { href: "#contact", label: c.contact }, internal("/BT", c.travel), internal("/privacy", c.privacy), { href: policy, label: c.policy }, { href: `${policy}/cookie-policy`, label: c.cookies }, { href: `https://www.iubenda.com/${terms}/${policyId}`, label: c.terms }] },
+    { href: "__company__", label: c.company, children: [byHref(nav, "/About_us"), byHref(nav, "/Partner_Program"), { href: "#contact", label: c.contact }, internal("/BT", c.travel), internal("/privacy", c.privacy), { href: policy, label: c.policy }, { href: `${policy}/cookie-policy`, label: c.cookies }, { href: `https://www.iubenda.com/${terms}/${policyId}`, label: c.terms }] },
   ];
 }
