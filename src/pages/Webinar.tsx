@@ -5,6 +5,7 @@ import { FooterInner } from "@/components/SiteFooter";
 import { LanguageProvider, useT, type Lang } from "@/lib/i18n";
 import { pathForLang } from "@/lib/langPath";
 import { useCanonical, SITE } from "@/lib/useCanonical";
+import coverAsset from "@/assets/copertina-webinar-bmg-16x9.png.asset.json";
 
 const TALLY_URL =
   "https://tally.so/embed/kbdPvM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
@@ -162,6 +163,7 @@ const WebinarInner = ({ lang }: { lang: Lang }) => {
   useCanonical(PAGE_PATH[lang], {
     title: c.seoTitle,
     description: c.seoDescription,
+    image: SITE + coverAsset.url,
     url: canonical,
     alternates: [
       { hreflang: "en", href: SITE + CANONICAL_PATH.en },
@@ -192,12 +194,13 @@ const WebinarInner = ({ lang }: { lang: Lang }) => {
         {/* Hero */}
         <section>
           <div className="overflow-hidden rounded-lg border border-border bg-muted">
-            <div className="aspect-video w-full flex flex-col items-center justify-center gap-2 px-6 text-center">
-              <p className="font-display text-lg md:text-2xl text-foreground/80 max-w-xl leading-snug">
-                {c.title}
-              </p>
-              <p className="text-xs md:text-sm text-muted-foreground">{c.dateLine}</p>
-            </div>
+            <img
+              src={coverAsset.url}
+              alt={c.altText}
+              width={1920}
+              height={1080}
+              className="aspect-video w-full object-cover"
+            />
           </div>
           <h1 className="mt-6 font-display text-2xl md:text-4xl font-semibold tracking-tight leading-tight">
             {c.title}
