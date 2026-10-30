@@ -1,3 +1,4 @@
+import { Linkedin } from "lucide-react";
 import { Nav } from "@/pages/AboutUs";
 import { FooterInner } from "@/components/SiteFooter";
 import { LanguageProvider, useT, type Lang } from "@/lib/i18n";
@@ -216,9 +217,11 @@ const WebinarInner = ({ lang }: { lang: Lang }) => {
                     href={sp.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-primary underline underline-offset-2 hover:text-primary/80"
+                    aria-label={`LinkedIn – ${sp.name}`}
+                    title="LinkedIn"
+                    className="mt-2 inline-flex h-8 w-8 items-center justify-center rounded bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                   >
-                    LinkedIn
+                    <Linkedin size={18} aria-hidden="true" />
                   </a>
                 </div>
               ))}
