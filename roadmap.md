@@ -1,6 +1,7 @@
 # Requested corrections
 
-- [ ] Optimize homepage SEO EN/IT/PT, align structured data, validate generated HTML, sitemap and consent-aware tracking, and report publication/indexing limitations.
+- [x] Optimize homepage SEO EN/IT/PT, align structured data, validate 3/3 HTML outputs with the existing renderer, sitemap and consent-aware tracking, and report publication/indexing limitations.
+- [ ] Verify the full production-build artifacts after an authorized publish/build job; no production dist output is available in this preview session.
 
 - [x] Update only EN/IT/PT homepages with supplied institutional positioning, preserve shared integrations and internal pages, and verify layouts and links.
 
