@@ -6,6 +6,7 @@
 - Homepage SEO uses dedicated localized data, while the prerender composer copies all captured JSON-LD (including removals) to preserve page-specific schemas and exclude absent homepage FAQs.
 
 - Router Link targets are prefix-free because BrowserRouter owns the language basename; use pathForLang only with native anchors.
+- The legacy root Italian webinar URL redirects with a full navigation to its /it URL, preserving query and hash, so the router reinitializes its Italian basename.
 - Header and footer navigation share language-aware data in siteNavigation; service anchor IDs come from the same list to prevent link drift.
 - Language-exclusive editorial pages declare only their published languages in route metadata and hreflang, so unavailable translations are not advertised.
 - Before-you-choose Portuguese editorial content is stored separately from its renderer to preserve supplied copy and stable section anchors.

@@ -46,12 +46,12 @@ export function pathForLang(lang: Lang, path: string): string {
 
 /** Webinar pages: the slug itself differs by language, not just the prefix. */
 const WEBINAR_VARIANTS: Record<string, Record<Lang, string>> = {
-  "/webinar-brasile": { en: "/en/webinar-brazil", it: "/webinar-brasile", pt: "/pt/webinar-brasil" },
-  "/webinar-brazil": { en: "/en/webinar-brazil", it: "/webinar-brasile", pt: "/pt/webinar-brasil" },
-  "/webinar-brasil": { en: "/en/webinar-brazil", it: "/webinar-brasile", pt: "/pt/webinar-brasil" },
-  "/en/webinar-brazil": { en: "/en/webinar-brazil", it: "/webinar-brasile", pt: "/pt/webinar-brasil" },
-  "/it/webinar-brasile": { en: "/en/webinar-brazil", it: "/webinar-brasile", pt: "/pt/webinar-brasil" },
-  "/pt/webinar-brasil": { en: "/en/webinar-brazil", it: "/webinar-brasile", pt: "/pt/webinar-brasil" },
+  "/webinar-brasile": { en: "/en/webinar-brazil", it: "/it/webinar-brasile", pt: "/pt/webinar-brasil" },
+  "/webinar-brazil": { en: "/en/webinar-brazil", it: "/it/webinar-brasile", pt: "/pt/webinar-brasil" },
+  "/webinar-brasil": { en: "/en/webinar-brazil", it: "/it/webinar-brasile", pt: "/pt/webinar-brasil" },
+  "/en/webinar-brazil": { en: "/en/webinar-brazil", it: "/it/webinar-brasile", pt: "/pt/webinar-brasil" },
+  "/it/webinar-brasile": { en: "/en/webinar-brazil", it: "/it/webinar-brasile", pt: "/pt/webinar-brasil" },
+  "/pt/webinar-brasil": { en: "/en/webinar-brazil", it: "/it/webinar-brasile", pt: "/pt/webinar-brasil" },
 };
 
 /** Target path for a language-specific page variant, or null when `pathname` is not one. */

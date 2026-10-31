@@ -38,7 +38,7 @@ const STATIC_ROUTES: RouteEntry[] = [
   { loc: "/sample-report", changefreq: "monthly", priority: "0.7" },
   {
     loc: "/webinar-brazil",
-    urls: { en: "/en/webinar-brazil", it: "/webinar-brasile", pt: "/pt/webinar-brasil" },
+    urls: { en: "/en/webinar-brazil", it: "/it/webinar-brasile", pt: "/pt/webinar-brasil" },
     changefreq: "monthly",
     priority: "0.7",
   },

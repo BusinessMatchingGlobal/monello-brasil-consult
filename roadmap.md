@@ -1,5 +1,7 @@
 # Requested corrections
 
+- [ ] Verify webinar monitoring findings; fix confirmed Italian navigation while preserving the shared webinar address, and test EN/IT/PT links.
+
 - [x] Optimize homepage SEO EN/IT/PT, align structured data, validate 3/3 HTML outputs with the existing renderer, sitemap and consent-aware tracking, and report publication/indexing limitations.
 - [ ] Verify the full production-build artifacts after an authorized publish/build job; no production dist output is available in this preview session.
 

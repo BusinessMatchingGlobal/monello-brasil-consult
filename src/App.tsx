@@ -90,6 +90,13 @@ import { initAutoTracking } from "./lib/analytics";
 
 const queryClient = new QueryClient();
 
+function ItalianWebinarRedirect() {
+  useEffect(() => {
+    window.location.replace(`/it/webinar-brasile${window.location.search}${window.location.hash}`);
+  }, []);
+  return null;
+}
+
 const App = () => {
   useEffect(() => { initConsent(); initAutoTracking(); }, []);
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
@@ -244,7 +251,7 @@ const App = () => {
             </Route>
             <Route path="/turismo" element={<Turismo />} />
             {/* Webinar — one URL per language */}
-            <Route path="/webinar-brasile" element={<Webinar lang="it" />} />
+            <Route path="/webinar-brasile" element={lang === "en" ? <ItalianWebinarRedirect /> : <Webinar lang="it" />} />
             <Route path="/webinar-brazil" element={<Webinar lang="en" />} />
             <Route path="/en/webinar-brazil" element={<Webinar lang="en" />} />
             <Route path="/webinar-brasil" element={<Webinar lang="pt" />} />
