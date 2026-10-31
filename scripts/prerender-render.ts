@@ -8,8 +8,7 @@ import { installGlobals, composeHtml, type RenderTarget } from "./prerender-shar
  * when no separate runtime is available to spawn workers, directly inside the
  * Vite build process.
  */
-export async function renderTargets(targets: RenderTarget[]): Promise<number> {
-  const outDir = path.resolve(process.cwd(), "dist");
+export async function renderTargets(targets: RenderTarget[], outDir = path.resolve(process.cwd(), "dist")): Promise<number> {
   const template = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
 
   const { JSDOM } = await import("jsdom");
@@ -62,7 +61,9 @@ export async function renderTargets(targets: RenderTarget[]): Promise<number> {
       }
       try {
         dom.reconfigure({ url: "https://businessmatching.global" + target.url });
-        dom.window.document.getElementById("root")!.innerHTML = "";
+        const root = dom.window.document.getElementById("root");
+        if (!root) throw new Error("Prerender template has no root container");
+        root.innerHTML = "";
         const result = await mod.renderPage();
         const html = composeHtml(template, result, JSDOM);
         fs.mkdirSync(path.dirname(target.file), { recursive: true });
