@@ -52,6 +52,7 @@ type Content = {
   registerTitle: string;
   registerSupporting: string;
   formTitle: string;
+  formHelp: string;
   privacyLabel: string;
   tagline: string;
 };
@@ -158,6 +159,7 @@ const CONTENT: Record<Lang, Content> = {
     registerSupporting:
       "Discover whether your brand is already in Brazil – and how to take control of the opportunity.",
     formTitle: "Webinar registration form",
+    formHelp: "Having trouble completing the form? Please contact us at",
     privacyLabel: "Privacy policy",
     tagline:
       "Market intelligence and business orchestration for the Europe–Brazil corridor",
@@ -260,6 +262,7 @@ const CONTENT: Record<Lang, Content> = {
     registerSupporting:
       "Scoprite se il vostro marchio è già in Brasile – e come prendere il controllo dell'opportunità.",
     formTitle: "Modulo di iscrizione al webinar",
+    formHelp: "Hai riscontrato problemi nella compilazione del modulo? Scrivici a",
     privacyLabel: "Informativa privacy",
     tagline:
       "Market intelligence e business orchestration per il corridoio Europa–Brasile",
@@ -362,6 +365,8 @@ const CONTENT: Record<Lang, Content> = {
     registerSupporting:
       "Descubra se a sua marca já está no Brasil – e como assumir o controle da oportunidade.",
     formTitle: "Formulário de inscrição no webinar",
+    formHelp:
+      "Encontrou alguma dificuldade para preencher o formulário? Entre em contato conosco pelo e-mail",
     privacyLabel: "Política de privacidade",
     tagline:
       "Inteligência de mercado e orquestração de negócios no corredor Europa–Brasil",
@@ -581,6 +586,16 @@ const WebinarInner = ({ lang }: { lang: Lang }) => {
             />
           </div>
           <p className="mt-4 text-sm">
+            {c.formHelp}{" "}
+            <a
+              href="mailto:info@businessmatching.global"
+              className="text-primary underline underline-offset-2 hover:text-primary/80"
+            >
+              info@businessmatching.global
+            </a>
+            .
+          </p>
+          <p className="mt-2 text-sm">
             <a
               href="https://www.iubenda.com/privacy-policy/16979386"
               target="_blank"
