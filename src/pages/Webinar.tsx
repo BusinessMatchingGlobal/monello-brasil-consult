@@ -16,7 +16,7 @@ const PAGE_PATH: Record<Lang, string> = {
   pt: "/webinar-brasil",
 };
 const CANONICAL_PATH: Record<Lang, string> = {
-  it: "/webinar-brasile",
+  it: "/it/webinar-brasile",
   en: "/en/webinar-brazil",
   pt: "/pt/webinar-brasil",
 };

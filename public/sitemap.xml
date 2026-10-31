@@ -572,16 +572,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/en/webinar-brazil" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/webinar-brasile" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/webinar-brasile" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/webinar-brasil" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/en/webinar-brazil" />
   </url>
   <url>
-    <loc>https://businessmatching.global/webinar-brasile</loc>
+    <loc>https://businessmatching.global/it/webinar-brasile</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/en/webinar-brazil" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/webinar-brasile" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/webinar-brasile" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/webinar-brasil" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/en/webinar-brazil" />
   </url>
@@ -590,7 +590,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://businessmatching.global/en/webinar-brazil" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/webinar-brasile" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://businessmatching.global/it/webinar-brasile" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/pt/webinar-brasil" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/en/webinar-brazil" />
   </url>
