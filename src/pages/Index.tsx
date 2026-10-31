@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { ArrowRight, ArrowUpRight, Banknote, FileSearch, MapPin, ShieldCheck } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { SiteContactForm } from "@/components/SiteContactForm";
 import { HomeNewsletter, FooterInner } from "@/components/SiteFooter";
 import { useCanonical } from "@/lib/useCanonical";
 import { homepageCopy } from "@/data/homepage";
+import { homepageSeo } from "@/data/homepageSeo";
 import { hasSituations, situationContent, STARTING_POINT } from "@/data/situations";
 import { Nav } from "./AboutUs";
 export { FooterInner };
@@ -151,7 +153,16 @@ function HowItWorks() {
 export default function Index() {
   const { lang } = useT();
   const c = homepageCopy[lang];
-  useCanonical("/", { title: `${c.hero.subtitle} | Business Matching Global`, description: c.hero.intro });
+  useCanonical("/", { ...homepageSeo[lang], image: "https://businessmatching.global/og-image.jpg" });
+  useEffect(() => {
+    document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
+    const faq = document.getElementById("ld-faq-sitewide");
+    const parent = faq?.parentNode;
+    faq?.remove();
+    return () => {
+      if (faq && parent && !document.getElementById("ld-faq-sitewide")) parent.appendChild(faq);
+    };
+  }, [lang]);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />

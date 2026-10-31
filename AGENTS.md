@@ -3,6 +3,7 @@
 - Service family metadata owns localized paths; family cards reuse the original catalogs through an explicit partition, with Export Desk retaining its four catalog levels, to preserve copy and prevent duplication.
 
 - Homepage editorial copy lives in its own localized data module; optional SiteContactForm copy overrides are presentation-only and opt-in, so homepage updates do not alter internal pages or submission behaviour.
+- Homepage SEO uses dedicated localized data, while the prerender composer copies all captured JSON-LD (including removals) to preserve page-specific schemas and exclude absent homepage FAQs.
 
 - Router Link targets are prefix-free because BrowserRouter owns the language basename; use pathForLang only with native anchors.
 - Header and footer navigation share language-aware data in siteNavigation; service anchor IDs come from the same list to prevent link drift.

@@ -8,7 +8,7 @@ const HEAD_SELECTORS = [
   'meta[name^="twitter:"]',
   'link[rel="canonical"]',
   'link[rel="alternate"]',
-  'script#article-jsonld',
+  'script[type="application/ld+json"]',
 ];
 
 export function composeHtml(
@@ -36,7 +36,7 @@ export function composeHtml(
 
   const html = doc.querySelector("html");
   const lang = src.head.querySelector('meta[property="og:locale"]')?.getAttribute("content");
-  if (html && lang) html.setAttribute("lang", lang.split("_")[0]);
+  if (html && lang) html.setAttribute("lang", lang === "pt_BR" ? "pt-BR" : lang.split("_")[0]);
 
   const root = doc.getElementById("root");
   if (root) root.innerHTML = result.html;

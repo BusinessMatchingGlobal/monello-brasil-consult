@@ -1,5 +1,7 @@
 # Requested corrections
 
+- [ ] Optimize homepage SEO EN/IT/PT, align structured data, validate generated HTML, sitemap and consent-aware tracking, and report publication/indexing limitations.
+
 - [x] Update only EN/IT/PT homepages with supplied institutional positioning, preserve shared integrations and internal pages, and verify layouts and links.
 
 - [x] Verify the EN/IT/PT service overviews contain only six family blocks, with localized buttons, Notes, shared contact and full footer; audit the old assessment name sitewide.
