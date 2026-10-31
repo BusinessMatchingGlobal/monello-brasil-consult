@@ -611,7 +611,8 @@ export function LanguageProvider({ children, lang: langProp }: { children: React
     } catch {
       /* storage may be unavailable */
     }
-    document.documentElement.lang = lang;
+    const isPortugueseHome = lang === "pt" && /^\/pt\/?$/.test(window.location.pathname);
+    document.documentElement.lang = isPortugueseHome ? "pt-BR" : lang;
   }, [lang]);
 
   const setLang = (next: Lang) => {
