@@ -14,7 +14,10 @@ import { pathForLang } from "@/lib/langPath";
 const EMAIL = "info@businessmatching.global";
 
 /** Shared contact block ("Tell us what you need to know"), used at the bottom of every content page. */
-export function SiteContactForm({ subject: subjectProp }: { subject?: string } = {}) {
+export function SiteContactForm({ subject: subjectProp, copy }: {
+  subject?: string;
+  copy?: { title: string; intro: string; confidentiality: string };
+} = {}) {
   const { t, lang } = useT();
   const [submitting, setSubmitting] = useState(false);
   const { pathname } = useLocation();
@@ -79,10 +82,10 @@ export function SiteContactForm({ subject: subjectProp }: { subject?: string } =
         <div className="grid md:grid-cols-2 gap-12 md:gap-20">
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 text-background">
-              {t.contact.title}
+              {copy?.title ?? t.contact.title}
             </h2>
-            <p className="text-background/70 text-lg leading-relaxed mb-6">{t.contact.sub}</p>
-            <div className="mb-10">
+            <p className="text-background/70 text-lg leading-relaxed mb-6">{copy?.intro ?? t.contact.sub}</p>
+            {!copy && <div className="mb-10">
               <h3 className="text-lg font-medium text-background mb-2">Verba volant, scripta manent</h3>
               <p className="text-background/70 text-sm leading-relaxed">
                 {lang === "it"
@@ -91,7 +94,7 @@ export function SiteContactForm({ subject: subjectProp }: { subject?: string } =
                     ? "Trabalhamos por escrito. Cada pergunta recebe uma resposta escrita, e cada resposta pode ser documentada, compartilhada com a sua equipe e verificada depois. Pedimos que entre em contato por e-mail."
                     : "We work in writing. Every question gets a written answer, and every answer can be documented, shared with your team and checked later. Please contact us by email."}
               </p>
-            </div>
+            </div>}
             <div className="space-y-4 text-background/85">
               <a
                 href={`mailto:${EMAIL}`}
@@ -103,11 +106,11 @@ export function SiteContactForm({ subject: subjectProp }: { subject?: string } =
           </div>
           <div>
             <p className="text-sm italic text-background/70 leading-relaxed mb-5">
-              {lang === "it"
+              {copy?.confidentiality ?? (lang === "it"
                 ? "Quello che ci dite resta tra noi. Non facciamo i nomi dei nostri clienti, e non faremo il vostro."
                 : lang === "pt"
                   ? "O que você nos conta fica conosco. Não citamos nossos clientes, e não citaremos você."
-                  : "Whatever you tell us stays with us. We don’t name our clients, and we won’t name you."}
+                  : "Whatever you tell us stays with us. We don’t name our clients, and we won’t name you.")}
             </p>
             <form onSubmit={onSubmit} className="space-y-5">
             <input type="hidden" name="page" value={page} />
