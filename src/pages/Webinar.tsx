@@ -603,16 +603,6 @@ const WebinarInner = ({ lang }: { lang: Lang }) => {
           </p>
         </section>
 
-        {/* Final CTA */}
-        <section className="mt-12 md:mt-16 rounded-lg border border-border bg-muted p-6 md:p-10 text-center">
-          <h2 className="font-display text-xl md:text-2xl font-semibold tracking-tight">
-            {c.finalTitle}
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-[15px] md:text-base leading-relaxed">
-            {c.finalText}
-          </p>
-          <div className="mt-6">{cta}</div>
-        </section>
       </main>
 
       <FooterInner tagline={c.tagline} />
