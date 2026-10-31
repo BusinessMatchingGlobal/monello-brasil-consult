@@ -52,8 +52,6 @@ type Content = {
   registerTitle: string;
   registerSupporting: string;
   formTitle: string;
-  finalTitle: string;
-  finalText: string;
   privacyLabel: string;
   tagline: string;
 };
@@ -160,9 +158,6 @@ const CONTENT: Record<Lang, Content> = {
     registerSupporting:
       "Discover whether your brand is already in Brazil – and how to take control of the opportunity.",
     formTitle: "Webinar registration form",
-    finalTitle: "Ready to take a closer look at Brazil?",
-    finalText:
-      "Discover how to identify existing market opportunities, regain control of your brand positioning and start developing direct sales in Brazil.",
     privacyLabel: "Privacy policy",
     tagline:
       "Market intelligence and business orchestration for the Europe–Brazil corridor",
@@ -265,9 +260,6 @@ const CONTENT: Record<Lang, Content> = {
     registerSupporting:
       "Scoprite se il vostro marchio è già in Brasile – e come prendere il controllo dell'opportunità.",
     formTitle: "Modulo di iscrizione al webinar",
-    finalTitle: "Pronti a guardare il Brasile più da vicino?",
-    finalText:
-      "Scoprite come individuare le opportunità di mercato esistenti, riprendere il controllo del posizionamento del vostro marchio e iniziare a sviluppare le vendite dirette in Brasile.",
     privacyLabel: "Informativa privacy",
     tagline:
       "Market intelligence e business orchestration per il corridoio Europa–Brasile",
@@ -370,9 +362,6 @@ const CONTENT: Record<Lang, Content> = {
     registerSupporting:
       "Descubra se a sua marca já está no Brasil – e como assumir o controle da oportunidade.",
     formTitle: "Formulário de inscrição no webinar",
-    finalTitle: "Pronto para olhar o Brasil mais de perto?",
-    finalText:
-      "Descubra como identificar as oportunidades de mercado existentes, retomar o controle do posicionamento da sua marca e começar a desenvolver vendas diretas no Brasil.",
     privacyLabel: "Política de privacidade",
     tagline:
       "Inteligência de mercado e orquestração de negócios no corredor Europa–Brasil",
@@ -603,16 +592,6 @@ const WebinarInner = ({ lang }: { lang: Lang }) => {
           </p>
         </section>
 
-        {/* Final CTA */}
-        <section className="mt-12 md:mt-16 rounded-lg border border-border bg-muted p-6 md:p-10 text-center">
-          <h2 className="font-display text-xl md:text-2xl font-semibold tracking-tight">
-            {c.finalTitle}
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-[15px] md:text-base leading-relaxed">
-            {c.finalText}
-          </p>
-          <div className="mt-6">{cta}</div>
-        </section>
       </main>
 
       <FooterInner tagline={c.tagline} />
