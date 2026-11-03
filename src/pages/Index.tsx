@@ -26,7 +26,7 @@ function Hero() {
           <Button asChild size="lg" className="rounded-full min-h-12 h-auto py-3 px-6 whitespace-normal"><a href="#contact">{c.contact}<ArrowRight className="ml-2 h-4 w-4 shrink-0" /></a></Button>
           <Button asChild size="lg" variant="outline" className="rounded-full min-h-12 h-auto py-3 px-6"><Link to="/How_we_work">{c.method}</Link></Button>
         </div>
-        <p className="mt-6 text-sm text-muted-foreground leading-relaxed max-w-3xl whitespace-pre-line">{c.note}</p>
+        <p className="mt-6 text-sm text-muted-foreground leading-relaxed max-w-3xl"><em className="italic">{c.note.split("\n")[0]}</em>{c.note.includes("\n") && <><br />{c.note.split("\n").slice(1).join("\n")}</>}</p>
       </div>
     </section>
   );
