@@ -16,7 +16,7 @@ export const homepageCopy: Record<Lang, HomepageCopy> = {
       subtitle: "Market intelligence e coordinamento operativo",
       intro: "Business Matching Global, con sede a Belo Horizonte, affianca le imprese europee in Brasile e quelle brasiliane in Europa. Uniamo analisi di mercato, verifiche documentali e coordinamento operativo per valutare opportunità, scegliere interlocutori e sviluppare progetti su basi documentate.",
       contact: "Scrivici del tuo progetto", method: "Come lavoriamo",
-      note: "Comunicazione scritta. Fonti verificabili. Compensi esclusivamente dal cliente.",
+      note: "Verba volant, scripta manent.\nComunicazione scritta. Fonti verificabili. Compensi esclusivamente dal cliente: è ciò che ci rende indipendenti e ci permette di agire nel suo solo interesse.\nRispondiamo alle domande che il cliente si è fatto. E a quelle che non si è fatto, ma che gli sarebbe convenuto farsi.",
     },
     commitments: [
       { title: "Remunerati solo da voi. Al lavoro solo nel vostro interesse.", text: "Condizioni concordate prima dell’incarico. Nessuna commissione da partner, studi o controparti." },
@@ -57,7 +57,7 @@ export const homepageCopy: Record<Lang, HomepageCopy> = {
     hero: {
       title: "Your Europe–Brazil project. Supported on the ground.", subtitle: "Market intelligence and operational coordination",
       intro: "Based in Belo Horizonte, Business Matching Global supports European companies in Brazil and Brazilian companies in Europe. We combine market analysis, documentary checks and operational coordination to assess opportunities, select counterparts and develop projects using documented information.",
-      contact: "Tell us about your project", method: "How we work", note: "Written communication. Verifiable sources. Paid exclusively by the client.",
+      contact: "Tell us about your project", method: "How we work", note: "Verba volant, scripta manent.\nWritten communication. Verifiable sources. Paid only by the client: that is what keeps us independent and lets us act in the client’s interest alone.\nWe answer the questions a client has asked. And the ones they have not asked, but would have been better off asking.",
     },
     commitments: [
       { title: "Paid only by you. Working only in your interest.", text: "Terms agreed before the assignment. No commissions from partners, professional firms or counterparties." },
@@ -98,7 +98,7 @@ export const homepageCopy: Record<Lang, HomepageCopy> = {
     hero: {
       title: "Seu projeto na Europa. Com apoio no mercado de destino.", subtitle: "Inteligência de mercado e coordenação operacional",
       intro: "Com sede em Belo Horizonte, a Business Matching Global apoia empresas brasileiras na Europa e empresas europeias no Brasil. Combinamos análise de mercado, verificações documentais e coordenação operacional para avaliar oportunidades, selecionar interlocutores e desenvolver projetos com base em informações documentadas.",
-      contact: "Conte sobre o seu projeto", method: "Como trabalhamos", note: "Comunicação por escrito. Fontes verificáveis. Remuneração exclusivamente pelo cliente.",
+      contact: "Conte sobre o seu projeto", method: "Como trabalhamos", note: "Verba volant, scripta manent.\nComunicação por escrito. Fontes verificáveis. Remuneração exclusivamente pelo cliente: é o que nos mantém independentes e nos permite agir apenas no interesse dele.\nRespondemos às perguntas que o cliente fez. E às que não fez, mas que teria valido a pena fazer.",
     },
     commitments: [
       { title: "Remunerados apenas por você. Atuamos exclusivamente no seu interesse.", text: "Condições acordadas antes do trabalho. Nenhuma comissão de parceiros, escritórios ou contrapartes." },
