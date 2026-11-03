@@ -1,7 +1,7 @@
 # Requested corrections
 
-- [ ] Add supplied Before entrusting Brazil editorial page in EN/IT only, with references, Resources/method links and existing page styling.
-- [ ] Update only Ethics section 7 in EN/IT/PT and verify both document requests in preview.
+- [x] Add supplied Before entrusting Brazil editorial page in EN/IT only, with references, Resources/method links and existing page styling.
+- [x] Update only Ethics section 7 in EN/IT/PT and verify both document requests in preview; full supplied text, citation scrolling, language switch, desktop/mobile and 13 tests checked. Not published.
 
 - [x] Verify webinar monitoring findings; fix confirmed Italian navigation while preserving the shared webinar address, and test EN/IT/PT links.
 
