@@ -4,6 +4,12 @@ import { SERVICE_GROUP_FAMILIES } from "./siteNavigation";
 import { familyPath } from "../data/serviceFamilyMetadata";
 
 describe("navigation destinations", () => {
+  test("Resources links the new editorial page only in EN and IT", () => {
+    for (const lang of ["en", "it"]) {
+      expect(getSiteNavigation(lang).find(group => group.href === "__resources__")?.children?.some(link => link.href === "/before-entrusting-brazil")).toBe(true);
+    }
+    expect(getSiteNavigation("pt").flatMap(group => group.children ?? []).some(link => link.href === "/before-entrusting-brazil")).toBe(false);
+  });
   test("Italian situation links use existing localized addresses in header and footer", () => {
     const expected = ["/Our_Services", "/gia-in-brasile", "/riprendere-il-brasile"];
     expect(getSiteNavigation("it")[0].children.map(link => link.href)).toEqual(expected);

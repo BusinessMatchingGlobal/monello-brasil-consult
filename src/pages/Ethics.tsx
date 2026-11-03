@@ -86,8 +86,7 @@ const blocksIt: Block[] = [
   { type: "p", text: "Agiamo con obiettività e indipendenza di giudizio." },
   { type: "p", text: "Comunichiamo qualsiasi interesse personale, professionale o economico che possa influenzare, o apparire in grado di influenzare, la nostra imparzialità." },
   { type: "p", text: "Non rappresentiamo simultaneamente parti contrapposte nella medesima operazione." },
-  { type: "p", text: "Non accettiamo compensi occulti, commissioni non dichiarate o vantaggi personali da controparti, intermediari o fornitori." },
-  { type: "p", text: "L'eventuale remunerazione di BMG da parte di più soggetti coinvolti nella stessa operazione deve essere preventivamente comunicata e accettata dalle parti interessate." },
+  { type: "p", text: "Siamo remunerati esclusivamente dal cliente che ci conferisce l'incarico. Non accettiamo alcun compenso, commissione, provvigione di segnalazione o beneficio personale da controparti, intermediari, fornitori o dagli studi professionali che coinvolgiamo." },
   { type: "p", text: "Quando un conflitto emerge nel corso di un incarico, a seconda delle circostanze provvediamo a rimuoverne la causa, oppure lo dichiariamo alle parti ottenendone per iscritto l'accordo a proseguire, oppure rinunciamo all'incarico." },
   { type: "p", text: "Non traiamo vantaggio personale da informazioni privilegiate acquisite nel corso di un incarico, né consentiamo che altri lo facciano. Non proponiamo ai collaboratori di un cliente altre opportunità professionali senza il suo consenso." },
 
@@ -224,8 +223,7 @@ const blocksEn: Block[] = [
   { type: "p", text: "We act with objectivity and independence of judgement." },
   { type: "p", text: "We disclose any personal, professional or financial interest that could influence — or could reasonably appear to influence — our impartiality." },
   { type: "p", text: "We do not act for opposing parties in the same transaction." },
-  { type: "p", text: "We do not accept undisclosed compensation, hidden commissions or personal benefits from counterparties, intermediaries or suppliers." },
-  { type: "p", text: "Where BMG is to be remunerated by more than one party involved in the same transaction, this must be disclosed in advance and accepted by the parties concerned." },
+  { type: "p", text: "We are remunerated exclusively by the client who engages us. We do not accept any compensation, commission, referral fee or personal benefit from counterparties, intermediaries, suppliers or the professional firms we involve." },
   { type: "p", text: "Where a conflict arises during an assignment, we either remove its cause, or disclose it and obtain the parties' written agreement to continue, or withdraw from the assignment." },
   { type: "p", text: "We do not take personal advantage of privileged information obtained in the course of an assignment, nor do we allow others to do so. We do not approach a client's staff with other professional opportunities without the client's consent." },
 
@@ -362,8 +360,7 @@ const blocksPt: Block[] = [
   { type: "p", text: "Atuamos com objetividade e independência de julgamento." },
   { type: "p", text: "Comunicamos qualquer interesse pessoal, profissional ou econômico que possa influenciar — ou aparentar influenciar — nossa imparcialidade." },
   { type: "p", text: "Não representamos simultaneamente partes opostas na mesma operação." },
-  { type: "p", text: "Não aceitamos remunerações ocultas, comissões não declaradas ou vantagens pessoais de contrapartes, intermediários ou fornecedores." },
-  { type: "p", text: "A BMG é remunerada somente pelo seu cliente. Não aceitamos remuneração de contrapartes nem de outras partes da mesma operação." },
+  { type: "p", text: "Somos remunerados exclusivamente pelo cliente que nos contrata. Não aceitamos qualquer remuneração, comissão, taxa de indicação ou benefício pessoal de contrapartes, intermediários, fornecedores ou dos escritórios profissionais que envolvemos." },
   { type: "p", text: "Quando um conflito surge no curso de um mandato, conforme as circunstâncias, removemos sua causa, ou o declaramos às partes obtendo por escrito a concordância em prosseguir, ou renunciamos ao mandato." },
   { type: "p", text: "Não obtemos vantagem pessoal de informações privilegiadas adquiridas no curso de um mandato, nem permitimos que terceiros o façam. Não oferecemos aos colaboradores de um cliente outras oportunidades profissionais sem o consentimento dele." },
 

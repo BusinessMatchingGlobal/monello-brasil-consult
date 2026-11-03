@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Menu, X, Mail, ChevronDown, ExternalLink } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
-import { pathForLang } from "@/lib/langPath";
+import { pathForLang, availablePageLanguages } from "@/lib/langPath";
 import { getSiteNavigation, type SiteLink, type SiteNavItem } from "@/lib/siteNavigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,7 +25,7 @@ type Block =
 
 function LangSwitcher() {
   const { lang, setLang } = useT();
-  const langs: Lang[] = ["en", "it", "pt"];
+  const langs = availablePageLanguages(window.location.pathname);
   return (
     <div className="inline-flex items-center gap-1 text-xs font-medium tracking-wider uppercase">
       {langs.map((l, i) => (
