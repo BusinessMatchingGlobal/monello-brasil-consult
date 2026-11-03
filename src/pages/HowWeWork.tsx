@@ -253,6 +253,11 @@ export default function HowWeWork() {
             </Link>
           </p>
 
+          {lang !== "pt" && <p className="mt-6">
+            <Link to="/before-entrusting-brazil" className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors font-medium">
+              {lang === "it" ? "Prima di affidare il Brasile a qualcuno" : "Before entrusting Brazil to anyone"}
+            </Link>
+          </p>}
         </section>
 
         </div>

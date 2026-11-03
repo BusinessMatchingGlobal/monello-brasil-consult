@@ -24,6 +24,7 @@ const STATIC_ROUTES: RouteEntry[] = [
   { loc: "/Our_Services", changefreq: "monthly", priority: "0.9" },
   ...SERVICE_FAMILIES.map(family => ({ loc: family.paths.en, slugs: family.paths, changefreq: "monthly", priority: "0.8" })),
   { loc: "/How_we_work", changefreq: "monthly", priority: "0.9" },
+  { loc: "/before-entrusting-brazil", slugs: { en: "/before-entrusting-brazil", it: "/before-entrusting-brazil" }, changefreq: "monthly", priority: "0.8", lastmod: "2026-11-03" },
   { loc: "/Transfer_the_method", changefreq: "monthly", priority: "0.8" },
 
   { loc: "/Partner_Program", changefreq: "monthly", priority: "0.8" },

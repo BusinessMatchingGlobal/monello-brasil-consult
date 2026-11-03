@@ -3,6 +3,13 @@ import type { Lang } from "./lang";
 /** Languages that live under a URL prefix. English is served at the root. */
 export const PREFIXED_LANGS: Lang[] = ["it", "pt"];
 
+/** Editorial pages must not offer unpublished language versions. */
+export function availablePageLanguages(pathname: string): Lang[] {
+  return stripLangPrefix(pathname).toLowerCase() === "/before-entrusting-brazil"
+    ? ["en", "it"]
+    : ["en", "it", "pt"];
+}
+
 export const OG_LOCALE: Record<Lang, string> = {
   en: "en_US",
   it: "it_IT",

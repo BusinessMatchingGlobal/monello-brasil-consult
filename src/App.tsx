@@ -13,6 +13,7 @@ import AboutUs from "./pages/AboutUs";
 import Method from "./pages/Method";
 import HowWeWork from "./pages/HowWeWork";
 import BeforeYouChoose from "./pages/BeforeYouChoose";
+import BeforeEntrustingBrazil from "./pages/BeforeEntrustingBrazil";
 import PartnerProgram from "./pages/PartnerProgram";
 import OurServices from "./pages/OurServices";
 import ServiceFamily from "./pages/ServiceFamily";
@@ -118,6 +119,7 @@ const App = () => {
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="/How_we_work" element={<HowWeWork />} />
             {lang === "pt" && <Route path="/before-you-choose" element={<BeforeYouChoose />} />}
+            {lang !== "pt" && <Route path="/before-entrusting-brazil" element={<BeforeEntrustingBrazil />} />}
             <Route path="/how_we_work" element={<HowWeWork />} />
             <Route path="/Partner_Program" element={<PartnerProgram />} />
             <Route path="/partner_program" element={<PartnerProgram />} />
