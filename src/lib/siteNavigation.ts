@@ -47,6 +47,7 @@ export function getSiteNavigation(lang: Lang): SiteNavItem[] {
     { href: "__resources__", label: c.resources, children: [internal("/analysis", c.analysis), internal("/news", c.guides), internal("/sample-report", c.sample), ...(lang !== "pt" ? [internal("/before-entrusting-brazil", lang === "it" ? "Prima di affidare il Brasile a qualcuno" : "Before entrusting Brazil to anyone")] : []), newsletter] },
     webinar,
     internal("/Partner_Program", c.advisers), internal("/About_us", c.about),
+    insights,
   ];
 }
 
