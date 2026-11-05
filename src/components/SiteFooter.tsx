@@ -46,7 +46,7 @@ export function HomeNewsletter() {
   }, []);
 
   return (
-    <section id="home-newsletter" className="py-12 md:py-16 bg-background text-foreground border-t border-border/60">
+    <section id="home-newsletter" className="py-12 md:py-16 bg-white text-foreground border-t border-border/60">
       <div className="container max-w-5xl">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
           <div>
