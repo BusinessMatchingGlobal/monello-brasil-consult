@@ -27,6 +27,8 @@ export function getSiteNavigation(lang: Lang): SiteNavItem[] {
   const matching = internal(lang === "it" ? "/servizi/business-matching" : lang === "pt" ? "/servicos/business-matching" : "/services/business-matching", "Business Matching");
   // Webinar: the slug itself changes per language, so the path is spelled out per lang.
   const webinar = internal(lang === "it" ? "/webinar-brasile" : lang === "pt" ? "/webinar-brasil" : "/en/webinar-brazil", "Webinar");
+  // Same-tab external link: no internal/external flags so the Nav renders a plain anchor (no target="_blank").
+  const insights: SiteLink = { href: "https://bmg.businessmatching.global", label: "Insights" };
   return [
     { href: "__situation__", label: c.situation, children: [
       internal("/Our_Services", STARTING_POINT[lang].notYet.title),
