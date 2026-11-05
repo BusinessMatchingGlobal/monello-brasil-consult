@@ -46,16 +46,16 @@ export function HomeNewsletter() {
   }, []);
 
   return (
-    <section id="home-newsletter" className="py-12 md:py-16 bg-foreground text-background border-t border-background/10">
+    <section id="home-newsletter" className="py-12 md:py-16 bg-background text-foreground border-t border-border/60">
       <div className="container max-w-5xl">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
           <div>
-            <h3 className="font-display text-xl md:text-2xl text-background">{c.title}</h3>
-            <p className="text-sm text-background/80 mt-1">{c.sub}</p>
+            <h3 className="font-display text-xl md:text-2xl text-foreground">{c.title}</h3>
+            <p className="text-sm text-muted-foreground mt-1">{c.sub}</p>
           </div>
         </div>
         {/* beehiiv subscribe form, centered, max 560px */}
-        <div ref={embedRef} className="mx-auto w-full max-w-[560px] text-background" />
+        <div ref={embedRef} className="mx-auto w-full max-w-[560px]" />
       </div>
     </section>
   );
