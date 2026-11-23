@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { csvSafe } from "@/lib/csvSafe";
 
 type Sub = {
   id: string;
@@ -74,7 +75,6 @@ export default function Admin() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [mode, setMode] = useState<"login" | "signup">("login");
   const [info, setInfo] = useState<string | null>(null);
   const [subs, setSubs] = useState<Sub[]>([]);
   const [comments, setComments] = useState<AComment[]>([]);
@@ -123,17 +123,8 @@ export default function Admin() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true); setError(null); setInfo(null);
-    if (mode === "signup") {
-      const { error } = await supabase.auth.signUp({
-        email, password,
-        options: { emailRedirectTo: `${window.location.origin}/admin` }
-      });
-      if (error) setError(error.message);
-      else setInfo("Account creato. Contatta il proprietario per abilitare l'accesso admin.");
-    } else {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) setError(error.message);
-    }
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) setError(error.message);
     setLoading(false);
   };
 
@@ -144,7 +135,7 @@ export default function Admin() {
     subs
       .filter(s => s.status !== "opted_out")
       .forEach(s => rows.push([s.email, s.first_name||"", s.last_name||"", s.language||"", s.status, s.created_at, s.confirmed_at||""]));
-    const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
+    const csv = rows.map(r => r.map(v => `"${csvSafe(v).replace(/"/g,'""')}"`).join(",")).join("\n");
     const blob = new Blob([csv], { type: "text/csv" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
@@ -188,15 +179,12 @@ export default function Admin() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background p-4">
         <form onSubmit={submit} className="w-full max-w-sm space-y-4 bg-card p-6 rounded-lg border">
-          <h1 className="text-xl font-semibold">{mode === "login" ? "Admin Login" : "Crea account admin"}</h1>
+          <h1 className="text-xl font-semibold">Admin Login</h1>
           <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
           <Input type="password" placeholder="Password (min 6)" value={password} onChange={e => setPassword(e.target.value)} minLength={6} required />
           {error && <p className="text-sm text-destructive">{error}</p>}
           {info && <p className="text-sm text-green-600">{info}</p>}
-          <Button type="submit" disabled={loading} className="w-full">{loading ? "..." : mode === "login" ? "Login" : "Registrati"}</Button>
-          <button type="button" onClick={() => { setMode(mode === "login" ? "signup" : "login"); setError(null); setInfo(null); }} className="text-xs text-muted-foreground hover:underline w-full">
-            {mode === "login" ? "Prima volta? Crea account" : "Hai già un account? Login"}
-          </button>
+          <Button type="submit" disabled={loading} className="w-full">{loading ? "..." : "Login"}</Button>
         </form>
       </div>
     );

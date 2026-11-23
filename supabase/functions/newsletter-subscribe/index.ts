@@ -4,6 +4,7 @@ import { sendTemplateEmailLogged } from '../_shared/transactional-email-template
 
 const EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
 const APP_ORIGIN = 'https://businessmatching.global'
+const RESEND_COOLDOWN_MS = 15 * 60 * 1000
 
 function generateToken(): string {
   const bytes = new Uint8Array(32)
@@ -51,7 +52,7 @@ Deno.serve(async (req) => {
     .limit(1)
     .maybeSingle()
   if (suppressed) {
-    console.warn('Newsletter subscribe blocked by suppression', { email })
+    console.warn('Newsletter subscribe blocked by suppression')
     // Return ok to avoid enumeration
     return json(200, { ok: true })
   }
@@ -59,13 +60,47 @@ Deno.serve(async (req) => {
   // Check existing subscriber
   const { data: existing } = await supabase
     .from('newsletter_subscribers')
-    .select('id, status')
+    .select('id, status, first_name, language, confirmation_token, confirmation_sent_at')
     .ilike('email', email)
     .limit(1)
     .maybeSingle()
 
   if (existing?.status === 'confirmed') {
     return json(200, { ok: true, alreadyConfirmed: true })
+  }
+
+  // An existing signup is never overwritten with caller-supplied details:
+  // the stored names, language and token stay as they are, and the original
+  // confirmation email is re-sent at most once per RESEND_COOLDOWN_MS.
+  if (existing?.id) {
+    const lastSent = existing.confirmation_sent_at ? Date.parse(existing.confirmation_sent_at) : 0
+    if (!existing.confirmation_token || Date.now() - lastSent < RESEND_COOLDOWN_MS) {
+      return json(200, { ok: true })
+    }
+    const storedLanguage = ['it', 'en', 'pt'].includes(existing.language ?? '') ? existing.language : 'it'
+    const { error: touchError } = await supabase
+      .from('newsletter_subscribers')
+      .update({ confirmation_sent_at: new Date().toISOString() })
+      .eq('id', existing.id)
+    if (touchError) {
+      console.error('Failed to update resend time', touchError)
+      return json(500, { error: 'save_failed' })
+    }
+    try {
+      await sendTemplateEmailLogged('newsletter-confirm', email, {
+        idempotencyKey: `newsletter-confirm-${existing.confirmation_token}-${lastSent}`,
+        templateData: {
+          firstName: existing.first_name ?? '',
+          confirmUrl: `${APP_ORIGIN}/newsletter/confirm?token=${existing.confirmation_token}`,
+          language: storedLanguage,
+          newsletterName,
+        },
+      })
+    } catch (sendError) {
+      console.error('Failed to resend confirmation email', sendError)
+      return json(500, { error: 'email_send_failed' })
+    }
+    return json(200, { ok: true })
   }
 
   const token = generateToken()
@@ -87,19 +122,9 @@ Deno.serve(async (req) => {
     user_agent: userAgent,
   }
 
-  let upsertError: unknown = null
-  if (existing?.id) {
-    const { error } = await supabase
-      .from('newsletter_subscribers')
-      .update(row)
-      .eq('id', existing.id)
-    upsertError = error
-  } else {
-    const { error } = await supabase.from('newsletter_subscribers').insert(row)
-    upsertError = error
-  }
-  if (upsertError) {
-    console.error('Failed to save subscriber', upsertError)
+  const { error: insertError } = await supabase.from('newsletter_subscribers').insert(row)
+  if (insertError) {
+    console.error('Failed to save subscriber', insertError)
     return json(500, { error: 'save_failed' })
   }
 

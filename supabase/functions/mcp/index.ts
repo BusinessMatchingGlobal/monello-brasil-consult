@@ -2059,12 +2059,12 @@ var request_consultation_default = defineTool8({
     const supabase = supabaseAnon();
     const { error } = await supabase.from("consultation_requests").insert({
       email: address,
-      contact_name: contact_name?.trim() || null,
-      company_name: company_name?.trim() || null,
-      country: country?.trim() || null,
-      sector: sector?.trim() || null,
-      goal: goal?.trim() || null,
-      service: service?.trim() || null,
+      contact_name: contact_name?.trim()?.slice(0, 200) || null,
+      company_name: company_name?.trim()?.slice(0, 200) || null,
+      country: country?.trim()?.slice(0, 120) || null,
+      sector: sector?.trim()?.slice(0, 300) || null,
+      goal: goal?.trim()?.slice(0, 1e3) || null,
+      service: service?.trim()?.slice(0, 200) || null,
       message: message?.trim()?.slice(0, 4e3) || null,
       language: language ?? null,
       source: "mcp"

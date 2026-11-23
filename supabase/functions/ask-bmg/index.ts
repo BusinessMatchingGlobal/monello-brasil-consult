@@ -15,6 +15,21 @@ const corsHeaders = {
 };
 
 const MAX_QUESTION = 500;
+// Cost guard for the public assistant: questions per visitor per day, and a
+// site-wide daily ceiling shared by all visitors.
+const PER_VISITOR_DAILY_LIMIT = 20;
+const SITE_DAILY_LIMIT = 400;
+
+const DAILY_LIMIT_MSG: Record<string, string> = {
+  it: "Hai raggiunto il numero massimo di domande per oggi. Riprova domani o scrivici a info@businessmatching.global.",
+  en: "You have reached today's question limit. Please try again tomorrow or write to info@businessmatching.global.",
+  pt: "Você atingiu o limite de perguntas de hoje. Tente novamente amanhã ou escreva para info@businessmatching.global.",
+};
+
+async function sha256Hex(text: string): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
 const DOC_CHARS = 6000;
 
 const SYSTEM_PROMPT = `You are Ask BMG, the assistant of Business Matching Global (businessmatching.global), an independent business-intelligence firm covering Brazil–Europe trade. Answer ONLY from the provided BMG content. The BMG service catalogue (Our_Services) is part of that content: when the user asks what BMG does, which service fits their need, or about prices, describe the relevant services with their starting price and link https://businessmatching.global/Our_Services. Reply in the language the user writes in (any language). Cite the title and URL of every document you use. If the provided content does not cover the question, say clearly that BMG has not published on that point, do NOT answer from general knowledge, and point the user to the bespoke Ask Brazil / Ask Europe service at https://businessmatching.global/Our_Services. Never invent facts, numbers or services. Keep answers under 250 words.`;
@@ -94,6 +109,32 @@ Deno.serve(async (req) => {
   const supabase = createClient(supabaseUrl, serviceKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
+
+  const ip =
+    req.headers.get("cf-connecting-ip")?.trim() ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    "unknown";
+  try {
+    const visitorKey = await sha256Hex(`ask-bmg:${ip}`);
+    const { data: visitorCount, error: visitorErr } = await supabase.rpc("assistant_bump_rate_limit", {
+      _ip_hash: visitorKey,
+      _limit: PER_VISITOR_DAILY_LIMIT,
+    });
+    const { data: siteCount, error: siteErr } = await supabase.rpc("assistant_bump_rate_limit", {
+      _ip_hash: "__site_total__",
+      _limit: SITE_DAILY_LIMIT,
+    });
+    if (visitorErr || siteErr) {
+      console.error("Rate limit check failed", visitorErr ?? siteErr);
+      return json(503, { error: "temporarily_unavailable", message: TEMPORARY_LIMIT_MSG[uiLanguage] ?? TEMPORARY_LIMIT_MSG.en });
+    }
+    if (Number(visitorCount) > PER_VISITOR_DAILY_LIMIT || Number(siteCount) > SITE_DAILY_LIMIT) {
+      return json(429, { error: "daily_limit", message: DAILY_LIMIT_MSG[uiLanguage] ?? DAILY_LIMIT_MSG.en });
+    }
+  } catch (err) {
+    console.error("Rate limit check threw", err);
+    return json(503, { error: "temporarily_unavailable", message: TEMPORARY_LIMIT_MSG[uiLanguage] ?? TEMPORARY_LIMIT_MSG.en });
+  }
 
   const language = detectLanguage(question);
 
