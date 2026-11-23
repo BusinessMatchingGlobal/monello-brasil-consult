@@ -37,12 +37,6 @@ const STATIC_ROUTES: RouteEntry[] = [
   { loc: "/eudr", changefreq: "monthly", priority: "0.7" },
   { loc: "/BT", changefreq: "monthly", priority: "0.8" },
   { loc: "/sample-report", changefreq: "monthly", priority: "0.7" },
-  {
-    loc: "/webinar-brazil",
-    urls: { en: "/en/webinar-brazil", it: "/it/webinar-brasile", pt: "/pt/webinar-brasil" },
-    changefreq: "monthly",
-    priority: "0.7",
-  },
   { loc: "/guides/doing-business-in-brazil", changefreq: "monthly", priority: "0.8" },
   { loc: "/servizi/business-matching", changefreq: "monthly", priority: "0.8" },
   { loc: "/servicos/business-matching", changefreq: "monthly", priority: "0.8" },

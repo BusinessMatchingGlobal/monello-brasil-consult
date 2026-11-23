@@ -46,7 +46,6 @@ import AmaroIT from "./pages/analysis/Amaro_IT";
 import AmaroBR from "./pages/analysis/Amaro_BR";
 import DoingBusinessGuide from "./pages/DoingBusinessGuide";
 import Turismo from "./pages/Turismo";
-import Webinar from "./pages/Webinar";
 import AiJus from "./pages/analysis/AiJus";
 import AiJusIT from "./pages/analysis/AiJus_IT";
 import AiJusBR from "./pages/analysis/AiJus_BR";
@@ -91,10 +90,17 @@ import { initAutoTracking } from "./lib/analytics";
 
 const queryClient = new QueryClient();
 
-function ItalianWebinarRedirect() {
+/** Webinar pages live on swarmigenza.com; the old on-site URLs redirect there. */
+const WEBINAR_URLS = {
+  it: "https://swarmigenza.com/it/webinar",
+  en: "https://swarmigenza.com/en/webinar",
+  pt: "https://swarmigenza.com/pt-br/webinar",
+} as const;
+
+function WebinarRedirect({ to }: { to: string }) {
   useEffect(() => {
-    window.location.replace(`/it/webinar-brasile${window.location.search}${window.location.hash}`);
-  }, []);
+    window.location.replace(`${to}${window.location.search}${window.location.hash}`);
+  }, [to]);
   return null;
 }
 
@@ -252,11 +258,11 @@ const App = () => {
               <Route path="/Bahia_BR" element={<BahiaBR />} />
             </Route>
             <Route path="/turismo" element={<Turismo />} />
-            {/* Webinar — one URL per language */}
-            <Route path="/webinar-brasile" element={lang === "en" ? <ItalianWebinarRedirect /> : <Webinar lang="it" />} />
-            <Route path="/webinar-brazil" element={<Webinar lang="en" />} />
-            <Route path="/en/webinar-brazil" element={<Webinar lang="en" />} />
-            <Route path="/webinar-brasil" element={<Webinar lang="pt" />} />
+            {/* Webinar — hosted externally; old URLs redirect there */}
+            <Route path="/webinar-brasile" element={<WebinarRedirect to={WEBINAR_URLS.it} />} />
+            <Route path="/webinar-brazil" element={<WebinarRedirect to={WEBINAR_URLS.en} />} />
+            <Route path="/en/webinar-brazil" element={<WebinarRedirect to={WEBINAR_URLS.en} />} />
+            <Route path="/webinar-brasil" element={<WebinarRedirect to={WEBINAR_URLS.pt} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <AskBmgWidget />

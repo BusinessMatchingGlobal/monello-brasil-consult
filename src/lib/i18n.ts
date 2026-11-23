@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect, ReactNode, createElemen
 
 export type { Lang } from "./lang";
 import type { Lang } from "./lang";
-import { detectLangFromPath, pathForLang, stripLangPrefix, localizePagePath } from "./langPath";
+import { detectLangFromPath, pathForLang, stripLangPrefix } from "./langPath";
 import { localizeFamilyPath } from "@/data/serviceFamilyMetadata";
 
 
@@ -622,10 +622,8 @@ export function LanguageProvider({ children, lang: langProp }: { children: React
     } catch {
       /* ignore */
     }
-    const variant = localizePagePath(window.location.pathname, next);
     const target =
-      (variant ??
-        pathForLang(next, localizeFamilyPath(stripLangPrefix(window.location.pathname), next))) +
+      pathForLang(next, localizeFamilyPath(stripLangPrefix(window.location.pathname), next)) +
       window.location.search +
       window.location.hash;
     if (target !== window.location.pathname + window.location.search + window.location.hash) {
