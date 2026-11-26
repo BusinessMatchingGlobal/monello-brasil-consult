@@ -17,3 +17,4 @@
 - assistant-weekly-digest accepts only service-role (scheduler) tokens, so signed-in users cannot read visitor questions or trigger the email.
 - ask-bmg stays public but is capped per visitor and site-wide per day via assistant_bump_rate_limit, to bound AI costs.
 - Exported CSV cells go through csvSafe to neutralise spreadsheet formulas.
+- The PT-BR export page lives at root-level /brasilexportacao (old /servicos-exportacao-brasil redirects there keeping query/hash); public links to it use the literal www URL in EXPORT_SERVICES_PUBLIC_URL while canonical stays on the apex host, as the owner requested.

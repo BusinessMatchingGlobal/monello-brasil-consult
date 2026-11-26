@@ -10,6 +10,7 @@ import { homepageCopy } from "@/data/homepage";
 import { homepageSeo } from "@/data/homepageSeo";
 import { hasSituations, situationContent, STARTING_POINT } from "@/data/situations";
 import { Nav } from "./AboutUs";
+import { EXPORT_SERVICES_PUBLIC_URL } from "@/lib/langPath";
 export { FooterInner };
 
 function Hero() {
@@ -90,6 +91,7 @@ function Services() {
         <a href="https://www.brazilbeautydesk.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-3 text-sm text-background/75 underline underline-offset-4 hover:text-background">{c.beauty}<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>
         <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-6">
           <Button asChild size="lg" variant="secondary" className="rounded-full bg-background text-foreground hover:bg-background/90"><Link to="/Our_Services">{c.cta}<ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+          {lang === "pt" && <Button asChild size="lg" variant="secondary" className="rounded-full bg-background text-foreground hover:bg-background/90"><a href={EXPORT_SERVICES_PUBLIC_URL}>Serviços para exportação<ArrowRight className="ml-2 h-4 w-4" /></a></Button>}
           <Link to="/sample-report" className="inline-flex items-center gap-2 text-sm text-background/75 underline underline-offset-4 hover:text-background">{c.sample}<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
         </div>
       </div>

@@ -55,3 +55,10 @@ describe("navigation destinations", () => {
     }
   });
 });
+test("export services link appears only in the Portuguese footer with the www address", async () => {
+  const { getFooterNavigation } = await import("./siteNavigation.ts");
+  const find = lang => getFooterNavigation(lang).flatMap(g => g.children ?? []).filter(l => l.label === "Serviços para exportação");
+  const [pt] = find("pt");
+  if (pt?.href !== "https://www.businessmatching.global/brasilexportacao") throw new Error("PT export link wrong");
+  if (find("en").length || find("it").length) throw new Error("export link leaked to EN/IT");
+});

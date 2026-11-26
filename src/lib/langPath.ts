@@ -3,7 +3,15 @@ import type { Lang } from "./lang";
 /** Languages that live under a URL prefix. English is served at the root. */
 export const PREFIXED_LANGS: Lang[] = ["it", "pt"];
 
-export const EXPORT_SERVICES_PATH = "/servicos-exportacao-brasil";
+export const EXPORT_SERVICES_PATH = "/brasilexportacao";
+/** Former address of the export page; redirects to EXPORT_SERVICES_PATH. */
+export const LEGACY_EXPORT_SERVICES_PATH = "/servicos-exportacao-brasil";
+/** Public links to the export page use this exact www address, as requested by the owner. */
+export const EXPORT_SERVICES_PUBLIC_URL = "https://www.businessmatching.global/brasilexportacao";
+
+export function isLegacyExportServicesPath(pathname: string): boolean {
+  return pathname.replace(/\/+$/, "") === LEGACY_EXPORT_SERVICES_PATH;
+}
 
 /** This Portuguese-only page is published outside the usual /pt basename. */
 export function isExportServicesPath(pathname: string): boolean {

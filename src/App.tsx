@@ -79,7 +79,7 @@ import AsuncionBR from "./pages/analysis/Asuncion_BR";
 
 
 import { LanguageProvider } from "./lib/i18n";
-import { basenameForLang, detectLangFromPath, EXPORT_SERVICES_PATH, isExportServicesPath } from "./lib/langPath";
+import { basenameForLang, detectLangFromPath, EXPORT_SERVICES_PATH, LEGACY_EXPORT_SERVICES_PATH, isExportServicesPath, isLegacyExportServicesPath } from "./lib/langPath";
 
 import { CookieConsent } from "./components/CookieConsent";
 import { AskBmgWidget } from "./components/AskBmgWidget";
@@ -110,7 +110,8 @@ const App = () => {
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
   const pathLang = detectLangFromPath(pathname);
   const exportServices = isExportServicesPath(pathname);
-  const lang = exportServices ? "pt" : pathLang;
+  const legacyExportServices = isLegacyExportServicesPath(pathname);
+  const lang = exportServices || legacyExportServices ? "pt" : pathLang;
   const basename = basenameForLang(pathLang);
   return (
   <QueryClientProvider client={queryClient}>
@@ -124,6 +125,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             {exportServices && <Route path={EXPORT_SERVICES_PATH} element={<ServicosExportacaoBrasil />} />}
+            {legacyExportServices && <Route path={LEGACY_EXPORT_SERVICES_PATH} element={<WebinarRedirect to={EXPORT_SERVICES_PATH} />} />}
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             <Route path="/About_us" element={<AboutUs />} />
             <Route path="/about_us" element={<AboutUs />} />

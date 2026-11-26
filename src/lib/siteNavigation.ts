@@ -1,5 +1,5 @@
 import type { Lang } from "@/lib/lang";
-import { EXPORT_SERVICES_PATH } from "./langPath";
+import { EXPORT_SERVICES_PUBLIC_URL } from "./langPath";
 import { getServicesCatalog } from "@/data/servicesCatalog";
 import { familyPath, type ServiceFamilyKey } from "@/data/serviceFamilyMetadata";
 import { STARTING_POINT, hasSituations, situationContent } from "@/data/situations";
@@ -59,7 +59,7 @@ export function getFooterNavigation(lang: Lang): SiteNavItem[] {
     nav[0],
     { href: "__services__", label: c.services, children: [
       internal("/Our_Services", c.all),
-      ...(lang === "pt" ? [{ href: EXPORT_SERVICES_PATH, label: "Serviços para exportação" }] : []),
+      ...(lang === "pt" ? [{ href: EXPORT_SERVICES_PUBLIC_URL, label: "Serviços para exportação" }] : []),
       ...(nav[1].children ?? []).filter(l => l.label === "Business Matching" || l.label === beauty.label),
     ] },
     nav[2], nav[3],
