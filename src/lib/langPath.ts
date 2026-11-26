@@ -3,8 +3,16 @@ import type { Lang } from "./lang";
 /** Languages that live under a URL prefix. English is served at the root. */
 export const PREFIXED_LANGS: Lang[] = ["it", "pt"];
 
+export const EXPORT_SERVICES_PATH = "/servicos-exportacao-brasil";
+
+/** This Portuguese-only page is published outside the usual /pt basename. */
+export function isExportServicesPath(pathname: string): boolean {
+  return pathname.replace(/\/+$/, "") === EXPORT_SERVICES_PATH;
+}
+
 /** Editorial pages must not offer unpublished language versions. */
 export function availablePageLanguages(pathname: string): Lang[] {
+  if (isExportServicesPath(pathname)) return ["pt"];
   return stripLangPrefix(pathname).toLowerCase() === "/before-entrusting-brazil"
     ? ["en", "it"]
     : ["en", "it", "pt"];

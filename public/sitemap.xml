@@ -82,6 +82,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/Our_Services" />
   </url>
   <url>
+    <loc>https://businessmatching.global/servicos-exportacao-brasil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://businessmatching.global/servicos-exportacao-brasil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://businessmatching.global/servicos-exportacao-brasil" />
+  </url>
+  <url>
     <loc>https://businessmatching.global/services/is-brazil-worth-it</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

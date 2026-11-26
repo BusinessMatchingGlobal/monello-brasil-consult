@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect, ReactNode, createElemen
 
 export type { Lang } from "./lang";
 import type { Lang } from "./lang";
-import { detectLangFromPath, pathForLang, stripLangPrefix } from "./langPath";
+import { detectLangFromPath, isExportServicesPath, pathForLang, stripLangPrefix } from "./langPath";
 import { localizeFamilyPath } from "@/data/serviceFamilyMetadata";
 
 
@@ -611,8 +611,9 @@ export function LanguageProvider({ children, lang: langProp }: { children: React
     } catch {
       /* storage may be unavailable */
     }
-    const isPortugueseHome = lang === "pt" && /^\/pt\/?$/.test(window.location.pathname);
-    document.documentElement.lang = isPortugueseHome ? "pt-BR" : lang;
+    const pathname = window.location.pathname;
+    const brazilianPortuguese = lang === "pt" && (/^\/pt\/?$/.test(pathname) || isExportServicesPath(pathname));
+    document.documentElement.lang = brazilianPortuguese ? "pt-BR" : lang;
   }, [lang]);
 
   const setLang = (next: Lang) => {

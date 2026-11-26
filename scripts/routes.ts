@@ -1,4 +1,5 @@
 import { ANALYSIS_ARTICLES, getGroupSlug } from "../src/lib/analysis";
+import { EXPORT_SERVICES_PATH } from "../src/lib/langPath";
 import { SITUATIONS } from "../src/data/situations";
 import { SERVICE_FAMILIES } from "../src/data/serviceFamilyMetadata";
 
@@ -22,6 +23,7 @@ const STATIC_ROUTES: RouteEntry[] = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
   { loc: "/About_us", changefreq: "monthly", priority: "0.8" },
   { loc: "/Our_Services", changefreq: "monthly", priority: "0.9" },
+  { loc: EXPORT_SERVICES_PATH, urls: { pt: EXPORT_SERVICES_PATH }, changefreq: "monthly", priority: "0.8" },
   ...SERVICE_FAMILIES.map(family => ({ loc: family.paths.en, slugs: family.paths, changefreq: "monthly", priority: "0.8" })),
   { loc: "/How_we_work", changefreq: "monthly", priority: "0.9" },
   { loc: "/before-entrusting-brazil", slugs: { en: "/before-entrusting-brazil", it: "/before-entrusting-brazil" }, changefreq: "monthly", priority: "0.8", lastmod: "2026-11-03" },

@@ -1,9 +1,8 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { SiteNavigationLink as Link } from "@/components/SiteNavigationLink";
 import { Linkedin, Instagram, Facebook, Youtube, ExternalLink } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { openConsentBanner } from "@/lib/consent";
-import { pathForLang } from "@/lib/langPath";
 import { getFooterNavigation } from "@/lib/siteNavigation";
 import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italcam-minas-gerais.png.asset.json";

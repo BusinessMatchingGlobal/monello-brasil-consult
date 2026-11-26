@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
+import ServicosExportacaoBrasil from "./pages/ServicosExportacaoBrasil";
 import { SiteLayout } from "./components/SiteLayout";
 import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
@@ -78,7 +79,7 @@ import AsuncionBR from "./pages/analysis/Asuncion_BR";
 
 
 import { LanguageProvider } from "./lib/i18n";
-import { basenameForLang, detectLangFromPath } from "./lib/langPath";
+import { basenameForLang, detectLangFromPath, EXPORT_SERVICES_PATH, isExportServicesPath } from "./lib/langPath";
 
 import { CookieConsent } from "./components/CookieConsent";
 import { AskBmgWidget } from "./components/AskBmgWidget";
@@ -107,8 +108,10 @@ function WebinarRedirect({ to }: { to: string }) {
 const App = () => {
   useEffect(() => { initConsent(); initAutoTracking(); }, []);
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
-  const lang = detectLangFromPath(pathname);
-  const basename = basenameForLang(lang);
+  const pathLang = detectLangFromPath(pathname);
+  const exportServices = isExportServicesPath(pathname);
+  const lang = exportServices ? "pt" : pathLang;
+  const basename = basenameForLang(pathLang);
   return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -120,6 +123,7 @@ const App = () => {
           <CalliphoraDomainRouting />
           <Routes>
             <Route path="/" element={<Index />} />
+            {exportServices && <Route path={EXPORT_SERVICES_PATH} element={<ServicosExportacaoBrasil />} />}
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             <Route path="/About_us" element={<AboutUs />} />
             <Route path="/about_us" element={<AboutUs />} />
@@ -265,7 +269,7 @@ const App = () => {
             <Route path="/webinar-brasil" element={<WebinarRedirect to={WEBINAR_URLS.pt} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <AskBmgWidget />
+          {!exportServices && <AskBmgWidget />}
           <CookieConsent />
 
         </BrowserRouter>

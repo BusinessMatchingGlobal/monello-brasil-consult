@@ -1,11 +1,11 @@
 import { SiteContactForm } from "@/components/SiteContactForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useState, useEffect, useRef, FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { SiteNavigationLink as Link } from "@/components/SiteNavigationLink";
 import { ArrowRight, Menu, X, Mail, ChevronDown, ExternalLink } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
-import { pathForLang, availablePageLanguages } from "@/lib/langPath";
+import { pathForLang, availablePageLanguages, isExportServicesPath } from "@/lib/langPath";
 import { getSiteNavigation, type SiteLink, type SiteNavItem } from "@/lib/siteNavigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,6 +26,7 @@ type Block =
 function LangSwitcher() {
   const { lang, setLang } = useT();
   const langs = availablePageLanguages(window.location.pathname);
+  if (langs.length < 2) return null;
   return (
     <div className="inline-flex items-center gap-1 text-xs font-medium tracking-wider uppercase">
       {langs.map((l, i) => (
@@ -165,7 +166,7 @@ export function useNavLinks(): NavItem[] {
 
 export function Nav() {
   const { t, lang } = useT();
-  const contactHref = `${pathForLang(lang, "/")}#contact`;
+  const contactHref = isExportServicesPath(window.location.pathname) ? "#contact" : `${pathForLang(lang, "/")}#contact`;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

@@ -1,4 +1,5 @@
 import type { Lang } from "@/lib/lang";
+import { EXPORT_SERVICES_PATH } from "./langPath";
 import { getServicesCatalog } from "@/data/servicesCatalog";
 import { familyPath, type ServiceFamilyKey } from "@/data/serviceFamilyMetadata";
 import { STARTING_POINT, hasSituations, situationContent } from "@/data/situations";
@@ -56,7 +57,11 @@ export function getFooterNavigation(lang: Lang): SiteNavItem[] {
   const terms = lang === "it" ? "termini-e-condizioni" : lang === "pt" ? "termos-e-condicoes" : "terms-and-conditions";
   return [
     nav[0],
-    { href: "__services__", label: c.services, children: [internal("/Our_Services", c.all), ...((nav[1].children ?? []).filter(l => l.label === "Business Matching" || l.label === beauty.label))] },
+    { href: "__services__", label: c.services, children: [
+      internal("/Our_Services", c.all),
+      ...(lang === "pt" ? [{ href: EXPORT_SERVICES_PATH, label: "Serviços para exportação" }] : []),
+      ...(nav[1].children ?? []).filter(l => l.label === "Business Matching" || l.label === beauty.label),
+    ] },
     nav[2], nav[3],
     { href: "__company__", label: c.company, children: [byHref(nav, "/About_us"), byHref(nav, "/Partner_Program"), { href: "#contact", label: c.contact }, internal("/BT", c.travel), internal("/privacy", c.privacy), { href: policy, label: c.policy }, { href: `${policy}/cookie-policy`, label: c.cookies }, { href: `https://www.iubenda.com/${terms}/${policyId}`, label: c.terms }] },
   ];
