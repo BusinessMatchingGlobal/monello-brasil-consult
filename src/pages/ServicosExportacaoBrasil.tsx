@@ -62,9 +62,20 @@ export default function ServicosExportacaoBrasil() {
     <div lang="pt-BR" className="min-h-screen bg-background text-foreground">
       <Nav />
       <main>
-        <header className="container max-w-4xl pt-32 md:pt-44 pb-12 md:pb-16">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight">{pageTitle}</h1>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">{subtitle}</p>
+        <header className="container pt-32 md:pt-44 pb-12 md:pb-16">
+          <div className="mx-auto flex max-w-[64rem] flex-col items-start gap-[1.4rem] min-[701px]:flex-row min-[701px]:items-center min-[701px]:gap-[3.25rem]">
+            <div>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight">{pageTitle}</h1>
+              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">{subtitle}</p>
+            </div>
+            <img
+              src="/images/brasil-ponte-exportacao.webp"
+              alt="Ponte em forma de seta liga o centro do Brasil ao mundo."
+              width={1448}
+              height={1086}
+              className="h-auto w-[8rem] shrink-0 min-[701px]:w-[15.5rem]"
+            />
+          </div>
         </header>
 
         <section className="border-t border-border/60 py-12 md:py-16">
