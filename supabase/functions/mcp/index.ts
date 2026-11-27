@@ -275,7 +275,9 @@ function currentDisplayRoute() {
 }
 
 // src/lib/langPath.ts
+var ITALIAN_FAQ_PATH = "/domande-frequenti";
 function pathForLang(lang, path) {
+  if (lang === "it" && path.replace(/\/+$/, "") === ITALIAN_FAQ_PATH) return ITALIAN_FAQ_PATH;
   const display = currentDisplayRoute();
   if (display && display.contentLang === lang) return displayPathFor(display.display, lang, path);
   return rawPathForLang(lang, path);

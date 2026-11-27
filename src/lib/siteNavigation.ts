@@ -1,5 +1,5 @@
 import type { Lang } from "@/lib/lang";
-import { EXPORT_SERVICES_PUBLIC_URL } from "./langPath";
+import { EXPORT_SERVICES_PUBLIC_URL, ITALIAN_FAQ_PATH } from "./langPath";
 import { getServicesCatalog } from "@/data/servicesCatalog";
 import { familyPath, type ServiceFamilyKey } from "@/data/serviceFamilyMetadata";
 import { STARTING_POINT, hasSituations, situationContent } from "@/data/situations";
@@ -62,7 +62,10 @@ export function getFooterNavigation(lang: Lang): SiteNavItem[] {
       ...(lang === "pt" ? [{ href: EXPORT_SERVICES_PUBLIC_URL, label: "Serviços para exportação" }] : []),
       ...(nav[1].children ?? []).filter(l => l.label === "Business Matching" || l.label === beauty.label),
     ] },
-    nav[2], nav[3],
+    nav[2],
+    lang === "it"
+      ? { ...nav[3], children: [...(nav[3].children ?? []), internal(ITALIAN_FAQ_PATH, "Domande frequenti")] }
+      : nav[3],
     { href: "__company__", label: c.company, children: [byHref(nav, "/About_us"), byHref(nav, "/Partner_Program"), { href: "#contact", label: c.contact }, internal("/BT", c.travel), internal("/privacy", c.privacy), { href: policy, label: c.policy }, { href: `${policy}/cookie-policy`, label: c.cookies }, { href: `https://www.iubenda.com/${terms}/${policyId}`, label: c.terms }] },
   ];
 }

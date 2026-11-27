@@ -1,8 +1,27 @@
 import { describe, expect, test } from "bun:test";
-import { availablePageLanguages } from "./langPath";
-import { publicRoutes, routePath } from "../../scripts/routes";
+import { availablePageLanguages, detectLangFromPath, pathForLang } from "./langPath";
+import { displayBrPath, displayEuPath, publicRoutes, routePath } from "../../scripts/routes";
+import { buildSitemap } from "../../scripts/sitemap";
 
 describe("language-exclusive pages", () => {
+  test("Domande frequenti is Italian-only at its exact root address", () => {
+    const route = publicRoutes().find(route => route.loc === "/domande-frequenti");
+    expect(route).toBeDefined();
+    expect(routePath("it", route)).toBe("/domande-frequenti");
+    expect(routePath("en", route)).toBeNull();
+    expect(routePath("pt", route)).toBeNull();
+    for (const lang of ["de", "es", "fr"]) {
+      expect(displayEuPath(lang, route)).toBeNull();
+      expect(displayBrPath(lang, route)).toBeNull();
+    }
+    expect(detectLangFromPath("/domande-frequenti")).toBe("it");
+    expect(availablePageLanguages("/domande-frequenti")).toEqual(["it"]);
+    expect(pathForLang("it", "/domande-frequenti")).toBe("/domande-frequenti");
+    const sitemap = buildSitemap();
+    expect(sitemap).toContain("<loc>https://businessmatching.global/domande-frequenti</loc>");
+    expect(sitemap).not.toContain("https://businessmatching.global/it/domande-frequenti");
+    expect(sitemap).not.toContain("https://businessmatching.global/de/domande-frequenti");
+  });
   test("Before entrusting Brazil is published and switchable in English, Italian and the DE/ES/FR display languages, never Portuguese", () => {
     const route = publicRoutes().find(route => route.loc === "/before-entrusting-brazil");
     expect(route).toBeDefined();

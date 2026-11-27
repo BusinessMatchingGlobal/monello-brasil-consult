@@ -15,6 +15,7 @@ import Method from "./pages/Method";
 import HowWeWork from "./pages/HowWeWork";
 import BeforeYouChoose from "./pages/BeforeYouChoose";
 import BeforeEntrustingBrazil from "./pages/BeforeEntrustingBrazil";
+import FrequentQuestions from "./pages/FrequentQuestions";
 import PartnerProgram from "./pages/PartnerProgram";
 import OurServices from "./pages/OurServices";
 import ServiceFamily from "./pages/ServiceFamily";
@@ -79,7 +80,7 @@ import AsuncionBR from "./pages/analysis/Asuncion_BR";
 
 
 import { LanguageProvider } from "./lib/i18n";
-import { basenameForLang, detectLangFromPath, EXPORT_SERVICES_PATH, LEGACY_EXPORT_SERVICES_PATH, isExportServicesPath, isLegacyExportServicesPath } from "./lib/langPath";
+import { basenameForLang, detectLangFromPath, EXPORT_SERVICES_PATH, LEGACY_EXPORT_SERVICES_PATH, isExportServicesPath, isItalianFaqPath, isLegacyExportServicesPath } from "./lib/langPath";
 
 import { CookieConsent } from "./components/CookieConsent";
 import { AskBmgWidget } from "./components/AskBmgWidget";
@@ -111,8 +112,9 @@ const App = () => {
   const pathLang = detectLangFromPath(pathname);
   const exportServices = isExportServicesPath(pathname);
   const legacyExportServices = isLegacyExportServicesPath(pathname);
+  const italianFaq = isItalianFaqPath(pathname);
   const lang = exportServices || legacyExportServices ? "pt" : pathLang;
-  const basename = basenameForLang(pathLang);
+  const basename = italianFaq ? "/" : basenameForLang(pathLang);
   return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -131,6 +133,7 @@ const App = () => {
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="/How_we_work" element={<HowWeWork />} />
             {lang === "pt" && <Route path="/before-you-choose" element={<BeforeYouChoose />} />}
+            {italianFaq && <Route path="/domande-frequenti" element={<FrequentQuestions />} />}
             {lang !== "pt" && <Route path="/before-entrusting-brazil" element={<BeforeEntrustingBrazil />} />}
             <Route path="/how_we_work" element={<HowWeWork />} />
             <Route path="/Partner_Program" element={<PartnerProgram />} />

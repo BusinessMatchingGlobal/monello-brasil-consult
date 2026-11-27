@@ -4,6 +4,15 @@ import { SERVICE_GROUP_FAMILIES } from "./siteNavigation";
 import { familyPath } from "../data/serviceFamilyMetadata";
 
 describe("navigation destinations", () => {
+  test("Domande frequenti is linked only by the Italian footer, never the header", () => {
+    const inFooter = lang => getFooterNavigation(lang).flatMap(group => group.children ?? []).filter(link => link.href === "/domande-frequenti");
+    expect(inFooter("it")).toEqual([{ href: "/domande-frequenti", label: "Domande frequenti", internal: true }]);
+    expect(inFooter("en")).toEqual([]);
+    expect(inFooter("pt")).toEqual([]);
+    for (const lang of ["en", "it", "pt"]) {
+      expect(getSiteNavigation(lang).flatMap(group => group.children ?? [group]).some(link => link.href === "/domande-frequenti")).toBe(false);
+    }
+  });
   test("Resources links the new editorial page only in EN and IT", () => {
     for (const lang of ["en", "it"]) {
       expect(getSiteNavigation(lang).find(group => group.href === "__resources__")?.children?.some(link => link.href === "/before-entrusting-brazil")).toBe(true);

@@ -5,6 +5,11 @@ import { currentDisplayRoute, displayPathFor, parseDisplayPath, DISPLAY_LANGS, t
 export const PREFIXED_LANGS: Lang[] = ["it", "pt"];
 
 export const EXPORT_SERVICES_PATH = "/brasilexportacao";
+/** Italian-only editorial FAQ, intentionally published at the root without /it. */
+export const ITALIAN_FAQ_PATH = "/domande-frequenti";
+export function isItalianFaqPath(pathname: string): boolean {
+  return pathname.replace(/\/+$/, "") === ITALIAN_FAQ_PATH;
+}
 /** Former address of the export page; redirects to EXPORT_SERVICES_PATH. */
 export const LEGACY_EXPORT_SERVICES_PATH = "/servicos-exportacao-brasil";
 /** Public links to the export page use this exact www address, as requested by the owner. */
@@ -22,6 +27,7 @@ export function isExportServicesPath(pathname: string): boolean {
 
 /** Editorial pages must not offer unpublished language versions. */
 export function availablePageLanguages(pathname: string): SiteLang[] {
+  if (isItalianFaqPath(pathname)) return ["it"];
   if (isExportServicesPath(pathname)) return ["pt", ...DISPLAY_LANGS];
   const rest = stripLangPrefix(pathname).toLowerCase();
   if (rest === "/before-you-choose") return ["pt"];
@@ -44,6 +50,7 @@ export const HREFLANG: Record<Lang, string> = {
 
 /** "/it/About_us" → "it"; "/About_us" → "en" */
 export function detectLangFromPath(pathname: string): Lang {
+  if (isItalianFaqPath(pathname)) return "it";
   const display = parseDisplayPath(pathname);
   if (display) return display.contentLang;
   const seg = (pathname.split("/")[1] ?? "").toLowerCase();
@@ -72,6 +79,7 @@ export function stripLangPrefix(pathname: string): string {
 
 /** Language-qualified version of a prefix-free path. */
 export function pathForLang(lang: Lang, path: string): string {
+  if (lang === "it" && path.replace(/\/+$/, "") === ITALIAN_FAQ_PATH) return ITALIAN_FAQ_PATH;
   // On a DE/ES/FR page, links in the page's own content language stay in the display language.
   const display = currentDisplayRoute();
   if (display && display.contentLang === lang) return displayPathFor(display.display, lang, path);

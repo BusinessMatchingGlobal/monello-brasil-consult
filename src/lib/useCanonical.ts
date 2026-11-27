@@ -30,6 +30,8 @@ type SEO = {
   type?: "website" | "article";
   url?: string; // absolute canonical/og:url override, when the URL does not follow the language-prefix convention
   alternates?: Array<{ hreflang: string; href: string }>;
+  /** Language-exclusive pages deliberately publish no hreflang cluster. */
+  noAlternates?: boolean;
 };
 
 
@@ -133,7 +135,7 @@ export function useCanonical(path: string, seo?: SEO) {
     const pageAlternates = seo?.alternates
       ? [...seo.alternates.filter(a => !(DISPLAY_LANGS as string[]).includes(a.hreflang)), ...(lang === "pt" ? [] : displayAlternates("it", toItalianPath(path)))]
       : null;
-    updateAlternates(base, brCluster ?? pageAlternates ?? autoAlternates);
+    updateAlternates(base, seo?.noAlternates ? undefined : brCluster ?? pageAlternates ?? autoAlternates);
 
     // Canonical
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -199,6 +201,6 @@ export function useCanonical(path: string, seo?: SEO) {
       updateAlternates(base);
       setArticleJsonLd(null);
     };
-  }, [path, lang, display, seo?.title, seo?.description, seo?.image, seo?.type, seo?.url, seo?.alternates]);
+  }, [path, lang, display, seo?.title, seo?.description, seo?.image, seo?.type, seo?.url, seo?.alternates, seo?.noAlternates]);
 }
 

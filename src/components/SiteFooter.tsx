@@ -4,6 +4,7 @@ import { Linkedin, Instagram, Facebook, Youtube, ExternalLink } from "lucide-rea
 import { useT } from "@/lib/i18n";
 import { openConsentBanner } from "@/lib/consent";
 import { getFooterNavigation } from "@/lib/siteNavigation";
+import { ITALIAN_FAQ_PATH } from "@/lib/langPath";
 import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italcam-minas-gerais.png.asset.json";
 import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
@@ -61,7 +62,11 @@ export function HomeNewsletter() {
 }
 
 export function FooterInner({ tagline }: { tagline?: string } = {}) {
-  const { t, lang } = useT();
+  const { t, lang, display } = useT();
+  const navigation = getFooterNavigation(lang).map(group => ({
+    ...group,
+    children: group.children?.filter(link => link.href !== ITALIAN_FAQ_PATH || (lang === "it" && !display)),
+  }));
   return (
     <footer className="py-12 border-t border-border/60">
       <div className="container flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
@@ -73,7 +78,7 @@ export function FooterInner({ tagline }: { tagline?: string } = {}) {
         </div>
       </div>
       <div className="container mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-sm">
-        {getFooterNavigation(lang).map(group => (
+        {navigation.map(group => (
           <div key={group.href}>
             <h3 className="font-medium text-foreground mb-3">{group.label}</h3>
             <div className="flex flex-col items-start gap-2">

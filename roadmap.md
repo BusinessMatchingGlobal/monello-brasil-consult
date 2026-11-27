@@ -1,5 +1,7 @@
 # Requested corrections
 
+- [x] Add the supplied Italian-only /domande-frequenti page with 22 exact FAQ entries, accessible accordions, matching JSON-LD, Italian-only footer link, canonical and prerender; routing, desktop/mobile, DOM/schema parity and all 39 tests verified in preview. Not published.
+
 - [x] Add supplied Before entrusting Brazil editorial page in EN/IT only, with references, Resources/method links and existing page styling.
 - [x] Update only Ethics section 7 in EN/IT/PT and verify both document requests in preview; full supplied text, citation scrolling, language switch, desktop/mobile and 13 tests checked. Not published.
 
