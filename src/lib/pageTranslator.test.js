@@ -1,6 +1,7 @@
 import { test, expect } from "bun:test";
 import { JSDOM } from "jsdom";
-import { loadCatalogue, translateSubtree } from "./pageTranslator";
+import { loadCatalogue, translateSubtree, lookup } from "./pageTranslator";
+import { readFileSync } from "node:fs";
 
 test("translating nested inline copy preserves the original link and consent state", async () => {
   const dom = new JSDOM('<body><p><span>Não começamos entregando uma lista de importadores tirada de um banco de dados. Começamos com um </span><span><a href="/pt/servicos/a-europa-vale-a-pena#check-up">Check-up Europa</a>: dados de comércio atualizados sobre os produtos do seu cliente (fluxos de importação, preços, origem dos concorrentes, os países onde a demanda realmente está), lidos à luz da capacidade do seu cliente. Se a Europa não vale a pena agora, você recebe essa resposta por escrito, e seu cliente evita pagar para descobrir do jeito mais caro.</span></p><input type="checkbox">');
@@ -27,4 +28,21 @@ test("source-language pages are not translated", async () => {
   translateSubtree(dom.window.document.body);
   expect(dom.window.document.body.textContent).toBe(before);
   expect(dom.window.document.querySelector("a").getAttribute("href")).toBe("/pt/privacy");
+});
+
+test("Pix 2024 spending is 346 million reais in Italian and every display language", async () => {
+  const source = readFileSync(new URL("../pages/analysis/Pix.tsx", import.meta.url), "utf8");
+  const match = source.match(/\{ p: "(Il metodo che nessuno finanzia\..*?)" \}/);
+  expect(match).not.toBeNull();
+  if (!match) return;
+  const paragraph = JSON.parse('"' + match[1] + '"');
+  expect(paragraph).toContain("R$346 milioni nel 2024");
+  for (const [lang, amount] of [
+    ["de", "346 Millionen R$ im Jahr 2024"],
+    ["es", "346 millones de reales en 2024"],
+    ["fr", "346 millions de R$ en 2024"],
+  ]) {
+    await loadCatalogue(`/${lang}/pix`);
+    expect(lookup(paragraph)).toContain(amount);
+  }
 });
