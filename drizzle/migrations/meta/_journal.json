@@ -8,6 +8,13 @@
       "when": 1795423712929,
       "tag": "0000_tighten_consultation_request_insert",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795806910366,
+      "tag": "0001_remove_public_newsletter_insert",
+      "breakpoints": true
     }
   ]
 }
