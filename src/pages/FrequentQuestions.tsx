@@ -61,7 +61,10 @@ export default function FrequentQuestions() {
     window.scrollTo(0, 0);
     const sitewideFaq = document.getElementById("ld-faq-sitewide");
     sitewideFaq?.remove();
-    const script = document.createElement("script");
+    // Idempotent: reuse the prerendered node (or a previous mount's) and drop duplicates.
+    const existing = Array.from(document.querySelectorAll<HTMLScriptElement>(`script#${FAQ_JSONLD_ID}`));
+    const script = existing.shift() ?? document.createElement("script");
+    existing.forEach(node => node.remove());
     script.type = "application/ld+json";
     script.id = FAQ_JSONLD_ID;
     script.textContent = JSON.stringify({
@@ -74,10 +77,10 @@ export default function FrequentQuestions() {
         acceptedAnswer: { "@type": "Answer", text: item.a },
       }))),
     });
-    document.head.appendChild(script);
+    if (!script.isConnected) document.head.appendChild(script);
     return () => {
-      script.remove();
-      if (sitewideFaq) document.head.appendChild(sitewideFaq);
+      document.querySelectorAll(`script#${FAQ_JSONLD_ID}`).forEach(node => node.remove());
+      if (sitewideFaq && !document.getElementById("ld-faq-sitewide")) document.head.appendChild(sitewideFaq);
     };
   }, [canonical]);
 
