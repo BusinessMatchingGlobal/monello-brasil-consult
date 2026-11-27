@@ -1,5 +1,6 @@
 import { ANALYSIS_ARTICLES, getGroupSlug } from "../src/lib/analysis";
-import { EXPORT_SERVICES_PATH, ITALIAN_FAQ_PATH } from "../src/lib/langPath";
+import { EXPORT_SERVICES_PATH } from "../src/lib/langPath";
+import { FAQ_PATHS } from "../src/lib/faqPages";
 import { SITUATIONS } from "../src/data/situations";
 import { SERVICE_FAMILIES } from "../src/data/serviceFamilyMetadata";
 
@@ -16,6 +17,8 @@ export type RouteEntry = {
   slugs?: Partial<Record<SiteLang, string>>;
   /** Per-language full paths, when they don't follow the language-prefix convention. */
   urls?: Partial<Record<SiteLang, string>>;
+  /** Explicit DE/ES/FR URLs for pages with their own localized slugs (joined to the main hreflang cluster). */
+  displayUrls?: Partial<Record<"de" | "es" | "fr", string>>;
 };
 
 /** Public, language-neutral routes. Article URLs are appended automatically. */
@@ -27,7 +30,7 @@ const STATIC_ROUTES: RouteEntry[] = [
   ...SERVICE_FAMILIES.map(family => ({ loc: family.paths.en, slugs: family.paths, changefreq: "monthly", priority: "0.8" })),
   { loc: "/How_we_work", changefreq: "monthly", priority: "0.9" },
   { loc: "/before-entrusting-brazil", slugs: { en: "/before-entrusting-brazil", it: "/before-entrusting-brazil" }, changefreq: "monthly", priority: "0.8", lastmod: "2026-11-03" },
-  { loc: ITALIAN_FAQ_PATH, urls: { it: ITALIAN_FAQ_PATH }, changefreq: "monthly", priority: "0.7", lastmod: "2026-11-27" },
+  { loc: FAQ_PATHS.en, urls: { en: FAQ_PATHS.en, it: FAQ_PATHS.it, pt: FAQ_PATHS.pt }, displayUrls: { de: FAQ_PATHS.de, es: FAQ_PATHS.es, fr: FAQ_PATHS.fr }, changefreq: "monthly", priority: "0.7", lastmod: "2026-11-27" },
   { loc: "/Transfer_the_method", changefreq: "monthly", priority: "0.8" },
 
   { loc: "/Partner_Program", changefreq: "monthly", priority: "0.8" },
@@ -101,6 +104,7 @@ const stripPrefix = (url: string, lang: string) => (url === `/${lang}` ? "/" : u
 
 /** DE/ES/FR twin of the Italian (Europe → Brazil) version of a route, or null. */
 export function displayEuPath(lang: DisplaySiteLang, route: RouteEntry): string | null {
+  if (route.displayUrls) return route.displayUrls[lang] ?? null;
   const it = routePath("it", route);
   if (!it || !it.startsWith("/it")) return null;
   const rest = stripPrefix(it, "it");
@@ -110,6 +114,7 @@ export function displayEuPath(lang: DisplaySiteLang, route: RouteEntry): string 
 
 /** DE/ES/FR twin of the Portuguese (Brazil → Europe) version of a route, or null. */
 export function displayBrPath(lang: DisplaySiteLang, route: RouteEntry): string | null {
+  if (route.displayUrls) return null;
   if (route.loc === EXPORT_SERVICES_PATH) return `/${lang}${EXPORT_SERVICES_PATH}`;
   const pt = routePath("pt", route);
   if (!pt || !pt.startsWith("/pt")) return null;

@@ -4,13 +4,10 @@ import { SERVICE_GROUP_FAMILIES } from "./siteNavigation";
 import { familyPath } from "../data/serviceFamilyMetadata";
 
 describe("navigation destinations", () => {
-  test("Domande frequenti is linked only by the Italian footer, never the header", () => {
-    const inFooter = lang => getFooterNavigation(lang).flatMap(group => group.children ?? []).filter(link => link.href === "/domande-frequenti");
-    expect(inFooter("it")).toEqual([{ href: "/domande-frequenti", label: "Domande frequenti", internal: true }]);
-    expect(inFooter("en")).toEqual([]);
-    expect(inFooter("pt")).toEqual([]);
+  test("FAQ is never in the header (the footer adds one localized link per shown language)", () => {
+    const faq = ["/domande-frequenti", "/frequently-asked-questions", "/pt/perguntas-frequentes"];
     for (const lang of ["en", "it", "pt"]) {
-      expect(getSiteNavigation(lang).flatMap(group => group.children ?? [group]).some(link => link.href === "/domande-frequenti")).toBe(false);
+      expect(getSiteNavigation(lang).flatMap(group => group.children ?? [group]).some(link => faq.includes(link.href))).toBe(false);
     }
   });
   test("Resources links the new editorial page only in EN and IT", () => {

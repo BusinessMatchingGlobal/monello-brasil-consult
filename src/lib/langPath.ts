@@ -1,5 +1,6 @@
 import type { Lang } from "./lang";
-import { currentDisplayRoute, displayPathFor, parseDisplayPath, DISPLAY_LANGS, type SiteLang } from "./displayLang";
+import { currentDisplayRoute, displayPathFor, parseDisplayPath, DISPLAY_LANGS, SITE_LANGS, type SiteLang } from "./displayLang";
+import { faqLangForPath } from "./faqPages";
 
 /** Languages that live under a URL prefix. English is served at the root. */
 export const PREFIXED_LANGS: Lang[] = ["it", "pt"];
@@ -27,7 +28,7 @@ export function isExportServicesPath(pathname: string): boolean {
 
 /** Editorial pages must not offer unpublished language versions. */
 export function availablePageLanguages(pathname: string): SiteLang[] {
-  if (isItalianFaqPath(pathname)) return ["it"];
+  if (faqLangForPath(pathname)) return [...SITE_LANGS];
   if (isExportServicesPath(pathname)) return ["pt", ...DISPLAY_LANGS];
   const rest = stripLangPrefix(pathname).toLowerCase();
   if (rest === "/before-you-choose") return ["pt"];

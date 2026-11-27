@@ -2,8 +2,9 @@ import { useEffect, useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Nav } from "@/pages/AboutUs";
 import { SiteFooter } from "@/components/SiteFooter";
-import { FREQUENT_QUESTIONS } from "@/data/frequentQuestions";
-import { ITALIAN_FAQ_PATH } from "@/lib/langPath";
+import { FAQ_CONTENT } from "@/data/faqContent";
+import { FAQ_HREFLANG, FAQ_PATHS } from "@/lib/faqPages";
+import type { SiteLang } from "@/lib/displayLang";
 import { SITE, useCanonical } from "@/lib/useCanonical";
 
 const EMAIL = "info@businessmatching.global";
@@ -39,8 +40,8 @@ function QuestionAccordion({ question }: { question: Question }) {
   );
 }
 
-function ContactLine() {
-  const [before, after] = FREQUENT_QUESTIONS.contact.split(EMAIL);
+function ContactLine({ contact }: { contact: string }) {
+  const [before, after] = contact.split(EMAIL);
   return (
     <p id="contact" className="scroll-mt-28 text-base leading-relaxed text-muted-foreground">
       {before}<a href={`mailto:${EMAIL}`} className="text-primary underline underline-offset-4">{EMAIL}</a>{after}
@@ -48,13 +49,19 @@ function ContactLine() {
   );
 }
 
-export default function FrequentQuestions() {
-  const canonical = SITE + ITALIAN_FAQ_PATH;
-  useCanonical(ITALIAN_FAQ_PATH, {
+const ALTERNATES = [
+  ...(Object.keys(FAQ_PATHS) as SiteLang[]).map(l => ({ hreflang: FAQ_HREFLANG[l], href: SITE + FAQ_PATHS[l] })),
+  { hreflang: "x-default", href: SITE + FAQ_PATHS.en },
+];
+
+export default function FrequentQuestions({ siteLang = "it" }: { siteLang?: SiteLang }) {
+  const FREQUENT_QUESTIONS = FAQ_CONTENT[siteLang];
+  const canonical = SITE + FAQ_PATHS[siteLang];
+  useCanonical(FAQ_PATHS[siteLang], {
     title: `${FREQUENT_QUESTIONS.title} | Business Matching Global`,
     description: FREQUENT_QUESTIONS.subtitle,
     url: canonical,
-    noAlternates: true,
+    exactAlternates: ALTERNATES,
   });
 
   useEffect(() => {
@@ -67,6 +74,7 @@ export default function FrequentQuestions() {
     existing.forEach(node => node.remove());
     script.type = "application/ld+json";
     script.id = FAQ_JSONLD_ID;
+    script.setAttribute("data-no-translate", "");
     script.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -82,12 +90,12 @@ export default function FrequentQuestions() {
       document.querySelectorAll(`script#${FAQ_JSONLD_ID}`).forEach(node => node.remove());
       if (sitewideFaq && !document.getElementById("ld-faq-sitewide")) document.head.appendChild(sitewideFaq);
     };
-  }, [canonical]);
+  }, [canonical, FREQUENT_QUESTIONS]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
-      <main className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
+      <main data-no-translate="" className="container max-w-3xl pt-32 md:pt-40 pb-16 md:pb-24">
         <header className="mb-14 md:mb-20">
           <h1 className="font-display text-4xl md:text-5xl leading-tight mb-6">{FREQUENT_QUESTIONS.title}</h1>
           <p className="text-base md:text-lg leading-relaxed text-muted-foreground">{FREQUENT_QUESTIONS.subtitle}</p>
@@ -96,14 +104,14 @@ export default function FrequentQuestions() {
         {FREQUENT_QUESTIONS.sections.map((section, sectionIndex) => (
           <section key={section.title} aria-labelledby={`faq-section-${sectionIndex}`} className="mb-14 md:mb-16">
             <h2 id={`faq-section-${sectionIndex}`} className="font-display text-2xl md:text-3xl mb-5">{section.title}</h2>
-            {"intro" in section && <p className="text-base md:text-lg leading-relaxed text-muted-foreground mb-6">{section.intro}</p>}
+            {section.intro && <p className="text-base md:text-lg leading-relaxed text-muted-foreground mb-6">{section.intro}</p>}
             <div className="border-t border-border/60">
               {section.items.map(item => <QuestionAccordion key={item.q} question={item} />)}
             </div>
           </section>
         ))}
 
-        <ContactLine />
+        <ContactLine contact={FREQUENT_QUESTIONS.contact} />
         <p className="mt-12 border-l-2 border-primary pl-6 font-display text-2xl md:text-3xl leading-snug text-foreground">
           {FREQUENT_QUESTIONS.closing}
         </p>

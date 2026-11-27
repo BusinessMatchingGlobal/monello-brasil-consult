@@ -5,6 +5,7 @@ import type { Lang } from "./lang";
 import { detectLangFromPath, isExportServicesPath, rawPathForLang, stripLangPrefix } from "./langPath";
 import { currentDisplayRoute, displayPathFor, isDisplayLang, type DisplayLang, type SiteLang } from "./displayLang";
 import { toItalianPath } from "./displayPaths";
+import { FAQ_PATHS, faqLangForPath } from "./faqPages";
 import { localizeFamilyPath } from "@/data/serviceFamilyMetadata";
 
 
@@ -628,7 +629,7 @@ export function LanguageProvider({ children, lang: langProp }: { children: React
       document.documentElement.lang = display.display;
       return;
     }
-    const brazilianPortuguese = lang === "pt" && (/^\/pt\/?$/.test(pathname) || isExportServicesPath(pathname));
+    const brazilianPortuguese = lang === "pt" && (/^\/pt\/?$/.test(pathname) || isExportServicesPath(pathname) || faqLangForPath(pathname) === "pt");
     document.documentElement.lang = brazilianPortuguese ? "pt-BR" : lang;
   }, [lang]);
 
@@ -645,7 +646,9 @@ export function LanguageProvider({ children, lang: langProp }: { children: React
     // Content language of the current page decides which offer (EU → BR or BR → EU) the visitor keeps.
     const current = detectLangFromPath(pathname);
     let targetPath: string;
-    if (isDisplayLang(next)) {
+    if (faqLangForPath(pathname)) {
+      targetPath = FAQ_PATHS[next];
+    } else if (isDisplayLang(next)) {
       const content: Lang = exportPage || current === "pt" ? "pt" : "it";
       const from = exportPage ? "/brasilexportacao" : current === "pt" ? rest : toItalianPath(rest);
       targetPath = displayPathFor(next, content, from);

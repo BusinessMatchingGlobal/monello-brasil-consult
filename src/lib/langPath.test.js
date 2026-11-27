@@ -4,24 +4,21 @@ import { displayBrPath, displayEuPath, publicRoutes, routePath } from "../../scr
 import { buildSitemap } from "../../scripts/sitemap";
 
 describe("language-exclusive pages", () => {
-  test("Domande frequenti is Italian-only at its exact root address", () => {
-    const route = publicRoutes().find(route => route.loc === "/domande-frequenti");
+  test("FAQ is published once per language at its exact localized address", () => {
+    const route = publicRoutes().find(route => route.loc === "/frequently-asked-questions");
     expect(route).toBeDefined();
     expect(routePath("it", route)).toBe("/domande-frequenti");
-    expect(routePath("en", route)).toBeNull();
-    expect(routePath("pt", route)).toBeNull();
-    for (const lang of ["de", "es", "fr"]) {
-      expect(displayEuPath(lang, route)).toBeNull();
-      expect(displayBrPath(lang, route)).toBeNull();
-    }
+    expect(routePath("en", route)).toBe("/frequently-asked-questions");
+    expect(routePath("pt", route)).toBe("/pt/perguntas-frequentes");
+    expect(displayEuPath("de", route)).toBe("/de/haeufig-gestellte-fragen");
+    expect(displayEuPath("es", route)).toBe("/es/preguntas-frecuentes");
+    expect(displayEuPath("fr", route)).toBe("/fr/foire-aux-questions");
+    for (const lang of ["de", "es", "fr"]) expect(displayBrPath(lang, route)).toBeNull();
     expect(detectLangFromPath("/domande-frequenti")).toBe("it");
-    expect(availablePageLanguages("/domande-frequenti")).toEqual(["it"]);
-    expect(pathForLang("it", "/domande-frequenti")).toBe("/domande-frequenti");
-    const sitemap = buildSitemap();
-    expect(sitemap).toContain("<loc>https://businessmatching.global/domande-frequenti</loc>");
-    expect(sitemap).not.toContain("https://businessmatching.global/it/domande-frequenti");
-    expect(sitemap).not.toContain("https://businessmatching.global/de/domande-frequenti");
+    expect(availablePageLanguages("/domande-frequenti")).toEqual(["en", "it", "pt", "de", "es", "fr"]);
+    expect(publicRoutes().filter(r => r.loc === "/domande-frequenti")).toHaveLength(0);
   });
+
   test("Before entrusting Brazil is published and switchable in English, Italian and the DE/ES/FR display languages, never Portuguese", () => {
     const route = publicRoutes().find(route => route.loc === "/before-entrusting-brazil");
     expect(route).toBeDefined();

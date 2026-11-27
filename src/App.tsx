@@ -106,6 +106,8 @@ function WebinarRedirect({ to }: { to: string }) {
   return null;
 }
 
+import { faqLangForPath, faqRoutePath } from "./lib/faqPages";
+
 const App = () => {
   useEffect(() => { initConsent(); initAutoTracking(); }, []);
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
@@ -113,6 +115,7 @@ const App = () => {
   const exportServices = isExportServicesPath(pathname);
   const legacyExportServices = isLegacyExportServicesPath(pathname);
   const italianFaq = isItalianFaqPath(pathname);
+  const faqLang = faqLangForPath(pathname);
   const lang = exportServices || legacyExportServices ? "pt" : pathLang;
   const basename = italianFaq ? "/" : basenameForLang(pathLang);
   return (
@@ -133,7 +136,7 @@ const App = () => {
             <Route path="/about_us" element={<AboutUs />} />
             <Route path="/How_we_work" element={<HowWeWork />} />
             {lang === "pt" && <Route path="/before-you-choose" element={<BeforeYouChoose />} />}
-            {italianFaq && <Route path="/domande-frequenti" element={<FrequentQuestions />} />}
+            {faqLang && <Route path={faqRoutePath(faqLang)} element={<FrequentQuestions siteLang={faqLang} />} />}
             {lang !== "pt" && <Route path="/before-entrusting-brazil" element={<BeforeEntrustingBrazil />} />}
             <Route path="/how_we_work" element={<HowWeWork />} />
             <Route path="/Partner_Program" element={<PartnerProgram />} />

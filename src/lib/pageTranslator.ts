@@ -78,7 +78,11 @@ function setText(node: Text, value: string) {
   lastSet.set(node, value);
 }
 
+/** Approved FAQ copy is published per language and must never be re-translated. */
+const blocked = (node: Node | null) => Boolean((node?.nodeType === 1 ? node as Element : node?.parentElement)?.closest?.("[data-no-translate]"));
+
 function translateTextNode(node: Text) {
+  if (blocked(node)) return;
   if (lastSet.get(node) === node.data) return;
   const t = lookup(node.data);
   if (t) setText(node, withSpacing(node.data, t));
@@ -103,6 +107,7 @@ function placeVerifiedInline(el: Element, full: string): boolean {
 
 /** Element whose whole text is a catalogue entry but is split across several nodes. */
 function translateElementText(el: Element) {
+  if (blocked(el)) return;
   const children = Array.from(el.childNodes);
   if (children.length < 2) return;
   if (!children.every(c => c.nodeType === 3 || (c.nodeType === 1 && INLINE.has((c as Element).tagName)))) return;
@@ -199,6 +204,7 @@ function rewriteHref(el: Element) {
 }
 
 function translateAttributes(el: Element) {
+  if (blocked(el)) return;
   for (const a of ATTRS) {
     const v = el.getAttribute(a);
     if (v) { const t = lookup(v); if (t && t !== v) el.setAttribute(a, t); }
@@ -210,7 +216,7 @@ function translateAttributes(el: Element) {
 }
 
 export function translateSubtree(root: Node) {
-  if (!catalogue) return;
+  if (!catalogue || blocked(root)) return;
   if (root.nodeType === 3) { if (root.parentElement) translateElementText(root.parentElement); translateTextNode(root as Text); return; }
   if (root.nodeType !== 1 && root.nodeType !== 9 && root.nodeType !== 11) return;
   const doc = (root.ownerDocument ?? root) as Document;
@@ -221,7 +227,7 @@ export function translateSubtree(root: Node) {
   while (node) {
     if (node.nodeType === 1) {
       const el = node as Element;
-      if (SKIP.has(el.tagName.toUpperCase())) { node = walker.nextSibling() ?? nextOutside(walker); continue; }
+      if (SKIP.has(el.tagName.toUpperCase()) || el.hasAttribute("data-no-translate")) { node = walker.nextSibling() ?? nextOutside(walker); continue; }
       elements.push(el);
       translateAttributes(el);
     } else if (node.nodeType === 3) texts.push(node as Text);
@@ -257,7 +263,7 @@ export function translateHead(doc: Document = document) {
     if (t && t !== v) meta.setAttribute("content", t);
   });
   doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
-    if (lastSet.get(script) === script.textContent) return;
+    if (script.hasAttribute("data-no-translate") || lastSet.get(script) === script.textContent) return;
     try {
       const next = JSON.stringify(translateJsonLd(JSON.parse(script.textContent ?? "")));
       if (next !== script.textContent) script.textContent = next;

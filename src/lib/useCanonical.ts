@@ -32,6 +32,8 @@ type SEO = {
   alternates?: Array<{ hreflang: string; href: string }>;
   /** Language-exclusive pages deliberately publish no hreflang cluster. */
   noAlternates?: boolean;
+  /** Complete hreflang cluster used as-is (pages whose slugs differ in every language). */
+  exactAlternates?: Array<{ hreflang: string; href: string }>;
 };
 
 
@@ -135,7 +137,7 @@ export function useCanonical(path: string, seo?: SEO) {
     const pageAlternates = seo?.alternates
       ? [...seo.alternates.filter(a => !(DISPLAY_LANGS as string[]).includes(a.hreflang)), ...(lang === "pt" ? [] : displayAlternates("it", toItalianPath(path)))]
       : null;
-    updateAlternates(base, seo?.noAlternates ? undefined : brCluster ?? pageAlternates ?? autoAlternates);
+    updateAlternates(base, seo?.noAlternates ? undefined : seo?.exactAlternates ?? brCluster ?? pageAlternates ?? autoAlternates);
 
     // Canonical
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -201,6 +203,6 @@ export function useCanonical(path: string, seo?: SEO) {
       updateAlternates(base);
       setArticleJsonLd(null);
     };
-  }, [path, lang, display, seo?.title, seo?.description, seo?.image, seo?.type, seo?.url, seo?.alternates, seo?.noAlternates]);
+  }, [path, lang, display, seo?.title, seo?.description, seo?.image, seo?.type, seo?.url, seo?.alternates, seo?.noAlternates, seo?.exactAlternates]);
 }
 

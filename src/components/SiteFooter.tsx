@@ -4,7 +4,7 @@ import { Linkedin, Instagram, Facebook, Youtube, ExternalLink } from "lucide-rea
 import { useT } from "@/lib/i18n";
 import { openConsentBanner } from "@/lib/consent";
 import { getFooterNavigation } from "@/lib/siteNavigation";
-import { ITALIAN_FAQ_PATH } from "@/lib/langPath";
+import { FAQ_LABELS, FAQ_PATHS } from "@/lib/faqPages";
 import italcamLogo from "@/assets/italcam-associado-2026.png.asset.json";
 import italiabrasilLogo from "@/assets/italcam-minas-gerais.png.asset.json";
 import exportStrategistLogo from "@/assets/exportstrategist.png.asset.json";
@@ -62,11 +62,12 @@ export function HomeNewsletter() {
 }
 
 export function FooterInner({ tagline }: { tagline?: string } = {}) {
-  const { t, lang, display } = useT();
-  const navigation = getFooterNavigation(lang).map(group => ({
-    ...group,
-    children: group.children?.filter(link => link.href !== ITALIAN_FAQ_PATH || (lang === "it" && !display)),
-  }));
+  const { t, lang, siteLang } = useT();
+  const faqHref = FAQ_PATHS[siteLang];
+  // One FAQ link per footer, in the language actually shown (DE/ES/FR on IT or /br layouts included).
+  const navigation = getFooterNavigation(lang).map(group => group.href === "__resources__"
+    ? { ...group, children: [...(group.children ?? []), { href: faqHref, label: FAQ_LABELS[siteLang] }] }
+    : group);
   return (
     <footer className="py-12 border-t border-border/60">
       <div className="container flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
@@ -85,7 +86,7 @@ export function FooterInner({ tagline }: { tagline?: string } = {}) {
               {group.children?.map(link => link.internal ? (
                 <Link key={link.href} to={link.href} className="text-muted-foreground hover:text-foreground transition-colors">{link.label}</Link>
               ) : (
-                <a key={link.href} href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined} className="text-muted-foreground hover:text-foreground transition-colors">
+                <a key={link.href} href={link.href} data-no-translate={link.href === faqHref ? "" : undefined} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined} className="text-muted-foreground hover:text-foreground transition-colors">
                   {link.label}{link.externalIcon && <ExternalLink className="inline-block ml-1 h-3.5 w-3.5" aria-hidden="true" />}
                 </a>
               ))}
