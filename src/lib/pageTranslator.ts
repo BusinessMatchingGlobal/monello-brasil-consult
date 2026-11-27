@@ -9,8 +9,13 @@ import { portugueseToItalian } from "./displayAliases";
  * JSON-LD. Untranslated strings are left as they are.
  */
 type Catalogue = Record<string, string>;
+type InlinePlan = {
+  sourceParts: string[];
+  targets: Record<DisplayLang, string[]>;
+};
 
 let catalogue: Catalogue | null = null;
+let inlinePlans: Record<string, InlinePlan> | null = null;
 let route: DisplayRoute | null = null;
 const lastSet = new WeakMap<Node, string>();
 
@@ -53,8 +58,14 @@ function withSpacing(original: string, translated: string) {
 
 export async function loadCatalogue(pathname: string): Promise<boolean> {
   route = parseDisplayPath(pathname);
-  if (!route) { catalogue = null; return false; }
-  catalogue = (await loaders[route.display]()).default;
+  if (!route) { catalogue = null; inlinePlans = null; return false; }
+  const [base, revisions, inline] = await Promise.all([
+    loaders[route.display](),
+    import("@/data/displayTranslations/revisions.json"),
+    import("@/data/displayTranslations/inlineRevisions.json"),
+  ]);
+  catalogue = { ...base.default, ...revisions.default[route.display] };
+  inlinePlans = inline.default;
   return true;
 }
 
@@ -73,12 +84,30 @@ function translateTextNode(node: Text) {
   if (t) setText(node, withSpacing(node.data, t));
 }
 
+/** Approved sentence-specific segments preserve nested links and emphasis. */
+function placeVerifiedInline(el: Element, full: string): boolean {
+  const plan = inlinePlans?.[sourceKey(normalise(full))];
+  if (!plan || !route) return false;
+  const walker = el.ownerDocument.createTreeWalker(el, 4);
+  const all: Text[] = [];
+  let node: Node | null;
+  while ((node = walker.nextNode())) all.push(node as Text);
+  const texts = all.filter(n => normalise(n.data));
+  const target = plan.targets[route.display];
+  if (texts.length !== plan.sourceParts.length || texts.length !== target.length) return false;
+  if (!texts.every((n, i) => normalise(n.data) === plan.sourceParts[i])) return false;
+  all.filter(n => !normalise(n.data)).forEach(n => setText(n, ""));
+  texts.forEach((n, i) => setText(n, target[i]));
+  return true;
+}
+
 /** Element whose whole text is a catalogue entry but is split across several nodes. */
 function translateElementText(el: Element) {
   const children = Array.from(el.childNodes);
   if (children.length < 2) return;
   if (!children.every(c => c.nodeType === 3 || (c.nodeType === 1 && INLINE.has((c as Element).tagName)))) return;
   const full = el.textContent ?? "";
+  if (placeVerifiedInline(el, full)) return;
   // <br> joins lines without a space: try the sentence-spaced form as well.
   const t = lookup(full) ?? lookup(full.replace(/([.!?…])(?=\p{Lu})/gu, "$1 "));
   if (!t) return;
@@ -136,7 +165,9 @@ function placeBySentence(children: ChildNode[], t: string): boolean {
     at += counts[n];
     if (part.nodeType === 3) { setText(part as Text, withSpacing(part.textContent ?? "", value) ); return; }
     const texts: Text[] = [];
-    const w = part.ownerDocument!.createTreeWalker(part, 4);
+    const doc = part.ownerDocument;
+    if (!doc) return;
+    const w = doc.createTreeWalker(part, 4);
     let x: Node | null; while ((x = w.nextNode())) if (normalise((x as Text).data)) texts.push(x as Text);
     texts.forEach((tn, i) => setText(tn, i === 0 ? withSpacing(tn.data, value) : ""));
   });

@@ -95,12 +95,20 @@ function displayAlternates(content: "it" | "pt", path: string) {
   return DISPLAY_LANGS.map((d: DisplayLang) => ({ hreflang: DISPLAY_HREFLANG[d], href: SITE + displayPathFor(d, content, path) }));
 }
 
+export function canonicalUrl(path: string, base: string, localized: string, override?: string, display?: DisplayLang) {
+  // The source export page's explicit Portuguese URL must not override a
+  // translated display page's self-referential canonical.
+  return display && path === "/brasilexportacao"
+    ? base + displayPathFor(display, "pt", path)
+    : override ?? base + localized;
+}
+
 export function useCanonical(path: string, seo?: SEO) {
   const { lang, display } = useT();
   useEffect(() => {
     const base = siteForPath(path);
     const localized = base === CALLIPHORA_SITE ? path : pathForLang(lang, path);
-    const url = seo?.url ?? base + localized;
+    const url = canonicalUrl(path, base, localized, seo?.url, display ?? undefined);
     const article = getArticleByPath(path);
 
     // Favicon brand switch
@@ -191,6 +199,6 @@ export function useCanonical(path: string, seo?: SEO) {
       updateAlternates(base);
       setArticleJsonLd(null);
     };
-  }, [path, lang, seo?.title, seo?.description, seo?.image, seo?.type, seo?.url, seo?.alternates]);
+  }, [path, lang, display, seo?.title, seo?.description, seo?.image, seo?.type, seo?.url, seo?.alternates]);
 }
 

@@ -45,8 +45,9 @@
 
 # Roadmap — DE / ES / FR
 
+- [x] Apply the November 27 corrections and 147 additions; all 257 flagged passages verified, 165 sitemap pages opened without runtime errors, export canonicals corrected, inline links/emphasis/consent preserved, desktop/mobile and Pharma English PDF checked. Not published. Pix unit remains unchanged pending confirmation.
 - [x] Phase 1: addresses, language selector (desktop + mobile), menu, footer, forms, home, SEO tags, sitemap, prerender
 - [x] Phase 2: Brazil → Europe pages under /<lang>/br and /<lang>/brasilexportacao
 - [ ] Phase 3: check every remaining page (services, About, Ethics, Partner, situations, privacy, guides) for untranslated text
 - [ ] Phase 4: articles, FAQ, Ask BMG answers in DE/ES/FR, final leak check
-- [ ] Waiting on owner: Portuguese-only texts missing from the catalogue (Brazil → Europe pages)
+- [x] Supplied November 27 catalogue fills the previously missing Portuguese source entries for Brazil → Europe pages.
