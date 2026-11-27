@@ -10,7 +10,7 @@ import fr from "../../editorial-review/faq/fr.json";
 export type FaqContent = {
   title: string;
   subtitle: string;
-  sections: Array<{ title: string; intro?: string; items: Array<{ q: string; a: string }> }>;
+  sections: ReadonlyArray<{ title: string; intro?: string; items: ReadonlyArray<{ q: string; a: string }> }>;
   contact: string;
   closing: string;
 };
