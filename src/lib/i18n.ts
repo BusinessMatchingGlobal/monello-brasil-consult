@@ -2,7 +2,9 @@ import { createContext, useContext, useState, useEffect, ReactNode, createElemen
 
 export type { Lang } from "./lang";
 import type { Lang } from "./lang";
-import { detectLangFromPath, isExportServicesPath, pathForLang, stripLangPrefix } from "./langPath";
+import { detectLangFromPath, isExportServicesPath, rawPathForLang, stripLangPrefix } from "./langPath";
+import { currentDisplayRoute, displayPathFor, isDisplayLang, type DisplayLang, type SiteLang } from "./displayLang";
+import { toItalianPath } from "./displayPaths";
 import { localizeFamilyPath } from "@/data/serviceFamilyMetadata";
 
 
@@ -584,7 +586,15 @@ export const translations = {
   },
 } as const;
 
-type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: Dict };
+type Ctx = {
+  /** Content language the page renders (DE/ES/FR pages render IT or PT content, then get translated). */
+  lang: Lang;
+  /** Language the visitor sees, including DE/ES/FR. */
+  siteLang: SiteLang;
+  display: DisplayLang | null;
+  setLang: (l: SiteLang) => void;
+  t: Dict;
+};
 const LanguageContext = createContext<Ctx | null>(null);
 
 /**
@@ -599,6 +609,7 @@ export function LanguageProvider({ children, lang: langProp }: { children: React
     return detectLangFromPath(window.location.pathname);
   });
   const lang = langProp ?? detected;
+  const display = typeof window === "undefined" ? null : currentDisplayRoute()?.display ?? null;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -612,31 +623,48 @@ export function LanguageProvider({ children, lang: langProp }: { children: React
       /* storage may be unavailable */
     }
     const pathname = window.location.pathname;
+    const display = currentDisplayRoute();
+    if (display) {
+      document.documentElement.lang = display.display;
+      return;
+    }
     const brazilianPortuguese = lang === "pt" && (/^\/pt\/?$/.test(pathname) || isExportServicesPath(pathname));
     document.documentElement.lang = brazilianPortuguese ? "pt-BR" : lang;
   }, [lang]);
 
-  const setLang = (next: Lang) => {
+  const setLang = (next: SiteLang) => {
     if (typeof window === "undefined") return;
     try {
       localStorage.setItem("bmg-lang", next);
     } catch {
       /* ignore */
     }
-    const target =
-      pathForLang(next, localizeFamilyPath(stripLangPrefix(window.location.pathname), next)) +
-      window.location.search +
-      window.location.hash;
+    const pathname = window.location.pathname;
+    const rest = stripLangPrefix(pathname);
+    const exportPage = isExportServicesPath(pathname);
+    // Content language of the current page decides which offer (EU → BR or BR → EU) the visitor keeps.
+    const current = detectLangFromPath(pathname);
+    let targetPath: string;
+    if (isDisplayLang(next)) {
+      const content: Lang = exportPage || current === "pt" ? "pt" : "it";
+      const from = exportPage ? "/brasilexportacao" : current === "pt" ? rest : toItalianPath(rest);
+      targetPath = displayPathFor(next, content, from);
+    } else if (exportPage && next === "pt") {
+      targetPath = "/brasilexportacao";
+    } else {
+      targetPath = rawPathForLang(next, localizeFamilyPath(rest, next));
+    }
+    const target = targetPath + window.location.search + window.location.hash;
     if (target !== window.location.pathname + window.location.search + window.location.hash) {
       window.location.assign(target);
-    } else {
+    } else if (!isDisplayLang(next)) {
       setDetected(next);
     }
   };
 
   return createElement(
     LanguageContext.Provider,
-    { value: { lang, setLang, t: translations[lang] as Dict } },
+    { value: { lang, siteLang: display ?? lang, display, setLang, t: translations[lang] as Dict } },
     children
   );
 }

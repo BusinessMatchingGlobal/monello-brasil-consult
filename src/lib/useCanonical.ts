@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import ogDefault from "@/assets/og-default.jpg.asset.json";
 import { getArticleByPath } from "@/lib/analysis";
 import { useT } from "@/lib/i18n";
-import { HREFLANG, OG_LOCALE, pathForLang } from "@/lib/langPath";
+import { HREFLANG, OG_LOCALE, pathForLang, rawPathForLang } from "@/lib/langPath";
+import { toItalianPath } from "@/lib/displayPaths";
+import { DISPLAY_HREFLANG, DISPLAY_LANGS, DISPLAY_OG_LOCALE, displayPathFor, type DisplayLang } from "@/lib/displayLang";
 
 
 export const SITE = "https://businessmatching.global";
@@ -89,8 +91,12 @@ function setArticleJsonLd(data: Record<string, unknown> | null) {
   el.textContent = JSON.stringify(data);
 }
 
+function displayAlternates(content: "it" | "pt", path: string) {
+  return DISPLAY_LANGS.map((d: DisplayLang) => ({ hreflang: DISPLAY_HREFLANG[d], href: SITE + displayPathFor(d, content, path) }));
+}
+
 export function useCanonical(path: string, seo?: SEO) {
-  const { lang } = useT();
+  const { lang, display } = useT();
   useEffect(() => {
     const base = siteForPath(path);
     const localized = base === CALLIPHORA_SITE ? path : pathForLang(lang, path);
@@ -107,11 +113,19 @@ export function useCanonical(path: string, seo?: SEO) {
         : [
             ...(["en", "it", "pt"] as const).map((l) => ({
               hreflang: HREFLANG[l],
-              href: base + pathForLang(l, path),
+              href: base + rawPathForLang(l, path),
             })),
-            { hreflang: "x-default", href: base + pathForLang("en", path) },
+            ...(lang === "pt" ? [] : displayAlternates("it", toItalianPath(path))),
+            { hreflang: "x-default", href: base + rawPathForLang("en", path) },
           ];
-    updateAlternates(base, seo?.alternates ?? autoAlternates);
+    // Brazil → Europe pages in DE/ES/FR form their own cluster: they address a different audience.
+    const brCluster = display && lang === "pt"
+      ? [...displayAlternates("pt", path), ...(path === "/brasilexportacao" ? [{ hreflang: "pt-BR", href: base + "/brasilexportacao" }] : [])]
+      : null;
+    const pageAlternates = seo?.alternates
+      ? [...seo.alternates.filter(a => !(DISPLAY_LANGS as string[]).includes(a.hreflang)), ...(lang === "pt" ? [] : displayAlternates("it", toItalianPath(path)))]
+      : null;
+    updateAlternates(base, brCluster ?? pageAlternates ?? autoAlternates);
 
     // Canonical
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -124,7 +138,7 @@ export function useCanonical(path: string, seo?: SEO) {
 
     // og:url — always self-referential
     upsertMeta('meta[property="og:url"]', "property", "og:url", url);
-    upsertMeta('meta[property="og:locale"]', "property", "og:locale", OG_LOCALE[lang]);
+    upsertMeta('meta[property="og:locale"]', "property", "og:locale", display ? DISPLAY_OG_LOCALE[display] : OG_LOCALE[lang]);
     upsertMeta(
       'meta[property="og:site_name"]',
       "property",

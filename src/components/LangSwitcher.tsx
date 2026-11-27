@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useT, type Lang } from "@/lib/i18n";
-
-const LANGS: Lang[] = ["en", "it", "pt"];
+import { useT } from "@/lib/i18n";
+import { SITE_LANG_LABEL } from "@/lib/displayLang";
+import { availablePageLanguages } from "@/lib/langPath";
 
 /**
  * Language switcher for inner pages.
@@ -9,8 +9,9 @@ const LANGS: Lang[] = ["en", "it", "pt"];
  * that exist as separate language variants sharing one localized URL.
  */
 export function LangSwitcher({ to, className = "" }: { to?: string; className?: string }) {
-  const { lang, setLang } = useT();
+  const { siteLang, setLang } = useT();
   const navigate = useNavigate();
+  const LANGS = availablePageLanguages(typeof window === "undefined" ? "/" : window.location.pathname);
 
   return (
     <div className={`inline-flex items-center gap-1 text-xs font-medium tracking-wider uppercase ${className}`}>
@@ -22,12 +23,12 @@ export function LangSwitcher({ to, className = "" }: { to?: string; className?: 
               setLang(l);
               if (to) navigate(to);
             }}
-            aria-label={l === "pt" ? "PT-BR" : l.toUpperCase()}
+            aria-label={SITE_LANG_LABEL[l]}
             className={`px-1.5 py-1 transition-colors ${
-              lang === l ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+              siteLang === l ? "text-foreground" : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            {l === "pt" ? "PT-BR" : l.toUpperCase()}
+            {SITE_LANG_LABEL[l]}
           </button>
           {i < LANGS.length - 1 && <span className="text-border">/</span>}
         </div>

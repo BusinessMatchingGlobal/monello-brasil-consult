@@ -18,3 +18,5 @@
 - ask-bmg stays public but is capped per visitor and site-wide per day via assistant_bump_rate_limit, to bound AI costs.
 - Exported CSV cells go through csvSafe to neutralise spreadsheet formulas.
 - The PT-BR export page lives at root-level /brasilexportacao (old /servicos-exportacao-brasil redirects there keeping query/hash); public links to it use the literal www URL in EXPORT_SERVICES_PUBLIC_URL while canonical stays on the apex host, as the owner requested.
+- DE/ES/FR are display languages: /de|/es|/fr mirror the Italian (Europe → Brazil) routes, /<lang>/br mirrors /pt (Brazil → Europe) and /<lang>/brasilexportacao mirrors the export page; components keep rendering IT/PT content and src/lib/pageTranslator swaps text from the verified catalogue (src/data/displayTranslations, hashed source keys), so EN/IT/PT stay untouched and the commercial direction is never mixed.
+- Shared PT copy falls back to its Italian twin's catalogue entry only when both texts name the same markets (src/lib/displayAliases), so Brazil → Europe copy is never given Europe → Brazil wording.

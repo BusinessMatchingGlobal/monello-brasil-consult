@@ -1,5 +1,6 @@
 import { createRoot, type Root } from "react-dom/client";
 import App from "./App";
+import { loadCatalogue, translateHead, translateSubtree } from "./lib/pageTranslator";
 
 let root: Root | null = null;
 
@@ -27,5 +28,9 @@ export async function renderPage(): Promise<{ html: string; head: string; title:
   root = createRoot(container);
   root.render(<App />);
   await new Promise((resolve) => setTimeout(resolve, 150));
+  if (await loadCatalogue(window.location.pathname)) {
+    translateSubtree(container);
+    translateHead(document);
+  }
   return { html: container.innerHTML, head: document.head.innerHTML, title: document.title };
 }

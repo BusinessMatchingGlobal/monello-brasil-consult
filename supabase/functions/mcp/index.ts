@@ -241,8 +241,46 @@ function familyPath(key, lang) {
   return family.paths[lang];
 }
 
+// src/lib/displayLang.ts
+var DISPLAY_LANGS = ["de", "es", "fr"];
+var EXPORT_PATH = "/brasilexportacao";
+function isDisplayLang(value) {
+  return DISPLAY_LANGS.includes(value);
+}
+function parseDisplayPath(pathname) {
+  const parts = (pathname || "/").split("/");
+  const seg = (parts[1] ?? "").toLowerCase();
+  if (!isDisplayLang(seg)) return null;
+  const after = "/" + parts.slice(2).join("/");
+  const clean = after.replace(/\/+$/, "") || "/";
+  if (clean.toLowerCase() === EXPORT_PATH) {
+    return { display: seg, variant: "export", contentLang: "pt", basename: `/${seg}`, rest: EXPORT_PATH };
+  }
+  const sub = (parts[2] ?? "").toLowerCase();
+  if (sub === "br") {
+    const rest = "/" + parts.slice(3).join("/");
+    return { display: seg, variant: "br", contentLang: "pt", basename: `/${seg}/br`, rest: rest === "/" ? "/" : rest.replace(/\/+$/, "") || "/" };
+  }
+  return { display: seg, variant: "eu", contentLang: "it", basename: `/${seg}`, rest: after === "/" ? "/" : after.replace(/\/+$/, "") || "/" };
+}
+function displayPathFor(display, contentLang, path) {
+  const p = path.startsWith("/") ? path : `/${path}`;
+  if (p.replace(/\/+$/, "") === EXPORT_PATH) return `/${display}${EXPORT_PATH}`;
+  const base = contentLang === "pt" ? `/${display}/br` : `/${display}`;
+  return p === "/" ? base : `${base}${p}`;
+}
+function currentDisplayRoute() {
+  if (typeof window === "undefined") return null;
+  return parseDisplayPath(window.location.pathname);
+}
+
 // src/lib/langPath.ts
 function pathForLang(lang, path) {
+  const display = currentDisplayRoute();
+  if (display && display.contentLang === lang) return displayPathFor(display.display, lang, path);
+  return rawPathForLang(lang, path);
+}
+function rawPathForLang(lang, path) {
   const p = path.startsWith("/") ? path : `/${path}`;
   if (lang === "en") return p;
   return p === "/" ? `/${lang}` : `/${lang}${p}`;

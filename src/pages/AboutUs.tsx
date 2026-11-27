@@ -5,6 +5,7 @@ import { SiteNavigationLink as Link } from "@/components/SiteNavigationLink";
 import { ArrowRight, Menu, X, Mail, ChevronDown, ExternalLink } from "lucide-react";
 import { useT, Lang } from "@/lib/i18n";
 import { useCanonical } from "@/lib/useCanonical";
+import { SITE_LANG_LABEL } from "@/lib/displayLang";
 import { pathForLang, availablePageLanguages, isExportServicesPath } from "@/lib/langPath";
 import { getSiteNavigation, type SiteLink, type SiteNavItem } from "@/lib/siteNavigation";
 import { Button } from "@/components/ui/button";
@@ -24,7 +25,7 @@ type Block =
   | { type: "link"; text: string; href: string };
 
 function LangSwitcher() {
-  const { lang, setLang } = useT();
+  const { siteLang, setLang } = useT();
   const langs = availablePageLanguages(window.location.pathname);
   if (langs.length < 2) return null;
   return (
@@ -34,10 +35,10 @@ function LangSwitcher() {
           <button
             onClick={() => setLang(l)}
             className={`px-1.5 py-1 transition-colors ${
-              lang === l ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+              siteLang === l ? "text-foreground" : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            {l === "pt" ? "PT-BR" : l.toUpperCase()}
+            {SITE_LANG_LABEL[l]}
           </button>
           {i < langs.length - 1 && <span className="text-border">/</span>}
         </div>

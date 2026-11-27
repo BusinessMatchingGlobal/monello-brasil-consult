@@ -10,4 +10,14 @@ import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+import { loadCatalogue, startPageTranslator } from "./lib/pageTranslator";
+
+const mount = () => createRoot(document.getElementById("root")!).render(<App />);
+
+// DE/ES/FR pages load their catalogue first so visitors never see the source text.
+loadCatalogue(window.location.pathname)
+  .then(active => {
+    if (active) startPageTranslator();
+  })
+  .catch(error => console.warn("[translator] catalogue unavailable", error))
+  .finally(mount);

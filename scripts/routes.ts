@@ -87,3 +87,32 @@ export function routePath(lang: SiteLang, route: RouteEntry): string | null {
   if (!slug) return null;
   return localizedPath(lang, slug);
 }
+
+/** DE/ES/FR display languages and the catalogued pages they are published for. */
+export const DISPLAY_LANGS = ["de", "es", "fr"] as const;
+export type DisplaySiteLang = (typeof DISPLAY_LANGS)[number];
+/** Italian pages (prefix-free) covered by the verified DE/ES/FR catalogue: Europe → Brazil offer. */
+export const DISPLAY_EU_PATHS = new Set(["/", "/About_us", "/Our_Services", "/How_we_work", "/Partner_Program", "/gia-in-brasile", "/riprendere-il-brasile", "/servizi/business-matching", "/ethics", "/Transfer_the_method", "/before-entrusting-brazil", "/BT", "/privacy", "/news", "/analysis", "/Embraer", "/aiJus", "/amapa", "/amaro", "/asuncion", "/bahia", "/ceuta", "/custo-brasil", "/economist", "/eudr", "/guides/doing-business-in-brazil", "/lima", "/lorenzetti", "/pharma", "/pix", "/rare", "/sace", "/sample-report", "/servizi/formazione", "/servizi/il-brasile-conviene", "/servizi/preparare-ingresso", "/servizi/presidiare-il-mercato", "/servizi/trovare-e-contattare", "/servizi/verificare", "/suja", "/unsubscribe"]);
+/** Portuguese pages (prefix-free) covered by the catalogue: Brazil → Europe offer, published under /<lang>/br. */
+export const DISPLAY_BR_PATHS = new Set(["/", "/Our_Services", "/How_we_work", "/Partner_Program", "/analysis", "/BT", "/servicos/a-europa-vale-a-pena", "/servicos/preparar-a-entrada", "/servicos/verificar", "/servicos/business-matching", "/servicos/estar-presente", "/servicos/encontrar-e-contatar", "/servicos/treinamento"]);
+
+const stripPrefix = (url: string, lang: string) => (url === `/${lang}` ? "/" : url.slice(lang.length + 1));
+
+/** DE/ES/FR twin of the Italian (Europe → Brazil) version of a route, or null. */
+export function displayEuPath(lang: DisplaySiteLang, route: RouteEntry): string | null {
+  const it = routePath("it", route);
+  if (!it || !it.startsWith("/it")) return null;
+  const rest = stripPrefix(it, "it");
+  if (!DISPLAY_EU_PATHS.has(rest)) return null;
+  return rest === "/" ? `/${lang}` : `/${lang}${rest}`;
+}
+
+/** DE/ES/FR twin of the Portuguese (Brazil → Europe) version of a route, or null. */
+export function displayBrPath(lang: DisplaySiteLang, route: RouteEntry): string | null {
+  if (route.loc === EXPORT_SERVICES_PATH) return `/${lang}${EXPORT_SERVICES_PATH}`;
+  const pt = routePath("pt", route);
+  if (!pt || !pt.startsWith("/pt")) return null;
+  const rest = stripPrefix(pt, "pt");
+  if (!DISPLAY_BR_PATHS.has(rest)) return null;
+  return rest === "/" ? `/${lang}/br` : `/${lang}/br${rest}`;
+}

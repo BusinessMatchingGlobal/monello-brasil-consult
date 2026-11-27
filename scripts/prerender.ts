@@ -3,7 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { spawn, spawnSync } from "node:child_process";
 import type { Plugin } from "vite";
-import { LANGS, publicRoutes, routePath } from "./routes";
+import { DISPLAY_LANGS, LANGS, displayBrPath, displayEuPath, publicRoutes, routePath } from "./routes";
 import { renderTargets } from "./prerender-render";
 import type { RenderTarget } from "./prerender-shared";
 
@@ -30,8 +30,11 @@ export function prerenderPlugin(): Plugin {
 
         const targets: RenderTarget[] = [];
         for (const route of publicRoutes()) {
-          for (const lang of LANGS) {
-            const url = routePath(lang, route);
+          const urls = [
+            ...LANGS.map((lang) => routePath(lang, route)),
+            ...DISPLAY_LANGS.flatMap((lang) => [displayEuPath(lang, route), displayBrPath(lang, route)]),
+          ];
+          for (const url of urls) {
             if (!url) continue;
             const file =
               url === "/" ? path.join(outDir, "index.html") : path.join(outDir, url.replace(/^\//, ""), "index.html");
